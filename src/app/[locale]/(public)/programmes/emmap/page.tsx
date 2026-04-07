@@ -73,7 +73,7 @@ export default async function EMMAPPage({ params }: EMMAPPageProps) {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <div>
               <SectionHeader
-                eyebrow="Médias et plaidoyer"
+                label="Médias et plaidoyer"
                 title="L'information au service de la souveraineté alimentaire"
                 align="left"
               />

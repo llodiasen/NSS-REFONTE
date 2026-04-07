@@ -62,7 +62,7 @@ export default function AssociationsPage() {
       <Section variant="neutral">
         <Container>
           <SectionHeader
-            eyebrow="Nos organisations membres"
+            label="Nos organisations membres"
             title="Les piliers du mouvement NSS"
           />
 

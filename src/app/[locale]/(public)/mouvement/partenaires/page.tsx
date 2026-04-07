@@ -73,7 +73,7 @@ export default function PartenairesPage() {
       <Section variant="neutral">
         <Container>
           <SectionHeader
-            eyebrow="Nos partenaires internationaux"
+            label="Nos partenaires internationaux"
             title="Cinq organisations, une conviction partagée"
           />
           <div className="space-y-6 max-w-3xl mx-auto">

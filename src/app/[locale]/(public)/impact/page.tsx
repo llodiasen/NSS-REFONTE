@@ -80,7 +80,7 @@ export default async function ImpactPage({ params }: ImpactPageProps) {
       <Section variant="white">
         <Container>
           <SectionHeader
-            eyebrow="NSS en chiffres"
+            label="NSS en chiffres"
             title="L'échelle d'un mouvement populaire"
           />
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 divide-x divide-primary-100">
@@ -96,7 +96,7 @@ export default async function ImpactPage({ params }: ImpactPageProps) {
       <Section variant="primary-light">
         <Container>
           <SectionHeader
-            eyebrow="Notre présence"
+            label="Notre présence"
             title="Un réseau ancré dans 7 pays d'Afrique de l'Ouest"
             subtitle="NSS vise à s'élargir à d'autres régions du continent africain, en lien avec des initiatives similaires pour se donner un rayonnement continental."
           />
@@ -125,7 +125,7 @@ export default async function ImpactPage({ params }: ImpactPageProps) {
       <Section variant="neutral">
         <Container>
           <SectionHeader
-            eyebrow="Notre impact terrain"
+            label="Notre impact terrain"
             title="Ce que le mouvement transforme"
           />
           <div className="grid md:grid-cols-3 gap-8">
@@ -147,7 +147,7 @@ export default async function ImpactPage({ params }: ImpactPageProps) {
       <Section variant="white">
         <Container>
           <SectionHeader
-            eyebrow="Elles parlent"
+            label="Elles parlent"
             title="La parole aux femmes du mouvement"
           />
           <div className="grid md:grid-cols-3 gap-8">

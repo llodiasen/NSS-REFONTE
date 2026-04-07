@@ -76,7 +76,7 @@ export default async function CIFAPPage({ params }: CIFAPPageProps) {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <div>
               <SectionHeader
-                eyebrow="Formation agroécologique"
+                label="Formation agroécologique"
                 title="Un camp international enraciné dans le terroir casamançais"
                 align="left"
               />
