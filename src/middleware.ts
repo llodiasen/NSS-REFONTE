@@ -1,4 +1,4 @@
-import { auth } from "@/lib/auth";
+import { getToken } from "next-auth/jwt";
 import createMiddleware from "next-intl/middleware";
 import { NextRequest, NextResponse } from "next/server";
 import { routing } from "@/i18n/routing";
@@ -11,7 +11,6 @@ const ADMIN_PATHS = ["/admin"];
 export default async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Vérifie si la route nécessite une authentification
   const requiresAuth =
     MEMBER_PATHS.some((p) => pathname.includes(p)) ||
     ADMIN_PATHS.some((p) => pathname.includes(p));
@@ -19,14 +18,17 @@ export default async function middleware(request: NextRequest) {
   const requiresAdmin = ADMIN_PATHS.some((p) => pathname.includes(p));
 
   if (requiresAuth) {
-    const session = await auth();
+    const token = await getToken({
+      req: request,
+      secret: process.env.NEXTAUTH_SECRET,
+    });
 
-    if (!session) {
+    if (!token) {
       const locale = pathname.split("/")[1] || "fr";
       return NextResponse.redirect(new URL(`/${locale}/login`, request.url));
     }
 
-    if (requiresAdmin && session.user.role !== "ADMIN") {
+    if (requiresAdmin && token.role !== "ADMIN") {
       const locale = pathname.split("/")[1] || "fr";
       return NextResponse.redirect(new URL(`/${locale}/403`, request.url));
     }
