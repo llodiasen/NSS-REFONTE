@@ -81,7 +81,7 @@ export default function AboutVision() {
 
             {/* Stats empilées */}
             <div style={{ flex: 1 }}>
-              {STATS.map(({ number, label }, i) => (
+              {STATS.map(({ number, label }) => (
                 <div
                   key={number}
                   style={{

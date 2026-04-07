@@ -41,10 +41,6 @@ function capitalize(str: string) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-function initials(name: string) {
-  return name.split(/\s+/).map(w => w[0]).join("").toUpperCase().slice(0, 3);
-}
-
 /** Render **bold** inline within a string */
 function renderInline(text: string): React.ReactNode {
   const parts = text.split(/\*\*(.+?)\*\*/g);

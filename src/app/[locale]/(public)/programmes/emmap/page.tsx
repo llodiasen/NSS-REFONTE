@@ -40,9 +40,9 @@ export default async function EMMAPPage({ params }: EMMAPPageProps) {
               Donner aux communautés rurales les outils de leur parole
             </h1>
             <p className="text-primary-100 text-lg leading-relaxed">
-              Le programme EMMAP (Engagement des Médias pour les Minorités, l'Agriculture
+              Le programme EMMAP (Engagement des Médias pour les Minorités, l&apos;Agriculture
               et la Paix) forme les femmes rurales à produire, diffuser et utiliser
-              l'information comme outil de changement.
+              l&apos;information comme outil de changement.
             </p>
           </div>
         </Container>
@@ -79,14 +79,14 @@ export default async function EMMAPPage({ params }: EMMAPPageProps) {
               />
               <div className="space-y-4 text-neutral-600 leading-relaxed">
                 <p>
-                  Les femmes rurales d'Afrique de l'Ouest sont trop souvent absentes des médias
-                  qui parlent d'elles. EMMAP renverse cet ordre : il forme les membres de NSS à
+                  Les femmes rurales d&apos;Afrique de l&apos;Ouest sont trop souvent absentes des médias
+                  qui parlent d&apos;elles. EMMAP renverse cet ordre : il forme les membres de NSS à
                   devenir elles-mêmes productrices de contenus, témoins de leurs réalités et
                   actrices de leur communication.
                 </p>
                 <p>
-                  Parce que les agricultrices d'Afrique de l'Ouest doivent être actrices —
-                  et non sujettes — de l'information qui les concerne.
+                  Parce que les agricultrices d&apos;Afrique de l&apos;Ouest doivent être actrices —
+                  et non sujettes — de l&apos;information qui les concerne.
                 </p>
               </div>
             </div>
@@ -124,7 +124,7 @@ export default async function EMMAPPage({ params }: EMMAPPageProps) {
             </h2>
             <p className="text-neutral-600 leading-relaxed mb-8">
               Votre organisation souhaite intégrer le programme EMMAP ou en savoir plus ?
-              Contactez l'équipe NSS.
+              Contactez l&apos;équipe NSS.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button href={`/${locale}/contact`} variant="primary" size="lg">

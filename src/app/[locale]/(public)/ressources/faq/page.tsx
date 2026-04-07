@@ -112,7 +112,7 @@ export default function FAQPage() {
             Vos questions, nos réponses
           </h1>
           <p className="text-primary-100 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-            Tout ce que vous voulez savoir sur la souveraineté alimentaire, l'agroécologie
+            Tout ce que vous voulez savoir sur la souveraineté alimentaire, l&apos;agroécologie
             et le mouvement Nous Sommes la Solution.
           </p>
         </div>

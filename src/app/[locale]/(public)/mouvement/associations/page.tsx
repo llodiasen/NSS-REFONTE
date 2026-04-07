@@ -52,7 +52,7 @@ export default function AssociationsPage() {
             </h1>
             <p className="text-primary-100 text-lg leading-relaxed">
               13 associations fondatrices. 7 pays. Des centaines de milliers de femmes
-              rurales unies autour d'une même conviction : elles sont la solution.
+              rurales unies autour d&apos;une même conviction : elles sont la solution.
             </p>
           </div>
         </Container>

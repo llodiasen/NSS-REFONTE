@@ -40,7 +40,7 @@ export default async function CIFAPPage({ params }: CIFAPPageProps) {
               Former les agricultrices de demain à Niaguis
             </h1>
             <p className="text-primary-100 text-lg leading-relaxed">
-              Le Camp International de Formation sur l'Agroécologie Paysanne (CIFAP) est
+              Le Camp International de Formation sur l&apos;Agroécologie Paysanne (CIFAP) est
               le cœur battant de la transmission des savoirs agricoles au sein du mouvement NSS.
             </p>
           </div>
@@ -82,7 +82,7 @@ export default async function CIFAPPage({ params }: CIFAPPageProps) {
               />
               <p className="text-neutral-600 leading-relaxed mb-6">
                 Organisé à Niaguis, en Casamance (Sénégal), le CIFAP rassemble chaque année
-                des femmes agricultrices venues de plusieurs pays d'Afrique de l'Ouest.
+                des femmes agricultrices venues de plusieurs pays d&apos;Afrique de l&apos;Ouest.
                 Pendant plusieurs jours, elles apprennent, échangent et repartent avec des
                 savoirs concrets à partager dans leurs communautés.
               </p>

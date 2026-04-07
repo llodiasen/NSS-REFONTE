@@ -12,7 +12,6 @@ function initials(name: string) {
 }
 
 export default function ArticleMeta({ author, date, readTime, sourceName, sourceUrl, dark = false }: Props) {
-  const avatarBg   = dark ? "rgba(255,255,255,0.15)" : "#e1f5ee";
   const avatarText = dark ? "#ffffff"                : "#0f6e56";
   const labelColor = dark ? "rgba(255,255,255,0.5)"  : "#9ca3af";
   const nameColor  = dark ? "#ffffff"                : "#1a1a1a";

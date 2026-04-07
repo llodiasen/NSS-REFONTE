@@ -7,51 +7,6 @@ export const metadata: Metadata = {
     "NSS s'engage pour la souveraineté alimentaire, l'agroécologie, les semences paysannes et la gouvernance participative en Afrique de l'Ouest.",
 };
 
-const ENGAGEMENTS = [
-  {
-    num: "01",
-    titre: "Souveraineté alimentaire",
-    texte:
-      "Le droit de chaque communauté à décider librement et de façon autonome de son système de production et d'alimentation. Pas de modèle imposé de l'extérieur.",
-  },
-  {
-    num: "02",
-    titre: "Agriculture familiale",
-    texte:
-      "La famille comme première force de travail. Une agriculture qui produit prioritairement ce dont les membres ont besoin, en harmonie avec la nature, créatrice d'emplois et de liens.",
-  },
-  {
-    num: "03",
-    titre: "Semences paysannes",
-    texte:
-      "Promouvoir et préserver les semences sélectionnées selon des procédés endogènes. Résilientes, productives, libres — elles sont la biodiversité vivante de nos systèmes alimentaires.",
-  },
-  {
-    num: "04",
-    titre: "Biodiversité",
-    texte:
-      "Conserver et renforcer la variété du monde vivant. La biodiversité reconnaît la complémentarité entre les éléments de la nature — condition d'un développement réellement durable.",
-  },
-  {
-    num: "05",
-    titre: "Agroécologie",
-    texte:
-      "Un système holistique qui soutient la santé des écosystèmes, s'appuie sur les cycles naturels adaptés aux conditions locales, et refuse les intrants agrochimiques et synthétiques.",
-  },
-  {
-    num: "06",
-    titre: "Accès équitable aux ressources",
-    texte:
-      "Chaque femme rurale doit avoir un accès réel et égal aux ressources agricoles — terre, eau, semences, équipement, financement — selon ses besoins, en intégrant pleinement les paramètres de genre.",
-  },
-  {
-    num: "07",
-    titre: "Gouvernance participative",
-    texte:
-      "Les organisations et familles paysannes doivent participer effectivement à la définition, la mise en œuvre, le suivi et l'évaluation des politiques agricoles qui les concernent.",
-  },
-];
-
 export default function EngagementsPage() {
   return (
     <>

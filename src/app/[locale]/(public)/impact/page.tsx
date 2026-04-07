@@ -69,7 +69,7 @@ export default async function ImpactPage({ params }: ImpactPageProps) {
               175 000 femmes. Un seul mouvement. Un continent qui se nourrit.
             </h1>
             <p className="text-primary-100 text-lg leading-relaxed">
-              NSS n'est pas une promesse. C'est une réalité vécue sur le terrain, dans les champs,
+              NSS n&apos;est pas une promesse. C&apos;est une réalité vécue sur le terrain, dans les champs,
               dans les marchés, dans les assemblées — par des centaines de milliers de femmes rurales africaines.
             </p>
           </div>
@@ -178,7 +178,7 @@ export default async function ImpactPage({ params }: ImpactPageProps) {
             </h2>
             <p className="text-primary-100 leading-relaxed mb-8">
               Votre don finance directement le CIFAP, les formations et le plaidoyer
-              des femmes rurales qui nourrissent l'Afrique.
+              des femmes rurales qui nourrissent l&apos;Afrique.
             </p>
             <Button href={`/${locale}/agir/donner`} variant="earth" size="lg">
               Faire un don

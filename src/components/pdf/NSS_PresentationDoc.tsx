@@ -6,7 +6,6 @@ import {
   Text,
   View,
   StyleSheet,
-  Font,
 } from "@react-pdf/renderer";
 
 // Palette NSS
@@ -246,22 +245,18 @@ export default function NSS_PresentationDoc() {
             </View>
             <View style={styles.statBox}>
               <Text style={styles.statValue}>7</Text>
-              <Text style={styles.statLabel}>Pays d'Afrique de l'Ouest</Text>
+              <Text style={styles.statLabel}>{"Pays d'Afrique de l'Ouest"}</Text>
             </View>
           </View>
 
           <Text style={styles.sectionTitle}>Notre mission</Text>
           <Text style={styles.paragraph}>
-            Lancé en 2011 par 12 organisations de femmes rurales, NSS s'est imposé sur le champ
-            des alternatives paysannes durables, économiquement rentables, socialement et
-            écologiquement viables.
+            {"Lancé en 2011 par 12 organisations de femmes rurales, NSS s'est imposé sur le champ des alternatives paysannes durables, économiquement rentables, socialement et écologiquement viables."}
           </Text>
 
           <Text style={styles.sectionTitle}>Notre vision</Text>
           <Text style={styles.paragraph}>
-            NSS œuvre pour une Afrique où les femmes rurales, impliquées dans la prise de décision,
-            cultivent, transforment, vendent et consomment les produits de l'agriculture familiale
-            tout en préservant l'environnement.
+            {"NSS œuvre pour une Afrique où les femmes rurales, impliquées dans la prise de décision, cultivent, transforment, vendent et consomment les produits de l'agriculture familiale tout en préservant l'environnement."}
           </Text>
 
           <Text style={styles.sectionTitle}>Nos 7 engagements</Text>
@@ -308,7 +303,7 @@ export default function NSS_PresentationDoc() {
           <View style={styles.programRow}>
             <View style={styles.programCard}>
               <Text style={styles.programSigle}>CIFAP</Text>
-              <Text style={styles.programTitle}>Camp International de Formation sur l'Agroécologie Paysanne</Text>
+              <Text style={styles.programTitle}>{"Camp International de Formation sur l'Agroécologie Paysanne"}</Text>
               <Text style={styles.programDesc}>
                 Organisé chaque année à Niaguis (Casamance, Sénégal), le CIFAP rassemble des femmes
                 agricultrices de plusieurs pays pour partager savoirs endogènes, semences paysannes
@@ -317,10 +312,10 @@ export default function NSS_PresentationDoc() {
             </View>
             <View style={styles.programCard}>
               <Text style={styles.programSigle}>EMMAP</Text>
-              <Text style={styles.programTitle}>Engagement des Médias pour les Minorités, l'Agriculture et la Paix</Text>
+              <Text style={styles.programTitle}>{"Engagement des Médias pour les Minorités, l'Agriculture et la Paix"}</Text>
               <Text style={styles.programDesc}>
                 EMMAP forme les femmes rurales à produire et diffuser leurs propres contenus médias.
-                Les agricultrices d'Afrique de l'Ouest doivent être actrices de l'information.
+                {"Les agricultrices d'Afrique de l'Ouest doivent être actrices de l'information."}
               </Text>
             </View>
           </View>

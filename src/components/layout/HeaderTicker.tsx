@@ -21,11 +21,6 @@ export default function HeaderTicker() {
     }, 220);
   }, []);
 
-  const prev = () => {
-    if (timer.current) clearInterval(timer.current);
-    go((index - 1 + MESSAGES.length) % MESSAGES.length);
-  };
-
   const next = useCallback(() => {
     go((index + 1) % MESSAGES.length);
   }, [index, go]);
