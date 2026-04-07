@@ -230,7 +230,13 @@ export default async function BlogSlugPage({ params }: Props) {
 
               // Découper sur les deux marqueurs possibles
               const parts = article.content.split(/\[\[GALLERY\]\]|\[\[VIDEO\]\]/g);
-              const markers = [...article.content.matchAll(/\[\[GALLERY\]\]|\[\[VIDEO\]\]/g)].map(m => m[0]);
+              const markerRegex = /\[\[GALLERY\]\]|\[\[VIDEO\]\]/g;
+              const markerMatches: string[] = [];
+              let markerMatch: RegExpExecArray | null;
+              while ((markerMatch = markerRegex.exec(article.content)) !== null) {
+                markerMatches.push(markerMatch[0]);
+              }
+              const markers = markerMatches;
 
               return (
                 <>
