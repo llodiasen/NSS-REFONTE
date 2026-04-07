@@ -13,7 +13,7 @@ function easeOutQuart(t: number) {
 }
 
 export default function AboutV1({ locale }: AboutV1Props) {
-  const counterRef = useRef<HTMLSpanElement>(null);
+  const counterRef = useRef<HTMLDivElement>(null);
   const [count, setCount] = useState(0);
   const started = useRef(false);
 
