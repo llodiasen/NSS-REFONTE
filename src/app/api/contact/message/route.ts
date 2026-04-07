@@ -2,8 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const contactSchema = z.object({
   firstName: z.string().min(2, "Prénom requis"),
   name: z.string().min(2, "Nom requis"),
@@ -26,6 +24,7 @@ export async function POST(request: NextRequest) {
     );
   }
 
+  const resend = new Resend(process.env.RESEND_API_KEY);
   const { firstName, name, organisation, country, email, sujet, message } = parsed.data;
 
   const html = `

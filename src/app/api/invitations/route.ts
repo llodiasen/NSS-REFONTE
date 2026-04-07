@@ -6,8 +6,6 @@ import { prisma } from "@/lib/prisma";
 import { invitationSchema } from "@/lib/validations/auth";
 import { invitationEmailHtml } from "@/lib/email/invitation-template";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: NextRequest) {
   const session = await auth();
 
@@ -69,6 +67,7 @@ export async function POST(request: NextRequest) {
     },
   });
 
+  const resend = new Resend(process.env.RESEND_API_KEY);
   const baseUrl = process.env.NEXTAUTH_URL ?? "http://localhost:3000";
   const inviteUrl = `${baseUrl}/fr/invite/${token}`;
 
