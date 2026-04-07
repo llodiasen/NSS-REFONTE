@@ -1,0 +1,82 @@
+[
+  {
+    "id": null,
+    "titre": "Rencontre Annuelle 2025 – Kindia, Guinée",
+    "categorie": "NSS",
+    "description": "Retour sur la Rencontre Annuelle 2025 du mouvement NSS, tenue à Kindia en Guinée. Un moment fort de partage, de solidarité et de planification stratégique entre membres du mouvement venant de 12 pays.",
+    "date": "2025-01-01",
+    "duree": null,
+    "featured": true,
+    "statut": "a_uploader"
+  },
+  {
+    "id": "LGkcZMWNgZA",
+    "titre": "Journal TV 20h – 1er septembre 2025",
+    "categorie": "Medias",
+    "description": "Le mouvement NSS à la une du Journal Télévisé de 20h. Une couverture médiatique nationale qui met en lumière les actions des femmes rurales pour la souveraineté alimentaire en Afrique de l'Ouest.",
+    "date": "2025-09-01",
+    "duree": "04:32",
+    "featured": false,
+    "statut": "disponible"
+  },
+  {
+    "id": "boT5gIW072Q",
+    "titre": "30 Min avec Mariama Sonko : Écoféminisme et Agroécologie",
+    "categorie": "Agroecologie",
+    "description": "Interview approfondie avec Mariama Sonko, leader du mouvement NSS, sur les liens entre écoféminisme et agroécologie. Une vision politique et spirituelle de la relation des femmes rurales à la terre et aux semences.",
+    "date": "2024-11-15",
+    "duree": "28:47",
+    "featured": true,
+    "statut": "disponible"
+  },
+  {
+    "id": "FothaoeQsQ8",
+    "titre": "Au Sénégal : Le Combat des Agricultrices pour l'Accès à la Propriété",
+    "categorie": "Agroecologie",
+    "description": "Reportage de terrain au Sénégal sur les luttes des femmes rurales pour accéder à la propriété foncière. Témoignages poignants de paysannes qui cultivent depuis des générations des terres qu'elles ne possèdent pas.",
+    "date": "2024-06-20",
+    "duree": "12:15",
+    "featured": false,
+    "statut": "disponible"
+  },
+  {
+    "id": null,
+    "titre": "Présentation NSS : Mouvement des Femmes Rurales",
+    "categorie": "NSS",
+    "description": "Vidéo de présentation officielle du mouvement Nous Sommes la Solution (NSS). Historique, vision, missions et actions du réseau panafricain de femmes rurales engagées pour la souveraineté alimentaire depuis 2011.",
+    "date": "2023-01-01",
+    "duree": null,
+    "featured": false,
+    "statut": "a_retrouver"
+  },
+  {
+    "id": "Bj5Z013_iQU",
+    "titre": "NSS à Pescara – Journée Mondiale de l'Eau (1/3)",
+    "categorie": "Evenements",
+    "description": "Première partie du reportage sur la participation de NSS à la Journée Mondiale de l'Eau à Pescara, Italie. Le mouvement y a porté la voix des femmes rurales africaines sur les enjeux de l'accès à l'eau et de l'agriculture.",
+    "date": "2024-03-22",
+    "duree": "08:10",
+    "featured": false,
+    "statut": "disponible"
+  },
+  {
+    "id": "_3_fEjTOi3I",
+    "titre": "NSS à Pescara – Journée Mondiale de l'Eau (2/3)",
+    "categorie": "Evenements",
+    "description": "Deuxième partie du reportage de Pescara. Ateliers, échanges et témoignages croisés entre membres NSS et partenaires européens autour des pratiques agroécologiques de préservation des ressources en eau.",
+    "date": "2024-03-22",
+    "duree": "07:55",
+    "featured": false,
+    "statut": "disponible"
+  },
+  {
+    "id": "psKIMgwaV7Y",
+    "titre": "NSS à Pescara – Journée Mondiale de l'Eau (3/3)",
+    "categorie": "Evenements",
+    "description": "Troisième et dernière partie du reportage de Pescara. Déclarations finales, engagements collectifs et message de solidarité internationale porté par les femmes rurales du mouvement NSS.",
+    "date": "2024-03-22",
+    "duree": "06:30",
+    "featured": false,
+    "statut": "disponible"
+  }
+]

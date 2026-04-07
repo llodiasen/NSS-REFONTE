@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NSS — À propos (preview)</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:   #2D6A4F;
+      --ink:     #1A1A1A;
+      --muted:   #555;
+      --bg:      #FAFAF8;
+      --serif:   'Cormorant Garamond', Georgia, serif;
+      --sans:    'DM Sans', system-ui, sans-serif;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Dot grid background ──────────────────────────── */
+    .about {
+      position: relative;
+      padding: 80px 24px;
+      background-color: var(--bg);
+      background-image: radial-gradient(circle, #2D6A4F 1.5px, transparent 1.5px);
+      background-size: 30px 30px;
+      background-position: 0 0;
+      overflow: hidden;
+    }
+
+    /* Fade the dots: visible only in background, not over content */
+    .about::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(250, 250, 248, 0.96);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .about__inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 55fr 45fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    /* ── Left column ──────────────────────────────────── */
+    .about__content {
+      padding-top: 12px;
+    }
+
+    .about__eyebrow {
+      display: block;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 20px;
+    }
+
+    .about__title {
+      font-family: var(--serif);
+      font-size: 52px;
+      font-weight: 600;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 28px;
+      overflow: hidden;
+    }
+
+    /* Staggered word animation */
+    .about__title .word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(24px);
+      animation: slideUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    .about__title .word:nth-child(1) { animation-delay: 0ms; }
+    .about__title .word:nth-child(2) { animation-delay: 80ms; }
+    .about__title .word:nth-child(3) { animation-delay: 160ms; }
+    .about__title .word:nth-child(4) { animation-delay: 240ms; }
+    .about__title .word:nth-child(5) { animation-delay: 320ms; }
+    .about__title .word:nth-child(6) { animation-delay: 400ms; }
+
+    @keyframes slideUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .about__body {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--muted);
+      max-width: 420px;
+      margin-bottom: 36px;
+    }
+
+    /* ── Stat block ───────────────────────────────────── */
+    .about__stat {
+      border-left: 1px solid var(--green);
+      padding-left: 20px;
+      margin-bottom: 36px;
+    }
+
+    .about__stat-number {
+      font-family: var(--serif);
+      font-size: 72px;
+      font-weight: 600;
+      line-height: 1;
+      color: var(--green);
+      display: block;
+      letter-spacing: -1px;
+    }
+
+    .about__stat-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    /* ── CTA link ─────────────────────────────────────── */
+    .about__cta {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .about__cta::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--green);
+      transition: width 0.3s ease;
+    }
+
+    .about__cta:hover::after { width: 100%; }
+    .about__cta:hover { color: var(--green); }
+
+    /* ── Right column — Image ─────────────────────────── */
+    .about__image-wrap {
+      position: relative;
+      margin-top: -20px; /* slight overlap */
+    }
+
+    .about__image-frame {
+      aspect-ratio: 3 / 4;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow:
+        0 4px 6px -1px rgba(0,0,0,0.06),
+        0 20px 40px -8px rgba(0,0,0,0.14);
+    }
+
+    .about__image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1);
+      transition: transform 0.6s ease;
+    }
+
+    .about__image-frame:hover img {
+      transform: scale(1.03);
+    }
+
+    /* Thin green line accent beside image */
+    .about__image-wrap::before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: -16px;
+      width: 2px;
+      height: 80px;
+      background: var(--green);
+      opacity: 0.5;
+    }
+
+    /* ── Responsive ───────────────────────────────────── */
+    @media (max-width: 768px) {
+      .about { padding: 60px 20px; }
+
+      .about__inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .about__title {
+        font-size: 36px;
+      }
+
+      .about__stat-number {
+        font-size: 52px;
+      }
+
+      .about__image-wrap {
+        margin-top: 0;
+        order: 2;
+      }
+
+      .about__image-frame {
+        aspect-ratio: 16 / 9;
+      }
+
+      .about__image-wrap::before { display: none; }
+
+      .about__content { order: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<section class="about" id="about">
+  <div class="about__inner">
+
+    <!-- Left — Content -->
+    <div class="about__content">
+      <span class="about__eyebrow">À Propos</span>
+
+      <h1 class="about__title">
+        <span class="word">Les&nbsp;</span><span class="word">femmes&nbsp;</span><span class="word">rurales&nbsp;</span><span class="word">nourrissent&nbsp;</span><span class="word">l'</span><span class="word">Afrique</span>
+      </h1>
+
+      <p class="about__body">
+        Lancé en 2011 par douze organisations de femmes rurales du Burkina Faso,
+        du Ghana, de la Guinée, du Mali et du Sénégal, le mouvement
+        <strong>Nous Sommes la Solution</strong> s'est imposé comme une référence
+        des alternatives paysannes durables — économiquement rentables,
+        socialement et écologiquement viables.
+      </p>
+
+      <div class="about__stat">
+        <span class="about__stat-number" id="counter">0</span>
+        <span class="about__stat-label">membres et sympathisant·es</span>
+      </div>
+
+      <a href="/mouvement" class="about__cta">Qui sommes-nous →</a>
+    </div>
+
+    <!-- Right — Image -->
+    <div class="about__image-wrap">
+      <div class="about__image-frame">
+        <img
+          src="https://picsum.photos/seed/nss/500/667"
+          alt="Femme rurale du mouvement NSS"
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  // ── Count-up animation ─────────────────────────────────
+  const counter = document.getElementById('counter');
+  const target  = 175000;
+  let started   = false;
+
+  function easeOutQuart(t) {
+    return 1 - Math.pow(1 - t, 4);
+  }
+
+  function formatNumber(n) {
+    return Math.floor(n).toLocaleString('fr-FR');
+  }
+
+  function runCounter() {
+    if (started) return;
+    started = true;
+
+    const duration = 2200;
+    const start    = performance.now();
+
+    function step(now) {
+      const elapsed  = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const value    = easeOutQuart(progress) * target;
+
+      counter.textContent = formatNumber(value);
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        counter.textContent = formatNumber(target);
+      }
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  // Trigger on scroll into view
+  const observer = new IntersectionObserver(
+    (entries) => {
+      if (entries[0].isIntersecting) {
+        runCounter();
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.3 }
+  );
+
+  observer.observe(document.getElementById('about'));
+</script>
+
+</body>
+</html>

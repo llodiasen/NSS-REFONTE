@@ -1,0 +1,47 @@
+{
+  "nav": {
+    "movement": "O Movimento",
+    "impact": "Nosso Impacto",
+    "programs": "Programas",
+    "resources": "Recursos",
+    "act": "Agir",
+    "contact": "Contato",
+    "login": "Área de Membros",
+    "join": "Aderir"
+  },
+  "hero": {
+    "tagline": "Por nós mesmas. Para nós mesmas. Em nós mesmas.",
+    "cta_join": "Aderir ao movimento",
+    "cta_discover": "Descobrir o nosso impacto"
+  },
+  "stats": {
+    "members": "membros",
+    "countries": "países",
+    "afr": "AFR ativas",
+    "founded": "fundado em"
+  },
+  "footer": {
+    "rights": "Todos os direitos reservados",
+    "org": "Nous Sommes la Solution (NSS)"
+  },
+  "auth": {
+    "login": "Entrar",
+    "email": "Endereço de email",
+    "password": "Senha",
+    "forgot_password": "Esqueceu a senha?",
+    "no_account": "Sem conta? Contacte um administrador."
+  },
+  "member": {
+    "dashboard": "Painel",
+    "profile": "Meu perfil",
+    "directory": "Diretório",
+    "resources": "Recursos",
+    "logout": "Sair"
+  },
+  "errors": {
+    "403": "Acesso negado",
+    "403_message": "Você não tem os direitos necessários para acessar esta página.",
+    "404": "Página não encontrada",
+    "404_message": "A página que você procura não existe ou foi movida."
+  }
+}

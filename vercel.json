@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    { "source": "/", "destination": "/fr", "permanent": true },
+    { "source": "/qui-sommes-nous-nss", "destination": "/fr/mouvement", "permanent": true },
+    { "source": "/nos-engagements", "destination": "/fr/mouvement/engagements", "permanent": true },
+    { "source": "/nos-partenaires", "destination": "/fr/mouvement/partenaires", "permanent": true },
+    { "source": "/nos-associations", "destination": "/fr/mouvement/associations", "permanent": true },
+    { "source": "/fr/nos-programmes", "destination": "/fr/programmes", "permanent": true },
+    { "source": "/medias-minorites-paix", "destination": "/fr/programmes/emmap", "permanent": true },
+    { "source": "/event/:slug*", "destination": "/fr/ressources/actualites/:slug*", "permanent": true },
+    { "source": "/galerie-nss", "destination": "/fr/ressources/galerie", "permanent": true },
+    { "source": "/videos", "destination": "/fr/ressources/videos", "permanent": true },
+    { "source": "/contact-nss", "destination": "/fr/contact", "permanent": true }
+  ]
+}
