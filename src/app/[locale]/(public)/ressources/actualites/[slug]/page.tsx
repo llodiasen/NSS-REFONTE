@@ -192,33 +192,33 @@ export default async function ActualitesSlugPage({ params }: Props) {
         <div className="article-layout" style={{ maxWidth: "var(--container-max)", margin: "0 auto", padding: "64px var(--container-pad)", display: "grid", gridTemplateColumns: "1fr 340px", gap: "64px", alignItems: "start" }}>
 
           <article>
-            {/* Stats métriques */}
-            {article.stats && article.stats.length > 0 && (
-              <div style={{ display: "grid", gridTemplateColumns: `repeat(${article.stats.length}, 1fr)`, gap: "16px", marginBottom: "36px" }}>
-                {article.stats.map(({ label, value }) => (
-                  <div key={label} style={{ background: "#f0f7f2", border: "1px solid rgba(29,158,117,0.15)", borderRadius: "10px", padding: "20px 16px", textAlign: "center" }}>
-                    <div style={{ fontFamily: "var(--font-display)", fontSize: "32px", fontWeight: 400, color: "#1D9E75", lineHeight: 1, marginBottom: "6px" }}>{value}</div>
-                    <div style={{ fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "1.5px", color: "#6b7280" }}>{label}</div>
-                  </div>
-                ))}
-              </div>
-            )}
 
             {/* Image de couverture */}
             <figure style={{ margin: "0 0 40px" }}>
               <div style={{ borderRadius: "12px", overflow: "hidden", height: "460px", position: "relative" }}>
                 <Image src={coverSrc} alt={article.title} fill style={{ objectFit: "cover", objectPosition: "center 30%" }} sizes="(max-width: 768px) 100vw, 800px" priority />
               </div>
-              {article.coverCaption && (
-                <figcaption style={{ fontFamily: "var(--font-body)", fontSize: "13px", color: "#6b7280", fontStyle: "italic", lineHeight: 1.5, marginTop: "10px", paddingLeft: "10px", borderLeft: "2px solid #d1d5db" }}>
-                  {article.coverCaption}
+              {(article.stats?.length || article.coverCaption) && (
+                <figcaption style={{ marginTop: "12px", display: "flex", alignItems: "center", flexWrap: "wrap", gap: "0 24px" }}>
+                  {article.stats?.map(({ label, value }, i) => (
+                    <span key={label} style={{ display: "flex", alignItems: "baseline", gap: "6px", fontFamily: "var(--font-body)", fontSize: "13px", color: "#4b5563" }}>
+                      {i > 0 && <span aria-hidden="true" style={{ color: "#d1d5db", marginRight: "0" }}>·</span>}
+                      <strong style={{ fontFamily: "var(--font-display)", fontSize: "20px", fontWeight: 400, color: "#1D9E75", lineHeight: 1 }}>{value}</strong>
+                      <span style={{ fontWeight: 500, textTransform: "lowercase", letterSpacing: "0.01em" }}>{label}</span>
+                    </span>
+                  ))}
+                  {article.coverCaption && (
+                    <span style={{ fontFamily: "var(--font-body)", fontSize: "13px", color: "#6b7280", fontStyle: "italic" }}>
+                      {article.coverCaption}
+                    </span>
+                  )}
                 </figcaption>
               )}
             </figure>
 
             {/* Contenu — avec injection [[GALLERY]] et/ou [[VIDEO]] */}
             {(() => {
-              const hasGallery = !!article.cloudinaryFolderId && article.content.includes("[[GALLERY]]");
+              const hasGallery = !!(article.cloudinaryImages?.length) && article.content.includes("[[GALLERY]]");
               const hasVideo   = !!article.videoUrl && article.content.includes("[[VIDEO]]");
 
               if (!hasGallery && !hasVideo) return renderContent(article.content);
@@ -237,8 +237,11 @@ export default async function ActualitesSlugPage({ params }: Props) {
                   {parts.map((part, i) => (
                     <span key={i}>
                       {renderContent(part, i === 0)}
-                      {markers[i] === "[[GALLERY]]" && article.cloudinaryFolderId && (
-                        <CloudinaryGallery folderId={article.cloudinaryFolderId} />
+                      {markers[i] === "[[GALLERY]]" && article.cloudinaryImages?.length && (
+                        <CloudinaryGallery
+                          publicIds={article.cloudinaryImages}
+                          defaultCaption={article.cloudinaryGalleryCaption}
+                        />
                       )}
                       {markers[i] === "[[VIDEO]]" && article.videoUrl && (
                         <div style={{ margin: "32px 0", borderRadius: "10px", overflow: "hidden", background: "#000", lineHeight: 0 }}>
@@ -256,8 +259,16 @@ export default async function ActualitesSlugPage({ params }: Props) {
               );
             })()}
 
-            {/* Galerie statique (ArticleGalleryItem[]) */}
-            {article.gallery && article.gallery.length > 0 && (
+            {/* Galerie vedette Cloudinary (hors contenu [[GALLERY]]) */}
+            {article.cloudinaryImages?.length && !article.content.includes("[[GALLERY]]") && (
+              <CloudinaryGallery
+                publicIds={article.cloudinaryImages}
+                defaultCaption={article.cloudinaryGalleryCaption}
+              />
+            )}
+
+            {/* Galerie statique legacy */}
+            {!article.cloudinaryImages?.length && article.gallery && article.gallery.length > 0 && (
               <ArticleGallery items={article.gallery} />
             )}
 
