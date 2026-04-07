@@ -45,6 +45,7 @@ export default function ActionsSection() {
   return (
     <section style={{ background: "#ffffff" }}>
       <div
+        className="actions-inner"
         style={{
           maxWidth: "var(--container-max)",
           margin: "0 auto",
@@ -197,6 +198,7 @@ export default function ActionsSection() {
         .action-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
         .action-card-btn:hover { background: var(--green-700) !important; }
         @media (max-width: 768px) {
+          .actions-inner { padding: 60px 24px !important; }
           .actions-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>

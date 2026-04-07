@@ -147,6 +147,7 @@ export default function MediathequeSection() {
   return (
     <section style={{ background: "#ffffff" }}>
       <div
+        className="media-inner"
         style={{
           maxWidth: "var(--container-max)",
           margin: "0 auto",
@@ -191,6 +192,7 @@ export default function MediathequeSection() {
         .play-btn:hover { transform: translate(-50%, -50%) scale(1.1) !important; }
         .media-cta:hover { background: #fff !important; color: var(--green-600) !important; }
         @media (max-width: 768px) {
+          .media-inner { padding: 60px 24px !important; }
           .media-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
