@@ -1,9 +1,21 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { CldImage } from "next-cloudinary";
+import Image from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import type { GalleryImage } from "./CloudinaryGallery";
+
+const CLOUD = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME ?? "dtjvjlkcc";
+
+/** Construit une URL Cloudinary à partir d'un public_id court ou complet. */
+function cldUrl(publicId: string, w?: number, h?: number): string {
+  if (publicId.startsWith("http")) return publicId;
+  const t = w && h
+    ? `c_fill,g_auto,w_${w},h_${h},q_auto,f_auto`
+    : "q_auto,f_auto";
+  const encoded = publicId.split("/").map(encodeURIComponent).join("/");
+  return `https://res.cloudinary.com/${CLOUD}/image/upload/${t}/${encoded}`;
+}
 
 interface Props {
   images: GalleryImage[];
@@ -75,12 +87,10 @@ export default function CloudinaryGalleryClient({ images }: Props) {
               onClick={() => setActive(0)}
               aria-label={Featured.caption ?? Featured.display_name ?? "Photo vedette"}
             >
-              <CldImage
-                src={Featured.public_id}
+              <Image
+                src={cldUrl(Featured.public_id, 1200, 900)}
                 width={1200}
                 height={900}
-                crop="fill"
-                gravity="auto"
                 alt={Featured.caption ?? Featured.display_name ?? "Photo vedette CIFAP 2025"}
                 style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                 sizes="(max-width: 640px) 100vw, 50vw"
@@ -103,12 +113,10 @@ export default function CloudinaryGalleryClient({ images }: Props) {
                   onClick={() => setActive(isLast ? 0 : i + 1)}
                   aria-label={isLast ? `Voir les ${remaining} photos restantes` : (img.caption ?? img.display_name ?? `Photo ${i + 2}`)}
                 >
-                  <CldImage
-                    src={img.public_id}
+                  <Image
+                    src={cldUrl(img.public_id, 600, 450)}
                     width={600}
                     height={450}
-                    crop="fill"
-                    gravity="auto"
                     alt={img.caption ?? img.display_name ?? `Photo ${i + 2} du CIFAP 2025`}
                     style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                     sizes="(max-width: 640px) 50vw, 25vw"
@@ -167,12 +175,10 @@ export default function CloudinaryGalleryClient({ images }: Props) {
       {active !== null && (
         <div className="cld-lb" onClick={close} role="dialog" aria-modal="true">
           <div className="cld-lb-content" onClick={(e) => e.stopPropagation()}>
-            <CldImage
-              src={images[active].public_id}
+            <Image
+              src={cldUrl(images[active].public_id, 1600, 1200)}
               width={1600}
               height={1200}
-              crop="fill"
-              gravity="auto"
               alt={images[active].caption ?? images[active].display_name ?? `Photo ${active + 1}`}
               style={{ maxWidth: "90vw", maxHeight: "80vh", objectFit: "contain", borderRadius: "4px", display: "block" }}
               sizes="90vw"
