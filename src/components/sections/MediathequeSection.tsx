@@ -193,7 +193,7 @@ export default function MediathequeSection() {
         style={{
           maxWidth: "var(--container-max)",
           margin: "0 auto",
-          padding: "var(--section-py) var(--container-pad)",
+          padding: "72px 20px",
         }}
       >
         <SectionHeader
