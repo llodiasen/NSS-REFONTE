@@ -221,7 +221,7 @@ export default function Header() {
       </header>
 
       {/* Spacer */}
-      <div className="hdr-spacer" aria-hidden="true" style={{ height: "106px" }} />
+      <div className="hdr-spacer" aria-hidden="true" />
 
       {mobileOpen && (
         <MobileMenu
@@ -255,7 +255,6 @@ export default function Header() {
           .hdr-nav       { display: none !important; }
           .hdr-actions   { display: none !important; }
           .hdr-burger    { display: flex !important; }
-          .hdr-spacer    { height: 64px !important; }
         }
       `}</style>
     </>

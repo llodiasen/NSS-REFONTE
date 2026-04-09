@@ -46,7 +46,7 @@ export default function HeroHome() {
           <span
             style={{
               fontFamily: "var(--font-dm-sans), var(--font-body), sans-serif",
-              fontSize: "11px",
+              fontSize: "9px",
               fontWeight: 500,
               letterSpacing: "0.18em",
               textTransform: "uppercase",

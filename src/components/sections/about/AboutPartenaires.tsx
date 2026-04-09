@@ -21,7 +21,7 @@ export default function AboutPartenaires() {
         {/* Tag centré */}
         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "16px" }}>
           <span aria-hidden="true" style={{ width: "28px", height: "1px", background: "var(--green-600)", marginRight: "12px", flexShrink: 0 }} />
-          <span style={{ fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2px", color: "var(--green-600)" }}>
+          <span style={{ fontFamily: "var(--font-body)", fontSize: "9px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2px", color: "var(--green-600)" }}>
             Nos soutiens
           </span>
           <span aria-hidden="true" style={{ width: "28px", height: "1px", background: "var(--green-600)", marginLeft: "12px", flexShrink: 0 }} />

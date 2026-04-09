@@ -61,7 +61,7 @@ export default function ArticleGallery({ items, title = "Galerie photographique"
       <div style={{ marginTop: "48px", marginBottom: "24px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "10px" }}>
           <span style={{ display: "block", width: "28px", height: "1px", background: "var(--green-600)", flexShrink: 0 }} />
-          <span style={{ fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2px", color: "var(--green-600)" }}>
+          <span style={{ fontFamily: "var(--font-body)", fontSize: "9px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2px", color: "var(--green-600)" }}>
             Galerie
           </span>
         </div>

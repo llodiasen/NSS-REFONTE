@@ -54,7 +54,7 @@ export default function AboutSection() {
             <h2
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: "clamp(24px, 2.6vw, 36px)",
+                fontSize: "clamp(21px, 2.6vw, 36px)",
                 fontWeight: 400,
                 lineHeight: 1.18,
                 color: "var(--text-primary)",
@@ -102,7 +102,7 @@ export default function AboutSection() {
             >
               <p
                 style={{
-                  fontSize: "16px",
+                  fontSize: "14px",
                   lineHeight: 1.8,
                   color: "var(--text-body)",
                   fontStyle: "normal",
@@ -271,7 +271,7 @@ export default function AboutSection() {
         }
         .about-btn {
           display: inline-block;
-          background: #3B6D11;
+          background: #112d1d;
           color: #ffffff;
           font-size: 13px;
           font-weight: 600;
@@ -282,7 +282,7 @@ export default function AboutSection() {
           transition: background 0.2s ease, transform 0.15s ease;
         }
         .about-btn:hover {
-          background: #2e560d;
+          background: #0d2417;
           transform: translateY(-1px);
         }
 

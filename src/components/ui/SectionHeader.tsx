@@ -16,7 +16,7 @@ export default function SectionHeader({
   const lineColor = dark ? "rgba(127,212,166,0.4)" : "rgba(29,122,82,0.35)";
   const labelColor = dark ? "var(--green-300)" : "var(--green-600)";
   const titleColor = dark ? "#ffffff" : "var(--text-primary)";
-  const subtitleColor = dark ? "rgba(255,255,255,0.6)" : "var(--text-muted)";
+  const subtitleColor = dark ? "rgba(255,255,255,0.6)" : "var(--text-primary)";
 
   return (
     <div
@@ -48,7 +48,7 @@ export default function SectionHeader({
         <span
           style={{
             fontFamily: "var(--font-body)",
-            fontSize: "11px",
+            fontSize: "9px",
             fontWeight: 600,
             textTransform: "uppercase",
             letterSpacing: "2.5px",
@@ -74,7 +74,7 @@ export default function SectionHeader({
       <h2
         style={{
           fontFamily: "var(--font-display)",
-          fontSize: "clamp(28px, 3vw, 38px)",
+          fontSize: "clamp(21px, 3vw, 34px)",
           fontWeight: 400,
           lineHeight: 1.18,
           color: titleColor,
@@ -90,7 +90,7 @@ export default function SectionHeader({
         <p
           style={{
             fontFamily: "var(--font-body)",
-            fontSize: "16px",
+            fontSize: "14px",
             fontWeight: 400,
             lineHeight: 1.65,
             color: subtitleColor,

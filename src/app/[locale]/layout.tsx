@@ -3,8 +3,44 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import Script from "next/script";
+import {
+  DM_Serif_Display,
+  Outfit,
+  Cormorant_Garamond,
+  DM_Sans,
+} from "next/font/google";
 import { routing } from "@/i18n/routing";
 import "../globals.css";
+
+const dmSerifDisplay = DM_Serif_Display({
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal", "italic"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-body",
+  display: "swap",
+});
+
+const cormorantGaramond = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-cormorant",
+  display: "swap",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  variable: "--font-dm-sans",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -49,18 +85,18 @@ export default async function LocaleLayout({
 
   const messages = await getMessages();
 
+  const fontVars = [
+    dmSerifDisplay.variable,
+    outfit.variable,
+    cormorantGaramond.variable,
+    dmSans.variable,
+  ].join(" ");
+
   return (
-    <html lang={locale}>
+    <html lang={locale} className={fontVars}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {/* Google Fonts — DM Serif Display + Outfit */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
       </head>
       <body style={{ margin: 0, background: "#fff", color: "#111" }}>
         <NextIntlClientProvider messages={messages}>

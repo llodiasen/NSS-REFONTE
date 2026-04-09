@@ -86,7 +86,7 @@ export default function MouvementVision() {
               <span style={{ display: "block", width: "28px", height: "1px", background: "#2D6A4F", flexShrink: 0 }} />
               <span style={{
                 fontFamily: "var(--font-body)",
-                fontSize: "11px", fontWeight: 600,
+                fontSize: "9px", fontWeight: 600,
                 letterSpacing: "0.18em", textTransform: "uppercase",
                 color: "#2D6A4F",
               }}>
@@ -97,7 +97,7 @@ export default function MouvementVision() {
             {/* H2 */}
             <h2 style={{
               fontFamily: "var(--font-display)",
-              fontSize: "clamp(26px, 2.8vw, 36px)", fontWeight: 400, lineHeight: 1.12,
+              fontSize: "clamp(23px, 2.8vw, 36px)", fontWeight: 400, lineHeight: 1.12,
               color: "#071A10", marginBottom: "16px",
             }}>
               Notre vision,{" "}
@@ -109,7 +109,7 @@ export default function MouvementVision() {
             {/* Texte vision */}
             <p style={{
               fontFamily: "var(--font-body)",
-              fontSize: "16px", lineHeight: 1.75, color: "#111111",
+              fontSize: "14px", lineHeight: 1.75, color: "#111111",
               textAlign: "justify",
               borderBottom: "1px solid rgba(0,0,0,0.07)",
               marginBottom: "24px", paddingBottom: "24px",
@@ -294,12 +294,12 @@ export default function MouvementVision() {
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "28px" }}>
                 <span style={{ display: "block", width: "32px", height: "1px", background: "rgba(29,122,82,0.4)" }} />
-                <span style={{ fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "3px", color: "var(--green-600)" }}>
+                <span style={{ fontFamily: "var(--font-body)", fontSize: "9px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "3px", color: "var(--green-600)" }}>
                   Nos actions
                 </span>
               </div>
               <h2 style={{
-                fontFamily: "var(--font-display)", fontSize: "clamp(26px, 3vw, 38px)",
+                fontFamily: "var(--font-display)", fontSize: "clamp(23px, 3vw, 38px)",
                 fontWeight: 400, lineHeight: 1.2,
                 color: "#071A10", marginBottom: "24px",
               }}>

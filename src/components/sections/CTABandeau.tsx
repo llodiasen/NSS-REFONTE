@@ -33,7 +33,7 @@ export default function CTABandeau({ locale }: CTABandeauProps) {
         <span
           style={{
             fontFamily: "var(--font-body)",
-            fontSize: "11px",
+            fontSize: "9px",
             fontWeight: 700,
             letterSpacing: "0.08em",
             textTransform: "uppercase",

@@ -68,7 +68,7 @@ export default function AboutStructure() {
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "12px", marginBottom: "16px" }}>
               <span aria-hidden="true" style={{ display: "block", width: "28px", height: "1px", background: "#2D6A4F" }} />
               <span style={{
-                fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 600,
+                fontFamily: "var(--font-body)", fontSize: "9px", fontWeight: 600,
                 textTransform: "uppercase", letterSpacing: "2.5px", color: "#2D6A4F",
               }}>
                 Notre Histoire
@@ -77,7 +77,7 @@ export default function AboutStructure() {
             </div>
             <h2 style={{
               fontFamily: "var(--font-display)",
-              fontSize: "clamp(28px, 3vw, 38px)",
+              fontSize: "clamp(21px, 3vw, 34px)",
               fontWeight: 400, lineHeight: 1.18,
               color: "#071A10", margin: 0,
             }}>

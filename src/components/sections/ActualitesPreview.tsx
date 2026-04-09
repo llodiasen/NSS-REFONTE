@@ -65,7 +65,7 @@ export default function ActualitesPreview({ locale }: { locale: string }) {
           <span style={{ flex: 1, maxWidth: "48px", height: "1px", background: "#2d7a4f" }} />
           <span style={{
             fontFamily: "'Source Sans 3', sans-serif",
-            fontSize: "11px",
+            fontSize: "9px",
             fontWeight: 500,
             textTransform: "uppercase",
             letterSpacing: "2px",

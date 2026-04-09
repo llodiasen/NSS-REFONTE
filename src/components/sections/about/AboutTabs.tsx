@@ -39,12 +39,12 @@ export default function AboutTabs() {
         <div style={{ marginBottom: "44px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "20px" }}>
             <span aria-hidden="true" style={{ display: "block", width: "28px", height: "1px", background: "rgba(29,122,82,0.35)", flexShrink: 0 }} />
-            <span style={{ fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2.5px", color: "var(--green-600)", whiteSpace: "nowrap" }}>
+            <span style={{ fontFamily: "var(--font-body)", fontSize: "9px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2.5px", color: "var(--green-600)", whiteSpace: "nowrap" }}>
               À propos de NSS
             </span>
             <span aria-hidden="true" style={{ display: "block", width: "28px", height: "1px", background: "rgba(29,122,82,0.35)", flexShrink: 0 }} />
           </div>
-          <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 3vw, 38px)", fontWeight: 400, lineHeight: 1.18, color: "var(--text-primary)", margin: 0 }}>
+          <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(21px, 3vw, 34px)", fontWeight: 400, lineHeight: 1.18, color: "var(--text-primary)", margin: 0 }}>
             Un mouvement né des champs.
           </h2>
         </div>

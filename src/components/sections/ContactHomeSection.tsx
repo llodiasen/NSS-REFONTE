@@ -61,7 +61,7 @@ export default function ContactHomeSection() {
   };
 
   return (
-    <section style={{ background: "#1a3d2b", padding: "88px var(--container-pad)" }}>
+    <section style={{ background: "#193524", padding: "88px var(--container-pad)" }}>
       <div
         className="contact-grid"
         style={{ maxWidth: "var(--container-max)", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: "72px", alignItems: "start" }}
@@ -70,17 +70,17 @@ export default function ContactHomeSection() {
         <div>
           <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "20px" }}>
             <span style={{ display: "block", width: "28px", height: "1px", background: "rgba(127,212,166,0.5)" }} />
-            <span style={{ fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "3px", color: "var(--green-300)" }}>
+            <span style={{ fontFamily: "var(--font-body)", fontSize: "9px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "3px", color: "var(--green-300)" }}>
               Nous contacter
             </span>
           </div>
 
-          <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 3vw, 42px)", fontWeight: 400, lineHeight: 1.12, color: "#ffffff", marginBottom: "20px" }}>
+          <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(21px, 3vw, 38px)", fontWeight: 400, lineHeight: 1.12, color: "#ffffff", marginBottom: "20px" }}>
             Une question ?{" "}
             <em style={{ fontStyle: "italic", color: "var(--green-300)" }}>Écrivez-nous.</em>
           </h2>
 
-          <p style={{ fontFamily: "var(--font-body)", fontSize: "16px", lineHeight: 1.75, color: "rgba(255,255,255,0.65)", marginBottom: "44px" }}>
+          <p style={{ fontFamily: "var(--font-body)", fontSize: "14px", lineHeight: 1.75, color: "rgba(255,255,255,0.65)", marginBottom: "44px" }}>
             Notre équipe répond à toutes vos demandes — adhésion, partenariat, programmes ou questions générales.
           </p>
 
@@ -103,7 +103,7 @@ export default function ContactHomeSection() {
         </div>
 
         {/* ── COLONNE DROITE — Formulaire ── */}
-        <div style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "16px", padding: "40px" }}>
+        <div style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "16px", padding: "32px 24px" }}>
           {success ? (
             <div style={{ textAlign: "center", padding: "32px 0" }}>
               <div style={{ width: "56px", height: "56px", borderRadius: "50%", background: "rgba(127,212,166,0.15)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 16px" }}>
@@ -148,7 +148,7 @@ export default function ContactHomeSection() {
                 <label style={{ fontFamily: "var(--font-body)", fontSize: "12px", fontWeight: 600, color: "rgba(255,255,255,0.6)", display: "block", marginBottom: "6px" }}>Sujet</label>
                 <select {...register("sujet")} style={{ ...INPUT, cursor: "pointer" }}>
                   {["Adhésion", "Partenariat", "Don", "CIFAP", "EMMAP", "Autre"].map((s) => (
-                    <option key={s} value={s} style={{ background: "#1a3d2b" }}>{s}</option>
+                    <option key={s} value={s} style={{ background: "#193524" }}>{s}</option>
                   ))}
                 </select>
               </div>

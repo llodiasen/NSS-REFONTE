@@ -20,7 +20,7 @@ export default function Partenaires() {
         {/* Label centré */}
         <p style={{
           fontFamily: "'Source Sans 3', sans-serif",
-          fontSize: "11px",
+          fontSize: "9px",
           fontWeight: 500,
           textTransform: "uppercase",
           letterSpacing: "2px",

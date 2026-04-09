@@ -167,9 +167,9 @@ function CarteEvenement({ ev }: { ev: Evenement }) {
               padding: "8px 18px",
               borderRadius: "6px",
               textDecoration: "none",
-              ...(avenir
-                ? { background: "#1D9E75", color: "#ffffff" }
-                : { background: "transparent", color: "#888780", border: "0.5px solid #D3D1C7" }),
+              background: "transparent",
+              color: avenir ? "#3b6d11" : "#888780",
+              border: avenir ? "none" : "0.5px solid #D3D1C7",
             }}
           >
             {avenir ? "S'inscrire" : "Voir le compte-rendu"}
@@ -188,22 +188,22 @@ export default function ActionsSection() {
         style={{
           maxWidth: "var(--container-max)",
           margin: "0 auto",
-          padding: "var(--section-py) var(--container-pad)",
+          padding: "72px 20px",
         }}
       >
         {/* ── Titre ── */}
         <div style={{ textAlign: "center", marginBottom: "48px" }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "14px", marginBottom: "18px" }}>
             <div style={{ width: "40px", height: "1px", background: "#1D9E75" }} />
-            <span style={{ fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "#1D9E75" }}>
+            <span style={{ fontFamily: "var(--font-body)", fontSize: "9px", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "#1D9E75" }}>
               Nos événements
             </span>
             <div style={{ width: "40px", height: "1px", background: "#1D9E75" }} />
           </div>
-          <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(24px, 3vw, 34px)", fontWeight: 400, fontStyle: "normal", color: "var(--text-primary)", lineHeight: 1.18, margin: "0 0 16px" }}>
+          <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(21px, 3vw, 34px)", fontWeight: 400, fontStyle: "normal", color: "var(--text-primary)", lineHeight: 1.18, margin: "0 0 16px" }}>
             Se rencontrer, se former, agir ensemble.
           </h2>
-          <p style={{ fontFamily: "var(--font-body)", fontSize: "16px", lineHeight: 1.65, color: "var(--text-primary)", maxWidth: "580px", margin: "0 auto" }}>
+          <p style={{ fontFamily: "var(--font-body)", fontSize: "14px", lineHeight: 1.65, color: "var(--text-primary)", maxWidth: "580px", margin: "0 auto" }}>
             Formations, ateliers et rencontres portés par le réseau NSS pour renforcer les femmes rurales à travers l&apos;Afrique de l&apos;Ouest.
           </p>
         </div>

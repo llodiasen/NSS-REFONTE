@@ -33,7 +33,7 @@ export default function AxesVision({ locale: _locale }: AxesVisionProps) {
           <span style={{ width: "32px", height: "1px", background: "#2d7a4f", flexShrink: 0 }} />
           <span style={{
             fontFamily: "'Source Sans 3', sans-serif",
-            fontSize: "11px",
+            fontSize: "9px",
             fontWeight: 500,
             textTransform: "uppercase",
             letterSpacing: "2px",

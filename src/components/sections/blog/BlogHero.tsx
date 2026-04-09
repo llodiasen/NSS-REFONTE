@@ -46,7 +46,7 @@ export default function BlogHero() {
         {/* Tag */}
         <div style={{ display: "flex", alignItems: "center", marginBottom: "20px" }}>
           <span aria-hidden="true" style={{ width: "28px", height: "1px", background: "rgba(127,212,166,0.4)", marginRight: "12px", flexShrink: 0 }} />
-          <span style={{ fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 500, letterSpacing: "3px", textTransform: "uppercase", color: "var(--green-300)" }}>
+          <span style={{ fontFamily: "var(--font-body)", fontSize: "9px", fontWeight: 500, letterSpacing: "3px", textTransform: "uppercase", color: "var(--green-300)" }}>
             Actualités &amp; ressources
           </span>
         </div>

@@ -15,7 +15,7 @@ interface VideoCardProps {
 
 const categoryBadge: Record<string, "impact" | "pays" | "evenement" | "media"> = {
   NSS: "impact",
-  Agroecologie: "pays",
+  Agroecologie: "impact",
   Evenements: "evenement",
   Medias: "media",
 };

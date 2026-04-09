@@ -36,7 +36,7 @@ export default function AboutVision() {
               />
               <span style={{
                 fontFamily: "var(--font-body)",
-                fontSize: "11px",
+                fontSize: "9px",
                 fontWeight: 600,
                 textTransform: "uppercase",
                 letterSpacing: "2.5px",
@@ -49,7 +49,7 @@ export default function AboutVision() {
             {/* Titre */}
             <h2 style={{
               fontFamily: "var(--font-display)",
-              fontSize: "clamp(28px, 3vw, 40px)",
+              fontSize: "clamp(21px, 3vw, 36px)",
               fontWeight: 400,
               lineHeight: 1.18,
               color: "#0f1f0f",
@@ -61,7 +61,7 @@ export default function AboutVision() {
             {/* Texte vision avec filet vert */}
             <p style={{
               fontFamily: "var(--font-body)",
-              fontSize: "16px",
+              fontSize: "14px",
               fontWeight: 400,
               lineHeight: 1.85,
               color: "#4a4a4a",

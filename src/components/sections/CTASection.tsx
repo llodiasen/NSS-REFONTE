@@ -18,7 +18,7 @@ export default function CTASection() {
         style={{
           position: "absolute",
           inset: 0,
-          background: "rgba(7,26,16,0.88)",
+          background: "rgba(25,53,36,0.94)",
           zIndex: 0,
         }}
       />
@@ -38,7 +38,7 @@ export default function CTASection() {
         <span
           style={{
             fontFamily: "var(--font-body)",
-            fontSize: "11px",
+            fontSize: "9px",
             fontWeight: 600,
             textTransform: "uppercase",
             letterSpacing: "2.5px",
@@ -54,7 +54,7 @@ export default function CTASection() {
         <h2
           style={{
             fontFamily: "var(--font-display)",
-            fontSize: "clamp(28px, 3vw, 38px)",
+            fontSize: "clamp(21px, 3vw, 34px)",
             fontWeight: 400,
             lineHeight: 1.18,
             color: "#ffffff",
@@ -68,7 +68,7 @@ export default function CTASection() {
         <p
           style={{
             fontFamily: "var(--font-body)",
-            fontSize: "16px",
+            fontSize: "14px",
             lineHeight: 1.7,
             color: "#ffffff",
             maxWidth: "680px",
@@ -85,7 +85,7 @@ export default function CTASection() {
             display: "flex",
             gap: "16px",
             justifyContent: "center",
-            flexWrap: "wrap",
+            flexWrap: "nowrap",
           }}
         >
           <Link
@@ -97,14 +97,17 @@ export default function CTASection() {
               fontWeight: 600,
               color: "#ffffff",
               background: "var(--green-600)",
-              padding: "14px 32px",
+              padding: "8px 0",
+              width: "140px",
+              textAlign: "center",
               borderRadius: "4px",
               textDecoration: "none",
               display: "inline-block",
+              whiteSpace: "nowrap",
               transition: "background 0.2s ease, transform 0.2s ease",
             }}
           >
-            Adhérer au mouvement
+            Adhérer
           </Link>
           <Link
             href="/fr/contact"
@@ -114,7 +117,10 @@ export default function CTASection() {
               fontWeight: 500,
               color: "#ffffff",
               border: "1px solid rgba(255,255,255,0.4)",
-              padding: "14px 32px",
+              padding: "8px 0",
+              width: "140px",
+              textAlign: "center",
+              whiteSpace: "nowrap",
               borderRadius: "4px",
               textDecoration: "none",
               display: "inline-block",
@@ -129,7 +135,7 @@ export default function CTASection() {
       <style>{`
         .cta-btn-primary:hover { background: var(--green-700) !important; transform: translateY(-2px); }
         @media (max-width: 640px) {
-          .cta-btn-primary { width: 100%; text-align: center; }
+          .cta-btn-primary { font-size: 12px !important; }
         }
       `}</style>
     </section>

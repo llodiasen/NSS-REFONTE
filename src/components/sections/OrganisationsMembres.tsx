@@ -114,7 +114,7 @@ export default function OrganisationsMembres({ locale: _locale }: { locale: stri
           </div>
 
           {/* Titre */}
-          <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px,3.5vw,40px)", fontWeight: 400, color: "#1a3520", margin: "0 0 14px", lineHeight: 1.15 }}>
+          <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(21px,3.5vw,36px)", fontWeight: 400, color: "#1a3520", margin: "0 0 14px", lineHeight: 1.15 }}>
             Nos organisations{" "}
             <em style={{ fontStyle: "italic", color: "#5c8a3c" }}>membres.</em>
           </h2>

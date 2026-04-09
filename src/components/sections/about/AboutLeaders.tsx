@@ -32,17 +32,17 @@ export default function AboutLeaders() {
         {/* Tag */}
         <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "20px" }}>
           <span aria-hidden="true" style={{ display: "block", width: "28px", height: "1px", background: "rgba(29,122,82,0.35)", flexShrink: 0 }} />
-          <span style={{ fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2.5px", color: "var(--green-600)", whiteSpace: "nowrap" }}>
+          <span style={{ fontFamily: "var(--font-body)", fontSize: "9px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2.5px", color: "var(--green-600)", whiteSpace: "nowrap" }}>
             Gouvernance
           </span>
           <span aria-hidden="true" style={{ display: "block", width: "28px", height: "1px", background: "rgba(29,122,82,0.35)", flexShrink: 0 }} />
         </div>
 
         {/* Titre + sous-titre */}
-        <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 3vw, 38px)", fontWeight: 400, lineHeight: 1.18, color: "var(--text-primary)", marginBottom: "12px" }}>
+        <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(21px, 3vw, 34px)", fontWeight: 400, lineHeight: 1.18, color: "var(--text-primary)", marginBottom: "12px" }}>
           Un mouvement dirigé par ses membres.
         </h2>
-        <p style={{ fontFamily: "var(--font-body)", fontSize: "16px", lineHeight: 1.65, color: "var(--text-muted)", marginBottom: "52px", maxWidth: "560px" }}>
+        <p style={{ fontFamily: "var(--font-body)", fontSize: "14px", lineHeight: 1.65, color: "var(--text-muted)", marginBottom: "52px", maxWidth: "560px" }}>
           Depuis la 1ère Assemblée Générale en 2017, toutes les instances de NSS sont constituées à 100% de femmes rurales.
         </p>
 
