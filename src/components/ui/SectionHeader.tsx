@@ -90,7 +90,7 @@ export default function SectionHeader({
         <p
           style={{
             fontFamily: "var(--font-body)",
-            fontSize: "14px",
+            fontSize: "clamp(14px, 1.5vw, 17px)",
             fontWeight: 400,
             lineHeight: 1.65,
             color: subtitleColor,
