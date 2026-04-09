@@ -126,7 +126,7 @@ export default function BlogArticleSidebar({ related, locale, categories, active
                     <span style={{ display: "inline-block", fontFamily: "var(--font-body)", fontSize: "10px", fontWeight: 600, letterSpacing: "1px", textTransform: "uppercase", background: b.bg, color: b.color, borderRadius: "12px", padding: "2px 8px", marginBottom: "8px" }}>
                       {a.category}
                     </span>
-                    <p style={{ fontFamily: "var(--font-body)", fontSize: "15px", fontWeight: 500, color: "var(--text-primary)", lineHeight: 1.45 }}>
+                    <p style={{ fontFamily: "var(--font-body)", fontSize: "15px", fontWeight: 500, color: "var(--text-primary)", lineHeight: 1.45, textAlign: "justify" }}>
                       {a.title}
                     </p>
                   </div>
