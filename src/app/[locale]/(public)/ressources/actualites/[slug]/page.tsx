@@ -9,6 +9,8 @@ import CloudinaryGallery from "@/components/sections/blog/CloudinaryGallery";
 import CTASection from "@/components/sections/CTASection";
 import ArticleMeta from "@/components/sections/blog/ArticleMeta";
 
+export const dynamic = "force-dynamic";
+
 const BADGE: Record<string, { bg: string; color: string }> = {
   Presse:      { bg: "#fef3c7", color: "#92400e" },
   Partenariat: { bg: "#d1fae5", color: "#065f46" },
