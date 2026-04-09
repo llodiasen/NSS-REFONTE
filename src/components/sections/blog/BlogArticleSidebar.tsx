@@ -117,10 +117,10 @@ export default function BlogArticleSidebar({ related, locale, categories, active
                 <Link
                   key={a.id}
                   href={`/${locale}/${basePath}/${a.slug}`}
-                  style={{ display: "flex", gap: "14px", textDecoration: "none", alignItems: "flex-start" }}
+                  style={{ display: "flex", gap: "14px", textDecoration: "none", alignItems: "stretch" }}
                 >
-                  <div style={{ width: "100px", height: "76px", borderRadius: "10px", overflow: "hidden", flexShrink: 0, position: "relative" }}>
-                    <Image src={articleImage(a)} alt={a.title} fill style={{ objectFit: "cover" }} sizes="100px" />
+                  <div style={{ width: "110px", minHeight: "90px", borderRadius: "10px", overflow: "hidden", flexShrink: 0, position: "relative" }}>
+                    <Image src={articleImage(a)} alt={a.title} fill style={{ objectFit: "cover" }} sizes="110px" />
                   </div>
                   <div style={{ flex: 1 }}>
                     <span style={{ display: "inline-block", fontFamily: "var(--font-body)", fontSize: "10px", fontWeight: 600, letterSpacing: "1px", textTransform: "uppercase", background: b.bg, color: b.color, borderRadius: "12px", padding: "2px 8px", marginBottom: "8px" }}>

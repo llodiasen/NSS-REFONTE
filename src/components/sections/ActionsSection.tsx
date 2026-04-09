@@ -243,7 +243,7 @@ export default function ActionsSection() {
           grid-template-columns: repeat(3, 1fr);
           gap: 20px;
         }
-        .evt-voir-btn:hover { background: #EAF3DE !important; }
+        .evt-voir-btn:hover { background: #163820 !important; }
         .evt-btn:hover { opacity: 0.85; }
         @media (max-width: 1024px) { .evt-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 640px)  { .evt-grid { grid-template-columns: 1fr; } }

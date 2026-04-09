@@ -55,7 +55,7 @@ export default function CloudinaryGalleryClient({ images }: Props) {
   const smalls    = preview.slice(1);
 
   return (
-    <section style={{ borderRadius: "12px", padding: "32px 28px", margin: "40px 0" }}>
+    <section style={{ margin: "40px 0" }}>
 
       {/* En-tête */}
       <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: "20px", flexWrap: "wrap", gap: "8px" }}>

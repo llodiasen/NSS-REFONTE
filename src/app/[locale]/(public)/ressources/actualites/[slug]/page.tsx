@@ -36,7 +36,7 @@ function readingTime(text: string): number {
 }
 
 function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+  return new Date(iso).toLocaleDateString("fr-FR", { day: "2-digit", month: "2-digit", year: "numeric" });
 }
 
 function capitalize(str: string) {
@@ -85,7 +85,7 @@ function renderContent(content: string, dropCap = true): React.ReactNode[] {
       const first = block.charAt(0);
       const rest = block.slice(1);
       nodes.push(
-        <p key={i} style={{ fontFamily: "var(--font-body)", fontSize: "17px", lineHeight: 1.85, color: "#1a1a1a", marginBottom: "24px", textAlign: "justify" }}>
+        <p key={i} style={{ fontFamily: "var(--font-body)", fontSize: "15px", lineHeight: 1.85, color: "#1a1a1a", marginBottom: "24px", textAlign: "justify" }}>
           <span aria-hidden="true" style={{ fontFamily: "var(--font-display)", fontSize: "60px", fontWeight: 400, lineHeight: 0.75, color: "var(--green-700)", float: "left", marginRight: "8px", marginTop: "8px" }}>{first}</span>
           {renderInline(rest)}
         </p>
@@ -94,7 +94,7 @@ function renderContent(content: string, dropCap = true): React.ReactNode[] {
     }
 
     nodes.push(
-      <p key={i} style={{ fontFamily: "var(--font-body)", fontSize: "17px", lineHeight: 1.85, color: "#1a1a1a", marginBottom: "24px", textAlign: "justify" }}>
+      <p key={i} style={{ fontFamily: "var(--font-body)", fontSize: "15px", lineHeight: 1.85, color: "#1a1a1a", marginBottom: "24px", textAlign: "justify" }}>
         {renderInline(block)}
       </p>
     );
@@ -165,7 +165,7 @@ export default async function ActualitesSlugPage({ params }: Props) {
       <section style={{ background: "var(--green-900)", position: "relative", overflow: "hidden", minHeight: "360px" }}>
         <Image src={coverSrc} alt="" aria-hidden="true" fill style={{ objectFit: "cover", objectPosition: "center 30%", zIndex: 0 }} sizes="100vw" priority />
         <div aria-hidden="true" style={{ position: "absolute", inset: 0, background: ["linear-gradient(to right, rgba(0,0,0,0.97) 0%, rgba(3,8,5,0.95) 40%, rgba(6,14,9,0.88) 65%, rgba(0,0,0,0.70) 100%)", "linear-gradient(to bottom, rgba(0,0,0,0.40) 0%, transparent 35%, rgba(0,0,0,0.35) 100%)", "radial-gradient(ellipse 70% 50% at 20% 80%, rgba(45,154,106,0.08), transparent 65%)"].join(", "), zIndex: 1 }} />
-        <div style={{ position: "relative", zIndex: 2, maxWidth: "var(--container-max)", margin: "0 auto", padding: "80px var(--container-pad) 48px" }}>
+        <div style={{ position: "relative", zIndex: 2, maxWidth: "var(--container-max)", margin: "0 auto", padding: "48px var(--container-pad) 32px" }}>
           <div style={{ maxWidth: "820px" }}>
             <p style={{ fontFamily: "var(--font-body)", fontSize: "12px", color: "rgba(255,255,255,0.4)", marginBottom: "28px" }}>
               <Link href={`/${locale}`} style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none" }}>Accueil</Link>
@@ -179,12 +179,10 @@ export default async function ActualitesSlugPage({ params }: Props) {
                 {article.category}
               </span>
             </div>
-            <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 42px)", fontWeight: 400, lineHeight: 1.15, color: "#ffffff", marginBottom: "0" }}>
+            <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(20px, 2.8vw, 30px)", fontWeight: 400, lineHeight: 1.15, color: "#ffffff", marginBottom: "0" }}>
               {article.title}
             </h1>
-            {article.author && (
-              <ArticleMeta author={article.author} date={capitalize(formatDate(article.publishedAt))} readTime={`${minutes} min de lecture`} dark />
-            )}
+            <ArticleMeta date={formatDate(article.publishedAt)} readTime={`${minutes} min de lecture`} dark />
           </div>
         </div>
       </section>
@@ -197,7 +195,7 @@ export default async function ActualitesSlugPage({ params }: Props) {
 
             {/* Image de couverture */}
             <figure style={{ margin: "0 0 40px" }}>
-              <div style={{ borderRadius: "12px", overflow: "hidden", height: "460px", position: "relative" }}>
+              <div className="article-cover" style={{ borderRadius: "12px", overflow: "hidden", height: "460px", position: "relative" }}>
                 <Image src={coverSrc} alt={article.title} fill style={{ objectFit: "cover", objectPosition: "center 30%" }} sizes="(max-width: 768px) 100vw, 800px" priority />
               </div>
               {(article.stats?.length || article.coverCaption) && (
@@ -339,7 +337,7 @@ export default async function ActualitesSlugPage({ params }: Props) {
 
       <style>{`
         @media (max-width: 1024px) { .article-layout { grid-template-columns: 1fr !important; gap: 48px !important; } }
-        @media (max-width: 768px)  { .article-layout { padding: 40px 24px !important; } .gallery-grid { grid-template-columns: 1fr !important; } }
+        @media (max-width: 768px)  { .article-layout { padding: 40px 24px !important; } .gallery-grid { grid-template-columns: 1fr !important; } .article-cover { height: 220px !important; } }
       `}</style>
     </>
   );

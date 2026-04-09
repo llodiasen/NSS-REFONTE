@@ -40,7 +40,7 @@ export default function AboutSection() {
               <span
                 style={{
                   fontFamily: "var(--font-display)",
-                  fontSize: "13px",
+                  fontSize: "18px",
                   fontStyle: "italic",
                   color: "#3B6D11",
                   letterSpacing: "0.04em",
@@ -55,7 +55,7 @@ export default function AboutSection() {
               style={{
                 fontFamily: "var(--font-display)",
                 fontSize: "clamp(24px, 2.6vw, 36px)",
-                fontWeight: 700,
+                fontWeight: 400,
                 lineHeight: 1.18,
                 color: "var(--text-primary)",
                 marginBottom: "16px",
