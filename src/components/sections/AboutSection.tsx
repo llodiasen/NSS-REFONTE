@@ -1,7 +1,13 @@
+"use client";
+
 import Link from "next/link";
-import Image from "next/image";
+import { useState } from "react";
+
+const VIDEO_URL = "https://res.cloudinary.com/dtjvjlkcc/video/upload/q_auto/f_auto/v1775741043/Mariama_Sonko_-_Chairwoman_of_the_Nous_sommes_la_SOLUTION_movement_S%C3%A9negal_--_SeedIsLife_ak3z9z.mp4";
+const THUMB_URL = "https://res.cloudinary.com/dtjvjlkcc/image/upload/q_auto/f_auto/v1775741948/Mariama_sonko_presidente_nss_hjukz0.jpg";
 
 export default function AboutSection() {
+  const [playing, setPlaying] = useState(false);
   return (
     <section style={{ background: "#ffffff", overflow: "hidden" }}>
       <div
@@ -123,115 +129,83 @@ export default function AboutSection() {
             </div>
           </div>
 
-          {/* ── Colonne droite — Photo centrée ── */}
+          {/* ── Colonne droite — Vidéo pleine hauteur ── */}
           <div
             style={{
+              position: "relative",
               display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
+              flexDirection: "column",
             }}
           >
+            {/* Bloc vidéo */}
             <div
               style={{
                 position: "relative",
                 width: "100%",
-                maxWidth: "460px",
+                flex: 1,
+                minHeight: "400px",
+                borderRadius: "16px",
+                overflow: "hidden",
+                boxShadow: "0 16px 48px rgba(0,0,0,0.18)",
+                border: "4px solid #ffffff",
+                zIndex: 2,
+                background: "#0d2015",
+                cursor: playing ? "default" : "pointer",
               }}
+              onClick={() => !playing && setPlaying(true)}
             >
-              {/* Blob décoratif derrière la photo */}
-              <div
-                aria-hidden="true"
-                style={{
-                  position: "absolute",
-                  top: "50%",
-                  left: "50%",
-                  transform: "translate(-50%, -50%)",
-                  width: "420px",
-                  height: "420px",
-                  background: "#3B6D11",
-                  opacity: 0.10,
-                  borderRadius: "60% 40% 55% 45% / 50% 60% 40% 50%",
-                  zIndex: 0,
-                }}
-              />
-
-              {/* Grille de points — bas-droite */}
-              <svg
-                aria-hidden="true"
-                style={{
-                  position: "absolute",
-                  bottom: "-16px",
-                  right: "-16px",
-                  opacity: 0.18,
-                  zIndex: 1,
-                }}
-                width="96"
-                height="96"
-                viewBox="0 0 96 96"
-                fill="none"
-              >
-                {Array.from({ length: 6 }).map((_, row) =>
-                  Array.from({ length: 6 }).map((_, col) => (
-                    <circle
-                      key={`${row}-${col}`}
-                      cx={col * 16 + 8}
-                      cy={row * 16 + 8}
-                      r="2.5"
-                      fill="#3B6D11"
-                    />
-                  ))
-                )}
-              </svg>
-
-              {/* Photo principale — centrée, pleine largeur */}
-              <div
-                style={{
-                  position: "relative",
-                  width: "100%",
-                  height: "400px",
-                  borderRadius: "16px",
-                  overflow: "hidden",
-                  boxShadow: "0 16px 48px rgba(0,0,0,0.18)",
-                  border: "4px solid #ffffff",
-                  zIndex: 2,
-                }}
-              >
-                <Image
-                  src="https://wasafrica.org/wp-content/uploads/2024/11/Foire-Djimini-2024-4.jpg"
-                  alt="Foire Djimini 2024 — Nous Sommes la Solution"
-                  fill
-                  style={{ objectFit: "cover", objectPosition: "center" }}
-                  sizes="(max-width: 768px) 100vw, 460px"
+              {playing ? (
+                <video
+                  src={VIDEO_URL}
+                  controls
+                  autoPlay
+                  playsInline
+                  style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
                 />
+              ) : (
+                <>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={THUMB_URL}
+                    alt="Mariama Sonko — Nous Sommes la Solution"
+                    style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+                  />
+                  <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.30)" }} />
+                  <button
+                    aria-label="Regarder la vidéo"
+                    className="about-play-btn"
+                    style={{
+                      position: "absolute",
+                      top: "50%",
+                      left: "50%",
+                      transform: "translate(-50%, -50%)",
+                      width: "72px",
+                      height: "72px",
+                      borderRadius: "50%",
+                      background: "rgba(255,255,255,0.92)",
+                      border: "none",
+                      cursor: "pointer",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      zIndex: 3,
+                      transition: "transform 0.2s ease, background 0.2s ease",
+                    }}
+                    onClick={(e) => { e.stopPropagation(); setPlaying(true); }}
+                  >
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M6 4.75L19.25 12 6 19.25V4.75Z" fill="#1D9E75" />
+                    </svg>
+                  </button>
+                </>
+              )}
+            </div>
 
-                {/* Tag pill — sur la photo, haut-gauche */}
-                <div
-                  style={{
-                    position: "absolute",
-                    top: "16px",
-                    left: "16px",
-                    background: "#3B6D11",
-                    color: "#ffffff",
-                    fontSize: "12px",
-                    fontWeight: 600,
-                    padding: "6px 14px",
-                    borderRadius: "20px",
-                    zIndex: 10,
-                    letterSpacing: "0.03em",
-                    whiteSpace: "nowrap",
-                    backdropFilter: "blur(4px)",
-                  }}
-                >
-                  NSS — depuis 2011
-                </div>
-              </div>
-
-              {/* Badge flottant — bas-gauche, chevauchant la photo */}
+              {/* Badge — sous la vidéo */}
               <div
                 style={{
-                  position: "absolute",
-                  bottom: "-20px",
-                  left: "24px",
+                  marginTop: "16px",
+                  alignSelf: "flex-start",
                   background: "#ffffff",
                   borderRadius: "12px",
                   border: "0.5px solid rgba(0,0,0,0.08)",
@@ -240,7 +214,6 @@ export default function AboutSection() {
                   display: "flex",
                   alignItems: "center",
                   gap: "12px",
-                  zIndex: 10,
                   whiteSpace: "nowrap",
                 }}
               >
@@ -286,13 +259,16 @@ export default function AboutSection() {
                     Agir pour l&apos;agriculture durable
                   </p>
                 </div>
-              </div>
             </div>
           </div>
         </div>
       </div>
 
       <style>{`
+        .about-play-btn:hover {
+          transform: translate(-50%, -50%) scale(1.1) !important;
+          background: rgba(255,255,255,1) !important;
+        }
         .about-btn {
           display: inline-block;
           background: #3B6D11;

@@ -1,206 +1,252 @@
-import Image from "next/image";
 import Link from "next/link";
-import SectionHeader from "@/components/ui/SectionHeader";
+import Image from "next/image";
 
-interface ActionCard {
-  num: string;
-  title: string;
+/* ─── Types ─────────────────────────────────────────────── */
+interface Evenement {
+  id: string;
+  titre: string;
   description: string;
-  meta: string[];
-  image: string;
+  type: "Formation" | "Rencontre" | "Atelier";
+  statut: "avenir" | "passe";
+  date: string;
+  lieu: string;
+  tags: string[];
   href: string;
+  image: string;
 }
 
-const ACTIONS: ActionCard[] = [
+/* ─── Données — 1 à venir + 2 passés ────────────────────── */
+const EVENEMENTS: Evenement[] = [
   {
-    num: "01",
-    title: "Camp international de formation sur l\u2019Agroécologie Paysanne",
-    description:
-      "Formation dans les fermes agricoles de base et l\u2019utilisation pour protéger les systèmes de production agroécologiques.",
-    meta: ["1 an", "5 pays", "Souveraineté familiale"],
-    image: "/images/galerie/agro-1.jpg",
+    id: "e1",
+    titre: "Camp international de formation sur l'Agroécologie Paysanne",
+    description: "Formation dans les fermes agricoles de base pour protéger les systèmes de production agroécologiques.",
+    type: "Formation",
+    statut: "avenir",
+    date: "14–21 juin 2025",
+    lieu: "Dakar, Sénégal",
+    tags: ["5 pays", "Souveraineté familiale", "1 semaine"],
     href: "/fr/programmes/cifap",
+    image: "/images/actualites/cifap-2024.jpg",
   },
   {
-    num: "02",
-    title: "Engagement des Médias pour les Nouvelles, l\u2019Agriculture et le Foncier",
-    description:
-      "Aider les médias à produire et diffuser les savoirs traditionnels et culturels qui guident notre communication.",
-    meta: ["Médias", "Sénégal", "Formation terrain"],
-    image: "/images/galerie/plaidoyer-1.jpg",
-    href: "/fr/programmes/emmap",
-  },
-  {
-    num: "03",
-    title: "Voix des Femmes Rurales",
-    description:
-      "Donner des outils de communication et de plaidoyer aux femmes rurales sur l\u2019alimentation et la santé de leurs enfants.",
-    meta: ["Sénégal", "3 pays d\u2019extension"],
+    id: "e4",
+    titre: "Voix des femmes rurales — santé, alimentation et droits",
+    description: "Donner des outils de communication et de plaidoyer aux femmes rurales sur l'alimentation et la santé.",
+    type: "Atelier",
+    statut: "passe",
+    date: "18 oct. 2024",
+    lieu: "Abidjan, Côte d'Ivoire",
+    tags: ["Droits", "Santé", "1 journée"],
+    href: "/fr/evenements",
     image: "/images/galerie/leader-1.jpg",
-    href: "/fr/mouvement",
+  },
+  {
+    id: "e5",
+    titre: "Semences paysannes et biodiversité agricole en Afrique de l'Ouest",
+    description: "Préserver et valoriser les semences paysannes comme patrimoine collectif et levier de souveraineté alimentaire.",
+    type: "Formation",
+    statut: "passe",
+    date: "5 mars 2024",
+    lieu: "Conakry, Guinée",
+    tags: ["Semences", "Biodiversité", "2 jours"],
+    href: "/fr/evenements",
+    image: "/images/galerie/formation-1.jpg",
   },
 ];
 
+/* ─── Badge type ─────────────────────────────────────────── */
+const TYPE_STYLE: Record<string, { bg: string; color: string }> = {
+  Formation: { bg: "#EAF3DE", color: "#27500A" },
+  Rencontre: { bg: "#D6EEF2", color: "#0E4C58" },
+  Atelier:   { bg: "#F3EAF8", color: "#5A2D7A" },
+};
+
+/* ─── Icônes SVG ─────────────────────────────────────────── */
+function IconCalendar({ color }: { color: string }) {
+  return (
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <rect x="3" y="4" width="18" height="18" rx="2" stroke={color} strokeWidth="1.8" />
+      <path d="M16 2v4M8 2v4M3 10h18" stroke={color} strokeWidth="1.8" strokeLinecap="round" />
+    </svg>
+  );
+}
+function IconPin({ color }: { color: string }) {
+  return (
+    <svg width="10" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke={color} strokeWidth="1.8" />
+      <circle cx="12" cy="9" r="2.5" stroke={color} strokeWidth="1.8" />
+    </svg>
+  );
+}
+
+/* ─── Carte ──────────────────────────────────────────────── */
+function CarteEvenement({ ev }: { ev: Evenement }) {
+  const avenir    = ev.statut === "avenir";
+  const imgBg     = avenir ? "#C0DD97" : "#D3D1C7";
+  const dateColor = avenir ? "#1D9E75" : "#888780";
+  const tagBg     = avenir ? "#EAF3DE" : "#EEEDE9";
+  const tagColor  = avenir ? "#27500A" : "#3a3a36";
+  const typeSt    = TYPE_STYLE[ev.type] ?? { bg: "#f0f0f0", color: "#444" };
+
+  return (
+    <div
+      className="evt-card"
+      style={{
+        background: "#ffffff",
+        borderRadius: "12px",
+        border: "0.5px solid rgba(0,0,0,0.10)",
+        overflow: "hidden",
+        display: "flex",
+        flexDirection: "column",
+        opacity: avenir ? 1 : 0.78,
+      }}
+    >
+      {/* Image */}
+      <div style={{ height: "180px", background: imgBg, position: "relative", flexShrink: 0, overflow: "hidden" }}>
+        <Image
+          src={ev.image}
+          alt={ev.titre}
+          fill
+          style={{ objectFit: "cover", objectPosition: "center", opacity: avenir ? 1 : 0.85 }}
+          sizes="(max-width: 768px) 100vw, 33vw"
+        />
+        {/* Badge type */}
+        <span style={{ position: "absolute", top: "12px", left: "12px", background: typeSt.bg, color: typeSt.color, fontFamily: "var(--font-body)", fontSize: "10px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", padding: "3px 10px", borderRadius: "20px" }}>
+          {ev.type}
+        </span>
+        {/* Badge statut */}
+        <span style={{ position: "absolute", top: "12px", right: "12px", background: avenir ? "#D6F5EB" : "#EEEDE9", color: avenir ? "#0E6E4A" : "#888780", fontFamily: "var(--font-body)", fontSize: "10px", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", padding: "3px 10px", borderRadius: "20px" }}>
+          {avenir ? "À venir" : "Passé"}
+        </span>
+      </div>
+
+      {/* Corps */}
+      <div style={{ padding: "20px", display: "flex", flexDirection: "column", flex: 1, gap: "10px" }}>
+
+        {/* Date + lieu */}
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
+          <span style={{ display: "flex", alignItems: "center", gap: "5px", fontFamily: "var(--font-body)", fontSize: "12px", fontWeight: 500, color: dateColor }}>
+            <IconCalendar color={dateColor} />{ev.date}
+          </span>
+          <span style={{ display: "flex", alignItems: "center", gap: "5px", fontFamily: "var(--font-body)", fontSize: "12px", color: "#4a4a45" }}>
+            <IconPin color="#4a4a45" />{ev.lieu}
+          </span>
+        </div>
+
+        {/* Titre */}
+        <h3 style={{ fontFamily: "var(--font-display)", fontSize: "18px", fontWeight: 400, lineHeight: 1.3, color: "var(--text-primary)", margin: 0 }}>
+          {ev.titre}
+        </h3>
+
+        {/* Description */}
+        <p style={{ fontFamily: "var(--font-body)", fontSize: "15px", lineHeight: 1.6, color: "var(--text-primary)", margin: 0, textAlign: "justify" }}>
+          {ev.description}
+        </p>
+
+        {/* Tags */}
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
+          {ev.tags.map((tag) => (
+            <span key={tag} style={{ background: tagBg, color: tagColor, fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 500, padding: "3px 10px", borderRadius: "20px" }}>
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        {/* Bouton */}
+        <div style={{ marginTop: "auto", paddingTop: "12px" }}>
+          <Link
+            href={ev.href}
+            className="evt-btn"
+            style={{
+              display: "inline-block",
+              fontFamily: "var(--font-body)",
+              fontSize: "12px",
+              fontWeight: 600,
+              letterSpacing: "0.03em",
+              padding: "8px 18px",
+              borderRadius: "6px",
+              textDecoration: "none",
+              ...(avenir
+                ? { background: "#1D9E75", color: "#ffffff" }
+                : { background: "transparent", color: "#888780", border: "0.5px solid #D3D1C7" }),
+            }}
+          >
+            {avenir ? "S'inscrire" : "Voir le compte-rendu"}
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─── Section principale ─────────────────────────────────── */
 export default function ActionsSection() {
   return (
     <section style={{ background: "#ffffff" }}>
       <div
-        className="actions-inner"
         style={{
           maxWidth: "var(--container-max)",
           margin: "0 auto",
           padding: "var(--section-py) var(--container-pad)",
         }}
       >
-        <SectionHeader
-          label="Nos actions"
-          title="Former, informer, transformer."
-          subtitle="Des actions concrètes portées par les femmes rurales pour bâtir une agriculture durable, équitable et souveraine en Afrique de l'Ouest."
-        />
+        {/* ── Titre ── */}
+        <div style={{ textAlign: "center", marginBottom: "48px" }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "14px", marginBottom: "18px" }}>
+            <div style={{ width: "40px", height: "1px", background: "#1D9E75" }} />
+            <span style={{ fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "#1D9E75" }}>
+              Nos événements
+            </span>
+            <div style={{ width: "40px", height: "1px", background: "#1D9E75" }} />
+          </div>
+          <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(24px, 3vw, 34px)", fontWeight: 400, fontStyle: "normal", color: "var(--text-primary)", lineHeight: 1.18, margin: "0 0 16px" }}>
+            Se rencontrer, se former, agir ensemble.
+          </h2>
+          <p style={{ fontFamily: "var(--font-body)", fontSize: "16px", lineHeight: 1.65, color: "var(--text-primary)", maxWidth: "580px", margin: "0 auto" }}>
+            Formations, ateliers et rencontres portés par le réseau NSS pour renforcer les femmes rurales à travers l&apos;Afrique de l&apos;Ouest.
+          </p>
+        </div>
 
-        {/* Grid 3 colonnes */}
-        <div
-          className="actions-grid"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: "28px",
-          }}
-        >
-          {ACTIONS.map((action) => (
-            <div
-              key={action.num}
-              className="action-card"
-              style={{
-                background: "#ffffff",
-                borderRadius: "14px",
-                display: "flex",
-                flexDirection: "column",
-                overflow: "hidden",
-                boxShadow: "0 12px 40px rgba(0,0,0,0.1)",
-                transition: "transform 0.2s ease, box-shadow 0.2s ease",
-              }}
-            >
-              {/* Image */}
-              <div style={{ position: "relative", height: "240px", overflow: "hidden" }}>
-                <Image
-                  src={action.image}
-                  alt={action.title}
-                  fill
-                  style={{ objectFit: "cover", objectPosition: "center" }}
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-                {/* Overlay gradient */}
-                <div
-                  aria-hidden="true"
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    background: "linear-gradient(to top, rgba(10,38,24,0.7) 0%, transparent 60%)",
-                  }}
-                />
-                {/* Badge numéroté */}
-                <div
-                  aria-hidden="true"
-                  style={{
-                    position: "absolute",
-                    top: "16px",
-                    right: "16px",
-                    width: "36px",
-                    height: "36px",
-                    borderRadius: "50%",
-                    background: "rgba(255,255,255,0.12)",
-                    backdropFilter: "blur(8px)",
-                    WebkitBackdropFilter: "blur(8px)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontFamily: "var(--font-body)",
-                    fontSize: "12px",
-                    fontWeight: 500,
-                    color: "#ffffff",
-                    border: "1px solid rgba(255,255,255,0.2)",
-                  }}
-                >
-                  {action.num}
-                </div>
-              </div>
+        {/* ── Grille 3 cartes ── */}
+        <div className="evt-grid">
+          {EVENEMENTS.map((ev) => <CarteEvenement key={ev.id} ev={ev} />)}
+        </div>
 
-              {/* Body */}
-              <div style={{ padding: "28px", display: "flex", flexDirection: "column", flex: 1 }}>
-                <h3
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: "20px",
-                    fontWeight: 400,
-                    lineHeight: 1.25,
-                    color: "var(--text-primary)",
-                    marginBottom: "12px",
-                  }}
-                >
-                  {action.title}
-                </h3>
-                <p
-                  style={{
-                    fontFamily: "var(--font-body)",
-                    fontSize: "16px",
-                    fontWeight: 400,
-                    color: "var(--text-primary)",
-                    lineHeight: 1.7,
-                    marginBottom: "20px",
-                    textAlign: "justify",
-                  }}
-                >
-                  {action.description}
-                </p>
-                {/* Meta */}
-                <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "8px", marginBottom: "24px" }}>
-                  {action.meta.map((tag, i) => (
-                    <span key={tag} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                      {i > 0 && (
-                        <span aria-hidden="true" style={{ width: "4px", height: "4px", borderRadius: "50%", background: "var(--green-400)", flexShrink: 0 }} />
-                      )}
-                      <span style={{ fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 400, color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "0.5px" }}>
-                        {tag}
-                      </span>
-                    </span>
-                  ))}
-                </div>
-                {/* Bouton */}
-                <div style={{ marginTop: "auto" }}>
-                  <Link
-                    href={action.href}
-                    className="action-card-btn"
-                    style={{
-                      display: "inline-block",
-                      fontFamily: "var(--font-body)",
-                      fontSize: "13px",
-                      fontWeight: 600,
-                      letterSpacing: "0.3px",
-                      color: "#ffffff",
-                      background: "var(--green-600)",
-                      padding: "10px 22px",
-                      borderRadius: 0,
-                      textDecoration: "none",
-                      transition: "background 0.2s ease",
-                    }}
-                  >
-                    En savoir plus
-                  </Link>
-                </div>
-              </div>
-            </div>
-          ))}
+        {/* ── Bouton bas ── */}
+        <div style={{ textAlign: "center", marginTop: "48px" }}>
+          <Link
+            href="/fr/evenements"
+            className="evt-voir-btn"
+            style={{
+              display: "inline-block",
+              fontFamily: "var(--font-body)",
+              fontSize: "13px",
+              fontWeight: 600,
+              color: "#ffffff",
+              background: "#0f2b1a",
+              border: "none",
+              borderRadius: "6px",
+              padding: "10px 24px",
+              textDecoration: "none",
+              letterSpacing: "0.03em",
+            }}
+          >
+            Voir tous les événements →
+          </Link>
         </div>
       </div>
 
       <style>{`
-        .action-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
-        .action-card-btn:hover { background: var(--green-700) !important; }
-        @media (max-width: 768px) {
-          .actions-inner { padding: 60px 24px !important; }
-          .actions-grid { grid-template-columns: 1fr !important; }
+        .evt-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 20px;
         }
+        .evt-voir-btn:hover { background: #EAF3DE !important; }
+        .evt-btn:hover { opacity: 0.85; }
+        @media (max-width: 1024px) { .evt-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 640px)  { .evt-grid { grid-template-columns: 1fr; } }
       `}</style>
     </section>
   );

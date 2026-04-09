@@ -143,9 +143,10 @@ export default function ActualitesSection() {
                   {/* Excerpt */}
                   <p
                     style={{
-                      fontSize: "13px",
+                      fontSize: "15px",
                       color: "var(--text-primary)",
                       lineHeight: 1.6,
+                      textAlign: "justify",
                       flex: 1,
                       display: "-webkit-box",
                       WebkitLineClamp: 3,
@@ -213,7 +214,7 @@ export default function ActualitesSection() {
         .actu-cta:hover  { background: #fff !important; color: var(--green-600) !important; }
         @media (max-width: 768px) {
           .actu-inner { padding: 60px 24px !important; }
-          .actu-grid { grid-template-columns: 1fr; }
+          .actu-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </section>
