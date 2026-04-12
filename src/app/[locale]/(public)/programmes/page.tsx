@@ -192,7 +192,7 @@ export default async function ProgrammesPage({
 
         {/* Sous-titre */}
         <p style={{ fontSize: "15px", color: "#7aab8a", lineHeight: 1.65, maxWidth: "480px", marginBottom: "32px" }}>
-          3 programmes complémentaires pour renforcer les capacités des femmes paysannes, créer des espaces d'échange et bâtir un mouvement durable en Afrique de l'Ouest.
+          3 programmes complémentaires pour renforcer les capacités des femmes paysannes, créer des espaces d&apos;échange et bâtir un mouvement durable en Afrique de l&apos;Ouest.
         </p>
 
         {/* Stats */}
