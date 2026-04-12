@@ -714,7 +714,7 @@ C'est dans cette optique que le mouvement panafricain invite toutes les parties 
     category: "Formation",
     author: "Tapha I Badji",
     sourceName: "Scoops de Ziguinchor",
-    canonical: "https://scoopsdeziguinchor.com/nss-cifap-3e-edition-bio-protecteurs-agroecologie/",
+    canonical: "https://scoopsdeziguinchor.com/ziguinchor-3eme-edition-cifap-a-niaguis-le-mouvement-nous-sommes-la-solution-nss-mise-sur-les-bio-protecteurs-en-agroecologie/",
     tags: ["CIFAP", "Bio-protecteurs", "Agroécologie", "Niaguis", "Femmes rurales", "NSS", "Formation", "Afrique de l'Ouest"],
     coverCaption: "3e édition du CIFAP à Niaguis — © Scoops de Ziguinchor / Tapha I Badji",
     content: `La 3ème édition du Camp International de Formation en Agroécologie Paysanne (CIFAP) organisé du 1er au 7 septembre 2024 au Centre Karonghen Wati Naning de Niaguis a, cette année encore, mobilisé des membres de 14 associations de femmes rurales ouest-africaines. Des actrices de développement qui ont eu droit à des séances d'échanges et de partage axées sur « Les techniques de production et d'utilisation des bio-protecteurs en agroécologie » — thème de cette 3ème édition. Un thème qui s'inscrit dans une suite logique d'un schéma élaboré et mis en branle par le Mouvement Nous Sommes La Solution.
