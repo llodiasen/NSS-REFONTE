@@ -144,6 +144,7 @@ Les enseignements du CIFAP 2025 seront au cœur des prochaines rencontres de la 
       "https://res.cloudinary.com/dtjvjlkcc/image/upload/q_auto/f_auto/v1776000228/Agro%C3%A9cologie_et_changement_de_paradigme_pour_une_souverainet%C3%A9_alimentaire_4_tmo5iz.jpg",
     ],
     videoUrl: "/Videos/Agro%C3%A9cologie%20et%20changement%20de%20paradigme%20pour%20une%20souverainet%C3%A9%20alimentaire%20-%20%C3%80%20Niaguis.mp4",
+    canonical: "https://www.seneweb.com/fr/news/Agriculture/agroecologie-et-changement-de-paradigme-pour-une-souverainete-alimentaire-a-niaguis-les-organisations-paysannes-de-lafrique-de-louest-portent-le-plaidoyer_n_468870.html",
     content: `Après une immersion d'une semaine au centre agroécologique de Niaguis, les organisations paysannes de femmes du Burkina Faso, de la Gambie, du Ghana, de la Guinée-Bissau, de la Guinée, de la Côte d'Ivoire, du Mali et du Sénégal rentrent renforcées et mieux outillées pour aider leurs communautés respectives dans la promotion de l'agroécologie et les sensibiliser sur la nécessité de rompre avec l'agriculture intensive. À charge pour ces dernières de porter le plaidoyer communautaire auprès de leur gouvernement pour accompagner la pratique agroécologique, seule voie, à leur avis, pour arriver à la souveraineté alimentaire, avec une alimentation plus saine.
 
 Ce camp a regroupé une centaine de participants, novices et habitués, sur la thématique « Les techniques de conduite des cultures horticoles en agroécologie ».
