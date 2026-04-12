@@ -200,7 +200,7 @@ export default function ActionsSection() {
             </span>
             <div style={{ width: "40px", height: "1px", background: "#1D9E75" }} />
           </div>
-          <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(21px, 3vw, 34px)", fontWeight: 400, fontStyle: "normal", color: "var(--text-primary)", lineHeight: 1.18, margin: "0 0 16px" }}>
+          <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(21px, 3vw, 30px)", fontWeight: 400, fontStyle: "normal", color: "var(--text-primary)", lineHeight: 1.18, margin: "0 0 16px" }}>
             Se rencontrer, se former, agir ensemble.
           </h2>
           <p style={{ fontFamily: "var(--font-body)", fontSize: "clamp(14px, 1.5vw, 17px)", lineHeight: 1.65, color: "var(--text-primary)", maxWidth: "580px", margin: "0 auto" }}>

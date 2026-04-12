@@ -33,10 +33,10 @@ export default async function HomePage() {
       <PartenairesSection />
       {/* 05 — Médiathèque */}
       <MediathequeSection />
-      {/* 06 — Actualités */}
-      <ActualitesSection />
-      {/* 07 — CTA */}
+      {/* 06 — CTA */}
       <CTASection />
+      {/* 07 — Actualités */}
+      <ActualitesSection />
       {/* 08 — Nous contacter */}
       <ContactHomeSection />
     </>

@@ -74,7 +74,7 @@ export default function SectionHeader({
       <h2
         style={{
           fontFamily: "var(--font-display)",
-          fontSize: "clamp(21px, 3vw, 34px)",
+          fontSize: "clamp(21px, 3vw, 30px)",
           fontWeight: 400,
           lineHeight: 1.18,
           color: titleColor,

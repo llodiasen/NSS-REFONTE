@@ -1,104 +1,128 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useLocale } from "next-intl";
-import { Menu } from "lucide-react";
-import { ChevronDown } from "lucide-react";
-import HeaderTicker from "./HeaderTicker";
-import HeaderLangSwitcher from "./HeaderLangSwitcher";
-import HeaderDropdown from "./HeaderDropdown";
-import MobileMenu from "./MobileMenu";
-import { LOCALES } from "./nav-config";
-
-const TOP_LINKS = [
-  { label: "FAQ", href: "ressources/faq" },
-];
+import { Menu, X } from "lucide-react";
+import MegaMenuPanel from "./MegaMenuPanel";
 
 const MAIN_NAV = [
-  {
-    label: "À propos",
-    children: [
-      { label: "À propos de NSS",  description: "Histoire, vision et gouvernance", href: "a-propos" },
-      { label: "Le mouvement",     description: "Valeurs, structure et membres",   href: "mouvement" },
-    ],
-  },
-  {
-    label: "Programmes",
-    children: [
-      { label: "CIFAP", description: "Formation agroécologique",  href: "programmes/cifap" },
-      { label: "EMMAP", description: "Médias, Minorités & Paix",  href: "programmes/emmap" },
-    ],
-  },
+  { label: "Notre mission", href: "a-propos" },
+  { label: "Nos programmes", href: "programmes/cifap" },
   { label: "Actualités", href: "ressources/actualites" },
-  {
-    label: "Médias",
-    children: [
-      { label: "Galerie", description: "Photos du terrain",  href: "ressources/galerie" },
-      { label: "Vidéos",  description: "Témoignages vidéos", href: "ressources/videos"  },
-    ],
-  },
-  { label: "Contact", href: "contact" },
+  { label: "Ressources", href: "ressources/galerie" },
 ];
+
+const BANNER_KEY = "nss-banner-dismissed";
+const LANG_KEY   = "nss-lang";
 
 export default function Header() {
   const locale   = useLocale();
   const pathname = usePathname();
 
-  const [isScrolled,   setIsScrolled]   = useState(false);
-  const [mobileOpen,   setMobileOpen]   = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [bannerVisible, setBannerVisible] = useState(false);
+  const [isScrolled,    setIsScrolled]    = useState(false);
+  const [menuOpen,      setMenuOpen]      = useState(false);
+  const [currentLang,   setCurrentLang]   = useState(locale);
+  const containerRef = useRef<HTMLDivElement>(null);
 
+  // Banner: check sessionStorage
   useEffect(() => {
-    const fn = () => setIsScrolled(window.scrollY > 8);
+    if (typeof window !== "undefined") {
+      const dismissed = sessionStorage.getItem(BANNER_KEY);
+      if (!dismissed) setBannerVisible(true);
+    }
+  }, []);
+
+  // Lang: restore from localStorage
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem(LANG_KEY);
+      if (saved) setCurrentLang(saved);
+    }
+  }, []);
+
+  // Scroll
+  useEffect(() => {
+    const fn = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", fn, { passive: true });
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
-  useEffect(() => { setMobileOpen(false); setOpenDropdown(null); }, [pathname]);
+  // Close menu on route change
+  useEffect(() => { setMenuOpen(false); }, [pathname]);
 
+  // Escape key
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
-  }, [mobileOpen]);
-
-  useEffect(() => {
-    const fn = (e: KeyboardEvent) => {
-      if (e.key === "Escape") { setOpenDropdown(null); setMobileOpen(false); }
-    };
+    const fn = (e: KeyboardEvent) => { if (e.key === "Escape") setMenuOpen(false); };
     document.addEventListener("keydown", fn);
     return () => document.removeEventListener("keydown", fn);
   }, []);
 
-  const openDD    = (label: string) => { if (closeTimer.current) clearTimeout(closeTimer.current); setOpenDropdown(label); };
-  const startClose  = () => { closeTimer.current = setTimeout(() => setOpenDropdown(null), 130); };
-  const cancelClose = () => { if (closeTimer.current) clearTimeout(closeTimer.current); };
+  // Body scroll lock
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
 
-  const isActive = (path: string) =>
-    pathname === `/${locale}/${path}` || pathname.startsWith(`/${locale}/${path}/`);
+  const dismissBanner = useCallback(() => {
+    sessionStorage.setItem(BANNER_KEY, "1");
+    setBannerVisible(false);
+  }, []);
+
+  const switchLang = useCallback((code: string) => {
+    setCurrentLang(code);
+    localStorage.setItem(LANG_KEY, code);
+    const segs = pathname.split("/");
+    segs[1] = code;
+    window.location.href = segs.join("/");
+  }, [pathname]);
 
   return (
     <>
-      <header style={{
-        position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
-        boxShadow: isScrolled ? "0 1px 12px rgba(0,0,0,0.08)" : "none",
-        transition: "box-shadow 0.3s ease",
-      }}>
-
-        {/* ── TICKER ── */}
-        <div className="hdr-topbar">
-          <HeaderTicker />
-        </div>
+      <header
+        ref={containerRef}
+        style={{
+          position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
+          boxShadow: isScrolled ? "0 2px 8px rgba(0,0,0,0.08)" : "none",
+          transition: "box-shadow 0.3s ease",
+        }}
+      >
+        {/* ── BANDEAU ANNONCE ── */}
+        {bannerVisible && (
+          <div style={{
+            background: "#1a6b3c", height: "40px",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            padding: "0 20px", position: "relative",
+          }}>
+            <span style={{ fontSize: "12px", fontWeight: 500, color: "#ffffff", letterSpacing: "0.02em" }}>
+              500+ Associations de Femmes Rurales nous ont rejoints —{" "}
+              <Link href={`/${locale}/mouvement`} style={{ color: "#a8d5b5", textDecoration: "underline", fontWeight: 600 }}>
+                Découvrir →
+              </Link>
+            </span>
+            <button
+              onClick={dismissBanner}
+              aria-label="Fermer l'annonce"
+              style={{
+                position: "absolute", right: "16px", background: "transparent",
+                border: "none", color: "rgba(255,255,255,0.6)", cursor: "pointer",
+                padding: "4px", lineHeight: 1, fontSize: "16px",
+              }}
+            >
+              ✕
+            </button>
+          </div>
+        )}
 
         {/* ── BARRE PRINCIPALE ── */}
-        <div style={{ background: "#ffffff", borderBottom: "1px solid rgba(0,0,0,0.07)" }}>
+        <div style={{ background: "#ffffff", borderBottom: "0.5px solid #dde8de" }}>
           <div style={{
             maxWidth: "var(--container-max)", margin: "0 auto",
             padding: "0 var(--container-pad)",
-            display: "flex", alignItems: "center", height: "64px", gap: "24px",
+            display: "flex", alignItems: "center", height: "64px", gap: "16px",
           }}>
 
             {/* Logo */}
@@ -107,154 +131,119 @@ export default function Header() {
               textDecoration: "none", flexShrink: 0,
             }}>
               <div style={{
-                width: "36px", height: "36px", borderRadius: "8px",
+                width: "34px", height: "34px", borderRadius: "8px",
                 overflow: "hidden", background: "#0f2b1a",
                 display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
               }}>
-                <Image src="/images/logo/logo.webp" alt="NSS" width={32} height={32} style={{ objectFit: "contain" }} priority />
+                <Image src="/images/logo/logo.webp" alt="NSS" width={30} height={30} style={{ objectFit: "contain" }} priority />
               </div>
               <div className="hdr-logo-text">
-                <div style={{ fontFamily: "var(--font-display)", fontSize: "13px", color: "#0f2b1a", lineHeight: 1.2 }}>
+                <div style={{ fontFamily: "var(--font-display)", fontSize: "12px", fontWeight: 700, color: "#0f2b1a", lineHeight: 1.2 }}>
                   Nouvelles Semences du Sahel
                 </div>
-                <div style={{ fontFamily: "var(--font-body)", fontSize: "10px", color: "var(--text-muted)", letterSpacing: "0.02em" }}>
+                <div style={{ fontFamily: "var(--font-body)", fontSize: "9px", color: "#6b8c72", letterSpacing: "0.03em" }}>
                   Mouvement paysan · Afrique de l&apos;Ouest
                 </div>
               </div>
             </Link>
 
             {/* Nav desktop */}
-            <nav className="hdr-nav" aria-label="Navigation principale" style={{
+            <nav className="hdr-nav" role="navigation" aria-label="Navigation principale" style={{
               display: "flex", alignItems: "center", gap: "2px",
               flex: 1, justifyContent: "center",
             }}>
-              {MAIN_NAV.map((item) =>
-                item.children ? (
-                  <div key={item.label} style={{ position: "relative" }}
-                    onMouseEnter={() => openDD(item.label)}
-                    onMouseLeave={startClose}
-                  >
-                    <button
-                      onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
-                      aria-expanded={openDropdown === item.label}
-                      className="hdr-nav-btn"
-                      style={{
-                        display: "flex", alignItems: "center", gap: "4px",
-                        padding: "7px 11px", borderRadius: "7px", border: "none",
-                        background: openDropdown === item.label ? "rgba(26,107,60,0.07)" : "transparent",
-                        fontFamily: "var(--font-body)", fontSize: "14px", fontWeight: 500,
-                        color: openDropdown === item.label ? "#1a6b3c" : "#2a2a2a",
-                        cursor: "pointer", transition: "all 0.15s",
-                      }}
-                    >
-                      {item.label}
-                      <ChevronDown size={12} style={{
-                        transition: "transform 0.2s",
-                        transform: openDropdown === item.label ? "rotate(180deg)" : "none",
-                        color: "#aaa",
-                      }} />
-                    </button>
-                    {openDropdown === item.label && (
-                      <HeaderDropdown
-                        items={item.children.map(c => ({ ...c, href: `/${locale}/${c.href}` }))}
-                        onMouseEnter={cancelClose}
-                        onMouseLeave={startClose}
-                      />
-                    )}
-                  </div>
-                ) : (
-                  <Link key={item.label} href={`/${locale}/${item.href}`}
-                    className="hdr-nav-link"
+              {MAIN_NAV.map((item) => (
+                <Link key={item.label} href={`/${locale}/${item.href}`}
+                  className="hdr-nav-link"
+                  style={{
+                    padding: "6px 11px", borderRadius: "7px",
+                    fontFamily: "var(--font-body)", fontSize: "13px", fontWeight: 500,
+                    color: "#2a2a2a", textDecoration: "none",
+                    transition: "all 0.15s",
+                  }}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+
+            {/* Actions */}
+            <div className="hdr-actions" style={{ display: "flex", alignItems: "center", gap: "8px", flexShrink: 0 }}>
+              {/* Sélecteur langue */}
+              <div style={{ display: "flex", gap: "3px" }}>
+                {["FR", "EN", "WO", "HA"].map((lang) => (
+                  <button key={lang} onClick={() => switchLang(lang.toLowerCase())}
                     style={{
-                      padding: "7px 11px", borderRadius: "7px",
-                      fontFamily: "var(--font-body)", fontSize: "14px", fontWeight: 500,
-                      color: isActive(item.href!) ? "#1a6b3c" : "#2a2a2a",
-                      textDecoration: "none",
-                      background: isActive(item.href!) ? "rgba(26,107,60,0.07)" : "transparent",
+                      fontSize: "11px", fontWeight: 500, padding: "4px 8px",
+                      borderRadius: "5px", cursor: "pointer",
+                      border: "1px solid #d5e3d7",
+                      background: currentLang.toUpperCase() === lang ? "#0f2b1a" : "transparent",
+                      color: currentLang.toUpperCase() === lang ? "#fff" : "#6b8c72",
                       transition: "all 0.15s",
                     }}
                   >
-                    {item.label}
-                  </Link>
-                )
-              )}
-            </nav>
-
-            {/* Actions desktop */}
-            <div className="hdr-actions" style={{ display: "flex", alignItems: "center", gap: "8px", flexShrink: 0 }}>
-              <HeaderLangSwitcher currentLocale={locale} />
-
-              <Link href={`/${locale}/contact`} className="hdr-contact-btn"
+                    {lang}
+                  </button>
+                ))}
+              </div>
+              {/* Rejoindre */}
+              <Link href={`/${locale}/agir/rejoindre`}
                 style={{
-                  padding: "8px 15px", borderRadius: "8px",
-                  border: "1.5px solid #1a6b3c",
-                  fontFamily: "var(--font-body)", fontSize: "13px", fontWeight: 600,
-                  color: "#1a6b3c", textDecoration: "none", whiteSpace: "nowrap",
-                  transition: "all 0.15s",
-                }}
-              >
-                Contact
-              </Link>
-
-              <Link href={`/${locale}/agir/rejoindre`} className="hdr-join-btn"
-                style={{
-                  padding: "8px 16px", borderRadius: "8px",
-                  background: "#c0392b",
+                  padding: "8px 16px", borderRadius: "8px", background: "#1a6b3c",
                   fontFamily: "var(--font-body)", fontSize: "13px", fontWeight: 600,
                   color: "#fff", textDecoration: "none", whiteSpace: "nowrap",
                   transition: "background 0.15s",
                 }}
+                className="hdr-join-btn"
               >
                 Nous rejoindre
               </Link>
             </div>
 
-            {/* Burger */}
-            <button onClick={() => setMobileOpen(true)} aria-label="Ouvrir le menu"
-              className="hdr-burger"
-              style={{ display: "none", marginLeft: "auto", padding: "8px", border: "none", background: "transparent", cursor: "pointer", color: "#1a1a1a" }}
+            {/* Burger — toujours visible */}
+            <button
+              onClick={() => setMenuOpen((v) => !v)}
+              aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+              aria-expanded={menuOpen}
+              style={{
+                width: "44px", height: "44px", borderRadius: "8px", flexShrink: 0,
+                border: "2px solid #1a6b3c", background: menuOpen ? "#1a6b3c" : "transparent",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                cursor: "pointer", transition: "all 0.2s",
+              }}
             >
-              <Menu size={22} />
+              {menuOpen
+                ? <X size={20} color="#fff" strokeWidth={2} />
+                : <Menu size={20} color="#1a6b3c" strokeWidth={2} />
+              }
             </button>
           </div>
         </div>
       </header>
 
       {/* Spacer */}
-      <div className="hdr-spacer" aria-hidden="true" />
+      <div style={{ height: bannerVisible ? "104px" : "64px" }} aria-hidden="true" />
 
-      {mobileOpen && (
-        <MobileMenu
-          navItems={MAIN_NAV.map(item => ({
-            ...item,
-            href: item.href ? `/${locale}/${item.href}` : undefined,
-            children: item.children?.map(c => ({ ...c, href: `/${locale}/${c.href}` })),
-          }))}
-          topLinks={TOP_LINKS.map(l => ({ ...l, href: `/${locale}/${l.href}` }))}
-          locales={LOCALES}
-          currentLocale={locale}
-          locale={locale}
-          onClose={() => setMobileOpen(false)}
-          onSwitchLocale={(code) => {
-            const segs = pathname.split("/");
-            segs[1] = code;
-            window.location.href = segs.join("/");
-          }}
-        />
-      )}
+      {/* Mega menu panel */}
+      <MegaMenuPanel
+        isOpen={menuOpen}
+        locale={locale}
+        currentLang={currentLang}
+        onClose={() => setMenuOpen(false)}
+        onSwitchLang={switchLang}
+      />
 
       <style>{`
-        .hdr-nav-btn:hover    { background: rgba(26,107,60,0.07) !important; color: #1a6b3c !important; }
-        .hdr-nav-link:hover   { background: rgba(26,107,60,0.07) !important; color: #1a6b3c !important; }
-        .hdr-contact-btn:hover { background: #1a6b3c !important; color: #fff !important; }
-        .hdr-join-btn:hover   { background: #a93226 !important; }
+        .hdr-nav-link:hover  { background: #eaf3ee !important; color: #1a6b3c !important; }
+        .hdr-join-btn:hover  { background: #155c3e !important; }
+        .mega-link:hover     { background: rgba(255,255,255,0.05) !important; }
+        .mega-link:hover .mega-link-title { color: #ffffff !important; }
+        .mega-legal-link:hover { color: #a8d5b5 !important; }
 
-        @media (max-width: 1024px) {
-          .hdr-topbar    { display: none !important; }
+        @media (max-width: 768px) {
           .hdr-logo-text { display: none !important; }
           .hdr-nav       { display: none !important; }
           .hdr-actions   { display: none !important; }
-          .hdr-burger    { display: flex !important; }
         }
       `}</style>
     </>

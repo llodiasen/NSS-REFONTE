@@ -118,9 +118,9 @@ export default function HeroHome() {
         /* ── H1 ── */
         .hero-h1 {
           font-family: var(--font-cormorant), Georgia, serif;
-          font-size: clamp(52px, 6vw, 88px);
-          font-weight: 400;
-          line-height: 1.08;
+          font-size: clamp(46px, 6vw, 82px);
+          font-weight: 600;
+          line-height: 0.90;
           color: #ffffff;
           margin-bottom: 28px;
           max-width: 700px;
@@ -142,12 +142,14 @@ export default function HeroHome() {
           font-family: var(--font-dm-sans), var(--font-body), sans-serif;
           font-size: 13px;
           font-weight: 500;
-          background: #1d7a52;
+          background: #52B788;
           color: #ffffff;
           padding: 10px 22px;
           border-radius: 2px;
           text-decoration: none;
           display: inline-block;
+          min-width: 200px;
+          text-align: center;
           transition: background 0.2s ease, transform 0.2s ease;
         }
         .hero-btn-primary:hover { background: #155c3e; transform: translateY(-1px); }
@@ -156,16 +158,18 @@ export default function HeroHome() {
           font-family: var(--font-dm-sans), var(--font-body), sans-serif;
           font-size: 13px;
           font-weight: 400;
-          background: transparent;
+          background: #0f2b1a;
           color: #ffffff;
           padding: 10px 22px;
           border-radius: 2px;
           text-decoration: none;
           display: inline-block;
+          min-width: 200px;
+          text-align: center;
           border: 1px solid rgba(255,255,255,0.4);
           transition: border-color 0.2s ease, background 0.2s ease;
         }
-        .hero-btn-outline:hover { border-color: #ffffff; background: rgba(255,255,255,0.07); }
+        .hero-btn-outline:hover { border-color: #ffffff; background: rgba(15,43,26,0.8); }
 
         /* ── Stats bar ── */
         .hero-stats {

@@ -101,8 +101,8 @@ export default function AboutSection() {
               }}
             >
               <p
+                className="text-sm lg:text-base"
                 style={{
-                  fontSize: "14px",
                   lineHeight: 1.8,
                   color: "var(--text-body)",
                   fontStyle: "normal",

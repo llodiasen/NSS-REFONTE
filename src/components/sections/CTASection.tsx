@@ -68,7 +68,7 @@ export default function CTASection() {
         <p
           style={{
             fontFamily: "var(--font-body)",
-            fontSize: "14px",
+            fontSize: "16px",
             lineHeight: 1.7,
             color: "#ffffff",
             maxWidth: "680px",
