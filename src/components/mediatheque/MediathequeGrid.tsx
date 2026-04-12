@@ -18,6 +18,7 @@ interface VideoCard {
   bg: string;
   youtubeId?: string;
   cloudinaryUrl?: string;
+  facebookUrl?: string;
 }
 
 interface MiniCard {
@@ -29,10 +30,11 @@ interface MiniCard {
   thumb: string;
   youtubeId?: string;
   cloudinaryUrl?: string;
+  facebookUrl?: string;
 }
 
 interface ActiveVideo {
-  type: "youtube" | "cloudinary";
+  type: "youtube" | "cloudinary" | "facebook";
   src: string;
   titre: string;
 }
@@ -40,6 +42,14 @@ interface ActiveVideo {
 /* ── Data ───────────────────────────────────────────────────────────────────── */
 
 const CARDS: VideoCard[] = [
+  {
+    pays: "Sénégal", titre: "NSS | Tamba 2025 — Célébration de la Journée de la Femme Rurale et de l'Alimentation",
+    excerpt: "À Tambacounda, le mouvement NSS célèbre la Journée internationale de la femme rurale et de l'alimentation. Témoignages, échanges et engagement des femmes paysannes du Sénégal oriental pour la souveraineté alimentaire et la résilience climatique.",
+    date: "15 oct. 2025", sortDate: "2025-10-15", tag: "Événements", vues: "", duree: "18 min",
+    thumb: "",
+    bg: "linear-gradient(135deg,#1a3a22,#2d6b45)",
+    facebookUrl: "https://www.facebook.com/reel/24772245882424531",
+  },
   {
     pays: "Sénégal", titre: "Journal du 1er septembre 2025 — Femmes paysannes et souveraineté alimentaire",
     excerpt: "Reportage au cœur des champs de Casamance : les agricultrices du réseau NSS racontent comment l'agroécologie a transformé leur quotidien et renforcé leur indépendance alimentaire.",
@@ -97,6 +107,7 @@ const MINI: MiniCard[] = [
 function getActiveVideo(card: VideoCard | MiniCard): ActiveVideo | null {
   if (card.cloudinaryUrl) return { type: "cloudinary", src: card.cloudinaryUrl, titre: card.titre };
   if (card.youtubeId)     return { type: "youtube",    src: card.youtubeId,     titre: card.titre };
+  if (card.facebookUrl)   return { type: "facebook",   src: card.facebookUrl,   titre: card.titre };
   return null;
 }
 
@@ -136,6 +147,13 @@ function VideoModal({ video, onClose }: { video: ActiveVideo; onClose: () => voi
             <iframe
               src={`https://www.youtube.com/embed/${video.src}?autoplay=1&rel=0`}
               allow="autoplay; encrypted-media; fullscreen"
+              allowFullScreen
+              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: "none" }}
+            />
+          ) : video.type === "facebook" ? (
+            <iframe
+              src={`https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(video.src)}&show_text=false&autoplay=true&mute=false`}
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
               allowFullScreen
               style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: "none" }}
             />
