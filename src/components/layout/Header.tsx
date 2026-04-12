@@ -36,6 +36,7 @@ export default function Header() {
   const [slideOpen,     setSlideOpen]     = useState(false);
   const [openDrop,      setOpenDrop]      = useState<DropKey | null>(null);
   const [currentLang,   setCurrentLang]   = useState<LangCode>(locale as LangCode);
+  const [langDropOpen,  setLangDropOpen]  = useState(false);
 
   // Init banner + lang from storage (client only)
   useEffect(() => {
@@ -144,18 +145,36 @@ export default function Header() {
 
             {/* Actions */}
             <div className="hdr-actions" style={{ display: "flex", alignItems: "center", gap: "8px", flexShrink: 0 }}>
-              <div style={{ display: "flex", gap: "3px" }}>
-                {LANGS.map(({ code, label, flag }) => {
-                  const active = currentLang === code;
+              {/* Language dropdown */}
+              <div style={{ position: "relative" }}>
+                {(() => {
+                  const active = LANGS.find((l) => l.code === currentLang) ?? LANGS[0];
                   return (
-                    <button key={code} onClick={() => switchLang(code)}
-                      style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "11px", fontWeight: 500, padding: "4px 8px", borderRadius: "5px", cursor: "pointer", border: "1px solid #d5e3d7", background: active ? "#0f2b1a" : "transparent", color: active ? "#fff" : "#6b8c72", transition: "all 0.15s" }}>
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={`https://flagcdn.com/20x15/${flag}.png`} width={16} height={12} alt={label} style={{ borderRadius: "1px" }} />
-                      {label}
-                    </button>
+                    <>
+                      <button
+                        onClick={() => setLangDropOpen((v) => !v)}
+                        style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "11px", fontWeight: 500, padding: "4px 10px", borderRadius: "5px", cursor: "pointer", border: "1px solid #d5e3d7", background: "#0f2b1a", color: "#fff", transition: "all 0.15s" }}
+                      >
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={`https://flagcdn.com/20x15/${active.flag}.png`} width={16} height={12} alt={active.label} style={{ borderRadius: "1px" }} />
+                        {active.label}
+                        <ChevronDown size={11} style={{ transition: "transform 0.2s", transform: langDropOpen ? "rotate(180deg)" : "rotate(0deg)" }} />
+                      </button>
+                      {langDropOpen && (
+                        <div style={{ position: "absolute", top: "calc(100% + 6px)", right: 0, background: "#fff", border: "1px solid #d5e3d7", borderRadius: "8px", boxShadow: "0 8px 24px rgba(0,0,0,0.10)", overflow: "hidden", zIndex: 200, minWidth: "100px" }}>
+                          {LANGS.map(({ code, label, flag }) => (
+                            <button key={code} onClick={() => { switchLang(code); setLangDropOpen(false); }}
+                              style={{ display: "flex", alignItems: "center", gap: "8px", width: "100%", padding: "8px 14px", fontSize: "12px", fontWeight: currentLang === code ? 600 : 400, background: currentLang === code ? "#f0f7f2" : "transparent", color: currentLang === code ? "#0f2b1a" : "#444", cursor: "pointer", border: "none", textAlign: "left" }}>
+                              {/* eslint-disable-next-line @next/next/no-img-element */}
+                              <img src={`https://flagcdn.com/20x15/${flag}.png`} width={16} height={12} alt={label} style={{ borderRadius: "1px" }} />
+                              {label}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </>
                   );
-                })}
+                })()}
               </div>
               <Link href={`/${locale}/agir/rejoindre`} className="hdr-join-btn hdr-sm-hide"
                 style={{ padding: "8px 16px", borderRadius: "8px", background: "#1a6b3c", fontSize: "13px", fontWeight: 600, color: "#fff", textDecoration: "none", whiteSpace: "nowrap" }}>

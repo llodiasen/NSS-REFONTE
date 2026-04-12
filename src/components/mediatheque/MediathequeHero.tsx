@@ -1,12 +1,5 @@
 import Link from "next/link";
 
-const STATS = [
-  { value: "340",     label: "Vidéos disponibles" },
-  { value: "14",      label: "Pays couverts" },
-  { value: "12 400",  label: "Vues sur la dernière vidéo" },
-  { value: "8",       label: "Nouvelles vidéos ce mois" },
-];
-
 export default function MediathequeHero() {
   return (
     <section
@@ -108,15 +101,6 @@ export default function MediathequeHero() {
           Explorer les ressources →
         </Link>
 
-        {/* Stats */}
-        <div style={{ display: "flex", gap: "40px", marginTop: "48px", paddingTop: "32px", borderTop: "1px solid rgba(255,255,255,0.10)", flexWrap: "wrap" }}>
-          {STATS.map(({ value, label }) => (
-            <div key={label}>
-              <div style={{ fontFamily: "var(--font-body)", fontSize: "22px", fontWeight: 700, color: "#ffffff" }}>{value}</div>
-              <div style={{ fontFamily: "var(--font-body)", fontSize: "11px", color: "rgba(255,255,255,0.5)", marginTop: "3px", textTransform: "uppercase", letterSpacing: "0.08em" }}>{label}</div>
-            </div>
-          ))}
-        </div>
       </div>
 
       <style>{`
