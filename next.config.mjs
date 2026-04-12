@@ -41,6 +41,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "lesoleil.sn",
       },
+      {
+        protocol: "https",
+        hostname: "scoopsdeziguinchor.com",
+      },
     ],
     formats: ["image/avif", "image/webp"],
   },

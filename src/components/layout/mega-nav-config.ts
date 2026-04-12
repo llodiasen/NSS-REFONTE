@@ -32,10 +32,10 @@ export function getMegaColumns(locale: string): MegaColumn[] {
     {
       heading: "Nos programmes",
       links: [
-        { icon: Home,     title: "Agroécologie paysanne",   description: "Semences, sols, pratiques",          href: `/${locale}/programmes/cifap` },
-        { icon: Globe,    title: "Souveraineté alimentaire",description: "Droits des femmes paysannes",        href: `/${locale}/mouvement` },
-        { icon: BookOpen, title: "Formation CIFAP",          description: "Camp international paysan",          href: `/${locale}/programmes/cifap` },
-        { icon: UserPlus, title: "Réseau AFRI",              description: "175 000 femmes mobilisées",          href: `/${locale}/programmes/emmap` },
+        { icon: BookOpen, title: "Tous les programmes",      description: "Vue d'ensemble des 3 programmes",    href: `/${locale}/programmes` },
+        { icon: Home,     title: "CIFAP",                   description: "Camp international agroécologique",  href: `/${locale}/programmes/cifap` },
+        { icon: Globe,    title: "EMMAP",                   description: "Médias, Minorités & Paix",           href: `/${locale}/programmes/emmap` },
+        { icon: UserPlus, title: "FIARA & Rencontre",        description: "Foire & rassemblement annuel",       href: `/${locale}/programmes` },
       ],
     },
     {

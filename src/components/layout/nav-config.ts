@@ -10,7 +10,9 @@ export function buildNavItems(locale: string) {
     { label: "Impact", href: `/${locale}/impact` },
     {
       label: "Programmes",
+      href: `/${locale}/programmes`,
       children: [
+        { label: "Tous les programmes", href: `/${locale}/programmes`, description: "Vue d'ensemble" },
         { label: "CIFAP", href: `/${locale}/programmes/cifap`, description: "Formation agroécologique" },
         { label: "EMMAP", href: `/${locale}/programmes/emmap`, description: "Médias, Minorités & Paix" },
       ],

@@ -35,6 +35,128 @@ export interface Article {
 
 export const ARTICLES: Article[] = [
 
+  // ── Mali 2025 — journée femme rurale, plaidoyer politique ───────────────
+  {
+    id: "29",
+    slug: "mali-2025-nss-femmes-rurales-journee-internationale-alimentation",
+    title: "Au Mali, NSS transforme une journée commémorative en acte politique",
+    excerpt: "Célébrer ne suffit pas — encore faut-il que la célébration ouvre des portes. Au Mali, NSS a fait de la Journée Internationale de la Femme Rurale et de la Journée Mondiale de l'Alimentation un moment de plaidoyer concret, en réunissant femmes paysannes, ministères et autorités locales.",
+    coverUrl: "https://res.cloudinary.com/dtjvjlkcc/image/upload/q_auto/f_auto/v1776018242/NSS_-_Mali_2025_C%C3%A9l%C3%A9bration_de_la_Journ%C3%A9e_de_la_Femme_Rurale_et_de_l_Alimentation_10_ajjsov.webp",
+    publishedAt: "2025-10-15",
+    category: "Événement",
+    author: "NSS — Nous Sommes la Solution",
+    canonical: "https://wasafrica.org/fr/ressources/actualites/mali-2025-nss-femmes-rurales-journee-internationale-alimentation",
+    robots: "index, follow",
+    tags: ["NSS Mali", "Femmes rurales Mali", "Souveraineté alimentaire", "Journée femme rurale", "Agroécologie", "Plaidoyer", "Nous Sommes la Solution", "Afrique de l'Ouest"],
+    cloudinaryImages: [
+      "NSS_-_Mali_2025_Célébration_de_la_Journée_de_la_Femme_Rurale_et_de_l_Alimentation_1_slprtl",
+      "NSS_-_Mali_2025_Célébration_de_la_Journée_de_la_Femme_Rurale_et_de_l_Alimentation_2_p05cxo",
+      "NSS_-_Mali_2025_Célébration_de_la_Journée_de_la_Femme_Rurale_et_de_l_Alimentation_3_d0mrnw",
+      "NSS_-_Mali_2025_Célébration_de_la_Journée_de_la_Femme_Rurale_et_de_l_Alimentation_4_hlucos",
+      "NSS_-_Mali_2025_Célébration_de_la_Journée_de_la_Femme_Rurale_et_de_l_Alimentation_5_hcfbwo",
+      "NSS_-_Mali_2025_Célébration_de_la_Journée_de_la_Femme_Rurale_et_de_l_Alimentation_6_lmla0m",
+      "NSS_-_Mali_2025_Célébration_de_la_Journée_de_la_Femme_Rurale_et_de_l_Alimentation_7_qcbfdu",
+      "NSS_-_Mali_2025_Célébration_de_la_Journée_de_la_Femme_Rurale_et_de_l_Alimentation_8_ocqryb",
+      "NSS_-_Mali_2025_Célébration_de_la_Journée_de_la_Femme_Rurale_et_de_l_Alimentation_9_xoepxa",
+      "NSS_-_Mali_2025_Célébration_de_la_Journée_de_la_Femme_Rurale_et_de_l_Alimentation_10_ajjsov",
+      "NSS_-_Mali_2025_Célébration_de_la_Journée_de_la_Femme_Rurale_et_de_l_Alimentation_11_ttk3dv",
+      "NSS_-_Mali_2025_Célébration_de_la_Journée_de_la_Femme_Rurale_et_de_l_Alimentation_12_uwxuio",
+      "NSS_-_Mali_2025_Célébration_de_la_Journée_de_la_Femme_Rurale_et_de_l_Alimentation_13_f1qkqe",
+      "NSS_-_Mali_2025_Célébration_de_la_Journée_de_la_Femme_Rurale_et_de_l_Alimentation_14_vhfnmy",
+      "NSS_-_Mali_2025_Célébration_de_la_Journée_de_la_Femme_Rurale_et_de_l_Alimentation_15_yzspvs",
+      "NSS_-_Mali_2025_Célébration_de_la_Journée_de_la_Femme_Rurale_et_de_l_Alimentation_16_zmb4ue",
+      "NSS_-_Mali_2025_Célébration_de_la_Journée_de_la_Femme_Rurale_et_de_l_Alimentation_17_tv7tdr",
+      "NSS_-_Mali_2025_Célébration_de_la_Journée_de_la_Femme_Rurale_et_de_l_Alimentation_18_o3emjh",
+      "NSS_-_Mali_2025_Célébration_de_la_Journée_de_la_Femme_Rurale_et_de_l_Alimentation_19_efmo86",
+      "NSS_-_Mali_2025_Célébration_de_la_Journée_de_la_Femme_Rurale_et_de_l_Alimentation_20_j15jwk",
+      "NSS_-_Mali_2025_Célébration_de_la_Journée_de_la_Femme_Rurale_et_de_l_Alimentation_21_soh9if",
+      "NSS_-_Mali_2025_Célébration_de_la_Journée_de_la_Femme_Rurale_et_de_l_Alimentation_22_hgd0mb",
+    ],
+    cloudinaryGalleryCaption: "Mali, Journée Internationale de la Femme Rurale — octobre 2025",
+    content: `Célébrer ne suffit pas — encore faut-il que la célébration ouvre des portes. Au Mali, le mouvement NSS a fait de la Journée Internationale de la Femme Rurale et de la Journée Mondiale de l'Alimentation un moment de plaidoyer concret, en réunissant dans une même salle femmes paysannes, ministères et autorités locales. Une configuration rare qui dit beaucoup sur la maturité politique du mouvement.
+
+## Une fête qui interpelle le pouvoir
+
+Il y a une différence entre commémorer une journée internationale et s'en saisir comme levier d'influence. Au Mali, NSS a clairement choisi la seconde option. En réunissant autour de la même table les ministères de l'Agriculture, de l'Environnement et de la Promotion de la Femme, les interprofessions et les autorités communales, le mouvement a transformé un événement symbolique en espace de négociation politique.
+
+Réaffirmer son plaidoyer auprès des plus hautes autorités du pays pour renforcer le rôle des femmes rurales dans le développement durable, ce n'est pas un discours de circonstance — c'est une stratégie d'influence construite sur plusieurs années de présence terrain et de légitimité paysanne.
+
+## Des femmes leaders qui prennent la parole
+
+Ce qui frappe dans le récit de cette journée, c'est l'énergie des échanges. Les femmes leaders du Mali, membres du mouvement NSS, n'étaient pas là pour recevoir des hommages — elles étaient là pour partager, débattre et transmettre. Les communications riches, les retours d'expériences et les moments de solidarité qui ont ponctué ces deux journées témoignent d'un réseau vivant, où la parole des femmes rurales n'est pas un accessoire mais le cœur du dispositif.
+
+C'est cette capacité à produire de la connaissance collective, à partir du terrain et non depuis les bureaux, qui distingue NSS des organisations classiques de développement.
+
+## Ce que le Mali révèle de la stratégie NSS
+
+En mobilisant simultanément la société civile, les institutions étatiques et les organisations de femmes rurales, NSS démontre qu'il est devenu un acteur incontournable du débat alimentaire au Mali. Cette capacité à agréger des parties prenantes aussi diverses — des ministères aux autorités communales en passant par les interprofessions — est le fruit d'un travail de long terme, fondé sur la crédibilité et la présence constante sur le terrain.
+
+Ce que Bamako confirme en octobre 2025, c'est que NSS n'est plus seulement un réseau de femmes paysannes : c'est une force de proposition politique capable de peser sur les décisions qui façonnent l'avenir alimentaire du pays.
+
+Les engagements pris lors de cette journée au Mali s'inscrivent dans la dynamique régionale portée par NSS — rendez-vous sur notre blog pour suivre les suites concrètes de ce plaidoyer auprès des autorités maliennes.
+
+[[GALLERY]]`,
+  },
+
+  // ── Tambacounda 2025 — femmes rurales, 3 pays ────────────────────────────
+  {
+    id: "28",
+    slug: "tambacounda-2025-femmes-rurales-souverainete-alimentaire-nss",
+    title: "À Tambacounda, trois pays unis pour dire que les femmes rurales nourrissent l'Afrique",
+    excerpt: "Les 15 et 16 octobre 2025, Guinée-Bissau, Gambie et Sénégal se sont réunis à Tambacounda pour célébrer la femme rurale et le droit à l'alimentation — un message porté depuis les territoires, pas depuis les capitales.",
+    coverUrl: "https://res.cloudinary.com/dtjvjlkcc/image/upload/q_auto/f_auto/v1776016032/NSS_Tambacounda_2025_-_Femmes_rurales_et_souverainet%C3%A9_alimentaire_ensemble_13_udamj2.jpg",
+    publishedAt: "2025-10-15",
+    category: "Mouvement",
+    author: "NSS — Nous Sommes la Solution",
+    canonical: "https://wasafrica.org/fr/ressources/actualites/tambacounda-2025-femmes-rurales-souverainete-alimentaire-nss",
+    robots: "index, follow",
+    tags: ["Femmes rurales", "Souveraineté alimentaire", "NSS", "Tambacounda", "Journée mondiale alimentation", "Agroécologie", "Afrique de l'Ouest", "Autonomisation", "Guinée-Bissau", "Gambie", "Sénégal"],
+    videoUrl: "https://res.cloudinary.com/dtjvjlkcc/video/upload/q_auto/f_auto/v1776016191/NSS_Tambacounda_2025_-_Femmes_rurales_et_souverainet%C3%A9_alimentaire_ensemble_1_lcaqt8.mp4",
+    cloudinaryImages: [
+      "NSS_Tambacounda_2025_-_Femmes_rurales_et_souveraineté_alimentaire_ensemble_1_p6az3e",
+      "NSS_Tambacounda_2025_-_Femmes_rurales_et_souveraineté_alimentaire_ensemble_2_ulpuus",
+      "NSS_Tambacounda_2025_-_Femmes_rurales_et_souveraineté_alimentaire_ensemble_3_eqvhsv",
+      "NSS_Tambacounda_2025_-_Femmes_rurales_et_souveraineté_alimentaire_ensemble_4_bpuw5l",
+      "NSS_Tambacounda_2025_-_Femmes_rurales_et_souveraineté_alimentaire_ensemble_5_fu6psk",
+      "NSS_Tambacounda_2025_-_Femmes_rurales_et_souveraineté_alimentaire_ensemble_6_gkczch",
+      "NSS_Tambacounda_2025_-_Femmes_rurales_et_souveraineté_alimentaire_ensemble_7_pzwwe1",
+      "NSS_Tambacounda_2025_-_Femmes_rurales_et_souveraineté_alimentaire_ensemble_8_ibb7jh",
+      "NSS_Tambacounda_2025_-_Femmes_rurales_et_souveraineté_alimentaire_ensemble_9_t63vch",
+      "NSS_Tambacounda_2025_-_Femmes_rurales_et_souveraineté_alimentaire_ensemble_10_lu3xef",
+      "NSS_Tambacounda_2025_-_Femmes_rurales_et_souveraineté_alimentaire_ensemble_11_dbys7y",
+      "NSS_Tambacounda_2025_-_Femmes_rurales_et_souveraineté_alimentaire_ensemble_12_dhbkug",
+      "NSS_Tambacounda_2025_-_Femmes_rurales_et_souveraineté_alimentaire_ensemble_13_udamj2",
+    ],
+    cloudinaryGalleryCaption: "Tambacounda, 15–16 octobre 2025",
+    content: `Deux journées, deux thèmes, une conviction commune : sans les femmes rurales, il n'y a pas de souveraineté alimentaire possible. Les 15 et 16 octobre 2025, la capitale du Sénégal oriental a accueilli une célébration rare — celle d'un mouvement panafricain qui choisit de commémorer non pas depuis les capitales, mais depuis les territoires où se joue réellement l'avenir alimentaire du continent.
+
+## Tambacounda, un choix politique autant que géographique
+
+Choisir Tambacounda pour célébrer à la fois la Journée Internationale de la Femme Rurale et la Journée Mondiale de l'Alimentation n'est pas un hasard. Ville-carrefour du Sénégal oriental, aux portes du Sahel, Tambacounda incarne précisément les tensions que ces deux journées cherchent à résoudre : pression foncière, changement climatique, migrations rurales et fragilité des systèmes alimentaires locaux.
+
+En s'y réunissant sous les thèmes de la justice réparatrice et d'un avenir alimentaire partagé, le mouvement NSS affirme que la réponse à ces crises ne viendra pas des sommets internationaux, mais des femmes qui travaillent la terre chaque jour et qui transmettent les savoirs d'une génération à l'autre.
+
+[[VIDEO]]
+
+## Trois pays, une seule voix paysanne
+
+La présence simultanée de délégations de Guinée-Bissau, de Gambie et du Sénégal dit quelque chose d'essentiel sur la nature du mouvement NSS : la solidarité ne s'arrête pas aux frontières héritées de la colonisation.
+
+Ces femmes rurales, venues de trois pays aux langues et aux histoires différentes, ont partagé pendant deux jours leurs expériences, exposé leurs productions locales et échangé sur leurs pratiques agroécologiques. Cette circulation des savoirs entre pairs — **sans hiérarchie, sans expertise descendante** — est au cœur de ce que NSS construit depuis plus de dix ans : un réseau de femmes qui se forment mutuellement et qui renforcent collectivement leur capacité à nourrir leurs communautés.
+
+> La Journée Internationale de la Femme Rurale et la Journée Mondiale de l'Alimentation ne sont pas deux événements séparés — elles disent la même chose : nourrir le monde, c'est d'abord reconnaître celles qui le font.
+
+## Ce que Tambacounda 2025 annonce pour le mouvement
+
+Réunir trois pays autour de journées internationales, c'est aussi envoyer un message aux institutions et aux bailleurs : **NSS n'attend pas les agendas extérieurs pour agir.** Le mouvement crée ses propres espaces de visibilité, ancre ses revendications dans des lieux concrets et construit une diplomatie paysanne transfrontalière qui préfigure ce que pourrait être une gouvernance alimentaire véritablement africaine.
+
+En articulant autonomisation des femmes et justice réparatrice, NSS pose une équation claire : réparer les inégalités du passé passe par donner aux femmes rurales les moyens — fonciers, techniques et politiques — de décider de l'avenir alimentaire de leurs territoires.
+
+Les résolutions issues des deux journées de Tambacounda alimenteront les travaux du prochain forum régional NSS — suivez notre blog pour le compte-rendu complet des échanges et des engagements pris par les délégations.
+
+[[GALLERY]]`,
+  },
+
   // ── Niaguis — plaidoyer politique agroécologie ────────────────────────────
   {
     id: "25",
@@ -90,7 +212,7 @@ Dans les jours qui viennent, les délégations repartent dans leurs pays respect
     canonical: "https://wasafrica.org/fr/ressources/actualites/cifap-2025-fenop-niaguis-senegal-formation-agroecologie",
     robots: "index, follow",
     tags: ["CIFAP 2025", "FENOP", "Agroécologie paysanne", "Femmes rurales", "Niaguis", "Sénégal", "Horticulture", "NSS", "Formation", "Burkina Faso"],
-    cloudinaryGalleryCaption: "CIFAP 2025 à Niaguis — FENOP & mouvement NSS",
+    cloudinaryGalleryCaption: "Photos du CIFAP 2025 — FENOP & mouvement NSS",
     cloudinaryImages: [
       "Nous_sommes_la_solution_-_Fenop_1_r9gqhc",
       "Nous_sommes_la_solution_-_Fenop_2_on3m7f",
@@ -208,7 +330,7 @@ Une raison suffisante pour la présidente d'être rassurée sur la pertinence de
       { label: "Participants", value: "~70" },
       { label: "Pays", value: "8" },
     ],
-    cloudinaryGalleryCaption: "Formation agroécologique — CIFAP 2025, Niaguis",
+    cloudinaryGalleryCaption: "Photos du CIFAP 2025 — Formation agroécologique",
     cloudinaryImages: [
       "Hero_-_Cifap_ixy5hj",
       "NOUS_SOMMES_LA_SOUTIONS_CIFAP_2025_1_em1x4v",
@@ -371,7 +493,7 @@ Ce n'est pas un hasard si le CIFAP revient chaque année à Niaguis, en Casamanc
       { label: "Pays",         value: "8" },
       { label: "Édition",      value: "4e" },
     ],
-    cloudinaryGalleryCaption: "CIFAP 2025 — Niaguis, Casamance",
+    cloudinaryGalleryCaption: "Photos du CIFAP 2025 — Niaguis, Casamance",
     cloudinaryImages: [
       "NOUS_SOMMES_LA_SOLUTIONS_CIFAP_2025_1_r60wkt",
       "NOUS_SOMMES_LA_SOLUTIONS_CIFAP_2025_5_epvdil",
@@ -458,7 +580,7 @@ Ce n'est pas un hasard si le CIFAP revient chaque année à Niaguis, en Casamanc
     category: "Formation",
     author: "NSS — Nous Sommes la Solution",
     tags: ["CIFAP 2025", "Agroécologie paysanne", "NSS", "Niaguis", "Souveraineté alimentaire", "Femmes rurales", "Afrique de l'Ouest", "Plaidoyer"],
-    cloudinaryGalleryCaption: "Femmes rurales d'Afrique de l'Ouest — CIFAP 2025, Niaguis",
+    cloudinaryGalleryCaption: "Photos du CIFAP 2025 — Plaidoyer des femmes rurales",
     cloudinaryImages: [
       "550121041_24681588258142731_8198053065475994889_n_cxdblc",
       "549795885_24681580328143524_3103202289953071503_n_l9plji",
@@ -517,7 +639,7 @@ Ces **savoirs endogènes** sont au cœur du modèle NSS : ils ne sont pas à rem
     author: "Mouvement NSS",
     tags: ["CIFAP", "Agroécologie paysanne", "Niaguis", "Formation agricole", "Horticulture", "Afrique de l'Ouest", "Agriculture durable"],
     robots: "index, follow",
-    cloudinaryGalleryCaption: "Ouverture du CIFAP 2025 — Niaguis, Casamance",
+    cloudinaryGalleryCaption: "Photos du CIFAP 2025 — Ouverture",
     cloudinaryImages: [
       "Ouverture_de_la_4ᵉ_édition_du_CIFAP_à_Niaguis_lqfakd",
       "547163035_4181181722151383_8621746354621340150_n_nltr0o",
@@ -572,13 +694,38 @@ La semaine qui s'ouvre sera celle des mains dans la terre et des têtes en dialo
     canonical: "https://lesoleil.sn/actualites/societe-fait-divers/tamba-les-femmes-rurales-en-premiere-ligne-face-au-changement-climatique/",
     tags: ["Changement climatique", "Femmes rurales", "Tambacounda", "Résilience", "Agroécologie", "NSS", "Journée internationale de la femme rurale"],
     coverCaption: "Journée internationale de la femme rurale à Tambacounda — © Le Soleil / Boubacar Agna CAMARA",
-    content: `Ce mercredi 15 octobre, l'association sous régionale Nous sommes la solution (NSS), a célébré à Tambacounda, la journée internationale de la femme rurale. Lors de celle-ci, la résilience des femmes du monde rural face aux impacts du changement climatique, dans le secteur agricole, a été notée. « En tant qu'agricultrices, les femmes rurales ont appris à faire face et à s'adapter aux changements climatiques », indique la présidente du mouvement au niveau national et sous-régional, madame Mariama Sonko.
+    content: `Ce mercredi 15 octobre, l'association sous régionale Nous Sommes la Solution (NSS), a célébré à Tambacounda, la journée internationale de la femme rurale. Lors de celle-ci, la résilience des femmes du monde rural face aux impacts du changement climatique, dans le secteur agricole, a été notée. « En tant qu'agricultrices, les femmes rurales ont appris à faire face et à s'adapter aux changements climatiques », indique la présidente du mouvement au niveau national et sous-régional, madame Mariama Sonko.
 
 Selon cette dernière, cette adaptation est visible à travers la pratique d'une agriculture en harmonie avec la nature, l'agroécologie, mais également avec la préservation des semences résilientes aux changements climatiques. Elle concerne aussi l'emploi de techniques de gestion des sols écologiques ou biologiques, ou encore les efforts de reboisement et de restauration réalisés à l'échelle de la communauté.
 
 Cette journée célébrée dans la capitale du Sénégal oriental a enregistré la présence des délégations des coordinations de NSS en Gambie et en Guinée-Bissau. Pour Mme Sonko, les femmes rurales ont été à l'avant-garde de la conservation de l'environnement en apportant des connaissances et des pratiques ancestrales inestimables. Celles-ci ont été à la tête de mouvements climatiques mondiaux et nationaux qui ont mis en lumière l'urgence de la crise climatique et la nécessité d'agir pour le bien-être de cette génération et des générations futures, ajoute-t-elle.
 
 C'est dans cette optique que le mouvement panafricain invite toutes les parties prenantes à célébrer le rôle essentiel des femmes rurales dans le renforcement de la résilience climatique, la conservation de la biodiversité et le soin des terres. Car, selon la présidente, les changements climatiques, la perte de la biodiversité et la dégradation des terres affectent les droits, la résilience et les ressources des femmes et des filles rurales.`,
+  },
+
+  // ── Scoops de Ziguinchor — NSS CIFAP 3e édition bio-protecteurs ──────────
+  {
+    id: "29",
+    slug: "nss-cifap-3e-edition-bio-protecteurs-agroecologie-niaguis-2024",
+    title: "Nous Sommes La Solution (NSS) mise sur les bio-protecteurs en agroécologie",
+    excerpt: "La 3e édition du Camp International de Formation en Agroécologie Paysanne (CIFAP) a réuni 14 associations de femmes rurales ouest-africaines à Niaguis autour des techniques de production et d'utilisation des bio-protecteurs en agroécologie.",
+    coverUrl: "https://scoopsdeziguinchor.com/wp-content/uploads/2024/09/66fa449c-e58d-45dd-957e-f87b6218a77a-e1725827262645-1024x441.jpeg",
+    publishedAt: "2024-09-08",
+    category: "Formation",
+    author: "Tapha I Badji",
+    sourceName: "Scoops de Ziguinchor",
+    canonical: "https://scoopsdeziguinchor.com/nss-cifap-3e-edition-bio-protecteurs-agroecologie/",
+    tags: ["CIFAP", "Bio-protecteurs", "Agroécologie", "Niaguis", "Femmes rurales", "NSS", "Formation", "Afrique de l'Ouest"],
+    coverCaption: "3e édition du CIFAP à Niaguis — © Scoops de Ziguinchor / Tapha I Badji",
+    content: `La 3ème édition du Camp International de Formation en Agroécologie Paysanne (CIFAP) organisé du 1er au 7 septembre 2024 au Centre Karonghen Wati Naning de Niaguis a, cette année encore, mobilisé des membres de 14 associations de femmes rurales ouest-africaines. Des actrices de développement qui ont eu droit à des séances d'échanges et de partage axées sur « Les techniques de production et d'utilisation des bio-protecteurs en agroécologie » — thème de cette 3ème édition. Un thème qui s'inscrit dans une suite logique d'un schéma élaboré et mis en branle par le Mouvement Nous Sommes La Solution.
+
+Après une 1ère édition qui avait trait aux techniques de conduite des cultures en agroécologie paysanne et sur la production et l'utilisation des bio-intrants, puis une 2ème édition axée sur la production des semences horticoles maraîchères paysannes, le Mouvement Nous Sommes La Solution a, dans le cadre de la 3ème édition de son Camp International de Formation en Agroécologie Paysanne (CIFAP), misé sur les techniques de production et d'utilisation des bio-protecteurs en agroécologie. D'une durée de 5 jours, ce Camp de formation dont la cérémonie d'ouverture a été présidée le lundi dernier par l'autorité sous-préfectorale de Niaguis, a regroupé cette année une cinquantaine de participantes — des représentantes de 14 associations des femmes rurales d'Afrique de l'Ouest, membres du Mouvement NSS.
+
+> Les bio-protecteurs permettent non seulement d'avoir une bonne production, mais aussi une production de qualité avec tous les nutriments nécessaires pour une bonne alimentation. — Mariama Sonko, présidente du Mouvement NSS
+
+S'exprimant au nom des participantes membres du Mouvement NSS, Iya Diakité, coordinatrice du mouvement NSS au Mali, a exhorté la gent féminine africaine à s'investir davantage dans la pratique de l'agroécologie paysanne — gage, selon elle, pour l'atteinte de la souveraineté alimentaire.
+
+Pour rappel, c'est en 2011 que douze organisations de femmes rurales du Burkina Faso, du Ghana, de la Guinée, du Mali et du Sénégal se sont réunies pour mettre sur les fonts baptismaux le Mouvement Nous Sommes La Solution (NSS). Une organisation qui entend miser sur les pratiques agricoles et les connaissances ancestrales pour promouvoir l'agriculture familiale par le biais de l'agroécologie. Avec 14 associations aujourd'hui issues de huit pays ouest-africains, le Mouvement NSS présidé par Mariama Sonko s'active plus que jamais dans le cadre du renforcement des capacités de ses membres sur les techniques de production et d'utilisation des bio-protecteurs à base de produits locaux.`,
   },
 ];
 
