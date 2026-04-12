@@ -29,6 +29,7 @@ export interface Article {
   sourceName?: string;
   sourceUrl?: string;
   videoUrl?: string;
+  videoUrls?: string[];
   coverCaption?: string;
   simpleImages?: string[];
 }
@@ -717,13 +718,21 @@ C'est dans cette optique que le mouvement panafricain invite toutes les parties 
     canonical: "https://scoopsdeziguinchor.com/ziguinchor-3eme-edition-cifap-a-niaguis-le-mouvement-nous-sommes-la-solution-nss-mise-sur-les-bio-protecteurs-en-agroecologie/",
     tags: ["CIFAP", "Bio-protecteurs", "Agroécologie", "Niaguis", "Femmes rurales", "NSS", "Formation", "Afrique de l'Ouest"],
     coverCaption: "3e édition du CIFAP à Niaguis — © Scoops de Ziguinchor / Tapha I Badji",
+    videoUrls: [
+      "https://res.cloudinary.com/dtjvjlkcc/video/upload/q_auto/f_auto/v1776020349/Ziguinchor_TV_CIFAP_3%C3%A8me_Edition_Niaguis_Mouvement_NSS_Iya_Diakit%C3%A9_Coordonnatrice_Mvt_NSS_Mali_gkeoco.mp4",
+      "https://res.cloudinary.com/dtjvjlkcc/video/upload/q_auto/f_auto/v1776021074/Ziguinchor_TV_CIFAP_3%C3%A8me_Edition_Mouvement_NSS_Mme_Mariama_Sonko_Pr%C3%A9sidente_NSS_2_adfoi0.mp4",
+    ],
     content: `La 3ème édition du Camp International de Formation en Agroécologie Paysanne (CIFAP) organisé du 1er au 7 septembre 2024 au Centre Karonghen Wati Naning de Niaguis a, cette année encore, mobilisé des membres de 14 associations de femmes rurales ouest-africaines. Des actrices de développement qui ont eu droit à des séances d'échanges et de partage axées sur « Les techniques de production et d'utilisation des bio-protecteurs en agroécologie » — thème de cette 3ème édition. Un thème qui s'inscrit dans une suite logique d'un schéma élaboré et mis en branle par le Mouvement Nous Sommes La Solution.
 
 Après une 1ère édition qui avait trait aux techniques de conduite des cultures en agroécologie paysanne et sur la production et l'utilisation des bio-intrants, puis une 2ème édition axée sur la production des semences horticoles maraîchères paysannes, le Mouvement Nous Sommes La Solution a, dans le cadre de la 3ème édition de son Camp International de Formation en Agroécologie Paysanne (CIFAP), misé sur les techniques de production et d'utilisation des bio-protecteurs en agroécologie. D'une durée de 5 jours, ce Camp de formation dont la cérémonie d'ouverture a été présidée le lundi dernier par l'autorité sous-préfectorale de Niaguis, a regroupé cette année une cinquantaine de participantes — des représentantes de 14 associations des femmes rurales d'Afrique de l'Ouest, membres du Mouvement NSS.
 
 > Les bio-protecteurs permettent non seulement d'avoir une bonne production, mais aussi une production de qualité avec tous les nutriments nécessaires pour une bonne alimentation. — Mariama Sonko, présidente du Mouvement NSS
 
+[[VIDEO_1]]
+
 S'exprimant au nom des participantes membres du Mouvement NSS, Iya Diakité, coordinatrice du mouvement NSS au Mali, a exhorté la gent féminine africaine à s'investir davantage dans la pratique de l'agroécologie paysanne — gage, selon elle, pour l'atteinte de la souveraineté alimentaire.
+
+[[VIDEO_2]]
 
 Pour rappel, c'est en 2011 que douze organisations de femmes rurales du Burkina Faso, du Ghana, de la Guinée, du Mali et du Sénégal se sont réunies pour mettre sur les fonts baptismaux le Mouvement Nous Sommes La Solution (NSS). Une organisation qui entend miser sur les pratiques agricoles et les connaissances ancestrales pour promouvoir l'agriculture familiale par le biais de l'agroécologie. Avec 14 associations aujourd'hui issues de huit pays ouest-africains, le Mouvement NSS présidé par Mariama Sonko s'active plus que jamais dans le cadre du renforcement des capacités de ses membres sur les techniques de production et d'utilisation des bio-protecteurs à base de produits locaux.`,
   },

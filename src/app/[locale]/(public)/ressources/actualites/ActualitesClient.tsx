@@ -13,6 +13,7 @@ const TAG_CONFIG: Record<string, { bg: string; color: string }> = {
   Plaidoyer:   { bg: "#fef3e2", color: "#854f0b" },
   Presse:      { bg: "#fef3c7", color: "#92400e" },
   Partenariat: { bg: "#d1fae5", color: "#065f46" },
+  Événement:   { bg: "#f3e8ff", color: "#6b21a8" },
 };
 
 const FILTER_CONFIG: Record<string, { active: string; label: string }> = {
@@ -22,6 +23,7 @@ const FILTER_CONFIG: Record<string, { active: string; label: string }> = {
   Plaidoyer:   { active: "#854f0b", label: "Plaidoyer" },
   Presse:      { active: "#92400e", label: "Presse" },
   Partenariat: { active: "#065f46", label: "Partenariat" },
+  Événement:   { active: "#6b21a8", label: "Événement" },
 };
 
 // ── Reading-time helper ───────────────────────────────────────────────────────
@@ -220,7 +222,7 @@ export default function ActualitesClient({ articles }: { articles: Article[] }) 
       <div
         style={{
           background: "#F6F3EE",
-          padding: "24px 16px",
+          padding: "24px 72px",
           borderBottom: "1px solid #e8e2d9",
         }}
       >
@@ -292,7 +294,7 @@ export default function ActualitesClient({ articles }: { articles: Article[] }) 
       <section
         style={{
           background: "#F6F3EE",
-          padding: "40px 16px",
+          padding: "40px 72px",
         }}
       >
         <div style={{ maxWidth: "1400px", margin: "0 auto" }}>

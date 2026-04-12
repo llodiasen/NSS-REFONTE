@@ -82,6 +82,22 @@ const CARDS: VideoCard[] = [
     bg: "linear-gradient(135deg,#0f2b1a,#1a6b3c)",
     cloudinaryUrl: "https://res.cloudinary.com/dtjvjlkcc/video/upload/q_auto/f_auto/v1776000623/20_NOUS_SOMMES_LA_SOLUTION_-_Facebook_uf48gq.mp4",
   },
+  {
+    pays: "Mali", titre: "Ziguinchor TV — CIFAP 3e édition : Iya Diakité, Coordinatrice NSS Mali",
+    excerpt: "Iya Diakité, coordinatrice du mouvement NSS au Mali, revient sur les enseignements de la 3ème édition du CIFAP à Niaguis. Elle partage comment les pratiques agroécologiques transmises lors de ces camps de formation transforment les communautés rurales.",
+    date: "30 août 2025", sortDate: "2025-08-30", tag: "Témoignage", vues: "2 100", duree: "4 min",
+    thumb: "https://res.cloudinary.com/dtjvjlkcc/video/upload/f_jpg,so_2/v1776020349/Ziguinchor_TV_CIFAP_3%C3%A8me_Edition_Niaguis_Mouvement_NSS_Iya_Diakit%C3%A9_Coordonnatrice_Mvt_NSS_Mali_gkeoco.jpg",
+    bg: "linear-gradient(135deg,#1a2a3a,#2a5a7a)",
+    cloudinaryUrl: "https://res.cloudinary.com/dtjvjlkcc/video/upload/q_auto/f_auto/v1776020349/Ziguinchor_TV_CIFAP_3%C3%A8me_Edition_Niaguis_Mouvement_NSS_Iya_Diakit%C3%A9_Coordonnatrice_Mvt_NSS_Mali_gkeoco.mp4",
+  },
+  {
+    pays: "Sénégal", titre: "Ziguinchor TV — CIFAP 3e édition : Mme Mariama Sonko, Présidente NSS",
+    excerpt: "Mme Mariama Sonko, présidente du mouvement NSS, exprime sa fierté et sa vision pour la 3ème édition du CIFAP à Niaguis. Un moment fort pour le mouvement des femmes rurales d'Afrique de l'Ouest.",
+    date: "30 août 2025", sortDate: "2025-08-30", tag: "Formation", vues: "1 900", duree: "3 min",
+    thumb: "https://res.cloudinary.com/dtjvjlkcc/video/upload/f_jpg,so_2/v1776021074/Ziguinchor_TV_CIFAP_3%C3%A8me_Edition_Mouvement_NSS_Mme_Mariama_Sonko_Pr%C3%A9sidente_NSS_2_adfoi0.jpg",
+    bg: "linear-gradient(135deg,#0f2b1a,#2a6b3c)",
+    cloudinaryUrl: "https://res.cloudinary.com/dtjvjlkcc/video/upload/q_auto/f_auto/v1776021074/Ziguinchor_TV_CIFAP_3%C3%A8me_Edition_Mouvement_NSS_Mme_Mariama_Sonko_Pr%C3%A9sidente_NSS_2_adfoi0.mp4",
+  },
 ];
 
 const MINI: MiniCard[] = [

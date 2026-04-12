@@ -217,11 +217,12 @@ export default async function ActualitesSlugPage({ params }: Props) {
             {(() => {
               const hasGallery = !!(article.cloudinaryImages?.length) && article.content.includes("[[GALLERY]]");
               const hasVideo   = !!article.videoUrl && article.content.includes("[[VIDEO]]");
+              const hasVideos  = !!(article.videoUrls?.length);
               const hasPhotos  = !!(article.simpleImages?.length);
 
-              if (!hasGallery && !hasVideo && !hasPhotos) return renderContent(article.content);
+              if (!hasGallery && !hasVideo && !hasVideos && !hasPhotos) return renderContent(article.content);
 
-              const MARKER_RE = /\[\[GALLERY\]\]|\[\[VIDEO\]\]|\[\[PHOTO_1\]\]|\[\[PHOTO_2\]\]|\[\[PHOTO_3\]\]/g;
+              const MARKER_RE = /\[\[GALLERY\]\]|\[\[VIDEO\]\]|\[\[VIDEO_1\]\]|\[\[VIDEO_2\]\]|\[\[VIDEO_3\]\]|\[\[PHOTO_1\]\]|\[\[PHOTO_2\]\]|\[\[PHOTO_3\]\]/g;
               const parts = article.content.split(MARKER_RE);
               const markers: string[] = [];
               let m: RegExpExecArray | null;
@@ -241,6 +242,15 @@ export default async function ActualitesSlugPage({ params }: Props) {
                           <video src={article.videoUrl} controls playsInline style={{ width: "100%", maxHeight: "480px", display: "block" }} />
                         </div>
                       )}
+                      {/^\[\[VIDEO_[123]\]\]$/.test(markers[i] ?? "") && (() => {
+                        const vidIdx = parseInt((markers[i] ?? "").replace(/\D/g, ""), 10) - 1;
+                        const src = article.videoUrls?.[vidIdx];
+                        return src ? (
+                          <div style={{ margin: "32px 0", borderRadius: "10px", overflow: "hidden", background: "#000", lineHeight: 0 }}>
+                            <video src={src} controls playsInline style={{ width: "100%", maxHeight: "480px", display: "block" }} />
+                          </div>
+                        ) : null;
+                      })()}
                       {/^\[\[PHOTO_[123]\]\]$/.test(markers[i] ?? "") && (() => {
                         const idx2 = parseInt((markers[i] ?? "").replace(/\D/g, ""), 10) - 1;
                         const src = article.simpleImages?.[idx2];

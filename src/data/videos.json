@@ -1,6 +1,17 @@
 [
   {
     "id": null,
+    "cloudinaryUrl": "https://res.cloudinary.com/dtjvjlkcc/video/upload/q_auto/f_auto/v1776019281/NSS_CIFAP_2025_Mariama_Sonko_hommage_Razack_Belemgnegre_ouverture_4e_edition.mp4",
+    "titre": "NSS — CIFAP 2025 : Mme Mariama Sonko rend hommage à M. Razack Belemgnegre à l'ouverture de la 4e édition",
+    "categorie": "Evenements",
+    "description": "À l'ouverture de la 4e édition du Camp International de Formation sur l'Agroécologie Paysanne (CIFAP 2025), Mme Mariama Sonko, présidente du mouvement NSS, rend un hommage appuyé à M. Razack Belemgnegre pour son engagement et sa contribution au mouvement.",
+    "date": "2025-09-15",
+    "duree": "49",
+    "featured": true,
+    "statut": "disponible"
+  },
+  {
+    "id": null,
     "cloudinaryUrl": "https://res.cloudinary.com/dtjvjlkcc/video/upload/q_auto/f_auto/v1775999944/Quatri%C3%A8me_%C3%A9dition_du_Camp_International_de_Formation_sur_l_Agro%C3%A9cologie_Paysanne_CIFAP_jppmln.mp4",
     "titre": "Quatrième édition du CIFAP — Camp International de Formation sur l'Agroécologie Paysanne",
     "categorie": "Evenements",
