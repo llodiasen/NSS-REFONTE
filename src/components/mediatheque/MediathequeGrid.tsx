@@ -43,14 +43,6 @@ interface ActiveVideo {
 
 const CARDS: VideoCard[] = [
   {
-    pays: "Sénégal", titre: "NSS | Tamba 2025 — Célébration de la Journée de la Femme Rurale et de l'Alimentation",
-    excerpt: "À Tambacounda, le mouvement NSS célèbre la Journée internationale de la femme rurale et de l'alimentation. Témoignages, échanges et engagement des femmes paysannes du Sénégal oriental pour la souveraineté alimentaire et la résilience climatique.",
-    date: "15 oct. 2025", sortDate: "2025-10-15", tag: "Événements", vues: "", duree: "18 min",
-    thumb: "",
-    bg: "linear-gradient(135deg,#1a3a22,#2d6b45)",
-    facebookUrl: "https://www.facebook.com/reel/24772245882424531",
-  },
-  {
     pays: "Sénégal", titre: "Journal du 1er septembre 2025 — Femmes paysannes et souveraineté alimentaire",
     excerpt: "Reportage au cœur des champs de Casamance : les agricultrices du réseau NSS racontent comment l'agroécologie a transformé leur quotidien et renforcé leur indépendance alimentaire.",
     date: "1 sept. 2025", sortDate: "2025-09-01", tag: "Agroécologie", vues: "12 400", duree: "8 min",
