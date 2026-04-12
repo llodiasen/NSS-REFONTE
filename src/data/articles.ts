@@ -30,6 +30,7 @@ export interface Article {
   sourceUrl?: string;
   videoUrl?: string;
   coverCaption?: string;
+  simpleImages?: string[];
 }
 
 export const ARTICLES: Article[] = [
@@ -74,6 +75,120 @@ Du **Burkina Faso** à la **Gambie**, du **Ghana** à la **Guinée-Bissau**, de 
 Le CIFAP n'est pas une conférence de plus. C'est un outil de construction d'un rapport de force — patient, méthodique, enraciné. Réunir chaque année les mêmes types d'actrices, dans le même lieu, avec une ambition qui monte en intensité, c'est une stratégie de capitalisation : chaque édition consolide les liens, affine les positions, et renforce la légitimité collective de celles qui parlent. Que l'appel de Niaguis vise explicitement les gouvernements marque une étape de maturité : le mouvement ne cherche plus seulement à convaincre, il interpelle le pouvoir. L'autonomie des communautés rurales n'est plus présentée comme un projet à soutenir, mais comme un droit à garantir.
 
 Dans les jours qui viennent, les délégations repartent dans leurs pays respectifs — avec, dans leurs bagages, des formations, des engagements et un texte commun qu'il faudra maintenant faire entendre jusqu'aux ministères.`,
+  },
+
+  // ── FENOP — CIFAP 2025 Niaguis, leaders burkinabè ────────────────────────
+  {
+    id: "27",
+    slug: "cifap-2025-fenop-niaguis-senegal-formation-agroecologie",
+    title: "À Niaguis, deux leaders burkinabè plongent au cœur de l'agroécologie paysanne",
+    excerpt: "Du 14 au 21 septembre 2025, la FENOP a envoyé deux de ses représentantes au CIFAP à Niaguis — un geste fort qui dit beaucoup sur la stratégie du mouvement paysan burkinabè face aux défis de la souveraineté alimentaire.",
+    coverUrl: "https://res.cloudinary.com/dtjvjlkcc/image/upload/q_auto/f_auto/v1776001698/Nous_sommes_la_solution_-_Fenop_1_r9gqhc.jpg",
+    publishedAt: "2025-09-14",
+    category: "Formation",
+    author: "NSS — Nous Sommes la Solution",
+    canonical: "https://wasafrica.org/fr/blog/cifap-2025-fenop-niaguis-senegal-formation-agroecologie",
+    robots: "index, follow",
+    tags: ["CIFAP 2025", "FENOP", "Agroécologie paysanne", "Femmes rurales", "Niaguis", "Sénégal", "Horticulture", "NSS", "Formation", "Burkina Faso"],
+    cloudinaryGalleryCaption: "CIFAP 2025 à Niaguis — FENOP & mouvement NSS",
+    cloudinaryImages: [
+      "Nous_sommes_la_solution_-_Fenop_1_r9gqhc",
+      "Nous_sommes_la_solution_-_Fenop_2_on3m7f",
+      "Nous_sommes_la_solution_-_Fenop_3_tiaibt",
+      "Nous_sommes_la_solution_-_Fenop_4_d0vljw",
+      "Nous_sommes_la_solution_-_Fenop_5_nw7oye",
+      "Nous_sommes_la_solution_-_Fenop_6_ujuxsu",
+      "Nous_sommes_la_solution_-_Fenop_7_ent93g",
+    ],
+    content: `Former des leaders paysannes ne suffit pas — encore faut-il leur donner les outils concrets pour transformer leurs pratiques sur le terrain. C'est précisément le pari du CIFAP, ce camp international qui réunit chaque année des femmes rurales d'Afrique de l'Ouest autour de savoirs techniques ancrés dans la réalité du sol et des saisons. Du 14 au 21 septembre 2025, la FENOP a envoyé deux de ses représentantes à Niaguis, au Sénégal — un geste fort qui dit beaucoup sur la stratégie du mouvement paysan burkinabè.
+
+## Un camp qui fait de la technique un acte politique
+
+L'agroécologie paysanne n'est pas qu'une méthode de culture : c'est une posture vis-à-vis du sol, des semences et de l'autonomie alimentaire. En choisissant de former ses cadres aux techniques de conduite des cultures horticoles selon les principes agroécologiques, la FENOP affirme que le changement de pratiques agricoles est indissociable du changement de rapport au pouvoir.
+
+Organisé par Fahamu Africa et le mouvement NSS — Nous Sommes la Solution — le CIFAP 2025 n'est pas une formation ordinaire : c'est un espace où la transmission du savoir entre femmes rurales devient elle-même un acte de résistance face aux modèles agricoles industriels qui fragilisent les économies familiales sahéliennes.
+
+[[GALLERY]]
+
+## Thérèse KY et Catherine Midjour Soulama, visages d'un leadership qui se construit
+
+Madame Thérèse KY et Madame Catherine MIDJOUR SOULAMA ne représentent pas seulement la FENOP à Niaguis — elles incarnent une génération de leaders paysannes burkinabè qui refusent de séparer la formation technique de l'engagement politique.
+
+Participer au CIFAP, c'est aussi rejoindre un réseau continental de femmes rurales qui échangent, comparent et adaptent leurs pratiques d'un pays à l'autre. Cette circulation des savoirs entre le Burkina Faso, le Sénégal et les autres nations représentées au camp est précisément ce qui fait la force du modèle NSS : **l'intelligence collective plutôt que l'expertise descendante.**
+
+## Ce que cette participation révèle de la stratégie FENOP
+
+En s'associant au CIFAP dans le cadre du mouvement NSS, la FENOP inscrit son action dans une dynamique régionale qui dépasse les frontières nationales. Former deux leaders, c'est former des multiplicatrices : à leur retour au Burkina Faso, Thérèse KY et Catherine Midjour Soulama porteront avec elles non seulement des techniques horticoles adaptées à l'agroécologie, mais aussi la mémoire d'une semaine vécue avec des femmes paysannes de tout le continent.
+
+> C'est ce modèle de leadership enraciné — formé sur le terrain, nourri par l'échange, orienté vers les plus vulnérables — que le mouvement NSS cherche à généraliser à travers ses 14 pays d'action.
+
+Les enseignements du CIFAP 2025 seront au cœur des prochaines rencontres de la FENOP — suivez notre blog pour le retour terrain des deux participantes dès leur retour au Burkina Faso.`,
+  },
+
+  // ── Seneweb — Agroécologie & changement de paradigme, Niaguis ───────────
+  {
+    id: "26",
+    slug: "agroecologie-changement-paradigme-souverainete-alimentaire-niaguis-seneweb",
+    title: "Agroécologie et changement de paradigme pour une souveraineté alimentaire : À Niaguis, les organisations paysannes de l'Afrique de l'Ouest portent le plaidoyer",
+    excerpt: "Après une immersion d'une semaine au centre agroécologique de Niaguis, des organisations paysannes de 8 pays d'Afrique de l'Ouest rentrent renforcées pour promouvoir l'agroécologie et porter le plaidoyer communautaire auprès de leurs gouvernements.",
+    coverUrl: "https://res.cloudinary.com/dtjvjlkcc/image/upload/q_auto/f_auto/v1776000229/Agro%C3%A9cologie_et_changement_de_paradigme_pour_une_souverainet%C3%A9_alimentaire_lkwtd4.jpg",
+    publishedAt: "2025-09-23",
+    category: "Presse",
+    author: "Max Euclide KANFANY",
+    sourceName: "Seneweb Ziguinchor",
+    tags: ["Agroécologie", "Souveraineté alimentaire", "CIFAP", "Niaguis", "Femmes rurales", "Afrique de l'Ouest", "NSS", "Plaidoyer", "Formation"],
+    coverCaption: "Agroécologie et changement de paradigme pour une souveraineté alimentaire : À Niaguis, les organisations paysannes de l'Afrique de l'Ouest portent le plaidoyer — © Seneweb Ziguinchor / Max Euclide KANFANY",
+    simpleImages: [
+      "https://res.cloudinary.com/dtjvjlkcc/image/upload/q_auto/f_auto/v1776000230/Agro%C3%A9cologie_et_changement_de_paradigme_pour_une_souverainet%C3%A9_alimentaire_2_vqgpk6.jpg",
+      "https://res.cloudinary.com/dtjvjlkcc/image/upload/q_auto/f_auto/v1776000229/Agro%C3%A9cologie_et_changement_de_paradigme_pour_une_souverainet%C3%A9_alimentaire_1_f0kuc2.jpg",
+      "https://res.cloudinary.com/dtjvjlkcc/image/upload/q_auto/f_auto/v1776000228/Agro%C3%A9cologie_et_changement_de_paradigme_pour_une_souverainet%C3%A9_alimentaire_4_tmo5iz.jpg",
+    ],
+    videoUrl: "/Videos/Agro%C3%A9cologie%20et%20changement%20de%20paradigme%20pour%20une%20souverainet%C3%A9%20alimentaire%20-%20%C3%80%20Niaguis.mp4",
+    content: `Après une immersion d'une semaine au centre agroécologique de Niaguis, les organisations paysannes de femmes du Burkina Faso, de la Gambie, du Ghana, de la Guinée-Bissau, de la Guinée, de la Côte d'Ivoire, du Mali et du Sénégal rentrent renforcées et mieux outillées pour aider leurs communautés respectives dans la promotion de l'agroécologie et les sensibiliser sur la nécessité de rompre avec l'agriculture intensive. À charge pour ces dernières de porter le plaidoyer communautaire auprès de leur gouvernement pour accompagner la pratique agroécologique, seule voie, à leur avis, pour arriver à la souveraineté alimentaire, avec une alimentation plus saine.
+
+Ce camp a regroupé une centaine de participants, novices et habitués, sur la thématique « Les techniques de conduite des cultures horticoles en agroécologie ».
+
+## Fatou Bintou Diop : une formation très bénéfique
+
+Fatou Bintou Diop, présidente de l'Union des groupements paysans de Mékhé à Tivaouane et trésorière de l'organisation Nous sommes la solution, affirme que ce camp a été très bénéfique. Selon elle, l'agroécologie peut aider à booster la production au Sénégal.
+
+> Nous avons les écartements, le temps de pépinières, les pépinières avec les alvéoles, la préparation du sol, comment on teste le sol. Nous avons aussi échangé beaucoup de choses. C'est une formation très intéressante.
+
+[[PHOTO_1]]
+
+## Catherine Soulama : la culture hors sol pour les déplacés du Burkina Faso
+
+Une pratique saine sans utilisation d'engrais ni de pesticides et qui, au Burkina Faso, commence à faire des effets avec le régime de la transition, selon Catherine Soulama, membre de la Fédération nationale des organisations paysannes. Pour sa première expérience à ce camp international en agroécologie, elle dit rentrer avec une expérience riche en apprentissages de nouvelles pratiques.
+
+> Lors des formations qu'on a reçues ici, on a fait la culture hors sol. Quand je prends le cas spécifique de mon pays, présentement nous sommes confrontés à un problème d'insécurité. On a le déplacement massif des populations vers la ville. Cette technique hors sol peut porter un plus à ma communauté, parce que je pourrais aider les déplacés internes et même la population à assimiler ces méthodes.
+
+**Au Burkina Faso**, les autorités sont en train de valoriser l'agroécologie au niveau des écoles et au niveau des déplacés internes. Avec la culture hors sol apprise lors du camp, il devient possible d'accompagner encore davantage les populations déplacées vers une alimentation saine.
+
+[[PHOTO_2]]
+
+## Monique Noumo Konan : rendre l'agroécologie plus formelle
+
+Monique Noumo Konan, coordonnatrice de Nous sommes la solution en Côte d'Ivoire, une habituée du camp, dit avoir passé près d'une semaine à apprendre les bonnes pratiques de l'agroécologie.
+
+> Ce que j'ai beaucoup appris cette année, c'est de rendre un peu plus formelle la chose de l'agroécologie — pour dire que l'agroécologie, ce n'est pas de l'anarchie, ce n'est pas quelque chose de désordonné. Et cette année, nous avons appris à diagnostiquer la santé d'un sol. Ensuite ce qu'il faut apporter au sol.
+
+Monique Noumo Konan demande aux femmes du Sénégal de s'approprier l'agroécologie. Elle exhorte les autorités africaines à accompagner la promotion de cette agriculture respectueuse de l'humain, de la biodiversité, du climat et de la santé.
+
+> C'est une agriculture qui ne va pas nous causer de problèmes et nous permet d'atteindre la souveraineté alimentaire, dans la bonne santé et dans la protection de l'environnement et du climat.
+
+[[VIDEO]]
+
+## Un camp qui grandit d'année en année
+
+D'une trentaine de participants la première année, ce camp compte aujourd'hui une centaine d'adhérentes. Mariama Sonko, présidente du mouvement panafricain Nous sommes la solution, se réjouit de cet élan croissant.
+
+> Il y a un engagement des acteurs autour de la promotion de l'agroécologie. Parce que la première année, on a eu à convier une trentaine de personnes. Mais au fur et à mesure qu'on avance, les demandes sont extrêmes pour participer à ce camp international parce que les résultats sont visibles. Au niveau des pays, les gens constatent qu'il y a vraiment une évolution au niveau des différentes pratiques.
+
+Une raison suffisante pour la présidente d'être rassurée sur la pertinence de ce type d'agriculture qui intéresse de plus en plus de jeunes, au-delà des femmes.
+
+[[PHOTO_3]]
+
+> Dans l'agroécologie, nous recherchons la souveraineté alimentaire. Et pour être souverain, il faut arriver à avoir le droit de produire ce que vous voulez manger et aussi d'avoir la possibilité de le faire.`,
   },
 
   // ── Articles existants ────────────────────────────────────────────────────

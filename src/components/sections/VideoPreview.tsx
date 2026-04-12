@@ -192,7 +192,7 @@ export default function VideoPreview({ locale }: { locale: string }) {
         {/* CTA centré */}
         <div style={{ textAlign: "center", marginTop: "32px" }}>
           <Link
-            href={`/${locale}/ressources/videos`}
+            href={`/${locale}/mediatheque`}
             style={{
               fontFamily: "'Source Sans 3', sans-serif",
               fontSize: "13px",

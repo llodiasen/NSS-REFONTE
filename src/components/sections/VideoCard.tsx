@@ -6,11 +6,16 @@ import Badge from "@/components/ui/Badge";
 
 interface VideoCardProps {
   id: string | null;
+  cloudinaryUrl?: string | null;
   titre: string;
   description: string;
   categorie: string;
   duree: string | null;
   date: string;
+}
+
+function cloudinaryThumb(url: string): string {
+  return url.replace(/\/f_auto\//, "/f_jpg,so_0/").replace(/\.mp4$/, ".jpg");
 }
 
 const categoryBadge: Record<string, "impact" | "pays" | "evenement" | "media"> = {
@@ -20,18 +25,30 @@ const categoryBadge: Record<string, "impact" | "pays" | "evenement" | "media"> =
   Medias: "media",
 };
 
-export default function VideoCard({ id, titre, description, categorie, duree, date }: VideoCardProps) {
+export default function VideoCard({ id, cloudinaryUrl, titre, description, categorie, duree, date }: VideoCardProps) {
   const [playing, setPlaying] = useState(false);
 
-  const thumbnailUrl = id
-    ? `https://img.youtube.com/vi/${id}/maxresdefault.jpg`
-    : null;
+  const isCloudinary = !!cloudinaryUrl;
+  const thumbnailUrl = isCloudinary
+    ? cloudinaryThumb(cloudinaryUrl)
+    : id
+      ? `https://img.youtube.com/vi/${id}/maxresdefault.jpg`
+      : null;
+  const canPlay = isCloudinary || !!id;
 
   return (
     <div className="bg-white rounded-2xl shadow-card overflow-hidden flex flex-col hover:shadow-md transition-shadow">
       {/* Vidéo / Thumbnail */}
       <div className="relative aspect-video bg-neutral-900 overflow-hidden">
-        {playing && id ? (
+        {playing && isCloudinary ? (
+          <video
+            src={cloudinaryUrl}
+            controls
+            autoPlay
+            playsInline
+            className="absolute inset-0 w-full h-full bg-black"
+          />
+        ) : playing && id ? (
           <iframe
             src={`https://www.youtube.com/embed/${id}?autoplay=1&rel=0`}
             title={titre}
@@ -59,7 +76,7 @@ export default function VideoCard({ id, titre, description, categorie, duree, da
             <div className="absolute inset-0 bg-black/30" />
 
             {/* Bouton play */}
-            {id ? (
+            {canPlay ? (
               <button
                 onClick={() => setPlaying(true)}
                 className="absolute inset-0 flex items-center justify-center group"

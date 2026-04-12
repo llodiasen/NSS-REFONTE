@@ -93,25 +93,19 @@ export default async function LocaleLayout({
   ].join(" ");
 
   return (
-    <html lang={locale} className={fontVars}>
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head>
-      <body style={{ margin: 0, background: "#fff", color: "#111" }}>
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
+    <div className={fontVars}>
+      <NextIntlClientProvider messages={messages}>
+        {children}
+      </NextIntlClientProvider>
 
-        {process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN && (
-          <Script
-            defer
-            data-domain={process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN}
-            src="https://plausible.io/js/plausible.js"
-            strategy="afterInteractive"
-          />
-        )}
-      </body>
-    </html>
+      {process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN && (
+        <Script
+          defer
+          data-domain={process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN}
+          src="https://plausible.io/js/plausible.js"
+          strategy="afterInteractive"
+        />
+      )}
+    </div>
   );
 }

@@ -15,7 +15,8 @@ const BG_BY_CAT: Record<string, string> = {
 };
 
 interface Video {
-  id: string;
+  id: string | null;
+  cloudinaryUrl?: string | null;
   categorie: string;
   titre: string;
   source: string;
@@ -23,11 +24,16 @@ interface Video {
   bg: string;
 }
 
+function cloudinaryThumb(url: string): string {
+  return url.replace(/\/f_auto\//, "/f_jpg,so_0/").replace(/\/q_auto\//, "/q_auto/f_jpg,so_0/").replace(/\.mp4$/, ".jpg");
+}
+
 const VIDEOS: Video[] = allVideos
-  .filter((v) => v.id && v.statut === "disponible")
+  .filter((v) => (v.id || ("cloudinaryUrl" in v && v.cloudinaryUrl)) && v.statut === "disponible")
   .slice(0, 3)
   .map((v) => ({
-    id: v.id as string,
+    id: v.id ?? null,
+    cloudinaryUrl: ("cloudinaryUrl" in v ? v.cloudinaryUrl : null) as string | null,
     categorie: v.categorie,
     titre: v.titre,
     source: `${v.categorie} • ${new Date(v.date).getFullYear()}`,
@@ -47,6 +53,12 @@ function IconPlay() {
 /* ─── Carte vidéo ────────────────────────────────────────── */
 function VideoCard({ video }: { video: Video }) {
   const [playing, setPlaying] = useState(false);
+  const isCloudinary = !video.id && !!video.cloudinaryUrl;
+  const thumbSrc = isCloudinary && video.cloudinaryUrl
+    ? cloudinaryThumb(video.cloudinaryUrl)
+    : video.id
+      ? `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`
+      : null;
 
   return (
     <article
@@ -69,7 +81,15 @@ function VideoCard({ video }: { video: Video }) {
           overflow: "hidden",
         }}
       >
-        {playing ? (
+        {playing && isCloudinary ? (
+          <video
+            src={video.cloudinaryUrl!}
+            controls
+            autoPlay
+            playsInline
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", background: "#000" }}
+          />
+        ) : playing && video.id ? (
           <iframe
             src={`https://www.youtube.com/embed/${video.id}?autoplay=1`}
             title={video.titre}
@@ -79,14 +99,21 @@ function VideoCard({ video }: { video: Video }) {
           />
         ) : (
           <>
-            {/* Thumbnail YouTube */}
-            <Image
-              src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
-              alt={video.titre}
-              fill
-              style={{ objectFit: "cover", opacity: 0.85 }}
-              sizes="(max-width: 768px) 100vw, 33vw"
-            />
+            {/* Thumbnail */}
+            {thumbSrc ? (
+              <Image
+                src={thumbSrc}
+                alt={video.titre}
+                fill
+                style={{ objectFit: "cover", opacity: 0.85 }}
+                sizes="(max-width: 768px) 100vw, 33vw"
+                unoptimized={isCloudinary}
+              />
+            ) : (
+              <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <span style={{ color: "#a8d5b5", fontSize: "32px", fontWeight: 700 }}>NSS</span>
+              </div>
+            )}
 
             {/* Bouton play centré */}
             <button

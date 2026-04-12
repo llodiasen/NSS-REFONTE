@@ -130,7 +130,7 @@ export default async function EMMAPPage({ params }: EMMAPPageProps) {
               <Button href={`/${locale}/contact`} variant="primary" size="lg">
                 Nous contacter
               </Button>
-              <Button href={`/${locale}/ressources/videos`} variant="secondary" size="lg">
+              <Button href={`/${locale}/mediatheque`} variant="secondary" size="lg">
                 Voir nos vidéos
               </Button>
             </div>

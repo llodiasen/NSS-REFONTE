@@ -8,16 +8,20 @@ import type { Article } from "@/data/articles";
 // ── Tag config ────────────────────────────────────────────────────────────────
 
 const TAG_CONFIG: Record<string, { bg: string; color: string }> = {
-  Formation: { bg: "#e8f2df", color: "#3b6d11" },
-  Mouvement:  { bg: "#dff0f8", color: "#185fa5" },
-  Plaidoyer:  { bg: "#fef3e2", color: "#854f0b" },
+  Formation:   { bg: "#e8f2df", color: "#3b6d11" },
+  Mouvement:   { bg: "#dff0f8", color: "#185fa5" },
+  Plaidoyer:   { bg: "#fef3e2", color: "#854f0b" },
+  Presse:      { bg: "#fef3c7", color: "#92400e" },
+  Partenariat: { bg: "#d1fae5", color: "#065f46" },
 };
 
 const FILTER_CONFIG: Record<string, { active: string; label: string }> = {
-  Tous:      { active: "#1a3520", label: "Tous" },
-  Formation: { active: "#3b6d11", label: "Formation" },
-  Mouvement: { active: "#185fa5", label: "Mouvement" },
-  Plaidoyer: { active: "#854f0b", label: "Plaidoyer" },
+  Tous:        { active: "#1a3520", label: "Tous" },
+  Formation:   { active: "#3b6d11", label: "Formation" },
+  Mouvement:   { active: "#185fa5", label: "Mouvement" },
+  Plaidoyer:   { active: "#854f0b", label: "Plaidoyer" },
+  Presse:      { active: "#92400e", label: "Presse" },
+  Partenariat: { active: "#065f46", label: "Partenariat" },
 };
 
 // ── Reading-time helper ───────────────────────────────────────────────────────
@@ -222,7 +226,7 @@ export default function ActualitesClient({ articles }: { articles: Article[] }) 
       >
         <div
           style={{
-            maxWidth: "1100px",
+            maxWidth: "1400px",
             margin: "0 auto",
             display: "flex",
             alignItems: "center",
@@ -291,7 +295,7 @@ export default function ActualitesClient({ articles }: { articles: Article[] }) 
           padding: "40px 16px",
         }}
       >
-        <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
           <div
             style={{
               display: "grid",

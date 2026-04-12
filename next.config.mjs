@@ -4,6 +4,13 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return [
+      { source: "/:locale/ressources/videos",   destination: "/:locale/mediatheque", permanent: true },
+      { source: "/:locale/mediatheque/videos",  destination: "/:locale/mediatheque", permanent: true },
+      { source: "/:locale/mediatheque/photos",  destination: "/:locale/ressources/galerie", permanent: true },
+    ];
+  },
   images: {
     remotePatterns: [
       {

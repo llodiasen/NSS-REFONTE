@@ -1,6 +1,39 @@
 [
   {
     "id": null,
+    "cloudinaryUrl": "https://res.cloudinary.com/dtjvjlkcc/video/upload/q_auto/f_auto/v1775999944/Quatri%C3%A8me_%C3%A9dition_du_Camp_International_de_Formation_sur_l_Agro%C3%A9cologie_Paysanne_CIFAP_jppmln.mp4",
+    "titre": "Quatrième édition du CIFAP — Camp International de Formation sur l'Agroécologie Paysanne",
+    "categorie": "Evenements",
+    "description": "Retour complet sur la quatrième édition du Camp International de Formation sur l'Agroécologie Paysanne (CIFAP). Pendant plusieurs jours, des centaines de femmes rurales venues de toute l'Afrique de l'Ouest se sont réunies pour partager savoirs, pratiques et engagements autour de la souveraineté alimentaire.",
+    "date": "2025-01-01",
+    "duree": null,
+    "featured": true,
+    "statut": "disponible"
+  },
+  {
+    "id": null,
+    "cloudinaryUrl": "https://res.cloudinary.com/dtjvjlkcc/video/upload/q_auto/f_auto/v1776000623/20_NOUS_SOMMES_LA_SOLUTION_-_Facebook_uf48gq.mp4",
+    "titre": "CIFAP 4e édition — Mme Tabara partage ses impressions sur l'agroécologie paysanne",
+    "categorie": "Evenements",
+    "description": "Lors de la quatrième édition du Camp International de Formation sur l'Agroécologie Paysanne (CIFAP), Mme Tabara a partagé ses impressions avec enthousiasme. Elle a salué l'initiative qui permet aux participants de renforcer leurs compétences en agroécologie et de découvrir des pratiques agricoles respectueuses de l'environnement. Pour elle, le CIFAP est un véritable cadre d'apprentissage, de partage d'expériences et de réseautage entre jeunes, femmes et acteurs du monde rural. Elle a particulièrement insisté sur l'importance de multiplier ce type d'espace afin de favoriser l'autonomie des communautés, tout en protégeant la nature et en garantissant une alimentation saine aux générations futures.",
+    "date": "2025-01-01",
+    "duree": null,
+    "featured": true,
+    "statut": "disponible"
+  },
+  {
+    "id": null,
+    "cloudinaryUrl": "https://res.cloudinary.com/dtjvjlkcc/video/upload/q_auto/f_auto/v1775993935/Cifap_2025__Mme_Tabara_Ndiaye_invite_les_femmes_du_mouvement_NSS_%C3%A0_s_engager_plus_dans_la_lutte_vwpfgz.mp4",
+    "titre": "CIFAP 2025 — Mme Tabara Ndiaye invite les femmes NSS à s'engager dans la lutte",
+    "categorie": "Evenements",
+    "description": "À l'occasion du Camp International de Formation Agroécologique Paysan 2025, Mme Tabara Ndiaye lance un appel vibrant aux femmes du mouvement NSS à renforcer leur engagement dans la lutte pour la souveraineté alimentaire et l'agroécologie en Afrique de l'Ouest.",
+    "date": "2025-01-01",
+    "duree": null,
+    "featured": true,
+    "statut": "disponible"
+  },
+  {
+    "id": null,
     "titre": "Rencontre Annuelle 2025 – Kindia, Guinée",
     "categorie": "NSS",
     "description": "Retour sur la Rencontre Annuelle 2025 du mouvement NSS, tenue à Kindia en Guinée. Un moment fort de partage, de solidarité et de planification stratégique entre membres du mouvement venant de 12 pays.",

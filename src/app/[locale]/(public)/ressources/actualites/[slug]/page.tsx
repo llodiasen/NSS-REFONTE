@@ -82,7 +82,7 @@ function renderContent(content: string, dropCap = true): React.ReactNode[] {
       const first = block.charAt(0);
       const rest = block.slice(1);
       nodes.push(
-        <p key={i} style={{ fontFamily: "var(--font-body)", fontSize: "15px", lineHeight: 1.85, color: "#1a1a1a", marginBottom: "24px", textAlign: "justify" }}>
+        <p key={i} style={{ fontFamily: "var(--font-body)", fontSize: "16px", lineHeight: 1.85, color: "#1a1a1a", marginBottom: "24px", textAlign: "justify" }}>
           <span aria-hidden="true" style={{ fontFamily: "var(--font-display)", fontSize: "60px", fontWeight: 400, lineHeight: 0.75, color: "var(--green-700)", float: "left", marginRight: "8px", marginTop: "8px" }}>{first}</span>
           {renderInline(rest)}
         </p>
@@ -91,7 +91,7 @@ function renderContent(content: string, dropCap = true): React.ReactNode[] {
     }
 
     nodes.push(
-      <p key={i} style={{ fontFamily: "var(--font-body)", fontSize: "15px", lineHeight: 1.85, color: "#1a1a1a", marginBottom: "24px", textAlign: "justify" }}>
+      <p key={i} style={{ fontFamily: "var(--font-body)", fontSize: "16px", lineHeight: 1.85, color: "#1a1a1a", marginBottom: "24px", textAlign: "justify" }}>
         {renderInline(block)}
       </p>
     );
@@ -144,7 +144,7 @@ export default async function ActualitesSlugPage({ params }: Props) {
   const badge = BADGE[article.category] ?? { bg: "#e0f5ea", color: "#155c3e" };
   const coverSrc = articleImage(article.category, article.coverUrl);
 
-  const related = ARTICLES.filter((a) => a.slug !== slug).slice(0, 3);
+  const related = ARTICLES.filter((a) => a.slug !== slug).slice(0, 5);
   const sorted = [...ARTICLES].sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
   const idx = sorted.findIndex((a) => a.slug === slug);
   const prev = idx < sorted.length - 1 ? sorted[idx + 1] : null;
@@ -213,21 +213,20 @@ export default async function ActualitesSlugPage({ params }: Props) {
               )}
             </figure>
 
-            {/* Contenu — avec injection [[GALLERY]] et/ou [[VIDEO]] */}
+            {/* Contenu — avec injection [[GALLERY]], [[VIDEO]], [[PHOTO_1/2/3]] */}
             {(() => {
               const hasGallery = !!(article.cloudinaryImages?.length) && article.content.includes("[[GALLERY]]");
               const hasVideo   = !!article.videoUrl && article.content.includes("[[VIDEO]]");
+              const hasPhotos  = !!(article.simpleImages?.length);
 
-              if (!hasGallery && !hasVideo) return renderContent(article.content);
+              if (!hasGallery && !hasVideo && !hasPhotos) return renderContent(article.content);
 
-              const parts = article.content.split(/\[\[GALLERY\]\]|\[\[VIDEO\]\]/g);
-              const markerRegex = /\[\[GALLERY\]\]|\[\[VIDEO\]\]/g;
-              const markerMatches: string[] = [];
-              let markerMatch: RegExpExecArray | null;
-              while ((markerMatch = markerRegex.exec(article.content)) !== null) {
-                markerMatches.push(markerMatch[0]);
-              }
-              const markers = markerMatches;
+              const MARKER_RE = /\[\[GALLERY\]\]|\[\[VIDEO\]\]|\[\[PHOTO_1\]\]|\[\[PHOTO_2\]\]|\[\[PHOTO_3\]\]/g;
+              const parts = article.content.split(MARKER_RE);
+              const markers: string[] = [];
+              let m: RegExpExecArray | null;
+              const re2 = new RegExp(MARKER_RE.source, "g");
+              while ((m = re2.exec(article.content)) !== null) markers.push(m[0]);
 
               return (
                 <>
@@ -235,21 +234,23 @@ export default async function ActualitesSlugPage({ params }: Props) {
                     <span key={i}>
                       {renderContent(part, i === 0)}
                       {markers[i] === "[[GALLERY]]" && article.cloudinaryImages?.length && (
-                        <CloudinaryGallery
-                          publicIds={article.cloudinaryImages}
-                          defaultCaption={article.cloudinaryGalleryCaption}
-                        />
+                        <CloudinaryGallery publicIds={article.cloudinaryImages} defaultCaption={article.cloudinaryGalleryCaption} />
                       )}
                       {markers[i] === "[[VIDEO]]" && article.videoUrl && (
                         <div style={{ margin: "32px 0", borderRadius: "10px", overflow: "hidden", background: "#000", lineHeight: 0 }}>
-                          <video
-                            src={article.videoUrl}
-                            controls
-                            playsInline
-                            style={{ width: "100%", maxHeight: "480px", display: "block" }}
-                          />
+                          <video src={article.videoUrl} controls playsInline style={{ width: "100%", maxHeight: "480px", display: "block" }} />
                         </div>
                       )}
+                      {/^\[\[PHOTO_[123]\]\]$/.test(markers[i] ?? "") && (() => {
+                        const idx2 = parseInt((markers[i] ?? "").replace(/\D/g, ""), 10) - 1;
+                        const src = article.simpleImages?.[idx2];
+                        return src ? (
+                          <figure style={{ margin: "36px 0" }}>
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src={src} alt="" style={{ width: "100%", borderRadius: "10px", display: "block", objectFit: "cover", maxHeight: "520px" }} loading="lazy" />
+                          </figure>
+                        ) : null;
+                      })()}
                     </span>
                   ))}
                 </>

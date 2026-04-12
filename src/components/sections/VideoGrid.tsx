@@ -2,6 +2,7 @@ import VideoCard from "@/components/sections/VideoCard";
 
 interface Video {
   id: string | null;
+  cloudinaryUrl?: string | null;
   titre: string;
   description: string;
   categorie: string;
@@ -28,8 +29,9 @@ export default function VideoGrid({ videos }: VideoGridProps) {
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {videos.map((video, i) => (
         <VideoCard
-          key={`${video.id ?? "noid"}-${i}`}
+          key={`${video.id ?? video.cloudinaryUrl ?? "noid"}-${i}`}
           id={video.id}
+          cloudinaryUrl={video.cloudinaryUrl}
           titre={video.titre}
           description={video.description}
           categorie={video.categorie}

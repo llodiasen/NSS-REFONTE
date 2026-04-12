@@ -5,24 +5,41 @@ import { Play, Clock, Star } from "lucide-react";
 
 interface VideoHeroProps {
   id: string | null;
+  cloudinaryUrl?: string | null;
   titre: string;
   description: string;
   duree: string | null;
   date: string;
 }
 
-export default function VideoHero({ id, titre, description, duree, date }: VideoHeroProps) {
+function cloudinaryThumb(url: string): string {
+  return url.replace(/\/f_auto\//, "/f_jpg,so_0/").replace(/\.mp4$/, ".jpg");
+}
+
+export default function VideoHero({ id, cloudinaryUrl, titre, description, duree, date }: VideoHeroProps) {
   const [playing, setPlaying] = useState(false);
 
-  const thumbnailUrl = id
-    ? `https://img.youtube.com/vi/${id}/maxresdefault.jpg`
-    : null;
+  const isCloudinary = !!cloudinaryUrl;
+  const thumbnailUrl = isCloudinary
+    ? cloudinaryThumb(cloudinaryUrl)
+    : id
+      ? `https://img.youtube.com/vi/${id}/maxresdefault.jpg`
+      : null;
+  const canPlay = isCloudinary || !!id;
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
       {/* Vidéo */}
       <div className="relative aspect-video rounded-2xl overflow-hidden bg-neutral-900 shadow-xl">
-        {playing && id ? (
+        {playing && isCloudinary ? (
+          <video
+            src={cloudinaryUrl}
+            controls
+            autoPlay
+            playsInline
+            className="absolute inset-0 w-full h-full bg-black"
+          />
+        ) : playing && id ? (
           <iframe
             src={`https://www.youtube.com/embed/${id}?autoplay=1&rel=0`}
             title={titre}
@@ -46,7 +63,7 @@ export default function VideoHero({ id, titre, description, duree, date }: Video
             )}
             <div className="absolute inset-0 bg-black/30" />
 
-            {id ? (
+            {canPlay ? (
               <button
                 onClick={() => setPlaying(true)}
                 className="absolute inset-0 flex items-center justify-center group"
@@ -94,7 +111,7 @@ export default function VideoHero({ id, titre, description, duree, date }: Video
 
         <p className="text-neutral-500 text-sm leading-relaxed">{description}</p>
 
-        {id && !playing && (
+        {canPlay && !playing && (
           <button
             onClick={() => setPlaying(true)}
             className="flex items-center gap-2 bg-primary-700 hover:bg-primary-500 text-white

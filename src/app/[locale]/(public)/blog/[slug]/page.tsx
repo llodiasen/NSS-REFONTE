@@ -151,7 +151,7 @@ export default async function BlogSlugPage({ params }: Props) {
   const badge = BADGE[article.category] ?? { bg: "#e0f5ea", color: "#155c3e" };
   const coverSrc = articleImage(article.category, article.coverUrl);
 
-  const related = ARTICLES.filter((a) => a.slug !== slug).slice(0, 3);
+  const related = ARTICLES.filter((a) => a.slug !== slug).slice(0, 5);
   const sorted = [...ARTICLES].sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
   const idx = sorted.findIndex((a) => a.slug === slug);
   const prev = idx < sorted.length - 1 ? sorted[idx + 1] : null;
@@ -174,7 +174,7 @@ export default async function BlogSlugPage({ params }: Props) {
             <p style={{ fontFamily: "var(--font-body)", fontSize: "12px", color: "rgba(255,255,255,0.4)", marginBottom: "28px" }}>
               <Link href={`/${locale}`} style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none" }}>Accueil</Link>
               {" / "}
-              <Link href={`/${locale}/blog`} style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none" }}>Blog</Link>
+              <Link href={`/${locale}/ressources/actualites`} style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none" }}>Actualités</Link>
               {" / "}
               <span style={{ color: "rgba(255,255,255,0.7)" }}>Article</span>
             </p>
@@ -222,22 +222,20 @@ export default async function BlogSlugPage({ params }: Props) {
               )}
             </figure>
 
-            {/* Contenu — avec injection [[GALLERY]] et/ou [[VIDEO]] */}
+            {/* Contenu — avec injection [[GALLERY]], [[VIDEO]], [[PHOTO_1/2/3]] */}
             {(() => {
               const hasGallery = !!(article.cloudinaryImages?.length) && article.content.includes("[[GALLERY]]");
               const hasVideo   = !!article.videoUrl && article.content.includes("[[VIDEO]]");
+              const hasPhotos  = !!(article.simpleImages?.length);
 
-              if (!hasGallery && !hasVideo) return renderContent(article.content);
+              if (!hasGallery && !hasVideo && !hasPhotos) return renderContent(article.content);
 
-              // Découper sur les deux marqueurs possibles
-              const parts = article.content.split(/\[\[GALLERY\]\]|\[\[VIDEO\]\]/g);
-              const markerRegex = /\[\[GALLERY\]\]|\[\[VIDEO\]\]/g;
-              const markerMatches: string[] = [];
-              let markerMatch: RegExpExecArray | null;
-              while ((markerMatch = markerRegex.exec(article.content)) !== null) {
-                markerMatches.push(markerMatch[0]);
-              }
-              const markers = markerMatches;
+              const MARKER_RE = /\[\[GALLERY\]\]|\[\[VIDEO\]\]|\[\[PHOTO_1\]\]|\[\[PHOTO_2\]\]|\[\[PHOTO_3\]\]/g;
+              const parts = article.content.split(MARKER_RE);
+              const markers: string[] = [];
+              let m: RegExpExecArray | null;
+              const re2 = new RegExp(MARKER_RE.source, "g");
+              while ((m = re2.exec(article.content)) !== null) markers.push(m[0]);
 
               return (
                 <>
@@ -245,21 +243,23 @@ export default async function BlogSlugPage({ params }: Props) {
                     <span key={i}>
                       {renderContent(part, i === 0)}
                       {markers[i] === "[[GALLERY]]" && article.cloudinaryImages?.length && (
-                        <CloudinaryGallery
-                          publicIds={article.cloudinaryImages}
-                          defaultCaption={article.cloudinaryGalleryCaption}
-                        />
+                        <CloudinaryGallery publicIds={article.cloudinaryImages} defaultCaption={article.cloudinaryGalleryCaption} />
                       )}
                       {markers[i] === "[[VIDEO]]" && article.videoUrl && (
                         <div style={{ margin: "32px 0", borderRadius: "10px", overflow: "hidden", background: "#000", lineHeight: 0 }}>
-                          <video
-                            src={article.videoUrl}
-                            controls
-                            playsInline
-                            style={{ width: "100%", maxHeight: "480px", display: "block" }}
-                          />
+                          <video src={article.videoUrl} controls playsInline style={{ width: "100%", maxHeight: "480px", display: "block" }} />
                         </div>
                       )}
+                      {/^\[\[PHOTO_[123]\]\]$/.test(markers[i] ?? "") && (() => {
+                        const idx2 = parseInt((markers[i] ?? "").replace(/\D/g, ""), 10) - 1;
+                        const src = article.simpleImages?.[idx2];
+                        return src ? (
+                          <figure style={{ margin: "36px 0" }}>
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src={src} alt="" style={{ width: "100%", borderRadius: "10px", display: "block", objectFit: "cover", maxHeight: "520px" }} loading="lazy" />
+                          </figure>
+                        ) : null;
+                      })()}
                     </span>
                   ))}
                 </>
@@ -302,12 +302,12 @@ export default async function BlogSlugPage({ params }: Props) {
             {/* Navigation prev/next */}
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "16px", borderTop: "1px solid rgba(0,0,0,0.07)", marginTop: "48px", paddingTop: "32px", flexWrap: "wrap" }}>
               {prev ? (
-                <Link href={`/${locale}/blog/${prev.slug}`} style={{ display: "flex", alignItems: "center", gap: "8px", textDecoration: "none", maxWidth: "44%", fontFamily: "var(--font-body)", fontSize: "13px", fontWeight: 500, color: "var(--text-muted)" }}>
+                <Link href={`/${locale}/ressources/actualites/${prev.slug}`} style={{ display: "flex", alignItems: "center", gap: "8px", textDecoration: "none", maxWidth: "44%", fontFamily: "var(--font-body)", fontSize: "13px", fontWeight: 500, color: "var(--text-muted)" }}>
                   ← <span style={{ color: "var(--text-primary)" }}>{prev.title}</span>
                 </Link>
               ) : <span />}
               {next && (
-                <Link href={`/${locale}/blog/${next.slug}`} style={{ display: "flex", alignItems: "center", gap: "8px", textDecoration: "none", maxWidth: "44%", textAlign: "right", marginLeft: "auto", fontFamily: "var(--font-body)", fontSize: "13px", fontWeight: 500, color: "var(--text-muted)" }}>
+                <Link href={`/${locale}/ressources/actualites/${next.slug}`} style={{ display: "flex", alignItems: "center", gap: "8px", textDecoration: "none", maxWidth: "44%", textAlign: "right", marginLeft: "auto", fontFamily: "var(--font-body)", fontSize: "13px", fontWeight: 500, color: "var(--text-muted)" }}>
                   <span style={{ color: "var(--text-primary)" }}>{next.title}</span> →
                 </Link>
               )}
@@ -315,7 +315,7 @@ export default async function BlogSlugPage({ params }: Props) {
           </article>
 
           {/* ── Sidebar ── */}
-          <BlogArticleSidebar related={related} locale={locale} categories={categories} activeCategory={article.category} />
+          <BlogArticleSidebar related={related} locale={locale} categories={categories} activeCategory={article.category} basePath="ressources/actualites" />
         </div>
       </div>
 
