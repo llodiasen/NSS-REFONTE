@@ -87,7 +87,7 @@ Dans les jours qui viennent, les délégations repartent dans leurs pays respect
     publishedAt: "2025-09-14",
     category: "Formation",
     author: "NSS — Nous Sommes la Solution",
-    canonical: "https://wasafrica.org/fr/blog/cifap-2025-fenop-niaguis-senegal-formation-agroecologie",
+    canonical: "https://wasafrica.org/fr/ressources/actualites/cifap-2025-fenop-niaguis-senegal-formation-agroecologie",
     robots: "index, follow",
     tags: ["CIFAP 2025", "FENOP", "Agroécologie paysanne", "Femmes rurales", "Niaguis", "Sénégal", "Horticulture", "NSS", "Formation", "Burkina Faso"],
     cloudinaryGalleryCaption: "CIFAP 2025 à Niaguis — FENOP & mouvement NSS",
@@ -556,6 +556,29 @@ Producteurs aguerris, jeunes en quête de voies agricoles viables, femmes rurale
 À chaque édition, le CIFAP confirme son triple rôle : cadre de formation technique, espace de partage de savoirs et outil de mise en réseau. Cette architecture n'est pas accidentelle — elle reflète une conviction profonde que la transition agroécologique ne se décrète pas mais se construit, collectivement, par la transmission et le lien. Respectueuse de l'environnement, orientée vers la sécurité alimentaire, la démarche portée ici à Niaguis trace une ligne directe entre la parcelle paysanne et les grands équilibres agricoles du continent.
 
 La semaine qui s'ouvre sera celle des mains dans la terre et des têtes en dialogue — suivez nos prochaines publications pour les comptes rendus des ateliers pratiques, les portraits de participants et les enseignements techniques au cœur de cette 4ᵉ édition.`,
+  },
+
+  // ── Le Soleil — Tamba, femmes rurales & changement climatique ────────────
+  {
+    id: "28",
+    slug: "tamba-femmes-rurales-premiere-ligne-changement-climatique-lesoleil",
+    title: "Tamba : les femmes rurales en première ligne face au changement climatique",
+    excerpt: "À Tambacounda, le mouvement NSS a célébré la Journée internationale de la femme rurale en mettant en lumière la résilience des agricultrices face au changement climatique et leur rôle central dans la transition agroécologique.",
+    coverUrl: "https://lesoleil.sn/wp-content/webp-express/webp-images/uploads/2025/10/WhatsApp-Image-2025-10-16-at-21.29.47-900x405.jpeg.webp",
+    publishedAt: "2025-10-17",
+    category: "Presse",
+    author: "Boubacar Agna CAMARA",
+    sourceName: "Le Soleil",
+    canonical: "https://lesoleil.sn/actualites/societe-fait-divers/tamba-les-femmes-rurales-en-premiere-ligne-face-au-changement-climatique/",
+    tags: ["Changement climatique", "Femmes rurales", "Tambacounda", "Résilience", "Agroécologie", "NSS", "Journée internationale de la femme rurale"],
+    coverCaption: "Journée internationale de la femme rurale à Tambacounda — © Le Soleil / Boubacar Agna CAMARA",
+    content: `Ce mercredi 15 octobre, l'association sous régionale Nous sommes la solution (NSS), a célébré à Tambacounda, la journée internationale de la femme rurale. Lors de celle-ci, la résilience des femmes du monde rural face aux impacts du changement climatique, dans le secteur agricole, a été notée. « En tant qu'agricultrices, les femmes rurales ont appris à faire face et à s'adapter aux changements climatiques », indique la présidente du mouvement au niveau national et sous-régional, madame Mariama Sonko.
+
+Selon cette dernière, cette adaptation est visible à travers la pratique d'une agriculture en harmonie avec la nature, l'agroécologie, mais également avec la préservation des semences résilientes aux changements climatiques. Elle concerne aussi l'emploi de techniques de gestion des sols écologiques ou biologiques, ou encore les efforts de reboisement et de restauration réalisés à l'échelle de la communauté.
+
+Cette journée célébrée dans la capitale du Sénégal oriental a enregistré la présence des délégations des coordinations de NSS en Gambie et en Guinée-Bissau. Pour Mme Sonko, les femmes rurales ont été à l'avant-garde de la conservation de l'environnement en apportant des connaissances et des pratiques ancestrales inestimables. Celles-ci ont été à la tête de mouvements climatiques mondiaux et nationaux qui ont mis en lumière l'urgence de la crise climatique et la nécessité d'agir pour le bien-être de cette génération et des générations futures, ajoute-t-elle.
+
+C'est dans cette optique que le mouvement panafricain invite toutes les parties prenantes à célébrer le rôle essentiel des femmes rurales dans le renforcement de la résilience climatique, la conservation de la biodiversité et le soin des terres. Car, selon la présidente, les changements climatiques, la perte de la biodiversité et la dégradation des terres affectent les droits, la résilience et les ressources des femmes et des filles rurales.`,
   },
 ];
 
