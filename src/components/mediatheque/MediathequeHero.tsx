@@ -40,7 +40,7 @@ export default function MediathequeHero() {
         <p style={{ fontFamily: "var(--font-body)", fontSize: "14px", fontWeight: 400, color: "#ffffff", marginBottom: "28px" }}>
           <Link href="/fr" style={{ color: "#ffffff", textDecoration: "none" }}>Accueil</Link>
           {" / "}
-          <span style={{ color: "#ffffff" }}>Médiathèque</span>
+          <span style={{ color: "#ffffff" }}>Vidéos</span>
         </p>
 
         {/* Eyebrow */}
