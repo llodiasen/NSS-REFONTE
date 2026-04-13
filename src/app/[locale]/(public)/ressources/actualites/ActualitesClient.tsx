@@ -220,6 +220,7 @@ export default function ActualitesClient({ articles }: { articles: Article[] }) 
     <>
       {/* ── Filters bar ── */}
       <div
+        className="act-section"
         style={{
           background: "#F6F3EE",
           padding: "24px var(--container-pad)",
@@ -292,6 +293,7 @@ export default function ActualitesClient({ articles }: { articles: Article[] }) 
 
       {/* ── Grid ── */}
       <section
+        className="act-section"
         style={{
           background: "#F6F3EE",
           padding: "40px var(--container-pad)",
@@ -299,6 +301,7 @@ export default function ActualitesClient({ articles }: { articles: Article[] }) 
       >
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
           <div
+            className="act-grid"
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
@@ -358,6 +361,11 @@ export default function ActualitesClient({ articles }: { articles: Article[] }) 
         .actualite-card:hover {
           transform: translateY(-3px);
           box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+        }
+        .act-section { padding-left: var(--container-pad); padding-right: var(--container-pad); }
+        @media (max-width: 768px) {
+          .act-section { padding-left: 16px !important; padding-right: 16px !important; }
+          .act-grid    { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </>
