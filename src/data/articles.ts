@@ -683,7 +683,7 @@ La semaine qui s'ouvre sera celle des mains dans la terre et des têtes en dialo
 
   // ── Le Soleil — Tamba, femmes rurales & changement climatique ────────────
   {
-    id: "28",
+    id: "30",
     slug: "tamba-femmes-rurales-premiere-ligne-changement-climatique-lesoleil",
     title: "Tamba : les femmes rurales en première ligne face au changement climatique",
     excerpt: "À Tambacounda, le mouvement NSS a célébré la Journée internationale de la femme rurale en mettant en lumière la résilience des agricultrices face au changement climatique et leur rôle central dans la transition agroécologique.",
@@ -706,7 +706,7 @@ C'est dans cette optique que le mouvement panafricain invite toutes les parties 
 
   // ── Scoops de Ziguinchor — NSS CIFAP 3e édition bio-protecteurs ──────────
   {
-    id: "29",
+    id: "31",
     slug: "nss-cifap-3e-edition-bio-protecteurs-agroecologie-niaguis-2024",
     title: "Nous Sommes La Solution (NSS) mise sur les bio-protecteurs en agroécologie",
     excerpt: "La 3e édition du Camp International de Formation en Agroécologie Paysanne (CIFAP) a réuni 14 associations de femmes rurales ouest-africaines à Niaguis autour des techniques de production et d'utilisation des bio-protecteurs en agroécologie.",
