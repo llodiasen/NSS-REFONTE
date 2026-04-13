@@ -216,7 +216,7 @@ export default function ActionsSection() {
         {/* ── Bouton bas ── */}
         <div style={{ textAlign: "center", marginTop: "48px" }}>
           <Link
-            href="/fr/evenements"
+            href="/fr/programmes"
             className="evt-voir-btn"
             style={{
               display: "inline-block",
