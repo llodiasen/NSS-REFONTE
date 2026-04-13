@@ -222,13 +222,13 @@ export default function ActualitesClient({ articles }: { articles: Article[] }) 
       <div
         style={{
           background: "#F6F3EE",
-          padding: "24px 72px",
+          padding: "24px var(--container-pad)",
           borderBottom: "1px solid #e8e2d9",
         }}
       >
         <div
           style={{
-            maxWidth: "1400px",
+            maxWidth: "var(--container-max)",
             margin: "0 auto",
             display: "flex",
             alignItems: "center",
@@ -294,10 +294,10 @@ export default function ActualitesClient({ articles }: { articles: Article[] }) 
       <section
         style={{
           background: "#F6F3EE",
-          padding: "40px 72px",
+          padding: "40px var(--container-pad)",
         }}
       >
-        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+        <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
           <div
             style={{
               display: "grid",

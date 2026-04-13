@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { useLocale } from "next-intl";
 import { ChevronDown } from "lucide-react";
 import HeaderNavDropdown from "./HeaderNavDropdown";
+import HeaderSlidePanel from "./HeaderSlidePanel";
 import { getMegaColumns } from "./mega-nav-config";
 
 const BANNER_KEY = "nss-banner-dismissed";
@@ -32,6 +33,7 @@ export default function Header() {
 
   const [bannerVisible, setBannerVisible] = useState(false);
   const [isScrolled,    setIsScrolled]    = useState(false);
+  const [slideOpen,     setSlideOpen]     = useState(false);
   const [openDrop,      setOpenDrop]      = useState<DropKey | null>(null);
   const [currentLang,   setCurrentLang]   = useState<LangCode>(locale as LangCode);
   const [langDropOpen,  setLangDropOpen]  = useState(false);
@@ -52,11 +54,17 @@ export default function Header() {
   }, []);
 
   // Close on route change
-  useEffect(() => { setOpenDrop(null); }, [pathname]);
+  useEffect(() => { setSlideOpen(false); setOpenDrop(null); }, [pathname]);
+
+  // Body scroll lock when slide open
+  useEffect(() => {
+    document.body.style.overflow = slideOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [slideOpen]);
 
   // Escape + click-outside
   useEffect(() => {
-    const onKey   = (e: KeyboardEvent) => { if (e.key === "Escape") { setOpenDrop(null); } };
+    const onKey   = (e: KeyboardEvent) => { if (e.key === "Escape") { setSlideOpen(false); setOpenDrop(null); } };
     const onMouse = (e: MouseEvent)    => { if (navRef.current && !navRef.current.contains(e.target as Node)) setOpenDrop(null); };
     document.addEventListener("keydown",   onKey);
     document.addEventListener("mousedown", onMouse);
@@ -135,7 +143,7 @@ export default function Header() {
               </Link>
             </nav>
 
-            {/* Actions */}
+            {/* Actions (desktop only) */}
             <div className="hdr-actions" style={{ display: "flex", alignItems: "center", gap: "8px", flexShrink: 0 }}>
               {/* Language dropdown */}
               <div style={{ position: "relative" }}>
@@ -174,6 +182,16 @@ export default function Header() {
               </Link>
             </div>
 
+            {/* Hamburger — mobile only */}
+            <button onClick={() => setSlideOpen((v) => !v)}
+              aria-label={slideOpen ? "Fermer le menu" : "Ouvrir le menu"}
+              aria-expanded={slideOpen}
+              className="hdr-burger"
+              style={{ width: "40px", height: "40px", borderRadius: "8px", flexShrink: 0, border: `1.5px solid ${slideOpen ? "#0f2b1a" : "#1a6b3c"}`, background: slideOpen ? "#0f2b1a" : "#fff", display: "none", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "5px", cursor: "pointer", transition: "all 0.25s" }}>
+              <span className={slideOpen ? "hbl hb1o" : "hbl"} />
+              <span className={slideOpen ? "hbl hb2o" : "hbl"} />
+              <span className={slideOpen ? "hbl hb3o" : "hbl"} />
+            </button>
           </div>
         </div>
       </header>
@@ -181,10 +199,24 @@ export default function Header() {
       {/* Spacer */}
       <div style={{ height: `${topOffset}px` }} aria-hidden="true" />
 
+      <HeaderSlidePanel
+        isOpen={slideOpen} locale={locale} currentLang={currentLang}
+        topOffset={topOffset} onClose={() => setSlideOpen(false)} onSwitchLang={switchLang}
+      />
+
       <style>{`
         .hdr-nav-link:hover { background:#eaf3ee !important; color:#1a6b3c !important; }
         .hdr-join-btn:hover  { background:#155c3e !important; }
-        @media (max-width:640px) { .hdr-logo-text { display:none !important; } .hdr-sm-hide { display:none !important; } }
+        .hbl { display:block; width:16px; height:1.5px; background:#1a6b3c; transition:all 0.25s; }
+        .hb1o { background:#fff !important; transform:translateY(6.5px) rotate(45deg); }
+        .hb2o { background:#fff !important; opacity:0; }
+        .hb3o { background:#fff !important; transform:translateY(-6.5px) rotate(-45deg); }
+        @media (max-width:768px) {
+          .hdr-nav    { display:none !important; }
+          .hdr-actions { display:none !important; }
+          .hdr-burger  { display:flex !important; }
+        }
+        @media (max-width:640px) { .hdr-logo-text { display:none !important; } }
       `}</style>
     </>
   );
