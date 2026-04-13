@@ -138,21 +138,25 @@ function ArticleCard({ article }: { article: Article }) {
         </div>
 
         {/* Title */}
-        <h2
-          style={{
-            fontFamily: "serif",
-            fontSize: "1rem",
-            fontWeight: 700,
-            color: "#1a1a1a",
-            lineHeight: 1.4,
-            marginBottom: "10px",
-            display: "-webkit-box",
-            WebkitLineClamp: 2,
-            WebkitBoxOrient: "vertical",
-            overflow: "hidden",
-          }}
-        >
-          {article.title}
+        <h2 style={{ marginBottom: "10px" }}>
+          <Link
+            href={`/fr/ressources/actualites/${article.slug}`}
+            style={{
+              fontFamily: "serif",
+              fontSize: "1rem",
+              fontWeight: 700,
+              color: "#1a1a1a",
+              lineHeight: 1.4,
+              textDecoration: "none",
+              display: "-webkit-box",
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
+            }}
+            className="act-title-link"
+          >
+            {article.title}
+          </Link>
         </h2>
 
         {/* Excerpt */}
@@ -223,7 +227,7 @@ export default function ActualitesClient({ articles }: { articles: Article[] }) 
         className="act-section"
         style={{
           background: "#F6F3EE",
-          padding: "24px var(--container-pad)",
+          padding: "28px var(--container-pad)",
           borderBottom: "1px solid #e8e2d9",
         }}
       >
@@ -232,50 +236,57 @@ export default function ActualitesClient({ articles }: { articles: Article[] }) 
             maxWidth: "var(--container-max)",
             margin: "0 auto",
             display: "flex",
-            alignItems: "center",
+            alignItems: "flex-end",
             justifyContent: "space-between",
+            gap: "16px",
             flexWrap: "wrap",
-            gap: "12px",
           }}
         >
-          {/* Label + pills */}
-          <div style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
-            <span
-              style={{
-                fontSize: "13px",
-                fontWeight: 600,
-                color: "#555",
-                letterSpacing: "0.05em",
-                textTransform: "uppercase",
-              }}
-            >
-              Filtrer
-            </span>
-            {Object.entries(FILTER_CONFIG).map(([key, cfg]) => {
-              const isActive = activeFilter === key;
-              return (
-                <button
-                  key={key}
-                  onClick={() => {
-                    setActiveFilter(key);
-                    setVisibleCount(PAGE_SIZE);
-                  }}
-                  style={{
-                    borderRadius: "100px",
-                    padding: "6px 18px",
-                    fontSize: "13px",
-                    fontWeight: isActive ? 600 : 400,
-                    border: isActive ? "none" : "1px solid #ccc",
-                    background: isActive ? cfg.active : "transparent",
-                    color: isActive ? "#fff" : "#555",
-                    cursor: "pointer",
-                    transition: "all 0.15s ease",
-                  }}
-                >
-                  {cfg.label}
-                </button>
-              );
-            })}
+          {/* Title + pills */}
+          <div>
+            <p style={{ fontSize: "11px", fontWeight: 700, color: "#6b8c72", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "12px" }}>
+              Parcourir par thème
+            </p>
+            <div className="act-pills" style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+              {Object.entries(FILTER_CONFIG).map(([key, cfg]) => {
+                const isActive = activeFilter === key;
+                return (
+                  <button
+                    key={key}
+                    onClick={() => {
+                      setActiveFilter(key);
+                      setVisibleCount(PAGE_SIZE);
+                    }}
+                    style={{
+                      borderRadius: "20px",
+                      padding: "6px 16px",
+                      fontSize: "13px",
+                      fontWeight: isActive ? 600 : 500,
+                      border: isActive ? `1px solid #0f2b1a` : "1px solid #dde8de",
+                      background: isActive ? "#0f2b1a" : "#fff",
+                      color: isActive ? "#e8f5eb" : "#2a2a2a",
+                      cursor: "pointer",
+                      transition: "all 0.15s",
+                      whiteSpace: "nowrap",
+                    }}
+                    onMouseEnter={(e) => {
+                      if (!isActive) {
+                        (e.currentTarget as HTMLButtonElement).style.borderColor = "#1a6b3c";
+                        (e.currentTarget as HTMLButtonElement).style.color = "#1a6b3c";
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!isActive) {
+                        (e.currentTarget as HTMLButtonElement).style.borderColor = "#dde8de";
+                        (e.currentTarget as HTMLButtonElement).style.color = "#2a2a2a";
+                      }
+                    }}
+                  >
+                    {cfg.label}
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
           {/* Counter */}
@@ -362,10 +373,15 @@ export default function ActualitesClient({ articles }: { articles: Article[] }) 
           transform: translateY(-3px);
           box-shadow: 0 8px 24px rgba(0,0,0,0.10);
         }
+        .act-title-link:hover { color: #1a6b3c !important; }
         .act-section { padding-left: var(--container-pad); padding-right: var(--container-pad); }
         @media (max-width: 768px) {
           .act-section { padding-left: 16px !important; padding-right: 16px !important; }
           .act-grid    { grid-template-columns: 1fr !important; }
+        }
+        @media (max-width: 480px) {
+          .act-pills { flex-wrap: nowrap !important; overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+          .act-pills::-webkit-scrollbar { display: none; }
         }
       `}</style>
     </>
