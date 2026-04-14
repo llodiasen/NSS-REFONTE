@@ -32,15 +32,684 @@ export interface Article {
   videoUrls?: string[];
   coverCaption?: string;
   simpleImages?: string[];
+  location?: string;
 }
 
 export const ARTICLES: Article[] = [
+
+  // ── L'As Quotidien — AFSA conquise par le modèle Karonghen Wati Naaning ──
+  {
+    id: "35",
+    slug: "lafsa-conquise-modele-integre-karonghen-wati-naaning-casamance",
+    title: "L'AFSA conquise par le modèle intégré de « Karonghen Wati Naaning » en Casamance",
+    location: "Niaguis, Casamance — Sénégal",
+    excerpt: "En visite à Niaguis, l'Alliance pour la souveraineté alimentaire en Afrique (AFSA) a salué le centre agroécologique fondé par NSS et AJAC, qualifiant son approche intégrée d'« exemple reproductible porteur d'espoir pour l'Afrique ».",
+    coverUrl: "/images/actualites/afsa-karonghen-wati-naaning-casamance.jpg",
+    publishedAt: "2026-02-23",
+    category: "Presse",
+    author: "Essakéman KAYOUNGA",
+    sourceName: "L'As Quotidien",
+    sourceUrl: "https://wasafrica.org/fr/lafsa-conquise-par-le-modele-integre-de-karonghen-wati-naaning-en-casamance/",
+    canonical: "https://wasafrica.org/fr/lafsa-conquise-par-le-modele-integre-de-karonghen-wati-naaning-en-casamance/",
+    robots: "index, follow",
+    tags: ["agroécologie", "AFSA", "Casamance", "Niaguis", "semences paysannes", "souveraineté alimentaire", "Nous Sommes la Solution", "centre de formation", "Afrique de l'Ouest"],
+    content: `En visite à Niaguis, l'Alliance for Food Sovereignty in Africa (AFSA) a salué le modèle du centre agroécologique « Karonghen Wati Naaning », qu'elle qualifie d'approche complète au service des communautés rurales. L'initiative incarne, selon l'organisation, une vision ambitieuse face aux défis de la souveraineté alimentaire en Afrique.
+
+L'Alliance pour la souveraineté alimentaire en Afrique (AFSA) a exprimé un intérêt marqué pour le modèle développé par le centre agroécologique « Karonghen Wati Naaning », à Niaguis, en Casamance. Million Belay, coordonnateur général, s'est dit impressionné par les réalisations du centre de formation, d'expérimentation et de démonstration, situé dans la commune de Niaguis à quelques kilomètres sur l'axe Ziguinchor–Kolda.
+
+Fondé par le mouvement paysan africain des Femmes Rurales « Nous Sommes La Solution » (NSS) et par l'Association des Jeunes Agriculteurs de Casamance (AJAC), le centre s'impose progressivement comme un pôle stratégique de promotion de l'agroécologie paysanne au Sénégal et en Afrique de l'Ouest.
+
+> « Je suis impressionné par ce que j'ai vu ici, tant en matière de formation aux bonnes pratiques agroécologiques que par la diversité des activités développées. » — Million Belay, coordonnateur général de l'AFSA
+
+Million Belay a parcouru les unités d'élevage, de pisciculture, d'agroforesterie, d'agriculture, d'apiculture, d'horticulture, de transformation, de production de biofertilisants et de biopesticides, ainsi que les initiatives autour de la mangrove. Il a salué une approche complète, intégrant formation des producteurs, valorisation des savoirs locaux, protection des semences paysannes et promotion de pratiques vertueuses pour les écosystèmes — soulignant le lien fort entre le centre et les communautés environnantes. Selon lui, voir des personnes travailler sur le terrain avec passion et apporter des preuves concrètes est bien plus éloquent que n'importe quel rapport de bureau.
+
+Le centre mise sur la diversification des cultures, l'agroforesterie, le compostage biologique et la gestion durable des ressources en eau. L'initiative accorde une place centrale à la formation des jeunes et des femmes. L'appellation « Karonghen Wati Naaning » traduit une volonté de remettre au cœur du développement agricole les savoirs locaux, les semences traditionnelles et les techniques ancestrales.
+
+> « Nous voyons ici un modèle reproductible, ancré dans les réalités locales et porteur d'espoir pour l'Afrique. » — Délégation AFSA
+
+La visite s'est déroulée en présence de Mamadou Danfakha, coordinateur de NSS, de Famara Diédhiou, chargé de programme Afrique de l'Ouest à l'AFSA, de Charles Lwanga, responsable du programme « Sol sain, aliments sains », et de Mariama Sonko, présidente du mouvement NSS.
+
+Mariama Sonko a rappelé que le centre couvre plusieurs domaines — agriculture, élevage, pisciculture, transformation, agroforesterie — et contribue à la promotion de l'agroécologie dans neuf pays : Burkina Faso, Côte d'Ivoire, Gambie, Ghana, Guinée, Guinée-Bissau, Mali, Togo et Sénégal. Mamadou Danfakha, coordinateur NSS, a souligné que le mouvement a su acquérir expérience, motivation et l'accompagnement de partenaires solides. L'ambition portée par NSS est de faire du site un centre africain de référence. Famara Diédhiou a, pour sa part, promis un appui plus structuré au centre, affirmant repartir avec une confiance accrue.`,
+  },
+
+  // ── NSS — Thousand Currents au centre Karonghen Wati Naning, Niaguiss ────
+  {
+    id: "36",
+    slug: "thousand-currents-centre-karonghen-wati-naning-niaguiss",
+    title: "Thousand Currents au Centre Karonghen Wati Naning à Niaguiss",
+    location: "Niaguiss, Casamance — Sénégal",
+    excerpt: "Une délégation de Thousand Currents — ONG américaine qui soutient NSS depuis huit ans — a visité le centre Karonghen Wati Naning à Niaguiss en Casamance. Elles sont reparties satisfaites et prêtes à continuer leur appui au mouvement.",
+    coverUrl: "/images/actualites/thousand-currents-karonghen-wati-naning-niaguiss.jpg",
+    publishedAt: "2024-11-28",
+    category: "Événement",
+    author: "NSS — Nous Sommes la Solution",
+    canonical: "https://wasafrica.org/fr/thousand-currents-au-centre-karonghen-wati-naning-a-niaguiss/",
+    robots: "index, follow",
+    tags: ["Thousand Currents", "Casamance", "Niaguiss", "centre agroécologique", "Karonghen Wati Naning", "partenariat", "Nous Sommes la Solution", "souveraineté alimentaire"],
+    content: `Une équipe de Thousand Currents, composée de Mme Salome (Directrice générale), Mme Félogène (Directrice Afrique) et Mme Zanele (Vice-présidente), une ONG américaine qui appuie Nous Sommes la Solution (NSS) depuis huit ans, a séjourné en Casamance pour visiter le centre Karonghen Wati Naning de Niaguiss.
+
+L'objectif de la visite était de constater de visu les réalisations accomplies sur le site par NSS et ses partenaires locaux, notamment les initiatives menées par AJAC Lukkal.
+
+La délégation a pu découvrir l'ensemble des activités du centre : agriculture paysanne, élevage, pisciculture, agroforesterie, apiculture, horticulture, transformation agroalimentaire, production de biofertilisants et de biopesticides, ainsi que les programmes de formation destinés aux jeunes et aux femmes rurales.
+
+Les trois représentantes de Thousand Currents sont reparties satisfaites de ce qu'elles ont découvert, et se disent prêtes à continuer à soutenir NSS dans sa mission de promotion de l'agroécologie paysanne en Afrique de l'Ouest.`,
+  },
+
+  // ── NSS — Déclaration finale Foire Djimini, semences paysannes 2024 ──────
+  {
+    id: "37",
+    slug: "souverainete-alimentaire-semences-paysannes-foire-djimini-2024",
+    title: "Souveraineté alimentaire et semences paysannes : déclaration finale de la Foire de Djimini 2024",
+    location: "Djimini — Sénégal",
+    excerpt: "Les participants à la 8ème édition de la Foire Ouest-Africaine des Semences Paysannes, réunis à Djimini (Sénégal) du 12 au 14 novembre 2024, ont adopté une déclaration finale appelant à l'autonomie semencière face aux politiques qui favorisent les semences industrielles.",
+    coverUrl: "/images/actualites/foire-djimini-semences-paysannes-2024.jpg",
+    publishedAt: "2024-11-18",
+    category: "Événement",
+    author: "NSS — Nous Sommes la Solution",
+    canonical: "https://wasafrica.org/fr/souverainete-alimentaire-et-semences-paysannes-foire-djimini-2024-2/",
+    robots: "index, follow",
+    tags: ["semences paysannes", "souveraineté alimentaire", "Djimini", "COASP", "Afrique de l'Ouest", "agroécologie", "biodiversité", "Nous Sommes la Solution"],
+    content: `Les participants à la 8ème édition de la Foire Ouest-Africaine des Semences Paysannes, venus de 17 pays membres, alliés et sympathisants du Comité Ouest-Africain des Semences Paysannes (COASP), réunis à Djimini au Sénégal du 12 au 14 novembre 2024, ont réfléchi et échangé autour du thème : « Autonomie semencière et souveraineté alimentaire : enjeux et défis pour la semence paysanne ».
+
+À l'issue de leurs travaux, ils ont établi les constats suivants :
+
+Les semences paysannes représentent près de 80 % des semences utilisées dans les champs en Afrique de l'Ouest, et constituent le fondement de la souveraineté alimentaire et des systèmes alimentaires durables. Elles sont le fruit de milliers d'années de recherche et de sélection par les paysannes et paysans, qui ont ainsi façonné un patrimoine vivant irremplaçable.
+
+L'harmonisation des politiques et des lois semencières, très souvent influencée par des acteurs privés, favorise les semences industrielles et criminalise les systèmes de semences paysannes (SSP), menaçant directement la biodiversité cultivée et l'indépendance des communautés rurales.
+
+Face à ces constats, les participants ont adressé des recommandations à quatre acteurs clés :
+
+**Aux décideurs politiques :** adopter des politiques qui soutiennent les semences paysannes, rejeter les OGM qui créent des dépendances, et investir dans la recherche participative aux côtés des communautés paysannes.
+
+**Aux femmes paysannes :** poursuivre et renforcer leur rôle central dans la conservation, la sélection et la transmission des semences locales.
+
+**Aux jeunes agriculteurs :** s'engager activement dans la préservation de la biodiversité agricole et la valorisation des savoirs endogènes.
+
+**Aux organisations de la société civile :** créer des espaces de dialogue entre tous les acteurs du système semencier et renforcer la collaboration inter-réseaux à l'échelle régionale.
+
+*Fait à Djimini, le jeudi 14 novembre 2024.*`,
+  },
+
+  // ── APS — Thousand Currents impressionnée par Karonghère Wati Nianing ────
+  {
+    id: "38",
+    slug: "senegal-etatsunis-agriculture-organisation-americaine-niaguis",
+    title: "Niaguis : une organisation américaine « impressionnée » par les réalisations du centre agroécologique « Karonghère Wati Nianing »",
+    location: "Niaguis, Casamance — Sénégal",
+    excerpt: "Solane Lemma, présidente et directrice générale de Thousand Currents, s'est dite impressionnée lors de sa visite au centre de formation agroécologique à Niaguis. L'organisation américaine appuie NSS depuis huit ans.",
+    coverUrl: "/images/actualites/senegal-etatsunis-agriculture-niaguis.jpg",
+    publishedAt: "2024-11-14",
+    category: "Presse",
+    author: "APS",
+    sourceName: "APS (Agence de Presse Sénégalaise)",
+    sourceUrl: "https://wasafrica.org/fr/senegal-etatsunis-agriculture-collectivite-niaguis/",
+    canonical: "https://wasafrica.org/fr/senegal-etatsunis-agriculture-collectivite-niaguis/",
+    robots: "index, follow",
+    tags: ["Thousand Currents", "Niaguis", "centre agroécologique", "Karonghère Wati Nianing", "Casamance", "agroécologie", "partenariat", "Nous Sommes la Solution"],
+    content: `Solane Lemma, présidente et directrice générale de l'organisation américaine Thousand Currents, a exprimé son enthousiasme lors d'une visite au centre de formation agroécologique « Karonghère Wati Nianing » à Niaguis, dans la région de Ziguinchor.
+
+> « Je suis impressionnée par ce que nous avons vu ici. L'agroécologie peut non seulement nourrir les gens mais également préserver notre environnement. » — Solane Lemma
+
+Elle a précisé que l'objectif de sa visite était de renforcer le partenariat avec le mouvement panafricain des femmes rurales Nous Sommes la Solution, dédié à la promotion des pratiques agroécologiques.
+
+> « Les communautés, à travers le monde, sont confrontées aujourd'hui à plusieurs types de problèmes, mais elles sont elles-mêmes la solution à ces problèmes. » — Solane Lemma
+
+> « Nous sommes à leur côté pour les soutenir et mettre en œuvre leurs idées et solutions. » — Solane Lemma
+
+Mamadou Danfakha, coordinateur du mouvement et initiateur du centre, a expliqué que Thousand Currents soutient NSS depuis huit ans dans leurs activités.
+
+Le centre fonctionne comme installation de formation, d'expérimentation et de démonstration couvrant l'agriculture, l'élevage, la pisciculture et l'apiculture à travers huit pays africains.
+
+Mariama Sonko, présidente du mouvement, a souligné l'importance des pratiques biologiques et durables mises en œuvre sur le site.
+
+> « Nous utilisons les engrais organiques et les bio-protecteurs. Ces semences organiques nous permettent de renforcer la fertilité des terres et les rendements des productions. » — Mariama Sonko
+
+Le mouvement opère au Burkina Faso, en Côte d'Ivoire, en Gambie, au Ghana, en Guinée, en Guinée-Bissau, au Mali et au Sénégal, avec des fermes agroécologiques implantées dans chaque pays.`,
+  },
+
+  // ── NSS — La lutte de Mariama Sonko pour l'agroécologie ──────────────────
+  {
+    id: "39",
+    slug: "lutte-mariama-sonko-agroecologie-droits-paysannes",
+    title: "La lutte de Mariama Sonko pour l'agroécologie et les droits des paysannes : « Ils ont essayé de me faire taire, mais ils n'ont pas réussi »",
+    excerpt: "Cette Sénégalaise préside un mouvement de 175 000 agricultrices dans huit pays. Portrait d'une femme que les notables de son village ont tenté de réduire au silence, et qui en est sortie plus forte.",
+    coverUrl: "/images/actualites/lutte-mariama-sonko-agroecologie.jpg",
+    publishedAt: "2024-11-11",
+    category: "Portrait",
+    author: "NSS — Nous Sommes la Solution",
+    canonical: "https://wasafrica.org/fr/la-lutte-de-mariama-sonko-pour-lagroecologie-et-les-droits-des-paysannes-ils-ont-essaye-de-me-faire-taire-mais-ils-nont-pas-reussi/",
+    robots: "index, follow",
+    tags: ["Mariama Sonko", "agroécologie", "droits des femmes", "souveraineté alimentaire", "Casamance", "Nous Sommes la Solution", "semences paysannes", "Terra Madre"],
+    content: `Cette Sénégalaise préside une organisation régionale qui regroupe 175 000 agricultrices de huit pays. Son rêve est que la terre revienne à ceux qui la travaillent.
+
+Mariama Sonko s'est mariée à l'âge de 17 ans. Sous la pression de sa famille, elle est allée vivre à Niaguis, le village de son mari, un petit village agricole de la région de Casamance, dans le sud du Sénégal. Là, elle a commencé à travailler sur les légumes et s'est impliquée dans une association de femmes agricultrices. Elle constate avec colère que la tradition empêche les femmes de posséder des terres et qu'elles ne peuvent aspirer qu'à les louer dans des conditions abusives.
+
+C'était il y a une vingtaine d'années. Cet épisode d'injustice a particulièrement irrité la jeune Sonko. Avec un groupe d'agricultrices, elle avait loué quelques hectares de terre à un marabout, un chef religieux islamique. Après des années de dur labeur — défrichage, désherbage, labourage et semis du lever au coucher du soleil — le marabout leur a annoncé qu'il souhaitait résilier le bail, au moment précis où la terre commençait à produire de bonnes récoltes.
+
+> « J'étais indignée. Je lui ai dit qu'il ne pouvait pas nous jeter dehors au moment où nos efforts commençaient à porter leurs fruits. » — Mariama Sonko
+
+Sonko a payé cher sa défiance à l'égard du chef religieux. Les notables du village l'ont accusée de dresser les hommes et les femmes les uns contre les autres. Elle a été exclue du mouvement associatif et s'est vu retirer un poste au sein du conseil municipal.
+
+> « Ils ont essayé de me faire taire, mais ils n'ont pas réussi. » — Mariama Sonko
+
+Sonko, aujourd'hui âgée de 52 ans, affirme que chaque fois qu'ils ont essayé de l'humilier, elle s'est toujours levée. Elle s'était déjà fait un nom dans la région en tant que responsable de la fédération des organisations féminines de Ziguinchor.
+
+> « C'est à partir de là que j'ai poursuivi mon combat, en sensibilisant et en formant des collègues femmes. À la radio et dans les forums. Dans les conversations privées et dans les cercles de paysannes. » — Mariama Sonko
+
+Elle observe avec inquiétude comment l'Alliance pour une révolution verte en Afrique (AGRA), créée en 2006, cherche à imposer un modèle agro-industriel sur le continent. Sa cause personnelle se cristallise alors, à la croisée de la lutte pour les droits des femmes et de la défense d'un système alimentaire respectueux de l'environnement.
+
+> « En Afrique, l'agroécologie n'est rien d'autre qu'une forme de souveraineté alimentaire traditionnellement prise en charge par les femmes. » — Mariama Sonko
+
+En 2011, avec 12 organisations de cinq pays (Sénégal, Burkina Faso, Guinée-Conakry, Mali et Ghana), elle crée le mouvement qu'elle préside aujourd'hui : Nous Sommes la Solution (NSS). Le mouvement regroupe désormais plus de 800 organisations représentant quelque 175 000 agricultrices dans huit pays.
+
+> « Elle menace de détruire tout ce que nos ancêtres nous ont laissé, en particulier les sols fertiles et les semences indigènes. » — Mariama Sonko, à propos de l'agriculture hyper-technicisée
+
+NSS ne cherche pas la bataille juridique, mais utilise des arguments concrets. « Nous insistons sur les avantages qu'il y a à ce que les femmes puissent acheter ou hériter de terres. Par exemple, parce que cela augmente la richesse de la famille. » La stratégie fonctionne : « Grâce à notre travail, de nombreuses femmes d'Afrique de l'Ouest cultivent désormais leurs propres terres. »
+
+Sonko vit toujours à Niaguis, où elle cultive « un peu de tout » sur sa ferme de trois hectares, forme aux pratiques agroécologiques et encourage les débats sur le rôle des femmes dans les exploitations familiales et la politique locale. Elle s'est rendue fin septembre 2024 à Turin (Italie) pour participer à Terra Madre, la foire organisée par le mouvement Slow Food.`,
+  },
+
+  // ── NSS — Journée internationale de la femme rurale et JMA 2024 ───────────
+  {
+    id: "40",
+    slug: "journee-internationale-femme-rurale-alimentation-nss-2024",
+    title: "Journée internationale de la femme rurale et Journée mondiale de l'alimentation 2024",
+    excerpt: "Chaque année, NSS célèbre conjointement la Journée internationale de la femme rurale (15 octobre) et la Journée mondiale de l'alimentation (16 octobre). En 2024, la mobilisation a réuni plusieurs organisations membres à Sérekunda, en Gambie.",
+    coverUrl: "/images/actualites/journee-femme-rurale-alimentation-2024.jpg",
+    publishedAt: "2024-10-30",
+    category: "Événement",
+    author: "Tidiane Kassé et Mamadou Danfakha",
+    canonical: "https://wasafrica.org/fr/journee-internationale-de-la-femme-rurale-et-journee-mondiale-de-lalimentation/",
+    robots: "index, follow",
+    tags: ["journée femme rurale", "journée mondiale alimentation", "Gambie", "Sérekunda", "NSS", "souveraineté alimentaire", "agroécologie", "semences paysannes"],
+    content: `Depuis sa naissance en 2011, le mouvement panafricain Nous Sommes la Solution (NSS) ne faillit pas au rendez-vous. Cochées sur son agenda, les dates du 15 octobre (Journée internationale de la femme rurale) et du 16 octobre (Journée mondiale de l'alimentation) constituent des moments fétiches pour NSS.
+
+La célébration commune de la JIFR et de la JMA permet aux membres de NSS d'avoir, chaque année, une forte communion des acteurs, afin de pouvoir bien plaider leurs causes. La mobilisation a été sonnée cette année par la Catalunya Gambia Foundation (CGF), la Fédération paysanne de Guinée-Bissau (Kafo), l'Association des Jeunes Agriculteurs de la Casamance (AJAC) et l'Union des Groupements de Producteurs de Mékhé (UGPM).
+
+> « Le savoir et le savoir-faire paysan nous permettent de retrouver notre patrimoine nourricier et notre sécurité alimentaire tout en préservant l'environnement. » — Mariama Sonko, présidente de NSS
+
+Sa conviction est assise que la souveraineté alimentaire ne viendra que des Africains eux-mêmes, qui se doivent de « nourrir l'Afrique par le biais de systèmes de production paysanne adaptée et soucieux de la santé de la population africaine et de son cadre de vie ».
+
+Ses regrets résultent du fait que malgré les plaidoyers, les gouvernements n'ont pas encore rompu avec les politiques qui créent des dépendances en intrants agricoles, ni avec la dépendance vis-à-vis des produits importés, notamment ceux faits à base de produits chimiques et d'OGM qui conduisent à l'apparition de « maladies nouvelles ».
+
+À chaque édition, ces femmes démontrent que ce sont elles qui, au-delà des inégalités de genre assises sur les lois et les normes sociales discriminatoires, se retrouvent empêchées de réaliser leur plein potentiel. Leur statut de femmes rurales fait qu'elles restent loin derrière les hommes et leurs pairs en milieu urbain. Pourtant, l'agriculture reste le premier secteur d'emplois pour les femmes dans les pays en développement, un secteur qui relève en grande partie de l'économie informelle avec peu ou pas de protection sociale.
+
+Pour cette année 2024, les réflexions ont notamment porté sur la manière dont la faim et la malnutrition sont exacerbées par des crises prolongées résultant d'une combinaison de conflits, de phénomènes météorologiques extrêmes et de chocs économiques.
+
+> « En transformant les systèmes agroalimentaires, il est possible d'atténuer le changement climatique et de soutenir des moyens de subsistance pacifiques, résilients et inclusifs pour tous. » — Mamadou Danfakha, chargé du programme NSS à Fahamu
+
+> « Les régimes alimentaires malsains sont la principale cause de toutes les formes de malnutrition — sous-nutrition, carences en micronutriments et obésité — qui existent aujourd'hui dans la plupart des pays, toutes classes socio-économiques confondues. » — Mamadou Danfakha
+
+Pendant ces deux journées à Sérekunda, les femmes ont réfléchi sur la diversité, la nutrition, les prix abordables, l'accessibilité et la sécurité alimentaire « pour le bien de tous ». Elles ont organisé des panels sur le thème « le droit aux aliments sains au service d'une vie et d'un avenir meilleurs pour les communautés locales », des concours culinaires, une exposition-vente de produits de transformation locaux et des animations culturelles autour du rôle de la femme rurale.
+
+Les autorités gambiennes étaient fortement représentées : M. Mamadou Sabally, conseiller à la présidence, Dr Saikou Sanyang, conseiller technique au ministère de l'Agriculture, M. Papia Sanyang de la Direction de l'Agriculture urbaine, M. Kebba Touray, président de la commission Agricole du Kanifing Municipal Council, et M. Kinteh, conseiller technique au ministère de la Femme.`,
+  },
+
+  // ── NSS — Portrait Mariama Sonko, figure femme rurale Afrique de l'Ouest ─
+  {
+    id: "41",
+    slug: "portrait-mariama-sonko-figure-femme-rurale-afrique-ouest",
+    title: "Portrait : Mariama Sonko, une figure de la femme rurale en Afrique de l'Ouest",
+    excerpt: "À l'occasion des Journées mondiales de la femme rurale et de l'alimentation en Gambie, Essouly Diédhiou dresse le portrait de Mariama Sonko, comparée à Aline Sitoé Diatta, héroïne de la résistance casamançaise.",
+    coverUrl: "/images/actualites/portrait-mariama-sonko-femme-rurale.jpg",
+    publishedAt: "2024-10-21",
+    category: "Portrait",
+    author: "Essouly DIEDHIOU",
+    canonical: "https://wasafrica.org/fr/portrait-mariama-sonko-une-figure-de-la-femme-rurale-en-afrique-de-louest/",
+    robots: "index, follow",
+    tags: ["Mariama Sonko", "femme rurale", "Afrique de l'Ouest", "Gambie", "portrait", "Nous Sommes la Solution", "leadership féminin", "Casamance"],
+    content: `Le mouvement panafricain des femmes rurales Nous Sommes la Solution, accompagné par l'ONG FAHAMU qui milite pour la justice sociale, a marqué deux grands rendez-vous de la femme rurale en terre gambienne.
+
+À cette occasion, Essouly Diédhiou a dressé le portrait de Mariama Sonko, rencontrée en Gambie lors des Journées mondiales de la femme rurale et de l'alimentation. Il la présente comme une figure de proue de la femme rurale en Afrique de l'Ouest, comparée à Aline Sitoé Diatta, héroïne de la résistance sénégalaise — particulièrement en Casamance — contre la colonisation française.
+
+Présidente du mouvement panafricain NSS, Mariama Sonko incarne depuis plus de deux décennies la lutte pour les droits des femmes rurales, la souveraineté alimentaire et la promotion de l'agroécologie paysanne à travers l'Afrique de l'Ouest.`,
+  },
+
+  // ── NSS — Techniques agricoles bio pour une alimentation saine (Gambie) ───
+  {
+    id: "42",
+    slug: "techniques-agricoles-bio-alimentation-saine-gambie",
+    title: "[Invité – Gambie] : Quelles techniques agricoles bio pour une alimentation saine ?",
+    location: "Gambie",
+    excerpt: "En marge des Journées de la femme rurale et de l'alimentation à Sérekunda, le coordinateur de NSS Mamadou Danfakha présente les pratiques agricoles biologiques promues par le mouvement pour une alimentation plus saine en Afrique de l'Ouest.",
+    coverUrl: "/images/actualites/techniques-agricoles-bio-gambie.jpg",
+    publishedAt: "2024-10-21",
+    category: "Agroécologie",
+    author: "Essouly Diédhiou",
+    canonical: "https://wasafrica.org/fr/invite-gambie-quelles-techniques-agricoles-bio-pour-une-alimentation-saine/",
+    robots: "index, follow",
+    tags: ["agroécologie", "agriculture biologique", "alimentation saine", "Gambie", "Nous Sommes la Solution", "Mamadou Danfakha", "techniques agricoles"],
+    content: `Le mouvement panafricain des femmes rurales Nous Sommes la Solution, accompagné par l'ONG FAHAMU qui milite pour la justice sociale, a marqué les Journées mondiales de la femme rurale et de l'alimentation en terre gambienne.
+
+L'accent est mis cette année sur une agriculture biologique, avec des pratiques agricoles respectueuses de l'environnement pour une alimentation saine. Dans cet entretien, Essouly Diédhiou s'entretient avec Mamadou Danfakha, coordinateur du mouvement NSS, sur les techniques agroécologiques développées et promues par le réseau dans les neuf pays membres.
+
+Le mouvement NSS privilégie l'utilisation de biofertilisants et de biopesticides issus de matières organiques locales, la préservation et la multiplication des semences paysannes, l'agroforesterie et la gestion durable des sols et des ressources en eau. Ces pratiques, ancrées dans les savoirs ancestraux des femmes rurales, permettent d'allier productivité, résilience climatique et qualité nutritionnelle des aliments produits.`,
+  },
+
+  // ── NSS — À la découverte du Caldou Branco, plat national de Guinée-Bissau
+  {
+    id: "43",
+    slug: "decouverte-caldou-branco-plat-national-guinee-bissau",
+    title: "À la découverte du Caldou Branco, plat national de la Guinée-Bissau",
+    location: "Guinée-Bissau",
+    excerpt: "En Gambie, lors de la journée mondiale de l'alimentation, les délégations du Sénégal, de la Guinée-Bissau et de la Gambie ont présenté leurs plats locaux préparés à base de produits bio. Focus sur le Caldou Branco, plat national bissau-guinéen.",
+    coverUrl: "/images/actualites/caldou-branco-guinee-bissau.jpg",
+    publishedAt: "2024-10-21",
+    category: "Gastronomie",
+    author: "Essouly Diédhiou",
+    canonical: "https://wasafrica.org/fr/a-la-decouverte-du-caldou-branco-plat-national-de-la-guinee-bissau/",
+    robots: "index, follow",
+    tags: ["Caldou Branco", "Guinée-Bissau", "gastronomie", "alimentation locale", "produits bio", "souveraineté alimentaire", "Gambie", "Journée mondiale alimentation"],
+    content: `En Gambie, les femmes rurales du Sénégal, de la Guinée-Bissau et de la Gambie se sont réunies autour du mouvement Nous Sommes la Solution, en marge de la Journée mondiale de l'alimentation.
+
+C'était l'occasion pour chaque délégation de présenter les plats locaux de son pays, tous préparés à base d'aliments bio, en accord avec le slogan de la journée : « Une agriculture bio pour une nourriture saine ».
+
+La délégation de Guinée-Bissau a mis à l'honneur le Caldou Branco, plat national du pays. Ce plat traditionnel, préparé à partir de produits locaux cultivés sans intrants chimiques, illustre parfaitement la richesse du patrimoine culinaire et agricole de la sous-région.
+
+Cette rencontre autour des saveurs et des savoirs culinaires locaux s'inscrit dans la démarche globale de NSS : valoriser les systèmes alimentaires paysans, préserver les recettes et les ingrédients traditionnels, et démontrer que l'agroécologie nourrit à la fois les corps et les cultures.`,
+  },
+
+  // ── APS — Camp de formation agroécologie paysanne, Niaguis 2024 ──────────
+  {
+    id: "49",
+    slug: "camp-formation-agroecologie-paysanne-niaguis-ziguinchor-2024",
+    title: "Ziguinchor : un camp de formation sur l'agroécologie paysanne lancé à Niaguis",
+    location: "Niaguis, Ziguinchor — Sénégal",
+    excerpt: "Le mouvement NSS a lancé la 3e édition de son camp international de formation sur les bio-protecteurs en agroécologie à Niaguis. Cinquante leaders et agents techniques issus de huit pays africains y ont participé.",
+    coverUrl: "/images/actualites/camp-formation-agroecologie-niaguis-2024.jpg",
+    publishedAt: "2024-09-18",
+    category: "Agroécologie",
+    author: "APS",
+    sourceName: "APS (Agence de Presse Sénégalaise)",
+    sourceUrl: "https://wasafrica.org/fr/senegal-agriculture-ziguinchor-un-camp-de-formation-sur-lagroecologie-paysanne-lance-a-niaguis/",
+    canonical: "https://wasafrica.org/fr/senegal-agriculture-ziguinchor-un-camp-de-formation-sur-lagroecologie-paysanne-lance-a-niaguis/",
+    robots: "index, follow",
+    tags: ["camp de formation", "agroécologie paysanne", "Niaguis", "Ziguinchor", "bio-protecteurs", "semences paysannes", "Nous Sommes la Solution", "Casamance"],
+    content: `Le mouvement panafricain des femmes rurales Nous Sommes la Solution a organisé le lancement de sa troisième édition du camp international de formation axée sur les « Techniques de production et d'utilisation des bio-protecteurs en agroécologie », tenu à Niaguis dans la région de Ziguinchor au sud du Sénégal.
+
+Cette formation de cinq jours a rassemblé environ cinquante leaders et agents techniques issus des associations de femmes rurales membres du mouvement. Le lancement officiel a eu lieu au centre Karonghère Wati Nianing, présidé par l'adjoint au sous-préfet de Niaguis, Idy Gomel Ba.
+
+> « L'objectif de cette formation, c'est de permettre aux producteurs de pouvoir produire des aliments sains et nutritifs. » — Mariama Sonko, présidente du mouvement NSS
+
+Mariama Sonko a soulevé des préoccupations concernant l'agriculture conventionnelle chimique, affirmant qu'il y existe « presque pas de nutriments » et qu'elle provoque une « destruction de l'environnement, à savoir la terre et les semences héritées de nos ancêtres ».
+
+> « Ces bio-protecteurs permettent non seulement d'avoir une bonne production, mais aussi une production de qualité où nous avons tous les nutriments nécessaires pour une bonne alimentation. » — Mariama Sonko
+
+> « Pour que nous soyons souverains, il faudrait qu'on arrive à avoir notre souveraineté semencière. L'agriculture est basée sur la semence. » — Mariama Sonko
+
+Le mouvement opère dans huit pays africains : Ghana, Burkina Faso, Gambie, Guinée-Bissau, Guinée, Mali, Côte d'Ivoire et Sénégal. L'adjoint au sous-préfet Ba a souligné que le camp renforcerait les capacités des leaders et agents techniques sur « le danger de l'usage des produits chimiques en agriculture et sur l'apport des bio-protecteurs dans la qualité des produits agricoles ».`,
+  },
+
+  // ── NSS — Agroécologie paysanne à Ouagadougou, COPAGEN 2024 ──────────────
+  {
+    id: "50",
+    slug: "agroecologie-paysanne-promotion-ouagadougou-copagen-2024",
+    title: "Promotion de l'agroécologie paysanne en Afrique de l'Ouest : les acteurs affûtent leurs armes à Ouagadougou",
+    location: "Ouagadougou — Burkina Faso",
+    excerpt: "Du 30 juillet au 1er août 2024 à Ouagadougou, les réseaux et plateformes ouest-africains de l'agroécologie paysanne se sont réunis sous l'égide de la COPAGEN pour élaborer une feuille de route commune.",
+    coverUrl: "/images/actualites/agroecologie-paysanne-ouagadougou-2024.jpg",
+    publishedAt: "2024-09-08",
+    category: "Agroécologie",
+    author: "NSS — Nous Sommes la Solution",
+    canonical: "https://wasafrica.org/fr/agroecologie-paysanne-ouagadougou/",
+    robots: "index, follow",
+    tags: ["agroécologie paysanne", "Ouagadougou", "COPAGEN", "Afrique de l'Ouest", "semences paysannes", "souveraineté alimentaire", "OGM", "plaidoyer"],
+    content: `Les représentants des plateformes et réseaux de l'Afrique de l'Ouest qui œuvrent à la promotion et à la mise à l'échelle de l'agroécologie paysanne dans la sous-région se sont réunis du 30 juillet au 1er août 2024 à Ouagadougou, dans l'optique d'élaborer une feuille commune en vue de renforcer leurs synergies d'actions.
+
+Cette rencontre a été organisée sous la houlette de la Coalition pour la Protection du Patrimoine Génétique Africain (COPAGEN). Jean Paul Sikeli, secrétaire exécutif de la COPAGEN, a fait comprendre que « l'agroécologie est confrontée à des crises multiples » : crises environnementales, climatiques, sanitaires, sécuritaires et alimentaires, aggravées par le quasi-monopole d'une poignée de firmes agroalimentaires.
+
+> « Ces variétés qui souffrent d'un manque de reconnaissance officielle sont pourtant de loin les meilleures sur plusieurs aspects. L'agroécologie paysanne est le moyen de réalisation par excellence de la souveraineté alimentaire. » — Jean Paul Sikeli, COPAGEN
+
+> « La portée de la souveraineté alimentaire est plus large, plus opérationnelle, plus pratique et plus appropriée pour nos pays, que ne l'est le droit à l'alimentation qui fait une focalisation sur la sécurité alimentaire, en occultant d'autres dimensions importantes du problème. » — Jean Paul Sikeli
+
+À l'issue des 72 heures d'échanges, les différents réseaux ont élaboré une feuille de route comprenant un renforcement de capacité sur l'analyse critique des politiques et le pilotage de campagnes de plaidoyer collectif pour la reconnaissance et la valorisation de la recherche paysanne.
+
+La Coalition pour la Protection du Patrimoine Génétique Africain (COPAGEN) est un mouvement social et citoyen qui œuvre depuis une vingtaine d'années dans la promotion de l'agroécologie et la lutte contre les OGM.`,
+  },
+
+  // ── NSS — Autonomisation semencière, souveraineté alimentaire 2023 ────────
+  {
+    id: "51",
+    slug: "autonomisation-semenciere-souverainete-alimentaire-nss-2023",
+    title: "Lutte pour la souveraineté alimentaire en Afrique de l'Ouest : l'autonomisation semencière, mère de toutes les batailles",
+    excerpt: "Les leaders des associations de femmes rurales membres de NSS estiment que la souveraineté alimentaire passera inéluctablement par l'autonomisation semencière paysanne.",
+    coverUrl: "/images/actualites/autonomisation-semenciere-souverainete-alimentaire-2023.jpg",
+    publishedAt: "2023-12-15",
+    category: "Agroécologie",
+    author: "NSS — Nous Sommes la Solution",
+    canonical: "https://wasafrica.org/fr/autonomisation-semenciere-souverainete-alimentaire/",
+    robots: "index, follow",
+    tags: ["autonomisation semencière", "souveraineté alimentaire", "semences paysannes", "Afrique de l'Ouest", "OGM", "Niaguis", "CIFAP", "Nous Sommes la Solution", "AFSA"],
+    content: `Au-delà de la priorisation politique des systèmes semenciers paysans, les leaders et agents techniques des associations de femmes rurales membres du mouvement panafricain Nous Sommes la Solution (NSS) estiment que la lutte pour la souveraineté alimentaire au Sénégal et dans la sous-région ouest-africaine passera inéluctablement par l'autonomisation semencière paysanne.
+
+> « Nous devons arrêter de confier nos ventres à ceux qui ne sont pas prêts à nous nourrir. Notre objectif principal est l'autonomisation semencière pour ne plus faire recours à l'Occident. » — Sia Anne Marie Kamano, responsable NSS en Guinée
+
+Cette conviction est partagée par soixante leaders et agents techniques venues de huit pays, participants à la 2e édition du camp international de formation sur l'agroécologie paysanne (SIFAP), tenue du 10 au 17 septembre 2023 au centre « Karonghen Wati Naaning » de Niaguis.
+
+> « Depuis plus d'une dizaine d'années, les associations de femmes rurales s'efforcent de reprendre le contrôle de l'alimentation par le biais de la semence paysanne, afin de rompre avec la dépendance, les pénuries et les déficits fictifs. » — Famara Diédhiou, AFSA
+
+> « En vérité, cette semence dont nous parlons, nous sommes les meilleurs à la maîtriser. Le blé doit être une option secondaire ou tertiaire dans le système alimentaire en Afrique de l'Ouest. » — Famara Diédhiou
+
+Mariama Sonko, présidente du mouvement NSS, est convaincue qu'il est « temps de refuser de dépendre des semences hybrides ou améliorées faites d'OGM, parce qu'elles ne concourent pas à l'autonomisation financière durable des femmes africaines ».
+
+> « On ne peut pas parler de souveraineté alimentaire en Afrique tant qu'on n'est pas souverain en semences paysannes. L'autonomie paysanne commence toujours par l'autonomie de la semence. Si nous laissons perdre nos semences paysannes, nous perdons notre dignité. » — Bélimgnégré Abdoul Razack, expert agroécologiste, Burkina Faso
+
+Le mouvement NSS s'appuie sur des camps de formation, des fermes agrobiologiques, des voyages d'échange et la Foire des semences paysannes de Djimini pour mener cette « mère des batailles » pour la souveraineté semencière en Afrique de l'Ouest.`,
+  },
+
+  // ── NSS — Célébration JIFR et JMA à Ngaye 2023 ───────────────────────────
+  {
+    id: "44",
+    slug: "celebration-journee-femme-rurale-alimentation-ngaye-2023",
+    title: "Célébration de la Journée internationale de la femme rurale et de la Journée mondiale de l'alimentation à Ngaye",
+    location: "Ngaye — Sénégal",
+    excerpt: "NSS et ses organisations membres ont célébré conjointement la Journée internationale de la femme rurale et la Journée mondiale de l'alimentation à Ngaye, au Sénégal.",
+    coverUrl: "/images/actualites/journee-femme-rurale-alimentation-ngaye-2023.jpg",
+    publishedAt: "2023-11-13",
+    category: "Événement",
+    author: "NSS — Nous Sommes la Solution",
+    canonical: "https://wasafrica.org/fr/celebration-journee-femme-rurale-alimentation-ngaye/",
+    robots: "index, follow",
+    tags: ["journée femme rurale", "journée mondiale alimentation", "Ngaye", "Sénégal", "NSS", "souveraineté alimentaire", "agroécologie"],
+    content: `Chaque année depuis sa création en 2011, le mouvement panafricain Nous Sommes la Solution (NSS) honore les dates du 15 octobre (Journée internationale de la femme rurale) et du 16 octobre (Journée mondiale de l'alimentation).
+
+En 2023, la célébration s'est tenue à Ngaye, au Sénégal, réunissant les organisations membres du mouvement autour de ces deux rendez-vous annuels majeurs pour la cause des femmes rurales et la souveraineté alimentaire en Afrique de l'Ouest.
+
+Ces journées sont l'occasion pour les membres de NSS de renforcer leur communion, de plaider leurs causes auprès des autorités locales et nationales, et de partager leurs expériences de terrain autour de l'agroécologie paysanne, de la nutrition et des droits des femmes rurales.`,
+  },
+
+  // ── NSS — Mariama Sonko, activiste agriculture ouest-africaine ─────────
+  {
+    id: "45",
+    slug: "mariama-sonko-activiste-agriculture-ouest-africaine-nss",
+    title: "Mariama Sonko : l'activiste qui cherche à transformer l'agriculture ouest-africaine",
+    excerpt: "À 52 ans, Mariama Sonko dirige NSS, une organisation réunissant plus de 800 groupes de femmes rurales dans sept pays d'Afrique de l'Ouest. Portrait d'une femme qui promeut l'agroécologie contre l'agriculture industrielle.",
+    coverUrl: "/images/actualites/mariama-sonko-agriculture-ouest-africaine.jpg",
+    publishedAt: "2023-05-23",
+    category: "Portrait",
+    author: "NSS — Nous Sommes la Solution",
+    canonical: "https://wasafrica.org/fr/mariama-sonko-agriculture-ouest-africaine-nss/",
+    robots: "index, follow",
+    tags: ["Mariama Sonko", "agroécologie", "agriculture familiale", "Afrique de l'Ouest", "femmes rurales", "semences paysannes", "Sum Pak", "Nous Sommes la Solution"],
+    content: `Mariama Sonko représente une force indomitable qui poursuit son travail malgré les obstacles.
+
+Des coquilles roses ornent des filets devant son domicile en Casamance, destinés aux mangroves pour créer des zones de reproduction d'huîtres. Cette méthode durable remplace l'approche traditionnelle qui nuit aux écosystèmes.
+
+À 52 ans, Sonko dirige Nous Sommes la Solution (NSS), une organisation réunissant plus de 800 groupes de femmes rurales couvrant sept pays ouest-africains. Le mouvement promeut l'agriculture durable en opposition à l'industrialisation agricole.
+
+> « En Afrique, nous prônons l'agroécologie et la souveraineté alimentaire. Les femmes sont des agents cruciaux du développement rural. » — Mariama Sonko
+
+La Casamance, surnommée le grenier national du Sénégal, contraste avec les régions arides du nord comme Dakar. Sonko y vit et y cultive « un peu de tout » sur sa ferme de trois hectares, où elle forme aux pratiques agroécologiques et encourage les débats ouverts sur le rôle des femmes dans les exploitations familiales.
+
+Un événement traumatisant survenu il y a une vingtaine d'années illustre les défis rencontrés. Un propriétaire terrien ayant autorisé des femmes à cultiver pendant cinq ans les expulsa lorsque la production devint profitable. Sonko tenta de négocier sans succès, subissant l'ostracisme communautaire pendant deux ans.
+
+> « Les dames travaillent vraiment dur, et elles ne sont pas rémunérées pour leurs efforts. » — Mariama Sonko
+
+Parmi les initiatives remarquables du mouvement figure la fabrication de bio-engrais produit à partir de fumier bovin, ainsi que le Sum Pak, un assaisonnement naturel élaboré à partir d'herbes locales, alternative saine aux cubes bouillon à haute teneur sodée qui favorisent l'hypertension.
+
+Sonko sollicite l'appui gouvernemental pour augmenter la production de Sum Pak et réclame une modification légale autorisant l'utilisation de semences cultivées localement, promouvant ainsi la production territoriale et la souveraineté semencière.`,
+  },
+
+  // ── NSS — Sum Pak, alternative aux bouillons industriels ─────────────────
+  {
+    id: "46",
+    slug: "sum-pak-alternative-saine-bouillons-industriels-senegal",
+    title: "NSS : préparer une alternative plus saine aux bouillons industriels — le Sum Pak",
+    excerpt: "Au Sénégal, la surconsommation de bouillons cubes industriels menace la santé publique. Le mouvement NSS a développé le Sum Pak, un exhausteur de goût naturel à base d'herbes locales et de nététou, sans intrants chimiques.",
+    coverUrl: "/images/actualites/sum-pak-alternative-bouillons-industriels.jpg",
+    publishedAt: "2023-05-23",
+    category: "Alimentation",
+    author: "NSS — Nous Sommes la Solution",
+    canonical: "https://wasafrica.org/fr/sum-pak-alternative-bouillons-industriels-senegal/",
+    robots: "index, follow",
+    tags: ["Sum Pak", "bouillons industriels", "alimentation saine", "nététou", "Sénégal", "femmes rurales", "transformation agroalimentaire", "Nous Sommes la Solution"],
+    content: `Au Sénégal existe un problème persistant affectant la santé publique : la consommation généralisée de bouillons cubes industriels. Depuis les années 70-80, le marché s'est développé massivement via la publicité télévisée et radiophonique, créant une surconsommation inconsciente dans les ménages sénégalais.
+
+Les cubes contiennent entre 40 et 50 % de l'apport journalier recommandé en sel. Cette consommation excessive provoque l'émergence de maladies cardiovasculaires, d'hypertension et d'insuffisance rénale, auparavant inconnues dans les communautés rurales.
+
+Cette situation a motivé le développement d'une alternative naturelle utilisant des ingrédients traditionnels d'avant les années 70. Les leaders du sud du Sénégal ont collaboré pour promouvoir les aliments sains produits localement.
+
+**Le Sum Pak** est un exhausteur de goût naturel, sans intrants chimiques, riche en protéines et en minéraux. Deux variantes existent : le Shrimp Sum Pak (avec crevettes) et une version contenant du nététou, un condiment fermenté traditionnel tiré des noix de néré.
+
+La fabrication du nététou est un processus très laborieux : ébullition des noix de néré, décorticage manuel, lavage, séchage sur tamis, mouture en poudre, mélange selon recette traditionnelle, assaisonnement au citron et emballage. Cet assaisonnement authentique améliore le goût, fournit des nutriments et crée des emplois pour les femmes productrices. La production locale valorise le savoir-faire ancestral et encourage la préservation des arbres indigènes néré.
+
+Les activités de sensibilisation du mouvement NSS comprennent des ateliers sur les dangers des bouillons industriels, la formation à la production de Sum Pak, des émissions radiophoniques en quatre langues locales et des concours culinaires encourageant l'innovation nutritionnelle.
+
+Le réseau s'étend à sept pays, avec une demande actuellement supérieure à l'offre au Sénégal, démontrant l'acceptation croissante des consommateurs pour ces alternatives naturelles.`,
+  },
+
+  // ── NSS — Organisations de femmes rurales, NSS ────────────────────────────
+  {
+    id: "47",
+    slug: "organisations-femmes-rurales-nous-sommes-la-solution-nss",
+    title: "Organisations de femmes rurales : Nous Sommes la Solution (NSS)",
+    excerpt: "En 2011, douze organisations de femmes rurales du Burkina Faso, du Ghana, de la Guinée, du Mali et du Sénégal se sont réunies pour déclarer « Nous sommes la solution ». Retour sur la naissance et la mission du mouvement.",
+    coverUrl: "/images/actualites/organisations-femmes-rurales-nss.jpg",
+    publishedAt: "2020-07-24",
+    category: "NSS",
+    author: "NSS — Nous Sommes la Solution",
+    canonical: "https://wasafrica.org/fr/organisations-de-femmes-rurales-nous-sommes-la-solution-nss/",
+    robots: "index, follow",
+    tags: ["Nous Sommes la Solution", "femmes rurales", "agroécologie", "agriculture familiale", "souveraineté alimentaire", "Afrique de l'Ouest", "gouvernance agricole"],
+    content: `En 2011, douze organisations de femmes rurales du Burkina Faso, du Ghana, de la Guinée, du Mali et du Sénégal se sont réunies pour déclarer « Nous sommes la solution ».
+
+Les instigatrices de NSS s'appuient sur les pratiques agricoles et les connaissances détenues par leurs ancêtres depuis des générations pour promouvoir l'agriculture familiale par le biais de l'agroécologie, apporter les leçons de ce travail aux puissants décideurs et promouvoir une meilleure gouvernance agricole.
+
+L'initiative s'est étendue régionalement, obtenant l'approbation et la participation des associations de femmes rurales d'Afrique de l'Ouest. L'organisation promeut sa vision d'une Afrique où les femmes rurales assument des rôles décisionnels dans la production, la transformation, la vente et la consommation de produits agricoles durables.
+
+Aujourd'hui, le mouvement NSS regroupe plus de 800 organisations représentant 175 000 agricultrices dans neuf pays d'Afrique de l'Ouest, et continue de porter la voix des femmes rurales dans les espaces de décision locaux, nationaux et internationaux.`,
+  },
+
+  // ── NSS — Entretien Mariama Sonko, voix des agricultrices ────────────────
+  {
+    id: "48",
+    slug: "mariama-sonko-agroecologie-afrique-entretien",
+    title: "Entretien avec Mariama Sonko : faire entendre la voix des agricultrices en Afrique de l'Ouest",
+    excerpt: "Mariama Sonko, coordinatrice nationale du Sénégal et présidente du mouvement NSS, revient sur ses combats, les défis de l'agriculture familiale face à l'agro-industrie, et la vision d'une Afrique souveraine sur le plan alimentaire.",
+    coverUrl: "/images/actualites/mariama-sonko-agroecologie-afrique.jpg",
+    publishedAt: "2020-07-24",
+    category: "Entretien",
+    author: "NSS — Nous Sommes la Solution",
+    canonical: "https://wasafrica.org/fr/mariama-sonko-agroecologie-afrique/",
+    robots: "index, follow",
+    tags: ["Mariama Sonko", "agroécologie", "agriculture familiale", "semences paysannes", "souveraineté alimentaire", "femmes rurales", "Nous Sommes la Solution", "Afrique de l'Ouest"],
+    content: `Mariama Sonko réside à Niaguiss, village du sud-ouest sénégalais. Elle a intégré le mouvement en 1990, promouvant les savoirs agricoles locaux. Mère de cinq enfants, elle produit ses propres cultures pour nourrir sa famille. Elle occupe les postes de trésorière de l'AJAC Lukaal, de coordinatrice nationale sénégalaise et de présidente du mouvement international Nous Sommes la Solution (NSS).
+
+> « L'accent mis sur l'agriculture conventionnelle, une politique agro-industrielle qui nous est imposée par les multinationales » représente le principal combat de Mariama Sonko. Cette approche s'oppose à l'agriculture familiale et à l'agroécologie qui ont toujours soutenu la souveraineté alimentaire en Afrique.
+
+L'organisation pratique l'agroécologie et l'agriculture familiale, encourageant la souveraineté alimentaire, les semences paysannes et la biodiversité. Le mouvement Nous Sommes la Solution est né d'une campagne lancée en 2011 qui est devenue un mouvement de femmes rurales en 2014. Les capacités renforcées incluent la conscience agroécologique, la communication d'alternatives, le développement institutionnel, la mobilisation de ressources et les échanges d'expériences.
+
+Le réseau comprend environ 800 associations de femmes rurales dans sept pays d'Afrique occidentale : Burkina Faso, Gambie, Ghana, Guinée, Guinée-Bissau, Mali et Sénégal.
+
+> « Le soutien des hommes que nous avons amenés à ce mouvement de femmes rurales, parce qu'ils comprennent le sens et la portée de notre combat, ainsi que la gestion efficace de NSS par les femmes rurales africaines. » — Mariama Sonko, sur les réussites du mouvement
+
+Les défis identifiés incluent l'accès aux semences paysannes, l'accès à la terre, la maîtrise de l'eau, une alimentation saine, l'énergie solaire et la gouvernance transparente. L'agriculture industrielle est désignée comme « la principale cause de la dégradation des terres arables ».
+
+Pour être efficaces, les militantes doivent être informées, structurées, représentées aux réunions décisionnelles et unies. Elles doivent modéliser les bonnes pratiques agroécologiques, maîtriser les défis agricoles, cultiver la solidarité et transmettre aux jeunes l'importance de la qualité alimentaire et du rapport à la nature.
+
+> « Une Afrique où, solidairement, les paysans sont associés aux décisions, et cultivent, transforment, consomment et vendent les produits de l'agriculture familiale africaine tout en préservant l'environnement pour un développement harmonieux. » — Mariama Sonko, vision du succès`,
+  },
+
+  // ── Agridigitale — Mariama Sonko gardienne des semences, Bénin 2023 ───────
+  {
+    id: "49",
+    slug: "mariama-sonko-gardienne-semences-paysannes",
+    title: "Mariama Sonko, gardienne des semences paysannes",
+    location: "Zoungbonou — Bénin",
+    excerpt: "À la 3ème Foire ouest-africaine des semences paysannes à Zoungbonou (Bénin), Mariama Sonko rappelle que les femmes africaines sont les véritables gardiennes des semences locales — et que la souveraineté alimentaire passe d'abord par leur reconquête.",
+    coverUrl: "/images/actualites/mariama-sonko-gardienne-semences.jpg",
+    publishedAt: "2023-03-10",
+    category: "Presse",
+    author: "Florent Hounkpati",
+    sourceName: "Agridigitale",
+    sourceUrl: "https://agridigitale.net/article/mariama-sonko-gardienne-des-semences-paysannes",
+    canonical: "https://agridigitale.net/recherche/MARIAMA%20SONKO",
+    robots: "index, follow",
+    tags: ["Mariama Sonko", "semences paysannes", "souveraineté alimentaire", "Nous Sommes la Solution", "agroécologie", "femmes rurales", "Afrique de l'Ouest", "Bénin"],
+    content: `Créé en 2011 par 12 organisations de femmes rurales, le mouvement « Nous Sommes la Solution » (NSS) compte à ce jour 175 000 membres à travers l'Afrique de l'Ouest. Il œuvre pour une Afrique où, dans la solidarité, les femmes rurales sont impliquées dans la prise de décisions, cultivant, transformant, vendant et consommant les produits de l'agriculture familiale tout en préservant l'environnement.
+
+> « C'est un mouvement qui est porté par des associations de femmes rurales pour promouvoir l'agroécologie et aller vers une souveraineté alimentaire. Et par rapport à nos axes d'intervention, nous avons la valorisation de la semence locale. » — Mariama Sonko, responsable du mouvement NSS au Sénégal
+
+« Nous ne pouvons pas être souverains sans posséder nos propres semences, et ce sont ces semences qui nous lient à nos traditions, nos cultures », ajoute Mme Sonko.
+
+Les pratiques d'agriculture conventionnelle ont transformé les habitudes de production, faisant place à une dévalorisation des pratiques ancestrales et donc des semences paysannes.
+
+> « En Afrique, on dit que la femme, c'est la gardienne de la semence. Mais ce sont les femmes ancestrales qui l'étaient. Nous, les femmes d'aujourd'hui, nous avons été transformées par l'agriculture conventionnelle et nous sommes en déroute. » — Mariama Sonko
+
+Pour changer, les femmes du mouvement NSS se mobilisent autour de la collecte, de la production, de la conservation et de la valorisation des semences paysannes. À cette 3ème Foire ouest-africaine des semences paysannes à Zoungbonou (sud-ouest du Bénin), elles animent une série d'activités de sensibilisation pour renforcer la dynamique de l'adoption des semences paysannes par les communautés.
+
+*Florent Hounkpati depuis Zoungbonou, Bénin.*`,
+  },
+
+  // ── Agridigitale — femmes gardiennes des semences, Mariama Sonko ─────────
+  {
+    id: "34",
+    slug: "femmes-africaines-gardiennes-semences-mariama-sonko-nss",
+    title: "Les femmes africaines, gardiennes des semences",
+    excerpt: "En Afrique, les femmes ne se sont jamais contentées de cultiver ou de conserver des graines. Elles ont façonné des savoirs, des pratiques et des valeurs intimement liées à la terre. Mariama Sonko, présidente du mouvement NSS, porte cette conviction au cœur du débat sur la souveraineté alimentaire.",
+    coverUrl: "/images/actualites/femmes-africaines-gardiennes-semences.jpg",
+    publishedAt: "2025-12-12",
+    category: "Presse",
+    author: "Agridigitale",
+    sourceName: "Agridigitale",
+    sourceUrl: "https://www.agridigitale.net/article/les-femmes-africaines-gardiennes-des-semences",
+    canonical: "https://www.agridigitale.net/article/les-femmes-africaines-gardiennes-des-semences?fbclid=IwY2xjawRJm9JleHRuA2FlbQIxMQBzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEeEoPNIGLxjzPXacMW71_naKU7wShUl2RJfKWfWCg6ISHIJXWF_kuzEQWyTJ0_aem_wLRuAcdXiovDXrBz62gYiA",
+    robots: "index, follow",
+    tags: ["femmes rurales", "semences paysannes", "souveraineté alimentaire", "Mariama Sonko", "Nous Sommes la Solution", "agroécologie", "Afrique de l'Ouest", "savoirs endogènes"],
+    content: `En Afrique, les femmes ne se sont jamais contentées de cultiver ou de conserver des graines. Elles ont façonné des savoirs, des pratiques, des traditions et des valeurs intimement liées à la terre et à l'identité des communautés rurales.
+
+La présidente du mouvement panafricain Nous Sommes la Solution, Mariama Sonko, souligne qu'en Afrique de l'Ouest, les femmes continuent de sélectionner, conserver, nommer et transmettre des variétés locales adaptées aux terroirs. Ce patrimoine agricole, souvent invisible dans les statistiques officielles, représente pourtant une richesse immense.
+
+> « Pour nous, chaque semence porte une histoire, une mémoire et une valeur culturelle profondément ancrée dans les communautés. En Afrique, les femmes sont les gardiennes des semences. C'est elles qui détiennent les savoirs et savoir-faire de ces semences paysannes. » — Mariama Sonko
+
+Pour mieux s'affirmer et porter haut leurs voix, ces femmes ont invité les communautés à mieux connaître leur semence — non seulement comme aliment, mais comme produit qui relie chaque paysan à son identité, sa tradition, ses valeurs. Elles ont ainsi créé le mouvement panafricain Nous Sommes la Solution, qui promeut l'agroécologie et les droits de la femme rurale.
+
+Pour la Sénégalaise Mariama Sonko, les femmes sont les gardiennes du passé, mais aussi les guides vers un avenir où l'Afrique pourra nourrir son peuple en s'appuyant sur ses propres ressources, ses propres valeurs et ses propres identités.`,
+  },
+
+  // ── Kindia 2025 — rencontre pan-africaine NSS, 10 pays, AG ──────────────
+  {
+    id: "33",
+    slug: "kindia-rencontre-panafricaine-femmes-rurales-nss-2025",
+    title: "Kindia, carrefour du leadership paysan féminin en Afrique",
+    location: "Kindia — Guinée",
+    excerpt: "Comment un mouvement de femmes rurales construit-il une force continentale sans perdre son ancrage local ? À Kindia, en Guinée, dix pays africains ont répondu avec des bilans concrets, des échanges de terrain et une gouvernance assumée.",
+    coverUrl: "https://res.cloudinary.com/dtjvjlkcc/image/upload/q_auto/f_auto/v1776073305/Rencontre_Annuelle_NSS_13_md84yl.webp",
+    publishedAt: "2025-11-25",
+    category: "Événement",
+    author: "NSS — Nous Sommes la Solution",
+    canonical: "https://wasafrica.org/fr/ressources/actualites/kindia-rencontre-panafricaine-femmes-rurales-nss-2025",
+    robots: "index, follow",
+    tags: ["femmes rurales", "Nous Sommes la Solution", "Kindia", "Guinée", "pan-africain", "leadership féminin", "agroécologie", "souveraineté alimentaire"],
+    cloudinaryGalleryCaption: "Kindia, Guinée — Rencontre annuelle NSS, novembre 2025",
+    cloudinaryImages: [
+      "Rencontre_Annuelle_NSS_1_wjyfc8",
+      "Rencontre_Annuelle_NSS_2_xljei0",
+      "Rencontre_Annuelle_NSS_3_vwbrut",
+      "Rencontre_Annuelle_NSS_4_bjslhg",
+      "Rencontre_Annuelle_NSS_5_yc1l4j",
+      "Rencontre_Annuelle_NSS_6_mfv586",
+      "Rencontre_Annuelle_NSS_7_ewlje0",
+      "Rencontre_Annuelle_NSS_8_vuoosu",
+      "Rencontre_Annuelle_NSS_9_rtga35",
+      "Rencontre_Annuelle_NSS_10_b9fxqe",
+      "Rencontre_Annuelle_NSS_11_q7s9ma",
+      "Rencontre_Annuelle_NSS_12_zstwlr",
+      "Rencontre_Annuelle_NSS_13_md84yl",
+      "Rencontre_Annuelle_NSS_14_py7oje",
+      "Rencontre_Annuelle_NSS_15_g6km1r",
+      "Rencontre_Annuelle_NSS_16_eocwsf",
+      "Rencontre_Annuelle_NSS_17_zcxkhg",
+      "Rencontre_Annuelle_NSS_18_pv8dvb",
+      "Rencontre_Annuelle_NSS_19_dqnzux",
+      "Rencontre_Annuelle_NSS_20_qhgien",
+    ],
+    content: `Comment un mouvement de femmes rurales construit-il une force continentale sans perdre son ancrage local ? À Kindia, en Guinée, dix pays africains ont répondu à cette question non pas avec des discours, mais avec des bilans concrets, des échanges de terrain et une gouvernance assumée. Ce qui se joue ici dépasse le cadre d'une réunion annuelle.
+
+## Kindia, ville-symbole d'un mouvement qui s'ancre en Guinée
+
+Choisir Kindia, ville agricole de la Guinée centrale, n'est pas anodin. C'est affirmer que le centre de gravité du mouvement NSS n'est pas dans les capitales ni dans les organisations internationales — il est dans les terres cultivées, là où les femmes rurales font face chaque saison aux mêmes défis de semences, d'accès au foncier et de prix au marché. Réunir dix délégations nationales dans cet espace, c'est poser un acte de décentralisation symbolique : la légitimité du mouvement pan-africain se construit depuis les champs, pas depuis les bureaux. La rencontre annuelle de novembre 2025 marque ainsi un ancrage géographique fort, qui dit quelque chose de la trajectoire stratégique de NSS — aller chercher ses forces là où elles sont réellement.
+
+## Dix pays, une seule parole collective
+
+La présentation des rapports et bilans par les différentes Associations de Femmes Rurales n'est pas un exercice bureaucratique. C'est un moment rare où des coordinatrices venues du Sénégal, du Mali, du Burkina Faso, de Guinée et des sept autres pays membres peuvent confronter leurs réalités, mesurer ce qui fonctionne, identifier ce qui achoppe. Les échanges de bonnes pratiques qui suivent ne sont pas du transfert descendant de savoirs — ils sont une mise en commun horizontale entre pairs qui partagent les mêmes contraintes climatiques, les mêmes résistances institutionnelles et les mêmes leviers d'action. Cette dynamique humaine, dense et diverse, est précisément ce qui donne au mouvement NSS sa cohérence au-delà des frontières.
+
+## Une assemblée générale comme acte de gouvernance souveraine
+
+La tenue de l'Assemblée Générale au cœur de cette rencontre n'est pas une formalité statutaire. C'est l'affirmation que le mouvement NSS se gouverne lui-même, collectivement, depuis ses membres — et non depuis des partenaires extérieurs ou des bailleurs. Dans un contexte où les organisations paysannes africaines sont souvent fragilisées par leur dépendance aux financements internationaux, cette capacité à se doter d'instances décisionnelles propres est une force structurelle. Elle dit que NSS construit, sur le long terme, non seulement des systèmes alimentaires plus justes et résilients, mais aussi une architecture organisationnelle capable de les porter dans la durée.
+
+---
+
+*Ce que les dix délégations décident à Kindia cette semaine tracera les priorités du mouvement pour 2026 — et les prochains posts de terrain en seront les premiers témoins.*
+
+[[GALLERY]]`,
+  },
+
+  // ── Toma 2025 — Burkina Faso, femmes rurales, plaidoyer souveraineté ─────
+  {
+    id: "32",
+    slug: "femmes-rurales-toma-agroecologie-burkina-2025",
+    title: "À Toma, les gardiennes du vivant ont pris la parole",
+    location: "Toma — Burkina Faso",
+    excerpt: "Qui nourrit réellement les campagnes du Sahel ? Le 22 novembre 2025 à Toma, l'Union Nous Sommes la Solution du Burkina Faso a transformé une journée commémorative en acte politique — rappelant que la reconnaissance ne suffit pas là où il faut des ressources.",
+    coverUrl: "https://res.cloudinary.com/dtjvjlkcc/image/upload/q_auto/f_auto/v1776072667/Journ%C3%A9e_de_l_Alimentation_de_la_Femme_Rurale_12_rsnzjj.webp",
+    publishedAt: "2025-11-22",
+    category: "Événement",
+    author: "NSS — Nous Sommes la Solution",
+    canonical: "https://wasafrica.org/fr/ressources/actualites/femmes-rurales-toma-agroecologie-burkina-2025",
+    robots: "index, follow",
+    tags: ["femmes rurales", "agroécologie", "souveraineté alimentaire", "Burkina Faso", "Toma", "Nous Sommes la Solution", "émancipation", "plaidoyer"],
+    cloudinaryGalleryCaption: "Toma, Burkina Faso — Journée mondiale de l'alimentation et de la Femme rurale, novembre 2025",
+    cloudinaryImages: [
+      "Journée_de_l_Alimentation_de_la_Femme_Rurale_1_unkrfe",
+      "Journée_de_l_Alimentation_de_la_Femme_Rurale_2_hp309f",
+      "Journée_de_l_Alimentation_de_la_Femme_Rurale_3_tawlqb",
+      "Journée_de_l_Alimentation_de_la_Femme_Rurale_4_bb7hap",
+      "Journée_de_l_Alimentation_de_la_Femme_Rurale_5_xxl6mm",
+      "Journée_de_l_Alimentation_de_la_Femme_Rurale_6_wkwppx",
+      "Journée_de_l_Alimentation_de_la_Femme_Rurale_7_n3jll8",
+      "Journée_de_l_Alimentation_de_la_Femme_Rurale_8_nwahtk",
+      "Journée_de_l_Alimentation_de_la_Femme_Rurale_9_vbek2w",
+      "Journée_de_l_Alimentation_de_la_Femme_Rurale_10_vgmgf7",
+      "Journée_de_l_Alimentation_de_la_Femme_Rurale_11_rsb0kv",
+      "Journée_de_l_Alimentation_de_la_Femme_Rurale_12_rsnzjj",
+      "Journée_de_l_Alimentation_de_la_Femme_Rurale_13_sgyrbo",
+      "Journée_de_l_Alimentation_de_la_Femme_Rurale_14_x7zk49",
+      "Journée_de_l_Alimentation_de_la_Femme_Rurale_15_fqfro6",
+      "Journée_de_l_Alimentation_de_la_Femme_Rurale_16_mzwm7r",
+      "Journée_de_l_Alimentation_de_la_Femme_Rurale_17_u2s9gd",
+      "Journée_de_l_Alimentation_de_la_Femme_Rurale_18_dk0zq9",
+      "Journée_de_l_Alimentation_de_la_Femme_Rurale_19_ibltif",
+    ],
+    content: `Qui nourrit réellement les campagnes du Sahel ? Derrière les chiffres de la production agricole, ce sont des femmes qui sèment, transforment et transmettent. Le 22 novembre 2025 à Toma, l'Union Nous Sommes la Solution du Burkina Faso a transformé une journée commémorative en acte politique — rappelant que la reconnaissance ne suffit pas là où il faut des ressources.
+
+## Célébrer en différé, revendiquer en avance
+
+Il y a quelque chose de délibéré dans le fait de célébrer « en différé » la Journée mondiale de l'alimentation et de la Femme rurale. Ce n'est pas un retard : c'est une appropriation. Les femmes de l'Union NSS n'ont pas attendu une date imposée par un agenda international pour se réunir sous la présidence du Ministre de l'Agriculture — elles ont choisi leur moment, leur lieu, leur scène. À Toma, ville de la province du Nayala, cet événement incarne la capacité du mouvement paysan à s'inscrire dans les institutions tout en gardant son propre rythme. La présence d'un ministre n'est pas un satisfecit accordé d'en haut : c'est le résultat d'un rapport de force construit dans la durée.
+
+## La Présidente, entre hommage et injonction
+
+La prise de parole de la Présidente de l'Union n'a pas suivi la rhétorique convenue des discours commémoratifs. En saluant l'engagement et la résilience des femmes rurales, elle a refusé de les cantonner au rôle de symboles. En les nommant « véritables gardiennes de l'agroécologie et de la souveraineté alimentaire », elle a posé une légitimité technique et politique — pas seulement morale. Et le plaidoyer qu'elle a lancé — pour un accompagnement technique, matériel et financier — transforme l'hommage en revendication concrète. On ne célèbre pas pour s'en tenir là ; on célèbre pour exiger davantage.
+
+> « La véritable émancipation des femmes, c'est celle qui leur permet d'assumer toutes leurs responsabilités. » — Thomas Sankara
+
+## Sankara comme boussole, l'autonomie comme horizon
+
+Convoquer Thomas Sankara dans ce contexte n'est pas un geste nostalgique. C'est un ancrage idéologique qui dit quelque chose de précis sur la vision du mouvement : l'émancipation ne se décrète pas, elle se construit dans la capacité réelle d'agir. Pour les femmes rurales du Burkina, cette capacité passe par la terre, les semences, les savoirs agroécologiques — et par les moyens de les faire valoir. Le mot « déterminées » que l'Union choisit pour clore son message n'est pas une formule de politesse : c'est la déclaration d'un mouvement qui sait où il va et qui mesure le chemin qu'il reste à parcourir vers des communautés plus autonomes, plus fortes et plus durables.
+
+---
+
+*Dans les prochaines semaines, d'autres unions régionales porteront leurs propres bilans de terrain — autant d'occasions de mesurer ce que ce plaidoyer de Toma a déjà commencé à changer.*
+
+[[GALLERY]]`,
+  },
 
   // ── Mali 2025 — journée femme rurale, plaidoyer politique ───────────────
   {
     id: "29",
     slug: "mali-2025-nss-femmes-rurales-journee-internationale-alimentation",
     title: "Au Mali, NSS transforme une journée commémorative en acte politique",
+    location: "Mali",
     excerpt: "Célébrer ne suffit pas — encore faut-il que la célébration ouvre des portes. Au Mali, NSS a fait de la Journée Internationale de la Femme Rurale et de la Journée Mondiale de l'Alimentation un moment de plaidoyer concret, en réunissant femmes paysannes, ministères et autorités locales.",
     coverUrl: "https://res.cloudinary.com/dtjvjlkcc/image/upload/q_auto/f_auto/v1776018242/NSS_-_Mali_2025_C%C3%A9l%C3%A9bration_de_la_Journ%C3%A9e_de_la_Femme_Rurale_et_de_l_Alimentation_10_ajjsov.webp",
     publishedAt: "2025-10-15",
@@ -104,6 +773,7 @@ Les engagements pris lors de cette journée au Mali s'inscrivent dans la dynamiq
     id: "28",
     slug: "tambacounda-2025-femmes-rurales-souverainete-alimentaire-nss",
     title: "À Tambacounda, trois pays unis pour dire que les femmes rurales nourrissent l'Afrique",
+    location: "Tambacounda — Sénégal",
     excerpt: "Les 15 et 16 octobre 2025, Guinée-Bissau, Gambie et Sénégal se sont réunis à Tambacounda pour célébrer la femme rurale et le droit à l'alimentation — un message porté depuis les territoires, pas depuis les capitales.",
     coverUrl: "https://res.cloudinary.com/dtjvjlkcc/image/upload/q_auto/f_auto/v1776016032/NSS_Tambacounda_2025_-_Femmes_rurales_et_souverainet%C3%A9_alimentaire_ensemble_13_udamj2.jpg",
     publishedAt: "2025-10-15",
@@ -163,6 +833,7 @@ Les résolutions issues des deux journées de Tambacounda alimenteront les trava
     id: "25",
     slug: "niaguis-femmes-rurales-agroecologie-paysanne-plaidoyer-ouest-africain",
     title: "À Niaguis, soixante voix rurales exigent que l'agroécologie devienne loi",
+    location: "Niaguis, Casamance — Sénégal",
     excerpt: "Des femmes rurales de 8 pays d'Afrique de l'Ouest réunies à Niaguis plaident pour faire de l'agroécologie paysanne le socle des politiques agricoles nationales.",
     coverUrl: "https://res.cloudinary.com/dtjvjlkcc/image/upload/q_auto/f_auto/v1775575693/femmes_rurales_d_Afrique_de_l_Ouest_plaident_pour_l_agro%C3%A9cologie_paysanne_6_ithmd3.webp",
     publishedAt: "2025-09-17",
@@ -205,6 +876,7 @@ Dans les jours qui viennent, les délégations repartent dans leurs pays respect
     id: "27",
     slug: "cifap-2025-fenop-niaguis-senegal-formation-agroecologie",
     title: "À Niaguis, deux leaders burkinabè plongent au cœur de l'agroécologie paysanne",
+    location: "Niaguis, Casamance — Sénégal",
     excerpt: "Du 14 au 21 septembre 2025, la FENOP a envoyé deux de ses représentantes au CIFAP à Niaguis — un geste fort qui dit beaucoup sur la stratégie du mouvement paysan burkinabè face aux défis de la souveraineté alimentaire.",
     coverUrl: "https://res.cloudinary.com/dtjvjlkcc/image/upload/q_auto/f_auto/v1776001698/Nous_sommes_la_solution_-_Fenop_1_r9gqhc.jpg",
     publishedAt: "2025-09-14",
@@ -253,6 +925,7 @@ Les enseignements du CIFAP 2025 seront au cœur des prochaines rencontres de la 
     id: "26",
     slug: "agroecologie-changement-paradigme-souverainete-alimentaire-niaguis-seneweb",
     title: "Agroécologie et changement de paradigme pour une souveraineté alimentaire : À Niaguis, les organisations paysannes de l'Afrique de l'Ouest portent le plaidoyer",
+    location: "Niaguis, Casamance — Sénégal",
     excerpt: "Après une immersion d'une semaine au centre agroécologique de Niaguis, des organisations paysannes de 8 pays d'Afrique de l'Ouest rentrent renforcées pour promouvoir l'agroécologie et porter le plaidoyer communautaire auprès de leurs gouvernements.",
     coverUrl: "https://res.cloudinary.com/dtjvjlkcc/image/upload/q_auto/f_auto/v1776000229/Agro%C3%A9cologie_et_changement_de_paradigme_pour_une_souverainet%C3%A9_alimentaire_lkwtd4.jpg",
     publishedAt: "2025-09-23",
@@ -320,6 +993,7 @@ Une raison suffisante pour la présidente d'être rassurée sur la pertinence de
     id: "7",
     slug: "cifap-2025-derniere-journee-techniques-horticoles-agroecologie-afrique-ouest",
     title: "Les femmes de l'Afrique de l'Ouest à l'école des techniques horticoles en agroécologie – Retour sur le CIFAP 2025",
+    location: "Niaguis, Casamance — Sénégal",
     excerpt: "Retour sur la dernière journée du CIFAP 2025 à Niaguis : près de 70 leaders et techniciens de 8 pays d'Afrique de l'Ouest formés aux techniques de conduite des cultures horticoles en agroécologie paysanne.",
     coverUrl: "https://res.cloudinary.com/dtjvjlkcc/image/upload/q_auto/f_auto/v1775487713/Hero_-_Cifap_ixy5hj.jpg",
     publishedAt: "2025-09-21",
@@ -438,6 +1112,7 @@ Venues de huit pays d'Afrique de l'Ouest, **près de soixante-dix leaders et tec
     id: "22",
     slug: "ziguinchor-organisations-paysannes-agro-industrie-souverainete",
     title: "Ziguinchor : Des organisations paysannes de femmes alertent sur l'impact négatif de l'agro-industrie sur l'atteinte de la souveraineté alimentaire",
+    location: "Ziguinchor — Sénégal",
     excerpt: "Des organisations paysannes de femmes de Ziguinchor interpellent les autorités sénégalaises et africaines sur les dangers de l'agro-industrie et plaident pour une transition vers l'agroécologie.",
     coverUrl: "https://res.cloudinary.com/dtjvjlkcc/image/upload/q_auto/f_auto/v1775558250/Ziguinchor_Des_organisations_paysannes_de_femmes_alertent_sur_l_impact_n%C3%A9gatif_de_l_agro-industrie_sur_l_atteinte_de_la_souverainet%C3%A9_hqxbec.webp",
     publishedAt: "2025-08-30",
@@ -467,6 +1142,7 @@ Pour cette organisation, la souffrance qui existe aujourd'hui en Afrique est la 
     id: "21",
     slug: "niaguis-capitale-agroecologie-paysanne-cifap-2025",
     title: "Niaguis, capitale ouest-africaine de l'agroécologie paysanne : retour sur le CIFAP 2025",
+    location: "Niaguis, Casamance — Sénégal",
     excerpt:
       "Près de 70 leaders, techniciens et animateurs agricoles venus de 8 pays d'Afrique de l'Ouest se sont réunis à Niaguis pour la deuxième journée du CIFAP 2025 — une semaine de formation intensive placée sous le signe des techniques horticoles en agroécologie paysanne.",
     content: `## Une formation ancrée dans la pratique
@@ -484,7 +1160,7 @@ Les femmes rurales d'Afrique de l'Ouest plaident ainsi, par leurs actes, pour un
 ## Niaguis, un symbole qui se confirme
 
 Ce n'est pas un hasard si le CIFAP revient chaque année à Niaguis, en Casamance. Ce territoire est devenu au fil des éditions un lieu de référence pour la formation paysanne ouest-africaine — un espace où des femmes de 14 pays partagent leurs savoirs ancestraux et leurs innovations de terrain.`,
-    coverUrl: "https://res.cloudinary.com/dtjvjlkcc/image/upload/q_auto/f_auto/NOUS_SOMMES_LA_SOLUTIONS_CIFAP_2025_1_r60wkt",
+    coverUrl: "/images/actualites/nss-cifap-2025.jpg",
     publishedAt: "2025-09-17",
     category: "Formation",
     author: "Mouvement NSS",
@@ -575,6 +1251,7 @@ Ce n'est pas un hasard si le CIFAP revient chaque année à Niaguis, en Casamanc
     id: "24",
     slug: "femmes-rurales-agroecologie-paysanne-plaidoyer-niaguis",
     title: "Femmes rurales d'Afrique de l'Ouest : un plaidoyer collectif pour l'agroécologie paysanne à Niaguis",
+    location: "Niaguis, Casamance — Sénégal",
     excerpt: "À Niaguis, des femmes rurales de huit pays d'Afrique de l'Ouest se réunissent au CIFAP 2025 pour porter un plaidoyer commun en faveur de l'agroécologie paysanne et de la souveraineté alimentaire.",
     coverUrl: "https://res.cloudinary.com/dtjvjlkcc/image/upload/q_auto/f_auto/v1775575693/femmes_rurales_d_Afrique_de_l_Ouest_plaident_pour_l_agro%C3%A9cologie_paysanne_6_ithmd3.webp",
     publishedAt: "2025-09-21",
@@ -633,6 +1310,7 @@ Ces **savoirs endogènes** sont au cœur du modèle NSS : ils ne sont pas à rem
     id: "23",
     slug: "niaguis-terre-convergence-cifap-4e-flamme-agroecologique",
     title: "Niaguis, terre de convergence : le CIFAP allume sa 4ᵉ flamme agroécologique",
+    location: "Niaguis, Casamance — Sénégal",
     excerpt: "Ouverture du CIFAP 2025 à Niaguis : la 4ᵉ édition du Camp International de Formation sur l'Agroécologie Paysanne réunit producteurs, femmes leaders et acteurs ruraux de toute l'Afrique de l'Ouest.",
     coverUrl: "https://res.cloudinary.com/dtjvjlkcc/image/upload/q_auto/f_auto/v1775561753/Ouverture_de_la_4%E1%B5%89_%C3%A9dition_du_CIFAP_%C3%A0_Niaguis_lqfakd.webp",
     publishedAt: "2025-09-15",
@@ -686,8 +1364,9 @@ La semaine qui s'ouvre sera celle des mains dans la terre et des têtes en dialo
     id: "30",
     slug: "tamba-femmes-rurales-premiere-ligne-changement-climatique-lesoleil",
     title: "Tamba : les femmes rurales en première ligne face au changement climatique",
+    location: "Tambacounda — Sénégal",
     excerpt: "À Tambacounda, le mouvement NSS a célébré la Journée internationale de la femme rurale en mettant en lumière la résilience des agricultrices face au changement climatique et leur rôle central dans la transition agroécologique.",
-    coverUrl: "https://lesoleil.sn/wp-content/webp-express/webp-images/uploads/2025/10/WhatsApp-Image-2025-10-16-at-21.29.47-900x405.jpeg.webp",
+    coverUrl: "/images/actualites/tamba-femmes-rurales-changement-climatique.webp",
     publishedAt: "2025-10-17",
     category: "Presse",
     author: "Boubacar Agna CAMARA",
@@ -709,8 +1388,9 @@ C'est dans cette optique que le mouvement panafricain invite toutes les parties 
     id: "31",
     slug: "nss-cifap-3e-edition-bio-protecteurs-agroecologie-niaguis-2024",
     title: "Nous Sommes La Solution (NSS) mise sur les bio-protecteurs en agroécologie",
+    location: "Niaguis, Casamance — Sénégal",
     excerpt: "La 3e édition du Camp International de Formation en Agroécologie Paysanne (CIFAP) a réuni 14 associations de femmes rurales ouest-africaines à Niaguis autour des techniques de production et d'utilisation des bio-protecteurs en agroécologie.",
-    coverUrl: "https://scoopsdeziguinchor.com/wp-content/uploads/2024/09/66fa449c-e58d-45dd-957e-f87b6218a77a-e1725827262645-1024x441.jpeg",
+    coverUrl: "/images/actualites/nss-cifap-3e-edition-bio-protecteurs.jpg",
     publishedAt: "2024-09-08",
     category: "Formation",
     author: "Tapha I Badji",

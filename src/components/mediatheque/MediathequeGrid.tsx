@@ -121,7 +121,14 @@ function getActiveVideo(card: VideoCard | MiniCard): ActiveVideo | null {
 
 /* ── Modal ──────────────────────────────────────────────────────────────────── */
 
+function cloudinaryThumb(url: string): string {
+  return url.replace(/\/f_auto\//, "/f_jpg,so_0/").replace(/\.mp4$/, ".jpg");
+}
+
 function VideoModal({ video, onClose }: { video: ActiveVideo; onClose: () => void }) {
+  const [ready, setReady] = useState(false);
+  const poster = video.type === "cloudinary" ? cloudinaryThumb(video.src) : undefined;
+
   return (
     <div
       onClick={onClose}
@@ -151,11 +158,19 @@ function VideoModal({ video, onClose }: { video: ActiveVideo; onClose: () => voi
 
         {/* Lecteur */}
         <div style={{ position: "relative", paddingBottom: "56.25%", borderRadius: "12px", overflow: "hidden", background: "#000" }}>
+          {/* Spinner pendant le chargement */}
+          {!ready && (
+            <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", zIndex: 1 }}>
+              <div style={{ width: "48px", height: "48px", borderRadius: "50%", border: "3px solid rgba(255,255,255,0.2)", borderTopColor: "#fff", animation: "spin 0.8s linear infinite" }} />
+            </div>
+          )}
+
           {video.type === "youtube" ? (
             <iframe
               src={`https://www.youtube.com/embed/${video.src}?autoplay=1&rel=0`}
               allow="autoplay; encrypted-media; fullscreen"
               allowFullScreen
+              onLoad={() => setReady(true)}
               style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: "none" }}
             />
           ) : video.type === "facebook" ? (
@@ -163,18 +178,23 @@ function VideoModal({ video, onClose }: { video: ActiveVideo; onClose: () => voi
               src={`https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(video.src)}&show_text=false&autoplay=true&mute=false`}
               allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
               allowFullScreen
+              onLoad={() => setReady(true)}
               style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: "none" }}
             />
           ) : (
             <video
               src={video.src}
+              poster={poster}
+              preload="metadata"
               controls
               autoPlay
               playsInline
+              onCanPlay={() => setReady(true)}
               style={{ position: "absolute", inset: 0, width: "100%", height: "100%", background: "#000" }}
             />
           )}
         </div>
+        <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
 
         <p style={{ fontFamily: "var(--font-body)", fontSize: "12px", color: "rgba(255,255,255,0.4)", marginTop: "10px", textAlign: "center" }}>
           Cliquez en dehors pour fermer

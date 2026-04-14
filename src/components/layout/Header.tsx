@@ -110,26 +110,24 @@ export default function Header() {
           <div style={{ maxWidth: "var(--container-max)", margin: "0 auto", padding: "0 var(--container-pad)", display: "flex", alignItems: "center", height: "64px", gap: "16px" }}>
 
             {/* Logo */}
-            <Link href={`/${locale}`} aria-label="NSS — Accueil" style={{ display: "flex", alignItems: "center", gap: "11px", textDecoration: "none", flexShrink: 0 }}>
-              <div style={{ width: "34px", height: "34px", borderRadius: "8px", overflow: "hidden", background: "#0f2b1a", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                <Image src="/images/logo/logo.webp" alt="NSS" width={30} height={30} style={{ objectFit: "contain" }} priority />
-              </div>
-              <div className="hdr-logo-text">
-                <div style={{ fontSize: "12px", fontWeight: 700, color: "#0f2b1a", lineHeight: 1.2 }}>Nouvelles Semences du Sahel</div>
-                <div style={{ fontSize: "9px", color: "#6b8c72", letterSpacing: "0.03em" }}>Mouvement paysan · Afrique de l&apos;Ouest</div>
-              </div>
+            <Link href={`/${locale}`} aria-label="NSS — Accueil" style={{ display: "flex", alignItems: "center", textDecoration: "none", flexShrink: 0 }}>
+              <Image src="/images/logo/LOGO NSS.png" alt="NSS" width={200} height={200} style={{ objectFit: "contain" }} priority />
             </Link>
 
             {/* Desktop nav with dropdowns */}
             <nav ref={navRef} role="navigation" aria-label="Navigation principale" className="hdr-nav"
               style={{ display: "flex", alignItems: "center", gap: "2px", flex: 1, justifyContent: "center" }}>
+              <Link href={`/${locale}`} className="hdr-nav-link"
+                style={{ padding: "6px 11px", borderRadius: "7px", fontSize: "15px", fontWeight: 500, color: "#2a2a2a", textDecoration: "none", transition: "all 0.15s" }}>
+                Accueil
+              </Link>
               {(Object.keys(DROPS) as DropKey[]).map((key) => {
                 const { label, colIdx } = DROPS[key];
                 const isOpen = openDrop === key;
                 return (
                   <div key={key} style={{ position: "relative" }}>
                     <button onClick={() => setOpenDrop(isOpen ? null : key)} aria-expanded={isOpen} aria-haspopup="true"
-                      style={{ display: "flex", alignItems: "center", gap: "4px", padding: "6px 11px", borderRadius: "7px", cursor: "pointer", background: isOpen ? "#eaf3ee" : "transparent", border: "none", fontSize: "13px", fontWeight: 500, color: isOpen ? "#0f2b1a" : "#2a2a2a", transition: "all 0.15s" }}>
+                      style={{ display: "flex", alignItems: "center", gap: "4px", padding: "6px 11px", borderRadius: "7px", cursor: "pointer", background: isOpen ? "#eaf3ee" : "transparent", border: "none", fontSize: "15px", fontWeight: 500, color: isOpen ? "#0f2b1a" : "#2a2a2a", transition: "all 0.15s" }}>
                       {label}
                       <ChevronDown size={12} style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.2s" }} />
                     </button>
@@ -137,9 +135,9 @@ export default function Header() {
                   </div>
                 );
               })}
-              <Link href={`/${locale}/ressources/actualites`} className="hdr-nav-link"
-                style={{ padding: "6px 11px", borderRadius: "7px", fontSize: "13px", fontWeight: 500, color: "#2a2a2a", textDecoration: "none", transition: "all 0.15s" }}>
-                Actualités
+              <Link href={`/${locale}/contact`} className="hdr-nav-link"
+                style={{ padding: "6px 11px", borderRadius: "7px", fontSize: "15px", fontWeight: 500, color: "#2a2a2a", textDecoration: "none", transition: "all 0.15s" }}>
+                Contact
               </Link>
             </nav>
 
@@ -187,7 +185,7 @@ export default function Header() {
               aria-label={slideOpen ? "Fermer le menu" : "Ouvrir le menu"}
               aria-expanded={slideOpen}
               className="hdr-burger"
-              style={{ width: "40px", height: "40px", borderRadius: "8px", flexShrink: 0, border: `1.5px solid ${slideOpen ? "#0f2b1a" : "#1a6b3c"}`, background: slideOpen ? "#0f2b1a" : "#fff", display: "none", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "5px", cursor: "pointer", transition: "all 0.25s" }}>
+              style={{ width: "40px", height: "40px", borderRadius: "8px", flexShrink: 0, marginLeft: "auto", border: `1.5px solid ${slideOpen ? "#0f2b1a" : "#1a6b3c"}`, background: slideOpen ? "#0f2b1a" : "#fff", display: "none", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "5px", cursor: "pointer", transition: "all 0.25s" }}>
               <span className={slideOpen ? "hbl hb1o" : "hbl"} />
               <span className={slideOpen ? "hbl hb2o" : "hbl"} />
               <span className={slideOpen ? "hbl hb3o" : "hbl"} />

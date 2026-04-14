@@ -26,7 +26,7 @@ const categoryBadge: Record<string, "impact" | "pays" | "evenement" | "media"> =
 };
 
 export default function VideoCard({ id, cloudinaryUrl, titre, description, categorie, duree, date }: VideoCardProps) {
-  const [playing, setPlaying] = useState(false);
+  const [state, setState] = useState<"idle" | "loading" | "playing">("idle");
 
   const isCloudinary = !!cloudinaryUrl;
   const thumbnailUrl = isCloudinary
@@ -36,27 +36,15 @@ export default function VideoCard({ id, cloudinaryUrl, titre, description, categ
       : null;
   const canPlay = isCloudinary || !!id;
 
+  function handlePlay() { setState("loading"); }
+
   return (
     <div className="bg-white rounded-2xl shadow-card overflow-hidden flex flex-col hover:shadow-md transition-shadow">
       {/* Vidéo / Thumbnail */}
       <div className="relative aspect-video bg-neutral-900 overflow-hidden">
-        {playing && isCloudinary ? (
-          <video
-            src={cloudinaryUrl}
-            controls
-            autoPlay
-            playsInline
-            className="absolute inset-0 w-full h-full bg-black"
-          />
-        ) : playing && id ? (
-          <iframe
-            src={`https://www.youtube.com/embed/${id}?autoplay=1&rel=0`}
-            title={titre}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="absolute inset-0 w-full h-full"
-          />
-        ) : (
+
+        {/* Thumbnail — reste visible pendant "loading" */}
+        {state !== "playing" && (
           <>
             {thumbnailUrl ? (
               // eslint-disable-next-line @next/next/no-img-element
@@ -71,14 +59,16 @@ export default function VideoCard({ id, cloudinaryUrl, titre, description, categ
                 <span className="font-display text-3xl text-primary-300 font-bold">NSS</span>
               </div>
             )}
-
-            {/* Overlay */}
             <div className="absolute inset-0 bg-black/30" />
 
-            {/* Bouton play */}
-            {canPlay ? (
+            {state === "loading" ? (
+              /* Spinner pendant le chargement */
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full border-[3px] border-white/30 border-t-white animate-spin" />
+              </div>
+            ) : canPlay ? (
               <button
-                onClick={() => setPlaying(true)}
+                onClick={handlePlay}
                 className="absolute inset-0 flex items-center justify-center group"
                 aria-label={`Lire la vidéo : ${titre}`}
               >
@@ -96,14 +86,39 @@ export default function VideoCard({ id, cloudinaryUrl, titre, description, categ
               </div>
             )}
 
-            {/* Durée */}
-            {duree && (
+            {duree && state === "idle" && (
               <span className="absolute bottom-2 right-2 bg-black/70 text-white text-xs font-semibold
                                px-2 py-0.5 rounded flex items-center gap-1">
                 <Clock size={10} /> {duree}
               </span>
             )}
           </>
+        )}
+
+        {/* Lecteur — monté dès "loading" pour que le fetch démarre */}
+        {state !== "idle" && isCloudinary && (
+          <video
+            src={cloudinaryUrl}
+            poster={thumbnailUrl ?? undefined}
+            preload="metadata"
+            controls
+            autoPlay
+            playsInline
+            onCanPlay={() => setState("playing")}
+            className="absolute inset-0 w-full h-full bg-black"
+            style={{ display: state === "playing" ? "block" : "none" }}
+          />
+        )}
+        {state !== "idle" && !isCloudinary && id && (
+          <iframe
+            src={`https://www.youtube.com/embed/${id}?autoplay=1&rel=0`}
+            title={titre}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            onLoad={() => setState("playing")}
+            className="absolute inset-0 w-full h-full"
+            style={{ display: state === "playing" ? "block" : "none" }}
+          />
         )}
       </div>
 

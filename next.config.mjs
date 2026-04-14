@@ -45,6 +45,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "scoopsdeziguinchor.com",
       },
+      {
+        protocol: "https",
+        hostname: "agridigitale.com",
+      },
     ],
     formats: ["image/avif", "image/webp"],
   },

@@ -19,11 +19,12 @@ function cldUrl(publicId: string, w?: number, h?: number): string {
 
 interface Props {
   images: GalleryImage[];
+  caption?: string;
 }
 
 const PREVIEW = 5;
 
-export default function CloudinaryGalleryClient({ images }: Props) {
+export default function CloudinaryGalleryClient({ images, caption }: Props) {
   const [active, setActive] = useState<number | null>(null);
 
   const close  = useCallback(() => setActive(null), []);
@@ -60,7 +61,7 @@ export default function CloudinaryGalleryClient({ images }: Props) {
       {/* En-tête */}
       <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: "20px", flexWrap: "wrap", gap: "8px" }}>
         <h3 style={{ fontFamily: "var(--font-display)", fontSize: "22px", fontWeight: 400, color: "#1a2612", margin: 0 }}>
-          Photos du CIFAP 2025
+          {caption ?? "Photos"}
         </h3>
         {images.length > 0 && (
           <span style={{ fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#8a8375" }}>

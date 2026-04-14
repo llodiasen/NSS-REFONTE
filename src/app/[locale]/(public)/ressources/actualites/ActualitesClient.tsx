@@ -2,28 +2,36 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { CldImage } from "next-cloudinary";
 import type { Article } from "@/data/articles";
 
 // ── Tag config ────────────────────────────────────────────────────────────────
 
 const TAG_CONFIG: Record<string, { bg: string; color: string }> = {
-  Formation:   { bg: "#e8f2df", color: "#3b6d11" },
-  Mouvement:   { bg: "#dff0f8", color: "#185fa5" },
-  Plaidoyer:   { bg: "#fef3e2", color: "#854f0b" },
-  Presse:      { bg: "#fef3c7", color: "#92400e" },
-  Partenariat: { bg: "#d1fae5", color: "#065f46" },
-  Événement:   { bg: "#f3e8ff", color: "#6b21a8" },
+  Formation:    { bg: "rgba(29,158,117,0.10)", color: "#1D9E75" },
+  Mouvement:    { bg: "rgba(29,158,117,0.10)", color: "#1D9E75" },
+  Plaidoyer:    { bg: "rgba(29,158,117,0.10)", color: "#1D9E75" },
+  Presse:       { bg: "rgba(29,158,117,0.10)", color: "#1D9E75" },
+  Partenariat:  { bg: "rgba(29,158,117,0.10)", color: "#1D9E75" },
+  Événement:    { bg: "rgba(29,158,117,0.10)", color: "#1D9E75" },
+  Entretien:    { bg: "rgba(29,158,117,0.10)", color: "#1D9E75" },
+  Agroécologie: { bg: "rgba(29,158,117,0.10)", color: "#1D9E75" },
+  Portrait:     { bg: "rgba(29,158,117,0.10)", color: "#1D9E75" },
+  Alimentation: { bg: "rgba(29,158,117,0.10)", color: "#1D9E75" },
+  Gastronomie:  { bg: "rgba(29,158,117,0.10)", color: "#1D9E75" },
+  NSS:          { bg: "rgba(29,158,117,0.10)", color: "#1D9E75" },
 };
 
 const FILTER_CONFIG: Record<string, { active: string; label: string }> = {
-  Tous:        { active: "#1a3520", label: "Tous" },
-  Formation:   { active: "#3b6d11", label: "Formation" },
-  Mouvement:   { active: "#185fa5", label: "Mouvement" },
-  Plaidoyer:   { active: "#854f0b", label: "Plaidoyer" },
-  Presse:      { active: "#92400e", label: "Presse" },
-  Partenariat: { active: "#065f46", label: "Partenariat" },
-  Événement:   { active: "#6b21a8", label: "Événement" },
+  Tous:         { active: "#1a3520", label: "Tous" },
+  Agroécologie: { active: "#3b6d11", label: "Agroécologie" },
+  Événement:    { active: "#6b21a8", label: "Événement" },
+  Presse:       { active: "#92400e", label: "Presse" },
+  Portrait:     { active: "#185fa5", label: "Portrait" },
+  Entretien:    { active: "#065f46", label: "Entretien" },
+  Formation:    { active: "#854f0b", label: "Formation" },
+  Alimentation: { active: "#b45309", label: "Alimentation" },
 };
 
 // ── Reading-time helper ───────────────────────────────────────────────────────
@@ -36,6 +44,7 @@ function readingTime(content: string): number {
 // ── Article card ──────────────────────────────────────────────────────────────
 
 function ArticleCard({ article }: { article: Article }) {
+  const [imgError, setImgError] = useState(false);
   const tag = TAG_CONFIG[article.category];
   const mins = readingTime(article.content ?? "");
   const dateStr = new Date(article.publishedAt).toLocaleDateString("fr-FR", {
@@ -44,9 +53,13 @@ function ArticleCard({ article }: { article: Article }) {
     year: "numeric",
   });
 
-  // Cloudinary public ID vs full URL
+  // Cloudinary public ID : ni URL externe (http/https) ni chemin local (/)
   const isCloudinaryId =
-    article.coverUrl && !article.coverUrl.startsWith("http");
+    article.coverUrl &&
+    !article.coverUrl.startsWith("http") &&
+    !article.coverUrl.startsWith("/");
+
+  const showFallback = !article.coverUrl || imgError;
 
   return (
     <article
@@ -70,28 +83,12 @@ function ArticleCard({ article }: { article: Article }) {
           flexShrink: 0,
         }}
       >
-        {isCloudinaryId && article.coverUrl ? (
-          <CldImage
-            src={article.coverUrl}
-            alt={article.title}
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            style={{ objectFit: "cover" }}
-          />
-        ) : article.coverUrl ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={article.coverUrl}
-            alt={article.title}
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          />
-        ) : (
+        {showFallback ? (
           <div
             style={{
               width: "100%",
               height: "100%",
-              background:
-                "linear-gradient(135deg, #1a3520 0%, #3b6d11 50%, #0d2015 100%)",
+              background: "linear-gradient(135deg, #1a3520 0%, #3b6d11 50%, #0d2015 100%)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -110,6 +107,24 @@ function ArticleCard({ article }: { article: Article }) {
               NSS
             </span>
           </div>
+        ) : isCloudinaryId && article.coverUrl ? (
+          <CldImage
+            src={article.coverUrl}
+            alt={article.title}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            style={{ objectFit: "cover" }}
+            onError={() => setImgError(true)}
+          />
+        ) : (
+          <Image
+            src={article.coverUrl!}
+            alt={article.title}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            style={{ objectFit: "cover" }}
+            onError={() => setImgError(true)}
+          />
         )}
       </div>
 
@@ -132,7 +147,11 @@ function ArticleCard({ article }: { article: Article }) {
               {article.category}
             </span>
           )}
-          <span style={{ fontSize: "12px", color: "#999", whiteSpace: "nowrap" }}>
+          <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "12px", color: "#999", whiteSpace: "nowrap" }}>
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" aria-hidden="true" style={{ flexShrink: 0 }}>
+              <rect x="3" y="4" width="18" height="18" rx="2" stroke="#999" strokeWidth="1.8" />
+              <path d="M16 2v4M8 2v4M3 10h18" stroke="#999" strokeWidth="1.8" strokeLinecap="round" />
+            </svg>
             {dateStr}
           </span>
         </div>
@@ -143,7 +162,7 @@ function ArticleCard({ article }: { article: Article }) {
             href={`/fr/ressources/actualites/${article.slug}`}
             style={{
               fontFamily: "serif",
-              fontSize: "1rem",
+              fontSize: "1.125rem",
               fontWeight: 700,
               color: "#1a1a1a",
               lineHeight: 1.4,
@@ -161,10 +180,12 @@ function ArticleCard({ article }: { article: Article }) {
 
         {/* Excerpt */}
         <p
+          className="act-excerpt"
           style={{
-            fontSize: "13px",
+            fontSize: "15px",
             color: "#1a1a1a",
             lineHeight: 1.6,
+            textAlign: "justify",
             flex: 1,
             display: "-webkit-box",
             WebkitLineClamp: 3,
@@ -206,7 +227,7 @@ function ArticleCard({ article }: { article: Article }) {
 
 // ── Main client component ─────────────────────────────────────────────────────
 
-const PAGE_SIZE = 9;
+const PAGE_SIZE = 18;
 
 export default function ActualitesClient({ articles }: { articles: Article[] }) {
   const [activeFilter, setActiveFilter] = useState<string>("Tous");
@@ -232,6 +253,7 @@ export default function ActualitesClient({ articles }: { articles: Article[] }) 
         }}
       >
         <div
+          className="act-filters-row"
           style={{
             maxWidth: "var(--container-max)",
             margin: "0 auto",
@@ -243,7 +265,7 @@ export default function ActualitesClient({ articles }: { articles: Article[] }) 
           }}
         >
           {/* Title + pills */}
-          <div>
+          <div className="act-pills-wrap" style={{ minWidth: 0, flex: 1 }}>
             <p style={{ fontSize: "11px", fontWeight: 700, color: "#6b8c72", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "12px" }}>
               Parcourir par thème
             </p>
@@ -253,6 +275,7 @@ export default function ActualitesClient({ articles }: { articles: Article[] }) 
                 return (
                   <button
                     key={key}
+                    className="act-pill-btn"
                     onClick={() => {
                       setActiveFilter(key);
                       setVisibleCount(PAGE_SIZE);
@@ -374,14 +397,15 @@ export default function ActualitesClient({ articles }: { articles: Article[] }) 
           box-shadow: 0 8px 24px rgba(0,0,0,0.10);
         }
         .act-title-link:hover { color: #1a6b3c !important; }
-        .act-section { padding-left: var(--container-pad); padding-right: var(--container-pad); }
+        .act-section { overflow-x: hidden; }
         @media (max-width: 768px) {
-          .act-section { padding-left: 16px !important; padding-right: 16px !important; }
-          .act-grid    { grid-template-columns: 1fr !important; }
+          .act-grid { grid-template-columns: 1fr !important; }
+          .act-filters-row { flex-direction: column !important; align-items: flex-start !important; }
+          .act-excerpt { text-align: justify !important; }
         }
-        @media (max-width: 480px) {
-          .act-pills { flex-wrap: nowrap !important; overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
-          .act-pills::-webkit-scrollbar { display: none; }
+        @media (max-width: 768px) {
+          .act-pills { flex-wrap: wrap !important; gap: 6px !important; }
+          .act-pill-btn { font-size: 12px !important; padding: 5px 11px !important; }
         }
       `}</style>
     </>

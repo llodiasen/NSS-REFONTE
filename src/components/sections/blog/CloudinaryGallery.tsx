@@ -18,5 +18,5 @@ export default function CloudinaryGallery({ publicIds, defaultCaption }: Props) 
     caption:      defaultCaption ?? null,
   }));
 
-  return <CloudinaryGalleryClient images={images} />;
+  return <CloudinaryGalleryClient images={images} caption={defaultCaption} />;
 }

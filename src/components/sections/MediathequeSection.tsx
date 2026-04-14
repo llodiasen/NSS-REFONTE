@@ -52,7 +52,7 @@ function IconPlay() {
 
 /* ─── Carte vidéo ────────────────────────────────────────── */
 function VideoCard({ video }: { video: Video }) {
-  const [playing, setPlaying] = useState(false);
+  const [state, setState] = useState<"idle" | "loading" | "playing">("idle");
   const isCloudinary = !video.id && !!video.cloudinaryUrl;
   const thumbSrc = isCloudinary && video.cloudinaryUrl
     ? cloudinaryThumb(video.cloudinaryUrl)
@@ -69,7 +69,7 @@ function VideoCard({ video }: { video: Video }) {
         border: "0.5px solid rgba(0,0,0,0.08)",
         cursor: "pointer",
       }}
-      onClick={() => !playing && setPlaying(true)}
+      onClick={() => state === "idle" && setState("loading")}
     >
       {/* ── Thumbnail ── */}
       <div
@@ -81,25 +81,9 @@ function VideoCard({ video }: { video: Video }) {
           overflow: "hidden",
         }}
       >
-        {playing && isCloudinary ? (
-          <video
-            src={video.cloudinaryUrl!}
-            controls
-            autoPlay
-            playsInline
-            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", background: "#000" }}
-          />
-        ) : playing && video.id ? (
-          <iframe
-            src={`https://www.youtube.com/embed/${video.id}?autoplay=1`}
-            title={video.titre}
-            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: "none" }}
-            allow="autoplay; encrypted-media"
-            allowFullScreen
-          />
-        ) : (
+        {/* Thumbnail — reste visible pendant "loading" */}
+        {state !== "playing" && (
           <>
-            {/* Thumbnail */}
             {thumbSrc ? (
               <Image
                 src={thumbSrc}
@@ -115,71 +99,76 @@ function VideoCard({ video }: { video: Video }) {
               </div>
             )}
 
-            {/* Bouton play centré */}
-            <button
-              aria-label={`Regarder : ${video.titre}`}
-              onClick={(e) => { e.stopPropagation(); setPlaying(true); }}
-              className="play-btn"
-              style={{
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-                width: "48px",
-                height: "48px",
-                borderRadius: "50%",
-                background: "rgba(255,255,255,0.90)",
-                border: "none",
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                zIndex: 2,
-                transition: "transform 0.2s ease, background 0.2s ease",
-              }}
-            >
-              <IconPlay />
-            </button>
+            {state === "loading" ? (
+              /* Spinner */
+              <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(0,0,0,0.35)" }}>
+                <div style={{ width: "44px", height: "44px", borderRadius: "50%", border: "3px solid rgba(255,255,255,0.25)", borderTopColor: "#fff", animation: "spin 0.8s linear infinite" }} />
+              </div>
+            ) : (
+              <button
+                aria-label={`Regarder : ${video.titre}`}
+                onClick={(e) => { e.stopPropagation(); setState("loading"); }}
+                className="play-btn"
+                style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "48px", height: "48px", borderRadius: "50%", background: "rgba(255,255,255,0.90)", border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 2, transition: "transform 0.2s ease, background 0.2s ease" }}
+              >
+                <IconPlay />
+              </button>
+            )}
 
-            {/* Badge durée — bas droit */}
-            <span
-              style={{
-                position: "absolute",
-                bottom: "8px",
-                right: "8px",
-                background: "rgba(0,0,0,0.65)",
-                color: "#ffffff",
-                fontFamily: "var(--font-body)",
-                fontSize: "11px",
-                fontWeight: 500,
-                padding: "2px 7px",
-                borderRadius: "4px",
-                zIndex: 2,
-                letterSpacing: "0.02em",
-              }}
-            >
-              {video.duree}
-            </span>
+            {video.duree && state === "idle" && (
+              <span style={{ position: "absolute", bottom: "8px", right: "8px", background: "rgba(0,0,0,0.65)", color: "#ffffff", fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 500, padding: "2px 7px", borderRadius: "4px", zIndex: 2, letterSpacing: "0.02em" }}>
+                {video.duree}
+              </span>
+            )}
           </>
+        )}
+
+        {/* Lecteur — monté dès "loading" */}
+        {state !== "idle" && isCloudinary && video.cloudinaryUrl && (
+          <video
+            src={video.cloudinaryUrl}
+            poster={thumbSrc ?? undefined}
+            preload="metadata"
+            controls
+            autoPlay
+            playsInline
+            onCanPlay={() => setState("playing")}
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", background: "#000", display: state === "playing" ? "block" : "none" }}
+          />
+        )}
+        {state !== "idle" && !isCloudinary && video.id && (
+          <iframe
+            src={`https://www.youtube.com/embed/${video.id}?autoplay=1`}
+            title={video.titre}
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+            onLoad={() => setState("playing")}
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: "none", display: state === "playing" ? "block" : "none" }}
+          />
         )}
       </div>
 
       {/* ── Corps ── */}
       <div style={{ padding: "14px 16px 16px" }}>
-        {/* Catégorie */}
-        <p
+        {/* Catégorie — badge */}
+        <span
           style={{
+            display: "inline-block",
             fontFamily: "var(--font-body)",
-            fontSize: "14px",
-            fontWeight: 500,
+            fontSize: "11px",
+            fontWeight: 600,
             textTransform: "uppercase",
             letterSpacing: "0.07em",
             color: "#1D9E75",
-            margin: "0 0 4px",
+            background: "#e6f4ec",
+            border: "1px solid #a8d5b5",
+            borderRadius: "20px",
+            padding: "3px 10px",
+            marginBottom: "8px",
           }}
         >
           {video.categorie}
-        </p>
+        </span>
 
         {/* Titre */}
         <p
@@ -266,6 +255,7 @@ export default function MediathequeSection() {
           background: rgba(255,255,255,1) !important;
         }
         .media-cta:hover { background: #17845f !important; }
+        @keyframes spin { to { transform: rotate(360deg); } }
         @media (max-width: 768px) {
           .media-inner { padding: 60px 24px !important; }
           .media-grid  { grid-template-columns: 1fr !important; }
