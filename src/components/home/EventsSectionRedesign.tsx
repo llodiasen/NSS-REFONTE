@@ -84,12 +84,20 @@ function IconPin() {
   );
 }
 
+/* ─── Badge couleurs selon type ───────────────────────────── */
+const TYPE_CONFIG: Record<Evenement["type"], { bg: string; color: string }> = {
+  FORMATION: { bg: "#045627", color: "#F5EDD6" },
+  ATELIER:   { bg: "#00AD4C", color: "#ffffff" },
+};
+
 /* ─── Carte événement ────────────────────────────────────── */
 function EvCard({ ev }: { ev: Evenement }) {
   const avenir = ev.statut === "avenir";
+  const typeCfg = TYPE_CONFIG[ev.type];
+
   return (
     <article className={`evc${avenir ? " evc--featured" : ""}`}>
-      {/* Barre gauche terracotta animée au hover */}
+      {/* Barre gauche vert vif animée au hover */}
       <span className="evc__bar" aria-hidden="true" />
 
       {/* Image */}
@@ -104,9 +112,17 @@ function EvCard({ ev }: { ev: Evenement }) {
           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
         />
         <div className="evc__img-grad" aria-hidden="true" />
-        <span className="evc__badge-type" aria-label={`Type : ${ev.type}`}>
+
+        {/* Badge type */}
+        <span
+          className="evc__badge-type"
+          style={{ background: typeCfg.bg, color: typeCfg.color }}
+          aria-label={`Type : ${ev.type}`}
+        >
           {ev.type}
         </span>
+
+        {/* Badge statut */}
         <span
           className={`evc__badge-statut${avenir ? " evc__badge-statut--avenir" : " evc__badge-statut--passe"}`}
           aria-label={`Statut : ${avenir ? "À venir" : "Passé"}`}
@@ -158,7 +174,7 @@ function EvCard({ ev }: { ev: Evenement }) {
   );
 }
 
-/* ─── Section ────────────────────────────────────────────── */
+/* ─── Section principale ─────────────────────────────────── */
 export default function EventsSectionRedesign() {
   const itemsRef = useRef<(HTMLLIElement | null)[]>([]);
 
@@ -181,29 +197,28 @@ export default function EventsSectionRedesign() {
 
   return (
     <section className="evs" aria-labelledby="evs-heading">
-      {/* Fond géométrique africain */}
+      {/* Motif géométrique kente vert subtil */}
       <div className="evs__pattern" aria-hidden="true" />
-      {/* Accent doré en haut à gauche */}
-      <div className="evs__accent" aria-hidden="true" />
+      {/* Halo or en haut à droite */}
+      <div className="evs__halo" aria-hidden="true" />
 
       <div className="evs__wrap">
         {/* ── Header ── */}
         <header className="evs__header">
           <div className="evs__eyebrow" role="presentation">
             <span className="evs__line" />
-            <span className="evs__eyebrow-txt">Formations &amp; Rencontres</span>
-            <span className="evs__line" />
+            <span className="evs__eyebrow-txt">Nos Événements</span>
+            <span className="evs__line evs__line--rev" />
           </div>
 
           <h2 id="evs-heading" className="evs__h2">
-            Se réunir, apprendre,{" "}
-            <em>changer&nbsp;les&nbsp;choses ensemble.</em>
+            Ensemble, nous bâtissons{" "}
+            <em>la souveraineté alimentaire.</em>
           </h2>
 
           <p className="evs__sub">
-            Depuis 2011, NSS rassemble des milliers de femmes rurales
-            dans&nbsp;7 pays pour partager savoirs, semences et solidarités —
-            une seule voix pour la souveraineté alimentaire.
+            Depuis 2011, NSS réunit 175&nbsp;000 femmes rurales dans 7&nbsp;pays.
+            Chaque formation, chaque rencontre est un acte de résistance collective.
           </p>
         </header>
 
@@ -230,7 +245,7 @@ export default function EventsSectionRedesign() {
             className="evs__foot-btn"
             aria-label="Voir tous nos événements passés et à venir"
           >
-            Tous les événements
+            Voir tous les événements
           </Link>
         </div>
       </div>
@@ -239,7 +254,7 @@ export default function EventsSectionRedesign() {
         /* ════ Section ════════════════════════════════════════ */
         .evs {
           position: relative;
-          background: #FDFAF4;
+          background: #F7FBF7;
           overflow: hidden;
         }
         .evs__pattern {
@@ -252,25 +267,25 @@ export default function EventsSectionRedesign() {
               -55deg,
               transparent,
               transparent 28px,
-              rgba(196,98,45,0.035) 28px,
-              rgba(196,98,45,0.035) 30px
+              rgba(0,173,76,0.04) 28px,
+              rgba(0,173,76,0.04) 30px
             ),
             repeating-linear-gradient(
               35deg,
               transparent,
               transparent 28px,
-              rgba(26,58,42,0.018) 28px,
-              rgba(26,58,42,0.018) 30px
+              rgba(4,86,39,0.025) 28px,
+              rgba(4,86,39,0.025) 30px
             );
         }
-        .evs__accent {
+        .evs__halo {
           position: absolute;
-          top: -80px;
-          right: -80px;
-          width: 320px;
-          height: 320px;
+          top: -100px;
+          right: -100px;
+          width: 380px;
+          height: 380px;
           border-radius: 50%;
-          background: radial-gradient(circle, rgba(232,168,56,0.08) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(232,168,56,0.09) 0%, transparent 70%);
           pointer-events: none;
           z-index: 0;
         }
@@ -298,37 +313,37 @@ export default function EventsSectionRedesign() {
           display: block;
           width: 44px;
           height: 1px;
-          background: linear-gradient(90deg, transparent, #C4622D);
+          background: linear-gradient(90deg, transparent, #00AD4C);
         }
-        .evs__eyebrow .evs__line:last-child {
-          background: linear-gradient(90deg, #C4622D, transparent);
+        .evs__line--rev {
+          background: linear-gradient(90deg, #00AD4C, transparent);
         }
         .evs__eyebrow-txt {
+          font-family: var(--font-body, 'DM Sans', sans-serif);
           font-size: 9.5px;
           font-weight: 700;
           letter-spacing: 0.24em;
           text-transform: uppercase;
-          color: #C4622D;
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          color: #00AD4C;
         }
         .evs__h2 {
           font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
           font-size: clamp(28px, 4vw, 54px);
           font-weight: 500;
           line-height: 1.1;
-          color: #1A3A2A;
+          color: #045627;
           margin: 0 0 20px;
           letter-spacing: -0.01em;
         }
         .evs__h2 em {
           font-style: italic;
-          color: #C4622D;
+          color: #00AD4C;
         }
         .evs__sub {
           font-family: var(--font-body, 'DM Sans', sans-serif);
           font-size: clamp(14px, 1.5vw, 17px);
           line-height: 1.75;
-          color: #5a5a4a;
+          color: #3a5040;
           max-width: 600px;
           margin: 0 auto;
         }
@@ -359,7 +374,7 @@ export default function EventsSectionRedesign() {
         .evc {
           position: relative;
           background: #ffffff;
-          border: 1px solid rgba(0,0,0,0.09);
+          border: 1px solid rgba(0,0,0,0.08);
           border-radius: 10px;
           overflow: hidden;
           display: flex;
@@ -368,18 +383,18 @@ export default function EventsSectionRedesign() {
           transition: box-shadow 0.28s ease, transform 0.28s ease;
         }
         .evc:hover {
-          box-shadow: 0 18px 48px rgba(26,58,42,0.11);
+          box-shadow: 0 18px 48px rgba(4,86,39,0.11);
           transform: translateY(-4px);
         }
 
-        /* Barre gauche terracotta au hover */
+        /* Barre gauche vert vif au hover */
         .evc__bar {
           position: absolute;
           left: 0;
           top: 0;
           bottom: 0;
           width: 3px;
-          background: #C4622D;
+          background: #00AD4C;
           border-radius: 10px 0 0 10px;
           transform: scaleY(0);
           transform-origin: top;
@@ -390,10 +405,10 @@ export default function EventsSectionRedesign() {
           transform: scaleY(1);
         }
 
-        /* Card "À venir" — bordure dorée */
+        /* Card "À venir" — border-top dorée */
         .evc--featured {
-          border: 1.5px solid rgba(232,168,56,0.55);
-          box-shadow: 0 4px 24px rgba(232,168,56,0.10);
+          border-top: 3px solid #E8A838;
+          box-shadow: 0 4px 24px rgba(0,173,76,0.08);
         }
 
         /* ── Image ── */
@@ -402,7 +417,7 @@ export default function EventsSectionRedesign() {
           height: 200px;
           flex-shrink: 0;
           overflow: hidden;
-          background: #d4cfc4;
+          background: #c8dfc8;
         }
         .evc__img-grad {
           position: absolute;
@@ -419,8 +434,6 @@ export default function EventsSectionRedesign() {
           top: 12px;
           left: 12px;
           z-index: 2;
-          background: #1A3A2A;
-          color: #F5EDD6;
           font-family: var(--font-body, 'DM Sans', sans-serif);
           font-size: 9px;
           font-weight: 700;
@@ -443,7 +456,7 @@ export default function EventsSectionRedesign() {
           border-radius: 2px;
         }
         .evc__badge-statut--avenir {
-          background: #C4622D;
+          background: #00AD4C;
           color: #ffffff;
         }
         .evc__badge-statut--passe {
@@ -467,7 +480,7 @@ export default function EventsSectionRedesign() {
           gap: 6px 10px;
           font-family: var(--font-body, 'DM Sans', sans-serif);
           font-size: 12px;
-          color: #7a7a6a;
+          color: #6a7a6a;
         }
         .evc__meta-item {
           display: flex;
@@ -475,7 +488,7 @@ export default function EventsSectionRedesign() {
           gap: 5px;
         }
         .evc__dot {
-          color: #bfbeB4;
+          color: #b0bfb0;
           line-height: 1;
         }
         .evc__titre {
@@ -483,14 +496,14 @@ export default function EventsSectionRedesign() {
           font-size: clamp(17px, 1.7vw, 20px);
           font-weight: 600;
           line-height: 1.22;
-          color: #1A3A2A;
+          color: #045627;
           margin: 0;
         }
         .evc__desc {
           font-family: var(--font-body, 'DM Sans', sans-serif);
           font-size: 14px;
           line-height: 1.70;
-          color: #5a5a4a;
+          color: #3a5040;
           margin: 0;
           flex: 1;
         }
@@ -503,8 +516,8 @@ export default function EventsSectionRedesign() {
           font-family: var(--font-body, 'DM Sans', sans-serif);
           font-size: 11px;
           font-weight: 500;
-          color: #4a4a3a;
-          background: #F0E9D6;
+          color: #045627;
+          background: rgba(165,206,70,0.18);
           padding: 3px 10px;
           border-radius: 2px;
           letter-spacing: 0.01em;
@@ -527,23 +540,23 @@ export default function EventsSectionRedesign() {
           transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
         }
         .evc__cta--primary {
-          background: #C4622D;
+          background: #00AD4C;
           color: #ffffff;
-          border: 1.5px solid #C4622D;
+          border: 1.5px solid #00AD4C;
         }
         .evc__cta--primary:hover {
-          background: #9e4b22;
-          border-color: #9e4b22;
+          background: #008f3e;
+          border-color: #008f3e;
         }
         .evc__cta--ghost {
           background: transparent;
-          color: #1A3A2A;
-          border: 1px solid rgba(26,58,42,0.28);
+          color: #045627;
+          border: 1px solid rgba(4,86,39,0.30);
         }
         .evc__cta--ghost:hover {
-          background: #1A3A2A;
+          background: #045627;
           color: #F5EDD6;
-          border-color: #1A3A2A;
+          border-color: #045627;
         }
 
         /* ════ Footer ═════════════════════════════════════════ */
@@ -558,15 +571,15 @@ export default function EventsSectionRedesign() {
           font-weight: 700;
           letter-spacing: 0.14em;
           text-transform: uppercase;
-          color: #1A3A2A;
-          border: 1.5px solid #1A3A2A;
+          color: #045627;
+          border: 1.5px solid #045627;
           padding: 14px 36px;
           border-radius: 2px;
           text-decoration: none;
           transition: background 0.22s ease, color 0.22s ease;
         }
         .evs__foot-btn:hover {
-          background: #1A3A2A;
+          background: #045627;
           color: #F5EDD6;
         }
 
