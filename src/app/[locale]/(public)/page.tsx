@@ -5,7 +5,7 @@ import EventsSectionRedesign from "@/components/home/EventsSectionRedesign";
 import PartnersSectionRedesign from "@/components/home/PartnersSectionRedesign";
 import MediathequeSectionRedesign from "@/components/home/MediathequeSectionRedesign";
 import CTAHeroSectionRedesign from "@/components/home/CTAHeroSectionRedesign";
-import ActualitesSection from "@/components/sections/ActualitesSection";
+import NewsSectionRedesign from "@/components/home/NewsSectionRedesign";
 import ContactHomeSection from "@/components/sections/ContactHomeSection";
 
 export const metadata: Metadata = {
@@ -36,7 +36,7 @@ export default async function HomePage() {
       {/* 06 — CTA Hero */}
       <CTAHeroSectionRedesign />
       {/* 07 — Actualités */}
-      <ActualitesSection />
+      <NewsSectionRedesign />
       {/* 08 — Nous contacter */}
       <ContactHomeSection />
     </>
