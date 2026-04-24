@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import HeroHome from "@/components/sections/HeroHome";
 import AboutSection from "@/components/sections/AboutSection";
 import EventsSectionRedesign from "@/components/home/EventsSectionRedesign";
-import PartenairesSection from "@/components/sections/PartenairesSection";
-import MediathequeSection from "@/components/sections/MediathequeSection";
+import PartnersSectionRedesign from "@/components/home/PartnersSectionRedesign";
+import MediathequeSectionRedesign from "@/components/home/MediathequeSectionRedesign";
 import ActualitesSection from "@/components/sections/ActualitesSection";
 import CTASection from "@/components/sections/CTASection";
 import ContactHomeSection from "@/components/sections/ContactHomeSection";
@@ -27,12 +27,12 @@ export default async function HomePage() {
       <HeroHome />
       {/* 02 — À propos */}
       <AboutSection />
-      {/* 03 — Nos actions / Événements */}
+      {/* 03 — Événements */}
       <EventsSectionRedesign />
       {/* 04 — Partenaires */}
-      <PartenairesSection />
+      <PartnersSectionRedesign />
       {/* 05 — Médiathèque */}
-      <MediathequeSection />
+      <MediathequeSectionRedesign />
       {/* 06 — CTA */}
       <CTASection />
       {/* 07 — Actualités */}
