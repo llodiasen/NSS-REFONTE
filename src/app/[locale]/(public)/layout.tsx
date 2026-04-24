@@ -1,5 +1,5 @@
 import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+import FooterRedesign from "@/components/layout/FooterRedesign";
 
 interface PublicLayoutProps {
   children: React.ReactNode;
@@ -13,7 +13,7 @@ export default async function PublicLayout({ children, params }: PublicLayoutPro
     <>
       <Header />
       <main>{children}</main>
-      <Footer locale={locale} />
+      <FooterRedesign locale={locale} />
     </>
   );
 }
