@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import HeroHome from "@/components/sections/HeroHome";
 import AboutSection from "@/components/sections/AboutSection";
-import ActionsSection from "@/components/sections/ActionsSection";
+import EventsSectionRedesign from "@/components/home/EventsSectionRedesign";
 import PartenairesSection from "@/components/sections/PartenairesSection";
 import MediathequeSection from "@/components/sections/MediathequeSection";
 import ActualitesSection from "@/components/sections/ActualitesSection";
@@ -27,8 +27,8 @@ export default async function HomePage() {
       <HeroHome />
       {/* 02 — À propos */}
       <AboutSection />
-      {/* 03 — Nos actions */}
-      <ActionsSection />
+      {/* 03 — Nos actions / Événements */}
+      <EventsSectionRedesign />
       {/* 04 — Partenaires */}
       <PartenairesSection />
       {/* 05 — Médiathèque */}
