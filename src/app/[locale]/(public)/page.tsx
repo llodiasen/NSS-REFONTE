@@ -4,8 +4,8 @@ import AboutSection from "@/components/sections/AboutSection";
 import EventsSectionRedesign from "@/components/home/EventsSectionRedesign";
 import PartnersSectionRedesign from "@/components/home/PartnersSectionRedesign";
 import MediathequeSectionRedesign from "@/components/home/MediathequeSectionRedesign";
+import CTAHeroSectionRedesign from "@/components/home/CTAHeroSectionRedesign";
 import ActualitesSection from "@/components/sections/ActualitesSection";
-import CTASection from "@/components/sections/CTASection";
 import ContactHomeSection from "@/components/sections/ContactHomeSection";
 
 export const metadata: Metadata = {
@@ -33,8 +33,8 @@ export default async function HomePage() {
       <PartnersSectionRedesign />
       {/* 05 — Médiathèque */}
       <MediathequeSectionRedesign />
-      {/* 06 — CTA */}
-      <CTASection />
+      {/* 06 — CTA Hero */}
+      <CTAHeroSectionRedesign />
       {/* 07 — Actualités */}
       <ActualitesSection />
       {/* 08 — Nous contacter */}
