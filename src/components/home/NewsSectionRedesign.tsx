@@ -242,8 +242,8 @@ export default function NewsSectionRedesign() {
         }
         .nss-actu__h2 {
           font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
-          font-size: clamp(28px, 4vw, 52px);
-          font-weight: 500;
+          font-size: clamp(22px, 2.8vw, 38px);
+          font-weight: 600;
           line-height: 1.1;
           color: #045627;
           margin: 0 0 18px;
@@ -382,7 +382,7 @@ export default function NewsSectionRedesign() {
         }
         .nsc__titre {
           font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
-          font-size: clamp(17px, 1.6vw, 20px);
+          font-size: clamp(15px, 1.4vw, 18px);
           font-weight: 600;
           line-height: 1.22;
           color: #045627;
@@ -400,10 +400,11 @@ export default function NewsSectionRedesign() {
         .nsc__titre a:hover { color: #00AD4C; }
         .nsc__excerpt {
           font-family: var(--font-body, 'DM Sans', sans-serif);
-          font-size: 13.5px;
+          font-size: 14.5px;
           line-height: 1.70;
           color: #3a5040;
           margin: 0;
+          text-align: justify;
           flex: 1;
           display: -webkit-box;
           -webkit-line-clamp: 3;
@@ -417,7 +418,7 @@ export default function NewsSectionRedesign() {
         }
         .nsc__cta {
           font-family: var(--font-body, 'DM Sans', sans-serif);
-          font-size: 11.5px;
+          font-size: 12.5px;
           font-weight: 700;
           letter-spacing: 0.04em;
           color: #00AD4C;

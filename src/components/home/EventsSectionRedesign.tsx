@@ -41,7 +41,7 @@ const EVENEMENTS: Evenement[] = [
     date: "18 oct. 2024",
     lieu: "Abidjan, Côte d'Ivoire",
     description:
-      "Donner des outils de communication et de plaidoyer aux femmes rurales sur l'alimentation et la santé.",
+      "Donner des outils de communication et de plaidoyer adaptés aux femmes rurales sur l'alimentation, la santé et leurs droits.",
     tags: ["Droits", "Santé", "1 journée"],
     image: "/images/galerie/leader-1.jpg",
     href: "/fr/evenements",
@@ -97,8 +97,6 @@ function EvCard({ ev }: { ev: Evenement }) {
 
   return (
     <article className={`evc${avenir ? " evc--featured" : ""}`}>
-      {/* Barre gauche vert vif animée au hover */}
-      <span className="evc__bar" aria-hidden="true" />
 
       {/* Image */}
       <div className="evc__img">
@@ -111,7 +109,6 @@ function EvCard({ ev }: { ev: Evenement }) {
           placeholder="blur"
           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
         />
-        <div className="evc__img-grad" aria-hidden="true" />
 
         {/* Badge type */}
         <span
@@ -145,7 +142,9 @@ function EvCard({ ev }: { ev: Evenement }) {
           </span>
         </div>
 
-        <h3 className="evc__titre">{ev.titre}</h3>
+        <h3 className="evc__titre">
+          <Link href={ev.href}>{ev.titre}</Link>
+        </h3>
         <p className="evc__desc">{ev.description}</p>
 
         <div className="evc__tags" role="list" aria-label="Thématiques">
@@ -163,11 +162,11 @@ function EvCard({ ev }: { ev: Evenement }) {
           className={`evc__cta${avenir ? " evc__cta--primary" : " evc__cta--ghost"}`}
           aria-label={
             avenir
-              ? `S'inscrire au ${ev.titre}`
+              ? `En savoir plus sur ${ev.titre}`
               : `Voir le compte-rendu de ${ev.titre}`
           }
         >
-          {avenir ? "S'inscrire →" : "Voir le compte-rendu →"}
+          {avenir ? "En savoir plus →" : "Voir le compte-rendu →"}
         </Link>
       </div>
     </article>
@@ -197,28 +196,25 @@ export default function EventsSectionRedesign() {
 
   return (
     <section className="evs" aria-labelledby="evs-heading">
-      {/* Motif géométrique kente vert subtil */}
-      <div className="evs__pattern" aria-hidden="true" />
-      {/* Halo or en haut à droite */}
-      <div className="evs__halo" aria-hidden="true" />
 
       <div className="evs__wrap">
         {/* ── Header ── */}
         <header className="evs__header">
           <div className="evs__eyebrow" role="presentation">
             <span className="evs__line" />
-            <span className="evs__eyebrow-txt">Nos Événements</span>
+            <span className="evs__eyebrow-txt">Nos Programmes</span>
             <span className="evs__line evs__line--rev" />
           </div>
 
           <h2 id="evs-heading" className="evs__h2">
-            Ensemble, nous bâtissons{" "}
-            <em>la souveraineté alimentaire.</em>
+            Des formations au cœur{" "}
+            <em>de la souveraineté alimentaire.</em>
           </h2>
 
           <p className="evs__sub">
-            Depuis 2011, NSS réunit 175&nbsp;000 femmes rurales dans 7&nbsp;pays.
-            Chaque formation, chaque rencontre est un acte de résistance collective.
+            Depuis 2011, NSS organise camps, ateliers et rencontres pour renforcer
+            les capacités des femmes rurales — de la semence à la gouvernance
+            alimentaire, dans 14&nbsp;pays d&apos;Afrique de l&apos;Ouest.
           </p>
         </header>
 
@@ -256,38 +252,6 @@ export default function EventsSectionRedesign() {
           position: relative;
           background: #F7FBF7;
           overflow: hidden;
-        }
-        .evs__pattern {
-          position: absolute;
-          inset: 0;
-          pointer-events: none;
-          z-index: 0;
-          background-image:
-            repeating-linear-gradient(
-              -55deg,
-              transparent,
-              transparent 28px,
-              rgba(0,173,76,0.04) 28px,
-              rgba(0,173,76,0.04) 30px
-            ),
-            repeating-linear-gradient(
-              35deg,
-              transparent,
-              transparent 28px,
-              rgba(4,86,39,0.025) 28px,
-              rgba(4,86,39,0.025) 30px
-            );
-        }
-        .evs__halo {
-          position: absolute;
-          top: -100px;
-          right: -100px;
-          width: 380px;
-          height: 380px;
-          border-radius: 50%;
-          background: radial-gradient(circle, rgba(232,168,56,0.09) 0%, transparent 70%);
-          pointer-events: none;
-          z-index: 0;
         }
         .evs__wrap {
           position: relative;
@@ -328,8 +292,8 @@ export default function EventsSectionRedesign() {
         }
         .evs__h2 {
           font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
-          font-size: clamp(28px, 4vw, 54px);
-          font-weight: 500;
+          font-size: clamp(22px, 2.8vw, 38px);
+          font-weight: 600;
           line-height: 1.1;
           color: #045627;
           margin: 0 0 20px;
@@ -387,27 +351,8 @@ export default function EventsSectionRedesign() {
           transform: translateY(-4px);
         }
 
-        /* Barre gauche vert vif au hover */
-        .evc__bar {
-          position: absolute;
-          left: 0;
-          top: 0;
-          bottom: 0;
-          width: 3px;
-          background: #00AD4C;
-          border-radius: 10px 0 0 10px;
-          transform: scaleY(0);
-          transform-origin: top;
-          transition: transform 0.28s ease;
-          z-index: 3;
-        }
-        .evc:hover .evc__bar {
-          transform: scaleY(1);
-        }
-
-        /* Card "À venir" — border-top dorée */
+        /* Card "À venir" */
         .evc--featured {
-          border-top: 3px solid #E8A838;
           box-shadow: 0 4px 24px rgba(0,173,76,0.08);
         }
 
@@ -418,16 +363,6 @@ export default function EventsSectionRedesign() {
           flex-shrink: 0;
           overflow: hidden;
           background: #c8dfc8;
-        }
-        .evc__img-grad {
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(
-            to bottom,
-            rgba(0,0,0,0.04) 0%,
-            rgba(0,0,0,0.40) 100%
-          );
-          z-index: 1;
         }
         .evc__badge-type {
           position: absolute;
@@ -493,17 +428,24 @@ export default function EventsSectionRedesign() {
         }
         .evc__titre {
           font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
-          font-size: clamp(17px, 1.7vw, 20px);
+          font-size: clamp(15px, 1.4vw, 18px);
           font-weight: 600;
-          line-height: 1.22;
+          line-height: 1.25;
           color: #045627;
           margin: 0;
         }
+        .evc__titre a {
+          text-decoration: none;
+          color: inherit;
+          transition: color 0.2s ease;
+        }
+        .evc__titre a:hover { color: #00AD4C; }
         .evc__desc {
           font-family: var(--font-body, 'DM Sans', sans-serif);
-          font-size: 14px;
+          font-size: 14.5px;
           line-height: 1.70;
           color: #3a5040;
+          text-align: justify;
           margin: 0;
           flex: 1;
         }
@@ -529,7 +471,7 @@ export default function EventsSectionRedesign() {
         }
         .evc__cta {
           font-family: var(--font-body, 'DM Sans', sans-serif);
-          font-size: 11.5px;
+          font-size: 12.5px;
           font-weight: 700;
           letter-spacing: 0.04em;
           text-decoration: none;

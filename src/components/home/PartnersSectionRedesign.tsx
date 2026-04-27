@@ -73,16 +73,6 @@ export default function PartnersSectionRedesign() {
             <span className="pts__line pts__line--rev" />
           </div>
 
-          <h2 id="pts-heading" className="pts__h2">
-            Ensemble, nous sommes{" "}
-            <em>plus forts pour changer les choses.</em>
-          </h2>
-
-          <p className="pts__sub">
-            Le réseau NSS grandit grâce à des partenaires engagés dans 14&nbsp;pays.
-            Chaque soutien renforce notre capacité à former, organiser et défendre
-            les femmes rurales d&apos;Afrique de l&apos;Ouest.
-          </p>
         </header>
 
         {/* ── Logos grille ── */}
@@ -114,9 +104,6 @@ export default function PartnersSectionRedesign() {
 
         {/* ── Footer CTA ── */}
         <div className="pts__foot">
-          <p className="pts__foot-text">
-            Rejoignez le mouvement de transformation rurale en Afrique de l&apos;Ouest.
-          </p>
           <Link
             href="/fr/agir/donner"
             className="pts__foot-btn"
@@ -188,8 +175,8 @@ export default function PartnersSectionRedesign() {
         }
         .pts__h2 {
           font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
-          font-size: clamp(24px, 3.5vw, 44px);
-          font-weight: 500;
+          font-size: clamp(22px, 2.8vw, 38px);
+          font-weight: 600;
           line-height: 1.12;
           color: #045627;
           margin: 0 0 16px;

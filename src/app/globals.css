@@ -71,6 +71,14 @@ a, span, li, button, input, textarea, select, label {
   .text-balance { text-wrap: balance; }
 }
 
+/* ── Container padding — responsive ── */
+@media (max-width: 1024px) {
+  :root { --container-pad: 32px; --section-py: 64px; }
+}
+@media (max-width: 640px) {
+  :root { --container-pad: 22px; --section-py: 48px; }
+}
+
 /* ── Header spacer — responsive sans flash de layout ── */
 .hdr-spacer { height: 106px; }
 @media (max-width: 1024px) { .hdr-spacer { height: 64px; } }

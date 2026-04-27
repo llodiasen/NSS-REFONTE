@@ -3,156 +3,81 @@
 import Link from "next/link";
 import { useState } from "react";
 
-const VIDEO_URL = "https://res.cloudinary.com/dtjvjlkcc/video/upload/q_auto/f_auto/v1775741043/Mariama_Sonko_-_Chairwoman_of_the_Nous_sommes_la_SOLUTION_movement_S%C3%A9negal_--_SeedIsLife_ak3z9z.mp4";
-const THUMB_URL = "https://res.cloudinary.com/dtjvjlkcc/image/upload/q_auto/f_auto/v1775741948/Mariama_sonko_presidente_nss_hjukz0.jpg";
+const VIDEO_URL =
+  "https://res.cloudinary.com/dtjvjlkcc/video/upload/q_auto/f_auto/v1775741043/Mariama_Sonko_-_Chairwoman_of_the_Nous_sommes_la_SOLUTION_movement_S%C3%A9negal_--_SeedIsLife_ak3z9z.mp4";
+const THUMB_URL =
+  "https://res.cloudinary.com/dtjvjlkcc/image/upload/q_auto/f_auto/v1775741948/Mariama_sonko_presidente_nss_hjukz0.jpg";
+
+const MILESTONES = [
+  { value: "2011",  label: "Fondation" },
+  { value: "12",    label: "Organisations fondatrices" },
+  { value: "500+",  label: "Associations de Femmes Rurales" },
+];
 
 export default function AboutSection() {
   const [playing, setPlaying] = useState(false);
-  return (
-    <section style={{ background: "#ffffff", overflow: "hidden" }}>
-      <div
-        className="about-outer"
-        style={{
-          maxWidth: "var(--container-max)",
-          margin: "0 auto",
-          padding: "80px var(--container-pad)",
-        }}
-      >
-        <div
-          className="about-grid"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            alignItems: "stretch",
-            gap: "64px",
-          }}
-        >
-          {/* ── Colonne gauche ── */}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-            }}
-          >
-            {/* Eyebrow — À propos — */}
-            <div style={{ marginBottom: "28px" }}>
-              <span
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: "18px",
-                  fontStyle: "italic",
-                  color: "#3B6D11",
-                  letterSpacing: "0.04em",
-                }}
-              >
-                — À propos —
-              </span>
-            </div>
 
-            {/* Titre */}
-            <h2
-              style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "clamp(21px, 2.6vw, 36px)",
-                fontWeight: 400,
-                lineHeight: 1.18,
-                color: "var(--text-primary)",
-                marginBottom: "16px",
-              }}
-            >
-              Agroécologie &amp; Souveraineté Alimentaire en Afrique
+  return (
+    <section className="ab-section">
+      <div className="ab-container">
+        <div className="ab-grid">
+
+          {/* ══════════ COLONNE GAUCHE — TEXTE ══════════ */}
+          <div className="ab-left">
+
+            {/* Ligne décorative or */}
+            <div className="ab-deco-line" aria-hidden="true" />
+
+            {/* Eyebrow */}
+            <p className="ab-eyebrow">Qui sommes-nous</p>
+
+            {/* H2 */}
+            <h2 className="ab-h2">
+              Une Afrique où les femmes rurales
+              <em className="ab-h2-em"><br />décident et cultivent leur avenir</em>
             </h2>
 
-            {/* Barre décorative */}
-            <div
-              aria-hidden="true"
-              style={{
-                width: "40px",
-                height: "3px",
-                background: "#3B6D11",
-                marginBottom: "28px",
-              }}
-            />
-
-            {/* Paragraphe */}
-            <p
-              style={{
-                fontSize: "17px",
-                lineHeight: 1.85,
-                color: "var(--text-body)",
-                textAlign: "justify",
-                marginBottom: "24px",
-              }}
-            >
-              Créé en tant qu&apos;expression des droits des femmes au sein d&apos;une
-              campagne globale pour la souveraineté alimentaire menée par les
-              mouvements paysans du continent, NSS s&apos;est imposé sur le champ des
-              alternatives paysannes durables, économiquement rentables,
-              socialement et écologiquement viables.
+            {/* Texte descriptif */}
+            <p className="ab-vision">
+              NSS œuvre pour une Afrique où, dans la solidarité, les femmes
+              rurales — impliquées dans la prise de décision — cultivent,
+              transforment, vendent et consomment les produits de
+              l&apos;agriculture familiale tout en préservant l&apos;environnement
+              pour un développement harmonieux et durable.
             </p>
 
-            {/* Bloc citation */}
-            <blockquote
-              style={{
-                borderLeft: "3px solid #3B6D11",
-                paddingLeft: "20px",
-                margin: "0 0 40px",
-              }}
-            >
-              <p
-                className="text-sm lg:text-base"
-                style={{
-                  lineHeight: 1.8,
-                  color: "var(--text-body)",
-                  fontStyle: "normal",
-                  textAlign: "justify",
-                }}
-              >
-                Plus de{" "}
-                <strong style={{ color: "#3B6D11" }}>
-                  500 Associations de Femmes Rurales (AFR)
-                </strong>{" "}
-                y ont adhéré depuis lors et le mouvement compte{" "}
-                <strong style={{ color: "#3B6D11" }}>
-                  175&nbsp;000 membres et sympathisants
-                </strong>{" "}
-                à travers l&apos;Afrique de l&apos;Ouest.
+            {/* Citation avec border-left vert */}
+            <blockquote className="ab-quote">
+              <p className="ab-quote-text">
+                &ldquo;Avec leurs bras et leurs valeurs, les femmes rurales
+                sont aptes à nourrir le monde.&rdquo;
               </p>
+              <footer className="ab-attribution">
+                MARIAMA SONKO — PRÉSIDENTE NSS · AJAC (Sénégal)
+              </footer>
             </blockquote>
 
-            {/* Bouton */}
-            <div>
-              <Link href="/a-propos" className="about-btn">
-                En savoir plus
-              </Link>
+            {/* Chiffres clés */}
+            <div className="ab-milestones" role="list">
+              {MILESTONES.map(({ value, label }) => (
+                <div key={label} className="ab-milestone" role="listitem">
+                  <span className="ab-milestone-value">{value}</span>
+                  <span className="ab-milestone-label">{label}</span>
+                </div>
+              ))}
             </div>
+
+            <Link href="/fr/mouvement" className="ab-cta">
+              Notre histoire →
+            </Link>
           </div>
 
-          {/* ── Colonne droite — Vidéo pleine hauteur ── */}
-          <div
-            style={{
-              position: "relative",
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            {/* Bloc vidéo */}
+          {/* ══════════ COLONNE DROITE — VIDÉO ══════════ */}
+          <div className="ab-right">
             <div
-              style={{
-                position: "relative",
-                width: "100%",
-                flex: 1,
-                minHeight: "400px",
-                borderRadius: "16px",
-                overflow: "hidden",
-                boxShadow: "0 16px 48px rgba(0,0,0,0.18)",
-                border: "4px solid #ffffff",
-                zIndex: 2,
-                background: "#0d2015",
-                cursor: playing ? "default" : "pointer",
-              }}
+              className="ab-video-wrap"
               onClick={() => !playing && setPlaying(true)}
+              style={{ cursor: playing ? "default" : "pointer" }}
             >
               {playing ? (
                 <video
@@ -160,7 +85,7 @@ export default function AboutSection() {
                   controls
                   autoPlay
                   playsInline
-                  style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+                  className="ab-video-el"
                 />
               ) : (
                 <>
@@ -168,135 +93,276 @@ export default function AboutSection() {
                   <img
                     src={THUMB_URL}
                     alt="Mariama Sonko — Nous Sommes la Solution"
-                    style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+                    className="ab-video-el"
                   />
-                  <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.30)" }} />
+                  <div className="ab-video-veil" />
                   <button
-                    aria-label="Regarder la vidéo"
-                    className="about-play-btn"
-                    style={{
-                      position: "absolute",
-                      top: "50%",
-                      left: "50%",
-                      transform: "translate(-50%, -50%)",
-                      width: "72px",
-                      height: "72px",
-                      borderRadius: "50%",
-                      background: "rgba(255,255,255,0.92)",
-                      border: "none",
-                      cursor: "pointer",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      zIndex: 3,
-                      transition: "transform 0.2s ease, background 0.2s ease",
-                    }}
+                    className="ab-play-btn"
+                    aria-label="Regarder la vidéo de Mariama Sonko"
                     onClick={(e) => { e.stopPropagation(); setPlaying(true); }}
                   >
+                    <span className="ab-play-ring" aria-hidden="true" />
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                      <path d="M6 4.75L19.25 12 6 19.25V4.75Z" fill="#1D9E75" />
+                      <path d="M6 4.75L19.25 12 6 19.25V4.75Z" fill="#045627" />
                     </svg>
                   </button>
                 </>
               )}
             </div>
 
-              {/* Badge — sous la vidéo */}
-              <div
-                style={{
-                  marginTop: "16px",
-                  alignSelf: "flex-start",
-                  background: "#ffffff",
-                  borderRadius: "12px",
-                  border: "0.5px solid rgba(0,0,0,0.08)",
-                  boxShadow: "0 4px 20px rgba(0,0,0,0.12)",
-                  padding: "12px 18px",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "12px",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                <div
-                  style={{
-                    width: "36px",
-                    height: "36px",
-                    borderRadius: "50%",
-                    background: "#3B6D11",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexShrink: 0,
-                  }}
-                >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                      fill="#ffffff"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <p
-                    style={{
-                      fontSize: "15px",
-                      fontWeight: 600,
-                      color: "var(--text-primary)",
-                      margin: 0,
-                      lineHeight: 1.3,
-                    }}
-                  >
-                    +14 ans d&apos;engagement
-                  </p>
-                  <p
-                    style={{
-                      fontSize: "12px",
-                      color: "#6b7280",
-                      margin: 0,
-                      lineHeight: 1.3,
-                    }}
-                  >
-                    Agir pour l&apos;agriculture durable
-                  </p>
-                </div>
+            <div className="ab-tagline-strip">
+              Mariama Sonko — Présidente, Nous Sommes la Solution
             </div>
           </div>
+
         </div>
       </div>
 
       <style>{`
-        .about-play-btn:hover {
-          transform: translate(-50%, -50%) scale(1.1) !important;
-          background: rgba(255,255,255,1) !important;
+        /* ── Section ── */
+        .ab-section {
+          background: #ffffff;
+          border-top: 3px solid #00AD4C;
+          overflow: hidden;
         }
-        .about-btn {
-          display: inline-block;
-          background: #112d1d;
-          color: #ffffff;
-          font-size: 13px;
-          font-weight: 600;
-          padding: 10px 20px;
-          border-radius: 4px;
-          text-decoration: none;
-          text-transform: none;
-          transition: background 0.2s ease, transform 0.15s ease;
-        }
-        .about-btn:hover {
-          background: #0d2417;
-          transform: translateY(-1px);
+        .ab-container {
+          max-width: 1280px;
+          margin: 0 auto;
+          padding: 88px 60px;
+          box-sizing: border-box;
         }
 
+        /* ── Grille 2 colonnes ── */
+        .ab-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
+          align-items: stretch;
+        }
+
+        /* ── Colonne gauche ── */
+        .ab-left {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding-left: 28px;
+          position: relative;
+        }
+
+        /* Ligne décorative verticale or → vert clair */
+        .ab-deco-line {
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          width: 3px;
+          background: linear-gradient(to bottom, #E8A838 0%, #A5CE46 55%, #00AD4C 100%);
+          border-radius: 2px;
+        }
+
+        /* Eyebrow */
+        .ab-eyebrow {
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: 0.24em;
+          text-transform: uppercase;
+          color: #00AD4C;
+          margin: 0 0 20px;
+        }
+
+        /* H2 */
+        .ab-h2 {
+          font-family: var(--font-display), Georgia, serif;
+          font-size: clamp(28px, 3.2vw, 46px);
+          font-weight: 400;
+          line-height: 1.12;
+          color: #045627;
+          margin: 0 0 28px;
+          max-width: 540px;
+        }
+        .ab-h2-em {
+          font-style: italic;
+          color: #00AD4C;
+        }
+
+        /* Texte descriptif */
+        .ab-vision {
+          font-family: var(--font-body), sans-serif;
+          font-size: 16px;
+          line-height: 1.85;
+          color: #3a3a3a;
+          margin: 0 0 32px;
+        }
+
+        /* Citation */
+        .ab-quote {
+          border-left: 3px solid #00AD4C;
+          padding: 16px 20px;
+          margin: 0 0 36px;
+          background: rgba(0,173,76,0.04);
+          border-radius: 0 6px 6px 0;
+        }
+        .ab-quote-text {
+          font-family: var(--font-cormorant), Georgia, serif;
+          font-size: 18px;
+          font-style: italic;
+          font-weight: 400;
+          line-height: 1.65;
+          color: #1a1a1a;
+          margin: 0 0 10px;
+        }
+        .ab-attribution {
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: #E8A838;
+        }
+
+        /* Chiffres clés */
+        .ab-milestones {
+          display: flex;
+          gap: 28px;
+          flex-wrap: wrap;
+          padding: 24px 0;
+          margin: 0 0 32px;
+          border-top: 1px solid rgba(0,173,76,0.15);
+          border-bottom: 1px solid rgba(0,173,76,0.15);
+        }
+        .ab-milestone {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+        }
+        .ab-milestone-value {
+          font-family: var(--font-display), Georgia, serif;
+          font-size: 34px;
+          font-weight: 400;
+          color: #045627;
+          line-height: 1;
+        }
+        .ab-milestone-label {
+          font-size: 10px;
+          color: #6b7280;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+        }
+
+        /* CTA */
+        .ab-cta {
+          display: inline-block;
+          font-size: 13px;
+          font-weight: 700;
+          color: #045627;
+          text-decoration: none;
+          border-bottom: 2px solid #00AD4C;
+          padding-bottom: 2px;
+          transition: color 0.2s, border-color 0.2s;
+        }
+        .ab-cta:hover { color: #00AD4C; border-color: #A5CE46; }
+
+        /* ── Colonne droite — vidéo ── */
+        .ab-right {
+          display: flex;
+          flex-direction: column;
+        }
+        .ab-video-wrap {
+          position: relative;
+          flex: 1;
+          min-height: 340px;
+          border-radius: 12px;
+          overflow: hidden;
+          box-shadow:
+            0 0 0 1px rgba(0,173,76,0.12),
+            0 20px 60px rgba(0,0,0,0.12);
+          background: #0d2015;
+          margin-bottom: 0;
+        }
+        .ab-video-el {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+        .ab-video-veil {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            to top,
+            rgba(4,86,39,0.55) 0%,
+            rgba(4,86,39,0.10) 40%,
+            transparent 100%
+          );
+        }
+
+        /* Bouton play */
+        .ab-play-btn {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 68px;
+          height: 68px;
+          border-radius: 50%;
+          background: rgba(232,168,56,0.95);
+          border: none;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 2;
+          transition: transform 0.25s, box-shadow 0.25s;
+          box-shadow: 0 6px 24px rgba(232,168,56,0.50);
+        }
+        .ab-play-btn:hover {
+          transform: translate(-50%, -50%) scale(1.10);
+          box-shadow: 0 8px 32px rgba(232,168,56,0.65);
+        }
+        /* Anneau pulse */
+        .ab-play-ring {
+          position: absolute;
+          inset: -8px;
+          border-radius: 50%;
+          border: 1.5px solid rgba(232,168,56,0.45);
+          animation: ab-pulse 2.4s ease-out infinite;
+        }
+        @keyframes ab-pulse {
+          0%   { transform: scale(1);    opacity: 0.9; }
+          100% { transform: scale(1.50); opacity: 0;   }
+        }
+
+        /* Bandeau nom */
+        .ab-tagline-strip {
+          background: #045627;
+          color: #ffffff;
+          font-size: 10px;
+          font-weight: 600;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          text-align: center;
+          padding: 14px 20px;
+          border-radius: 0 0 12px 12px;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 1024px) {
+          .ab-container { padding: 72px 40px; }
+        }
         @media (max-width: 768px) {
-          .about-outer {
-            padding: 60px 24px !important;
+          .ab-container { padding: 60px 24px; }
+          .ab-grid {
+            grid-template-columns: 1fr;
+            gap: 40px;
           }
-          .about-grid {
-            grid-template-columns: 1fr !important;
-            gap: 40px !important;
-          }
-          .about-photo-wrap {
-            height: 360px !important;
-          }
+          .ab-video-wrap { min-height: 280px; }
+        }
+        @media (max-width: 480px) {
+          .ab-container { padding: 48px 16px; }
+          .ab-milestones { gap: 20px; }
+          .ab-milestone-value { font-size: 28px; }
+          .ab-quote-text { font-size: 16px; }
         }
       `}</style>
     </section>

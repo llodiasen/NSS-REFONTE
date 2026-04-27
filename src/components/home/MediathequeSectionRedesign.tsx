@@ -1,182 +1,226 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-/* ─── Types ───────────────────────────────────────────────── */
-type MediaType = "PHOTO" | "VIDÉO" | "ARTICLE" | "INFOGRAPHIE";
+/* ─── Types ────────────────────────────────────────────────── */
+type VideoSource = "local" | "cloudinary" | "youtube";
 
-interface MediaItem {
+interface VideoItem {
   id: string;
-  type: MediaType;
+  videoSource: VideoSource;
+  videoUrl: string | null;
+  youtubeId: string | null;
   titre: string;
   date: string;
   region: string;
-  image: string;
+  thumb: string;
   description: string;
   tags: string[];
-  href: string;
 }
 
-/* ─── Données ─────────────────────────────────────────────── */
-const MEDIA_ITEMS: MediaItem[] = [
+/* ─── Vidéos réelles ───────────────────────────────────────── */
+const LOCAL_MP4 =
+  "/Videos/Agro%C3%A9cologie%20et%20changement%20de%20paradigme%20pour%20une%20souverainet%C3%A9%20alimentaire%20-%20%C3%80%20Niaguis.mp4";
+
+const VIDEOS: VideoItem[] = [
   {
-    id: "m1",
-    type: "PHOTO",
-    titre: "Femmes gardiennes de semences paysannes",
+    id: "v1",
+    videoSource: "local",
+    videoUrl: LOCAL_MP4,
+    youtubeId: null,
+    titre: "Agroécologie et changement de paradigme : l'Afrique de l'Ouest porte son plaidoyer depuis Niaguis",
     date: "2024",
-    region: "Sénégal",
-    image: "/images/actualites/femmes-africaines-gardiennes-semences.jpg",
+    region: "Niaguis, Casamance — Sénégal",
+    thumb: "/images/actualites/nss-cifap-2025.jpg",
     description:
-      "Reportage au cœur des fermes de Niaguiss — femmes agricultrices, protectrices vivantes du patrimoine semencier.",
-    tags: ["Souveraineté", "Semences", "Sénégal"],
-    href: "/fr/ressources/galerie",
+      "Après une immersion d'une semaine au centre agroécologique de Niaguis, les organisations paysannes de femmes du Burkina Faso, de la Gambie, du Ghana, de la Guinée-Bissau et du Sénégal rentrent mieux outillées pour promouvoir l'agroécologie dans leurs communautés.",
+    tags: ["Agroécologie", "Niaguis", "Plaidoyer"],
   },
   {
-    id: "m2",
-    type: "VIDÉO",
-    titre: "Témoignage : Aïssatou, agroécologie en action",
-    date: "2024",
-    region: "Guinée-Bissau",
-    image: "/images/actualites/camp-formation-agroecologie-niaguis-2024.jpg",
+    id: "v2",
+    videoSource: "cloudinary",
+    videoUrl:
+      "https://res.cloudinary.com/dtjvjlkcc/video/upload/v1776019281/NSS_CIFAP_2025_Mariama_Sonko_hommage_Razack_Belemgnegre_ouverture_4e_edition.mp4",
+    youtubeId: null,
+    titre: "Niaguis, terre de convergence : le CIFAP allume sa 4ᵉ flamme agroécologique",
+    date: "2025",
+    region: "Niaguis, Casamance — Sénégal",
+    thumb:
+      "https://res.cloudinary.com/dtjvjlkcc/video/upload/f_jpg,so_2/v1776019281/NSS_CIFAP_2025_Mariama_Sonko_hommage_Razack_Belemgnegre_ouverture_4e_edition.jpg",
     description:
-      "Une agricultrice guinéenne témoigne de sa transformation après le camp de formation agroécologique CIFAP 2024.",
-    tags: ["Formation", "Agroécologie", "Guinée-Bissau"],
-    href: "/fr/mediatheque",
+      "Ouverture du CIFAP 2025 à Niaguis : la 4ᵉ édition du Camp International de Formation sur l'Agroécologie Paysanne réunit productrices, femmes leaders et acteurs ruraux de toute l'Afrique de l'Ouest.",
+    tags: ["CIFAP 2025", "Formation", "Ouverture"],
   },
   {
-    id: "m3",
-    type: "ARTICLE",
-    titre: "Rapport NSS 2024 : 175 000 femmes engagées",
+    id: "v3",
+    videoSource: "youtube",
+    videoUrl: null,
+    youtubeId: "boT5gIW072Q",
+    titre: "30 min avec Mariama Sonko : Écoféminisme et Agroécologie",
     date: "2024",
-    region: "14 pays",
-    image: "/images/actualites/organisations-femmes-rurales-nss.jpg",
+    region: "International",
+    thumb: "https://img.youtube.com/vi/boT5gIW072Q/hqdefault.jpg",
     description:
-      "Bilan annuel du réseau — formations, mobilisations, nouvelles organisations membres et impact territorial.",
-    tags: ["Impact", "Réseau", "Rapport"],
-    href: "/fr/ressources/actualites",
-  },
-  {
-    id: "m4",
-    type: "INFOGRAPHIE",
-    titre: "La biodiversité agricole en Afrique de l'Ouest",
-    date: "2024",
-    region: "Afrique de l'Ouest",
-    image: "/images/actualites/autonomisation-semenciere-souverainete-alimentaire-2023.jpg",
-    description:
-      "Chiffres clés sur la diversité des semences paysannes conservées par les membres du réseau NSS.",
-    tags: ["Données", "Agriculture", "Biodiversité"],
-    href: "/fr/ressources/actualites",
-  },
-  {
-    id: "m5",
-    type: "PHOTO",
-    titre: "Atelier collectif — journée femme rurale",
-    date: "2024",
-    region: "Côte d'Ivoire",
-    image: "/images/actualites/journee-femme-rurale-alimentation-2024.jpg",
-    description:
-      "Femmes rurales réunies pour l'alimentation saine et le plaidoyer sur leurs droits à la terre.",
-    tags: ["Ateliers", "Droits", "Alimentation"],
-    href: "/fr/ressources/galerie",
-  },
-  {
-    id: "m6",
-    type: "VIDÉO",
-    titre: "Formation semences paysannes — Guinée 2024",
-    date: "2024",
-    region: "Guinée",
-    image: "/images/galerie/formation-1.jpg",
-    description:
-      "Session de transmission des savoirs ancestraux sur la conservation et la sélection des semences paysannes.",
-    tags: ["Formation", "Patrimoine", "Semences"],
-    href: "/fr/mediatheque",
+      "Mariama Sonko, présidente du mouvement NSS, développe les liens profonds entre écoféminisme et agroécologie paysanne — une vision politique des femmes rurales et de leur rapport à la terre.",
+    tags: ["Interview", "Écoféminisme", "Leadership"],
   },
 ];
 
-const FILTRES: { label: string; value: MediaType | "TOUS" }[] = [
-  { label: "Tous", value: "TOUS" },
-  { label: "Photos", value: "PHOTO" },
-  { label: "Vidéos", value: "VIDÉO" },
-  { label: "Articles", value: "ARTICLE" },
-  { label: "Infographies", value: "INFOGRAPHIE" },
-];
+/* ─── Modal lecteur ────────────────────────────────────────── */
+function VideoModal({
+  item,
+  onClose,
+}: {
+  item: VideoItem;
+  onClose: () => void;
+}) {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [onClose]);
 
-/* ─── Icônes type ─────────────────────────────────────────── */
-function TypeIcon({ type }: { type: MediaType }) {
-  if (type === "VIDÉO")
-    return (
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M8 5.14v14l11-7-11-7z" />
-      </svg>
-    );
-  if (type === "ARTICLE")
-    return (
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
-        <polyline points="14 2 14 8 20 8" />
-        <line x1="16" y1="13" x2="8" y2="13" />
-        <line x1="16" y1="17" x2="8" y2="17" />
-        <line x1="10" y1="9" x2="8" y2="9" />
-      </svg>
-    );
-  if (type === "INFOGRAPHIE")
-    return (
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-        <rect x="18" y="3" width="4" height="18" rx="1" />
-        <rect x="10" y="8" width="4" height="13" rx="1" />
-        <rect x="2" y="13" width="4" height="8" rx="1" />
-      </svg>
-    );
   return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-      <rect x="3" y="3" width="18" height="18" rx="2" />
-      <circle cx="8.5" cy="8.5" r="1.5" />
-      <polyline points="21 15 16 10 5 21" />
+    <div
+      className="mm-ov"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label={item.titre}
+    >
+      <button className="mm-close" onClick={onClose} aria-label="Fermer">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+          <path d="M18 6 6 18M6 6l12 12" />
+        </svg>
+      </button>
+
+      <div className="mm-box" onClick={(e) => e.stopPropagation()}>
+        {item.videoSource === "youtube" ? (
+          <iframe
+            className="mm-iframe"
+            src={`https://www.youtube-nocookie.com/embed/${item.youtubeId}?autoplay=1&rel=0`}
+            title={item.titre}
+            allow="autoplay; encrypted-media; fullscreen"
+            allowFullScreen
+          />
+        ) : (
+          <video
+            className="mm-video"
+            src={item.videoUrl!}
+            controls
+            autoPlay
+            playsInline
+          />
+        )}
+        <p className="mm-caption">
+          {item.titre}
+          <span className="mm-cap-meta"> — {item.region} · {item.date}</span>
+        </p>
+      </div>
+
+      <style>{`
+        .mm-ov {
+          position: fixed; inset: 0; z-index: 9999;
+          background: rgba(2,22,10,0.9);
+          display: flex; align-items: center; justify-content: center;
+          padding: 24px;
+          backdrop-filter: blur(6px);
+          animation: mm-in 0.18s ease;
+        }
+        @keyframes mm-in { from { opacity: 0 } to { opacity: 1 } }
+        .mm-close {
+          position: fixed; top: 20px; right: 24px;
+          background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18);
+          color: #fff; border-radius: 50%; width: 44px; height: 44px;
+          display: flex; align-items: center; justify-content: center;
+          cursor: pointer; transition: background 0.2s; z-index: 10001;
+        }
+        .mm-close:hover { background: rgba(255,255,255,0.22); }
+        .mm-box {
+          width: 100%; max-width: 900px;
+          display: flex; flex-direction: column; gap: 14px;
+        }
+        .mm-iframe {
+          width: 100%; aspect-ratio: 16/9;
+          border: none; border-radius: 6px; background: #000;
+        }
+        .mm-video {
+          width: 100%; max-height: 72vh;
+          border-radius: 6px; background: #000; display: block;
+        }
+        .mm-caption {
+          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-size: 13px; color: rgba(255,255,255,0.75);
+          margin: 0; text-align: center; line-height: 1.5;
+        }
+        .mm-cap-meta { color: rgba(255,255,255,0.42); }
+      `}</style>
+    </div>
+  );
+}
+
+/* ─── Icône play ───────────────────────────────────────────── */
+function PlayCircle() {
+  return (
+    <svg width="56" height="56" viewBox="0 0 56 56" fill="none" aria-hidden="true">
+      <circle cx="28" cy="28" r="28" fill="rgba(0,0,0,0.38)" />
+      <circle cx="28" cy="28" r="27" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="1" />
+      <path d="M23 20l17 8-17 8V20z" fill="#fff" />
     </svg>
   );
 }
 
-/* ─── Carte média ─────────────────────────────────────────── */
-function MediaCard({ item }: { item: MediaItem }) {
+/* ─── Carte vidéo ──────────────────────────────────────────── */
+function VideoCard({
+  item,
+  onOpen,
+}: {
+  item: VideoItem;
+  onOpen: () => void;
+}) {
   return (
-    <article className="mdc">
-      <span className="mdc__bar" aria-hidden="true" />
-      <Link href={item.href} className="mdc__img-wrap" aria-label={`Voir : ${item.titre}`}>
+    <article className="vc">
+      <button className="vc__thumb" onClick={onOpen} aria-label={`Lire : ${item.titre}`}>
         <Image
-          src={item.image}
-          alt={item.titre}
+          src={item.thumb}
+          alt=""
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          style={{ objectFit: "cover", objectPosition: "center" }}
-          placeholder="blur"
-          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
+          style={{ objectFit: "cover" }}
         />
-        <div className="mdc__img-overlay" aria-hidden="true" />
-        <span
-          className="mdc__type-badge"
-          aria-label={`Type de contenu : ${item.type}`}
-        >
-          <TypeIcon type={item.type} />
-          {item.type}
+        <span className="vc__hover-ov" aria-hidden="true" />
+        <span className="vc__badge" aria-hidden="true">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5.14v14l11-7z" />
+          </svg>
+          VIDÉO
         </span>
-      </Link>
+        <span className="vc__play" aria-hidden="true">
+          <PlayCircle />
+        </span>
+      </button>
 
-      <div className="mdc__body">
-        <p className="mdc__meta">
+      <div className="vc__body">
+        <p className="vc__meta">
           <span>{item.region}</span>
-          <span className="mdc__dot" aria-hidden="true">·</span>
+          <span className="vc__dot" aria-hidden="true">·</span>
           <span>{item.date}</span>
         </p>
-        <h3 className="mdc__titre">
-          <Link href={item.href}>{item.titre}</Link>
+        <h3 className="vc__titre">
+          <button className="vc__titre-btn" onClick={onOpen}>
+            {item.titre}
+          </button>
         </h3>
-        <p className="mdc__desc">{item.description}</p>
-
-        <div className="mdc__tags" role="list" aria-label="Tags thématiques">
-          {item.tags.map((tag) => (
-            <span key={tag} className="mdc__tag" role="listitem">{tag}</span>
+        <p className="vc__desc">{item.description}</p>
+        <div className="vc__tags" role="list">
+          {item.tags.map((t) => (
+            <span key={t} className="vc__tag" role="listitem">{t}</span>
           ))}
         </div>
       </div>
@@ -184,415 +228,235 @@ function MediaCard({ item }: { item: MediaItem }) {
   );
 }
 
-/* ─── Section principale ─────────────────────────────────── */
+/* ─── Section ──────────────────────────────────────────────── */
 export default function MediathequeSectionRedesign() {
-  const [filtre, setFiltre] = useState<MediaType | "TOUS">("TOUS");
-  const itemsRef = useRef<(HTMLLIElement | null)[]>([]);
-
-  const visibles =
-    filtre === "TOUS" ? MEDIA_ITEMS : MEDIA_ITEMS.filter((m) => m.type === filtre);
-
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            (e.target as HTMLElement).dataset.visible = "true";
-            obs.unobserve(e.target);
-          }
-        }),
-      { threshold: 0.06, rootMargin: "0px 0px -20px 0px" }
-    );
-    itemsRef.current.forEach((el) => { if (el) obs.observe(el); });
-    return () => obs.disconnect();
-  }, [filtre]);
+  const [active, setActive] = useState<VideoItem | null>(null);
 
   return (
-    <section className="mds" aria-labelledby="mds-heading">
-      <div className="mds__pattern" aria-hidden="true" />
+    <>
+      {active && <VideoModal item={active} onClose={() => setActive(null)} />}
 
-      <div className="mds__wrap">
-        {/* ── Header ── */}
-        <header className="mds__header">
-          <div className="mds__eyebrow" role="presentation">
-            <span className="mds__line" />
-            <span className="mds__eyebrow-txt">Médiathèque</span>
-            <span className="mds__line mds__line--rev" />
+      <section className="vds" aria-labelledby="vds-heading">
+        <div className="vds__wrap">
+          {/* ── En-tête ── */}
+          <header className="vds__hd">
+            <div className="vds__ey" role="presentation">
+              <span className="vds__ey-line" />
+              <span className="vds__ey-txt">Vidéos</span>
+              <span className="vds__ey-line vds__ey-line--r" />
+            </div>
+            <h2 id="vds-heading" className="vds__h2">
+              Le mouvement NSS{" "}
+              <em>en vidéo.</em>
+            </h2>
+            <p className="vds__sub">
+              Témoignages de terrain, formations et plaidoyers — des femmes rurales
+              qui prennent la parole à travers 12&nbsp;pays d&apos;Afrique de l&apos;Ouest.
+            </p>
+          </header>
+
+          {/* ── Grille ── */}
+          <ul className="vds__grid" role="list" aria-label="Vidéos NSS">
+            {VIDEOS.map((item, idx) => (
+              <li
+                key={item.id}
+                className="vds__cell"
+                style={{ animationDelay: `${idx * 80}ms` }}
+              >
+                <VideoCard item={item} onOpen={() => setActive(item)} />
+              </li>
+            ))}
+          </ul>
+
+          {/* ── CTA ── */}
+          <div className="vds__foot">
+            <Link href="/fr/mediatheque" className="vds__cta">
+              Voir toutes les vidéos
+            </Link>
           </div>
-
-          <h2 id="mds-heading" className="mds__h2">
-            Le mouvement NSS{" "}
-            <em>en images et en mots.</em>
-          </h2>
-
-          <p className="mds__sub">
-            Photos, vidéos et témoignages de terrain — la vie du réseau NSS
-            à travers 14&nbsp;pays d&apos;Afrique de l&apos;Ouest.
-            Un patrimoine vivant de luttes et de savoirs.
-          </p>
-        </header>
-
-        {/* ── Filtres ── */}
-        <div
-          className="mds__filters"
-          role="tablist"
-          aria-label="Filtrer par type de contenu"
-        >
-          {FILTRES.map((f) => (
-            <button
-              key={f.value}
-              role="tab"
-              aria-selected={filtre === f.value}
-              className={`mds__filter${filtre === f.value ? " mds__filter--active" : ""}`}
-              onClick={() => setFiltre(f.value)}
-              aria-label={`Afficher : ${f.label}`}
-            >
-              {f.label}
-            </button>
-          ))}
         </div>
 
-        {/* ── Grille ── */}
-        <ul className="mds__grid" role="list" aria-live="polite" aria-label="Contenus médiathèque">
-          {visibles.map((item, i) => (
-            <li
-              key={item.id}
-              className="mds__item"
-              ref={(el) => { itemsRef.current[i] = el; }}
-              style={{ transitionDelay: `${i * 80}ms` }}
-            >
-              <MediaCard item={item} />
-            </li>
-          ))}
-        </ul>
+        <style>{`
+          /* ══ Section ════════════════════════════════════════ */
+          .vds {
+            position: relative;
+            background: #F4FAF5;
+            overflow: hidden;
+          }
+          .vds__wrap {
+            max-width: var(--container-max, 1200px);
+            margin: 0 auto;
+            padding: 100px var(--container-pad, 24px);
+          }
 
-        {visibles.length === 0 && (
-          <p className="mds__empty" role="status">
-            Aucun contenu dans cette catégorie pour l&apos;instant.
-          </p>
-        )}
+          /* ══ En-tête ════════════════════════════════════════ */
+          .vds__hd { text-align: center; margin-bottom: 48px; }
+          .vds__ey {
+            display: flex; align-items: center; justify-content: center;
+            gap: 16px; margin-bottom: 20px;
+          }
+          .vds__ey-line {
+            display: block; width: 40px; height: 1px;
+            background: linear-gradient(90deg, transparent, #00AD4C);
+          }
+          .vds__ey-line--r { background: linear-gradient(90deg, #00AD4C, transparent); }
+          .vds__ey-txt {
+            font-family: var(--font-body, 'DM Sans', sans-serif);
+            font-size: 9.5px; font-weight: 700;
+            letter-spacing: 0.26em; text-transform: uppercase;
+            color: #00AD4C;
+          }
+          .vds__h2 {
+            font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
+            font-size: clamp(24px, 3vw, 40px);
+            font-weight: 600; line-height: 1.1;
+            color: #045627; margin: 0 0 18px;
+            letter-spacing: -0.01em;
+          }
+          .vds__h2 em { font-style: italic; color: #00AD4C; }
+          .vds__sub {
+            font-family: var(--font-body, 'DM Sans', sans-serif);
+            font-size: clamp(14px, 1.5vw, 16px);
+            line-height: 1.75; color: #3a5040;
+            max-width: 560px; margin: 0 auto;
+          }
 
-        {/* ── Footer CTA ── */}
-        <div className="mds__foot">
-          <Link
-            href="/fr/mediatheque"
-            className="mds__foot-btn"
-            aria-label="Accéder à toute la médiathèque NSS"
-          >
-            Accéder à la médiathèque
-          </Link>
-        </div>
-      </div>
+          /* ══ Grille ═════════════════════════════════════════ */
+          .vds__grid {
+            list-style: none; margin: 0; padding: 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+          }
+          .vds__cell {
+            opacity: 0;
+            animation: vds-reveal 0.45s ease forwards;
+          }
+          @keyframes vds-reveal {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+          }
 
-      <style>{`
-        /* ════ Section ════════════════════════════════════════ */
-        .mds {
-          position: relative;
-          background: #F7FBF7;
-          overflow: hidden;
-        }
-        .mds__pattern {
-          position: absolute;
-          inset: 0;
-          pointer-events: none;
-          z-index: 0;
-          background-image:
-            repeating-linear-gradient(
-              0deg,
-              transparent,
-              transparent 40px,
-              rgba(0,173,76,0.025) 40px,
-              rgba(0,173,76,0.025) 42px
-            );
-        }
-        .mds__wrap {
-          position: relative;
-          z-index: 1;
-          max-width: var(--container-max, 1200px);
-          margin: 0 auto;
-          padding: 96px var(--container-pad, 24px);
-        }
+          /* ══ Carte ══════════════════════════════════════════ */
+          .vc {
+            background: #fff;
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex; flex-direction: column;
+            height: 100%;
+            transition: box-shadow 0.28s ease, transform 0.28s ease;
+          }
+          .vc:hover {
+            box-shadow: 0 18px 44px rgba(4,86,39,0.11);
+            transform: translateY(-3px);
+          }
 
-        /* ════ Header ═════════════════════════════════════════ */
-        .mds__header {
-          text-align: center;
-          margin-bottom: 40px;
-        }
-        .mds__eyebrow {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 16px;
-          margin-bottom: 22px;
-        }
-        .mds__line {
-          display: block;
-          width: 40px;
-          height: 1px;
-          background: linear-gradient(90deg, transparent, #00AD4C);
-        }
-        .mds__line--rev {
-          background: linear-gradient(90deg, #00AD4C, transparent);
-        }
-        .mds__eyebrow-txt {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
-          font-size: 9.5px;
-          font-weight: 700;
-          letter-spacing: 0.24em;
-          text-transform: uppercase;
-          color: #00AD4C;
-        }
-        .mds__h2 {
-          font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
-          font-size: clamp(28px, 4vw, 52px);
-          font-weight: 500;
-          line-height: 1.1;
-          color: #045627;
-          margin: 0 0 18px;
-          letter-spacing: -0.01em;
-        }
-        .mds__h2 em {
-          font-style: italic;
-          color: #00AD4C;
-        }
-        .mds__sub {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
-          font-size: clamp(14px, 1.5vw, 16px);
-          line-height: 1.75;
-          color: #3a5040;
-          max-width: 600px;
-          margin: 0 auto;
-        }
+          /* Thumbnail */
+          .vc__thumb {
+            position: relative; display: block;
+            height: 196px; flex-shrink: 0;
+            overflow: hidden; background: #c4d8c4;
+            border: none; cursor: pointer; padding: 0; width: 100%;
+          }
+          .vc__hover-ov {
+            position: absolute; inset: 0; z-index: 1;
+            background: rgba(4,86,39,0);
+            transition: background 0.28s ease;
+          }
+          .vc__thumb:hover .vc__hover-ov { background: rgba(4,86,39,0.18); }
+          .vc__badge {
+            position: absolute; bottom: 10px; left: 12px; z-index: 2;
+            display: flex; align-items: center; gap: 5px;
+            background: #045627; color: #F5EDD6;
+            font-family: var(--font-body, 'DM Sans', sans-serif);
+            font-size: 9px; font-weight: 700;
+            letter-spacing: 0.18em; text-transform: uppercase;
+            padding: 4px 10px; border-radius: 2px;
+          }
+          .vc__play {
+            position: absolute; inset: 0; z-index: 2;
+            display: flex; align-items: center; justify-content: center;
+            transition: transform 0.2s ease;
+          }
+          .vc__thumb:hover .vc__play { transform: scale(1.1); }
 
-        /* ════ Filtres ════════════════════════════════════════ */
-        .mds__filters {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-          gap: 8px;
-          margin-bottom: 40px;
-        }
-        .mds__filter {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
-          font-size: 11px;
-          font-weight: 600;
-          letter-spacing: 0.06em;
-          text-transform: uppercase;
-          padding: 7px 18px;
-          border-radius: 2px;
-          border: 1px solid rgba(4,86,39,0.22);
-          background: transparent;
-          color: #3a5040;
-          cursor: pointer;
-          transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-        }
-        .mds__filter:hover {
-          border-color: #00AD4C;
-          color: #00AD4C;
-        }
-        .mds__filter--active {
-          background: #00AD4C;
-          color: #ffffff;
-          border-color: #00AD4C;
-        }
+          /* Corps */
+          .vc__body {
+            padding: 18px 18px 16px;
+            display: flex; flex-direction: column;
+            flex: 1; gap: 8px;
+          }
+          .vc__meta {
+            display: flex; align-items: center; gap: 8px;
+            font-family: var(--font-body, 'DM Sans', sans-serif);
+            font-size: 11.5px; color: #6a7a6a; margin: 0;
+          }
+          .vc__dot { color: #b0bfb0; }
+          .vc__titre { margin: 0; }
+          .vc__titre-btn {
+            background: none; border: none; padding: 0;
+            width: 100%; text-align: left; cursor: pointer;
+            font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
+            font-size: clamp(15px, 1.4vw, 18px);
+            font-weight: 600;
+            line-height: 1.22;
+            color: #045627;
+            transition: color 0.2s;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+          }
+          .vc__titre-btn:hover { color: #00AD4C; }
+          .vc__desc {
+            font-family: var(--font-body, 'DM Sans', sans-serif);
+            font-size: 14px; line-height: 1.68; color: #3a5040;
+            margin: 0; flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+          }
+          .vc__tags {
+            display: flex; flex-wrap: wrap; gap: 5px; margin-top: 2px;
+          }
+          .vc__tag {
+            font-family: var(--font-body, 'DM Sans', sans-serif);
+            font-size: 10.5px; font-weight: 500;
+            color: #045627;
+            background: rgba(165,206,70,0.18);
+            padding: 2px 9px; border-radius: 2px;
+          }
 
-        /* ════ Grid ═══════════════════════════════════════════ */
-        .mds__grid {
-          list-style: none;
-          margin: 0;
-          padding: 0;
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 22px;
-        }
+          /* ══ Pied ════════════════════════════════════════════ */
+          .vds__foot { text-align: center; margin-top: 56px; }
+          .vds__cta {
+            display: inline-block;
+            font-family: var(--font-body, 'DM Sans', sans-serif);
+            font-size: 11px; font-weight: 700;
+            letter-spacing: 0.14em; text-transform: uppercase;
+            background: #00AD4C; color: #fff;
+            border: 1.5px solid #00AD4C;
+            padding: 14px 38px; border-radius: 2px;
+            text-decoration: none;
+            transition: background 0.22s, border-color 0.22s;
+          }
+          .vds__cta:hover { background: #008f3e; border-color: #008f3e; }
 
-        /* ════ Animation reveal ═══════════════════════════════ */
-        .mds__item {
-          opacity: 0;
-          transform: translateY(24px);
-          transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-        .mds__item[data-visible="true"] {
-          opacity: 1;
-          transform: translateY(0);
-        }
-
-        /* ════ Card ═══════════════════════════════════════════ */
-        .mdc {
-          position: relative;
-          background: #ffffff;
-          border: 1px solid rgba(0,0,0,0.08);
-          border-radius: 10px;
-          overflow: hidden;
-          display: flex;
-          flex-direction: column;
-          height: 100%;
-          transition: box-shadow 0.28s ease, transform 0.28s ease;
-        }
-        .mdc:hover {
-          box-shadow: 0 16px 40px rgba(4,86,39,0.10);
-          transform: translateY(-4px);
-        }
-        .mdc__bar {
-          position: absolute;
-          left: 0;
-          top: 0;
-          bottom: 0;
-          width: 3px;
-          background: #00AD4C;
-          border-radius: 10px 0 0 10px;
-          transform: scaleY(0);
-          transform-origin: top;
-          transition: transform 0.28s ease;
-          z-index: 3;
-        }
-        .mdc:hover .mdc__bar {
-          transform: scaleY(1);
-        }
-
-        /* ── Image ── */
-        .mdc__img-wrap {
-          position: relative;
-          display: block;
-          height: 188px;
-          overflow: hidden;
-          background: #c8dfc8;
-          flex-shrink: 0;
-        }
-        .mdc__img-overlay {
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(to bottom, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.38) 100%);
-          z-index: 1;
-          transition: opacity 0.28s ease;
-        }
-        .mdc:hover .mdc__img-overlay {
-          opacity: 0.7;
-        }
-        .mdc__type-badge {
-          position: absolute;
-          bottom: 10px;
-          left: 12px;
-          z-index: 2;
-          display: flex;
-          align-items: center;
-          gap: 5px;
-          background: #045627;
-          color: #F5EDD6;
-          font-family: var(--font-body, 'DM Sans', sans-serif);
-          font-size: 9px;
-          font-weight: 700;
-          letter-spacing: 0.16em;
-          text-transform: uppercase;
-          padding: 4px 10px;
-          border-radius: 2px;
-        }
-
-        /* ── Body ── */
-        .mdc__body {
-          padding: 18px 18px 16px;
-          display: flex;
-          flex-direction: column;
-          flex: 1;
-          gap: 8px;
-        }
-        .mdc__meta {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          font-family: var(--font-body, 'DM Sans', sans-serif);
-          font-size: 11.5px;
-          color: #6a7a6a;
-          margin: 0;
-        }
-        .mdc__dot { color: #b0bfb0; }
-        .mdc__titre {
-          font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
-          font-size: clamp(16px, 1.6vw, 19px);
-          font-weight: 600;
-          line-height: 1.25;
-          color: #045627;
-          margin: 0;
-        }
-        .mdc__titre a {
-          text-decoration: none;
-          color: inherit;
-          transition: color 0.2s ease;
-        }
-        .mdc__titre a:hover { color: #00AD4C; }
-        .mdc__desc {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
-          font-size: 13.5px;
-          line-height: 1.68;
-          color: #3a5040;
-          margin: 0;
-          flex: 1;
-          display: -webkit-box;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
-        .mdc__tags {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 5px;
-          margin-top: 2px;
-        }
-        .mdc__tag {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
-          font-size: 10.5px;
-          font-weight: 500;
-          color: #045627;
-          background: rgba(165,206,70,0.18);
-          padding: 2px 9px;
-          border-radius: 2px;
-        }
-
-        /* ════ Empty state ════════════════════════════════════ */
-        .mds__empty {
-          text-align: center;
-          font-family: var(--font-body, 'DM Sans', sans-serif);
-          font-size: 15px;
-          color: #6a7a6a;
-          padding: 48px 0;
-        }
-
-        /* ════ Footer ═════════════════════════════════════════ */
-        .mds__foot {
-          text-align: center;
-          margin-top: 52px;
-        }
-        .mds__foot-btn {
-          display: inline-block;
-          font-family: var(--font-body, 'DM Sans', sans-serif);
-          font-size: 11px;
-          font-weight: 700;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
-          background: #00AD4C;
-          color: #ffffff;
-          border: 1.5px solid #00AD4C;
-          padding: 14px 36px;
-          border-radius: 2px;
-          text-decoration: none;
-          transition: background 0.22s ease, color 0.22s ease, border-color 0.22s ease;
-        }
-        .mds__foot-btn:hover {
-          background: #008f3e;
-          border-color: #008f3e;
-        }
-
-        /* ════ Responsive ═════════════════════════════════════ */
-        @media (max-width: 1024px) {
-          .mds__grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 640px) {
-          .mds__wrap { padding: 72px 20px; }
-          .mds__grid { grid-template-columns: 1fr; }
-          .mds__header { margin-bottom: 32px; }
-        }
-      `}</style>
-    </section>
+          /* ══ Responsive ══════════════════════════════════════ */
+          @media (max-width: 1024px) {
+            .vds__grid { grid-template-columns: repeat(2, 1fr); }
+            .vds__cell:last-child { grid-column: 1 / -1; max-width: 480px; margin: 0 auto; width: 100%; }
+          }
+          @media (max-width: 640px) {
+            .vds__wrap { padding: 72px 20px; }
+            .vds__grid { grid-template-columns: 1fr; gap: 18px; }
+            .vds__cell:last-child { grid-column: auto; max-width: none; margin: 0; }
+            .vds__hd { margin-bottom: 32px; }
+          }
+        `}</style>
+      </section>
+    </>
   );
 }

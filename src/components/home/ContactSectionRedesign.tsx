@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Loader2, Send, Mail, Phone, MapPin, CheckCircle2 } from "lucide-react";
+import { Loader2, ArrowRight, CheckCircle2, Mail, Phone, MapPin } from "lucide-react";
 
 /* ─── Validation ──────────────────────────────────────────── */
 const schema = z.object({
@@ -18,12 +18,17 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>;
 
-/* ─── Données contact ─────────────────────────────────────── */
-const INFOS = [
-  { Icon: Mail,   label: "Email",     value: "contact@wasafrica.org",                    href: "mailto:contact@wasafrica.org" },
-  { Icon: Phone,  label: "Téléphone", value: "+221 33 867 59 11 / +221 77 647 02 31",    href: "tel:+221338675911" },
-  { Icon: MapPin, label: "Siège",     value: "Sicap Foire, Lot n°17, Zone C, Dakar, Sénégal", href: null },
-] as const;
+/* ─── Données ─────────────────────────────────────────────── */
+const INFOS: {
+  Icon: typeof Mail;
+  label: string;
+  value: string;
+  href: string | null;
+}[] = [
+  { Icon: Mail,   label: "Email",        value: "contact@wasafrica.org",                          href: "mailto:contact@wasafrica.org" },
+  { Icon: Phone,  label: "Téléphone",    value: "+221 33 867 59 11 / +221 77 647 02 31",          href: "tel:+221338675911" },
+  { Icon: MapPin, label: "Siège social", value: "Sicap Foire, Lot n°17, Zone C, Dakar, Sénégal", href: null },
+];
 
 const SUJETS = ["Adhésion", "Partenariat", "Don", "CIFAP", "EMMAP", "Autre"] as const;
 
@@ -31,20 +36,28 @@ const SUJETS = ["Adhésion", "Partenariat", "Don", "CIFAP", "EMMAP", "Autre"] as
 export default function ContactSectionRedesign() {
   const [success, setSuccess]         = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
-  const innerRef = useRef<HTMLDivElement>(null);
+  const wrapRef = useRef<HTMLDivElement>(null);
 
-  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<FormData>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<FormData>({
     resolver: zodResolver(schema),
     defaultValues: { sujet: "Autre" },
   });
 
-  /* Scroll reveal */
   useEffect(() => {
-    const el = innerRef.current;
+    const el = wrapRef.current;
     if (!el) return;
     const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { el.dataset.visible = "true"; obs.disconnect(); } },
-      { threshold: 0.1 }
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.dataset.visible = "true";
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -68,84 +81,71 @@ export default function ContactSectionRedesign() {
   return (
     <section className="csr" aria-labelledby="csr-heading">
 
-      {/* ── Fond ────────────────────────────────────────────── */}
-      <div className="csr__bg"                    aria-hidden="true" />
-      <div className="csr__pattern"               aria-hidden="true" />
-      <div className="csr__halo csr__halo--tl"    aria-hidden="true" />
-      <div className="csr__halo csr__halo--br"    aria-hidden="true" />
+      <div className="csr__wrap" ref={wrapRef}>
 
-      <div className="csr__inner" ref={innerRef}>
-
-        {/* ══ COLONNE GAUCHE ══════════════════════════════════ */}
+        {/* ════ COLONNE GAUCHE ════════════════════════════════ */}
         <div className="csr__left">
 
           {/* Eyebrow */}
-          <div className="csr__eyebrow">
-            <span className="csr__eyebrow-line" />
-            <span className="csr__eyebrow-txt">Nous contacter</span>
+          <div className="csr__eyebrow" aria-hidden="true">
+            <span className="csr__ey-bar" />
+            <span className="csr__ey-txt">Nous contacter</span>
           </div>
 
-          {/* H2 */}
           <h2 id="csr-heading" className="csr__h2">
-            Une question ?{" "}
-            <em>Écrivez-nous.</em>
+            Une question ?{" "}<em>Écrivez-nous.</em>
           </h2>
 
-          {/* Sous-titre */}
-          <p className="csr__subtitle">
-            Notre équipe répond à toutes vos demandes — adhésion,
+          <p className="csr__sub">
+            Notre équipe répond à toutes vos demandes —&nbsp;adhésion,
             partenariat, programmes ou questions générales.
           </p>
 
-          {/* Séparateur or */}
-          <div className="csr__sep" aria-hidden="true" />
+          <div className="csr__rule" aria-hidden="true" />
 
-          {/* Coordonnées */}
-          <ul className="csr__infos" role="list" aria-label="Coordonnées NSS">
+          {/* Infos de contact */}
+          <ul className="csr__infos" role="list" aria-label="Coordonnées de contact NSS">
             {INFOS.map(({ Icon, label, value, href }, i) => (
-              <li key={label} className="csr__info-item">
-                <div className="csr__info-icon" aria-hidden="true">
-                  <Icon size={15} />
-                </div>
+              <li key={label} className="csr__info">
+                <span className="csr__info-icon" aria-hidden="true">
+                  <Icon size={14} strokeWidth={1.6} />
+                </span>
                 <div className="csr__info-body">
-                  <span className="csr__info-label">{label}</span>
+                  <span className="csr__info-lbl">{label}</span>
                   {href ? (
-                    <a href={href} className="csr__info-value csr__info-link">{value}</a>
+                    <a href={href} className="csr__info-val csr__info-a">{value}</a>
                   ) : (
-                    <span className="csr__info-value">{value}</span>
+                    <span className="csr__info-val">{value}</span>
                   )}
                 </div>
-                {i < INFOS.length - 1 && <div className="csr__info-sep" aria-hidden="true" />}
+                {i < INFOS.length - 1 && (
+                  <span className="csr__info-sep" aria-hidden="true" />
+                )}
               </li>
             ))}
           </ul>
 
-          {/* Disponibilité */}
-          <p className="csr__avail">
-            <span className="csr__avail-dot" aria-hidden="true" />
-            Équipe disponible — Réponse sous 48h
+          <p className="csr__online">
+            <span className="csr__dot" aria-hidden="true" />
+            Équipe disponible — Réponse sous&nbsp;48h
           </p>
         </div>
 
-        {/* ══ COLONNE DROITE ══════════════════════════════════ */}
+        {/* ════ COLONNE DROITE ════════════════════════════════ */}
         <div className="csr__right">
           <div className="csr__card">
-            {/* Liseré doré en tête de carte */}
-            <div className="csr__card-line" aria-hidden="true" />
 
             {success ? (
-              /* ── Succès ── */
-              <div className="csr__success" role="status" aria-live="polite">
-                <div className="csr__success-icon" aria-hidden="true">
-                  <CheckCircle2 size={28} />
+              <div className="csr__ok" role="status" aria-live="polite">
+                <div className="csr__ok-ring" aria-hidden="true">
+                  <CheckCircle2 size={26} strokeWidth={1.5} />
                 </div>
-                <h3 className="csr__success-title">Message envoyé !</h3>
-                <p className="csr__success-body">
+                <h3 className="csr__ok-title">Message envoyé !</h3>
+                <p className="csr__ok-body">
                   Nous avons bien reçu votre message et vous répondrons dans les 48h.
                 </p>
               </div>
             ) : (
-              /* ── Formulaire ── */
               <form
                 onSubmit={handleSubmit(onSubmit)}
                 noValidate
@@ -153,18 +153,18 @@ export default function ContactSectionRedesign() {
                 aria-label="Formulaire de contact NSS"
               >
                 {serverError && (
-                  <p className="csr__server-err" role="alert">{serverError}</p>
+                  <p className="csr__srv-err" role="alert">{serverError}</p>
                 )}
 
-                {/* Prénom / Nom */}
-                <div className="csr__row-2">
-                  <div className="csr__field">
-                    <label className="csr__label" htmlFor="csr-firstName">Prénom</label>
+                {/* Prénom + Nom */}
+                <div className="csr__duo">
+                  <div className="csr__f">
+                    <label className="csr__lbl" htmlFor="csr-fn">Prénom</label>
                     <input
-                      id="csr-firstName"
+                      id="csr-fn"
                       {...register("firstName")}
                       placeholder="Mariama"
-                      className="csr__input"
+                      className={`csr__inp${errors.firstName ? " csr__inp--err" : ""}`}
                       aria-invalid={!!errors.firstName}
                       autoComplete="given-name"
                     />
@@ -172,13 +172,13 @@ export default function ContactSectionRedesign() {
                       <span className="csr__err" role="alert">{errors.firstName.message}</span>
                     )}
                   </div>
-                  <div className="csr__field">
-                    <label className="csr__label" htmlFor="csr-name">Nom</label>
+                  <div className="csr__f">
+                    <label className="csr__lbl" htmlFor="csr-ln">Nom</label>
                     <input
-                      id="csr-name"
+                      id="csr-ln"
                       {...register("name")}
                       placeholder="Sonko"
-                      className="csr__input"
+                      className={`csr__inp${errors.name ? " csr__inp--err" : ""}`}
                       aria-invalid={!!errors.name}
                       autoComplete="family-name"
                     />
@@ -189,14 +189,14 @@ export default function ContactSectionRedesign() {
                 </div>
 
                 {/* Email */}
-                <div className="csr__field">
-                  <label className="csr__label" htmlFor="csr-email">Email</label>
+                <div className="csr__f">
+                  <label className="csr__lbl" htmlFor="csr-email">Email</label>
                   <input
                     id="csr-email"
                     {...register("email")}
                     type="email"
                     placeholder="vous@exemple.com"
-                    className="csr__input"
+                    className={`csr__inp${errors.email ? " csr__inp--err" : ""}`}
                     aria-invalid={!!errors.email}
                     autoComplete="email"
                   />
@@ -206,35 +206,35 @@ export default function ContactSectionRedesign() {
                 </div>
 
                 {/* Sujet */}
-                <div className="csr__field">
-                  <label className="csr__label" htmlFor="csr-sujet">Sujet</label>
-                  <div className="csr__select-wrap">
+                <div className="csr__f">
+                  <label className="csr__lbl" htmlFor="csr-sujet">Sujet</label>
+                  <div className="csr__sel-wrap">
                     <select
                       id="csr-sujet"
                       {...register("sujet")}
-                      className="csr__input csr__select"
+                      className="csr__inp csr__sel"
                     >
                       {SUJETS.map((s) => (
                         <option key={s} value={s}>{s}</option>
                       ))}
                     </select>
-                    <span className="csr__select-arrow" aria-hidden="true">
-                      <svg width="11" height="7" viewBox="0 0 11 7" fill="none">
-                        <path d="M1 1l4.5 4.5L10 1" stroke="#A5CE46" strokeWidth="1.5" strokeLinecap="round"/>
+                    <span className="csr__chevron" aria-hidden="true">
+                      <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
+                        <path d="M1 1l4 4 4-4" stroke="#00AD4C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </span>
                   </div>
                 </div>
 
                 {/* Message */}
-                <div className="csr__field">
-                  <label className="csr__label" htmlFor="csr-message">Message</label>
+                <div className="csr__f">
+                  <label className="csr__lbl" htmlFor="csr-msg">Message</label>
                   <textarea
-                    id="csr-message"
+                    id="csr-msg"
                     {...register("message")}
                     rows={4}
                     placeholder="Votre message…"
-                    className="csr__input csr__textarea"
+                    className={`csr__inp csr__ta${errors.message ? " csr__inp--err" : ""}`}
                     aria-invalid={!!errors.message}
                   />
                   {errors.message && (
@@ -247,10 +247,10 @@ export default function ContactSectionRedesign() {
                   <input
                     type="checkbox"
                     {...register("rgpd")}
-                    className="csr__checkbox"
+                    className="csr__chk"
                     aria-invalid={!!errors.rgpd}
                   />
-                  <span className="csr__rgpd-text">
+                  <span className="csr__rgpd-txt">
                     J&apos;accepte que mes données soient utilisées pour traiter ma demande.
                   </span>
                 </label>
@@ -258,114 +258,59 @@ export default function ContactSectionRedesign() {
                   <span className="csr__err" role="alert">{errors.rgpd.message}</span>
                 )}
 
-                {/* Footer */}
-                <div className="csr__form-foot">
-                  <span className="csr__delay">⏱ Réponse sous 48h</span>
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="csr__submit"
-                    aria-label="Envoyer le message"
-                  >
-                    {isSubmitting ? (
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="csr__btn"
+                  aria-label={isSubmitting ? "Envoi en cours" : "Envoyer le message"}
+                >
+                  {isSubmitting ? (
+                    <>
                       <Loader2 size={15} className="csr__spin" aria-hidden="true" />
-                    ) : (
-                      <Send size={15} aria-hidden="true" />
-                    )}
-                    {isSubmitting ? "Envoi…" : "Envoyer"}
-                  </button>
-                </div>
+                      Envoi en cours…
+                    </>
+                  ) : (
+                    <>
+                      Envoyer le message
+                      <ArrowRight size={15} aria-hidden="true" />
+                    </>
+                  )}
+                </button>
+
+                <p className="csr__delay">Réponse garantie sous 48h</p>
               </form>
             )}
           </div>
         </div>
       </div>
 
-      {/* ══ Styles ════════════════════════════════════════════ */}
       <style>{`
-        /* Section */
+        /* ════ SECTION ════════════════════════════════════════ */
         .csr {
-          position: relative;
-          overflow: hidden;
+          background: #ffffff;
+          border-top: 1px solid rgba(4,86,39,0.08);
         }
 
-        /* Gradient nuit profonde → vert vif */
-        .csr__bg {
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(
-            135deg,
-            #011a0a 0%,
-            #045627 38%,
-            #006e30 65%,
-            #00AD4C 100%
-          );
-          z-index: 0;
-        }
-
-        /* Motif kente diagonal */
-        .csr__pattern {
-          position: absolute;
-          inset: 0;
-          z-index: 1;
-          pointer-events: none;
-          background-image:
-            repeating-linear-gradient(
-              -45deg,
-              transparent, transparent 22px,
-              rgba(245,237,214,0.028) 22px, rgba(245,237,214,0.028) 24px
-            ),
-            repeating-linear-gradient(
-              45deg,
-              transparent, transparent 22px,
-              rgba(165,206,70,0.028) 22px, rgba(165,206,70,0.028) 24px
-            );
-        }
-
-        /* Halos */
-        .csr__halo {
-          position: absolute;
-          border-radius: 50%;
-          pointer-events: none;
-          z-index: 1;
-        }
-        .csr__halo--tl {
-          top: -5%;
-          left: -10%;
-          width: 520px;
-          height: 520px;
-          background: radial-gradient(circle, rgba(232,168,56,0.12) 0%, transparent 65%);
-        }
-        .csr__halo--br {
-          bottom: -8%;
-          right: -8%;
-          width: 400px;
-          height: 400px;
-          background: radial-gradient(circle, rgba(165,206,70,0.10) 0%, transparent 65%);
-        }
-
-        /* ── Grid ───────────────────────────────────────────── */
-        .csr__inner {
-          position: relative;
-          z-index: 2;
+        /* ════ LAYOUT ═════════════════════════════════════════ */
+        .csr__wrap {
           max-width: var(--container-max, 1200px);
           margin: 0 auto;
-          padding: 100px var(--container-pad, 24px);
+          padding: 96px var(--container-pad, 24px);
           display: grid;
-          grid-template-columns: 1fr 1.5fr;
+          grid-template-columns: 1fr 1.4fr;
           gap: 72px;
           align-items: start;
         }
 
-        /* ── Colonne gauche (reveal gauche→droite) ──────────── */
+        /* ════ COLONNE GAUCHE ═════════════════════════════════ */
         .csr__left {
           opacity: 0;
-          transform: translateX(-28px);
-          transition: opacity 0.75s ease 0.08s, transform 0.75s ease 0.08s;
+          transform: translateY(20px);
+          transition: opacity 0.6s ease, transform 0.6s ease;
         }
-        .csr__inner[data-visible="true"] .csr__left {
+        .csr__wrap[data-visible="true"] .csr__left {
           opacity: 1;
-          transform: translateX(0);
+          transform: translateY(0);
         }
 
         /* Eyebrow */
@@ -373,269 +318,228 @@ export default function ContactSectionRedesign() {
           display: flex;
           align-items: center;
           gap: 14px;
-          margin-bottom: 22px;
+          margin-bottom: 24px;
         }
-        .csr__eyebrow-line {
+        .csr__ey-bar {
           display: block;
           width: 32px;
           height: 1.5px;
-          background: linear-gradient(90deg, transparent, #E8A838);
+          background: #00AD4C;
           flex-shrink: 0;
         }
-        .csr__eyebrow-txt {
+        .csr__ey-txt {
           font-family: var(--font-body, 'DM Sans', sans-serif);
           font-size: 9.5px;
           font-weight: 700;
           letter-spacing: 0.26em;
           text-transform: uppercase;
-          color: #E8A838;
+          color: #00AD4C;
         }
 
         /* H2 */
         .csr__h2 {
           font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
-          font-size: clamp(28px, 3.6vw, 50px);
-          font-weight: 500;
+          font-size: clamp(22px, 2.8vw, 38px);
+          font-weight: 600;
           line-height: 1.1;
-          color: #F5EDD6;
-          margin: 0 0 18px;
+          color: #045627;
+          margin: 0 0 20px;
           letter-spacing: -0.015em;
         }
         .csr__h2 em {
           font-style: italic;
-          color: #A5CE46;
+          color: #00AD4C;
         }
 
         /* Sous-titre */
-        .csr__subtitle {
+        .csr__sub {
           font-family: var(--font-body, 'DM Sans', sans-serif);
           font-size: clamp(14px, 1.4vw, 16px);
-          line-height: 1.8;
-          color: rgba(245,237,214,0.70);
+          line-height: 1.80;
+          color: #3a5040;
           margin: 0;
         }
 
-        /* Séparateur or */
-        .csr__sep {
+        /* Règle */
+        .csr__rule {
           width: 48px;
-          height: 1.5px;
-          background: linear-gradient(90deg, #E8A838, rgba(232,168,56,0.12));
+          height: 1px;
+          background: rgba(232,168,56,0.55);
           margin: 36px 0;
         }
 
-        /* Coordonnées */
+        /* ── Infos ── */
         .csr__infos {
           list-style: none;
-          margin: 0;
           padding: 0;
+          margin: 0;
           display: flex;
           flex-direction: column;
         }
-        .csr__info-item {
+        .csr__info {
           display: flex;
-          flex-direction: column;
-        }
-        .csr__info-item > .csr__info-icon,
-        .csr__info-item > .csr__info-body {
-          /* direct children flow — handled inside via wrapping div-less approach */
-        }
-        /* re-layout with flex row */
-        .csr__info-item {
-          flex-direction: row;
           align-items: flex-start;
-          gap: 16px;
-          padding: 18px 0;
+          gap: 14px;
+          padding: 16px 0;
           position: relative;
         }
         .csr__info-sep {
           position: absolute;
-          bottom: 0; left: 0; right: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
           height: 1px;
-          background: rgba(245,237,214,0.07);
+          background: rgba(4,86,39,0.07);
         }
         .csr__info-icon {
-          width: 38px;
-          height: 38px;
-          border-radius: 8px;
-          background: rgba(0,173,76,0.14);
-          border: 1px solid rgba(0,173,76,0.22);
+          width: 36px;
+          height: 36px;
+          flex-shrink: 0;
           display: flex;
           align-items: center;
           justify-content: center;
-          flex-shrink: 0;
-          color: #A5CE46;
-          margin-top: 2px;
+          border-radius: 6px;
+          background: rgba(0,173,76,0.07);
+          border: 1px solid rgba(0,173,76,0.14);
+          color: #00AD4C;
+          margin-top: 1px;
           transition: background 0.2s, border-color 0.2s;
         }
-        .csr__info-item:hover .csr__info-icon {
-          background: rgba(0,173,76,0.22);
-          border-color: rgba(165,206,70,0.35);
+        .csr__info:hover .csr__info-icon {
+          background: rgba(0,173,76,0.13);
+          border-color: rgba(0,173,76,0.28);
         }
         .csr__info-body {
           display: flex;
           flex-direction: column;
           gap: 3px;
-          flex: 1;
         }
-        .csr__info-label {
+        .csr__info-lbl {
           font-family: var(--font-body, 'DM Sans', sans-serif);
           font-size: 9px;
           font-weight: 700;
           letter-spacing: 0.18em;
           text-transform: uppercase;
-          color: rgba(245,237,214,0.36);
+          color: #9aaa9a;
         }
-        .csr__info-value {
+        .csr__info-val {
           font-family: var(--font-body, 'DM Sans', sans-serif);
-          font-size: 14.5px;
-          color: #F5EDD6;
+          font-size: 14px;
           line-height: 1.55;
+          color: #1a2e1a;
         }
-        .csr__info-link {
+        .csr__info-a {
           text-decoration: none;
           transition: color 0.2s;
         }
-        .csr__info-link:hover { color: #A5CE46; }
+        .csr__info-a:hover { color: #00AD4C; }
 
-        /* Indicateur disponibilité */
-        .csr__avail {
+        /* Disponibilité */
+        .csr__online {
           display: flex;
           align-items: center;
           gap: 10px;
           font-family: var(--font-body, 'DM Sans', sans-serif);
           font-size: 12px;
-          color: rgba(245,237,214,0.42);
+          color: #9aaa9a;
           margin-top: 28px;
+          margin-bottom: 0;
         }
-        .csr__avail-dot {
-          display: inline-block;
+        .csr__dot {
           width: 7px;
           height: 7px;
           border-radius: 50%;
           background: #00AD4C;
-          box-shadow: 0 0 0 3px rgba(0,173,76,0.22);
+          box-shadow: 0 0 0 3px rgba(0,173,76,0.16);
           flex-shrink: 0;
-          animation: csrPulse 2.5s ease-in-out infinite;
+          animation: csrPulse 2.6s ease-in-out infinite;
         }
         @keyframes csrPulse {
-          0%, 100% { box-shadow: 0 0 0 3px rgba(0,173,76,0.22); }
-          50%       { box-shadow: 0 0 0 7px rgba(0,173,76,0.06); }
+          0%, 100% { box-shadow: 0 0 0 3px rgba(0,173,76,0.16); }
+          50%       { box-shadow: 0 0 0 7px rgba(0,173,76,0.04); }
         }
 
-        /* ── Colonne droite (reveal droite→gauche) ──────────── */
+        /* ════ COLONNE DROITE ═════════════════════════════════ */
         .csr__right {
           opacity: 0;
-          transform: translateX(28px);
-          transition: opacity 0.75s ease 0.25s, transform 0.75s ease 0.25s;
+          transform: translateY(20px);
+          transition: opacity 0.6s ease 0.12s, transform 0.6s ease 0.12s;
         }
-        .csr__inner[data-visible="true"] .csr__right {
+        .csr__wrap[data-visible="true"] .csr__right {
           opacity: 1;
-          transform: translateX(0);
+          transform: translateY(0);
         }
 
-        /* Carte glassmorphism */
+        /* Carte formulaire */
         .csr__card {
-          position: relative;
-          overflow: hidden;
-          background: rgba(2,31,14,0.62);
-          backdrop-filter: blur(18px);
-          -webkit-backdrop-filter: blur(18px);
-          border: 1px solid rgba(165,206,70,0.14);
+          background: #FAFAF7;
+          border: 1px solid rgba(4,86,39,0.10);
           border-radius: 4px;
-          padding: 38px 34px 32px;
-        }
-        /* Halo interne vert-clair */
-        .csr__card::before {
-          content: '';
-          position: absolute;
-          top: -64px; right: -64px;
-          width: 240px; height: 240px;
-          border-radius: 50%;
-          background: radial-gradient(circle, rgba(165,206,70,0.07) 0%, transparent 70%);
-          pointer-events: none;
+          padding: 40px 36px 36px;
         }
 
-        /* Liseré or → vert clair en haut */
-        .csr__card-line {
-          position: absolute;
-          top: 0; left: 0; right: 0;
-          height: 2px;
-          background: linear-gradient(
-            90deg,
-            transparent,
-            #E8A838 28%,
-            #A5CE46 72%,
-            transparent
-          );
-        }
-
-        /* ── Formulaire ─────────────────────────────────────── */
+        /* ════ FORMULAIRE ═════════════════════════════════════ */
         .csr__form {
           display: flex;
           flex-direction: column;
-          gap: 18px;
+          gap: 20px;
         }
-        .csr__row-2 {
+        .csr__duo {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 14px;
+          gap: 16px;
         }
-        .csr__field {
+        .csr__f {
           display: flex;
           flex-direction: column;
           gap: 6px;
         }
-        .csr__label {
+
+        /* Label */
+        .csr__lbl {
           font-family: var(--font-body, 'DM Sans', sans-serif);
-          font-size: 10.5px;
+          font-size: 10px;
           font-weight: 700;
-          letter-spacing: 0.12em;
+          letter-spacing: 0.14em;
           text-transform: uppercase;
-          color: rgba(245,237,214,0.52);
-        }
-        .csr__input {
-          width: 100%;
-          box-sizing: border-box;
-          background: rgba(245,237,214,0.05);
-          border: 1px solid rgba(245,237,214,0.12);
-          border-radius: 4px;
-          padding: 11px 14px;
-          font-family: var(--font-body, 'DM Sans', sans-serif);
-          font-size: 14px;
-          color: #F5EDD6;
-          outline: none;
-          transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
-        }
-        .csr__input::placeholder { color: rgba(245,237,214,0.22); }
-        .csr__input:focus {
-          border-color: #00AD4C;
-          background: rgba(0,173,76,0.06);
-          box-shadow: 0 0 0 3px rgba(0,173,76,0.12);
-        }
-        .csr__input[aria-invalid="true"] {
-          border-color: rgba(248,113,113,0.45);
-        }
-        .csr__input[aria-invalid="true"]:focus {
-          box-shadow: 0 0 0 3px rgba(248,113,113,0.10);
+          color: #6a7a6a;
         }
 
-        /* Select custom */
-        .csr__select-wrap {
-          position: relative;
+        /* Input */
+        .csr__inp {
+          width: 100%;
+          box-sizing: border-box;
+          background: #ffffff;
+          border: 1px solid rgba(4,86,39,0.15);
+          border-radius: 3px;
+          padding: 10px 12px;
+          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-size: 14px;
+          color: #1a2e1a;
+          outline: none;
+          transition: border-color 0.2s, box-shadow 0.2s;
         }
-        .csr__select {
+        .csr__inp::placeholder { color: #b8c8b8; }
+        .csr__inp:focus {
+          border-color: #00AD4C;
+          box-shadow: 0 0 0 3px rgba(0,173,76,0.09);
+        }
+        .csr__inp--err {
+          border-color: #e05c5c;
+        }
+
+        /* Select */
+        .csr__sel-wrap { position: relative; }
+        .csr__sel {
           -webkit-appearance: none;
           appearance: none;
           cursor: pointer;
-          padding-right: 38px;
+          padding-right: 32px;
         }
-        .csr__select option {
-          background: #032e12;
-          color: #F5EDD6;
-        }
-        .csr__select-arrow {
+        .csr__sel option { background: #ffffff; color: #1a2e1a; }
+        .csr__chevron {
           position: absolute;
-          right: 14px;
+          right: 10px;
           top: 50%;
           transform: translateY(-50%);
           pointer-events: none;
@@ -643,20 +547,22 @@ export default function ContactSectionRedesign() {
           align-items: center;
         }
 
-        .csr__textarea { resize: none; }
+        .csr__ta { resize: none; }
 
+        /* Erreurs */
         .csr__err {
           font-family: var(--font-body, 'DM Sans', sans-serif);
           font-size: 11px;
-          color: #fca5a5;
+          color: #c0392b;
+          line-height: 1.4;
         }
-        .csr__server-err {
+        .csr__srv-err {
           font-family: var(--font-body, 'DM Sans', sans-serif);
           font-size: 13px;
-          color: #fca5a5;
-          background: rgba(252,165,165,0.08);
-          border: 1px solid rgba(252,165,165,0.18);
-          border-radius: 4px;
+          color: #c0392b;
+          background: rgba(192,57,43,0.06);
+          border: 1px solid rgba(192,57,43,0.18);
+          border-radius: 3px;
           padding: 10px 14px;
           margin: 0;
         }
@@ -668,7 +574,7 @@ export default function ContactSectionRedesign() {
           gap: 10px;
           cursor: pointer;
         }
-        .csr__checkbox {
+        .csr__chk {
           margin-top: 2px;
           flex-shrink: 0;
           width: 14px;
@@ -676,109 +582,103 @@ export default function ContactSectionRedesign() {
           accent-color: #00AD4C;
           cursor: pointer;
         }
-        .csr__rgpd-text {
+        .csr__rgpd-txt {
           font-family: var(--font-body, 'DM Sans', sans-serif);
           font-size: 12px;
-          line-height: 1.6;
-          color: rgba(245,237,214,0.42);
+          line-height: 1.65;
+          color: #6a7a6a;
         }
 
-        /* Footer formulaire */
-        .csr__form-foot {
+        /* Bouton — or */
+        .csr__btn {
+          width: 100%;
           display: flex;
           align-items: center;
-          justify-content: space-between;
-          gap: 12px;
-          flex-wrap: wrap;
-          padding-top: 4px;
+          justify-content: center;
+          gap: 10px;
+          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-size: 11px;
+          font-weight: 700;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          color: #2a1800;
+          background: #E8A838;
+          border: none;
+          border-radius: 2px;
+          padding: 16px 24px;
+          margin-top: 4px;
+          cursor: pointer;
+          transition: background 0.22s ease, transform 0.18s ease, box-shadow 0.22s ease;
         }
+        .csr__btn:hover:not(:disabled) {
+          background: #d4922a;
+          transform: translateY(-2px);
+          box-shadow: 0 8px 24px rgba(232,168,56,0.28);
+        }
+        .csr__btn:disabled {
+          opacity: 0.55;
+          cursor: not-allowed;
+        }
+
+        /* Note délai */
         .csr__delay {
           font-family: var(--font-body, 'DM Sans', sans-serif);
           font-size: 11.5px;
-          color: rgba(245,237,214,0.30);
+          color: #b8c8b8;
+          text-align: center;
+          margin: 0;
         }
-
-        /* Bouton Envoyer */
-        .csr__submit {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
-          font-size: 11.5px;
-          font-weight: 700;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-          color: #011a0a;
-          background: #00AD4C;
-          border: none;
-          border-radius: 2px;
-          padding: 12px 30px;
-          cursor: pointer;
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          transition: background 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
-        }
-        .csr__submit:hover:not(:disabled) {
-          background: #A5CE46;
-          transform: translateY(-2px);
-          box-shadow: 0 8px 24px rgba(0,173,76,0.28);
-        }
-        .csr__submit:disabled { opacity: 0.6; cursor: not-allowed; }
 
         @keyframes csrSpin { to { transform: rotate(360deg); } }
         .csr__spin { animation: csrSpin 1s linear infinite; }
 
-        /* ── Succès ─────────────────────────────────────────── */
-        .csr__success {
-          text-align: center;
-          padding: 44px 20px;
+        /* ════ SUCCÈS ════════════════════════════════════════ */
+        .csr__ok {
           display: flex;
           flex-direction: column;
           align-items: center;
+          text-align: center;
           gap: 16px;
+          padding: 52px 20px;
         }
-        .csr__success-icon {
+        .csr__ok-ring {
           width: 64px;
           height: 64px;
           border-radius: 50%;
-          background: rgba(0,173,76,0.14);
-          border: 1px solid rgba(0,173,76,0.28);
+          background: rgba(0,173,76,0.08);
+          border: 1px solid rgba(0,173,76,0.20);
           display: flex;
           align-items: center;
           justify-content: center;
-          color: #A5CE46;
+          color: #00AD4C;
         }
-        .csr__success-title {
+        .csr__ok-title {
           font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
           font-size: 28px;
-          font-weight: 500;
-          color: #F5EDD6;
+          font-weight: 600;
+          color: #045627;
           margin: 0;
         }
-        .csr__success-body {
+        .csr__ok-body {
           font-family: var(--font-body, 'DM Sans', sans-serif);
           font-size: 14px;
-          line-height: 1.7;
-          color: rgba(245,237,214,0.62);
-          max-width: 320px;
+          line-height: 1.72;
+          color: #3a5040;
+          max-width: 300px;
           margin: 0;
         }
 
-        /* ── Responsive ─────────────────────────────────────── */
-        @media (max-width: 960px) {
-          .csr__inner {
+        /* ════ RESPONSIVE ════════════════════════════════════ */
+        @media (max-width: 900px) {
+          .csr__wrap {
             grid-template-columns: 1fr;
-            gap: 44px;
+            gap: 48px;
             padding: 72px var(--container-pad, 20px);
           }
-          .csr__left  { transform: translateY(22px) !important; }
-          .csr__right { transform: translateY(22px) !important; transition-delay: 0.14s !important; }
-          .csr__inner[data-visible="true"] .csr__left,
-          .csr__inner[data-visible="true"] .csr__right {
-            transform: translateY(0) !important;
-          }
         }
-        @media (max-width: 480px) {
-          .csr__row-2  { grid-template-columns: 1fr; }
-          .csr__card   { padding: 28px 18px 24px; }
+        @media (max-width: 500px) {
+          .csr__duo  { grid-template-columns: 1fr; }
+          .csr__card { padding: 28px 20px 24px; }
         }
       `}</style>
     </section>

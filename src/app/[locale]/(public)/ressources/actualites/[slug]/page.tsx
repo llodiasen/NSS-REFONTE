@@ -6,17 +6,17 @@ import { ARTICLES, ALL_CATEGORIES, getArticleBySlug } from "@/data/articles";
 import BlogArticleSidebar from "@/components/sections/blog/BlogArticleSidebar";
 import ArticleGallery from "@/components/sections/blog/ArticleGallery";
 import CloudinaryGallery from "@/components/sections/blog/CloudinaryGallery";
-import CTASection from "@/components/sections/CTASection";
 import ArticleMeta from "@/components/sections/blog/ArticleMeta";
 
 export const dynamic = "force-dynamic";
 
 const BADGE: Record<string, { bg: string; color: string }> = {
-  Presse:      { bg: "#fef3c7", color: "#92400e" },
-  Partenariat: { bg: "#d1fae5", color: "#065f46" },
-  Formation:   { bg: "#e8f2df", color: "#3b6d11" },
-  Plaidoyer:   { bg: "#fef3e2", color: "#854f0b" },
-  Mouvement:   { bg: "#dff0f8", color: "#185fa5" },
+  Presse:      { bg: "rgba(29,158,117,0.10)", color: "#1D9E75" },
+  Partenariat: { bg: "rgba(29,158,117,0.10)", color: "#1D9E75" },
+  Formation:   { bg: "rgba(29,158,117,0.10)", color: "#1D9E75" },
+  Plaidoyer:   { bg: "rgba(29,158,117,0.10)", color: "#1D9E75" },
+  Mouvement:   { bg: "rgba(29,158,117,0.10)", color: "#1D9E75" },
+  Événement:   { bg: "rgba(29,158,117,0.10)", color: "#1D9E75" },
 };
 
 function articleImage(category: string, coverUrl: string | null): string {
@@ -68,8 +68,8 @@ function renderContent(content: string, dropCap = true): React.ReactNode[] {
 
     if (block.startsWith("> ")) {
       nodes.push(
-        <blockquote key={i} style={{ borderLeft: "3px solid #1D9E75", background: "#f4f4f2", padding: "18px 24px", margin: "32px 0", borderRadius: "0 8px 8px 0" }}>
-          <p style={{ fontFamily: "var(--font-display)", fontSize: "18px", fontWeight: 400, fontStyle: "italic", color: "#1a1a1a", lineHeight: 1.65, margin: 0 }}>
+        <blockquote key={i} style={{ borderLeft: "2px solid #1D9E75", padding: "4px 0 4px 24px", margin: "36px 0" }}>
+          <p style={{ fontFamily: "var(--font-display)", fontSize: "17px", fontWeight: 400, fontStyle: "italic", color: "#2d5a3d", lineHeight: 1.6, margin: 0, textAlign: "justify" }}>
             {renderInline(block.replace(/^> /, ""))}
           </p>
         </blockquote>
@@ -82,7 +82,7 @@ function renderContent(content: string, dropCap = true): React.ReactNode[] {
       const first = block.charAt(0);
       const rest = block.slice(1);
       nodes.push(
-        <p key={i} style={{ fontFamily: "var(--font-body)", fontSize: "16px", lineHeight: 1.85, color: "#1a1a1a", marginBottom: "24px", textAlign: "justify" }}>
+        <p key={i} style={{ fontFamily: "var(--font-body)", fontSize: "17px", lineHeight: 1.85, color: "#1a1a1a", marginBottom: "24px", textAlign: "justify" }}>
           <span aria-hidden="true" style={{ fontFamily: "var(--font-display)", fontSize: "60px", fontWeight: 400, lineHeight: 0.75, color: "var(--green-700)", float: "left", marginRight: "8px", marginTop: "8px" }}>{first}</span>
           {renderInline(rest)}
         </p>
@@ -91,7 +91,7 @@ function renderContent(content: string, dropCap = true): React.ReactNode[] {
     }
 
     nodes.push(
-      <p key={i} style={{ fontFamily: "var(--font-body)", fontSize: "16px", lineHeight: 1.85, color: "#1a1a1a", marginBottom: "24px", textAlign: "justify" }}>
+      <p key={i} style={{ fontFamily: "var(--font-body)", fontSize: "17px", lineHeight: 1.85, color: "#1a1a1a", marginBottom: "24px", textAlign: "justify" }}>
         {renderInline(block)}
       </p>
     );
@@ -141,7 +141,7 @@ export default async function ActualitesSlugPage({ params }: Props) {
   if (!article) notFound();
 
   const minutes = readingTime(article.content);
-  const badge = BADGE[article.category] ?? { bg: "#e0f5ea", color: "#155c3e" };
+  const badge = BADGE[article.category] ?? { bg: "rgba(29,158,117,0.10)", color: "#1D9E75" };
   const coverSrc = articleImage(article.category, article.coverUrl);
 
   const related = ARTICLES.filter((a) => a.slug !== slug).slice(0, 5);
@@ -164,7 +164,7 @@ export default async function ActualitesSlugPage({ params }: Props) {
         <div aria-hidden="true" style={{ position: "absolute", inset: 0, background: ["linear-gradient(to right, rgba(0,0,0,0.97) 0%, rgba(3,8,5,0.95) 40%, rgba(6,14,9,0.88) 65%, rgba(0,0,0,0.70) 100%)", "linear-gradient(to bottom, rgba(0,0,0,0.40) 0%, transparent 35%, rgba(0,0,0,0.35) 100%)", "radial-gradient(ellipse 70% 50% at 20% 80%, rgba(45,154,106,0.08), transparent 65%)"].join(", "), zIndex: 1 }} />
         <div style={{ position: "relative", zIndex: 2, maxWidth: "var(--container-max)", margin: "0 auto", padding: "48px var(--container-pad) 32px" }}>
           <div style={{ maxWidth: "820px" }}>
-            <p style={{ fontFamily: "var(--font-body)", fontSize: "12px", color: "rgba(255,255,255,0.4)", marginBottom: "28px" }}>
+            <p style={{ fontFamily: "var(--font-body)", fontSize: "14px", color: "rgba(255,255,255,0.4)", marginBottom: "28px" }}>
               <Link href={`/${locale}`} style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none" }}>Accueil</Link>
               {" / "}
               <Link href={`/${locale}/ressources/actualites`} style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none" }}>Actualités</Link>
@@ -176,10 +176,10 @@ export default async function ActualitesSlugPage({ params }: Props) {
                 {article.category}
               </span>
             </div>
-            <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(20px, 2.8vw, 30px)", fontWeight: 400, lineHeight: 1.15, color: "#ffffff", marginBottom: "0" }}>
+            <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(22px, 2.8vw, 32px)", fontWeight: 400, lineHeight: 1.15, color: "#ffffff", marginBottom: "0" }}>
               {article.title}
             </h1>
-            <ArticleMeta date={formatDate(article.publishedAt)} readTime={`${minutes} min de lecture`} dark />
+            <ArticleMeta date={formatDate(article.publishedAt)} readTime={`${minutes} min de lecture`} location={article.location} dark />
           </div>
         </div>
       </section>
@@ -222,7 +222,7 @@ export default async function ActualitesSlugPage({ params }: Props) {
 
               if (!hasGallery && !hasVideo && !hasVideos && !hasPhotos) return renderContent(article.content);
 
-              const MARKER_RE = /\[\[GALLERY\]\]|\[\[VIDEO\]\]|\[\[VIDEO_1\]\]|\[\[VIDEO_2\]\]|\[\[VIDEO_3\]\]|\[\[PHOTO_1\]\]|\[\[PHOTO_2\]\]|\[\[PHOTO_3\]\]/g;
+              const MARKER_RE = /\[\[GALLERY\]\]|\[\[VIDEO\]\]|\[\[VIDEO_1\]\]|\[\[VIDEO_2\]\]|\[\[VIDEO_3\]\]|\[\[PHOTO_[1-9]\]\]/g;
               const parts = article.content.split(MARKER_RE);
               const markers: string[] = [];
               let m: RegExpExecArray | null;
@@ -251,7 +251,7 @@ export default async function ActualitesSlugPage({ params }: Props) {
                           </div>
                         ) : null;
                       })()}
-                      {/^\[\[PHOTO_[123]\]\]$/.test(markers[i] ?? "") && (() => {
+                      {/^\[\[PHOTO_[1-9]\]\]$/.test(markers[i] ?? "") && (() => {
                         const idx2 = parseInt((markers[i] ?? "").replace(/\D/g, ""), 10) - 1;
                         const src = article.simpleImages?.[idx2];
                         return src ? (
@@ -286,6 +286,7 @@ export default async function ActualitesSlugPage({ params }: Props) {
                 author={article.author}
                 sourceName={article.sourceName}
                 sourceUrl={article.sourceUrl}
+                location={article.location}
               />
             )}
 
@@ -340,8 +341,6 @@ export default async function ActualitesSlugPage({ params }: Props) {
           }}
         />
       )}
-
-      <CTASection />
 
       <style>{`
         @media (max-width: 1024px) { .article-layout { grid-template-columns: 1fr !important; gap: 48px !important; } }

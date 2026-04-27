@@ -86,13 +86,36 @@ Mariama Sonko a rappelé que le centre couvre plusieurs domaines — agriculture
     canonical: "https://wasafrica.org/fr/thousand-currents-au-centre-karonghen-wati-naning-a-niaguiss/",
     robots: "index, follow",
     tags: ["Thousand Currents", "Casamance", "Niaguiss", "centre agroécologique", "Karonghen Wati Naning", "partenariat", "Nous Sommes la Solution", "souveraineté alimentaire"],
+    simpleImages: [
+      "/images/actualites/thousand-currents/1.jpg",
+      "/images/actualites/thousand-currents/2.jpg",
+      "/images/actualites/thousand-currents/3.jpg",
+      "/images/actualites/thousand-currents/4.jpg",
+      "/images/actualites/thousand-currents/8.jpg",
+      "/images/actualites/thousand-currents/9.jpg",
+      "/images/actualites/thousand-currents/main.jpg",
+    ],
     content: `Une équipe de Thousand Currents, composée de Mme Salome (Directrice générale), Mme Félogène (Directrice Afrique) et Mme Zanele (Vice-présidente), une ONG américaine qui appuie Nous Sommes la Solution (NSS) depuis huit ans, a séjourné en Casamance pour visiter le centre Karonghen Wati Naning de Niaguiss.
 
 L'objectif de la visite était de constater de visu les réalisations accomplies sur le site par NSS et ses partenaires locaux, notamment les initiatives menées par AJAC Lukkal.
 
+[[PHOTO_1]]
+
+[[PHOTO_2]]
+
 La délégation a pu découvrir l'ensemble des activités du centre : agriculture paysanne, élevage, pisciculture, agroforesterie, apiculture, horticulture, transformation agroalimentaire, production de biofertilisants et de biopesticides, ainsi que les programmes de formation destinés aux jeunes et aux femmes rurales.
 
-Les trois représentantes de Thousand Currents sont reparties satisfaites de ce qu'elles ont découvert, et se disent prêtes à continuer à soutenir NSS dans sa mission de promotion de l'agroécologie paysanne en Afrique de l'Ouest.`,
+[[PHOTO_3]]
+
+[[PHOTO_4]]
+
+Les trois représentantes de Thousand Currents sont reparties satisfaites de ce qu'elles ont découvert, et se disent prêtes à continuer à soutenir NSS dans sa mission de promotion de l'agroécologie paysanne en Afrique de l'Ouest.
+
+[[PHOTO_5]]
+
+[[PHOTO_6]]
+
+[[PHOTO_7]]`,
   },
 
   // ── NSS — Déclaration finale Foire Djimini, semences paysannes 2024 ──────

@@ -24,14 +24,11 @@ export default function CTAHeroSectionRedesign() {
 
   return (
     <section className="cth" aria-labelledby="cth-heading">
-      {/* Gradient de fond */}
+      {/* Image de fond */}
       <div className="cth__bg" aria-hidden="true" />
 
-      {/* Motif kente géométrique overlay */}
-      <div className="cth__pattern" aria-hidden="true" />
-
-      {/* Halo or subtil */}
-      <div className="cth__halo" aria-hidden="true" />
+      {/* Overlay sombre pour lisibilité */}
+      <div className="cth__overlay" aria-hidden="true" />
 
       <div className="cth__inner" ref={innerRef}>
         {/* Eyebrow */}
@@ -83,63 +80,31 @@ export default function CTAHeroSectionRedesign() {
         .cth {
           position: relative;
           overflow: hidden;
-          min-height: 480px;
+          min-height: 320px;
           display: flex;
           align-items: center;
         }
 
-        /* Gradient vert foncé → vert vif */
+        /* Image de fond */
         .cth__bg {
+          position: absolute;
+          inset: 0;
+          background-image: url('/images/NSS.webp');
+          background-size: cover;
+          background-position: center;
+          z-index: 0;
+        }
+
+        /* Overlay sombre */
+        .cth__overlay {
           position: absolute;
           inset: 0;
           background: linear-gradient(
             135deg,
-            #021f0e 0%,
-            #045627 40%,
-            #007a37 70%,
-            #00AD4C 100%
+            rgba(2,31,14,0.88) 0%,
+            rgba(4,86,39,0.80) 50%,
+            rgba(2,31,14,0.75) 100%
           );
-          z-index: 0;
-        }
-
-        /* Motif géométrique diagonal kente */
-        .cth__pattern {
-          position: absolute;
-          inset: 0;
-          z-index: 1;
-          pointer-events: none;
-          background-image:
-            repeating-linear-gradient(
-              -45deg,
-              transparent,
-              transparent 18px,
-              rgba(245,237,214,0.04) 18px,
-              rgba(245,237,214,0.04) 20px
-            ),
-            repeating-linear-gradient(
-              45deg,
-              transparent,
-              transparent 18px,
-              rgba(165,206,70,0.04) 18px,
-              rgba(165,206,70,0.04) 20px
-            );
-        }
-
-        /* Halo or centré */
-        .cth__halo {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: 600px;
-          height: 600px;
-          border-radius: 50%;
-          background: radial-gradient(
-            circle,
-            rgba(232,168,56,0.10) 0%,
-            transparent 65%
-          );
-          pointer-events: none;
           z-index: 1;
         }
 
@@ -150,7 +115,7 @@ export default function CTAHeroSectionRedesign() {
           width: 100%;
           max-width: var(--container-max, 1200px);
           margin: 0 auto;
-          padding: 96px var(--container-pad, 24px);
+          padding: 60px var(--container-pad, 24px);
           text-align: center;
           opacity: 0;
           transform: translateY(24px);
@@ -190,8 +155,8 @@ export default function CTAHeroSectionRedesign() {
         /* H2 */
         .cth__h2 {
           font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
-          font-size: clamp(36px, 6vw, 76px);
-          font-weight: 500;
+          font-size: clamp(22px, 2.8vw, 38px);
+          font-weight: 600;
           line-height: 1.05;
           color: #F5EDD6;
           margin: 0 0 24px;
@@ -207,7 +172,7 @@ export default function CTAHeroSectionRedesign() {
           font-family: var(--font-body, 'DM Sans', sans-serif);
           font-size: clamp(15px, 1.6vw, 18px);
           line-height: 1.75;
-          color: rgba(245,237,214,0.82);
+          color: #ffffff;
           max-width: 620px;
           margin: 0 auto 44px;
         }
@@ -260,13 +225,13 @@ export default function CTAHeroSectionRedesign() {
           font-size: clamp(13px, 1.2vw, 15px);
           font-style: italic;
           color: rgba(245,237,214,0.32);
-          margin: 48px 0 0;
+          margin: 28px 0 0;
           letter-spacing: 0.06em;
         }
 
         /* ════ Responsive ═════════════════════════════════════ */
         @media (max-width: 640px) {
-          .cth__inner { padding: 72px 20px; }
+          .cth__inner { padding: 44px 20px; }
           .cth__btns { flex-direction: column; align-items: stretch; }
           .cth__btn { text-align: center; }
         }

@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import HeroHome from "@/components/sections/HeroHome";
-import AboutSection from "@/components/sections/AboutSection";
+import HeroSectionRedesign from "@/components/sections/HeroSectionRedesign";
 import EventsSectionRedesign from "@/components/home/EventsSectionRedesign";
 import PartnersSectionRedesign from "@/components/home/PartnersSectionRedesign";
 import MediathequeSectionRedesign from "@/components/home/MediathequeSectionRedesign";
 import CTAHeroSectionRedesign from "@/components/home/CTAHeroSectionRedesign";
 import NewsSectionRedesign from "@/components/home/NewsSectionRedesign";
-import ContactHomeSection from "@/components/sections/ContactHomeSection";
+import ContactSectionRedesign from "@/components/home/ContactSectionRedesign";
+import TestimonialSliderRedesign from "@/components/sections/TestimonialSliderRedesign";
 
 export const metadata: Metadata = {
   title: "Nous Sommes la Solution — Femmes rurales pour la souveraineté alimentaire",
@@ -25,20 +26,22 @@ export default async function HomePage() {
     <>
       {/* 01 — Hero plein écran + barre stats */}
       <HeroHome />
-      {/* 02 — À propos */}
-      <AboutSection />
-      {/* 03 — Événements */}
+      {/* 02 — Qui sommes-nous redesign */}
+      <HeroSectionRedesign />
+      {/* 03 — Témoignages & Leaders */}
+      <TestimonialSliderRedesign />
+      {/* 04 — Événements */}
       <EventsSectionRedesign />
-      {/* 04 — Partenaires */}
+      {/* 05 — Partenaires */}
       <PartnersSectionRedesign />
-      {/* 05 — Médiathèque */}
+      {/* 06 — Médiathèque */}
       <MediathequeSectionRedesign />
-      {/* 06 — CTA Hero */}
+      {/* 07 — CTA Hero */}
       <CTAHeroSectionRedesign />
-      {/* 07 — Actualités */}
+      {/* 08 — Actualités */}
       <NewsSectionRedesign />
-      {/* 08 — Nous contacter */}
-      <ContactHomeSection />
+      {/* 09 — Nous contacter */}
+      <ContactSectionRedesign />
     </>
   );
 }

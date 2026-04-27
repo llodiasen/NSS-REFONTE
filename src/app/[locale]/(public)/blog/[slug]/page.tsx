@@ -75,7 +75,7 @@ function renderContent(content: string, dropCap = true): React.ReactNode[] {
     if (block.startsWith("> ")) {
       nodes.push(
         <blockquote key={i} style={{ borderLeft: "3px solid #1D9E75", background: "#f4f4f2", padding: "18px 24px", margin: "32px 0", borderRadius: "0 8px 8px 0" }}>
-          <p style={{ fontFamily: "var(--font-display)", fontSize: "18px", fontWeight: 400, fontStyle: "italic", color: "#1a1a1a", lineHeight: 1.65, margin: 0 }}>
+          <p style={{ fontFamily: "var(--font-display)", fontSize: "16px", fontWeight: 400, fontStyle: "italic", color: "#1a1a1a", lineHeight: 1.65, margin: 0 }}>
             {renderInline(block.replace(/^> /, ""))}
           </p>
         </blockquote>

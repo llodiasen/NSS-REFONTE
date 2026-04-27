@@ -137,32 +137,6 @@ export default function BlogArticleSidebar({ related, locale, categories, active
         </div>
       )}
 
-      {/* CTA Agir */}
-      <div style={{ background: "var(--green-900)", borderRadius: "16px", padding: "28px", textAlign: "center" }}>
-        <p style={{ fontFamily: "var(--font-display)", fontSize: "18px", fontWeight: 400, color: "#fff", lineHeight: 1.3, marginBottom: "12px" }}>
-          Rejoignez le mouvement.
-        </p>
-        <p style={{ fontFamily: "var(--font-body)", fontSize: "12px", fontWeight: 300, color: "rgba(255,255,255,0.55)", lineHeight: 1.6, marginBottom: "20px" }}>
-          175 000 femmes rurales qui construisent la souveraineté alimentaire.
-        </p>
-        <Link
-          href={`/${locale}/agir/rejoindre`}
-          style={{
-            display: "inline-block",
-            fontFamily: "var(--font-body)",
-            fontSize: "13px",
-            fontWeight: 600,
-            color: "var(--green-900)",
-            textDecoration: "none",
-            background: "var(--green-300)",
-            borderRadius: "20px",
-            padding: "10px 22px",
-          }}
-        >
-          Agir avec NSS
-        </Link>
-      </div>
-
     </aside>
   );
 }

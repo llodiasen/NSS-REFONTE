@@ -101,7 +101,7 @@ export default function HeaderSlidePanel({
         {/* CTA */}
         <div style={{ padding: "14px 20px", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
           <Link href={`/${locale}/agir/rejoindre`} onClick={onClose}
-            style={{ display: "block", background: "#1a6b3c", color: "#fff", fontSize: "13px", fontWeight: 600, padding: "10px", borderRadius: "8px", textAlign: "center", textDecoration: "none" }}>
+            style={{ display: "block", background: "#E8A838", color: "#045627", fontSize: "13px", fontWeight: 700, padding: "10px", borderRadius: "8px", textAlign: "center", textDecoration: "none" }}>
             Nous rejoindre →
           </Link>
         </div>

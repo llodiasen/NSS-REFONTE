@@ -1,4 +1,4 @@
-import Header from "@/components/layout/Header";
+import HeaderV2 from "@/components/layout/HeaderV2";
 import FooterRedesign from "@/components/layout/FooterRedesign";
 
 interface PublicLayoutProps {
@@ -11,7 +11,7 @@ export default async function PublicLayout({ children, params }: PublicLayoutPro
 
   return (
     <>
-      <Header />
+      <HeaderV2 />
       <main>{children}</main>
       <FooterRedesign locale={locale} />
     </>

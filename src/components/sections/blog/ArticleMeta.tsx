@@ -4,6 +4,7 @@ interface Props {
   readTime?: string;
   sourceName?: string;
   sourceUrl?: string;
+  location?: string;
   dark?: boolean;
 }
 
@@ -34,6 +35,15 @@ function IconUser({ color }: { color: string }) {
   );
 }
 
+function IconPin({ color }: { color: string }) {
+  return (
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true" style={{ flexShrink: 0 }}>
+      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="12" cy="9" r="2.5" stroke={color} strokeWidth="1.8" />
+    </svg>
+  );
+}
+
 function IconLink({ color }: { color: string }) {
   return (
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true" style={{ flexShrink: 0 }}>
@@ -43,7 +53,7 @@ function IconLink({ color }: { color: string }) {
   );
 }
 
-export default function ArticleMeta({ author, date, readTime, sourceName, sourceUrl, dark = false }: Props) {
+export default function ArticleMeta({ author, date, readTime, sourceName, sourceUrl, location, dark = false }: Props) {
   const textColor   = dark ? "rgba(255,255,255,0.55)" : "#6b7280";
   const accentColor = dark ? "rgba(255,255,255,0.85)" : "#1a1a1a";
   const dotColor    = dark ? "rgba(255,255,255,0.20)" : "#d1d5db";
@@ -63,6 +73,13 @@ export default function ArticleMeta({ author, date, readTime, sourceName, source
     <span key="date" style={{ display: "flex", alignItems: "center", gap: "5px" }}>
       <IconCalendar color={iconColor} />
       <span>{date}</span>
+    </span>
+  );
+
+  if (location) items.push(
+    <span key="location" style={{ display: "flex", alignItems: "center", gap: "5px" }}>
+      <IconPin color={iconColor} />
+      <span>{location}</span>
     </span>
   );
 
