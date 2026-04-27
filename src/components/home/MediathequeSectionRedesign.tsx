@@ -284,8 +284,7 @@ export default function MediathequeSectionRedesign() {
             overflow: hidden;
           }
           .vds__wrap {
-            max-width: var(--container-max, 1200px);
-            margin: 0 auto;
+            max-width: 100%;
             padding: 100px var(--container-pad, 24px);
           }
 
@@ -450,7 +449,7 @@ export default function MediathequeSectionRedesign() {
             .vds__cell:last-child { grid-column: 1 / -1; max-width: 480px; margin: 0 auto; width: 100%; }
           }
           @media (max-width: 640px) {
-            .vds__wrap { padding: 72px 20px; }
+            .vds__wrap { padding: 72px 1rem; }
             .vds__grid { grid-template-columns: 1fr; gap: 18px; }
             .vds__cell:last-child { grid-column: auto; max-width: none; margin: 0; }
             .vds__hd { margin-bottom: 32px; }

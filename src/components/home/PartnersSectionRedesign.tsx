@@ -102,16 +102,6 @@ export default function PartnersSectionRedesign() {
           ))}
         </ul>
 
-        {/* ── Footer CTA ── */}
-        <div className="pts__foot">
-          <Link
-            href="/fr/agir/donner"
-            className="pts__foot-btn"
-            aria-label="Devenir partenaire du mouvement NSS"
-          >
-            Nous soutenir
-          </Link>
-        </div>
       </div>
 
       <style>{`
@@ -139,9 +129,8 @@ export default function PartnersSectionRedesign() {
         .pts__wrap {
           position: relative;
           z-index: 1;
-          max-width: var(--container-max, 1200px);
-          margin: 0 auto;
-          padding: 80px var(--container-pad, 24px);
+          max-width: 100%;
+          padding: 80px 2rem;
         }
 
         /* ════ Header ═════════════════════════════════════════ */
@@ -299,7 +288,7 @@ export default function PartnersSectionRedesign() {
 
         /* ════ Responsive ═════════════════════════════════════ */
         @media (max-width: 768px) {
-          .pts__wrap { padding: 64px 20px; }
+          .pts__wrap { padding: 64px 1rem; }
           .pts__logo-wrap { width: 130px; height: 60px; }
           .pts__grid { gap: 14px; }
         }

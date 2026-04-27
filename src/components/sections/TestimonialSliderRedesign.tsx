@@ -9,7 +9,7 @@ const GOLD     = "#C9A227";
 const GREEN_VIF= "#2d9a6a";
 const GREEN_LT = "#4db882";
 const BORDER   = "#045627";
-const BG       = "#F5EDD6";
+const BG       = "#ffffff";
 const DARK     = "#071A10";
 
 /* ── data ────────────────────────────────────────────────────────────────── */
@@ -23,7 +23,7 @@ const LEADERS: Leader[] = [
     location: "Sénégal",
     caption: "Fondatrice et présidente depuis 2011, elle porte la voix des 175 000 membres de NSS sur la scène internationale de la souveraineté alimentaire.",
     photo: "https://res.cloudinary.com/dtjvjlkcc/image/upload/q_auto/f_auto/v1775741948/Mariama_sonko_presidente_nss_hjukz0.jpg",
-    href: "/fr/mouvement",
+    href: "/fr/mouvement/associations",
   },
   {
     nom: "Esther Y. Boake",
@@ -32,7 +32,7 @@ const LEADERS: Leader[] = [
     location: "Ghana",
     caption: "Déléguée de l'ABOFAB, elle représente les organisations paysannes ghanéennes au sein du Conseil d'Administration de NSS.",
     photo: "https://wasafrica.org/wp-content/uploads/2024/08/Esther-Y.-Boake-ABOFAB-1.jpg",
-    href: "/fr/mouvement/leaders",
+    href: "/fr/mouvement/associations",
   },
   {
     nom: "Sia A.M. Kamano",
@@ -41,7 +41,7 @@ const LEADERS: Leader[] = [
     location: "Guinée",
     caption: "Représentante de l'AGUISSA, elle œuvre pour l'autonomie des femmes paysannes guinéennes à travers l'agroécologie.",
     photo: "https://wasafrica.org/wp-content/uploads/2024/08/Sia-A.-M.-Kamano-AGUISSA-1.jpg",
-    href: "/fr/mouvement/leaders",
+    href: "/fr/mouvement/associations",
   },
   {
     nom: "Yah Diakité",
@@ -50,7 +50,7 @@ const LEADERS: Leader[] = [
     location: "Mali",
     caption: "Pilier de l'AMASSA, elle engage les femmes rurales maliennes dans la préservation des semences paysannes et la biodiversité.",
     photo: "https://wasafrica.org/wp-content/uploads/2024/08/Yah-Diakite-AMASSA-rotated-1.jpg",
-    href: "/fr/mouvement/leaders",
+    href: "/fr/mouvement/associations",
   },
   {
     nom: "Cadia Fernandes",
@@ -59,7 +59,7 @@ const LEADERS: Leader[] = [
     location: "Guinée-Bissau",
     caption: "Représentante de KAFO, elle défend la vision NSS en Guinée-Bissau et milite pour le rôle central des femmes dans les systèmes alimentaires.",
     photo: "https://wasafrica.org/wp-content/uploads/2024/08/Cadia-Fernandes-KAFO-1-1-rotated-1.jpg",
-    href: "/fr/mouvement/leaders",
+    href: "/fr/mouvement/associations",
   },
   {
     nom: "Catherine Soulama",
@@ -68,7 +68,7 @@ const LEADERS: Leader[] = [
     location: "Burkina Faso",
     caption: "Déléguée de la FENOP, elle coordonne les actions du mouvement au Burkina Faso et incarne l'engagement collectif des femmes rurales burkinabè.",
     photo: "https://wasafrica.org/wp-content/uploads/2024/08/Catherie-Soulama-FENOP-1-rotated-1.jpg",
-    href: "/fr/mouvement/leaders",
+    href: "/fr/mouvement/associations",
   },
   {
     nom: "Fanta Diamoutene",
@@ -77,7 +77,7 @@ const LEADERS: Leader[] = [
     location: "Mali",
     caption: "Membre active de l'AOPP, elle mobilise les organisations paysannes autour des valeurs fondatrices de NSS et de la souveraineté alimentaire.",
     photo: "https://wasafrica.org/wp-content/uploads/2024/08/Fanta-Diamoutene-AOPP-1-rotated-1.jpg",
-    href: "/fr/mouvement/leaders",
+    href: "/fr/mouvement/associations",
   },
   {
     nom: "Fatou B. Diop",
@@ -86,7 +86,7 @@ const LEADERS: Leader[] = [
     location: "Sénégal",
     caption: "Porte-voix de l'UGPM, elle contribue à l'expansion du réseau NSS et à la promotion des droits des productrices rurales du Sénégal.",
     photo: "https://wasafrica.org/wp-content/uploads/2024/08/Fatou-B.-Diop-UGPM.jpg",
-    href: "/fr/mouvement/leaders",
+    href: "/fr/mouvement/associations",
   },
 ];
 
@@ -108,7 +108,6 @@ function LeaderCard({ l }: { l: Leader }) {
             {l.role}&nbsp;<span className="tsl-orga">· {l.orga}</span>
           </p>
           <p className="tsl-loc"><span className="tsl-dot" />{l.location}</p>
-          <p className="tsl-caption">{l.caption}</p>
           <Link href={l.href} className="tsl-cta">En savoir plus →</Link>
         </div>
       </div>
@@ -137,9 +136,9 @@ export default function TestimonialSliderRedesign() {
       {/* Header */}
       <div className="tsl-header">
         <p className="tsl-eyebrow">
-          <span className="tsl-eline" />Témoignages &amp; Leadership<span className="tsl-eline" />
+          <span className="tsl-eline" />Nos Leaders<span className="tsl-eline" />
         </p>
-        <h2 className="tsl-h2">Les voix qui portent le mouvement.</h2>
+        <h2 className="tsl-h2">Les voix qui portent <em className="tsl-h2-em">le mouvement.</em></h2>
         <p className="tsl-sub">175&nbsp;000 membres · 12 pays · 500+ associations de femmes rurales</p>
       </div>
 
@@ -179,30 +178,37 @@ export default function TestimonialSliderRedesign() {
         </button>
       </div>
 
+      {/* Global CTA */}
+      <div className="tsl-cta-wrap">
+        <Link href="/fr/mouvement/associations" className="tsl-cta-btn">
+          Voir toutes les associations →
+        </Link>
+      </div>
+
       <style suppressHydrationWarning>{`
-        .tsl-section { background:${BG}; padding:80px 0 60px; overflow:hidden; }
+        .tsl-section { background:#FAF6EE; padding:100px 0 80px; overflow:hidden; }
 
         /* Header */
-        .tsl-header { text-align:center; padding:0 40px; margin-bottom:48px; }
+        .tsl-header { text-align:center; padding:0 2rem; margin-bottom:48px; }
         .tsl-eyebrow {
           display:flex; align-items:center; justify-content:center; gap:14px;
-          font-family:var(--font-body); font-size:9px; font-weight:600;
-          text-transform:uppercase; letter-spacing:3px; color:${GREEN_VIF}; margin:0 0 18px;
+          font-family:var(--font-body); font-size:11px; font-weight:700;
+          text-transform:uppercase; letter-spacing:1.5px; color:#A5CE46; margin:0 0 18px;
         }
-        .tsl-eline { display:block; width:32px; height:1px; background:${GREEN_VIF}; flex-shrink:0; }
+        .tsl-eline { display:block; width:28px; height:1px; background:rgba(165,206,70,0.5); flex-shrink:0; }
         .tsl-h2 {
-          font-family:var(--font-display); font-size:clamp(22px,3vw,36px);
-          font-weight:400; color:${DARK}; margin:0 0 10px; line-height:1.15;
+          font-family:var(--font-display); font-size:clamp(24px,3vw,38px);
+          font-weight:600; color:#1a1a1a; margin:0 0 10px; line-height:1.15;
         }
+        .tsl-h2-em { font-style:italic; font-weight:600; color:#A5CE46; }
         .tsl-sub { font-family:var(--font-body); font-size:13px; color:#7a7a7a; margin:0; }
 
         /* Slider */
         .tsl-viewport { width:100%; overflow:hidden; }
         .tsl-track { display:flex; transition:transform .65s cubic-bezier(.4,0,.2,1); will-change:transform; }
-        .tsl-slide { min-width:100%; padding:0 40px; box-sizing:border-box; }
+        .tsl-slide { min-width:100%; padding:0 2rem; box-sizing:border-box; }
         .tsl-grid {
           display:grid; grid-template-columns:repeat(4,1fr); gap:20px;
-          max-width:1320px; margin:0 auto;
         }
 
         /* Card */
@@ -239,7 +245,7 @@ export default function TestimonialSliderRedesign() {
         }
         .tsl-role {
           font-family:var(--font-body); font-size:10px; font-weight:700;
-          text-transform:uppercase; letter-spacing:1.2px; color:${GOLD}; margin:0;
+          text-transform:uppercase; letter-spacing:1.2px; color:#ffffff; margin:0;
         }
         .tsl-orga { font-weight:400; letter-spacing:0; }
         .tsl-loc {
@@ -252,7 +258,7 @@ export default function TestimonialSliderRedesign() {
         }
         .tsl-caption {
           font-family:var(--font-display); font-style:italic; font-size:11.5px;
-          color:${GOLD}; line-height:1.65; margin:0 0 10px;
+          color:#ffffff; line-height:1.65; margin:0 0 10px;
           display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;
         }
         .tsl-cta {
@@ -265,7 +271,7 @@ export default function TestimonialSliderRedesign() {
         /* Navigation */
         .tsl-nav {
           display:flex; align-items:center; justify-content:center;
-          gap:24px; margin-top:36px; padding:0 40px;
+          gap:24px; margin-top:36px; padding:0 2rem;
         }
         .tsl-arrow {
           width:44px; height:44px; border-radius:50%;
@@ -284,16 +290,29 @@ export default function TestimonialSliderRedesign() {
         }
         .tsl-dot-btn--on { background:${GOLD}; border-color:${GOLD}; transform:scale(1.3); }
 
+        /* Global CTA */
+        .tsl-cta-wrap {
+          display:flex; justify-content:center; margin-top:32px; padding:0 2rem;
+        }
+        .tsl-cta-btn {
+          font-family:var(--font-body); font-size:13px; font-weight:700;
+          text-decoration:none; color:#ffffff;
+          background:#00AD4C; padding:12px 32px; border-radius:8px;
+          transition:filter .2s, transform .15s;
+          display:inline-flex; align-items:center; gap:6px;
+        }
+        .tsl-cta-btn:hover { filter:brightness(1.1); transform:translateY(-2px); }
+
         /* Responsive */
         @media (max-width:1024px) { .tsl-grid { grid-template-columns:repeat(3,1fr); } }
         @media (max-width:768px) {
           .tsl-grid { grid-template-columns:repeat(2,1fr); }
-          .tsl-slide { padding:0 20px; }
-          .tsl-section { padding:60px 0 48px; }
+          .tsl-slide { padding:0 1rem; }
+          .tsl-section { padding:72px 0 60px; }
         }
         @media (max-width:480px) {
           .tsl-grid { grid-template-columns:1fr 1fr; gap:12px; }
-          .tsl-header,.tsl-nav { padding:0 20px; }
+          .tsl-header,.tsl-nav { padding:0 1rem; }
         }
       `}</style>
     </section>

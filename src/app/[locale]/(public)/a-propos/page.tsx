@@ -3,7 +3,7 @@ import AboutHero from "@/components/sections/about/AboutHero";
 import AboutDeclaration from "@/components/sections/about/AboutDeclaration";
 import TimelineZigzagRedesign from "@/components/sections/about/TimelineZigzagRedesign";
 import GovernanceSectionRedesign from "@/components/sections/about/GovernanceSectionRedesign";
-import LeadershipGridRedesign from "@/components/sections/about/LeadershipGridRedesign";
+import TestimonialSliderRedesign from "@/components/sections/TestimonialSliderRedesign";
 import FinalCTASectionRedesign from "@/components/sections/FinalCTASectionRedesign";
 import ContactSectionRedesign from "@/components/home/ContactSectionRedesign";
 
@@ -22,10 +22,10 @@ export default function AProposPage() {
       <AboutDeclaration />
       {/* 03 — Frise chronologique */}
       <TimelineZigzagRedesign />
-      {/* 05 — Structure & Gouvernance */}
+      {/* 04 — Structure & Gouvernance */}
       <GovernanceSectionRedesign />
       {/* 06 — Témoignages & Leaders */}
-      <LeadershipGridRedesign />
+      <TestimonialSliderRedesign />
       {/* 07 — CTA final */}
       <FinalCTASectionRedesign />
       {/* 08 — Formulaire de contact */}

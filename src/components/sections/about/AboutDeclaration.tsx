@@ -39,8 +39,8 @@ export default function AboutDeclaration() {
 
           {/* Titre */}
           <h2 id="ad-heading" className="ad__h2">
-            Les femmes rurales <em>nourrissent l&apos;Afrique.</em><br />
-            Elles sont la solution.
+            <span className="ad__h2-line">Les femmes rurales nourrissent l&apos;Afrique.</span>
+            <em className="ad__h2-em">Elles sont la solution.</em>
           </h2>
 
           {/* Underline vert 60px */}
@@ -98,7 +98,7 @@ export default function AboutDeclaration() {
       <style>{`
         /* ══ Section — fade-in scroll ════════════════════════════ */
         .ad {
-          background: #FAFAF8;
+          background: #ffffff;
           overflow: hidden;
           opacity: 0;
           transform: translateY(20px);
@@ -110,7 +110,7 @@ export default function AboutDeclaration() {
         .ad__wrap {
           max-width: var(--container-max, 1200px);
           margin: 0 auto;
-          padding: 2rem 40px;
+          padding: 5rem 40px;
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 3rem;
@@ -128,26 +128,29 @@ export default function AboutDeclaration() {
         .ad__label {
           display: inline-block;
           font-family: var(--font-body, 'DM Sans', sans-serif);
-          font-size: 9.5px; font-weight: 700;
-          letter-spacing: 0.32em; text-transform: uppercase;
+          font-size: 11px; font-weight: 700;
+          letter-spacing: 1.5px; text-transform: uppercase;
           color: #E8A838;
           margin-bottom: 16px;
         }
 
-        /* Titre Cormorant — clamp pour tenir en 2 lignes desktop */
         .ad__h2 {
-          font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
-          font-size: clamp(1.25rem, 1.95vw, 1.625rem);
-          font-weight: 500;
-          line-height: 1.15;
-          color: #0a1f10;
+          font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+          font-size: clamp(22px, 2.4vw, 34px);
+          font-weight: 600;
+          line-height: 1.16;
+          color: #1a1a1a;
           margin: 0 0 20px;
           letter-spacing: -0.01em;
+          display: flex;
+          flex-direction: column;
+          gap: 0;
         }
-        .ad__h2 em {
+        .ad__h2-line { display: block; }
+        .ad__h2-em {
+          display: block;
           font-style: italic;
-          color: #00AD4C;
-          font-weight: 400;
+          color: #A5CE46;
         }
 
         /* Underline vert 60px */
@@ -163,9 +166,9 @@ export default function AboutDeclaration() {
         /* Paragraphes */
         .ad__body {
           font-family: var(--font-body, 'DM Sans', sans-serif);
-          font-size: 15px;
+          font-size: 17px;
           line-height: 1.8;
-          color: #4a5a4a;
+          color: #1a1a1a;
           margin: 0 0 16px;
           text-align: justify;
           hyphens: auto;
@@ -180,7 +183,7 @@ export default function AboutDeclaration() {
           gap: 10px;
         }
         .ad__stat {
-          background: #F2F2EF;
+          background: #FAF6EE;
           border-radius: 8px;
           padding: 14px 12px;
           display: flex;
@@ -189,21 +192,21 @@ export default function AboutDeclaration() {
           transition: box-shadow 0.3s ease, background 0.3s ease;
         }
         .ad__stat:hover {
-          background: #EAEAD6;
+          background: #F2EDE0;
           box-shadow: 0 4px 12px rgba(0,0,0,0.06);
         }
         .ad__stat-v {
           font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
-          font-size: 26px;
+          font-size: 27px;
           font-weight: 700;
-          color: #E8A838;
+          color: #00AD4C;
           line-height: 1;
         }
         .ad__stat-l {
           font-family: var(--font-body, 'DM Sans', sans-serif);
-          font-size: 11px;
+          font-size: 13px;
           font-weight: 400;
-          color: #7a8a7a;
+          color: #1a1a1a;
           line-height: 1.4;
         }
 
@@ -272,7 +275,7 @@ export default function AboutDeclaration() {
           .ad__wrap {
             grid-template-columns: 1fr;
             gap: 2rem;
-            padding: 2rem 24px;
+            padding: 4rem 24px;
           }
           /* Mobile : texte d'abord, puis vidéo */
           .ad__left  { order: 1; }

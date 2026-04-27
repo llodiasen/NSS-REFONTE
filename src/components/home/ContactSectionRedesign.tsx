@@ -293,9 +293,8 @@ export default function ContactSectionRedesign() {
 
         /* ════ LAYOUT ═════════════════════════════════════════ */
         .csr__wrap {
-          max-width: var(--container-max, 1200px);
-          margin: 0 auto;
-          padding: 96px var(--container-pad, 24px);
+          max-width: 100%;
+          padding: 112px var(--container-pad, 24px);
           display: grid;
           grid-template-columns: 1fr 1.4fr;
           gap: 72px;
@@ -338,17 +337,18 @@ export default function ContactSectionRedesign() {
 
         /* H2 */
         .csr__h2 {
-          font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
+          font-family: var(--font-display), Georgia, serif;
           font-size: clamp(22px, 2.8vw, 38px);
           font-weight: 600;
           line-height: 1.1;
-          color: #045627;
+          color: #1a1a1a;
           margin: 0 0 20px;
           letter-spacing: -0.015em;
         }
         .csr__h2 em {
           font-style: italic;
-          color: #00AD4C;
+          font-weight: 600;
+          color: #A5CE46;
         }
 
         /* Sous-titre */
@@ -673,7 +673,7 @@ export default function ContactSectionRedesign() {
           .csr__wrap {
             grid-template-columns: 1fr;
             gap: 48px;
-            padding: 72px var(--container-pad, 20px);
+            padding: 88px var(--container-pad, 20px);
           }
         }
         @media (max-width: 500px) {

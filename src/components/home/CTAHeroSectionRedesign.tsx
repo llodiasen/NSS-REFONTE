@@ -113,9 +113,8 @@ export default function CTAHeroSectionRedesign() {
           position: relative;
           z-index: 2;
           width: 100%;
-          max-width: var(--container-max, 1200px);
-          margin: 0 auto;
-          padding: 60px var(--container-pad, 24px);
+          max-width: 100%;
+          padding: 60px 2rem;
           text-align: center;
           opacity: 0;
           transform: translateY(24px);
@@ -231,7 +230,7 @@ export default function CTAHeroSectionRedesign() {
 
         /* ════ Responsive ═════════════════════════════════════ */
         @media (max-width: 640px) {
-          .cth__inner { padding: 44px 20px; }
+          .cth__inner { padding: 44px 1rem; }
           .cth__btns { flex-direction: column; align-items: stretch; }
           .cth__btn { text-align: center; }
         }

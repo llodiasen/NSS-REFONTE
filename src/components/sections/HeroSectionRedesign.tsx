@@ -126,9 +126,8 @@ export default function HeroSectionRedesign() {
           border-top: 1px solid #e4ede5;
         }
         .ap-inner {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 52px 40px;
+          max-width: 100%;
+          padding: 52px 2rem;
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 52px;
@@ -398,18 +397,18 @@ export default function HeroSectionRedesign() {
 
         /* ── Responsive ── */
         @media (max-width: 1024px) {
-          .ap-inner { padding: 44px 28px; gap: 40px; }
+          .ap-inner { padding: 44px 2rem; gap: 40px; }
         }
         @media (max-width: 768px) {
           .ap-inner {
             grid-template-columns: 1fr;
-            padding: 40px 20px;
+            padding: 40px 1rem;
             gap: 32px;
           }
           .ap-video { min-height: 280px; }
         }
         @media (max-width: 480px) {
-          .ap-inner { padding: 32px 16px; gap: 24px; }
+          .ap-inner { padding: 32px 1rem; gap: 24px; }
           .ap-h2 { font-size: clamp(20px, 6vw, 28px); }
           .ap-body { font-size: 14.5px; }
           .ap-video { min-height: 240px; }

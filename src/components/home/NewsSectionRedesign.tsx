@@ -206,9 +206,8 @@ export default function NewsSectionRedesign() {
         .nss-actu__wrap {
           position: relative;
           z-index: 1;
-          max-width: var(--container-max, 1200px);
-          margin: 0 auto;
-          padding: 96px var(--container-pad, 24px);
+          max-width: 100%;
+          padding: 96px 2rem;
         }
 
         /* ════ Header ═════════════════════════════════════════ */
@@ -460,7 +459,7 @@ export default function NewsSectionRedesign() {
           .nsg__grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 640px) {
-          .nss-actu__wrap { padding: 72px 20px; }
+          .nss-actu__wrap { padding: 72px 1rem; }
           .nsg__grid { grid-template-columns: 1fr; }
           .nss-actu__header { margin-bottom: 40px; }
         }

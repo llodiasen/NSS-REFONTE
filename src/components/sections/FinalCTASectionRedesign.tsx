@@ -41,7 +41,7 @@ export default function FinalCTASectionRedesign() {
           position: relative;
           overflow: hidden;
           background: linear-gradient(158deg, #045627 0%, #021f0e 50%, #000000 100%);
-          padding: 64px 40px 60px;
+          padding: 80px 40px 76px;
           text-align: center;
         }
 
@@ -70,10 +70,10 @@ export default function FinalCTASectionRedesign() {
         /* Eyebrow */
         .fcta-eyebrow {
           font-family: var(--font-body);
-          font-size: 9px;
+          font-size: 11px;
           font-weight: 700;
           text-transform: uppercase;
-          letter-spacing: 3.5px;
+          letter-spacing: 1.5px;
           color: ${GOLD};
           margin: 0 0 16px;
         }
@@ -148,7 +148,7 @@ export default function FinalCTASectionRedesign() {
 
         /* Responsive */
         @media (max-width: 640px) {
-          .fcta-section { padding: 48px 24px 44px; }
+          .fcta-section { padding: 64px 24px 60px; }
           .fcta-btns { flex-direction: column; align-items: center; }
           .fcta-btn { width: 100%; max-width: 280px; justify-content: center; }
         }

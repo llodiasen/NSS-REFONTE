@@ -7,7 +7,6 @@ import MediathequeSectionRedesign from "@/components/home/MediathequeSectionRede
 import CTAHeroSectionRedesign from "@/components/home/CTAHeroSectionRedesign";
 import NewsSectionRedesign from "@/components/home/NewsSectionRedesign";
 import ContactSectionRedesign from "@/components/home/ContactSectionRedesign";
-import TestimonialSliderRedesign from "@/components/sections/TestimonialSliderRedesign";
 
 export const metadata: Metadata = {
   title: "Nous Sommes la Solution — Femmes rurales pour la souveraineté alimentaire",
@@ -28,9 +27,7 @@ export default async function HomePage() {
       <HeroHome />
       {/* 02 — Qui sommes-nous redesign */}
       <HeroSectionRedesign />
-      {/* 03 — Témoignages & Leaders */}
-      <TestimonialSliderRedesign />
-      {/* 04 — Événements */}
+      {/* 03 — Événements */}
       <EventsSectionRedesign />
       {/* 05 — Partenaires */}
       <PartnersSectionRedesign />

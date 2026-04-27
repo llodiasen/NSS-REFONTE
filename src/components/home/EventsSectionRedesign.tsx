@@ -256,9 +256,8 @@ export default function EventsSectionRedesign() {
         .evs__wrap {
           position: relative;
           z-index: 1;
-          max-width: var(--container-max, 1200px);
-          margin: 0 auto;
-          padding: 96px var(--container-pad, 24px);
+          max-width: 100%;
+          padding: 96px 2rem;
         }
 
         /* ════ Header ═════════════════════════════════════════ */
@@ -530,7 +529,7 @@ export default function EventsSectionRedesign() {
           .evs__grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 640px) {
-          .evs__wrap { padding: 72px 20px; }
+          .evs__wrap { padding: 72px 1rem; }
           .evs__grid { grid-template-columns: 1fr; }
           .evs__header { margin-bottom: 44px; }
         }
