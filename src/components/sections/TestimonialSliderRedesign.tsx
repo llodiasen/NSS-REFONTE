@@ -9,8 +9,8 @@ const GOLD     = "#C9A227";
 const GREEN_VIF= "#2d9a6a";
 const GREEN_LT = "#4db882";
 const BORDER   = "#045627";
-const BG       = "#ffffff";
-const DARK     = "#071A10";
+const _BG       = "#ffffff";
+const _DARK     = "#071A10";
 
 /* ── data ────────────────────────────────────────────────────────────────── */
 type Leader = { nom: string; role: string; orga: string; location: string; caption: string; photo: string; href: string };

@@ -101,7 +101,7 @@ export default function GovernanceSectionRedesign() {
 
       {/* ── Citation manifeste ── */}
       <div className="gvr-manifeste" role="complementary">
-        <span className="gvr-mquote" aria-hidden="true">"</span>
+        <span className="gvr-mquote" aria-hidden="true">&ldquo;</span>
         <blockquote className="gvr-mtext">
           Aucune décision sur nous,{" "}
           <em className="gvr-mtext-em">sans nous.</em>
