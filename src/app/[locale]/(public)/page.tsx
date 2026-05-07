@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import HeroHome from "@/components/sections/HeroHome";
 import HeroSectionRedesign from "@/components/sections/HeroSectionRedesign";
+import ObjectifsRedesign from "@/components/sections/ObjectifsRedesign";
+import ProgrammesRedesign from "@/components/sections/ProgrammesRedesign";
+import TemoignagesRedesign from "@/components/sections/TemoignagesRedesign";
 import EventsSectionRedesign from "@/components/home/EventsSectionRedesign";
 import PartnersSectionRedesign from "@/components/home/PartnersSectionRedesign";
 import MediathequeSectionRedesign from "@/components/home/MediathequeSectionRedesign";
@@ -27,7 +30,13 @@ export default async function HomePage() {
       <HeroHome />
       {/* 02 — Qui sommes-nous redesign */}
       <HeroSectionRedesign />
-      {/* 03 — Événements */}
+      {/* 03 — Nos objectifs (vert foncé, 3 cartes) */}
+      <ObjectifsRedesign />
+      {/* 04 — Nos programmes (blanc, tabs CIFAP / EMMAP) */}
+      <ProgrammesRedesign />
+      {/* 05 — Témoignages (vert foncé, carousel) */}
+      <TemoignagesRedesign />
+      {/* 06 — Événements */}
       <EventsSectionRedesign />
       {/* 05 — Partenaires */}
       <PartnersSectionRedesign />

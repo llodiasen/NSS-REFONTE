@@ -1,240 +1,292 @@
-"use client";
+'use client'
 
-import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { motion } from 'framer-motion'
+import Link from 'next/link'
 
+// ─── NSS Palette stricte ────────────────────────────────────────────────────
+const NSS = {
+  vertFonce:    '#045627',
+  vertPrimaire: '#00AD4C',
+  vertClair:    '#A5CE46',
+  or:           '#E8A838',
+  creme:        '#F5EDD6',
+} as const
+
+// ─── Animation helpers ────────────────────────────────────────────────────────
+const ease = [0.22, 1, 0.36, 1] as const
+
+const inView = (delay = 0) => ({
+  initial:     { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0  },
+  viewport:    { once: true, margin: '-60px' },
+  transition:  { duration: 0.72, delay, ease },
+})
+
+const inViewScale = (delay = 0) => ({
+  initial:     { opacity: 0, y: 32, scale: 0.97 as number },
+  whileInView: { opacity: 1, y: 0,  scale: 1    as number },
+  viewport:    { once: true, margin: '-60px' },
+  transition:  { duration: 0.82, delay, ease },
+})
+
+// ─── Component ────────────────────────────────────────────────────────────────
 export default function CTAHeroSectionRedesign() {
-  const innerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = innerRef.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          el.dataset.visible = "true";
-          obs.disconnect();
-        }
-      },
-      { threshold: 0.15 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-
   return (
-    <section className="cth" aria-labelledby="cth-heading">
+    <section className="cth-section" aria-labelledby="cth-titre">
+
       {/* Image de fond */}
-      <div className="cth__bg" aria-hidden="true" />
+      <div className="cth-bg" aria-hidden="true" />
 
-      {/* Overlay sombre pour lisibilité */}
-      <div className="cth__overlay" aria-hidden="true" />
+      {/* Overlay dégradé */}
+      <div className="cth-overlay" aria-hidden="true" />
 
-      <div className="cth__inner" ref={innerRef}>
-        {/* Eyebrow */}
-        <div className="cth__eyebrow" role="presentation">
-          <span className="cth__line" />
-          <span className="cth__eyebrow-txt">Rejoindre le mouvement</span>
-          <span className="cth__line cth__line--rev" />
-        </div>
+      {/* Grain texture */}
+      <div className="cth-grain" aria-hidden="true" />
+
+      <div className="cth-wrap">
+
+        {/* Eyebrow — or sur fond sombre */}
+        <motion.div className="cth-eyebrow" {...inView(0.08)}>
+          <span className="cth-eyebrow-line" aria-hidden="true" />
+          <span className="cth-eyebrow-text">REJOINDRE LE MOUVEMENT</span>
+          <span className="cth-eyebrow-line" aria-hidden="true" />
+        </motion.div>
 
         {/* H2 */}
-        <h2 id="cth-heading" className="cth__h2">
-          Par nous-mêmes.{" "}
+        <motion.h2 id="cth-titre" className="cth-h2" {...inViewScale(0.18)}>
+          Par nous-mêmes.<br />
           <em>Pour nous-mêmes.</em>
-        </h2>
+        </motion.h2>
 
         {/* Sous-titre */}
-        <p className="cth__sub">
-          Partagez-vous notre vision ? Adhérez à NSS et rejoignez{" "}
+        <motion.p className="cth-sub" {...inView(0.28)}>
+          Partagez-vous notre vision ? Adhérez à NSS et rejoignez{' '}
           175&nbsp;000 femmes rurales qui transforment les systèmes
           alimentaires en Afrique de l&apos;Ouest.
-        </p>
+        </motion.p>
 
         {/* Boutons */}
-        <div className="cth__btns">
+        <motion.div className="cth-btns" {...inView(0.38)}>
           <Link
             href="/fr/agir/rejoindre"
-            className="cth__btn cth__btn--primary"
+            className="cth-btn cth-btn--primary"
             aria-label="Adhérer au mouvement NSS"
           >
-            Adhérer
+            Adhérer au mouvement
           </Link>
           <Link
             href="/fr/contact"
-            className="cth__btn cth__btn--ghost"
+            className="cth-btn cth-btn--ghost"
             aria-label="Nous contacter"
           >
-            Nous contacter →
+            Nous contacter
+            <svg width="14" height="8" viewBox="0 0 16 9" fill="none" aria-hidden="true">
+              <path d="M1 4.5h13M10 1l4 3.5-4 3.5" stroke="currentColor"
+                strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
           </Link>
-        </div>
+        </motion.div>
 
         {/* Tagline bas */}
-        <p className="cth__tagline" aria-hidden="true">
+        <motion.p
+          className="cth-tagline"
+          aria-hidden="true"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, delay: 0.60, ease }}
+        >
           En nous-mêmes.
-        </p>
+        </motion.p>
+
       </div>
 
+      {/* ════════ Styles ════════ */}
       <style>{`
-        /* ════ Section ════════════════════════════════════════ */
-        .cth {
+        /* ── Section ── */
+        .cth-section {
           position: relative;
           overflow: hidden;
-          min-height: 320px;
+          min-height: 400px;
           display: flex;
           align-items: center;
+          justify-content: center;
         }
 
         /* Image de fond */
-        .cth__bg {
+        .cth-bg {
           position: absolute;
           inset: 0;
           background-image: url('/images/NSS.webp');
           background-size: cover;
-          background-position: center;
+          background-position: center 30%;
           z-index: 0;
         }
 
-        /* Overlay sombre */
-        .cth__overlay {
+        /* Overlay dégradé vert foncé */
+        .cth-overlay {
           position: absolute;
           inset: 0;
           background: linear-gradient(
-            135deg,
-            rgba(2,31,14,0.88) 0%,
-            rgba(4,86,39,0.80) 50%,
-            rgba(2,31,14,0.75) 100%
+            114deg,
+            rgba(2,20,10,0.96) 0%,
+            rgba(4,86,39,0.88) 45%,
+            rgba(0,100,45,0.78) 100%
           );
           z-index: 1;
         }
 
-        /* ════ Contenu ════════════════════════════════════════ */
-        .cth__inner {
-          position: relative;
+        /* Grain */
+        .cth-grain {
+          position: absolute;
+          inset: 0;
+          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+          pointer-events: none;
           z-index: 2;
-          width: 100%;
-          max-width: 100%;
-          padding: 60px 2rem;
-          text-align: center;
-          opacity: 0;
-          transform: translateY(24px);
-          transition: opacity 0.7s ease, transform 0.7s ease;
-        }
-        .cth__inner[data-visible="true"] {
-          opacity: 1;
-          transform: translateY(0);
         }
 
-        /* Eyebrow */
-        .cth__eyebrow {
+        /* ── Wrap ── */
+        .cth-wrap {
+          position: relative;
+          z-index: 3;
+          width: 100%;
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 112px 80px;
+          text-align: center;
+        }
+
+        /* ── Eyebrow ── */
+        .cth-eyebrow {
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 18px;
-          margin-bottom: 28px;
+          gap: 16px;
+          margin-bottom: 36px;
         }
-        .cth__line {
+        .cth-eyebrow-line {
           display: block;
-          width: 48px;
+          flex: 1;
+          max-width: 56px;
           height: 1px;
-          background: linear-gradient(90deg, transparent, rgba(232,168,56,0.7));
+          background: rgba(232,168,56,0.45);
         }
-        .cth__line--rev {
-          background: linear-gradient(90deg, rgba(232,168,56,0.7), transparent);
-        }
-        .cth__eyebrow-txt {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+        .cth-eyebrow-text {
+          font-family: var(--font-dm-sans), sans-serif;
           font-size: 9.5px;
-          font-weight: 700;
+          font-weight: 600;
           letter-spacing: 0.26em;
           text-transform: uppercase;
-          color: #E8A838;
+          color: ${NSS.or};
+          white-space: nowrap;
         }
 
-        /* H2 */
-        .cth__h2 {
-          font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
-          font-size: clamp(22px, 2.8vw, 38px);
+        /* ── H2 ── */
+        .cth-h2 {
+          font-family: var(--font-cormorant), Georgia, serif;
+          font-size: clamp(44px, 5vw, 72px);
           font-weight: 600;
-          line-height: 1.05;
-          color: #F5EDD6;
-          margin: 0 0 24px;
-          letter-spacing: -0.015em;
+          line-height: 0.94;
+          color: ${NSS.creme};
+          margin: 0 0 32px;
+          letter-spacing: -0.01em;
         }
-        .cth__h2 em {
+        .cth-h2 em {
           font-style: italic;
-          color: #A5CE46;
+          color: ${NSS.vertClair};
         }
 
-        /* Sous-titre */
-        .cth__sub {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
-          font-size: clamp(15px, 1.6vw, 18px);
-          line-height: 1.75;
-          color: #ffffff;
-          max-width: 620px;
-          margin: 0 auto 44px;
+        /* ── Sous-titre ── */
+        .cth-sub {
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 16px;
+          font-weight: 300;
+          line-height: 1.78;
+          color: rgba(245,237,214,0.80);
+          max-width: 560px;
+          margin: 0 auto 52px;
         }
 
-        /* Boutons */
-        .cth__btns {
+        /* ── Boutons ── */
+        .cth-btns {
           display: flex;
           align-items: center;
           justify-content: center;
           gap: 16px;
           flex-wrap: wrap;
         }
-        .cth__btn {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
-          font-size: 11.5px;
+        .cth-btn {
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 11px;
           font-weight: 700;
-          letter-spacing: 0.10em;
+          letter-spacing: 0.13em;
           text-transform: uppercase;
           text-decoration: none;
-          padding: 14px 36px;
+          padding: 15px 36px;
           border-radius: 2px;
-          display: inline-block;
-          transition: background 0.22s ease, color 0.22s ease,
-                      border-color 0.22s ease, transform 0.22s ease;
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          transition: background 0.25s ease, color 0.25s ease,
+                      border-color 0.25s ease, transform 0.22s ease, gap 0.20s ease;
         }
-        .cth__btn--primary {
-          background: #00AD4C;
+        .cth-btn--primary {
+          background: ${NSS.vertPrimaire};
           color: #ffffff;
-          border: 1.5px solid #00AD4C;
+          border: 1.5px solid ${NSS.vertPrimaire};
         }
-        .cth__btn--primary:hover {
+        .cth-btn--primary:hover {
           background: #008f3e;
           border-color: #008f3e;
-          transform: translateY(-2px);
+          transform: translateY(-3px);
         }
-        .cth__btn--ghost {
+        .cth-btn--ghost {
           background: transparent;
-          color: #F5EDD6;
-          border: 1.5px solid rgba(245,237,214,0.45);
+          color: ${NSS.creme};
+          border: 1.5px solid rgba(245,237,214,0.40);
         }
-        .cth__btn--ghost:hover {
-          background: rgba(245,237,214,0.10);
-          border-color: rgba(245,237,214,0.80);
-          transform: translateY(-2px);
+        .cth-btn--ghost:hover {
+          background: rgba(245,237,214,0.08);
+          border-color: rgba(245,237,214,0.75);
+          transform: translateY(-3px);
+          gap: 16px;
         }
 
-        /* Tagline bas */
-        .cth__tagline {
-          font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
-          font-size: clamp(13px, 1.2vw, 15px);
+        /* ── Tagline ── */
+        .cth-tagline {
+          font-family: var(--font-cormorant), Georgia, serif;
+          font-size: 15px;
           font-style: italic;
-          color: rgba(245,237,214,0.32);
-          margin: 28px 0 0;
-          letter-spacing: 0.06em;
+          color: rgba(245,237,214,0.28);
+          margin: 36px 0 0;
+          letter-spacing: 0.08em;
         }
 
-        /* ════ Responsive ═════════════════════════════════════ */
-        @media (max-width: 640px) {
-          .cth__inner { padding: 44px 1rem; }
-          .cth__btns { flex-direction: column; align-items: stretch; }
-          .cth__btn { text-align: center; }
+        /* ── Tablet ── */
+        @media (max-width: 1024px) {
+          .cth-wrap { padding: 96px 48px; }
+        }
+
+        /* ── Mobile ── */
+        @media (max-width: 768px) {
+          .cth-wrap { padding: 80px 24px; }
+          .cth-h2 { font-size: clamp(38px, 9vw, 58px); }
+          .cth-sub { font-size: 15px; }
+        }
+
+        /* ── Small mobile ── */
+        @media (max-width: 480px) {
+          .cth-wrap { padding: 64px 20px; }
+          .cth-h2 { font-size: clamp(34px, 10vw, 48px); }
+          .cth-btns { flex-direction: column; align-items: stretch; }
+          .cth-btn { text-align: center; justify-content: center; }
+        }
+
+        /* ── Réduction de mouvement ── */
+        @media (prefers-reduced-motion: reduce) {
+          .cth-btn { transition: background 0.2s ease, color 0.2s ease; }
         }
       `}</style>
     </section>
-  );
+  )
 }

@@ -1,246 +1,365 @@
-import Link from "next/link";
+'use client'
 
-const STATS = [
-  { number: "14",       label: "Pays" },
-  { number: "175 000",  label: "Membres" },
-  { number: "500+",     label: "AFR" },
-  { number: "14 ans",   label: "D'engagement" },
-];
+import { motion } from 'framer-motion'
+import Link from 'next/link'
 
+// ─── NSS Palette stricte ────────────────────────────────────────────────────
+const NSS = {
+  vertFonce:    '#045627',
+  vertPrimaire: '#00AD4C',
+  vertClair:    '#A5CE46',
+  or:           '#E8A838',
+  creme:        '#F5EDD6',
+} as const
+
+// ─── Stats ──────────────────────────────────────────────────────────────────
+const STATS: { number: string; label: string }[] = [
+  { number: '14',      label: 'Pays membres' },
+  { number: '175 000', label: 'Membres & sympathisant·es' },
+  { number: '500+',    label: 'Associations de Femmes Rurales' },
+  { number: '14 ans',  label: "D'engagement continu" },
+]
+
+// ─── Animation helpers ───────────────────────────────────────────────────────
+const ease = [0.22, 1, 0.36, 1] as const
+
+function fadeUp(delay: number) {
+  return {
+    initial:    { opacity: 0, y: 28 },
+    animate:    { opacity: 1, y: 0 },
+    transition: { duration: 0.80, delay, ease },
+  }
+}
+
+function fadeScale(delay: number) {
+  return {
+    initial:    { opacity: 0, y: 32, scale: 0.96 as number },
+    animate:    { opacity: 1, y: 0,  scale: 1    as number },
+    transition: { duration: 0.90, delay, ease },
+  }
+}
+
+// ─── Sub-component ───────────────────────────────────────────────────────────
+interface StatItemProps {
+  number: string
+  label:  string
+  delay:  number
+}
+
+function StatItem({ number, label, delay }: StatItemProps) {
+  return (
+    <motion.div
+      className="nss-stat"
+      role="listitem"
+      initial={{ opacity: 0, y: 14 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.60, delay, ease }}
+    >
+      <span className="nss-stat-num">{number}</span>
+      <span className="nss-stat-lbl">{label}</span>
+    </motion.div>
+  )
+}
+
+// ─── Hero ────────────────────────────────────────────────────────────────────
 export default function HeroHome() {
   return (
-    <section className="hero-section">
-      {/* Background */}
-      <div aria-hidden="true" className="hero-bg" />
-      {/* Gradient */}
-      <div aria-hidden="true" className="hero-overlay" />
-      {/* Diagonal stripe pattern — African fabric inspired */}
-      <div aria-hidden="true" className="hero-deco" />
+    <section className="nss-hero" aria-label="Bannière principale NSS">
 
-      {/* Content */}
-      <div className="hero-content">
+      {/* Photo de fond */}
+      <div className="nss-hero-bg" aria-hidden="true" />
+
+      {/* Overlay dégradé vert foncé */}
+      <div className="nss-hero-overlay" aria-hidden="true" />
+
+      {/* ── Contenu principal ── */}
+      <div className="nss-hero-body">
+
         {/* Eyebrow */}
-        <div className="hero-eyebrow">
-          <span className="hero-eyebrow-line" aria-hidden="true" />
-          <span className="hero-eyebrow-text">
-            Célébrons l&apos;agriculture familiale africaine
+        <motion.div
+          className="nss-eyebrow"
+          initial={{ opacity: 0, x: -24 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.70, delay: 0.10, ease }}
+          aria-hidden="true"
+        >
+          <span className="nss-eyebrow-line" />
+          <span className="nss-eyebrow-text">
+            CÉLÉBRONS L&apos;AGRICULTURE FAMILIALE AFRICAINE
           </span>
-        </div>
+        </motion.div>
 
         {/* H1 */}
-        <h1 className="hero-h1">
+        <motion.h1 className="nss-h1" {...fadeScale(0.22)}>
           Les femmes rurales<br />
           <em>nourrissent l&apos;Afrique.</em>
-        </h1>
+        </motion.h1>
 
-        {/* Description */}
-        <p className="hero-desc">
-          175&nbsp;000 agricultrices organisées en Afrique de l&apos;Ouest qui cultivent,
-          transforment et défendent leur souveraineté alimentaire — de la semence à la consommation.
-        </p>
+        {/* Sous-titre — copywriting NSS */}
+        <motion.p className="nss-desc" {...fadeUp(0.38)}>
+          De la graine semée à la table partagée, 175&nbsp;000 agricultrices
+          portent la souveraineté alimentaire d&apos;un continent entier.
+          Par leur force collective, elles changent le monde.
+        </motion.p>
 
         {/* CTAs */}
-        <div className="hero-ctas">
-          <Link href="/fr/agir/rejoindre" className="hero-btn-primary">
-            Rejoindre le mouvement
+        <motion.div className="nss-ctas" {...fadeUp(0.52)}>
+          <Link href="/fr/agir/rejoindre" className="nss-btn-primary">
+            REJOINDRE
           </Link>
-          <Link href="/fr/mouvement" className="hero-btn-outline">
-            Notre histoire
+          <Link href="/fr/mouvement" className="nss-btn-ghost">
+            NOTRE HISTOIRE
           </Link>
-        </div>
+        </motion.div>
       </div>
 
-      {/* Stats bar */}
-      <div className="hero-stats" role="list">
+      {/* ── Barre statistiques ── */}
+      <motion.div
+        className="nss-statsbar"
+        role="list"
+        aria-label="Chiffres clés NSS"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.70, delay: 0.68, ease }}
+      >
         {STATS.map(({ number, label }, i) => (
-          <div
+          <StatItem
             key={label}
-            role="listitem"
-            className="hero-stat-item"
-            style={{ borderRight: i < STATS.length - 1 ? "1px solid rgba(255,255,255,0.10)" : "none" }}
-          >
-            <div className="hero-stat-number">{number}</div>
-            <div className="hero-stat-label">{label}</div>
-          </div>
+            number={number}
+            label={label}
+            delay={0.70 + i * 0.10}
+          />
         ))}
-      </div>
+      </motion.div>
 
+      {/* ── Styles ── */}
       <style>{`
-        .hero-section {
+        /* ── Section ── */
+        .nss-hero {
           position: relative;
           min-height: 100vh;
           display: flex;
           flex-direction: column;
           overflow: hidden;
         }
-        .hero-bg {
+
+        /* ── Background ── */
+        .nss-hero-bg {
           position: absolute;
           inset: 0;
           background-image: url('/images/hero/hero-nss-femmes-rurales.jpg');
           background-size: cover;
           background-position: center 30%;
-          filter: saturate(0.65) brightness(0.78);
+          filter: saturate(0.60) brightness(0.72);
           z-index: 0;
         }
-        .hero-overlay {
+
+        /* ── Overlay ── */
+        .nss-hero-overlay {
           position: absolute;
           inset: 0;
-          background: linear-gradient(112deg, rgba(7,26,16,0.96) 38%, rgba(21,92,62,0.60) 72%, rgba(7,26,16,0.15) 100%);
+          background: linear-gradient(
+            114deg,
+            rgba(4,86,39,0.97)   0%,
+            rgba(4,86,39,0.90)  42%,
+            rgba(0,173,76,0.42) 72%,
+            rgba(4,86,39,0.08) 100%
+          );
           z-index: 1;
         }
-        .hero-deco {
-          position: absolute;
-          top: 0;
-          right: 0;
-          width: 40%;
-          height: 100%;
-          background: repeating-linear-gradient(
-            -52deg,
-            transparent,
-            transparent 20px,
-            rgba(224,123,57,0.05) 20px,
-            rgba(224,123,57,0.05) 22px
-          );
-          z-index: 2;
-          pointer-events: none;
-        }
-        .hero-content {
+
+        /* ── Corps ── */
+        .nss-hero-body {
           position: relative;
           z-index: 3;
           flex: 1;
           display: flex;
           flex-direction: column;
           justify-content: center;
-          padding: 130px 80px 80px;
-          max-width: 840px;
+          padding: 148px 96px 88px;
+          max-width: 920px;
         }
-        .hero-eyebrow {
+
+        /* ── Eyebrow ── */
+        .nss-eyebrow {
           display: flex;
           align-items: center;
-          gap: 14px;
-          margin-bottom: 36px;
+          gap: 16px;
+          margin-bottom: 44px;
         }
-        .hero-eyebrow-line {
+        .nss-eyebrow-line {
           display: block;
-          width: 48px;
+          width: 56px;
           height: 1px;
-          background: #E07B39;
+          background: ${NSS.vertClair};
           flex-shrink: 0;
         }
-        .hero-eyebrow-text {
-          font-size: 10px;
-          font-weight: 500;
-          letter-spacing: 0.20em;
-          text-transform: uppercase;
-          color: #E07B39;
-        }
-        .hero-h1 {
-          font-family: var(--font-cormorant), Georgia, serif;
-          font-size: clamp(50px, 6.5vw, 90px);
+        .nss-eyebrow-text {
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 9.5px;
           font-weight: 600;
-          line-height: 0.92;
-          color: #ffffff;
-          margin-bottom: 26px;
-          max-width: 720px;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          color: ${NSS.vertClair};
         }
-        .hero-h1 em {
+
+        /* ── H1 ── */
+        .nss-h1 {
+          font-family: var(--font-cormorant), Georgia, serif;
+          font-size: clamp(52px, 7vw, 100px);
+          font-weight: 600;
+          line-height: 0.89;
+          color: #ffffff;
+          margin: 0 0 34px;
+          letter-spacing: -0.01em;
+        }
+        .nss-h1 em {
           font-style: italic;
-          color: #52B788;
+          color: ${NSS.vertClair};
         }
-        .hero-desc {
-          font-size: 16px;
+
+        /* ── Description ── */
+        .nss-desc {
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: clamp(15px, 1.15vw, 17px);
           font-weight: 300;
-          line-height: 1.80;
-          color: #ffffff;
-          max-width: 490px;
-          margin-bottom: 48px;
+          line-height: 1.82;
+          color: rgba(255, 255, 255, 0.80);
+          max-width: 500px;
+          margin: 0 0 54px;
+          text-align: justify;
         }
-        .hero-ctas {
+
+        /* ── CTAs ── */
+        .nss-ctas {
           display: flex;
           align-items: center;
           gap: 16px;
           flex-wrap: wrap;
         }
-        .hero-btn-primary {
-          font-size: 12px;
-          font-weight: 600;
-          letter-spacing: 0.08em;
+        .nss-btn-primary {
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 11px;
+          font-weight: 700;
+          letter-spacing: 0.13em;
           text-transform: uppercase;
-          background: #52B788;
+          background: ${NSS.vertPrimaire};
           color: #ffffff;
-          padding: 14px 28px;
-          border-radius: 2px;
+          padding: 16px 38px;
+          border-radius: 1px;
           text-decoration: none;
           display: inline-block;
-          transition: background 0.2s ease, transform 0.15s ease;
+          transition: background 0.22s ease, transform 0.15s ease;
         }
-        .hero-btn-primary:hover { background: #155c3e; transform: translateY(-1px); }
-        .hero-btn-outline {
-          font-size: 12px;
-          font-weight: 500;
-          letter-spacing: 0.08em;
+        .nss-btn-primary:hover {
+          background: ${NSS.vertFonce};
+          transform: translateY(-2px);
+        }
+        .nss-btn-ghost {
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: 0.13em;
           text-transform: uppercase;
           background: transparent;
-          color: rgba(255,255,255,0.80);
-          padding: 13px 28px;
-          border-radius: 2px;
+          color: rgba(255, 255, 255, 0.78);
+          padding: 15px 38px;
+          border-radius: 1px;
           text-decoration: none;
           display: inline-block;
-          border: 1px solid rgba(255,255,255,0.32);
-          transition: border-color 0.2s ease, color 0.2s ease;
+          border: 1px solid rgba(255, 255, 255, 0.28);
+          transition: border-color 0.22s ease, color 0.22s ease;
         }
-        .hero-btn-outline:hover { border-color: rgba(255,255,255,0.80); color: #ffffff; }
-        .hero-stats {
+        .nss-btn-ghost:hover {
+          border-color: ${NSS.vertClair};
+          color: ${NSS.vertClair};
+        }
+
+        /* ── Barre stats ── */
+        .nss-statsbar {
           position: relative;
           z-index: 3;
-          background: rgba(10,38,24,0.92);
-          backdrop-filter: blur(8px);
-          border-top: 1px solid rgba(82,183,136,0.18);
+          background: rgba(2, 22, 9, 0.94);
+          backdrop-filter: blur(14px);
+          -webkit-backdrop-filter: blur(14px);
+          border-top: 1px solid rgba(165, 206, 70, 0.16);
           display: grid;
           grid-template-columns: repeat(4, 1fr);
           width: 100%;
         }
-        .hero-stat-item {
-          padding: 32px 20px;
+        .nss-stat {
+          padding: 36px 24px;
           text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 8px;
         }
-        .hero-stat-number {
+        .nss-stat:not(:last-child) {
+          border-right: 1px solid rgba(165, 206, 70, 0.12);
+        }
+        .nss-stat-num {
           font-family: var(--font-cormorant), Georgia, serif;
-          font-size: 44px;
+          font-size: clamp(36px, 3.2vw, 50px);
           font-weight: 600;
           color: #ffffff;
           line-height: 1;
-          margin-bottom: 6px;
           white-space: nowrap;
+          display: block;
         }
-        .hero-stat-label {
-          font-size: 10px;
+        .nss-stat-lbl {
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 9px;
           font-weight: 500;
           text-transform: uppercase;
-          letter-spacing: 2px;
-          color: rgba(255,255,255,0.42);
+          letter-spacing: 0.18em;
+          color: rgba(165, 206, 70, 0.62);
+          display: block;
+          text-align: center;
+          line-height: 1.4;
+        }
+
+        /* ── Tablet ── */
+        @media (max-width: 1280px) {
+          .nss-hero-body { padding: 128px 72px 80px; }
         }
         @media (max-width: 1024px) {
-          .hero-content { padding: 100px 40px 64px; }
-          .hero-deco { display: none; }
+          .nss-hero-body { padding: 108px 48px 64px; }
         }
+
+        /* ── Mobile ── */
         @media (max-width: 768px) {
-          .hero-section { min-height: unset; }
-          .hero-content { padding: 80px 20px 40px; }
-          .hero-h1 { font-size: clamp(38px, 9vw, 56px); }
-          .hero-stats { grid-template-columns: repeat(2, 1fr); }
-          .hero-stat-item { padding: 20px 12px; border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.08); }
-          .hero-stat-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.08) !important; }
-          .hero-stat-item:nth-child(3), .hero-stat-item:nth-child(4) { border-bottom: none; }
-          .hero-stat-number { font-size: 32px; }
+          .nss-hero { min-height: auto; }
+          .nss-hero-body { padding: 96px 24px 52px; max-width: 100%; }
+          .nss-h1 { font-size: clamp(42px, 9.5vw, 64px); line-height: 0.92; }
+          .nss-desc { font-size: 15px; max-width: 100%; }
+          .nss-statsbar { grid-template-columns: repeat(2, 1fr); }
+          .nss-stat {
+            padding: 24px 14px;
+            border-right: none !important;
+            border-bottom: 1px solid rgba(165,206,70,0.10);
+          }
+          .nss-stat:nth-child(odd)  { border-right: 1px solid rgba(165,206,70,0.10) !important; }
+          .nss-stat:nth-child(3),
+          .nss-stat:nth-child(4)    { border-bottom: none; }
         }
+
+        /* ── Small mobile ── */
         @media (max-width: 480px) {
-          .hero-content { padding: 72px 16px 32px; }
-          .hero-h1 { font-size: clamp(34px, 8vw, 46px); }
-          .hero-desc { font-size: 14px; }
-          .hero-tagline { font-size: 9px; letter-spacing: 0.12em; }
+          .nss-hero-body { padding: 84px 16px 40px; }
+          .nss-h1        { font-size: clamp(36px, 10.5vw, 50px); }
+          .nss-desc      { font-size: 14px; line-height: 1.74; }
+          .nss-eyebrow-text { font-size: 8px; letter-spacing: 0.16em; }
+          .nss-btn-primary,
+          .nss-btn-ghost { font-size: 10px; padding: 14px 28px; }
+          .nss-stat-num  { font-size: clamp(28px, 7vw, 38px); }
+        }
+
+        /* ── Accessibilité : réduction de mouvement ── */
+        @media (prefers-reduced-motion: reduce) {
+          .nss-hero-bg { filter: saturate(0.60) brightness(0.72); }
         }
       `}</style>
     </section>
-  );
+  )
 }
