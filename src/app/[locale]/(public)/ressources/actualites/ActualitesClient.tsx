@@ -146,7 +146,43 @@ export default function ActualitesClient({ articles }: { articles: Article[] }) 
 
   return (
     <>
-      {/* ── Barre de filtres (intacte) ── */}
+      {/* ── Section NOTRE ACTION ── */}
+      <div className="act-section" style={{ background: "#ffffff", padding: "0 var(--container-pad)" }}>
+        <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
+          <section className="notre-action" aria-label="Notre action">
+            <div className="na-left">
+              <p className="na-surtitre">NOTRE ACTION</p>
+              <h2 className="na-titre">
+                Nourrir <em>sans dégrader.</em>
+              </h2>
+            </div>
+            <div className="na-right">
+              <p className="na-desc">
+                L&apos;agroécologie paysanne est au cœur de l&apos;action NSS.
+                En valorisant les savoirs traditionnels, les semences locales
+                et la biodiversité, nous accompagnons les femmes rurales vers
+                une agriculture durable, souveraine et résistante au changement
+                climatique. Formations pratiques, camps d&apos;échange et
+                démonstrations en champ-école paysans permettent à des milliers
+                de femmes de s&apos;approprier des techniques accessibles et
+                reproductibles dans leurs communautés.
+              </p>
+              <div className="na-stats">
+                <div className="na-stat">
+                  <span className="na-stat-val">500+</span>
+                  <span className="na-stat-label">Associations engagées en agroécologie paysanne</span>
+                </div>
+                <div className="na-stat">
+                  <span className="na-stat-val">14</span>
+                  <span className="na-stat-label">Pays couverts par le réseau NSS</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      {/* ── Barre de filtres ── */}
       <div
         className="act-section"
         style={{
@@ -213,42 +249,6 @@ export default function ActualitesClient({ articles }: { articles: Article[] }) 
           <span style={{ fontSize: "13px", color: "#888", fontVariantNumeric: "tabular-nums" }}>
             {filtered.length} article{filtered.length > 1 ? "s" : ""}
           </span>
-        </div>
-      </div>
-
-      {/* ── Section NOTRE ACTION ── */}
-      <div className="act-section" style={{ background: "#ffffff", padding: "0 var(--container-pad)" }}>
-        <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
-          <section className="notre-action" aria-label="Notre action">
-            <div className="na-left">
-              <p className="na-surtitre">NOTRE ACTION</p>
-              <h2 className="na-titre">
-                Nourrir <em>sans dégrader.</em>
-              </h2>
-            </div>
-            <div className="na-right">
-              <p className="na-desc">
-                L&apos;agroécologie paysanne est au cœur de l&apos;action NSS.
-                En valorisant les savoirs traditionnels, les semences locales
-                et la biodiversité, nous accompagnons les femmes rurales vers
-                une agriculture durable, souveraine et résistante au changement
-                climatique. Formations pratiques, camps d&apos;échange et
-                démonstrations en champ-école paysans permettent à des milliers
-                de femmes de s&apos;approprier des techniques accessibles et
-                reproductibles dans leurs communautés.
-              </p>
-              <div className="na-stats">
-                <div className="na-stat">
-                  <span className="na-stat-val">500+</span>
-                  <span className="na-stat-label">Associations engagées en agroécologie paysanne</span>
-                </div>
-                <div className="na-stat">
-                  <span className="na-stat-val">14</span>
-                  <span className="na-stat-label">Pays couverts par le réseau NSS</span>
-                </div>
-              </div>
-            </div>
-          </section>
         </div>
       </div>
 
@@ -465,6 +465,7 @@ export default function ActualitesClient({ articles }: { articles: Article[] }) 
           font-size: 15px;
           line-height: 1.7;
           color: #555;
+          text-align: justify;
           margin-bottom: 2rem;
         }
         .na-stats {
