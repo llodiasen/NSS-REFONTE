@@ -1,0 +1,47 @@
+{
+  "nav": {
+    "movement": "Le Mouvement",
+    "impact": "Notre Impact",
+    "programs": "Programmes",
+    "resources": "Ressources",
+    "act": "Agir",
+    "contact": "Contact",
+    "login": "Espace Membre",
+    "join": "Rejoindre"
+  },
+  "hero": {
+    "tagline": "Par nous-mêmes. Pour nous-mêmes. En nous-mêmes.",
+    "cta_join": "Rejoindre le mouvement",
+    "cta_discover": "Découvrir notre impact"
+  },
+  "stats": {
+    "members": "membres",
+    "countries": "pays",
+    "afr": "AFR actives",
+    "founded": "fondé en"
+  },
+  "footer": {
+    "rights": "Tous droits réservés",
+    "org": "Nous Sommes la Solution (NSS)"
+  },
+  "auth": {
+    "login": "Se connecter",
+    "email": "Adresse email",
+    "password": "Mot de passe",
+    "forgot_password": "Mot de passe oublié ?",
+    "no_account": "Pas de compte ? Contactez un administrateur."
+  },
+  "member": {
+    "dashboard": "Tableau de bord",
+    "profile": "Mon profil",
+    "directory": "Annuaire",
+    "resources": "Ressources",
+    "logout": "Se déconnecter"
+  },
+  "errors": {
+    "403": "Accès refusé",
+    "403_message": "Vous n'avez pas les droits nécessaires pour accéder à cette page.",
+    "404": "Page introuvable",
+    "404_message": "La page que vous cherchez n'existe pas ou a été déplacée."
+  }
+}

@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* ── Palette NSS ── */
+  --green-900: #0a2618;
+  --green-800: #0f3d2a;
+  --green-700: #155c3e;
+  --green-600: #1d7a52;
+  --green-500: #2d9a6a;
+  --green-400: #4db882;
+  --green-300: #7fd4a6;
+  --green-200: #b5e8cc;
+  --green-100: #e0f5ea;
+  --green-50:  #f0faf4;
+
+  /* ── Texte ── */
+  --text-primary: #111;
+  --text-body:    #3a3a3a;
+  --text-muted:   #7a7a7a;
+  --white:        #ffffff;
+
+  /* ── Polices — via next/font (auto-hébergées, sans FOUT) ── */
+  /* --font-display et --font-body sont injectés par next/font sur <html> */
+
+  /* ── Layout ── */
+  --container-max: 1320px;
+  --container-pad: 60px;
+  --section-py:    88px;
+}
+
+/* Focus visible WCAG 2.1 AA */
+*:focus-visible {
+  outline: 3px solid var(--green-500);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  font-family: var(--font-body), sans-serif;
+  background-color: #fff;
+  color: var(--text-primary);
+}
+
+/* ── Titres : DM Serif Display 400 uniquement ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display), serif;
+  font-weight: 400;
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* ── Corps ── */
+p {
+  font-family: var(--font-body), sans-serif;
+  line-height: 1.75;
+  color: var(--text-body);
+  margin: 0;
+}
+
+a, span, li, button, input, textarea, select, label {
+  font-family: var(--font-body), sans-serif;
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+}
+
+/* ── Container padding — responsive ── */
+@media (max-width: 1024px) {
+  :root { --container-pad: 32px; --section-py: 64px; }
+}
+@media (max-width: 640px) {
+  :root { --container-pad: 22px; --section-py: 48px; }
+}
+
+/* ── Header spacer — responsive sans flash de layout ── */
+.hdr-spacer { height: 106px; }
+@media (max-width: 1024px) { .hdr-spacer { height: 64px; } }
+
+/* Accessibilité — prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

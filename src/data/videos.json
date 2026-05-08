@@ -1,0 +1,126 @@
+[
+  {
+    "id": null,
+    "cloudinaryUrl": "https://res.cloudinary.com/dtjvjlkcc/video/upload/q_auto/f_auto/v1776019281/NSS_CIFAP_2025_Mariama_Sonko_hommage_Razack_Belemgnegre_ouverture_4e_edition.mp4",
+    "titre": "NSS — CIFAP 2025 : Mme Mariama Sonko rend hommage à M. Razack Belemgnegre à l'ouverture de la 4e édition",
+    "categorie": "Evenements",
+    "description": "À l'ouverture de la 4e édition du Camp International de Formation sur l'Agroécologie Paysanne (CIFAP 2025), Mme Mariama Sonko, présidente du mouvement NSS, rend un hommage appuyé à M. Razack Belemgnegre pour son engagement et sa contribution au mouvement.",
+    "date": "2025-09-15",
+    "duree": "49",
+    "featured": true,
+    "statut": "disponible"
+  },
+  {
+    "id": null,
+    "cloudinaryUrl": "https://res.cloudinary.com/dtjvjlkcc/video/upload/q_auto/f_auto/v1775999944/Quatri%C3%A8me_%C3%A9dition_du_Camp_International_de_Formation_sur_l_Agro%C3%A9cologie_Paysanne_CIFAP_jppmln.mp4",
+    "titre": "Quatrième édition du CIFAP — Camp International de Formation sur l'Agroécologie Paysanne",
+    "categorie": "Evenements",
+    "description": "Retour complet sur la quatrième édition du Camp International de Formation sur l'Agroécologie Paysanne (CIFAP). Pendant plusieurs jours, des centaines de femmes rurales venues de toute l'Afrique de l'Ouest se sont réunies pour partager savoirs, pratiques et engagements autour de la souveraineté alimentaire.",
+    "date": "2025-01-01",
+    "duree": null,
+    "featured": true,
+    "statut": "disponible"
+  },
+  {
+    "id": null,
+    "cloudinaryUrl": "https://res.cloudinary.com/dtjvjlkcc/video/upload/q_auto/f_auto/v1776000623/20_NOUS_SOMMES_LA_SOLUTION_-_Facebook_uf48gq.mp4",
+    "titre": "CIFAP 4e édition — Mme Tabara partage ses impressions sur l'agroécologie paysanne",
+    "categorie": "Evenements",
+    "description": "Lors de la quatrième édition du Camp International de Formation sur l'Agroécologie Paysanne (CIFAP), Mme Tabara a partagé ses impressions avec enthousiasme. Elle a salué l'initiative qui permet aux participants de renforcer leurs compétences en agroécologie et de découvrir des pratiques agricoles respectueuses de l'environnement. Pour elle, le CIFAP est un véritable cadre d'apprentissage, de partage d'expériences et de réseautage entre jeunes, femmes et acteurs du monde rural. Elle a particulièrement insisté sur l'importance de multiplier ce type d'espace afin de favoriser l'autonomie des communautés, tout en protégeant la nature et en garantissant une alimentation saine aux générations futures.",
+    "date": "2025-01-01",
+    "duree": null,
+    "featured": true,
+    "statut": "disponible"
+  },
+  {
+    "id": null,
+    "cloudinaryUrl": "https://res.cloudinary.com/dtjvjlkcc/video/upload/q_auto/f_auto/v1775993935/Cifap_2025__Mme_Tabara_Ndiaye_invite_les_femmes_du_mouvement_NSS_%C3%A0_s_engager_plus_dans_la_lutte_vwpfgz.mp4",
+    "titre": "CIFAP 2025 — Mme Tabara Ndiaye invite les femmes NSS à s'engager dans la lutte",
+    "categorie": "Evenements",
+    "description": "À l'occasion du Camp International de Formation Agroécologique Paysan 2025, Mme Tabara Ndiaye lance un appel vibrant aux femmes du mouvement NSS à renforcer leur engagement dans la lutte pour la souveraineté alimentaire et l'agroécologie en Afrique de l'Ouest.",
+    "date": "2025-01-01",
+    "duree": null,
+    "featured": true,
+    "statut": "disponible"
+  },
+  {
+    "id": null,
+    "titre": "Rencontre Annuelle 2025 – Kindia, Guinée",
+    "categorie": "NSS",
+    "description": "Retour sur la Rencontre Annuelle 2025 du mouvement NSS, tenue à Kindia en Guinée. Un moment fort de partage, de solidarité et de planification stratégique entre membres du mouvement venant de 12 pays.",
+    "date": "2025-01-01",
+    "duree": null,
+    "featured": true,
+    "statut": "a_uploader"
+  },
+  {
+    "id": "LGkcZMWNgZA",
+    "titre": "Journal TV 20h – 1er septembre 2025",
+    "categorie": "Medias",
+    "description": "Le mouvement NSS à la une du Journal Télévisé de 20h. Une couverture médiatique nationale qui met en lumière les actions des femmes rurales pour la souveraineté alimentaire en Afrique de l'Ouest.",
+    "date": "2025-09-01",
+    "duree": "04:32",
+    "featured": false,
+    "statut": "disponible"
+  },
+  {
+    "id": "boT5gIW072Q",
+    "titre": "30 Min avec Mariama Sonko : Écoféminisme et Agroécologie",
+    "categorie": "Agroecologie",
+    "description": "Interview approfondie avec Mariama Sonko, leader du mouvement NSS, sur les liens entre écoféminisme et agroécologie. Une vision politique et spirituelle de la relation des femmes rurales à la terre et aux semences.",
+    "date": "2024-11-15",
+    "duree": "28:47",
+    "featured": true,
+    "statut": "disponible"
+  },
+  {
+    "id": "FothaoeQsQ8",
+    "titre": "Au Sénégal : Le Combat des Agricultrices pour l'Accès à la Propriété",
+    "categorie": "Agroecologie",
+    "description": "Reportage de terrain au Sénégal sur les luttes des femmes rurales pour accéder à la propriété foncière. Témoignages poignants de paysannes qui cultivent depuis des générations des terres qu'elles ne possèdent pas.",
+    "date": "2024-06-20",
+    "duree": "12:15",
+    "featured": false,
+    "statut": "disponible"
+  },
+  {
+    "id": null,
+    "titre": "Présentation NSS : Mouvement des Femmes Rurales",
+    "categorie": "NSS",
+    "description": "Vidéo de présentation officielle du mouvement Nous Sommes la Solution (NSS). Historique, vision, missions et actions du réseau panafricain de femmes rurales engagées pour la souveraineté alimentaire depuis 2011.",
+    "date": "2023-01-01",
+    "duree": null,
+    "featured": false,
+    "statut": "a_retrouver"
+  },
+  {
+    "id": "Bj5Z013_iQU",
+    "titre": "NSS à Pescara – Journée Mondiale de l'Eau (1/3)",
+    "categorie": "Evenements",
+    "description": "Première partie du reportage sur la participation de NSS à la Journée Mondiale de l'Eau à Pescara, Italie. Le mouvement y a porté la voix des femmes rurales africaines sur les enjeux de l'accès à l'eau et de l'agriculture.",
+    "date": "2024-03-22",
+    "duree": "08:10",
+    "featured": false,
+    "statut": "disponible"
+  },
+  {
+    "id": "_3_fEjTOi3I",
+    "titre": "NSS à Pescara – Journée Mondiale de l'Eau (2/3)",
+    "categorie": "Evenements",
+    "description": "Deuxième partie du reportage de Pescara. Ateliers, échanges et témoignages croisés entre membres NSS et partenaires européens autour des pratiques agroécologiques de préservation des ressources en eau.",
+    "date": "2024-03-22",
+    "duree": "07:55",
+    "featured": false,
+    "statut": "disponible"
+  },
+  {
+    "id": "psKIMgwaV7Y",
+    "titre": "NSS à Pescara – Journée Mondiale de l'Eau (3/3)",
+    "categorie": "Evenements",
+    "description": "Troisième et dernière partie du reportage de Pescara. Déclarations finales, engagements collectifs et message de solidarité internationale porté par les femmes rurales du mouvement NSS.",
+    "date": "2024-03-22",
+    "duree": "06:30",
+    "featured": false,
+    "statut": "disponible"
+  }
+]
