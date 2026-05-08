@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 import ProgrammeHero from '@/components/sections/ProgrammeHero'
 import StatsSection  from '@/components/sections/StatsSection'
 import ProgrammeCard from '@/components/sections/ProgrammeCard'
