@@ -1,49 +1,71 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { Calendar, Clock, Globe, Users, MapPin, Mail, Phone, ExternalLink } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'CIFAP — Camp International de Formation en Agroécologie Paysanne | NSS',
   description:
-    'Le CIFAP réunit chaque année ~70 leaders paysannes de 8 pays d\'Afrique de l\'Ouest pour une formation intensive en agroécologie paysanne à Niaguis, Casamance, Sénégal.',
+    'Le CIFAP réunit chaque année des leaders paysannes de 8 pays d\'Afrique de l\'Ouest pour une semaine intensive de formation en agroécologie paysanne à Niaguis, Casamance.',
 }
 
 const EDITIONS = [
   {
-    num: '01',
     year: '2022',
     theme: 'Techniques de conduite des cultures + bio-intrants',
-    detail: 'Fondation du modèle pédagogique CIFAP. Première rencontre internationale des associations NSS autour de l\'agroécologie pratique.',
-    tag: 'Fondation',
+    status: 'past' as const,
   },
   {
-    num: '02',
     year: '2023',
     theme: 'Production des semences horticoles maraîchères paysannes',
-    detail: '8 pays représentés · 1 semaine intensive · Expert invité du Burkina Faso pour la transmission des savoirs semenciers.',
-    tag: 'Semences',
+    status: 'past' as const,
   },
   {
-    num: '03',
     year: '2024',
     theme: 'Techniques de production et d\'utilisation des bio-protecteurs',
-    detail: '14 associations · 50+ participantes · 1–7 septembre 2024 · Fabrication et utilisation des biopesticides naturels.',
-    tag: 'Protection',
+    status: 'active' as const,
   },
   {
-    num: '04',
     year: '2025',
     theme: 'Techniques de conduite des cultures horticoles en agroécologie',
-    detail: '8 pays · ~70 leaders & techniciens · 14–21 septembre 2025 · Maîtrise complète du cycle cultural en agroécologie.',
-    tag: 'Horticulture',
+    status: 'recent' as const,
   },
 ]
 
 const PAYS = [
-  'Burkina Faso', 'Gambie', 'Ghana', 'Guinée',
-  'Guinée-Bissau', 'Côte d\'Ivoire', 'Mali', 'Sénégal',
+  { flag: '🇧🇫', name: 'Burkina Faso' },
+  { flag: '🇬🇲', name: 'Gambie' },
+  { flag: '🇬🇭', name: 'Ghana' },
+  { flag: '🇬🇳', name: 'Guinée' },
+  { flag: '🇬🇼', name: 'Guinée-Bissau' },
+  { flag: '🇨🇮', name: 'Côte d\'Ivoire' },
+  { flag: '🇲🇱', name: 'Mali' },
+  { flag: '🇸🇳', name: 'Sénégal' },
 ]
 
-const PARTNERS = ['NSS', 'Fahamu Africa', 'FENOP', 'Enda Pronat']
+const OBJECTIFS = [
+  {
+    icon: '📚',
+    title: 'Éducation et sensibilisation',
+    desc: 'Former en profondeur aux techniques de production et d\'utilisation des bio-protecteurs, méthodes écologiques essentielles pour protéger les cultures et promouvoir la biodiversité.',
+  },
+  {
+    icon: '🔄',
+    title: 'Partage de connaissances',
+    desc: 'Faciliter les échanges entre participants de divers horizons pour diffuser savoirs et expériences pratiques en agroécologie paysanne.',
+  },
+  {
+    icon: '💡',
+    title: 'Renforcement des capacités',
+    desc: 'Offrir des ateliers pratiques animés par des experts pour améliorer les compétences des participantes en techniques agroécologiques applicables sur le terrain.',
+  },
+  {
+    icon: '🌐',
+    title: 'Mise en réseau continental',
+    desc: 'Créer un espace de réseautage où contacts, projets et pratiques circulent entre femmes rurales de huit pays d\'Afrique de l\'Ouest.',
+  },
+]
+
+const PARTNERS = ['Fahamu Africa', 'FENOP (Burkina Faso)', 'Enda Pronat']
 
 export default async function CIFAPPage({
   params,
@@ -54,1017 +76,911 @@ export default async function CIFAPPage({
 
   return (
     <>
-      {/* ════════════════════════════════════════════════════
-          ① HERO
-      ════════════════════════════════════════════════════ */}
-      <section className="ch-hero" aria-label="CIFAP — présentation">
-        <div className="ch-hero__overlay" />
-        <div className="ch-hero__content">
-          <span className="ch-hero__eyebrow">PROGRAMME CIFAP</span>
-          <h1 className="ch-hero__h1">CIFAP</h1>
-          <p className="ch-hero__sub">Camp International de Formation en Agroécologie Paysanne</p>
-          <div className="ch-hero__loc">
-            <span className="ch-hero__loc-dot" aria-hidden="true" />
-            Centre Karonghen Wati Naning · Niaguis, Casamance, Sénégal
-          </div>
-        </div>
-        <div className="ch-hero__bar">
-          <div className="ch-hero__bar-inner">
-            <div className="ch-hero__stat">
-              <span className="ch-hero__stat-val">4</span>
-              <span className="ch-hero__stat-lbl">éditions</span>
-            </div>
-            <div className="ch-hero__sep" aria-hidden="true" />
-            <div className="ch-hero__stat">
-              <span className="ch-hero__stat-val">8</span>
-              <span className="ch-hero__stat-lbl">pays représentés</span>
-            </div>
-            <div className="ch-hero__sep" aria-hidden="true" />
-            <div className="ch-hero__stat">
-              <span className="ch-hero__stat-val">~70</span>
-              <span className="ch-hero__stat-lbl">leaders formées/an</span>
-            </div>
-            <div className="ch-hero__sep" aria-hidden="true" />
-            <div className="ch-hero__stat">
-              <span className="ch-hero__stat-val">2022</span>
-              <span className="ch-hero__stat-lbl">première édition</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <div className="c24-page">
 
-      {/* ════════════════════════════════════════════════════
-          ② INTRODUCTION
-      ════════════════════════════════════════════════════ */}
-      <section className="ch-intro" aria-labelledby="ch-intro-titre">
-        <div className="ch-intro__wrap">
-          <div className="ch-intro__left">
-            <span className="ch-intro__eyebrow">QU'EST-CE QUE LE CIFAP ?</span>
-            <h2 id="ch-intro-titre" className="ch-intro__h2">
-              Former. <em>Relier. Durer.</em>
-            </h2>
-            <p className="ch-intro__text">
-              Le CIFAP est bien plus qu&apos;une formation : c&apos;est un espace de rencontre et de
-              transmission entre femmes paysannes de toute l&apos;Afrique de l&apos;Ouest. Chaque édition
-              renforce les compétences techniques en agroécologie, tisse des liens entre les associations
-              membres de NSS, et ancre des pratiques reproductibles dans les communautés d&apos;origine.
+        {/* ════════════════════════════════════════════════════
+            COLONNE PRINCIPALE
+        ════════════════════════════════════════════════════ */}
+        <main className="c24-main">
+
+          {/* ① HERO */}
+          <section className="c24-hero" aria-labelledby="c24-h1">
+            {/* Tags */}
+            <div className="c24-hero__tags" aria-label="Catégories">
+              <span className="c24-hero__tag">Agroécologie</span>
+              <span className="c24-hero__tag">Formation</span>
+            </div>
+
+            {/* Badge lieu */}
+            <p className="c24-hero__loc">
+              <MapPin size={12} aria-hidden="true" />
+              Centre Karonghen Wati Naning · Niaguis, Casamance, Sénégal
             </p>
-            <p className="ch-intro__text">
-              La transition agroécologique ne se décrète pas — elle se construit collectivement
-              par la transmission et le lien.
+
+            {/* Titre */}
+            <h1 id="c24-h1" className="c24-hero__h1">
+              Camp International de Formation en Agroécologie Paysanne — CIFAP
+            </h1>
+
+            {/* Thème en encadré bordure or */}
+            <div className="c24-hero__theme">
+              <strong>Thème 2024 :</strong>{' '}
+              « Techniques de production et d&apos;utilisation des bio-protecteurs en agroécologie »
+            </div>
+
+            {/* Métadonnées */}
+            <div className="c24-hero__meta" role="list" aria-label="Informations pratiques">
+              <span className="c24-hero__meta-item" role="listitem">
+                <Calendar size={13} aria-hidden="true" />
+                1–7 septembre 2024
+              </span>
+              <span className="c24-hero__meta-sep" aria-hidden="true" />
+              <span className="c24-hero__meta-item" role="listitem">
+                <Clock size={13} aria-hidden="true" />
+                5 jours
+              </span>
+              <span className="c24-hero__meta-sep" aria-hidden="true" />
+              <span className="c24-hero__meta-item" role="listitem">
+                <Globe size={13} aria-hidden="true" />
+                8 pays membres
+              </span>
+              <span className="c24-hero__meta-sep" aria-hidden="true" />
+              <span className="c24-hero__meta-item" role="listitem">
+                <Users size={13} aria-hidden="true" />
+                50+ participantes
+              </span>
+            </div>
+          </section>
+
+          {/* ② BANDEAU STATUT */}
+          <div className="c24-status" role="status" aria-live="polite">
+            <strong>3ème édition — Clôturée.</strong>{' '}
+            La 4ème édition s&apos;est tenue du 14 au 21 septembre 2025.
+          </div>
+
+          {/* ③ PRÉSENTATION */}
+          <section className="c24-card" aria-labelledby="c24-pres-h">
+            <h2 id="c24-pres-h" className="c24-section-h">Présentation</h2>
+            <p className="c24-text">
+              Le CIFAP est une initiative annuelle organisée par le mouvement panafricain Nous Sommes
+              la Solution (NSS) au Centre Karonghen Wati Naning de Niaguis. Chaque édition réunit des
+              femmes rurales, des techniciens agricoles et des leaders communautaires d&apos;Afrique de
+              l&apos;Ouest autour d&apos;un thème agroécologique précis — dans une logique de progression
+              pédagogique d&apos;une édition à l&apos;autre. Ce camp remplit un triple rôle :{' '}
+              <strong>former</strong> aux techniques paysannes durables,{' '}
+              <strong>relier</strong> les femmes rurales d&apos;un continent à l&apos;autre, et{' '}
+              <strong>durer</strong> en ancrant les savoirs dans les réalités locales.
             </p>
-            <div className="ch-intro__pillars">
-              {['Former', 'Relier', 'Durer'].map((p) => (
-                <span key={p} className="ch-intro__pillar">{p}</span>
+          </section>
+
+          {/* ④ OBJECTIFS */}
+          <section className="c24-card" aria-labelledby="c24-obj-h">
+            <h2 id="c24-obj-h" className="c24-section-h">Objectifs</h2>
+            <div className="c24-obj-grid">
+              {OBJECTIFS.map((obj) => (
+                <div key={obj.title} className="c24-obj-card">
+                  <span className="c24-obj-icon" aria-hidden="true">{obj.icon}</span>
+                  <h3 className="c24-obj-name">{obj.title}</h3>
+                  <p className="c24-obj-desc">{obj.desc}</p>
+                </div>
               ))}
             </div>
-          </div>
-          <div className="ch-intro__right">
-            <blockquote className="ch-intro__quote">
-              <p className="ch-intro__quote-text">
-                « Dans l&apos;agroécologie, nous recherchons la souveraineté alimentaire.
-                Pour être souverain, il faut avoir le droit de produire ce que vous voulez manger. »
-              </p>
-              <footer className="ch-intro__quote-foot">
-                <strong>Mariama Sonko</strong>
-                <span>Présidente de NSS</span>
-              </footer>
-            </blockquote>
-          </div>
-        </div>
-      </section>
+          </section>
 
-      {/* ════════════════════════════════════════════════════
-          ③ TIMELINE DES 4 ÉDITIONS
-      ════════════════════════════════════════════════════ */}
-      <section className="ch-tl" aria-labelledby="ch-tl-titre">
-        <div className="ch-tl__wrap">
-          <span className="ch-tl__eyebrow">PARCOURS DES ÉDITIONS</span>
-          <h2 id="ch-tl-titre" className="ch-tl__h2">
-            Du sol <em>à l&apos;horticulture.</em>
-          </h2>
-          <ol className="ch-tl__list">
-            {EDITIONS.map((ed) => (
-              <li key={ed.num} className="ch-tl__item">
-                <div className="ch-tl__dot-col">
-                  <div className="ch-tl__dot" aria-hidden="true">
-                    <span>{ed.num}</span>
-                  </div>
+          {/* ⑤ PARTICIPANTS */}
+          <section className="c24-card" aria-labelledby="c24-part-h">
+            <h2 id="c24-part-h" className="c24-section-h">Participants</h2>
+            <p className="c24-text" style={{ marginBottom: '1rem' }}>
+              Représentantes de 14 associations de femmes rurales issues de huit pays :
+            </p>
+            <div className="c24-pays-badges" role="list" aria-label="Pays représentés">
+              {PAYS.map((p) => (
+                <span key={p.name} className="c24-pays-badge" role="listitem">
+                  <span aria-hidden="true">{p.flag}</span>
+                  {p.name}
+                </span>
+              ))}
+            </div>
+            <div className="c24-stats-grid" role="list" aria-label="Chiffres clés">
+              {[
+                { val: '50+',  lbl: 'Participantes (éd. 2024)' },
+                { val: '~70',  lbl: 'Leaders formées (éd. 2025)' },
+                { val: '14',   lbl: 'Associations membres' },
+                { val: '4',    lbl: 'Éditions depuis 2022' },
+              ].map((s) => (
+                <div key={s.lbl} className="c24-stat-card" role="listitem">
+                  <span className="c24-stat-val">{s.val}</span>
+                  <span className="c24-stat-lbl">{s.lbl}</span>
                 </div>
-                <div className="ch-tl__card">
-                  <div className="ch-tl__card-head">
-                    <span className="ch-tl__year">{ed.year}</span>
-                    <span className="ch-tl__tag">{ed.tag}</span>
-                  </div>
-                  <p className="ch-tl__theme">{ed.theme}</p>
-                  <p className="ch-tl__detail">{ed.detail}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════════
-          ④ TROIS PILIERS PÉDAGOGIQUES
-      ════════════════════════════════════════════════════ */}
-      <section className="ch-pil" aria-labelledby="ch-pil-titre">
-        <div className="ch-pil__wrap">
-          <span className="ch-pil__eyebrow">PÉDAGOGIE</span>
-          <h2 id="ch-pil-titre" className="ch-pil__h2">
-            Trois piliers <em>pour apprendre.</em>
-          </h2>
-          <div className="ch-pil__grid">
-            <div className="ch-pil__card">
-              <span className="ch-pil__icon" aria-hidden="true">🌱</span>
-              <h3 className="ch-pil__name">La Terre</h3>
-              <p className="ch-pil__desc">
-                Rotation des cultures, compostage, fertilité des sols et pratiques
-                culturales durables pour une production autonome et résiliente.
-              </p>
+              ))}
             </div>
-            <div className="ch-pil__card">
-              <span className="ch-pil__icon" aria-hidden="true">🌾</span>
-              <h3 className="ch-pil__name">Les Semences</h3>
-              <p className="ch-pil__desc">
-                Sélection, conservation et échange des semences paysannes reproductibles
-                pour garantir la souveraineté semencière des communautés rurales.
-              </p>
-            </div>
-            <div className="ch-pil__card">
-              <span className="ch-pil__icon" aria-hidden="true">💧</span>
-              <h3 className="ch-pil__name">L&apos;Eau</h3>
-              <p className="ch-pil__desc">
-                Gestion écologique des ressources hydriques, systèmes d&apos;irrigation
-                adaptés et résilience face aux aléas du changement climatique.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+          </section>
 
-      {/* ════════════════════════════════════════════════════
-          ⑤ HUIT PAYS, UNE VOIX
-      ════════════════════════════════════════════════════ */}
-      <section className="ch-pays" aria-labelledby="ch-pays-titre">
-        <div className="ch-pays__wrap">
-          <span className="ch-pays__eyebrow">REPRÉSENTATION CONTINENTALE</span>
-          <h2 id="ch-pays-titre" className="ch-pays__h2">
-            Huit pays, <em>une voix.</em>
-          </h2>
-          <div className="ch-pays__badges" role="list" aria-label="Pays représentés">
-            {PAYS.map((p) => (
-              <span key={p} className="ch-pays__badge" role="listitem">{p}</span>
-            ))}
-          </div>
-          <blockquote className="ch-pays__quote">
-            <p>
-              « Du Burkina Faso à la Gambie, du Ghana à la Guinée-Bissau — des femmes rurales
-              portant les réalités de leurs territoires et une même conviction : l&apos;agroécologie
-              paysanne est la voie vers la souveraineté alimentaire. »
+          {/* ⑥ CITATION */}
+          <blockquote className="c24-quote">
+            <p className="c24-quote__text">
+              « Dans l&apos;agroécologie, nous recherchons la souveraineté alimentaire.
+              Pour être souverain, il faut avoir le droit de produire ce que vous voulez manger. »
             </p>
-          </blockquote>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════════
-          ⑥ SAVOIRS ENDOGÈNES
-      ════════════════════════════════════════════════════ */}
-      <section className="ch-sav" aria-labelledby="ch-sav-titre">
-        <div className="ch-sav__wrap">
-          <div className="ch-sav__left">
-            <span className="ch-sav__eyebrow">PHILOSOPHIE</span>
-            <h2 id="ch-sav-titre" className="ch-sav__h2">
-              Savoirs <em>endogènes.</em>
-            </h2>
-            <p className="ch-sav__text">
-              Les savoirs endogènes ne sont pas à remplacer — ils sont à enrichir et à valoriser.
-              C&apos;est la combinaison de techniques innovantes et de savoirs locaux qui construit
-              une souveraineté durable, ancrée dans les réalités des femmes paysannes d&apos;Afrique de l&apos;Ouest.
-            </p>
-            <p className="ch-sav__text">
-              Le CIFAP ne transmet pas un savoir venu d&apos;ailleurs — il crée les conditions
-              pour que les femmes reconnaissent, partagent et amplifient ce qu&apos;elles savent déjà.
-            </p>
-          </div>
-          <blockquote className="ch-sav__quote">
-            <p className="ch-sav__quote-text">
-              « L&apos;agroécologie, ce n&apos;est pas de l&apos;anarchie — c&apos;est quelque chose de bien ordonné. »
-            </p>
-            <footer className="ch-sav__quote-foot">
-              <strong>Monique Noumo Konan</strong>
-              <span>Coordinatrice NSS Côte d&apos;Ivoire</span>
+            <footer className="c24-quote__foot">
+              — <strong>Mariama Sonko</strong>, présidente du mouvement NSS
             </footer>
           </blockquote>
-        </div>
-      </section>
 
-      {/* ════════════════════════════════════════════════════
-          ⑦ PARTENAIRES
-      ════════════════════════════════════════════════════ */}
-      <section className="ch-part" aria-label="Partenaires du CIFAP">
-        <div className="ch-part__wrap">
-          <span className="ch-part__eyebrow">ILS SOUTIENNENT LE CIFAP</span>
-          <div className="ch-part__list" role="list">
-            {PARTNERS.map((p) => (
-              <span key={p} className="ch-part__name" role="listitem">{p}</span>
-            ))}
-          </div>
-        </div>
-      </section>
+          {/* ⑦ THÉMATIQUES */}
+          <section className="c24-card" aria-labelledby="c24-them-h">
+            <h2 id="c24-them-h" className="c24-section-h">Thématiques abordées</h2>
+            <div className="c24-them-grid">
+              <div className="c24-them-card">
+                <span className="c24-them-icon" aria-hidden="true">🌱</span>
+                <h3 className="c24-them-name">La Terre</h3>
+                <p className="c24-them-desc">Compost, rotation des cultures, santé des sols</p>
+              </div>
+              <div className="c24-them-card">
+                <span className="c24-them-icon" aria-hidden="true">🌾</span>
+                <h3 className="c24-them-name">Les Semences</h3>
+                <p className="c24-them-desc">Semences paysannes, souveraineté semencière</p>
+              </div>
+              <div className="c24-them-card">
+                <span className="c24-them-icon" aria-hidden="true">🛡️</span>
+                <h3 className="c24-them-name">Bio-protecteurs</h3>
+                <p className="c24-them-desc">Protection naturelle, biodiversité agricole</p>
+              </div>
+            </div>
+          </section>
 
-      {/* ════════════════════════════════════════════════════
-          ⑧ CTA DOUBLE
-      ════════════════════════════════════════════════════ */}
-      <section className="ch-cta" aria-label="Rejoindre le CIFAP">
-        <div className="ch-cta__wrap">
-          <h2 className="ch-cta__h2">Rejoindre <em>le prochain CIFAP.</em></h2>
-          <p className="ch-cta__sub">
-            La prochaine édition se tient en septembre 2026 à Niaguis, Casamance.
-            Rejoignez les 70+ leaders paysannes qui transforment l&apos;agriculture
-            en Afrique de l&apos;Ouest.
-          </p>
-          <div className="ch-cta__btns">
-            <Link href="/fr/agir/rejoindre" className="ch-cta__btn ch-cta__btn--primary">
+          {/* ⑧ LIEU */}
+          <section className="c24-card" aria-labelledby="c24-lieu-h">
+            <h2 id="c24-lieu-h" className="c24-section-h">Lieu</h2>
+            <div className="c24-lieu">
+              <div className="c24-lieu__pin" aria-hidden="true">
+                <MapPin size={20} color="#00AD4C" />
+              </div>
+              <div className="c24-lieu__info">
+                <p className="c24-lieu__name">Centre Karonghen Wati Naning</p>
+                <p className="c24-lieu__addr">Niaguis, Ziguinchor — Sénégal</p>
+                <p className="c24-lieu__voc">
+                  Centre de démonstration des bonnes pratiques agroécologiques
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* ⑨ CTA DOUBLE */}
+          <div className="c24-cta-row">
+            <Link href="/fr/agir/rejoindre" className="c24-cta c24-cta--primary">
               Participer au prochain CIFAP
             </Link>
-            <Link href="/fr/agir/soutenir" className="ch-cta__btn ch-cta__btn--outline">
+            <Link href="/fr/agir/soutenir" className="c24-cta c24-cta--outline">
               Soutenir le programme
             </Link>
           </div>
-          <Link href="/fr/programmes" className="ch-cta__back">
-            ← Voir tous nos programmes
-          </Link>
-        </div>
-      </section>
+
+        </main>
+
+        {/* ════════════════════════════════════════════════════
+            ASIDE STICKY
+        ════════════════════════════════════════════════════ */}
+        <aside className="c24-aside" aria-label="Informations pratiques CIFAP">
+
+          {/* Bloc 1 — Détails édition 2024 */}
+          <div className="c24-acard">
+            <h2 className="c24-atitle">Édition 2024</h2>
+            <ul className="c24-alist">
+              <li className="c24-aitem">
+                <Calendar size={13} color="#00AD4C" aria-hidden="true" />
+                <span className="c24-akey">Début</span>
+                <span className="c24-aval">1 sept. 2024</span>
+              </li>
+              <li className="c24-aitem">
+                <Calendar size={13} color="#00AD4C" aria-hidden="true" />
+                <span className="c24-akey">Fin</span>
+                <span className="c24-aval">7 sept. 2024</span>
+              </li>
+              <li className="c24-aitem">
+                <Clock size={13} color="#00AD4C" aria-hidden="true" />
+                <span className="c24-akey">Durée</span>
+                <span className="c24-aval">5 jours</span>
+              </li>
+              <li className="c24-aitem">
+                <MapPin size={13} color="#00AD4C" aria-hidden="true" />
+                <span className="c24-akey">Lieu</span>
+                <span className="c24-aval">Niaguis, Sénégal</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Bloc 2 — Navigation éditions */}
+          <div className="c24-acard">
+            <h2 className="c24-atitle">Toutes les éditions</h2>
+            <nav aria-label="Naviguer entre les éditions CIFAP">
+              <ul className="c24-ed-list">
+                {EDITIONS.map((ed) => (
+                  <li key={ed.year} className={`c24-ed-item c24-ed--${ed.status}`}>
+                    <Link href="/fr/programmes/cifap" className="c24-ed-link">
+                      <div className="c24-ed-head">
+                        <span className="c24-ed-year">{ed.year}</span>
+                        {ed.status === 'active' && (
+                          <span className="c24-ed-pill c24-ed-pill--active">Page active</span>
+                        )}
+                        {ed.status === 'recent' && (
+                          <span className="c24-ed-pill c24-ed-pill--gold">Dernière</span>
+                        )}
+                      </div>
+                      <p className="c24-ed-theme">{ed.theme}</p>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+
+          {/* Bloc 3 — Organisateur */}
+          <div className="c24-acard">
+            <h2 className="c24-atitle">Organisateur</h2>
+            <p className="c24-aorg">Mouvement NSS — Nous Sommes la Solution</p>
+            <ul className="c24-alist">
+              <li className="c24-aitem">
+                <Phone size={13} color="#00AD4C" aria-hidden="true" />
+                <a href="tel:+221776470231" className="c24-alink">+221 77 647 02 31</a>
+              </li>
+              <li className="c24-aitem">
+                <Mail size={13} color="#00AD4C" aria-hidden="true" />
+                <a href="mailto:mamadou@fahamu.org" className="c24-alink">mamadou@fahamu.org</a>
+              </li>
+              <li className="c24-aitem">
+                <ExternalLink size={13} color="#00AD4C" aria-hidden="true" />
+                <a
+                  href="https://wasafrica.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="c24-alink"
+                >
+                  wasafrica.org
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Bloc 4 — Partenaires */}
+          <div className="c24-acard">
+            <h2 className="c24-atitle">Partenaires</h2>
+            <ul className="c24-plist">
+              {PARTNERS.map((p) => (
+                <li key={p} className="c24-pitem">
+                  <span className="c24-pdot" aria-hidden="true" />
+                  {p}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+        </aside>
+      </div>
 
       {/* ════════════════════════════════════════════════════
           STYLES
       ════════════════════════════════════════════════════ */}
       <style>{`
 
-        /* ──────────────────────────────────────────────────
-           ① HERO
-        ────────────────────────────────────────────────── */
-        .ch-hero {
-          position: relative;
-          min-height: 100svh;
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-end;
-          background: url('/images/programmes/hero-agroecologie.jpg') center / cover no-repeat;
-          overflow: hidden;
-        }
-        .ch-hero__overlay {
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(
-            to bottom,
-            rgba(4,86,39,0.20) 0%,
-            rgba(4,86,39,0.55) 45%,
-            rgba(4,86,39,0.88) 100%
-          );
-        }
-        .ch-hero__content {
-          position: relative;
-          z-index: 1;
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 24px 52px;
-          width: 100%;
-        }
-        .ch-hero__eyebrow {
-          display: block;
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 10px;
-          font-weight: 700;
-          letter-spacing: 0.28em;
-          text-transform: uppercase;
-          color: #A5CE46;
-          margin-bottom: 18px;
-        }
-        .ch-hero__h1 {
-          font-family: var(--font-cormorant), Georgia, serif;
-          font-size: clamp(80px, 13vw, 152px);
-          font-weight: 700;
-          line-height: 0.88;
-          color: #ffffff;
-          margin: 0 0 22px;
-          letter-spacing: -0.025em;
-        }
-        .ch-hero__sub {
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: clamp(14px, 2vw, 19px);
-          font-weight: 300;
-          color: rgba(245,237,214,0.90);
-          margin: 0 0 28px;
-          max-width: 540px;
-          line-height: 1.55;
-        }
-        .ch-hero__loc {
-          display: inline-flex;
-          align-items: center;
-          gap: 9px;
-          background: rgba(255,255,255,0.09);
-          border: 1px solid rgba(165,206,70,0.35);
-          border-radius: 100px;
-          padding: 9px 18px;
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 12px;
-          font-weight: 500;
-          color: #F5EDD6;
-          backdrop-filter: blur(6px);
-        }
-        .ch-hero__loc-dot {
-          width: 7px;
-          height: 7px;
-          border-radius: 50%;
-          background: #A5CE46;
-          flex-shrink: 0;
-          animation: cifap-pulse 2.2s ease-in-out infinite;
-        }
-        @keyframes cifap-pulse {
-          0%, 100% { opacity: 1; transform: scale(1); }
-          50%       { opacity: 0.55; transform: scale(1.35); }
-        }
-
-        /* Stats bar */
-        .ch-hero__bar {
-          position: relative;
-          z-index: 1;
-          background: rgba(4,86,39,0.88);
-          backdrop-filter: blur(10px);
-          border-top: 1px solid rgba(165,206,70,0.18);
-        }
-        .ch-hero__bar-inner {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 22px 24px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-        .ch-hero__stat {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-          flex: 1;
-          padding: 0 24px;
-        }
-        .ch-hero__stat-val {
-          font-family: var(--font-cormorant), Georgia, serif;
-          font-size: 38px;
-          font-weight: 700;
-          color: #E8A838;
-          line-height: 1;
-          letter-spacing: -0.02em;
-        }
-        .ch-hero__stat-lbl {
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 11px;
-          font-weight: 400;
-          color: rgba(245,237,214,0.65);
-          margin-top: 5px;
-          letter-spacing: 0.04em;
-          text-transform: uppercase;
-        }
-        .ch-hero__sep {
-          width: 1px;
-          height: 44px;
-          background: rgba(165,206,70,0.18);
-          flex-shrink: 0;
-        }
-
-        /* ──────────────────────────────────────────────────
-           ② INTRODUCTION
-        ────────────────────────────────────────────────── */
-        .ch-intro {
-          background: #ffffff;
-          border-bottom: 1px solid rgba(0,173,76,0.07);
-        }
-        .ch-intro__wrap {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 88px 24px;
+        /* ── Layout global ── */
+        .c24-page {
           display: grid;
-          grid-template-columns: 1.15fr 1fr;
-          gap: 72px;
-          align-items: center;
+          grid-template-columns: 1fr 280px;
+          gap: 2rem;
+          align-items: start;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 2.5rem 1.5rem 5rem;
         }
-        .ch-intro__eyebrow {
-          display: block;
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 9.5px;
-          font-weight: 700;
-          letter-spacing: 0.24em;
-          text-transform: uppercase;
-          color: #A5CE46;
-          margin-bottom: 20px;
-        }
-        .ch-intro__h2 {
-          font-family: var(--font-cormorant), Georgia, serif;
-          font-size: 47px;
-          font-weight: 600;
-          line-height: 1.0;
-          color: #0A0A0A;
-          margin: 0 0 28px;
-          letter-spacing: -0.01em;
-        }
-        .ch-intro__h2 em { font-style: italic; color: #00AD4C; }
-        .ch-intro__text {
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 15px;
-          font-weight: 300;
-          line-height: 1.78;
-          color: #4A4A4A;
-          margin: 0 0 16px;
-          text-align: justify;
-        }
-        .ch-intro__pillars {
-          display: flex;
-          gap: 10px;
-          margin-top: 12px;
-          flex-wrap: wrap;
-        }
-        .ch-intro__pillar {
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 10px;
-          font-weight: 700;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
-          color: #045627;
-          background: rgba(0,173,76,0.07);
-          border: 1px solid rgba(0,173,76,0.18);
-          border-radius: 100px;
-          padding: 6px 18px;
-        }
-        .ch-intro__quote {
-          background: #FAFAF8;
-          border: 1px solid rgba(0,173,76,0.08);
-          border-left: 4px solid #E8A838;
-          border-radius: 4px;
-          padding: 38px 34px;
-          margin: 0;
-        }
-        .ch-intro__quote-text {
-          font-family: var(--font-cormorant), Georgia, serif;
-          font-size: 21px;
-          font-weight: 400;
-          font-style: italic;
-          line-height: 1.55;
-          color: #1a1a1a;
-          margin: 0 0 22px;
-        }
-        .ch-intro__quote-foot {
+        .c24-main {
           display: flex;
           flex-direction: column;
-          gap: 3px;
-        }
-        .ch-intro__quote-foot strong {
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 13px;
-          font-weight: 700;
-          color: #045627;
-        }
-        .ch-intro__quote-foot span {
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 12px;
-          font-weight: 300;
-          color: #999;
+          min-width: 0;
         }
 
-        /* ──────────────────────────────────────────────────
-           ③ TIMELINE
-        ────────────────────────────────────────────────── */
-        .ch-tl {
-          background: #FAFAF8;
-          border-bottom: 1px solid rgba(0,173,76,0.05);
-        }
-        .ch-tl__wrap {
-          max-width: 820px;
-          margin: 0 auto;
-          padding: 88px 24px;
-        }
-        .ch-tl__eyebrow {
-          display: block;
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 9.5px;
-          font-weight: 700;
-          letter-spacing: 0.24em;
-          text-transform: uppercase;
-          color: #A5CE46;
-          margin-bottom: 20px;
-          text-align: center;
-        }
-        .ch-tl__h2 {
-          font-family: var(--font-cormorant), Georgia, serif;
-          font-size: 47px;
-          font-weight: 600;
-          line-height: 1.0;
-          color: #0A0A0A;
-          margin: 0 0 64px;
-          letter-spacing: -0.01em;
-          text-align: center;
-        }
-        .ch-tl__h2 em { font-style: italic; color: #00AD4C; }
-        .ch-tl__list {
-          list-style: none;
-          margin: 0;
-          padding: 0;
+        /* ── HERO ── */
+        .c24-hero {
+          background: #045627;
+          border-radius: 12px;
+          padding: 2.5rem;
           position: relative;
+          overflow: hidden;
+          margin-bottom: 1.25rem;
         }
-        .ch-tl__list::before {
+        .c24-hero::before {
           content: '';
           position: absolute;
-          left: 27px;
-          top: 0;
-          bottom: 0;
-          width: 2px;
-          background: linear-gradient(to bottom, #A5CE46 0%, #00AD4C 50%, #045627 100%);
-          border-radius: 2px;
-        }
-        .ch-tl__item {
-          display: flex;
-          gap: 32px;
-          align-items: flex-start;
-          padding-bottom: 52px;
-          position: relative;
-        }
-        .ch-tl__item:last-child { padding-bottom: 0; }
-        .ch-tl__dot-col {
-          flex-shrink: 0;
-          position: relative;
-          z-index: 1;
-          width: 56px;
-          display: flex;
-          justify-content: center;
-        }
-        .ch-tl__dot {
-          width: 54px;
-          height: 54px;
+          width: 520px;
+          height: 520px;
           border-radius: 50%;
           background: #00AD4C;
-          border: 3px solid #FAFAF8;
-          box-shadow: 0 0 0 2px #00AD4C;
+          opacity: 0.13;
+          top: -140px;
+          right: -120px;
+          pointer-events: none;
+        }
+        .c24-hero__tags {
           display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-        }
-        .ch-tl__dot span {
-          font-family: var(--font-cormorant), Georgia, serif;
-          font-size: 17px;
-          font-weight: 700;
-          color: #ffffff;
-          line-height: 1;
-        }
-        .ch-tl__card {
-          background: #ffffff;
-          border: 0.5px solid #E4E2DC;
-          border-left: 3px solid #E4E2DC;
-          border-radius: 8px;
-          padding: 28px 28px 24px;
-          flex: 1;
-          transition: border-left-color 0.2s ease, box-shadow 0.2s ease;
-        }
-        .ch-tl__card:hover {
-          border-left-color: #00AD4C;
-          box-shadow: 0 8px 28px rgba(0,173,76,0.09);
-        }
-        .ch-tl__card-head {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          margin-bottom: 14px;
+          gap: 8px;
+          margin-bottom: 1rem;
+          position: relative;
+          z-index: 1;
           flex-wrap: wrap;
         }
-        .ch-tl__year {
-          font-family: var(--font-cormorant), Georgia, serif;
-          font-size: 34px;
-          font-weight: 700;
-          color: #E8A838;
-          line-height: 1;
-          letter-spacing: -0.02em;
-        }
-        .ch-tl__tag {
+        .c24-hero__tag {
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 9px;
+          font-size: 10px;
           font-weight: 700;
           letter-spacing: 0.14em;
           text-transform: uppercase;
-          color: #045627;
           background: rgba(165,206,70,0.18);
+          color: #A5CE46;
+          border: 1px solid rgba(165,206,70,0.28);
           border-radius: 100px;
-          padding: 4px 12px;
+          padding: 4px 13px;
         }
-        .ch-tl__theme {
+        .c24-hero__loc {
+          display: flex;
+          align-items: center;
+          gap: 6px;
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 15px;
-          font-weight: 600;
-          color: #1a1a1a;
-          line-height: 1.4;
-          margin: 0 0 10px;
+          font-size: 12px;
+          font-weight: 400;
+          color: rgba(245,237,214,0.65);
+          margin: 0 0 1rem;
+          position: relative;
+          z-index: 1;
         }
-        .ch-tl__detail {
+        .c24-hero__h1 {
+          font-family: var(--font-cormorant), Georgia, serif;
+          font-size: clamp(24px, 3.2vw, 36px);
+          font-weight: 700;
+          line-height: 1.15;
+          color: #F5EDD6;
+          margin: 0 0 1.375rem;
+          position: relative;
+          z-index: 1;
+          letter-spacing: -0.01em;
+        }
+        .c24-hero__theme {
+          background: rgba(255,255,255,0.06);
+          border-left: 3px solid #E8A838;
+          border-radius: 0 6px 6px 0;
+          padding: 12px 16px;
           font-family: var(--font-dm-sans), sans-serif;
           font-size: 13px;
           font-weight: 300;
-          color: #888;
-          line-height: 1.6;
-          margin: 0;
+          color: #F5EDD6;
+          line-height: 1.55;
+          margin-bottom: 1.5rem;
+          position: relative;
+          z-index: 1;
+        }
+        .c24-hero__theme strong {
+          font-weight: 700;
+          color: #E8A838;
+        }
+        .c24-hero__meta {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 8px;
+          position: relative;
+          z-index: 1;
+        }
+        .c24-hero__meta-item {
+          display: inline-flex;
+          align-items: center;
+          gap: 5px;
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 12px;
+          font-weight: 400;
+          color: rgba(245,237,214,0.78);
+        }
+        .c24-hero__meta-sep {
+          width: 1px;
+          height: 12px;
+          background: rgba(245,237,214,0.22);
+          flex-shrink: 0;
         }
 
-        /* ──────────────────────────────────────────────────
-           ④ TROIS PILIERS
-        ────────────────────────────────────────────────── */
-        .ch-pil {
-          background: #ffffff;
-          border-bottom: 1px solid rgba(0,173,76,0.05);
-        }
-        .ch-pil__wrap {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 88px 24px;
-          text-align: center;
-        }
-        .ch-pil__eyebrow {
-          display: block;
+        /* ── Bandeau statut ── */
+        .c24-status {
+          background: #FFFBF2;
+          border: 0.5px solid #e5e7eb;
+          border-left: 3px solid #E8A838;
+          border-radius: 8px;
+          padding: 12px 18px;
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 9.5px;
-          font-weight: 700;
-          letter-spacing: 0.24em;
-          text-transform: uppercase;
-          color: #A5CE46;
-          margin-bottom: 20px;
+          font-size: 13px;
+          font-weight: 300;
+          color: #555;
+          margin-bottom: 1.25rem;
+          line-height: 1.55;
         }
-        .ch-pil__h2 {
+        .c24-status strong {
+          font-weight: 700;
+          color: #1a1a1a;
+        }
+
+        /* ── Cards sections ── */
+        .c24-card {
+          background: #ffffff;
+          border: 0.5px solid #e5e7eb;
+          border-radius: 12px;
+          padding: 1.5rem;
+          margin-bottom: 1.25rem;
+        }
+        .c24-section-h {
           font-family: var(--font-cormorant), Georgia, serif;
-          font-size: 47px;
-          font-weight: 600;
-          line-height: 1.0;
+          font-size: 22px;
+          font-weight: 700;
           color: #0A0A0A;
-          margin: 0 0 56px;
+          margin: 0 0 1rem;
+          padding-bottom: 0.625rem;
+          border-bottom: 1px solid #f0f0ee;
+          line-height: 1.2;
           letter-spacing: -0.01em;
         }
-        .ch-pil__h2 em { font-style: italic; color: #00AD4C; }
-        .ch-pil__grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 24px;
-        }
-        .ch-pil__card {
-          background: #FAFAF8;
-          border: 1px solid rgba(0,173,76,0.08);
-          border-top: 3px solid #00AD4C;
-          border-radius: 8px;
-          padding: 44px 28px 38px;
-          text-align: center;
-          transition: box-shadow 0.2s ease, transform 0.25s ease;
-        }
-        .ch-pil__card:hover {
-          box-shadow: 0 12px 36px rgba(0,173,76,0.11);
-          transform: translateY(-5px);
-        }
-        .ch-pil__icon {
-          display: block;
-          font-size: 42px;
-          margin-bottom: 22px;
-        }
-        .ch-pil__name {
-          font-family: var(--font-cormorant), Georgia, serif;
-          font-size: 26px;
-          font-weight: 600;
-          color: #045627;
-          margin: 0 0 14px;
-          line-height: 1.1;
-        }
-        .ch-pil__desc {
+        .c24-text {
           font-family: var(--font-dm-sans), sans-serif;
           font-size: 14px;
           font-weight: 300;
-          line-height: 1.75;
+          line-height: 1.78;
           color: #4A4A4A;
           margin: 0;
           text-align: justify;
         }
-
-        /* ──────────────────────────────────────────────────
-           ⑤ HUIT PAYS
-        ────────────────────────────────────────────────── */
-        .ch-pays {
-          background: #045627;
-        }
-        .ch-pays__wrap {
-          max-width: 1000px;
-          margin: 0 auto;
-          padding: 88px 24px;
-          text-align: center;
-        }
-        .ch-pays__eyebrow {
-          display: block;
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 9.5px;
+        .c24-text strong {
           font-weight: 700;
-          letter-spacing: 0.24em;
-          text-transform: uppercase;
-          color: #A5CE46;
-          margin-bottom: 20px;
-        }
-        .ch-pays__h2 {
-          font-family: var(--font-cormorant), Georgia, serif;
-          font-size: 47px;
-          font-weight: 600;
-          line-height: 1.0;
-          color: #F5EDD6;
-          margin: 0 0 52px;
-          letter-spacing: -0.01em;
-        }
-        .ch-pays__h2 em { font-style: italic; color: #A5CE46; }
-        .ch-pays__badges {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 12px;
-          margin-bottom: 60px;
-        }
-        .ch-pays__badge {
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 12px;
-          font-weight: 700;
-          letter-spacing: 0.07em;
-          color: #045627;
-          background: #A5CE46;
-          border-radius: 100px;
-          padding: 9px 22px;
-          text-transform: uppercase;
-          transition: background 0.18s ease, color 0.18s ease;
-        }
-        .ch-pays__badge:hover {
-          background: #ffffff;
           color: #045627;
         }
-        .ch-pays__quote {
-          max-width: 680px;
-          margin: 0 auto;
-          border-left: 3px solid rgba(165,206,70,0.50);
-          padding-left: 28px;
-          text-align: left;
-        }
-        .ch-pays__quote p {
-          font-family: var(--font-cormorant), Georgia, serif;
-          font-size: 20px;
-          font-weight: 400;
-          font-style: italic;
-          line-height: 1.62;
-          color: rgba(245,237,214,0.88);
-          margin: 0;
-        }
 
-        /* ──────────────────────────────────────────────────
-           ⑥ SAVOIRS ENDOGÈNES
-        ────────────────────────────────────────────────── */
-        .ch-sav {
-          background: #F5EDD6;
-          border-top: 1px solid rgba(232,168,56,0.18);
-          border-bottom: 1px solid rgba(232,168,56,0.18);
-        }
-        .ch-sav__wrap {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 88px 24px;
+        /* ── Objectifs 2×2 ── */
+        .c24-obj-grid {
           display: grid;
-          grid-template-columns: 1.15fr 1fr;
-          gap: 72px;
-          align-items: center;
+          grid-template-columns: 1fr 1fr;
+          gap: 1rem;
         }
-        .ch-sav__eyebrow {
+        .c24-obj-card {
+          background: #FAFAF8;
+          border: 1px solid rgba(0,173,76,0.08);
+          border-radius: 8px;
+          padding: 1.125rem;
+          transition: box-shadow 0.2s ease;
+        }
+        .c24-obj-card:hover {
+          box-shadow: 0 4px 18px rgba(0,173,76,0.09);
+        }
+        .c24-obj-icon {
           display: block;
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 9.5px;
-          font-weight: 700;
-          letter-spacing: 0.24em;
-          text-transform: uppercase;
-          color: #00AD4C;
-          margin-bottom: 20px;
+          font-size: 26px;
+          margin-bottom: 10px;
         }
-        .ch-sav__h2 {
-          font-family: var(--font-cormorant), Georgia, serif;
-          font-size: 47px;
-          font-weight: 600;
-          line-height: 1.0;
-          color: #0A0A0A;
-          margin: 0 0 28px;
-          letter-spacing: -0.01em;
-        }
-        .ch-sav__h2 em { font-style: italic; color: #045627; }
-        .ch-sav__text {
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 15px;
-          font-weight: 300;
-          line-height: 1.78;
-          color: #3a3a2a;
-          margin: 0 0 16px;
-          text-align: justify;
-        }
-        .ch-sav__quote {
-          background: #ffffff;
-          border: 1px solid rgba(232,168,56,0.22);
-          border-left: 4px solid #E8A838;
-          border-radius: 4px;
-          padding: 38px 34px;
-          margin: 0;
-        }
-        .ch-sav__quote-text {
-          font-family: var(--font-cormorant), Georgia, serif;
-          font-size: 21px;
-          font-weight: 400;
-          font-style: italic;
-          line-height: 1.55;
-          color: #1a1a1a;
-          margin: 0 0 22px;
-        }
-        .ch-sav__quote-foot {
-          display: flex;
-          flex-direction: column;
-          gap: 3px;
-        }
-        .ch-sav__quote-foot strong {
+        .c24-obj-name {
           font-family: var(--font-dm-sans), sans-serif;
           font-size: 13px;
           font-weight: 700;
           color: #045627;
+          margin: 0 0 6px;
+          line-height: 1.3;
         }
-        .ch-sav__quote-foot span {
+        .c24-obj-desc {
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 12.5px;
+          font-weight: 300;
+          color: #666;
+          line-height: 1.65;
+          margin: 0;
+          text-align: justify;
+        }
+
+        /* ── Pays badges ── */
+        .c24-pays-badges {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          margin-bottom: 1.25rem;
+        }
+        .c24-pays-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 5px;
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 12px;
+          font-weight: 500;
+          color: #045627;
+          background: rgba(0,173,76,0.06);
+          border: 1px solid rgba(0,173,76,0.14);
+          border-radius: 100px;
+          padding: 5px 12px;
+        }
+
+        /* ── Stats 2×2 ── */
+        .c24-stats-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 10px;
+        }
+        .c24-stat-card {
+          background: #f8f8f7;
+          border: 1px solid #ebebeb;
+          border-radius: 8px;
+          padding: 16px 12px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          gap: 5px;
+        }
+        .c24-stat-val {
+          font-family: var(--font-cormorant), Georgia, serif;
+          font-size: 28px;
+          font-weight: 700;
+          color: #00AD4C;
+          line-height: 1;
+          letter-spacing: -0.02em;
+        }
+        .c24-stat-lbl {
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 11px;
+          font-weight: 400;
+          color: #888;
+          line-height: 1.35;
+        }
+
+        /* ── Citation ── */
+        .c24-quote {
+          background: #F5EDD6;
+          border: 1px solid rgba(232,168,56,0.18);
+          border-left: 4px solid #E8A838;
+          border-radius: 8px;
+          padding: 1.5rem;
+          margin: 0 0 1.25rem;
+        }
+        .c24-quote__text {
+          font-family: var(--font-cormorant), Georgia, serif;
+          font-size: 19px;
+          font-weight: 400;
+          font-style: italic;
+          line-height: 1.58;
+          color: #1a1a1a;
+          margin: 0 0 0.75rem;
+        }
+        .c24-quote__foot {
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 12px;
+          font-weight: 300;
+          color: #666;
+          margin: 0;
+        }
+        .c24-quote__foot strong {
+          font-weight: 700;
+          color: #045627;
+        }
+
+        /* ── Thématiques 3 colonnes ── */
+        .c24-them-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1rem;
+        }
+        .c24-them-card {
+          background: #FAFAF8;
+          border: 1px solid rgba(0,173,76,0.07);
+          border-top: 2px solid #00AD4C;
+          border-radius: 8px;
+          padding: 1.25rem;
+          text-align: center;
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .c24-them-card:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 6px 20px rgba(0,173,76,0.10);
+        }
+        .c24-them-icon {
+          display: block;
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+        .c24-them-name {
+          font-family: var(--font-cormorant), Georgia, serif;
+          font-size: 18px;
+          font-weight: 700;
+          color: #045627;
+          margin: 0 0 6px;
+          line-height: 1.15;
+        }
+        .c24-them-desc {
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 12px;
+          font-weight: 300;
+          color: #666;
+          line-height: 1.55;
+          margin: 0;
+        }
+
+        /* ── Lieu ── */
+        .c24-lieu {
+          display: flex;
+          align-items: flex-start;
+          gap: 14px;
+        }
+        .c24-lieu__pin {
+          width: 42px;
+          height: 42px;
+          border-radius: 8px;
+          background: rgba(0,173,76,0.07);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+        }
+        .c24-lieu__info { flex: 1; min-width: 0; }
+        .c24-lieu__name {
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 15px;
+          font-weight: 700;
+          color: #1a1a1a;
+          margin: 0 0 3px;
+        }
+        .c24-lieu__addr {
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 13px;
+          font-weight: 400;
+          color: #666;
+          margin: 0 0 6px;
+        }
+        .c24-lieu__voc {
           font-family: var(--font-dm-sans), sans-serif;
           font-size: 12px;
           font-weight: 300;
           color: #999;
+          font-style: italic;
+          margin: 0;
         }
 
-        /* ──────────────────────────────────────────────────
-           ⑦ PARTENAIRES
-        ────────────────────────────────────────────────── */
-        .ch-part {
-          background: #ffffff;
-          border-bottom: 1px solid rgba(0,173,76,0.07);
-        }
-        .ch-part__wrap {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 56px 24px;
-          text-align: center;
-        }
-        .ch-part__eyebrow {
-          display: block;
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 9.5px;
-          font-weight: 700;
-          letter-spacing: 0.24em;
-          text-transform: uppercase;
-          color: #A5CE46;
-          margin-bottom: 36px;
-        }
-        .ch-part__list {
+        /* ── CTA double ── */
+        .c24-cta-row {
           display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 0;
+          gap: 12px;
           flex-wrap: wrap;
         }
-        .ch-part__name {
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 15px;
-          font-weight: 700;
-          letter-spacing: 0.06em;
-          color: #2a2a2a;
-          text-transform: uppercase;
-          opacity: 0.45;
-          padding: 10px 36px;
-          border-right: 1px solid #E4E2DC;
-          transition: opacity 0.2s ease;
-          white-space: nowrap;
-        }
-        .ch-part__name:last-child { border-right: none; }
-        .ch-part__name:hover { opacity: 1; }
-
-        /* ──────────────────────────────────────────────────
-           ⑧ CTA DOUBLE
-        ────────────────────────────────────────────────── */
-        .ch-cta {
-          background: #045627;
-        }
-        .ch-cta__wrap {
-          max-width: 860px;
-          margin: 0 auto;
-          padding: 96px 24px;
-          text-align: center;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 20px;
-        }
-        .ch-cta__h2 {
-          font-family: var(--font-cormorant), Georgia, serif;
-          font-size: 47px;
-          font-weight: 600;
-          line-height: 1.0;
-          color: #F5EDD6;
-          margin: 0;
-          letter-spacing: -0.01em;
-        }
-        .ch-cta__h2 em { font-style: italic; color: #A5CE46; }
-        .ch-cta__sub {
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 15px;
-          font-weight: 300;
-          line-height: 1.78;
-          color: rgba(245,237,214,0.75);
-          margin: 0;
-          max-width: 560px;
-        }
-        .ch-cta__btns {
-          display: flex;
-          gap: 14px;
-          flex-wrap: wrap;
-          justify-content: center;
-          margin-top: 8px;
-        }
-        .ch-cta__btn {
+        .c24-cta {
           font-family: var(--font-dm-sans), sans-serif;
           font-size: 11px;
           font-weight: 700;
-          letter-spacing: 0.13em;
+          letter-spacing: 0.12em;
           text-transform: uppercase;
           text-decoration: none;
-          padding: 15px 32px;
-          border-radius: 4px;
+          padding: 13px 28px;
+          border-radius: 6px;
           transition: all 0.2s ease;
           display: inline-block;
+          white-space: nowrap;
         }
-        .ch-cta__btn--primary {
+        .c24-cta--primary {
           background: #00AD4C;
           color: #ffffff;
           border: 1.5px solid #00AD4C;
         }
-        .ch-cta__btn--primary:hover {
+        .c24-cta--primary:hover {
           background: #009040;
           border-color: #009040;
-          transform: scale(1.04);
         }
-        .ch-cta__btn--outline {
+        .c24-cta--outline {
           background: transparent;
-          color: #F5EDD6;
-          border: 1.5px solid rgba(245,237,214,0.45);
+          color: #045627;
+          border: 1.5px solid #045627;
         }
-        .ch-cta__btn--outline:hover {
-          border-color: #A5CE46;
-          color: #A5CE46;
+        .c24-cta--outline:hover {
+          background: #045627;
+          color: #ffffff;
         }
-        .ch-cta__back {
+
+        /* ════════════════════════════════════════════════════
+           ASIDE
+        ════════════════════════════════════════════════════ */
+        .c24-aside {
+          position: sticky;
+          top: 1rem;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+        .c24-acard {
+          background: #ffffff;
+          border: 0.5px solid #e5e7eb;
+          border-radius: 12px;
+          padding: 1.125rem;
+        }
+        .c24-atitle {
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+          color: #aaa;
+          margin: 0 0 0.875rem;
+          padding-bottom: 0.5rem;
+          border-bottom: 1px solid #f0f0ee;
+        }
+        .c24-alist {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+        .c24-aitem {
+          display: flex;
+          align-items: center;
+          gap: 7px;
           font-family: var(--font-dm-sans), sans-serif;
           font-size: 12px;
-          font-weight: 600;
-          color: rgba(165,206,70,0.7);
-          text-decoration: none;
-          margin-top: 8px;
-          transition: color 0.2s ease;
+          color: #555;
+          min-width: 0;
         }
-        .ch-cta__back:hover { color: #A5CE46; }
+        .c24-akey {
+          font-weight: 500;
+          color: #aaa;
+          min-width: 36px;
+          flex-shrink: 0;
+        }
+        .c24-aval {
+          font-weight: 600;
+          color: #1a1a1a;
+          margin-left: auto;
+        }
+        .c24-alink {
+          color: #00AD4C;
+          text-decoration: none;
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 12px;
+          transition: color 0.15s ease;
+          word-break: break-all;
+        }
+        .c24-alink:hover { color: #045627; }
 
-        /* ──────────────────────────────────────────────────
+        /* Éditions nav */
+        .c24-ed-list {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+        }
+        .c24-ed-item {
+          border-radius: 8px;
+          transition: background 0.15s ease;
+        }
+        .c24-ed--past   { opacity: 0.55; }
+        .c24-ed--active {
+          background: rgba(0,173,76,0.07);
+          border: 1px solid rgba(0,173,76,0.18);
+          opacity: 1;
+        }
+        .c24-ed--recent {
+          background: rgba(232,168,56,0.06);
+          border: 1px solid rgba(232,168,56,0.18);
+          opacity: 1;
+        }
+        .c24-ed-link {
+          display: block;
+          padding: 10px 12px;
+          text-decoration: none;
+          border-radius: 8px;
+        }
+        .c24-ed-head {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 6px;
+          margin-bottom: 4px;
+        }
+        .c24-ed-year {
+          font-family: var(--font-cormorant), Georgia, serif;
+          font-size: 20px;
+          font-weight: 700;
+          color: #1a1a1a;
+          line-height: 1;
+        }
+        .c24-ed--active .c24-ed-year { color: #00AD4C; }
+        .c24-ed-pill {
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 9px;
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          border-radius: 100px;
+          padding: 2px 8px;
+          white-space: nowrap;
+          flex-shrink: 0;
+        }
+        .c24-ed-pill--active {
+          background: rgba(0,173,76,0.14);
+          color: #00AD4C;
+        }
+        .c24-ed-pill--gold {
+          background: rgba(232,168,56,0.18);
+          color: #9a6e10;
+        }
+        .c24-ed-theme {
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 11px;
+          font-weight: 300;
+          color: #777;
+          line-height: 1.45;
+          margin: 0;
+        }
+
+        /* Organisateur */
+        .c24-aorg {
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 13px;
+          font-weight: 700;
+          color: #1a1a1a;
+          margin: 0 0 0.75rem;
+          line-height: 1.35;
+        }
+
+        /* Partenaires */
+        .c24-plist {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 9px;
+        }
+        .c24-pitem {
+          display: flex;
+          align-items: center;
+          gap: 9px;
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 13px;
+          font-weight: 400;
+          color: #444;
+        }
+        .c24-pdot {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: #A5CE46;
+          flex-shrink: 0;
+        }
+
+        /* ════════════════════════════════════════════════════
            RESPONSIVE
-        ────────────────────────────────────────────────── */
+        ════════════════════════════════════════════════════ */
+        @media (max-width: 1024px) {
+          .c24-page { grid-template-columns: 1fr 240px; }
+        }
         @media (max-width: 768px) {
-          .ch-hero { min-height: 70svh; }
-          .ch-hero__h1 { font-size: clamp(56px, 16vw, 80px); }
-          .ch-hero__bar-inner { flex-wrap: wrap; gap: 12px; padding: 18px 24px; }
-          .ch-hero__sep { display: none; }
-          .ch-hero__stat { flex: none; width: 46%; padding: 0 8px; }
-          .ch-intro__wrap { grid-template-columns: 1fr; gap: 44px; padding: 60px 24px; }
-          .ch-intro__h2 { font-size: 36px; }
-          .ch-tl__h2 { font-size: 36px; }
-          .ch-pil__grid { grid-template-columns: 1fr; }
-          .ch-pil__h2 { font-size: 36px; }
-          .ch-pays__h2 { font-size: 36px; }
-          .ch-sav__wrap { grid-template-columns: 1fr; gap: 44px; padding: 60px 24px; }
-          .ch-sav__h2 { font-size: 36px; }
-          .ch-cta__h2 { font-size: 36px; }
-          .ch-part__name { padding: 10px 20px; font-size: 13px; }
+          .c24-page {
+            grid-template-columns: 1fr;
+            padding: 1.25rem 1rem 3rem;
+          }
+          .c24-main  { order: 1; }
+          .c24-aside {
+            order: 2;
+            position: static;
+          }
+          .c24-obj-grid   { grid-template-columns: 1fr; }
+          .c24-them-grid  { grid-template-columns: 1fr 1fr; }
+          .c24-stats-grid { grid-template-columns: 1fr 1fr; }
+          .c24-hero { padding: 1.5rem; }
+          .c24-hero__h1 { font-size: 22px; }
         }
         @media (max-width: 480px) {
-          .ch-hero__h1 { font-size: 52px; }
-          .ch-intro__h2, .ch-tl__h2, .ch-pil__h2,
-          .ch-pays__h2, .ch-sav__h2, .ch-cta__h2 { font-size: 30px; }
-          .ch-cta__btns { flex-direction: column; width: 100%; }
-          .ch-cta__btn { text-align: center; }
-          .ch-tl__wrap { padding: 56px 16px; }
-          .ch-tl__list::before { left: 24px; }
-          .ch-tl__dot { width: 48px; height: 48px; }
-          .ch-tl__dot-col { width: 48px; }
-          .ch-part__list { flex-direction: column; gap: 0; }
-          .ch-part__name { border-right: none; border-bottom: 1px solid #E4E2DC; width: 100%; }
-          .ch-part__name:last-child { border-bottom: none; }
+          .c24-them-grid { grid-template-columns: 1fr; }
+          .c24-hero__meta-sep { display: none; }
+          .c24-cta-row { flex-direction: column; }
+          .c24-cta { text-align: center; }
+          .c24-hero { padding: 1.25rem; }
         }
       `}</style>
     </>
