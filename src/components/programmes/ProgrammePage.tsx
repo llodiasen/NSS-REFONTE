@@ -96,7 +96,7 @@ export default function ProgrammePage({
   lieu,
   ctas,
   aside,
-  locale = 'fr',
+  locale: _locale = 'fr',
 }: ProgrammeProps) {
   return (
     <>
