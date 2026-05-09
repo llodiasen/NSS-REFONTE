@@ -8,6 +8,7 @@ export interface NavDropItem {
   title: string;
   description: string;
   href: string;
+  indent?: boolean;
 }
 
 interface Props {
@@ -31,9 +32,9 @@ export default function HeaderNavDropdown({ items, onClose }: Props) {
         boxShadow: "0 4px 16px rgba(0,0,0,0.07)",
       }}
     >
-      {items.map((item) => (
+      {items.map((item, i) => (
         <Link
-          key={item.href}
+          key={`${item.href}-${i}`}
           href={item.href}
           onClick={onClose}
           className="hnavdd-item"
@@ -41,27 +42,30 @@ export default function HeaderNavDropdown({ items, onClose }: Props) {
             display: "flex",
             flexDirection: "column",
             gap: "1px",
-            padding: "8px 12px",
+            padding: item.indent ? "5px 12px 5px 22px" : "8px 12px",
             borderRadius: "7px",
             textDecoration: "none",
+            borderLeft: item.indent ? "2px solid #e8f4ec" : "none",
+            marginLeft: item.indent ? "12px" : "0",
           }}
         >
           <span
             style={{
               display: "block",
-              fontSize: "15px",
-              fontWeight: 500,
-              color: "#0f2b1a",
+              fontSize: item.indent ? "13px" : "15px",
+              fontWeight: item.indent ? 400 : 500,
+              color: item.indent ? "#2a7a4a" : "#0f2b1a",
               lineHeight: 1.3,
             }}
           >
+            {item.indent && <span style={{ color: "#A5CE46", marginRight: 5, fontSize: 11 }}>›</span>}
             {item.title}
           </span>
           <span
             style={{
               display: "block",
-              fontSize: "13px",
-              color: "#888",
+              fontSize: "12px",
+              color: "#aaa",
               lineHeight: 1.4,
             }}
           >

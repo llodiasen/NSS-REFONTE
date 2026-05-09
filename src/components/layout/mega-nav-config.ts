@@ -11,6 +11,7 @@ export interface MegaLink {
   title: string;
   description: string;
   href: string;
+  indent?: boolean;
 }
 
 export interface MegaColumn {
@@ -34,6 +35,9 @@ export function getMegaColumns(locale: string): MegaColumn[] {
       links: [
         { icon: BookOpen, title: "Tous les programmes",      description: "Vue d'ensemble des 3 programmes",    href: `/${locale}/programmes` },
         { icon: Home,     title: "CIFAP",                   description: "Camp international agroécologique",  href: `/${locale}/programmes/cifap` },
+        { icon: Calendar, title: "Édition 2023",             description: "Semences horticoles paysannes",      href: `/${locale}/programmes/cifap/2e-edition-2023`, indent: true },
+        { icon: Calendar, title: "Édition 2024",             description: "Bio-protecteurs en agroécologie",   href: `/${locale}/programmes/cifap/3e-edition-2024`, indent: true },
+        { icon: Calendar, title: "Édition 2025",             description: "Cultures horticoles paysannes",     href: `/${locale}/programmes/cifap/4e-edition-2025`, indent: true },
         { icon: Globe,    title: "EMMAP",                   description: "Médias, Minorités & Paix",           href: `/${locale}/programmes/emmap` },
         { icon: UserPlus, title: "FIARA & Rencontre",        description: "Foire & rassemblement annuel",       href: `/${locale}/programmes` },
       ],

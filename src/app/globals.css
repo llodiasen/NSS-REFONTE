@@ -83,6 +83,12 @@ a, span, li, button, input, textarea, select, label {
 .hdr-spacer { height: 106px; }
 @media (max-width: 1024px) { .hdr-spacer { height: 64px; } }
 
+/* ── HeaderV2 — fallback responsive (renforce md:flex) ── */
+@media (min-width: 768px) {
+  .hdrv2-nav     { display: flex !important; }
+  .hdrv2-actions { display: flex !important; }
+}
+
 /* Accessibilité — prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
