@@ -1447,10 +1447,11 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
         }
         .cf-pv-testimonial p {
           font-family: var(--font-body), sans-serif;
-          font-size: 13.5px;
+          font-size: 14.5px;
           font-style: italic;
           color: #555;
           line-height: 1.55;
+          text-align: justify;
           margin: 0 0 6px;
         }
         .cf-pv-testimonial footer {
@@ -1965,9 +1966,10 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
         }
         .cf-prog-card__subtitle {
           font-family: var(--font-body), sans-serif;
-          font-size: 13px;
+          font-size: 14px;
           font-style: italic;
-          color: #A5CE46;
+          font-weight: 600;
+          color: #00AD4C;
           margin: 0;
           line-height: 1.4;
         }
