@@ -149,7 +149,7 @@ export default function HeaderV2() {
 
           {/* Nav desktop */}
           <nav ref={navRef} aria-label="Navigation principale"
-            className="hidden flex-1 items-center justify-center gap-0.5 md:flex">
+            className="hdrv2-nav hidden flex-1 items-center justify-center gap-0.5 md:flex">
 
             {/* Accueil */}
             <Link href={`/${locale}`}
@@ -197,7 +197,7 @@ export default function HeaderV2() {
           </nav>
 
           {/* Actions desktop */}
-          <div className="ml-auto hidden items-center gap-2.5 md:flex">
+          <div className="hdrv2-actions ml-auto hidden items-center gap-2.5 md:flex">
 
             {/* Sélecteur de langue */}
             <div className="relative">
