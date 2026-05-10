@@ -148,114 +148,6 @@ function StaggerGrid({ className, stagger = 0.09, children }: { className?: stri
   )
 }
 
-/* ── LogoSlider — slider logos partenaires ── */
-function LogoSlider({ label, partners }: {
-  label: string
-  partners: Array<{ name: string; logo: string }>
-}) {
-  const sliderRef = useRef<HTMLDivElement>(null)
-  const [activeIdx, setActiveIdx] = useState(0)
-
-  useEffect(() => {
-    const el = sliderRef.current
-    if (!el) return
-    const onScroll = () => {
-      let closest = 0, minDist = Infinity
-      for (let i = 0; i < el.children.length; i++) {
-        const child = el.children[i] as HTMLElement
-        const dist = Math.abs(child.offsetLeft - el.scrollLeft)
-        if (dist < minDist) { minDist = dist; closest = i }
-      }
-      setActiveIdx(closest)
-    }
-    el.addEventListener('scroll', onScroll, { passive: true })
-    return () => el.removeEventListener('scroll', onScroll)
-  }, [])
-
-  const scrollTo = (idx: number) => {
-    const el = sliderRef.current
-    if (!el) return
-    const card = el.children[idx] as HTMLElement
-    if (card) el.scrollTo({ left: card.offsetLeft, behavior: 'smooth' })
-  }
-  const handlePrev = () => scrollTo(Math.max(activeIdx - 1, 0))
-  const handleNext = () => scrollTo(Math.min(activeIdx + 1, partners.length - 1))
-
-  return (
-    <div className="cf-pt-group">
-      <p className="cf-pt-grouplabel">{label}</p>
-      <div className="cf-pt-outer">
-        <button
-          className="cf-pt-btn cf-pt-prev"
-          onClick={handlePrev}
-          disabled={activeIdx === 0}
-          aria-label={`${label} — précédent`}
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <polyline points="15 18 9 12 15 6"/>
-          </svg>
-        </button>
-
-        <div
-          ref={sliderRef}
-          className="cf-pt-slider"
-          role="region"
-          aria-label={`Logos ${label}`}
-          tabIndex={0}
-          onKeyDown={(e) => {
-            if (e.key === 'ArrowRight') handleNext()
-            if (e.key === 'ArrowLeft')  handlePrev()
-          }}
-        >
-          {partners.map((p, i) => (
-            <motion.div
-              key={p.name}
-              className="cf-pt-item"
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-20px' }}
-              transition={{ delay: i * 0.08, duration: 0.4 }}
-            >
-              <div className="cf-pt-logo-wrap">
-                <img
-                  src={p.logo}
-                  alt={p.name}
-                  className="cf-pt-logo-img"
-                  loading="lazy"
-                />
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        <button
-          className="cf-pt-btn cf-pt-next"
-          onClick={handleNext}
-          disabled={activeIdx === partners.length - 1}
-          aria-label={`${label} — suivant`}
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <polyline points="9 18 15 12 9 6"/>
-          </svg>
-        </button>
-      </div>
-
-      <div className="cf-pt-dots" role="tablist" aria-label={`Navigation ${label}`}>
-        {partners.map((p, i) => (
-          <button
-            key={p.name}
-            role="tab"
-            aria-selected={i === activeIdx}
-            aria-label={p.name}
-            className={`cf-pt-dot${i === activeIdx ? ' cf-pt-dot--active' : ''}`}
-            onClick={() => scrollTo(i)}
-          />
-        ))}
-      </div>
-    </div>
-  )
-}
-
 /* ── CountUp ── */
 function CountUp({ value }: { value: string }) {
   const match   = value.match(/^([^0-9]*)(\d+)([^0-9]*)$/)
@@ -504,6 +396,8 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
           >
             <span className="cf-hero__eyebrow-line" aria-hidden="true" />
             <span>NOS PROGRAMMES</span>
+            <span className="cf-hero__eyebrow-sep" aria-hidden="true">·</span>
+            <span>CIFAP</span>
             <span className="cf-hero__eyebrow-line" aria-hidden="true" />
           </motion.div>
 
@@ -516,15 +410,6 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
           >
             Camp International de Formation<br />en Agroécologie Paysanne
           </motion.h1>
-
-          <motion.p
-            className="cf-hero__cifap"
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.34, duration: 0.5 }}
-          >
-            CIFAP
-          </motion.p>
 
           <motion.p
             className="cf-hero__sub"
@@ -1236,6 +1121,11 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
           background: rgba(165,206,70,0.5);
           flex-shrink: 0;
         }
+        .cf-hero__eyebrow-sep {
+          color: rgba(165,206,70,0.45);
+          font-size: 10px;
+          letter-spacing: 0;
+        }
         .cf-hero__h1 {
           font-family: var(--font-display), Georgia, serif;
           font-size: clamp(26px, 3.6vw, 50px);
@@ -1257,10 +1147,11 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
         }
         .cf-hero__sub {
           font-family: var(--font-body), sans-serif;
-          font-size: 15px;
+          font-size: 16px;
           font-weight: 300;
           line-height: 1.82;
           color: #ffffff;
+          text-align: justify;
           margin: 0 0 2rem;
           max-width: 640px;
         }
