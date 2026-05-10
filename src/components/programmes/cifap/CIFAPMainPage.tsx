@@ -701,6 +701,22 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
           <div className="cf-prog-dots" aria-label="Navigation éditions" />
 
         </div>
+
+        {/* ── Pays participants ── */}
+        <div className="cf-sec__inner">
+          <div className="cf-pays-block">
+            <p className="cf-eyebrow" style={{ marginBottom: '20px', textTransform: 'none' }}>Notre réseau</p>
+            <StaggerGrid className="cf-pays-grid" stagger={0.06}>
+              {CIFAP_PAYS.map((p) => (
+                <motion.span key={p.name} className="cf-pays-badge" role="listitem" variants={fadeUp}>
+                  <span className="cf-pays-flag" aria-hidden="true">{p.flag}</span>
+                  <span className="cf-pays-name">{p.name}</span>
+                </motion.span>
+              ))}
+            </StaggerGrid>
+          </div>
+        </div>
+
       </section>
 
 
@@ -1018,19 +1034,6 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
                 <polyline points="9 18 15 12 9 6"/>
               </svg>
             </button>
-          </div>
-
-          {/* ── Pays participants ── */}
-          <div className="cf-pays-block">
-            <p className="cf-eyebrow" style={{ marginBottom: '20px', textTransform: 'none' }}>Notre réseau</p>
-            <StaggerGrid className="cf-pays-grid" stagger={0.06}>
-              {CIFAP_PAYS.map((p) => (
-                <motion.span key={p.name} className="cf-pays-badge" role="listitem" variants={fadeUp}>
-                  <span className="cf-pays-flag" aria-hidden="true">{p.flag}</span>
-                  <span className="cf-pays-name">{p.name}</span>
-                </motion.span>
-              ))}
-            </StaggerGrid>
           </div>
 
         </div>
