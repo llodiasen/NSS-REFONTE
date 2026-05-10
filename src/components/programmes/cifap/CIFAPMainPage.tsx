@@ -393,6 +393,7 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
   const ctaInView = useInView(ctaRef, { once: true, margin: '-60px' })
 
   const [selectedEdition, setSelectedEdition] = useState<CifapEdition | null>(null)
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null)
 
   /* ── Slider éditions ── */
   const sliderRef = useRef<HTMLDivElement>(null)
@@ -605,12 +606,50 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedEdition(ed) }
                   }}
+                  onMouseEnter={() => setHoveredIdx(i)}
+                  onMouseLeave={() => setHoveredIdx(null)}
+                  onFocus={() => setHoveredIdx(i)}
+                  onBlur={() => setHoveredIdx(null)}
+                  style={{ position: 'relative' }}
                 >
+                  {/* Hover preview card */}
+                  <AnimatePresence>
+                    {hoveredIdx === i && (
+                      <motion.div
+                        className={`cf-rd-hcard${ed.status === 'upcoming' ? ' cf-rd-hcard--upcoming' : ''}`}
+                        role="tooltip"
+                        aria-label={`Aperçu édition ${ed.year}`}
+                        initial={{ opacity: 0, y: 6 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 6 }}
+                        transition={{ duration: 0.18, ease: 'easeOut' }}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <div className="cf-rd-hcard__top">
+                          <span className="cf-rd-hcard__year">{ed.year}</span>
+                          <span className={`cf-rd-hcard__badge cf-rd-hcard__badge--${ed.status}`}>
+                            {ed.status === 'upcoming' ? 'À VENIR' : 'PASSÉ'}
+                          </span>
+                        </div>
+                        <p className="cf-rd-hcard__theme">{ed.themeShort}</p>
+                        <div className="cf-rd-hcard__sep" aria-hidden="true" />
+                        <ul className="cf-rd-hcard__meta" aria-label="Informations clés">
+                          <li><span>📅</span><span>{ed.dates}</span></li>
+                          <li><span>📍</span><span>Niaguis, Sénégal</span></li>
+                          <li><span>👥</span><span>{ed.participants ?? 'À définir'}</span></li>
+                          <li><span>🌍</span><span>8 pays</span></li>
+                        </ul>
+                        <p className="cf-rd-hcard__cta">Cliquer pour le détail →</p>
+                        <div className="cf-rd-hcard__arrow" aria-hidden="true" />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+
                   <span className="cf-rd-year">{ed.year}</span>
                   <div className="cf-rd-node-row" aria-hidden="true">
                     <motion.div
                       className={`cf-rd-dot${ed.status === 'upcoming' ? ' cf-rd-dot--upcoming' : ''}`}
-                      whileHover={{ scale: 1.4 }}
+                      animate={hoveredIdx === i ? { scale: 1.35 } : { scale: 1 }}
                       whileTap={{ scale: 0.85 }}
                       transition={{ duration: 0.18 }}
                     />
@@ -1802,6 +1841,116 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
         }
         .cf-modal-close-btn:hover { border-color: #A5CE46; color: #2A2A2A; }
 
+        /* ── Hover card timeline ── */
+        .cf-rd-hcard {
+          position: absolute;
+          bottom: calc(100% + 14px);
+          left: 50%;
+          transform: translateX(-50%);
+          width: 210px;
+          background: #ffffff;
+          border: 2px solid #A5CE46;
+          border-radius: 10px;
+          padding: 13px 14px 11px;
+          box-shadow: 0 8px 28px rgba(4,86,39,0.14);
+          z-index: 200;
+          pointer-events: none;
+          text-align: left;
+        }
+        .cf-rd-hcard--upcoming {
+          border-color: #E8A838;
+        }
+        .cf-rd-hcard__arrow {
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 0;
+          height: 0;
+          border-left: 8px solid transparent;
+          border-right: 8px solid transparent;
+          border-top: 8px solid #A5CE46;
+        }
+        .cf-rd-hcard--upcoming .cf-rd-hcard__arrow {
+          border-top-color: #E8A838;
+        }
+        .cf-rd-hcard__arrow::after {
+          content: '';
+          position: absolute;
+          top: -10px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 0;
+          height: 0;
+          border-left: 6px solid transparent;
+          border-right: 6px solid transparent;
+          border-top: 7px solid #ffffff;
+        }
+        .cf-rd-hcard__top {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 5px;
+        }
+        .cf-rd-hcard__year {
+          font-family: var(--font-body), sans-serif;
+          font-size: 15px;
+          font-weight: 800;
+          color: #E8A838;
+          line-height: 1;
+        }
+        .cf-rd-hcard__badge {
+          font-family: var(--font-body), sans-serif;
+          font-size: 8.5px;
+          font-weight: 800;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          padding: 3px 7px;
+          border-radius: 3px;
+        }
+        .cf-rd-hcard__badge--past     { background: #E8E8E8; color: #666; }
+        .cf-rd-hcard__badge--upcoming { background: #E8A838; color: #fff; }
+        .cf-rd-hcard__theme {
+          font-family: var(--font-display), Georgia, serif;
+          font-size: 14px;
+          font-weight: 700;
+          color: #2A2A2A;
+          margin: 0 0 8px;
+          line-height: 1.25;
+        }
+        .cf-rd-hcard__sep {
+          height: 1px;
+          background: #A5CE46;
+          margin-bottom: 9px;
+          opacity: 0.5;
+        }
+        .cf-rd-hcard__meta {
+          list-style: none;
+          padding: 0;
+          margin: 0 0 8px;
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+        }
+        .cf-rd-hcard__meta li {
+          display: flex;
+          align-items: flex-start;
+          gap: 6px;
+          font-family: var(--font-body), sans-serif;
+          font-size: 11.5px;
+          color: #444;
+          line-height: 1.4;
+        }
+        .cf-rd-hcard__meta li span:first-child { flex-shrink: 0; }
+        .cf-rd-hcard__cta {
+          font-family: var(--font-body), sans-serif;
+          font-size: 11px;
+          font-style: italic;
+          font-weight: 600;
+          color: #00AD4C;
+          margin: 0;
+        }
+
         /* ── Roadmap ── */
         .cf-rd-grid {
           display: grid;
@@ -1810,8 +1959,9 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
           align-items: start;
           max-width: 900px;
           margin: 0 auto;
+          overflow: visible;
         }
-        .cf-rd-col { display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .cf-rd-col { display: flex; flex-direction: column; align-items: center; text-align: center; overflow: visible; }
         .cf-rd-year {
           font-family: var(--font-body), sans-serif;
           font-size: 18px;
@@ -2642,6 +2792,7 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
           .cf-lieu-map { height: 260px; }
           /* Roadmap */
           .cf-rd-grid { display: none; }
+          .cf-rd-hcard { display: none; }
           .cf-rd-mob  { display: flex; flex-direction: column; gap: 0; }
           /* Slider : hide abs buttons, show mob nav */
           .cf-slider-outer { padding: 0; }
