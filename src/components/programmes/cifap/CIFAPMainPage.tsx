@@ -938,13 +938,15 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
                     <span className={`cf-card__badge cf-card__badge--${ed.status}`}>
                       {ed.status === 'upcoming' ? 'À VENIR' : 'PASSÉ'}
                     </span>
-                    <span className="cf-card__year-chip" aria-hidden="true">{ed.year}</span>
                   </div>
 
                   {/* ── Contenu ── */}
                   <div className="cf-card__content">
                     <div className="cf-card__body">
-                      <p className="cf-card__num">{ed.num} ÉDITION</p>
+                      <div className="cf-card__num-row">
+                        <p className="cf-card__num">{ed.num} ÉDITION</p>
+                        <span className="cf-card__year-badge">{ed.year}</span>
+                      </div>
                       <h3 className="cf-card__theme">{ed.theme}</h3>
                     </div>
 
@@ -2583,20 +2585,6 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
         .cf-card__badge--past     { background: rgba(255,255,255,0.92); color: #666; }
         .cf-card__badge--upcoming { background: #E8A838; color: #ffffff; }
         /* Year chip bottom-right */
-        .cf-card__year-chip {
-          position: absolute;
-          bottom: 10px;
-          right: 12px;
-          z-index: 2;
-          font-family: var(--font-display), Georgia, serif;
-          font-size: 22px;
-          font-weight: 800;
-          color: rgba(255,255,255,0.88);
-          letter-spacing: -0.02em;
-          line-height: 1;
-          text-shadow: 0 1px 4px rgba(0,0,0,0.3);
-        }
-
         /* Content below photo */
         .cf-card__content {
           padding: 20px 20px 18px;
@@ -2605,7 +2593,26 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
           gap: 12px;
           flex: 1;
         }
-        .cf-card__body { display: flex; flex-direction: column; gap: 5px; }
+        .cf-card__body { display: flex; flex-direction: column; gap: 6px; }
+        .cf-card__num-row {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 8px;
+        }
+        .cf-card__year-badge {
+          font-family: var(--font-body), sans-serif;
+          font-size: 11px;
+          font-weight: 800;
+          letter-spacing: 0.04em;
+          color: #045627;
+          background: rgba(0,173,76,0.10);
+          border: 1px solid rgba(0,173,76,0.25);
+          border-radius: 4px;
+          padding: 3px 8px;
+          line-height: 1;
+          white-space: nowrap;
+        }
         .cf-card__num {
           font-family: var(--font-body), sans-serif;
           font-size: 10px;
