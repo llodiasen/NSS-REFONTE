@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
@@ -57,7 +57,7 @@ export default function HeroSectionRedesign() {
           {/* Eyebrow */}
           <motion.div className="qs-eyebrow" {...inView(0.08)}>
             <span className="qs-eyebrow-line" aria-hidden="true" />
-            <span className="qs-eyebrow-text">QUI SOMMES-NOUS</span>
+            <span className="qs-eyebrow-text">À PROPOS</span>
           </motion.div>
 
           {/* H2 */}
@@ -65,6 +65,15 @@ export default function HeroSectionRedesign() {
             Les femmes rurales, au cœur de la{' '}
             <em>souveraineté alimentaire africaine.</em>
           </motion.h2>
+          <motion.span
+            className="qs-underline"
+            aria-hidden="true"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55, delay: 0.30, ease: [0.22, 1, 0.36, 1] }}
+            style={{ transformOrigin: 'left' }}
+          />
 
           {/* Description */}
           <motion.p className="qs-body" lang="fr" {...inView(0.28)}>
@@ -189,10 +198,10 @@ export default function HeroSectionRedesign() {
         }
         .qs-inner {
           max-width: 100%;
-          padding: 72px 80px;
+          padding: 80px 80px;
           display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 72px;
+          grid-template-columns: 1.15fr 0.85fr;
+          gap: 80px;
           align-items: center;
           box-sizing: border-box;
         }
@@ -214,7 +223,7 @@ export default function HeroSectionRedesign() {
         .qs-eyebrow-text {
           font-family: var(--font-dm-sans), sans-serif;
           font-size: 9.5px;
-          font-weight: 600;
+          font-weight: 700;
           letter-spacing: 0.22em;
           text-transform: uppercase;
           color: ${NSS.vertClair};
@@ -222,23 +231,31 @@ export default function HeroSectionRedesign() {
 
         /* ── H2 ── */
         .qs-h2 {
-          font-family: var(--font-cormorant), Georgia, serif;
-          font-size: clamp(32px, 3.6vw, 54px);
-          font-weight: 600;
-          line-height: 1.10;
-          color: #0A0A0A;
-          margin: 0 0 32px;
-          letter-spacing: -0.01em;
+          font-family: var(--font-display), Georgia, serif;
+          font-size: clamp(26px, 2.6vw, 36px);
+          font-weight: 700;
+          line-height: 1.2;
+          color: #2A2A2A;
+          margin: 0 0 14px;
+          letter-spacing: -0.015em;
         }
         .qs-h2 em {
           font-style: italic;
           color: ${NSS.vertPrimaire};
         }
+        .qs-underline {
+          display: block;
+          height: 2px;
+          width: 72px;
+          background: ${NSS.vertClair};
+          border-radius: 2px;
+          margin: 12px 0 28px;
+        }
 
         /* ── Body ── */
         .qs-body {
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 15px;
+          font-size: 16px;
           font-weight: 400;
           line-height: 1.82;
           color: #2A2A2A;
@@ -249,12 +266,12 @@ export default function HeroSectionRedesign() {
 
         /* ── Citation ── */
         .qs-quote {
-          border-left: 2px solid ${NSS.or};
+          border-left: 3px solid ${NSS.or};
           padding: 2px 0 2px 18px;
           margin: 0 0 32px;
         }
         .qs-quote-text {
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: 18px;
           font-style: italic;
           line-height: 1.60;
@@ -287,7 +304,7 @@ export default function HeroSectionRedesign() {
           padding-right: 0;
         }
         .qs-stat-value {
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: 34px;
           font-weight: 600;
           color: ${NSS.vertFonce};
@@ -468,14 +485,14 @@ export default function HeroSectionRedesign() {
             padding: 56px 24px;
             gap: 40px;
           }
-          .qs-h2 { font-size: clamp(28px, 8vw, 46px); line-height: 1.12; }
+          .qs-h2 { line-height: 1.2; }
           .qs-video { min-height: 300px; }
         }
 
         /* ── Small mobile ── */
         @media (max-width: 480px) {
           .qs-inner { padding: 44px 16px; gap: 32px; }
-          .qs-h2 { font-size: clamp(26px, 9vw, 42px); line-height: 1.14; }
+          .qs-h2 { line-height: 1.2; }
           .qs-body { font-size: 14px; }
           .qs-video { min-height: 250px; }
           .qs-stat-value { font-size: 28px; }

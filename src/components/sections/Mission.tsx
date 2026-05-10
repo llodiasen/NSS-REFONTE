@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
@@ -220,7 +220,7 @@ export default function Mission({ locale }: MissionProps) {
 
         /* ── H2 ── */
         .qui-h2 {
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: clamp(48px, 5.5vw, 80px);
           font-weight: 600;
           line-height: 0.92;
@@ -235,7 +235,7 @@ export default function Mission({ locale }: MissionProps) {
 
         /* ── Tagline ── */
         .qui-tagline {
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: 16px;
           font-style: italic;
           font-weight: 400;
@@ -294,7 +294,7 @@ export default function Mission({ locale }: MissionProps) {
           border-top: 1px solid #E8E8E8;
         }
         .qui-message {
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: 15px;
           font-style: italic;
           font-weight: 400;
@@ -344,7 +344,7 @@ export default function Mission({ locale }: MissionProps) {
           margin-bottom: 20px;
         }
         .qui-pilier-num {
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: 40px;
           font-weight: 600;
           color: #EBEBEB;

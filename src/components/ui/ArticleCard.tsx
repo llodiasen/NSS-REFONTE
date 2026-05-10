@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
@@ -122,8 +122,8 @@ export default function ArticleCard({ article }: ArticleCardProps) {
           margin: 0;
         }
         .acard__titre a {
-          font-family: var(--font-cormorant), Georgia, serif;
-          font-size: 20px;
+          font-family: var(--font-display), Georgia, serif;
+          font-size: 15px;
           font-weight: 700;
           line-height: 1.22;
           color: #2A2A2A;

@@ -144,7 +144,7 @@ export default async function ProgrammesPage({
           margin-bottom: 20px;
         }
         .phub-intro__h2 {
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: 47px;
           font-weight: 600;
           line-height: 1.0;
@@ -172,7 +172,7 @@ export default async function ProgrammesPage({
           border-radius: 4px;
         }
         .phub-intro__stat-value {
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: 64px;
           font-weight: 600;
           color: #E8A838;
@@ -209,7 +209,7 @@ export default async function ProgrammesPage({
           text-align: center;
         }
         .phub-cards__h2 {
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: 47px;
           font-weight: 600;
           line-height: 1.0;
@@ -240,7 +240,7 @@ export default async function ProgrammesPage({
           gap: 20px;
         }
         .phub-cta__h2 {
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: 47px;
           font-weight: 600;
           line-height: 1.0;

@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
@@ -85,7 +85,7 @@ export default function HeroHome() {
         >
           <span className="nss-eyebrow-line" />
           <span className="nss-eyebrow-text">
-            CÉLÉBRONS L&apos;AGRICULTURE FAMILIALE AFRICAINE
+            MOUVEMENT PANAFRICAIN · 14 PAYS
           </span>
         </motion.div>
 
@@ -205,7 +205,7 @@ export default function HeroHome() {
 
         /* ── H1 ── */
         .nss-h1 {
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: clamp(47px, 6.3vw, 90px);
           font-weight: 600;
           line-height: 0.89;
@@ -215,7 +215,7 @@ export default function HeroHome() {
         }
         .nss-h1 em {
           font-style: italic;
-          color: ${NSS.vertClair};
+          color: ${NSS.or};
         }
 
         /* ── Description ── */
@@ -299,7 +299,7 @@ export default function HeroHome() {
           border-right: 1px solid rgba(165, 206, 70, 0.12);
         }
         .nss-stat-num {
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: clamp(36px, 3.2vw, 50px);
           font-weight: 600;
           color: #ffffff;

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
@@ -268,6 +268,15 @@ export default function MediathequeSectionRedesign() {
             <motion.h2 id="vds-heading" className="vds__h2" {...inViewScale(0.16)}>
               Le mouvement NSS <em>en vidéo.</em>
             </motion.h2>
+            <motion.span
+              className="vds__underline"
+              aria-hidden="true"
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.55, delay: 0.26, ease: [0.22, 1, 0.36, 1] }}
+              style={{ transformOrigin: 'center' }}
+            />
 
             <motion.p className="vds__sub" {...inView(0.26)}>
               Témoignages de terrain, formations et plaidoyers — des femmes rurales
@@ -310,7 +319,7 @@ export default function MediathequeSectionRedesign() {
           .vds {
             position: relative;
             background: #ffffff;
-            border-top: 1px solid rgba(0,173,76,0.08);
+            border-top: 1px solid rgba(0,0,0,0.06);
             overflow: hidden;
           }
 
@@ -318,8 +327,8 @@ export default function MediathequeSectionRedesign() {
           .vds__pattern {
             position: absolute; inset: 0;
             background-image:
-              repeating-linear-gradient(0deg, transparent, transparent 56px, rgba(0,173,76,0.018) 56px, rgba(0,173,76,0.018) 57px),
-              repeating-linear-gradient(90deg, transparent, transparent 56px, rgba(0,173,76,0.018) 56px, rgba(0,173,76,0.018) 57px);
+              repeating-linear-gradient(0deg, transparent, transparent 56px, rgba(0,173,76,0.025) 56px, rgba(0,173,76,0.025) 57px),
+              repeating-linear-gradient(90deg, transparent, transparent 56px, rgba(0,173,76,0.025) 56px, rgba(0,173,76,0.025) 57px);
             pointer-events: none; z-index: 0;
           }
 
@@ -338,28 +347,36 @@ export default function MediathequeSectionRedesign() {
           }
           .vds__ey-line {
             display: block; flex: 1; max-width: 56px; height: 1px;
-            background: rgba(165,206,70,0.40);
+            background: rgba(165,206,70,0.35);
           }
           .vds__ey-txt {
             font-family: var(--font-dm-sans), sans-serif;
-            font-size: 9.5px; font-weight: 600;
-            letter-spacing: 0.24em; text-transform: uppercase;
+            font-size: 9.5px; font-weight: 700;
+            letter-spacing: 0.26em; text-transform: uppercase;
             color: ${NSS.vertClair}; white-space: nowrap;
           }
 
           .vds__h2 {
-            font-family: var(--font-cormorant), Georgia, serif;
-            font-size: 47px;
-            font-weight: 600; line-height: 0.96;
-            color: #0A0A0A; margin: 0 0 28px;
-            letter-spacing: -0.01em;
+            font-family: var(--font-display), Georgia, serif;
+            font-size: clamp(24px, 2.6vw, 34px);
+            font-weight: 700; line-height: 1.2;
+            color: #2A2A2A; margin: 0 0 14px;
+            letter-spacing: -0.015em;
           }
-          .vds__h2 em { font-style: italic; color: ${NSS.vertPrimaire}; }
+          .vds__h2 em { font-style: italic; color: ${NSS.vertClair}; }
+          .vds__underline {
+            display: block;
+            height: 2px;
+            width: 72px;
+            background: ${NSS.vertClair};
+            border-radius: 2px;
+            margin: 12px auto 24px;
+          }
 
           .vds__sub {
             font-family: var(--font-dm-sans), sans-serif;
-            font-size: 15px; font-weight: 400;
-            line-height: 1.78; color: #4A4A4A;
+            font-size: 16px; font-weight: 400;
+            line-height: 1.78; color: #2C2C28;
             max-width: 520px; margin: 0 auto;
           }
 
@@ -373,18 +390,19 @@ export default function MediathequeSectionRedesign() {
 
           /* ══ Carte ══════════════════════════════════════════ */
           .vc {
-            background: #fff;
-            border: 1px solid rgba(0,0,0,0.07);
+            background: #FAFAF9;
+            border: 1px solid rgba(0,0,0,0.08);
             border-radius: 2px;
             overflow: hidden;
             display: flex; flex-direction: column;
             height: 100%;
-            transition: box-shadow 0.28s ease, border-color 0.28s ease;
+            transition: box-shadow 0.28s ease, border-color 0.28s ease, background 0.28s ease;
             cursor: pointer;
           }
           .vc:hover {
-            box-shadow: 0 16px 44px rgba(4,86,39,0.10);
-            border-color: rgba(0,173,76,0.20);
+            box-shadow: 0 16px 48px rgba(0,173,76,0.12);
+            border-color: rgba(0,173,76,0.30);
+            background: rgba(165,206,70,0.04);
           }
 
           /* Thumbnail */
@@ -454,8 +472,8 @@ export default function MediathequeSectionRedesign() {
           .vc__titre-btn {
             background: none; border: none; padding: 0;
             width: 100%; text-align: left; cursor: pointer;
-            font-family: var(--font-cormorant), Georgia, serif;
-            font-size: clamp(19px, 1.6vw, 22px);
+            font-family: var(--font-display), Georgia, serif;
+            font-size: clamp(17px, 1.6vw, 20px);
             font-weight: 700; line-height: 1.22;
             color: #0A0A0A;
             transition: color 0.2s;
@@ -464,11 +482,11 @@ export default function MediathequeSectionRedesign() {
             -webkit-box-orient: vertical;
             overflow: hidden;
           }
-          .vc__titre-btn:hover { color: ${NSS.vertPrimaire}; }
+          .vc__titre-btn:hover { color: ${NSS.vertFonce}; }
 
           .vc__desc {
             font-family: var(--font-dm-sans), sans-serif;
-            font-size: 14px; font-weight: 300; line-height: 1.72;
+            font-size: 14px; font-weight: 400; line-height: 1.72;
             color: #4A4A4A; text-align: justify; hyphens: auto;
             margin: 0; flex: 1;
             display: -webkit-box;
@@ -483,7 +501,8 @@ export default function MediathequeSectionRedesign() {
             font-family: var(--font-dm-sans), sans-serif;
             font-size: 10px; font-weight: 500;
             color: ${NSS.vertFonce};
-            background: rgba(165,206,70,0.16);
+            background: rgba(0,173,76,0.07);
+            border: 1px solid rgba(0,173,76,0.18);
             padding: 2px 9px; border-radius: 2px;
           }
 
@@ -519,13 +538,13 @@ export default function MediathequeSectionRedesign() {
           }
           @media (max-width: 768px) {
             .vds__wrap { padding: 56px 20px; }
-            .vds__h2 { font-size: 36px; }
+            .vds__h2 { line-height: 1.2; }
             .vds__hd { margin-bottom: 40px; }
           }
           @media (max-width: 640px) {
             .vds__grid { grid-template-columns: 1fr; gap: 18px; }
             .vds__wrap { padding: 48px 16px; }
-            .vds__h2 { font-size: 32px; }
+            .vds__h2 { line-height: 1.2; }
           }
 
           /* ── Réduction de mouvement ── */

@@ -1,10 +1,9 @@
 'use client'
 
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import Link from 'next/link'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { MapPin, Calendar, Users, ArrowRight } from 'lucide-react'
+import Link from 'next/link'
+import { Calendar, MapPin, Users } from 'lucide-react'
 
 // ─── NSS Palette stricte ────────────────────────────────────────────────────
 const NSS = {
@@ -16,87 +15,82 @@ const NSS = {
 } as const
 
 // ─── Types ────────────────────────────────────────────────────────────────────
-interface Detail {
-  icon:  React.ReactNode
-  label: string
-  value: string
+interface MetaLine {
+  icon:   'calendar' | 'pin' | 'people'
+  text:   string
+  green?: boolean
 }
 
 interface Programme {
-  id:      string
-  label:   string
-  acronym: string
-  nom:     string
-  desc:    string
-  details: Detail[]
-  image:   string
-  alt:     string
-  href:    string
-  tag:     string
+  id:         string
+  label:      string
+  pill:       string
+  pillBorder: string
+  pillText:   string
+  titre:      string
+  sousTitre:  string
+  image:      string
+  imageAlt:   string
+  meta:       MetaLine[]
+  ctaLabel:   string
+  href:       string
 }
 
-// ─── Données (source : NSS-Contenu-Site.md) ──────────────────────────────────
+// ─── Données ─────────────────────────────────────────────────────────────────
 const PROGRAMMES: Programme[] = [
   {
-    id:      'cifap',
-    label:   'CIFAP',
-    acronym: 'CIFAP',
-    nom:     "Camp International de Formation sur l'Agroécologie Paysanne",
-    desc:
-      "Le CIFAP réunit chaque année des femmes agricultrices membres des Associations " +
-      "de Femmes Rurales (AFR) de toute l'Afrique de l'Ouest. Pendant une semaine, " +
-      "elles échangent leurs savoirs endogènes, renforcent leurs pratiques agroécologiques " +
-      "et tissent les liens du réseau NSS. Un espace de formation, de transmission " +
-      "et de solidarité continentale.",
-    details: [
-      { icon: <MapPin    size={14} strokeWidth={1.6} />, label: 'Lieu',       value: 'Centre Karonghen Wati Naning — Niaguis, Casamance, Sénégal' },
-      { icon: <Calendar  size={14} strokeWidth={1.6} />, label: 'Fréquence',  value: 'Camp annuel' },
-      { icon: <Users     size={14} strokeWidth={1.6} />, label: 'Public',     value: 'Femmes agricultrices membres des AFR — 7 pays' },
+    id:         'cifap',
+    label:      'PROGRAMME 01',
+    pill:       'AGROÉCOLOGIE',
+    pillBorder: NSS.vertPrimaire,
+    pillText:   NSS.vertPrimaire,
+    titre:      'CIFAP',
+    sousTitre:  "Camp International de Formation en Agroécologie Paysanne",
+    image:      '/images/actualites/nss-cifap-2025.jpg',
+    imageAlt:   'CIFAP 2025 — femmes agricultrices en formation agroécologique à Niaguis',
+    meta: [
+      { icon: 'calendar', text: 'Annuel · 4 éditions depuis 2022' },
+      { icon: 'pin',      text: 'Niaguis, Sénégal'               },
+      { icon: 'people',   text: '~200 participantes · 8 pays', green: true },
     ],
-    image: '/images/galerie/formation-1.jpg',
-    alt:   'Camp de formation agroécologique CIFAP NSS — Niaguis, Casamance',
-    href:  '/fr/programmes/cifap',
-    tag:   'Agroécologie',
+    ctaLabel: 'Voir les éditions',
+    href:     '/fr/programmes/cifap',
   },
   {
-    id:      'rencontre',
-    label:   'RENCONTRE',
-    acronym: 'RENCONTRE',
-    nom:     "Rencontres Paysannes NSS — Réseau et Coordination",
-    desc:
-      "Les Rencontres NSS réunissent régulièrement les associations membres pour partager " +
-      "les expériences du terrain, renforcer les liens du réseau et coordonner les actions " +
-      "communes. Ces espaces de dialogue consolident la cohésion du mouvement panafricain " +
-      "et permettent aux femmes rurales de prendre des décisions collectives.",
-    details: [
-      { icon: <MapPin    size={14} strokeWidth={1.6} />, label: 'Zone',      value: 'Afrique de l\'Ouest — 7 pays membres' },
-      { icon: <Calendar  size={14} strokeWidth={1.6} />, label: 'Format',    value: 'Rencontres annuelles et régionales' },
-      { icon: <Users     size={14} strokeWidth={1.6} />, label: 'Public',    value: 'Membres des AFR et leaders du mouvement NSS' },
+    id:         'rencontre',
+    label:      'PROGRAMME 02',
+    pill:       'RENCONTRES',
+    pillBorder: NSS.vertClair,
+    pillText:   '#3a6b00',
+    titre:      'Rencontre NSS',
+    sousTitre:  'Congrès Continentaux Biennaux',
+    image:      '/images/actualites/rencontre-2025.jpg',
+    imageAlt:   'Rencontre NSS — leaders paysannes en congrès continental',
+    meta: [
+      { icon: 'calendar', text: 'Biennal · 5–7 jours'    },
+      { icon: 'pin',      text: "Afrique de l'Ouest"     },
+      { icon: 'people',   text: '500+ leaders · 14 pays', green: true },
     ],
-    image: '/images/galerie/agro-1.jpg',
-    alt:   'Rencontre paysanne NSS — partage et coordination entre associations rurales',
-    href:  '/fr/programmes',
-    tag:   'Réseau & Solidarité',
+    ctaLabel: 'En savoir plus',
+    href:     '/fr/programmes',
   },
   {
-    id:      'foire',
-    label:   'FOIRE',
-    acronym: 'FOIRE',
-    nom:     "Foire Paysanne NSS — Savoirs, Semences et Produits du Terroir",
-    desc:
-      "La Foire Paysanne NSS valorise les produits locaux, les semences traditionnelles " +
-      "et les savoir-faire des femmes rurales. Marché vivant et espace de transmission, " +
-      "elle célèbre la biodiversité agricole et renforce les circuits courts entre " +
-      "productrices et communautés d'Afrique de l'Ouest.",
-    details: [
-      { icon: <MapPin    size={14} strokeWidth={1.6} />, label: 'Lieu',      value: 'Pays membres — lieux rotatifs' },
-      { icon: <Calendar  size={14} strokeWidth={1.6} />, label: 'Fréquence', value: 'Événement annuel' },
-      { icon: <Users     size={14} strokeWidth={1.6} />, label: 'Public',    value: 'Agricultrices, artisanes et communautés rurales' },
+    id:         'foire',
+    label:      'PROGRAMME 03',
+    pill:       'FOIRE',
+    pillBorder: NSS.or,
+    pillText:   '#7a5200',
+    titre:      'Foire NSS',
+    sousTitre:  'Foire Annuelle de la Souveraineté Alimentaire',
+    image:      '/images/actualites/foire-djimini-semences-paysannes-2024.jpg',
+    imageAlt:   'Foire NSS — exposition semences paysannes et produits du terroir',
+    meta: [
+      { icon: 'calendar', text: 'Annuelle · 3 jours'           },
+      { icon: 'pin',      text: "Afrique de l'Ouest"           },
+      { icon: 'people',   text: '1 000+ visiteurs · 50+ orgs', green: true },
     ],
-    image: '/images/galerie/formation-1.jpg',
-    alt:   'Foire paysanne NSS — semences traditionnelles et produits du terroir',
-    href:  '/fr/programmes',
-    tag:   'Échanges & Savoirs',
+    ctaLabel: 'En savoir plus',
+    href:     '/fr/programmes',
   },
 ]
 
@@ -104,407 +98,402 @@ const PROGRAMMES: Programme[] = [
 const ease = [0.22, 1, 0.36, 1] as const
 
 const inView = (delay = 0) => ({
-  initial:     { opacity: 0, y: 28 },
+  initial:     { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0  },
   viewport:    { once: true, margin: '-80px' },
-  transition:  { duration: 0.75, delay, ease },
+  transition:  { duration: 0.72, delay, ease },
 })
 
 const inViewScale = (delay = 0) => ({
-  initial:     { opacity: 0, y: 36, scale: 0.97 as number },
+  initial:     { opacity: 0, y: 32, scale: 0.97 as number },
   whileInView: { opacity: 1, y: 0,  scale: 1    as number },
   viewport:    { once: true, margin: '-80px' },
-  transition:  { duration: 0.82, delay, ease },
+  transition:  { duration: 0.80, delay, ease },
 })
 
-import type React from 'react'
+// ─── Icône meta ───────────────────────────────────────────────────────────────
+function MetaIcon({ type }: { type: MetaLine['icon'] }) {
+  if (type === 'calendar') return <Calendar size={13} strokeWidth={1.6} className="prg3-meta-icon" aria-hidden="true" />
+  if (type === 'pin')      return <MapPin   size={13} strokeWidth={1.6} className="prg3-meta-icon" aria-hidden="true" />
+  return                          <Users    size={13} strokeWidth={1.6} className="prg3-meta-icon" aria-hidden="true" />
+}
 
-// ─── Component ────────────────────────────────────────────────────────────────
-export default function ProgrammesRedesign() {
-  const [activeId, setActiveId] = useState<string>('cifap')
-
-  const active = PROGRAMMES.find((p) => p.id === activeId) ?? PROGRAMMES[0]
-
+// ─── Carte programme ─────────────────────────────────────────────────────────
+function ProgrammeCard({ p, index }: { p: Programme; index: number }) {
   return (
-    <section className="prg-section" aria-labelledby="prg-titre">
-
-      {/* ════════ En-tête ════════ */}
-      <div className="prg-header">
-
-        <motion.div className="prg-eyebrow" {...inView(0.06)}>
-          <span className="prg-eyebrow-line" aria-hidden="true" />
-          <span className="prg-eyebrow-text">NOS PROGRAMMES</span>
-        </motion.div>
-
-        <motion.h2 id="prg-titre" className="prg-h2" {...inViewScale(0.16)}>
-          Programmes <em>nés du terrain.</em>
-        </motion.h2>
-
-        <motion.p className="prg-intro" {...inView(0.26)}>
-          Deux programmes phares qui incarnent la mission NSS sur le terrain,
-          de la formation agroécologique au plaidoyer médiatique.
-        </motion.p>
-
-        {/* ── Tabs ── */}
-        <motion.div
-          className="prg-tabs"
-          role="tablist"
-          aria-label="Sélectionner un programme"
-          {...inView(0.34)}
-        >
-          {PROGRAMMES.map((p) => (
-            <button
-              key={p.id}
-              role="tab"
-              aria-selected={activeId === p.id}
-              aria-controls={`prg-panel-${p.id}`}
-              id={`prg-tab-${p.id}`}
-              className={`prg-tab${activeId === p.id ? ' prg-tab--active' : ''}`}
-              onClick={() => setActiveId(p.id)}
-            >
-              {p.label}
-              {activeId === p.id && (
-                <motion.span
-                  className="prg-tab-indicator"
-                  layoutId="prg-tab-indicator"
-                  aria-hidden="true"
-                />
-              )}
-            </button>
-          ))}
-        </motion.div>
+    <motion.article
+      className="prg3-card"
+      aria-label={p.titre}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.65, delay: 0.10 + index * 0.14, ease }}
+      whileHover={{ y: -5, transition: { duration: 0.28, ease: 'easeOut' } }}
+    >
+      {/* ── Image ── */}
+      <div className="prg3-img-wrap">
+        <Image
+          src={p.image}
+          alt={p.imageAlt}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="prg3-img"
+          loading="lazy"
+        />
+        <div className="prg3-img-ov" aria-hidden="true" />
       </div>
 
-      {/* ════════ Panel animé ════════ */}
-      <div className="prg-panels">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={active.id}
-            role="tabpanel"
-            id={`prg-panel-${active.id}`}
-            aria-labelledby={`prg-tab-${active.id}`}
-            className="prg-panel"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.45, ease }}
+      {/* ── Contenu ── */}
+      <div className="prg3-body">
+
+        {/* Label + pill */}
+        <div className="prg3-row-top">
+          <span className="prg3-label">{p.label}</span>
+          <span
+            className="prg3-pill"
+            style={{ borderColor: p.pillBorder, color: p.pillText }}
           >
-            {/* Grille 2 colonnes */}
-            <div className="prg-card">
+            {p.pill}
+          </span>
+        </div>
 
-              {/* Image */}
-              <div className="prg-img-wrap">
-                <Image
-                  src={active.image}
-                  alt={active.alt}
-                  fill
-                  className="prg-img"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  priority={active.id === 'cifap'}
-                />
-                <div className="prg-img-overlay" aria-hidden="true" />
+        {/* Titre + sous-titre */}
+        <div className="prg3-titles">
+          <h3 className="prg3-titre">{p.titre}</h3>
+          <p className="prg3-sous">{p.sousTitre}</p>
+        </div>
 
-                {/* Tag flottant */}
-                <span className="prg-img-tag">{active.tag}</span>
+        {/* Meta */}
+        <ul className="prg3-meta" aria-label={`Infos ${p.titre}`}>
+          {p.meta.map(({ icon, text, green }) => (
+            <li key={text} className={`prg3-meta-item${green ? ' prg3-meta-green' : ''}`}>
+              <MetaIcon type={icon} />
+              <span>{text}</span>
+            </li>
+          ))}
+        </ul>
 
-                {/* Acronyme flottant */}
-                <span className="prg-img-acronym" aria-hidden="true">
-                  {active.acronym}
-                </span>
-              </div>
+        {/* CTA */}
+        <Link href={p.href} className="prg3-cta" aria-label={`${p.ctaLabel} — ${p.titre}`}>
+          {p.ctaLabel} →
+        </Link>
 
-              {/* Contenu */}
-              <div className="prg-content">
+      </div>
+    </motion.article>
+  )
+}
 
-                {/* Nom complet */}
-                <p className="prg-nom">{active.nom}</p>
+// ─── Section ──────────────────────────────────────────────────────────────────
+export default function ProgrammesRedesign() {
+  return (
+    <section className="prg3-section" aria-labelledby="prg3-titre">
 
-                {/* Description */}
-                <p className="prg-desc">{active.desc}</p>
+      <div className="prg3-wrap">
 
-                {/* Séparateur */}
-                <div className="prg-sep" aria-hidden="true" />
+        {/* ════ En-tête ════ */}
+        <header className="prg3-header">
 
-                {/* Détails */}
-                <dl className="prg-details">
-                  {active.details.map(({ icon, label, value }) => (
-                    <div key={label} className="prg-detail">
-                      <dt className="prg-detail-label">
-                        <span className="prg-detail-icon" aria-hidden="true">{icon}</span>
-                        {label}
-                      </dt>
-                      <dd className="prg-detail-value">{value}</dd>
-                    </div>
-                  ))}
-                </dl>
-
-                {/* CTA */}
-                <Link href={active.href} className="prg-cta">
-                  Découvrir le programme
-                  <ArrowRight size={14} strokeWidth={2} className="prg-cta-icon" />
-                </Link>
-              </div>
-            </div>
+          <motion.div className="prg3-eyebrow" {...inView(0.06)}>
+            <span className="prg3-eyebrow-line" aria-hidden="true" />
+            <span className="prg3-eyebrow-text">NOS PROGRAMMES</span>
+            <span className="prg3-eyebrow-line" aria-hidden="true" />
           </motion.div>
-        </AnimatePresence>
+
+          <motion.h2 id="prg3-titre" className="prg3-h2" {...inViewScale(0.16)}>
+            Programmes <em>nés du terrain.</em>
+          </motion.h2>
+          <motion.span
+            className="prg3-underline"
+            aria-hidden="true"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55, delay: 0.26, ease: [0.22, 1, 0.36, 1] }}
+            style={{ transformOrigin: 'center' }}
+          />
+
+          <motion.p className="prg3-intro" {...inView(0.26)}>
+            Trois programmes phares qui incarnent la mission NSS — formation
+            agroécologique, gouvernance continentale et valorisation des savoirs paysans.
+          </motion.p>
+
+        </header>
+
+        {/* ════ Grille 3 cartes ════ */}
+        <ul className="prg3-grid" role="list" aria-label="Programmes du mouvement NSS">
+          {PROGRAMMES.map((p, i) => (
+            <li key={p.id} role="listitem">
+              <ProgrammeCard p={p} index={i} />
+            </li>
+          ))}
+        </ul>
+
+        {/* ════ Footer CTA global ════ */}
+        <motion.div className="prg3-footer" {...inView(0.18)}>
+          <motion.div
+            className="prg3-sep"
+            aria-hidden="true"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.90, ease }}
+            style={{ transformOrigin: 'center' }}
+          />
+          <Link href="/fr/programmes" className="prg3-all">
+            Tous nos programmes
+            <svg width="14" height="8" viewBox="0 0 16 9" fill="none" aria-hidden="true">
+              <path d="M1 4.5h13M10 1l4 3.5-4 3.5" stroke="currentColor"
+                strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </Link>
+        </motion.div>
+
       </div>
 
-      {/* Lien tous programmes */}
-      <motion.div className="prg-footer" {...inView(0.10)}>
-        <Link href="/fr/programmes" className="prg-all">
-          Tous nos programmes
-        </Link>
-      </motion.div>
-
-      {/* ════════ Styles ════════ */}
+      {/* ════ Styles ════ */}
       <style>{`
         /* ── Section ── */
-        .prg-section {
+        .prg3-section {
           background: #ffffff;
+          border-top: 1px solid rgba(0,173,76,0.08);
           overflow: hidden;
+        }
+
+        .prg3-wrap {
+          max-width: 1280px;
+          margin: 0 auto;
+          padding: 80px 24px 72px;
         }
 
         /* ── En-tête ── */
-        .prg-header {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 60px 24px 40px;
+        .prg3-header {
           text-align: center;
+          margin-bottom: 52px;
         }
-
-        /* ── Eyebrow ── */
-        .prg-eyebrow {
+        .prg3-eyebrow {
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 14px;
-          margin-bottom: 32px;
+          gap: 16px;
+          margin-bottom: 28px;
         }
-        .prg-eyebrow-line {
+        .prg3-eyebrow-line {
           display: block;
-          width: 44px;
+          flex: 1;
+          max-width: 56px;
           height: 1px;
-          background: ${NSS.vertClair};
-          flex-shrink: 0;
+          background: rgba(165,206,70,0.40);
         }
-        .prg-eyebrow-text {
+        .prg3-eyebrow-text {
           font-family: var(--font-dm-sans), sans-serif;
           font-size: 9.5px;
-          font-weight: 600;
-          letter-spacing: 0.22em;
+          font-weight: 700;
+          letter-spacing: 0.24em;
           text-transform: uppercase;
           color: ${NSS.vertClair};
+          white-space: nowrap;
         }
-
-        /* ── H2 ── */
-        .prg-h2 {
-          font-family: var(--font-cormorant), Georgia, serif;
-          font-size: 47px;
-          font-weight: 600;
-          line-height: 1.05;
-          color: #0A0A0A;
-          margin: 0 0 28px;
-          letter-spacing: -0.01em;
+        .prg3-h2 {
+          font-family: var(--font-display), Georgia, serif;
+          font-size: clamp(24px, 2.6vw, 34px);
+          font-weight: 700;
+          line-height: 1.2;
+          color: #2A2A2A;
+          margin: 0 0 14px;
+          letter-spacing: -0.015em;
         }
-        .prg-h2 em {
-          font-style: italic;
-          color: ${NSS.vertPrimaire};
+        .prg3-h2 em { font-style: italic; color: ${NSS.vertClair}; }
+        .prg3-underline {
+          display: block;
+          height: 2px;
+          width: 72px;
+          background: ${NSS.vertClair};
+          border-radius: 2px;
+          margin: 12px auto 24px;
         }
-
-        /* ── Intro ── */
-        .prg-intro {
+        .prg3-intro {
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 15px;
+          font-size: 16px;
           font-weight: 400;
           line-height: 1.78;
-          color: #4A4A4A;
-          max-width: 520px;
-          margin: 0 auto 48px;
-        }
-
-        /* ── Tabs ── */
-        .prg-tabs {
-          display: flex;
-          justify-content: center;
-          gap: 8px;
-          flex-wrap: wrap;
-        }
-        .prg-tab {
-          position: relative;
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 11px;
-          font-weight: 700;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-          color: #4A4A4A;
-          background: transparent;
-          border: 1.5px solid #E2E2E2;
-          padding: 12px 28px;
-          border-radius: 1px;
-          cursor: pointer;
-          transition: border-color 0.22s ease, color 0.22s ease, background 0.22s ease;
-          overflow: hidden;
-        }
-        .prg-tab:hover:not(.prg-tab--active) {
-          border-color: ${NSS.vertPrimaire};
-          color: ${NSS.vertPrimaire};
-        }
-        .prg-tab--active {
-          color: #ffffff;
-          border-color: ${NSS.vertPrimaire};
-          background: ${NSS.vertPrimaire};
-        }
-        .prg-tab-indicator {
-          position: absolute;
-          inset: 0;
-          background: ${NSS.vertPrimaire};
-          z-index: -1;
-          border-radius: 1px;
-        }
-
-        /* ── Panels ── */
-        .prg-panels {
-          max-width: 1200px;
+          color: #2C2C28;
+          max-width: 62ch;
           margin: 0 auto;
-          padding: 0 24px 40px;
         }
-        .prg-panel { width: 100%; }
 
-        /* ── Card ── */
-        .prg-card {
+        /* ── Grille ── */
+        .prg3-grid {
+          list-style: none;
+          margin: 0;
+          padding: 0;
           display: grid;
-          grid-template-columns: 1fr 1fr;
-          min-height: 480px;
-          border: 1px solid #E8E8E8;
-          border-radius: 2px;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 24px;
+          align-items: start;
+        }
+
+        /* ── Carte ── */
+        .prg3-card {
+          background: #ffffff;
+          border: 1px solid #E4E0DB;
+          border-radius: 10px;
           overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+          transition:
+            box-shadow   0.28s ease,
+            border-color 0.28s ease;
+          cursor: default;
+        }
+        .prg3-card:hover {
+          box-shadow: 0 10px 36px rgba(4,86,39,0.11);
+          border-color: rgba(0,173,76,0.28);
         }
 
         /* ── Image ── */
-        .prg-img-wrap {
+        .prg3-img-wrap {
           position: relative;
+          width: 100%;
+          height: 220px;
+          flex-shrink: 0;
           overflow: hidden;
-          background: #0A1A0E;
+          background: #0a1a0e;
         }
-        .prg-img {
+        .prg3-img {
           object-fit: cover;
           object-position: center;
-          transition: transform 0.60s ease;
+          transition: transform 0.55s ease;
         }
-        .prg-card:hover .prg-img {
-          transform: scale(1.04);
-        }
-        .prg-img-overlay {
+        .prg3-card:hover .prg3-img { transform: scale(1.04); }
+        .prg3-img-ov {
           position: absolute;
           inset: 0;
           background: linear-gradient(
-            160deg,
-            rgba(4,86,39,0.50) 0%,
-            rgba(4,86,39,0.20) 50%,
-            rgba(0,0,0,0.10) 100%
+            to bottom,
+            rgba(0,0,0,0)    55%,
+            rgba(4,86,39,0.35) 100%
           );
-        }
-        .prg-img-tag {
-          position: absolute;
-          top: 20px;
-          left: 20px;
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 9px;
-          font-weight: 700;
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-          color: #ffffff;
-          background: ${NSS.vertPrimaire};
-          padding: 5px 12px;
-          border-radius: 1px;
-        }
-        .prg-img-acronym {
-          position: absolute;
-          bottom: 24px;
-          left: 24px;
-          font-family: var(--font-cormorant), Georgia, serif;
-          font-size: 52px;
-          font-weight: 600;
-          color: rgba(255,255,255,0.12);
-          line-height: 1;
-          letter-spacing: -0.02em;
-          pointer-events: none;
-          user-select: none;
+          z-index: 1;
         }
 
-        /* ── Contenu ── */
-        .prg-content {
-          padding: 52px 56px;
+        /* ── Corps ── */
+        .prg3-body {
+          padding: 20px 22px 22px;
           display: flex;
           flex-direction: column;
-          background: #ffffff;
-        }
-        .prg-nom {
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 10px;
-          font-weight: 700;
-          letter-spacing: 0.16em;
-          text-transform: uppercase;
-          color: ${NSS.vertClair};
-          margin: 0 0 20px;
-        }
-        .prg-desc {
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 15px;
-          font-weight: 400;
-          line-height: 1.82;
-          color: #2A2A2A;
-          text-align: justify;
-          hyphens: auto;
-          margin: 0 0 32px;
+          gap: 14px;
           flex: 1;
         }
 
-        /* ── Séparateur ── */
-        .prg-sep {
-          width: 40px;
-          height: 1px;
-          background: ${NSS.vertClair};
-          margin-bottom: 28px;
-          opacity: 0.60;
-        }
-
-        /* ── Détails ── */
-        .prg-details {
-          display: flex;
-          flex-direction: column;
-          gap: 16px;
-          margin: 0 0 36px;
-        }
-        .prg-detail {
-          display: grid;
-          grid-template-columns: 120px 1fr;
-          gap: 12px;
-          align-items: baseline;
-        }
-        .prg-detail-label {
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 10px;
-          font-weight: 700;
-          letter-spacing: 0.10em;
-          text-transform: uppercase;
-          color: #888;
+        /* Label + pill */
+        .prg3-row-top {
           display: flex;
           align-items: center;
-          gap: 6px;
+          justify-content: space-between;
+          gap: 8px;
         }
-        .prg-detail-icon { color: ${NSS.vertPrimaire}; flex-shrink: 0; }
-        .prg-detail-value {
+        .prg3-label {
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 13px;
-          font-weight: 500;
-          color: #1A1A1A;
-          line-height: 1.5;
-          margin: 0;
+          font-size: 9px;
+          font-weight: 600;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: #ABABAB;
+        }
+        .prg3-pill {
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 8.5px;
+          font-weight: 700;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          padding: 3px 10px;
+          border: 1px solid;
+          border-radius: 20px;
+          flex-shrink: 0;
         }
 
-        /* ── CTA ── */
-        .prg-cta {
+        /* Titres */
+        .prg3-titles { display: flex; flex-direction: column; gap: 5px; }
+        .prg3-titre {
+          font-family: var(--font-display), Georgia, serif;
+          font-size: 26px;
+          font-weight: 700;
+          color: #111111;
+          margin: 0;
+          line-height: 1.12;
+          letter-spacing: -0.01em;
+        }
+        .prg3-sous {
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 12px;
+          color: #999;
+          margin: 0;
+          line-height: 1.5;
+          font-weight: 400;
+        }
+
+        /* Meta */
+        .prg3-meta {
+          list-style: none;
+          padding: 14px 0 0;
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 7px;
+          border-top: 1px solid #F0EDE8;
+        }
+        .prg3-meta-item {
+          display: flex;
+          align-items: center;
+          gap: 7px;
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 12.5px;
+          font-weight: 400;
+          color: #555;
+          line-height: 1.4;
+        }
+        .prg3-meta-green {
+          color: ${NSS.vertPrimaire};
+          font-weight: 600;
+        }
+        .prg3-meta-icon {
+          color: #BBBBBB;
+          flex-shrink: 0;
+        }
+        .prg3-meta-green .prg3-meta-icon {
+          color: ${NSS.vertPrimaire};
+        }
+
+        /* CTA */
+        .prg3-cta {
+          display: inline-block;
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 13px;
+          font-weight: 700;
+          color: ${NSS.vertPrimaire};
+          text-decoration: none;
+          margin-top: auto;
+          padding-top: 4px;
+          transition: color 0.22s ease;
+        }
+        .prg3-cta:hover { color: ${NSS.vertFonce}; }
+
+        /* ── Footer ── */
+        .prg3-footer {
+          margin-top: 60px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 24px;
+        }
+        .prg3-sep {
+          width: 100%;
+          max-width: 640px;
+          height: 1px;
+          background: linear-gradient(90deg, transparent, #D0D0D0 30%, #D0D0D0 70%, transparent);
+        }
+        .prg3-all {
           display: inline-flex;
           align-items: center;
           gap: 10px;
@@ -513,82 +502,42 @@ export default function ProgrammesRedesign() {
           font-weight: 700;
           letter-spacing: 0.13em;
           text-transform: uppercase;
-          background: ${NSS.vertFonce};
-          color: #ffffff;
-          padding: 15px 32px;
-          border-radius: 1px;
-          text-decoration: none;
-          align-self: flex-start;
-          transition: background 0.22s ease, gap 0.20s ease;
-        }
-        .prg-cta-icon { transition: transform 0.20s ease; }
-        .prg-cta:hover { background: ${NSS.vertPrimaire}; gap: 16px; }
-        .prg-cta:hover .prg-cta-icon { transform: translateX(3px); }
-
-        /* ── Footer ── */
-        .prg-footer {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 24px 60px;
-          text-align: center;
-        }
-        .prg-all {
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 11px;
-          font-weight: 700;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
           color: ${NSS.vertFonce};
           text-decoration: none;
           border-bottom: 1.5px solid ${NSS.vertClair};
           padding-bottom: 3px;
-          transition: color 0.20s ease;
+          transition: color 0.22s ease, gap 0.20s ease;
         }
-        .prg-all:hover { color: ${NSS.vertPrimaire}; }
+        .prg3-all:hover { color: ${NSS.vertPrimaire}; gap: 16px; }
 
         /* ── Tablet ── */
         @media (max-width: 1100px) {
-          .prg-header,
-          .prg-panels,
-          .prg-footer { padding-left: 24px; padding-right: 24px; }
-          .prg-content { padding: 44px 44px; }
+          .prg3-wrap { padding: 72px 20px 64px; }
         }
         @media (max-width: 1024px) {
-          .prg-card { grid-template-columns: 1fr; min-height: auto; }
-          .prg-img-wrap { min-height: 320px; }
-          .prg-header,
-          .prg-panels,
-          .prg-footer { padding-left: 20px; padding-right: 20px; }
+          .prg3-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+          .prg3-wrap { padding: 64px 20px 56px; }
         }
 
         /* ── Mobile ── */
         @media (max-width: 768px) {
-          .prg-header { padding: 52px 20px 32px; }
-          .prg-panels { padding: 0 20px 32px; }
-          .prg-footer { padding: 0 20px 52px; }
-          .prg-h2 { font-size: 36px; }
-          .prg-img-wrap { min-height: 260px; }
-          .prg-content { padding: 36px 28px; }
-          .prg-detail { grid-template-columns: 100px 1fr; }
+          .prg3-wrap { padding: 56px 20px 48px; }
+          .prg3-header { margin-bottom: 40px; }
+          .prg3-img-wrap { height: 200px; }
         }
 
         /* ── Small mobile ── */
-        @media (max-width: 480px) {
-          .prg-header { padding: 44px 16px 28px; }
-          .prg-panels { padding: 0 16px 28px; }
-          .prg-footer { padding: 0 16px 44px; }
-          .prg-h2 { font-size: 30px; }
-          .prg-content { padding: 28px 20px; }
-          .prg-detail { grid-template-columns: 1fr; gap: 4px; }
-          .prg-detail-label { margin-bottom: 2px; }
-          .prg-img-wrap { min-height: 220px; }
-          .prg-cta { font-size: 10px; padding: 13px 24px; }
+        @media (max-width: 640px) {
+          .prg3-grid { grid-template-columns: 1fr; gap: 18px; }
+          .prg3-wrap { padding: 48px 16px 40px; }
+          .prg3-img-wrap { height: 190px; }
+          .prg3-titre { font-size: 22px; }
         }
 
         /* ── Réduction de mouvement ── */
         @media (prefers-reduced-motion: reduce) {
-          .prg-img { transition: none; }
-          .prg-cta-icon { transition: none; }
+          .prg3-card { transition: border-color 0.2s ease; }
+          .prg3-img  { transition: none; }
         }
       `}</style>
     </section>

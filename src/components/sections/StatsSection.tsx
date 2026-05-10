@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useEffect, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
@@ -109,7 +109,7 @@ export default function StatsSection({ stats = DEFAULT_STATS }: StatsSectionProp
         .stats-item:last-child { border-right: none; }
 
         .stats-value {
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: 52px;
           font-weight: 600;
           color: #E8A838;

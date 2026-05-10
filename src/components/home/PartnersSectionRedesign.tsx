@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
@@ -100,6 +100,15 @@ export default function PartnersSectionRedesign() {
           <motion.h2 id="pts-titre" className="pts-h2" {...inViewScale(0.16)}>
             Ils nous font <em>confiance.</em>
           </motion.h2>
+          <motion.span
+            className="pts-underline"
+            aria-hidden="true"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55, delay: 0.26, ease: [0.22, 1, 0.36, 1] }}
+            style={{ transformOrigin: 'center' }}
+          />
 
           <motion.p className="pts-intro" {...inView(0.26)}>
             Cinq organisations internationales qui croient au potentiel des femmes
@@ -181,8 +190,8 @@ export default function PartnersSectionRedesign() {
         /* ── Section ── */
         .pts-section {
           position: relative;
-          background: #ffffff;
-          border-top: 1px solid rgba(0,173,76,0.10);
+          background: #F5F3EE;
+          border-top: 1px solid rgba(0,0,0,0.06);
           overflow: hidden;
         }
 
@@ -191,8 +200,8 @@ export default function PartnersSectionRedesign() {
           position: absolute;
           inset: 0;
           background-image:
-            repeating-linear-gradient(0deg,   transparent, transparent 48px, rgba(0,173,76,0.02) 48px, rgba(0,173,76,0.02) 49px),
-            repeating-linear-gradient(90deg,  transparent, transparent 48px, rgba(0,173,76,0.02) 48px, rgba(0,173,76,0.02) 49px);
+            repeating-linear-gradient(0deg,   transparent, transparent 48px, rgba(0,0,0,0.015) 48px, rgba(0,0,0,0.015) 49px),
+            repeating-linear-gradient(90deg,  transparent, transparent 48px, rgba(0,0,0,0.015) 48px, rgba(0,0,0,0.015) 49px);
           pointer-events: none;
           z-index: 0;
         }
@@ -230,7 +239,7 @@ export default function PartnersSectionRedesign() {
         .pts-eyebrow-text {
           font-family: var(--font-dm-sans), sans-serif;
           font-size: 9.5px;
-          font-weight: 600;
+          font-weight: 700;
           letter-spacing: 0.24em;
           text-transform: uppercase;
           color: ${NSS.vertClair};
@@ -239,26 +248,34 @@ export default function PartnersSectionRedesign() {
 
         /* ── H2 ── */
         .pts-h2 {
-          font-family: var(--font-cormorant), Georgia, serif;
-          font-size: 47px;
-          font-weight: 600;
-          line-height: 0.92;
-          color: #0A0A0A;
-          margin: 0 0 28px;
-          letter-spacing: -0.01em;
+          font-family: var(--font-display), Georgia, serif;
+          font-size: clamp(24px, 2.6vw, 34px);
+          font-weight: 700;
+          line-height: 1.2;
+          color: #2A2A2A;
+          margin: 0 0 14px;
+          letter-spacing: -0.015em;
         }
         .pts-h2 em {
           font-style: italic;
           color: ${NSS.vertPrimaire};
         }
+        .pts-underline {
+          display: block;
+          height: 2px;
+          width: 72px;
+          background: ${NSS.vertClair};
+          border-radius: 2px;
+          margin: 12px auto 24px;
+        }
 
         /* ── Intro ── */
         .pts-intro {
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 15px;
+          font-size: 16px;
           font-weight: 400;
           line-height: 1.78;
-          color: #4A4A4A;
+          color: #2C2C28;
           max-width: 540px;
           margin: 0 auto;
         }
@@ -380,7 +397,7 @@ export default function PartnersSectionRedesign() {
           background: linear-gradient(90deg, transparent, #D0D0D0 30%, #D0D0D0 70%, transparent);
         }
         .pts-footer-text {
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: 17px;
           font-style: normal;
           font-weight: 400;
@@ -424,7 +441,7 @@ export default function PartnersSectionRedesign() {
         /* ── Mobile ── */
         @media (max-width: 768px) {
           .pts-wrap { padding: 64px 24px; }
-          .pts-h2 { font-size: clamp(36px, 9vw, 54px); }
+          .pts-h2 { line-height: 1.2; }
           .pts-item  { width: 152px; }
           .pts-logo-card { width: 152px; height: 72px; padding: 12px 16px; }
           .pts-grid { gap: 18px 12px; }
@@ -433,7 +450,7 @@ export default function PartnersSectionRedesign() {
         /* ── Small mobile ── */
         @media (max-width: 480px) {
           .pts-wrap { padding: 52px 16px; }
-          .pts-h2 { font-size: clamp(32px, 10vw, 46px); }
+          .pts-h2 { line-height: 1.2; }
           .pts-item  { width: 140px; }
           .pts-logo-card { width: 140px; height: 66px; }
           .pts-grid { gap: 14px 10px; }

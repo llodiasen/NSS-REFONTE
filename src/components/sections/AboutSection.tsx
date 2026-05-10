@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useState } from "react";
@@ -203,7 +203,7 @@ export default function AboutSection() {
           border-radius: 0 6px 6px 0;
         }
         .ab-quote-text {
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: 18px;
           font-style: italic;
           font-weight: 400;

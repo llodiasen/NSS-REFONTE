@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
@@ -233,7 +233,7 @@ export default function FooterRedesign({ locale }: FooterRedesignProps) {
         }
 
         .ftr__tagline {
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: 15px;
           font-style: italic;
           font-weight: 400;

@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
@@ -106,7 +106,7 @@ export default function ProgrammeHero({ eyebrow, title, subtitle, imageSrc }: Pr
         }
 
         .phero__h1 {
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: 48px;
           font-weight: 600;
           line-height: 1.0;

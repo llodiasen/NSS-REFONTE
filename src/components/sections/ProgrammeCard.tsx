@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
@@ -114,7 +114,7 @@ export default function ProgrammeCard({
           margin: 0;
         }
         .pcard__titre a {
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: 22px;
           font-weight: 600;
           line-height: 1.2;

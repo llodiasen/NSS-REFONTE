@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useEffect, useRef } from "react";
@@ -220,7 +220,7 @@ export default function ProgramsSection() {
           color: #C4622D;
         }
         .prog-h2 {
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: clamp(30px, 4vw, 54px);
           font-weight: 500;
           line-height: 1.10;
@@ -299,7 +299,7 @@ export default function ProgramsSection() {
           justify-content: center;
         }
         .prog-num {
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: 40px;
           font-weight: 600;
           color: #E8A838;
@@ -307,7 +307,7 @@ export default function ProgramsSection() {
           opacity: 0.80;
         }
         .prog-card-h3 {
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: clamp(18px, 1.8vw, 22px);
           font-weight: 600;
           color: #1A3A2A;

@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
@@ -212,7 +212,7 @@ export default function TemoignagesRedesign() {
 
         /* ── H2 ── */
         .tem-h2 {
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: clamp(40px, 5vw, 68px);
           font-weight: 600;
           line-height: 1.0;
@@ -256,7 +256,7 @@ export default function TemoignagesRedesign() {
 
         /* Guillemet décoratif */
         .tem-card-quote {
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: 72px;
           font-weight: 600;
           color: ${NSS.vertClair};
@@ -270,7 +270,7 @@ export default function TemoignagesRedesign() {
         /* Citation */
         .tem-card-cite { margin: 0 0 28px; }
         .tem-card-text {
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: clamp(17px, 1.5vw, 21px);
           font-style: italic;
           font-weight: 400;

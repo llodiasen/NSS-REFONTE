@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
@@ -162,6 +162,15 @@ export default function NewsSectionRedesign() {
           <motion.h2 id="nws-titre" className="nws-h2" {...inViewScale(0.16)}>
             La vie <em>du mouvement.</em>
           </motion.h2>
+          <motion.span
+            className="nws-underline"
+            aria-hidden="true"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55, delay: 0.26, ease: [0.22, 1, 0.36, 1] }}
+            style={{ transformOrigin: 'center' }}
+          />
 
           <motion.p className="nws-intro" {...inView(0.26)}>
             Rencontres, formations, plaidoyer et victoires — suivez l&apos;actualité
@@ -209,8 +218,8 @@ export default function NewsSectionRedesign() {
         /* ── Section ── */
         .nws-section {
           position: relative;
-          background: #ffffff;
-          border-top: 1px solid rgba(0,173,76,0.08);
+          background: #FAFAF8;
+          border-top: 1px solid rgba(0,0,0,0.06);
           overflow: hidden;
         }
 
@@ -219,7 +228,7 @@ export default function NewsSectionRedesign() {
           position: absolute;
           inset: 0;
           background-image:
-            repeating-linear-gradient(-55deg, transparent, transparent 30px, rgba(0,173,76,0.025) 30px, rgba(0,173,76,0.025) 32px);
+            repeating-linear-gradient(-55deg, transparent, transparent 30px, rgba(0,0,0,0.015) 30px, rgba(0,0,0,0.015) 32px);
           pointer-events: none;
           z-index: 0;
         }
@@ -257,7 +266,7 @@ export default function NewsSectionRedesign() {
         .nws-eyebrow-text {
           font-family: var(--font-dm-sans), sans-serif;
           font-size: 9.5px;
-          font-weight: 600;
+          font-weight: 700;
           letter-spacing: 0.24em;
           text-transform: uppercase;
           color: ${NSS.vertClair};
@@ -266,26 +275,34 @@ export default function NewsSectionRedesign() {
 
         /* ── H2 ── */
         .nws-h2 {
-          font-family: var(--font-cormorant), Georgia, serif;
-          font-size: 47px;
-          font-weight: 600;
-          line-height: 1.05;
-          color: #0A0A0A;
-          margin: 0 0 28px;
-          letter-spacing: -0.01em;
+          font-family: var(--font-display), Georgia, serif;
+          font-size: clamp(24px, 2.6vw, 34px);
+          font-weight: 700;
+          line-height: 1.2;
+          color: #2A2A2A;
+          margin: 0 0 14px;
+          letter-spacing: -0.015em;
         }
         .nws-h2 em {
           font-style: italic;
           color: ${NSS.vertPrimaire};
         }
+        .nws-underline {
+          display: block;
+          height: 2px;
+          width: 72px;
+          background: ${NSS.vertClair};
+          border-radius: 2px;
+          margin: 12px auto 24px;
+        }
 
         /* ── Intro ── */
         .nws-intro {
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 15px;
+          font-size: 16px;
           font-weight: 400;
           line-height: 1.78;
-          color: #4A4A4A;
+          color: #2C2C28;
           max-width: 560px;
           margin: 0 auto;
         }
@@ -358,7 +375,7 @@ export default function NewsSectionRedesign() {
           justify-content: center;
         }
         .nws-card__fallback span {
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: 2.2rem;
           font-weight: 600;
           color: rgba(165,206,70,0.45);
@@ -417,8 +434,8 @@ export default function NewsSectionRedesign() {
           -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
           overflow: hidden;
-          font-family: var(--font-cormorant), Georgia, serif;
-          font-size: clamp(19px, 1.6vw, 22px);
+          font-family: var(--font-display), Georgia, serif;
+          font-size: 17px;
           font-weight: 700;
           line-height: 1.22;
           color: #0A0A0A;
@@ -507,18 +524,18 @@ export default function NewsSectionRedesign() {
         /* ── Mobile ── */
         @media (max-width: 768px) {
           .nws-wrap { padding: 56px 20px; }
-          .nws-h2 { font-size: 36px; }
+          .nws-h2 { line-height: 1.2; }
           .nws-header { margin-bottom: 40px; }
-          .nws-card__titre a { font-size: clamp(16px, 4vw, 20px); }
+          .nws-card__titre a { font-size: 17px; }
         }
 
         /* ── Small mobile ── */
         @media (max-width: 640px) {
           .nws-grid { grid-template-columns: 1fr; }
           .nws-wrap { padding: 48px 16px; }
-          .nws-h2 { font-size: 32px; }
+          .nws-h2 { line-height: 1.2; }
           .nws-intro { font-size: 14px; }
-          .nws-card__titre a { font-size: clamp(15px, 4vw, 18px); }
+          .nws-card__titre a { font-size: 17px; }
         }
 
         /* ── Réduction de mouvement ── */

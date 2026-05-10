@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { motion } from 'framer-motion'
 import { Leaf, Megaphone, Globe } from 'lucide-react'
@@ -89,6 +89,15 @@ export default function ObjectifsRedesign() {
         <motion.h2 id="obj-titre" className="obj-h2" {...inViewScale(0.16)}>
           Trois piliers <em>pour bâtir ensemble.</em>
         </motion.h2>
+        <motion.span
+          className="obj-underline"
+          aria-hidden="true"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.55, delay: 0.26, ease: [0.22, 1, 0.36, 1] }}
+          style={{ transformOrigin: 'center' }}
+        />
 
         <motion.p className="obj-intro" {...inView(0.26)}>
           Trois piliers fondateurs qui guident l&apos;action du mouvement depuis 2011
@@ -140,19 +149,10 @@ export default function ObjectifsRedesign() {
       <style>{`
         /* ── Section ── */
         .obj-section {
-          background: ${NSS.vertFonce};
+          background: #FAFAF8;
           overflow: hidden;
           position: relative;
-        }
-
-        /* Texture grain subtile sur fond vert */
-        .obj-section::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-          pointer-events: none;
-          z-index: 0;
+          border-top: 1px solid rgba(0,0,0,0.06);
         }
 
         /* ── En-tête ── */
@@ -183,7 +183,7 @@ export default function ObjectifsRedesign() {
         .obj-eyebrow-text {
           font-family: var(--font-dm-sans), sans-serif;
           font-size: 9.5px;
-          font-weight: 600;
+          font-weight: 700;
           letter-spacing: 0.24em;
           text-transform: uppercase;
           color: ${NSS.vertClair};
@@ -192,26 +192,34 @@ export default function ObjectifsRedesign() {
 
         /* ── H2 ── */
         .obj-h2 {
-          font-family: var(--font-cormorant), Georgia, serif;
-          font-size: 46px;
-          font-weight: 600;
-          line-height: 1.05;
-          color: #ffffff;
-          margin: 0 0 28px;
-          letter-spacing: -0.01em;
+          font-family: var(--font-display), Georgia, serif;
+          font-size: clamp(24px, 2.6vw, 34px);
+          font-weight: 700;
+          line-height: 1.2;
+          color: #2A2A2A;
+          margin: 0 0 14px;
+          letter-spacing: -0.015em;
         }
         .obj-h2 em {
           font-style: italic;
-          color: ${NSS.vertClair};
+          color: ${NSS.vertPrimaire};
+        }
+        .obj-underline {
+          display: block;
+          height: 2px;
+          width: 72px;
+          background: ${NSS.vertClair};
+          border-radius: 2px;
+          margin: 12px auto 24px;
         }
 
         /* ── Intro ── */
         .obj-intro {
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 15px;
-          font-weight: 300;
+          font-size: 16px;
+          font-weight: 400;
           line-height: 1.78;
-          color: #ffffff;
+          color: #2C2C28;
           margin: 0;
           text-align: center;
         }
@@ -222,38 +230,43 @@ export default function ObjectifsRedesign() {
           z-index: 1;
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 1px;
-          background: rgba(165,206,70,0.10);
-          border-top: 1px solid rgba(165,206,70,0.10);
-          padding-bottom: 1px;
+          gap: 20px;
+          padding: 0 24px 72px;
+          max-width: 1280px;
+          margin: 0 auto;
+          box-sizing: border-box;
         }
 
         /* ── Carte ── */
         .obj-card {
           position: relative;
-          background: ${NSS.vertFonce};
-          padding: 56px 40px 48px;
+          background: #ffffff;
+          border: 1px solid rgba(0,0,0,0.07);
+          border-radius: 2px;
+          padding: 52px 36px 44px;
           display: flex;
           flex-direction: column;
           gap: 0;
           overflow: hidden;
           cursor: default;
-          transition: background 0.30s ease;
+          transition: box-shadow 0.30s ease, border-color 0.30s ease, transform 0.30s ease;
         }
         .obj-card:hover {
-          background: rgba(0,173,76,0.08);
+          box-shadow: 0 16px 48px rgba(4,86,39,0.10);
+          border-color: rgba(0,173,76,0.22);
+          transform: translateY(-6px);
         }
 
         /* Numéro décoratif — watermark */
         .obj-num {
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: 88px;
           font-weight: 600;
-          color: rgba(165,206,70,0.10);
+          color: rgba(0,173,76,0.07);
           line-height: 1;
           position: absolute;
-          top: 16px;
-          right: 32px;
+          top: 12px;
+          right: 28px;
           pointer-events: none;
           user-select: none;
           letter-spacing: -0.04em;
@@ -261,39 +274,37 @@ export default function ObjectifsRedesign() {
 
         /* Icône */
         .obj-icon {
-          color: ${NSS.vertClair};
+          color: ${NSS.vertPrimaire};
           margin-bottom: 24px;
-          opacity: 0.85;
         }
 
         /* Titre carte */
         .obj-card-titre {
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 20px;
+          font-family: var(--font-display), Georgia, serif;
+          font-size: 22px;
           font-weight: 700;
-          color: #ffffff;
+          color: #0A0A0A;
           margin: 0 0 20px;
-          line-height: 1.3;
-          letter-spacing: -0.01em;
+          line-height: 1.22;
         }
 
         /* Séparateur */
         .obj-card-sep {
           width: 32px;
-          height: 1px;
-          background: ${NSS.vertClair};
+          height: 2px;
+          background: ${NSS.vertPrimaire};
           margin-bottom: 20px;
-          opacity: 0.60;
           flex-shrink: 0;
+          border-radius: 1px;
         }
 
         /* Description */
         .obj-card-desc {
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 15px;
-          font-weight: 300;
-          line-height: 1.72;
-          color: #ffffff;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 1.78;
+          color: #4A4A4A;
           margin: 0 0 32px;
           text-align: justify;
           hyphens: auto;
@@ -306,12 +317,14 @@ export default function ObjectifsRedesign() {
           flex-direction: column;
           gap: 4px;
           margin-top: auto;
+          padding-top: 24px;
+          border-top: 1px solid rgba(0,0,0,0.07);
         }
         .obj-stat-value {
-          font-family: var(--font-cormorant), Georgia, serif;
-          font-size: 32px;
+          font-family: var(--font-display), Georgia, serif;
+          font-size: 36px;
           font-weight: 600;
-          color: ${NSS.or};
+          color: ${NSS.vertPrimaire};
           line-height: 1;
           letter-spacing: -0.02em;
         }
@@ -321,17 +334,17 @@ export default function ObjectifsRedesign() {
           font-weight: 600;
           letter-spacing: 0.16em;
           text-transform: uppercase;
-          color: #ffffff;
+          color: #888;
         }
 
-        /* Accent bas de carte */
+        /* Accent bas de carte — bande colorée */
         .obj-card-accent {
           position: absolute;
           bottom: 0;
           left: 0;
           right: 0;
-          height: 2px;
-          background: ${NSS.vertClair};
+          height: 3px;
+          background: ${NSS.vertPrimaire};
           transform: scaleX(0);
           transform-origin: left;
           transition: transform 0.35s ease;
@@ -342,30 +355,29 @@ export default function ObjectifsRedesign() {
 
         /* ── Tablet ── */
         @media (max-width: 1024px) {
-          .obj-header { padding: 52px 24px 36px; }
-          .obj-card { padding: 44px 36px 40px; }
+          .obj-header { padding: 52px 24px 32px; }
+          .obj-grid { grid-template-columns: 1fr; gap: 16px; padding: 0 24px 60px; }
+          .obj-card { padding: 44px 32px 40px; }
           .obj-num { font-size: 72px; }
         }
 
         /* ── Mobile ── */
         @media (max-width: 768px) {
-          .obj-header { padding: 44px 24px 32px; }
-          .obj-h2 { font-size: 36px; line-height: 1.08; }
-          .obj-grid {
-            grid-template-columns: 1fr;
-            gap: 1px;
-          }
-          .obj-card { padding: 40px 24px 36px; }
-          .obj-num { font-size: 64px; top: 12px; right: 20px; }
+          .obj-header { padding: 44px 20px 28px; }
+          .obj-h2 { line-height: 1.2; }
+          .obj-grid { padding: 0 20px 52px; gap: 14px; }
+          .obj-card { padding: 36px 24px 32px; }
+          .obj-num { font-size: 64px; top: 10px; right: 18px; }
         }
 
         /* ── Small mobile ── */
         @media (max-width: 480px) {
-          .obj-header { padding: 36px 16px 28px; }
-          .obj-h2 { font-size: 28px; line-height: 1.10; }
+          .obj-header { padding: 36px 16px 24px; }
+          .obj-h2 { line-height: 1.2; }
           .obj-intro { font-size: 14px; }
-          .obj-card { padding: 32px 20px 28px; }
-          .obj-card-titre { font-size: 17px; }
+          .obj-grid { padding: 0 16px 44px; gap: 12px; }
+          .obj-card { padding: 28px 18px 26px; }
+          .obj-card-titre { font-size: 19px; }
           .obj-card-desc { font-size: 13.5px; }
         }
 

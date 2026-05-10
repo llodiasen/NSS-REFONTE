@@ -120,7 +120,7 @@ export default async function AgroecologiePage({
           margin-bottom: 20px;
         }
         .agro-intro__h2 {
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: 47px;
           font-weight: 600;
           line-height: 1.0;
@@ -154,7 +154,7 @@ export default async function AgroecologiePage({
           border-radius: 2px;
         }
         .agro-intro__fact-value {
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: 48px;
           font-weight: 600;
           color: #E8A838;

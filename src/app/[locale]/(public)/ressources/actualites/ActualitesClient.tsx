@@ -365,7 +365,7 @@ export default function ActualitesClient({ articles }: { articles: Article[] }) 
 
         .act-card__titre { margin: 0 0 10px; }
         .act-card__titre-link {
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: 20px;
           font-weight: 700;
           color: #2A2A2A;
@@ -449,7 +449,7 @@ export default function ActualitesClient({ articles }: { articles: Article[] }) 
           margin-bottom: 0.75rem;
         }
         .na-titre {
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: 36px;
           font-weight: 700;
           line-height: 1.15;
@@ -475,7 +475,7 @@ export default function ActualitesClient({ articles }: { articles: Article[] }) 
         }
         .na-stat-val {
           display: block;
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: 40px;
           font-weight: 700;
           color: #00AD4C;

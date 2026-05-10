@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
@@ -183,7 +183,7 @@ export default function CTAHeroSectionRedesign() {
 
         /* ── H2 ── */
         .cth-h2 {
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: clamp(44px, 5vw, 72px);
           font-weight: 600;
           line-height: 0.94;
@@ -254,7 +254,7 @@ export default function CTAHeroSectionRedesign() {
 
         /* ── Tagline ── */
         .cth-tagline {
-          font-family: var(--font-cormorant), Georgia, serif;
+          font-family: var(--font-display), Georgia, serif;
           font-size: 15px;
           font-style: italic;
           color: #ffffff;
