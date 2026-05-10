@@ -71,54 +71,104 @@ function EditionModal({ ed, locale, onClose }: { ed: CifapEdition; locale: strin
         aria-describedby="cf-modal-body"
         className="cf-modal"
         tabIndex={-1}
-        initial={{ opacity: 0, scale: 0.92, y: 10 }}
+        initial={{ opacity: 0, scale: 0.92, y: 16 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.92, y: 10 }}
+        exit={{ opacity: 0, scale: 0.92, y: 16 }}
         transition={{ duration: 0.28, ease: [0.25, 0.46, 0.45, 0.94] as const }}
         onClick={(e) => e.stopPropagation()}
       >
-        <button className="cf-modal-close" onClick={onClose} aria-label="Fermer">
-          <X size={16} />
-        </button>
-
+        {/* ── Header ── */}
         <div className="cf-modal-hd">
-          <span className={`cf-modal-badge cf-modal-badge--${ed.status}`}>
-            {ed.status === 'upcoming' ? 'À VENIR' : 'PASSÉ'}
-          </span>
-          <span className="cf-modal-year">{ed.year}</span>
-          <h2 id="cf-modal-title" className="cf-modal-theme">{ed.theme}</h2>
-          <p className="cf-modal-dates">
-            <Calendar size={12} aria-hidden="true" />
-            {ed.dates}
-          </p>
-        </div>
-
-        <div id="cf-modal-body" className="cf-modal-body">
-          <div className="cf-modal-meta">
-            <span className="cf-modal-meta-item">
-              <MapPin size={12} aria-hidden="true" />
-              Niaguis, Ziguinchor — Sénégal
+          <div className="cf-modal-hd-top">
+            <span className={`cf-modal-badge cf-modal-badge--${ed.status}`}>
+              {ed.status === 'upcoming' ? 'À VENIR' : 'PASSÉ'}
             </span>
-            <span className="cf-modal-meta-item">
-              <Users size={12} aria-hidden="true" />
-              {ed.participants ?? '— · 8 pays'}
-            </span>
+            <button className="cf-modal-close" onClick={onClose} aria-label="Fermer">
+              <X size={16} />
+            </button>
           </div>
-          <ul className="cf-modal-objectives" aria-label="Objectifs de l'édition">
-            {ed.objectives.map((obj) => (
-              <li key={obj} className="cf-modal-obj-item">{obj}</li>
-            ))}
-          </ul>
+          <p className="cf-modal-edition-num">{ed.label}</p>
+          <h2 id="cf-modal-title" className="cf-modal-theme">{ed.theme}</h2>
+          <div className="cf-modal-hd-sep" aria-hidden="true" />
         </div>
 
+        {/* ── Body ── */}
+        <div id="cf-modal-body" className="cf-modal-body">
+
+          {/* Détails grid */}
+          <div className="cf-modal-details">
+            <div className="cf-modal-detail-item">
+              <span className="cf-modal-detail-icon"><Calendar size={13} /></span>
+              <div>
+                <span className="cf-modal-detail-lbl">Dates</span>
+                <span className="cf-modal-detail-val">{ed.dates}</span>
+              </div>
+            </div>
+            <div className="cf-modal-detail-item">
+              <span className="cf-modal-detail-icon"><MapPin size={13} /></span>
+              <div>
+                <span className="cf-modal-detail-lbl">Lieu</span>
+                <span className="cf-modal-detail-val">Niaguis, Ziguinchor — Sénégal</span>
+              </div>
+            </div>
+            <div className="cf-modal-detail-item">
+              <span className="cf-modal-detail-icon"><Users size={13} /></span>
+              <div>
+                <span className="cf-modal-detail-lbl">Participantes</span>
+                <span className="cf-modal-detail-val">{ed.participants ?? 'À définir'}</span>
+              </div>
+            </div>
+            <div className="cf-modal-detail-item">
+              <span className="cf-modal-detail-icon">🌍</span>
+              <div>
+                <span className="cf-modal-detail-lbl">Pays</span>
+                <span className="cf-modal-detail-val">8 pays d&apos;Afrique de l&apos;Ouest</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Objectifs */}
+          <div className="cf-modal-section">
+            <p className="cf-modal-section-lbl">🎯 Objectifs</p>
+            <ul className="cf-modal-list" aria-label="Objectifs de l'édition">
+              {ed.objectives.map((obj) => (
+                <li key={obj} className="cf-modal-list-item">{obj}</li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Thèmes abordés */}
+          <div className="cf-modal-section">
+            <p className="cf-modal-section-lbl">🌱 Thèmes abordés</p>
+            <ul className="cf-modal-list" aria-label="Thèmes abordés">
+              {ed.themes.map((t) => (
+                <li key={t} className="cf-modal-list-item">{t}</li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Citation */}
+          <blockquote className="cf-modal-quote">
+            <p className="cf-modal-quote-text">&laquo;&nbsp;{ed.quote}&nbsp;&raquo;</p>
+            <footer className="cf-modal-quote-footer">
+              <strong className="cf-modal-quote-name">{ed.quoteName}</strong>
+              <span className="cf-modal-quote-role">{ed.quoteRole}</span>
+            </footer>
+          </blockquote>
+        </div>
+
+        {/* ── Footer ── */}
         <div className="cf-modal-foot">
           {ed.href ? (
             <Link href={`/${locale}${ed.href}`} className="cf-modal-cta">
-              Voir l&apos;édition {ed.num.toLowerCase()} {ed.year} →
+              Voir l&apos;édition complète →
             </Link>
           ) : (
-            <span className="cf-modal-cta cf-modal-cta--disabled">Bientôt disponible</span>
+            <Link href={`/${locale}/contact`} className="cf-modal-cta">
+              Exprimer vos priorités →
+            </Link>
           )}
+          <button className="cf-modal-close-btn" onClick={onClose}>Fermer</button>
         </div>
       </motion.div>
     </motion.div>
@@ -482,6 +532,17 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
                 de Niaguis, chaque édition réunit femmes rurales, techniciens agricoles et leaders
                 communautaires d&apos;Afrique de l&apos;Ouest autour d&apos;un thème agroécologique précis.
               </motion.p>
+              <motion.div
+                className="cf-pv-cta"
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.45, delay: 0.18 }}
+              >
+                <Link href={`/${locale}/agir/rejoindre`} className="cf-pv-cta__btn cf-pv-cta__btn--primary">
+                  Rejoindre le CIFAP 2026
+                </Link>
+              </motion.div>
             </div>
             <div className="cf-pv-right">
               <div className="cf-pv-sticky">
@@ -1276,7 +1337,7 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
         .cf-pres-quote {
           display: inline;
           font-style: italic;
-          color: #E8A838;
+          color: #00AD4C;
           font-family: var(--font-display), Georgia, serif;
         }
 
@@ -1285,12 +1346,54 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 52px;
-          align-items: start;
+          align-items: stretch;
         }
         .cf-pv-left .cf-pres-text {
-          text-align: left;
-          margin: 0 0 24px;
+          text-align: justify;
+          margin: 0 0 28px;
           max-width: 55ch;
+        }
+        .cf-pv-cta {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 12px;
+          align-items: center;
+        }
+        .cf-pv-cta__btn--primary {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          background: #00AD4C;
+          color: #ffffff;
+          font-family: var(--font-body), sans-serif;
+          font-size: 13.5px;
+          font-weight: 600;
+          letter-spacing: 0.02em;
+          padding: 11px 22px;
+          border-radius: 6px;
+          transition: background 0.2s, box-shadow 0.2s;
+          text-decoration: none;
+        }
+        .cf-pv-cta__btn--primary:hover {
+          background: #009940;
+          box-shadow: 0 4px 16px rgba(0,173,76,0.28);
+        }
+        .cf-pv-cta__btn--outline {
+          display: inline-flex;
+          align-items: center;
+          font-family: var(--font-body), sans-serif;
+          font-size: 13.5px;
+          font-weight: 500;
+          color: #045627;
+          border: 1.5px solid rgba(0,173,76,0.4);
+          padding: 10px 20px;
+          border-radius: 6px;
+          transition: border-color 0.2s, color 0.2s;
+          text-decoration: none;
+        }
+        .cf-pv-cta__btn--outline:hover {
+          border-color: #00AD4C;
+          color: #00AD4C;
         }
         .cf-pv-sticky {
           position: sticky;
@@ -1316,9 +1419,6 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
           margin: 14px 0 0;
           padding: 10px 14px;
           border-left: 2px solid #E8A838;
-          display: flex;
-          align-items: baseline;
-          gap: 10px;
         }
         .cf-pv-testimonial p {
           font-family: var(--font-body), sans-serif;
@@ -1326,14 +1426,12 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
           font-style: italic;
           color: #555;
           line-height: 1.55;
-          margin: 0;
+          margin: 0 0 6px;
         }
         .cf-pv-testimonial footer {
           font-family: var(--font-body), sans-serif;
           font-size: 11px;
           color: #888;
-          white-space: nowrap;
-          flex-shrink: 0;
         }
         .cf-pv-testimonial footer strong { color: #444; }
 
@@ -1422,7 +1520,7 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
         .cf-shd--left { text-align: left; margin-bottom: 28px; }
         .cf-shd--left .cf-sec-h2 { text-align: left; }
         .cf-shd--left .cf-sec-underline { margin-left: 0; margin-right: auto; }
-        .cf-shd--left .cf-sec-sub { text-align: left; margin-left: 0; max-width: 55ch; }
+        .cf-shd--left .cf-sec-sub { text-align: justify; margin-left: 0; max-width: 55ch; }
 
         /* ── Hint roadmap interactive ── */
         .cf-rd-hint {
@@ -1475,32 +1573,51 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
           position: fixed;
           inset: 0;
           z-index: 500;
-          background: rgba(0,0,0,0.55);
+          background: rgba(4,86,39,0.45);
           display: flex;
           align-items: center;
           justify-content: center;
           padding: 1rem;
-          backdrop-filter: blur(2px);
+          backdrop-filter: blur(3px);
         }
         .cf-modal {
-          position: relative;
           background: #ffffff;
-          border: 1px solid #A5CE46;
-          border-radius: 12px;
-          padding: 32px;
-          max-width: 500px;
+          border-radius: 14px;
+          max-width: 620px;
           width: 100%;
-          box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+          box-shadow: 0 24px 60px rgba(0,0,0,0.22);
           outline: none;
           max-height: 90vh;
           overflow-y: auto;
+          display: flex;
+          flex-direction: column;
         }
+
+        /* Header */
+        .cf-modal-hd {
+          padding: 28px 28px 20px;
+          border-bottom: 2px solid #A5CE46;
+        }
+        .cf-modal-hd-top {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 14px;
+        }
+        .cf-modal-badge {
+          font-family: var(--font-body), sans-serif;
+          font-size: 9px;
+          font-weight: 800;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          padding: 4px 10px;
+          border-radius: 4px;
+        }
+        .cf-modal-badge--past     { background: #E2E2E2; color: #666; }
+        .cf-modal-badge--upcoming { background: #E8A838; color: #ffffff; }
         .cf-modal-close {
-          position: absolute;
-          top: 14px;
-          right: 14px;
-          width: 32px;
-          height: 32px;
+          width: 30px;
+          height: 30px;
           border: none;
           background: rgba(0,0,0,0.06);
           border-radius: 50%;
@@ -1510,118 +1627,180 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
           justify-content: center;
           color: #555;
           transition: background 0.18s, color 0.18s;
-          flex-shrink: 0;
         }
-        .cf-modal-close:hover { background: rgba(0,0,0,0.13); color: #2A2A2A; }
+        .cf-modal-close:hover { background: rgba(0,0,0,0.12); color: #2A2A2A; }
         .cf-modal-close:focus-visible { outline: 2px solid #00AD4C; outline-offset: 2px; }
-        .cf-modal-hd {
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-          margin-bottom: 20px;
-          padding-right: 28px;
-        }
-        .cf-modal-badge {
+        .cf-modal-edition-num {
           font-family: var(--font-body), sans-serif;
-          font-size: 9px;
-          font-weight: 800;
-          letter-spacing: 0.14em;
+          font-size: 11px;
+          font-weight: 700;
+          letter-spacing: 0.12em;
           text-transform: uppercase;
-          padding: 3px 8px;
-          border-radius: 3px;
-          width: fit-content;
-        }
-        .cf-modal-badge--past     { background: #E2E2E2; color: #666; }
-        .cf-modal-badge--upcoming { background: #E8A838; color: #ffffff; }
-        .cf-modal-year {
-          font-family: var(--font-body), sans-serif;
-          font-size: 18px;
-          font-weight: 800;
-          color: #E8A838;
-          line-height: 1;
-          letter-spacing: -0.01em;
+          color: #00AD4C;
+          margin: 0 0 6px;
         }
         .cf-modal-theme {
           font-family: var(--font-display), Georgia, serif;
-          font-size: 20px;
+          font-size: 22px;
           font-weight: 700;
           color: #2A2A2A;
-          margin: 0;
-          line-height: 1.25;
+          margin: 0 0 4px;
+          line-height: 1.22;
         }
-        .cf-modal-dates {
-          display: inline-flex;
-          align-items: center;
-          gap: 6px;
-          font-family: var(--font-body), sans-serif;
-          font-size: 13px;
-          color: #666;
-          margin: 0;
+        .cf-modal-hd-sep {
+          width: 48px;
+          height: 2px;
+          background: #00AD4C;
+          border-radius: 2px;
+          margin-top: 14px;
         }
-        .cf-modal-body { margin-bottom: 20px; }
-        .cf-modal-meta {
-          display: flex;
-          flex-direction: column;
-          gap: 6px;
-          margin-bottom: 18px;
-          padding: 12px 14px;
-          background: #FAFAF8;
-          border-radius: 6px;
+
+        /* Body */
+        .cf-modal-body {
+          padding: 24px 28px;
+          flex: 1;
+        }
+        .cf-modal-details {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 12px;
+          margin-bottom: 24px;
+          padding: 16px;
+          background: #F9F9F7;
+          border-radius: 8px;
           border: 1px solid #f0efeb;
         }
-        .cf-modal-meta-item {
-          display: inline-flex;
-          align-items: center;
-          gap: 7px;
+        .cf-modal-detail-item {
+          display: flex;
+          align-items: flex-start;
+          gap: 10px;
+        }
+        .cf-modal-detail-icon {
+          color: #00AD4C;
+          margin-top: 1px;
+          flex-shrink: 0;
+          display: flex;
+        }
+        .cf-modal-detail-lbl {
+          display: block;
+          font-family: var(--font-body), sans-serif;
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: #A5CE46;
+          margin-bottom: 2px;
+        }
+        .cf-modal-detail-val {
+          display: block;
           font-family: var(--font-body), sans-serif;
           font-size: 13px;
-          color: #555;
+          color: #2C2C28;
+          line-height: 1.4;
         }
-        .cf-modal-objectives {
+        .cf-modal-section { margin-bottom: 20px; }
+        .cf-modal-section-lbl {
+          font-family: var(--font-body), sans-serif;
+          font-size: 11px;
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: #045627;
+          margin: 0 0 10px;
+        }
+        .cf-modal-list {
           list-style: none;
           padding: 0;
           margin: 0;
           display: flex;
           flex-direction: column;
-          gap: 9px;
+          gap: 8px;
         }
-        .cf-modal-obj-item {
+        .cf-modal-list-item {
           font-family: var(--font-body), sans-serif;
-          font-size: 14px;
+          font-size: 13.5px;
           color: #2C2C28;
           line-height: 1.55;
           display: flex;
           align-items: flex-start;
           gap: 9px;
         }
-        .cf-modal-obj-item::before {
+        .cf-modal-list-item::before {
           content: '•';
           color: #00AD4C;
-          font-size: 18px;
-          line-height: 1.1;
+          font-size: 16px;
+          line-height: 1.2;
           flex-shrink: 0;
-          margin-top: -1px;
         }
+        .cf-modal-quote {
+          background: #F9F7F0;
+          border-left: 3px solid #E8A838;
+          border-radius: 0 6px 6px 0;
+          padding: 16px 18px;
+          margin: 0;
+        }
+        .cf-modal-quote-text {
+          font-family: var(--font-display), Georgia, serif;
+          font-size: 14.5px;
+          font-style: italic;
+          color: #2C2C28;
+          line-height: 1.65;
+          margin: 0 0 10px;
+        }
+        .cf-modal-quote-footer {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+        }
+        .cf-modal-quote-name {
+          font-family: var(--font-body), sans-serif;
+          font-size: 12px;
+          font-weight: 700;
+          color: #2A2A2A;
+        }
+        .cf-modal-quote-role {
+          font-family: var(--font-body), sans-serif;
+          font-size: 11px;
+          color: #A5CE46;
+        }
+
+        /* Footer */
         .cf-modal-foot {
+          padding: 18px 28px;
           border-top: 1px solid #f0efeb;
-          padding-top: 18px;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          justify-content: flex-end;
         }
         .cf-modal-cta {
+          display: inline-flex;
+          align-items: center;
           font-family: var(--font-body), sans-serif;
           font-size: 13px;
           font-weight: 700;
-          color: #00AD4C;
+          color: #ffffff;
+          background: #00AD4C;
+          padding: 10px 20px;
+          border-radius: 6px;
           text-decoration: none;
           letter-spacing: 0.02em;
-          transition: color 0.18s;
+          transition: background 0.18s, box-shadow 0.18s;
         }
-        .cf-modal-cta:hover { color: #045627; }
-        .cf-modal-cta--disabled {
+        .cf-modal-cta:hover { background: #009940; box-shadow: 0 4px 14px rgba(0,173,76,0.28); }
+        .cf-modal-close-btn {
           font-family: var(--font-body), sans-serif;
           font-size: 13px;
-          color: #ccc;
-          cursor: default;
+          font-weight: 500;
+          color: #555;
+          background: none;
+          border: 1.5px solid #ddd;
+          padding: 9px 18px;
+          border-radius: 6px;
+          cursor: pointer;
+          transition: border-color 0.18s, color 0.18s;
         }
+        .cf-modal-close-btn:hover { border-color: #A5CE46; color: #2A2A2A; }
 
         /* ── Roadmap ── */
         .cf-rd-grid {

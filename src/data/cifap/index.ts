@@ -10,10 +10,19 @@ export const CIFAP_EDITIONS = [
     accent: '#A5CE46',
     photo: null as string | null,
     objectives: [
-      'Formation sur biofertilisants et biopesticides paysans',
+      'Formation approfondie en biofertilisants et biopesticides',
       'Autonomie en intrants agricoles locaux et naturels',
       'Premiers échanges continentaux du réseau NSS',
     ],
+    themes: [
+      'Production de biofertilisants naturels',
+      'Fabrication de biopesticides écologiques',
+      'Techniques d\'utilisation et dosage',
+      'Conservation des produits naturels',
+    ],
+    quote: 'Cette formation m\'a changé ma façon de cultiver. Plus de chimie, juste des solutions naturelles qui coûtent moins cher.',
+    quoteName: 'Mariam',
+    quoteRole: 'Participante · Mali',
   },
   {
     num: '2ÈME', year: '2023', status: 'past' as const,
@@ -26,10 +35,19 @@ export const CIFAP_EDITIONS = [
     accent: '#A5CE46',
     photo: null as string | null,
     objectives: [
-      'Production et conservation des semences reproductives',
-      'Autonomie semencière face aux semences hybrides',
+      'Production de semences reproductives locales',
+      'Autonomie semencière face aux semences hybrides importées',
       'Renforcement des capacités techniques des leaders',
     ],
+    themes: [
+      'Sélection variétale paysanne',
+      'Techniques de conservation des semences',
+      'Stockage et protection contre parasites',
+      'Calendrier de multiplication semencière',
+    ],
+    quote: 'Avant, j\'achetais des semences chères chaque année. Maintenant, je produis mes propres semences de meilleure qualité.',
+    quoteName: 'Awa',
+    quoteRole: 'Participante · Guinée',
   },
   {
     num: '3ÈME', year: '2024', status: 'past' as const,
@@ -42,10 +60,19 @@ export const CIFAP_EDITIONS = [
     accent: '#A5CE46',
     photo: 'https://wasafrica.org/wp-content/uploads/2024/11/CENTRE-KARONGHEN-WATI-NANING-9-1.jpg' as string | null,
     objectives: [
-      'Production et utilisation des bio-protecteurs naturels',
+      'Production de bio-protecteurs naturels',
       'Prévention des ravageurs sans pesticides chimiques',
       'Autonomie en protection des cultures agroécologiques',
     ],
+    themes: [
+      'Production de biopesticides à base de plantes',
+      'Protecteurs naturels et biocontrôle',
+      'Techniques d\'application et dosage',
+      'Risques des pesticides chimiques',
+    ],
+    quote: 'Les bio-protecteurs que j\'ai appris à fabriquer protègent mes cultures aussi bien que les chimiques, mais sans danger pour ma santé.',
+    quoteName: 'Fatou',
+    quoteRole: 'Participante · Sénégal',
   },
   {
     num: '4ÈME', year: '2025', status: 'past' as const,
@@ -62,6 +89,15 @@ export const CIFAP_EDITIONS = [
       'Production diversifiée et résiliente face au changement climatique',
       'Leadership féminin et réseautage continental NSS',
     ],
+    themes: [
+      'Préparation des sols et amendements',
+      'Mise en place et entretien des cultures',
+      'Rotation des cultures et biodiversité',
+      'Récolte, transformation et conservation',
+    ],
+    quote: 'J\'ai appris des techniques que je peux adapter à mon contexte local. Le CIFAP nous donne les outils, pas juste de la théorie.',
+    quoteName: 'Tabara Diatta',
+    quoteRole: 'Participante · Sénégal',
   },
   {
     num: '5ÈME', year: '2026', status: 'upcoming' as const,
@@ -75,7 +111,15 @@ export const CIFAP_EDITIONS = [
     photo: null as string | null,
     objectives: [
       'Thème à définir collectivement par le réseau NSS',
+      'Continuer le processus cumulatif en fonction des besoins terrain',
+      'Renforcer le leadership féminin et l\'autonomie agroécologique',
     ],
+    themes: [
+      'À explorer collectivement par le mouvement NSS',
+    ],
+    quote: 'Rejoignez le processus collaboratif pour définir le thème 2026 et les priorités du mouvement.',
+    quoteName: 'Réseau NSS',
+    quoteRole: 'Mouvement panafricain · 8 pays',
   },
 ]
 
