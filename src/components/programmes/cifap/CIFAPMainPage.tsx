@@ -1443,11 +1443,11 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
         .cf-pv-testimonial {
           margin: 14px 0 0;
           padding: 10px 14px;
-          border-left: 2px solid #E8A838;
+          border-left: 2px solid #00AD4C;
         }
         .cf-pv-testimonial p {
           font-family: var(--font-body), sans-serif;
-          font-size: 12.5px;
+          font-size: 13.5px;
           font-style: italic;
           color: #555;
           line-height: 1.55;
