@@ -866,7 +866,7 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
           <SectionHeader
             titleId="cf-ed-h2"
             eyebrow="PARCOURIR"
-            title="Quatre ans de formation agroécologique paysanne."
+            title="Parcourez les éditions du CIFAP."
             sub="Chaque édition approfondit un thème précis, dans une logique pédagogique cumulative portée par le mouvement NSS."
           />
 
@@ -1022,7 +1022,7 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
 
           {/* ── Pays participants ── */}
           <div className="cf-pays-block">
-            <p className="cf-eyebrow" style={{ marginBottom: '20px' }}>NOTRE RÉSEAU</p>
+            <p className="cf-eyebrow" style={{ marginBottom: '20px', textTransform: 'none' }}>Notre réseau</p>
             <StaggerGrid className="cf-pays-grid" stagger={0.06}>
               {CIFAP_PAYS.map((p) => (
                 <motion.span key={p.name} className="cf-pays-badge" role="listitem" variants={fadeUp}>
@@ -2273,7 +2273,8 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
           font-family: var(--font-body), sans-serif;
           font-size: 14px;
           line-height: 1.72;
-          color: #666;
+          color: #2A2A2A;
+          text-align: justify;
           margin: 0;
         }
 

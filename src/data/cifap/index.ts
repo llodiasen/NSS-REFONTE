@@ -8,7 +8,7 @@ export const CIFAP_EDITIONS = [
     participants: '~40 · 8 pays',
     href: '/programmes/cifap/1ere-edition-2022',
     accent: '#A5CE46',
-    photo: null as string | null,
+    photo: '/images/actualites/afsa-karonghen-wati-naaning-casamance.jpg' as string | null,
     objectives: [
       'Formation approfondie en biofertilisants et biopesticides',
       'Autonomie en intrants agricoles locaux et naturels',
@@ -33,7 +33,7 @@ export const CIFAP_EDITIONS = [
     participants: '~40 · 8 pays',
     href: '/programmes/cifap/2e-edition-2023',
     accent: '#A5CE46',
-    photo: null as string | null,
+    photo: '/images/actualites/autonomisation-semenciere-souverainete-alimentaire-2023.jpg' as string | null,
     objectives: [
       'Production de semences reproductives locales',
       'Autonomie semencière face aux semences hybrides importées',
@@ -58,7 +58,7 @@ export const CIFAP_EDITIONS = [
     participants: '~50 · 8 pays',
     href: '/programmes/cifap/3e-edition-2024',
     accent: '#A5CE46',
-    photo: 'https://wasafrica.org/wp-content/uploads/2024/11/CENTRE-KARONGHEN-WATI-NANING-9-1.jpg' as string | null,
+    photo: '/images/actualites/nss-cifap-3e-edition-bio-protecteurs.jpg' as string | null,
     objectives: [
       'Production de bio-protecteurs naturels',
       'Prévention des ravageurs sans pesticides chimiques',
@@ -83,7 +83,7 @@ export const CIFAP_EDITIONS = [
     participants: '~70 · 8 pays',
     href: '/programmes/cifap/4e-edition-2025',
     accent: '#00AD4C',
-    photo: null as string | null,
+    photo: '/images/actualites/nss-cifap-2025.jpg' as string | null,
     objectives: [
       'Techniques de conduite des cultures horticoles en agroécologie',
       'Production diversifiée et résiliente face au changement climatique',
