@@ -672,13 +672,13 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
                     <span className={`cf-prog-card__badge cf-prog-card__badge--${ed.status}`}>
                       {ed.status === 'upcoming' ? 'À VENIR' : 'PASSÉ'}
                     </span>
-                    <p className="cf-prog-card__theme">{ed.themeShort}</p>
-                    <ul className="cf-prog-card__meta">
-                      <li><span>📅</span><span>{ed.dates}</span></li>
-                      <li><span>📍</span><span>Niaguis, Sénégal</span></li>
-                      <li><span>👥</span><span>{ed.participants ?? 'À définir'}</span></li>
-                      <li><span>🌍</span><span>8 pays</span></li>
-                    </ul>
+                    <h3 className="cf-prog-card__theme">{ed.themeShort}</h3>
+                    <p className="cf-prog-card__subtitle">{ed.themeSubtitle}</p>
+                    <div className="cf-prog-card__info-group">
+                      <div className="cf-prog-card__info">📅 {ed.dates}</div>
+                      <div className="cf-prog-card__info">📍 Niaguis, Sénégal</div>
+                      <div className="cf-prog-card__info">👥 {ed.participants ?? 'À définir · 8 pays'}</div>
+                    </div>
                     <span className="cf-prog-card__cta">
                       {ed.status === 'upcoming' ? 'Bientôt →' : 'Voir le détail →'}
                     </span>
@@ -1912,77 +1912,81 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
         }
         .cf-prog-card {
           background: #ffffff;
-          border: 1.5px solid rgba(165,206,70,0.4);
+          border: 2px solid rgba(165,206,70,0.45);
           border-radius: 12px;
-          padding: 24px 22px 20px;
-          width: 280px;
+          padding: 20px;
           flex-shrink: 0;
           display: flex;
           flex-direction: column;
           gap: 12px;
           cursor: pointer;
-          transition: border-color 0.22s, box-shadow 0.22s;
+          transition: border-color 0.3s ease-out, box-shadow 0.3s ease-out, transform 0.3s ease-out;
           text-align: left;
+          height: 100%;
+          box-sizing: border-box;
         }
         .cf-prog-card:hover {
           border-color: #00AD4C;
-          box-shadow: 0 8px 28px rgba(0,173,76,0.16);
+          box-shadow: 0 12px 32px rgba(0,173,76,0.20);
+          transform: translateY(-6px);
         }
         .cf-prog-card--upcoming {
-          border-color: rgba(232,168,56,0.38);
+          border-color: rgba(232,168,56,0.40);
           background: #FFFDF7;
         }
         .cf-prog-card--upcoming:hover {
           border-color: #E8A838;
-          box-shadow: 0 8px 28px rgba(232,168,56,0.15);
+          box-shadow: 0 12px 32px rgba(232,168,56,0.18);
         }
         .cf-prog-card__badge {
           font-family: var(--font-body), sans-serif;
           font-size: 9px;
           font-weight: 800;
-          letter-spacing: 0.14em;
+          letter-spacing: 0.5px;
           text-transform: uppercase;
           padding: 4px 10px;
-          border-radius: 4px;
+          border-radius: 3px;
           align-self: flex-start;
         }
-        .cf-prog-card__badge--past     { background: #EBEBEB; color: #666; }
+        .cf-prog-card__badge--past     { background: #D0D0D0; color: #666; }
         .cf-prog-card__badge--upcoming { background: #E8A838; color: #fff; }
         .cf-prog-card__theme {
           font-family: var(--font-display), Georgia, serif;
-          font-size: 18px;
+          font-size: 22px;
           font-weight: 700;
           color: #2A2A2A;
           margin: 0;
-          line-height: 1.22;
+          line-height: 1.2;
         }
-        .cf-prog-card__meta {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-          display: flex;
-          flex-direction: column;
-          gap: 7px;
-          flex: 1;
-        }
-        .cf-prog-card__meta li {
-          display: flex;
-          align-items: flex-start;
-          gap: 7px;
+        .cf-prog-card__subtitle {
           font-family: var(--font-body), sans-serif;
           font-size: 13px;
-          color: #555;
-          line-height: 1.45;
+          font-style: italic;
+          color: #A5CE46;
+          margin: 0;
+          line-height: 1.4;
         }
-        .cf-prog-card__meta li span:first-child { flex-shrink: 0; }
+        .cf-prog-card__info-group {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          flex: 1;
+        }
+        .cf-prog-card__info {
+          font-family: var(--font-body), sans-serif;
+          font-size: 13px;
+          color: #2C2C28;
+          line-height: 1.4;
+        }
         .cf-prog-card__cta {
           font-family: var(--font-body), sans-serif;
-          font-size: 12px;
+          font-size: 13px;
           font-weight: 700;
           color: #00AD4C;
-          letter-spacing: 0.03em;
-          margin-top: 4px;
+          margin-top: auto;
+          transition: color 0.2s;
         }
+        .cf-prog-card:hover .cf-prog-card__cta { color: #045627; }
         .cf-prog-card--upcoming .cf-prog-card__cta { color: #b8871a; }
 
         /* ── Roadmap (legacy, plus utilisé desktop) ── */
