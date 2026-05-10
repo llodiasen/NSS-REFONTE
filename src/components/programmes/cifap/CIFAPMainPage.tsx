@@ -588,11 +588,22 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
         {/* Corps full-width */}
         <div className="cf-prog-body" ref={tlRef}>
 
-          {/* ── Timeline visuelle (desktop) ── */}
+          {/* ── Timeline visuelle (desktop) — 3 nœuds dynamiques ── */}
           <div className="cf-prog-vis" aria-hidden="true">
-            {CIFAP_EDITIONS.map((ed, i) => (
-              <div key={ed.year} className={`cf-prog-vis-col${ed.status === 'upcoming' ? ' cf-prog-vis-col--upcoming' : ''}`}>
-                <span className="cf-prog-vis-year">{ed.year}</span>
+            {CIFAP_EDITIONS.slice(progIdx, progIdx + 3).map((ed, i) => (
+              <div key={`vis-pos-${i}`} className={`cf-prog-vis-col${ed.status === 'upcoming' ? ' cf-prog-vis-col--upcoming' : ''}`}>
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={ed.year}
+                    className="cf-prog-vis-year"
+                    initial={{ opacity: 0, y: -5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 5 }}
+                    transition={{ duration: 0.18 }}
+                  >
+                    {ed.year}
+                  </motion.span>
+                </AnimatePresence>
                 <div className="cf-prog-vis-row">
                   <motion.div
                     className={`cf-rd-dot${ed.status === 'upcoming' ? ' cf-rd-dot--upcoming' : ''}`}
@@ -602,7 +613,7 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
                     whileHover={{ scale: 1.5 }}
                     whileTap={{ scale: 0.85 }}
                   />
-                  {i < CIFAP_EDITIONS.length - 1 && (
+                  {i < 2 && (
                     <div className="cf-rd-conn">
                       <motion.div
                         className="cf-rd-conn-fill"
