@@ -3,7 +3,12 @@
 import { useRef, useState, useEffect } from 'react'
 import { motion, AnimatePresence, useInView } from 'framer-motion'
 import Link from 'next/link'
-import { MapPin, Calendar, Users, X } from 'lucide-react'
+import { MapPin, Calendar, Users, X, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Swiper as SwiperReact, SwiperSlide } from 'swiper/react'
+import { Pagination } from 'swiper/modules'
+import type { Swiper as SwiperType } from 'swiper'
+import 'swiper/css'
+import 'swiper/css/pagination'
 import {
   CIFAP_EDITIONS,
   CIFAP_PAYS,
@@ -393,6 +398,8 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
   const ctaInView = useInView(ctaRef, { once: true, margin: '-60px' })
 
   const [selectedEdition, setSelectedEdition] = useState<CifapEdition | null>(null)
+  const progSwiperRef = useRef<SwiperType | null>(null)
+  const [progIdx, setProgIdx] = useState(0)
 
   /* ── Slider éditions ── */
   const sliderRef = useRef<HTMLDivElement>(null)
@@ -611,89 +618,76 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
             ))}
           </div>
 
-          {/* ── Cards agrandies (desktop) ── */}
-          <div className="cf-prog-cards" role="list" aria-label="Éditions CIFAP">
-            {CIFAP_EDITIONS.map((ed, i) => (
-              <motion.article
-                key={ed.year}
-                role="button"
-                tabIndex={0}
-                aria-label={`Édition CIFAP ${ed.year} — ${ed.themeShort}. Cliquer pour le détail.`}
-                className={`cf-prog-card${ed.status === 'upcoming' ? ' cf-prog-card--upcoming' : ''}`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={tlInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ delay: 0.22 + i * 0.1, duration: 0.45, ease: 'easeOut' }}
-                onClick={() => setSelectedEdition(ed)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedEdition(ed) }
-                }}
-                whileHover={{ y: -5 }}
-              >
-                <span className={`cf-prog-card__badge cf-prog-card__badge--${ed.status}`}>
-                  {ed.status === 'upcoming' ? 'À VENIR' : 'PASSÉ'}
-                </span>
-                <p className="cf-prog-card__theme">{ed.themeShort}</p>
-                <ul className="cf-prog-card__meta">
-                  <li><span>📅</span><span>{ed.dates}</span></li>
-                  <li><span>📍</span><span>Niaguis, Sénégal</span></li>
-                  <li><span>👥</span><span>{ed.participants ?? 'À définir'}</span></li>
-                  <li><span>🌍</span><span>8 pays</span></li>
-                </ul>
-                <span className="cf-prog-card__cta">
-                  {ed.status === 'upcoming' ? 'Bientôt →' : 'Voir le détail →'}
-                </span>
-              </motion.article>
-            ))}
+          {/* ── Swiper cards ── */}
+          <div className="cf-prog-swiper-wrap">
+            <button
+              className="cf-prog-nav cf-prog-nav--prev"
+              onClick={() => progSwiperRef.current?.slidePrev()}
+              disabled={progIdx === 0}
+              aria-label="Édition précédente"
+            >
+              <ChevronLeft size={20} />
+            </button>
+
+            <SwiperReact
+              modules={[Pagination]}
+              onSwiper={(s) => { progSwiperRef.current = s }}
+              onSlideChange={(s) => setProgIdx(s.activeIndex)}
+              grabCursor
+              slidesPerView={3}
+              spaceBetween={20}
+              pagination={{ clickable: true, el: '.cf-prog-dots' }}
+              breakpoints={{
+                0:    { slidesPerView: 1.25, spaceBetween: 14 },
+                640:  { slidesPerView: 2,    spaceBetween: 16 },
+                768:  { slidesPerView: 2.4,  spaceBetween: 18 },
+                1024: { slidesPerView: 3,    spaceBetween: 20 },
+              }}
+              className="cf-prog-swiper"
+              aria-label="Éditions CIFAP"
+            >
+              {CIFAP_EDITIONS.map((ed) => (
+                <SwiperSlide key={ed.year}>
+                  <article
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`Édition CIFAP ${ed.year} — ${ed.themeShort}. Cliquer pour le détail.`}
+                    className={`cf-prog-card${ed.status === 'upcoming' ? ' cf-prog-card--upcoming' : ''}`}
+                    onClick={() => setSelectedEdition(ed)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedEdition(ed) }
+                    }}
+                  >
+                    <span className={`cf-prog-card__badge cf-prog-card__badge--${ed.status}`}>
+                      {ed.status === 'upcoming' ? 'À VENIR' : 'PASSÉ'}
+                    </span>
+                    <p className="cf-prog-card__theme">{ed.themeShort}</p>
+                    <ul className="cf-prog-card__meta">
+                      <li><span>📅</span><span>{ed.dates}</span></li>
+                      <li><span>📍</span><span>Niaguis, Sénégal</span></li>
+                      <li><span>👥</span><span>{ed.participants ?? 'À définir'}</span></li>
+                      <li><span>🌍</span><span>8 pays</span></li>
+                    </ul>
+                    <span className="cf-prog-card__cta">
+                      {ed.status === 'upcoming' ? 'Bientôt →' : 'Voir le détail →'}
+                    </span>
+                  </article>
+                </SwiperSlide>
+              ))}
+            </SwiperReact>
+
+            <button
+              className="cf-prog-nav cf-prog-nav--next"
+              onClick={() => progSwiperRef.current?.slideNext()}
+              disabled={progIdx >= CIFAP_EDITIONS.length - 3}
+              aria-label="Édition suivante"
+            >
+              <ChevronRight size={20} />
+            </button>
           </div>
 
-          {/* ── Mobile : stack vertical ── */}
-          <div className="cf-rd-mob" role="list" aria-label="Progression CIFAP 2022-2026">
-            {CIFAP_EDITIONS.map((ed, i) => (
-              <motion.div
-                key={`mob-${ed.year}`}
-                role="button"
-                tabIndex={0}
-                aria-label={`Voir les détails de l'édition CIFAP ${ed.year} : ${ed.themeShort}`}
-                className={`cf-rd-mob-item cf-rd-mob-item--interactive${ed.status === 'upcoming' ? ' cf-rd-mob-item--upcoming' : ''}`}
-                initial={{ opacity: 0, x: -14 }}
-                animate={tlInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -14 }}
-                transition={{ delay: 0.08 + i * 0.09, duration: 0.4, ease: 'easeOut' }}
-                onClick={() => setSelectedEdition(ed)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedEdition(ed) }
-                }}
-              >
-                <div className="cf-rd-mob-left" aria-hidden="true">
-                  <motion.div
-                    className={`cf-rd-dot${ed.status === 'upcoming' ? ' cf-rd-dot--upcoming' : ''}`}
-                    whileHover={{ scale: 1.35 }}
-                    transition={{ duration: 0.18 }}
-                  />
-                  {i < CIFAP_EDITIONS.length - 1 && (
-                    <motion.div
-                      className="cf-rd-vline"
-                      initial={{ scaleY: 0 }}
-                      animate={tlInView ? { scaleY: 1 } : { scaleY: 0 }}
-                      transition={{ duration: 0.38, delay: 0.22 + i * 0.1, ease: 'easeOut' }}
-                      style={{ transformOrigin: 'top' }}
-                    />
-                  )}
-                </div>
-                <div className="cf-rd-mob-right">
-                  <span className="cf-rd-year">{ed.year}</span>
-                  <span className="cf-rd-theme">{ed.themeShort}</span>
-                  <ul className="cf-prog-card__meta" style={{ marginTop: '6px' }}>
-                    <li><span>📅</span><span>{ed.dates}</span></li>
-                    <li><span>📍</span><span>Niaguis, Sénégal</span></li>
-                    <li><span>👥</span><span>{ed.participants ?? 'À définir'}</span></li>
-                  </ul>
-                  <span className={`cf-rd-badge cf-rd-badge--${ed.status}`}>
-                    {ed.status === 'upcoming' ? 'À VENIR' : 'PASSÉ'}
-                  </span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          {/* Dots pagination */}
+          <div className="cf-prog-dots" aria-label="Navigation éditions" />
 
         </div>
       </section>
@@ -1851,15 +1845,59 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
           width: 100%;
         }
 
-        /* ── Cards agrandies ── */
-        .cf-prog-cards {
+        /* ── Swiper wrapper ── */
+        .cf-prog-swiper-wrap {
           display: flex;
-          flex-wrap: wrap;
-          gap: 20px;
-          justify-content: center;
-          max-width: 1600px;
+          align-items: center;
+          gap: 12px;
+          max-width: 1400px;
           margin: 0 auto;
-          padding-bottom: 8px;
+        }
+        .cf-prog-swiper {
+          flex: 1;
+          min-width: 0;
+          padding-bottom: 4px !important;
+        }
+        .cf-prog-nav {
+          flex-shrink: 0;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          border: 1.5px solid rgba(165,206,70,0.5);
+          background: #fff;
+          color: #00AD4C;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+        }
+        .cf-prog-nav:hover:not(:disabled) {
+          background: #00AD4C;
+          border-color: #00AD4C;
+          color: #fff;
+          box-shadow: 0 4px 14px rgba(0,173,76,0.28);
+        }
+        .cf-prog-nav:disabled { opacity: 0.28; cursor: default; }
+        .cf-prog-dots {
+          display: flex;
+          justify-content: center;
+          gap: 6px;
+          margin-top: 20px;
+        }
+        .cf-prog-dots .swiper-pagination-bullet {
+          width: 8px; height: 8px;
+          background: #A5CE46;
+          opacity: 0.5;
+          border-radius: 50%;
+          transition: all 0.25s;
+          margin: 0 !important;
+        }
+        .cf-prog-dots .swiper-pagination-bullet-active {
+          width: 22px;
+          border-radius: 4px;
+          background: #00AD4C;
+          opacity: 1;
         }
         .cf-prog-card {
           background: #ffffff;
@@ -2766,9 +2804,8 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
           .cf-lieu-map { height: 260px; }
           /* Roadmap */
           .cf-rd-grid { display: none; }
-          .cf-prog-vis { display: none; }
-          .cf-prog-cards { display: none; }
-          .cf-rd-mob  { display: flex; flex-direction: column; gap: 0; }
+          .cf-prog-nav { display: none; }
+          .cf-rd-mob  { display: none; }
           /* Slider : hide abs buttons, show mob nav */
           .cf-slider-outer { padding: 0; }
           .cf-sld-btn { display: none; }
