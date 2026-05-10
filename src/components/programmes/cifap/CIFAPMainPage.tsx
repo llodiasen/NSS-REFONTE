@@ -568,6 +568,7 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
           2. PROGRESSION — fond alt #FAFAF8
       ══════════════════════════════════════════════ */}
       <section className="cf-sec cf-sec--alt" aria-labelledby="cf-proc-h2">
+        {/* Header centré */}
         <div className="cf-sec__inner">
           <SectionHeader
             titleId="cf-proc-h2"
@@ -575,126 +576,123 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
             title="Quatre ans de formation cumulative."
             sub="Chaque édition approfondit un thème agroécologique précis, construisant progressivement l'expertise du mouvement NSS."
           />
+        </div>
 
-          {/* Roadmap full-width */}
-          <div ref={tlRef}>
+        {/* Corps full-width */}
+        <div className="cf-prog-body" ref={tlRef}>
 
-            {/* Desktop + Tablet : timeline visuelle + cards sous chaque nœud */}
-            <div className="cf-rd-grid" role="list" aria-label="Progression CIFAP 2022-2026">
-              {CIFAP_EDITIONS.map((ed, i) => (
-                <motion.div
-                  key={ed.year}
-                  role="button"
-                  tabIndex={0}
-                  aria-label={`Voir les détails de l'édition CIFAP ${ed.year} : ${ed.themeShort}`}
-                  className={`cf-rd-col cf-rd-col--interactive${ed.status === 'upcoming' ? ' cf-rd-col--upcoming' : ''}`}
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={tlInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
-                  transition={{ delay: 0.1 + i * 0.1, duration: 0.42, ease: 'easeOut' }}
-                  onClick={() => setSelectedEdition(ed)}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedEdition(ed) }
-                  }}
-                >
-                  {/* Année */}
-                  <span className="cf-rd-year">{ed.year}</span>
-
-                  {/* Connecteur + dot */}
-                  <div className="cf-rd-node-row" aria-hidden="true">
-                    <motion.div
-                      className={`cf-rd-dot${ed.status === 'upcoming' ? ' cf-rd-dot--upcoming' : ''}`}
-                      whileHover={{ scale: 1.4 }}
-                      whileTap={{ scale: 0.85 }}
-                      transition={{ duration: 0.18 }}
-                    />
-                    {i < CIFAP_EDITIONS.length - 1 && (
-                      <div className="cf-rd-conn">
-                        <motion.div
-                          className="cf-rd-conn-fill"
-                          initial={{ scaleX: 0 }}
-                          animate={tlInView ? { scaleX: 1 } : { scaleX: 0 }}
-                          transition={{ duration: 0.55, delay: 0.32 + i * 0.18, ease: 'easeOut' }}
-                          style={{ transformOrigin: 'left' }}
-                        />
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Card infos directement sous le nœud */}
+          {/* ── Timeline visuelle (desktop) ── */}
+          <div className="cf-prog-vis" aria-hidden="true">
+            {CIFAP_EDITIONS.map((ed, i) => (
+              <div key={ed.year} className={`cf-prog-vis-col${ed.status === 'upcoming' ? ' cf-prog-vis-col--upcoming' : ''}`}>
+                <span className="cf-prog-vis-year">{ed.year}</span>
+                <div className="cf-prog-vis-row">
                   <motion.div
-                    className={`cf-rd-card${ed.status === 'upcoming' ? ' cf-rd-card--upcoming' : ''}`}
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={tlInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
-                    transition={{ delay: 0.2 + i * 0.1, duration: 0.4 }}
-                  >
-                    <span className={`cf-rd-card__badge cf-rd-card__badge--${ed.status}`}>
-                      {ed.status === 'upcoming' ? 'À VENIR' : 'PASSÉ'}
-                    </span>
-                    <p className="cf-rd-card__theme">{ed.themeShort}</p>
-                    <ul className="cf-rd-card__meta">
-                      <li><span>📅</span><span>{ed.dates}</span></li>
-                      <li><span>📍</span><span>Niaguis, Sénégal</span></li>
-                      <li><span>👥</span><span>{ed.participants ?? 'À définir'}</span></li>
-                      <li><span>🌍</span><span>8 pays</span></li>
-                    </ul>
-                    <span className="cf-rd-card__cta">
-                      {ed.status === 'upcoming' ? 'Bientôt →' : 'Voir le détail →'}
-                    </span>
-                  </motion.div>
-
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Mobile (<768px) : stack vertical */}
-            <div className="cf-rd-mob" role="list" aria-label="Progression CIFAP 2022-2026">
-              {CIFAP_EDITIONS.map((ed, i) => (
-                <motion.div
-                  key={`mob-${ed.year}`}
-                  role="button"
-                  tabIndex={0}
-                  aria-label={`Voir les détails de l'édition CIFAP ${ed.year} : ${ed.themeShort}`}
-                  className={`cf-rd-mob-item cf-rd-mob-item--interactive${ed.status === 'upcoming' ? ' cf-rd-mob-item--upcoming' : ''}`}
-                  initial={{ opacity: 0, x: -14 }}
-                  animate={tlInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -14 }}
-                  transition={{ delay: 0.08 + i * 0.09, duration: 0.4, ease: 'easeOut' }}
-                  onClick={() => setSelectedEdition(ed)}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedEdition(ed) }
-                  }}
-                >
-                  <div className="cf-rd-mob-left" aria-hidden="true">
-                    <motion.div
-                      className={`cf-rd-dot${ed.status === 'upcoming' ? ' cf-rd-dot--upcoming' : ''}`}
-                      whileHover={{ scale: 1.35 }}
-                      transition={{ duration: 0.18 }}
-                    />
-                    {i < CIFAP_EDITIONS.length - 1 && (
+                    className={`cf-rd-dot${ed.status === 'upcoming' ? ' cf-rd-dot--upcoming' : ''}`}
+                    initial={{ scale: 0.4, opacity: 0 }}
+                    animate={tlInView ? { scale: 1, opacity: 1 } : { scale: 0.4, opacity: 0 }}
+                    transition={{ delay: 0.1 + i * 0.12, duration: 0.35, ease: 'backOut' }}
+                    whileHover={{ scale: 1.5 }}
+                    whileTap={{ scale: 0.85 }}
+                  />
+                  {i < CIFAP_EDITIONS.length - 1 && (
+                    <div className="cf-rd-conn">
                       <motion.div
-                        className="cf-rd-vline"
-                        initial={{ scaleY: 0 }}
-                        animate={tlInView ? { scaleY: 1 } : { scaleY: 0 }}
-                        transition={{ duration: 0.38, delay: 0.22 + i * 0.1, ease: 'easeOut' }}
-                        style={{ transformOrigin: 'top' }}
+                        className="cf-rd-conn-fill"
+                        initial={{ scaleX: 0 }}
+                        animate={tlInView ? { scaleX: 1 } : { scaleX: 0 }}
+                        transition={{ duration: 0.6, delay: 0.3 + i * 0.15, ease: 'easeOut' }}
+                        style={{ transformOrigin: 'left' }}
                       />
-                    )}
-                  </div>
-                  <div className="cf-rd-mob-right">
-                    <span className="cf-rd-year">{ed.year}</span>
-                    <span className="cf-rd-theme">{ed.themeShort}</span>
-                    <ul className="cf-rd-card__meta" style={{ marginTop: '6px' }}>
-                      <li><span>📅</span><span>{ed.dates}</span></li>
-                      <li><span>📍</span><span>Niaguis, Sénégal</span></li>
-                      <li><span>👥</span><span>{ed.participants ?? 'À définir'}</span></li>
-                    </ul>
-                    <span className={`cf-rd-badge cf-rd-badge--${ed.status}`}>
-                      {ed.status === 'upcoming' ? 'À VENIR' : 'PASSÉ'}
-                    </span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
 
+          {/* ── Cards agrandies (desktop) ── */}
+          <div className="cf-prog-cards" role="list" aria-label="Éditions CIFAP">
+            {CIFAP_EDITIONS.map((ed, i) => (
+              <motion.article
+                key={ed.year}
+                role="button"
+                tabIndex={0}
+                aria-label={`Édition CIFAP ${ed.year} — ${ed.themeShort}. Cliquer pour le détail.`}
+                className={`cf-prog-card${ed.status === 'upcoming' ? ' cf-prog-card--upcoming' : ''}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={tlInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ delay: 0.22 + i * 0.1, duration: 0.45, ease: 'easeOut' }}
+                onClick={() => setSelectedEdition(ed)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedEdition(ed) }
+                }}
+                whileHover={{ y: -5 }}
+              >
+                <span className={`cf-prog-card__badge cf-prog-card__badge--${ed.status}`}>
+                  {ed.status === 'upcoming' ? 'À VENIR' : 'PASSÉ'}
+                </span>
+                <p className="cf-prog-card__theme">{ed.themeShort}</p>
+                <ul className="cf-prog-card__meta">
+                  <li><span>📅</span><span>{ed.dates}</span></li>
+                  <li><span>📍</span><span>Niaguis, Sénégal</span></li>
+                  <li><span>👥</span><span>{ed.participants ?? 'À définir'}</span></li>
+                  <li><span>🌍</span><span>8 pays</span></li>
+                </ul>
+                <span className="cf-prog-card__cta">
+                  {ed.status === 'upcoming' ? 'Bientôt →' : 'Voir le détail →'}
+                </span>
+              </motion.article>
+            ))}
+          </div>
+
+          {/* ── Mobile : stack vertical ── */}
+          <div className="cf-rd-mob" role="list" aria-label="Progression CIFAP 2022-2026">
+            {CIFAP_EDITIONS.map((ed, i) => (
+              <motion.div
+                key={`mob-${ed.year}`}
+                role="button"
+                tabIndex={0}
+                aria-label={`Voir les détails de l'édition CIFAP ${ed.year} : ${ed.themeShort}`}
+                className={`cf-rd-mob-item cf-rd-mob-item--interactive${ed.status === 'upcoming' ? ' cf-rd-mob-item--upcoming' : ''}`}
+                initial={{ opacity: 0, x: -14 }}
+                animate={tlInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -14 }}
+                transition={{ delay: 0.08 + i * 0.09, duration: 0.4, ease: 'easeOut' }}
+                onClick={() => setSelectedEdition(ed)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedEdition(ed) }
+                }}
+              >
+                <div className="cf-rd-mob-left" aria-hidden="true">
+                  <motion.div
+                    className={`cf-rd-dot${ed.status === 'upcoming' ? ' cf-rd-dot--upcoming' : ''}`}
+                    whileHover={{ scale: 1.35 }}
+                    transition={{ duration: 0.18 }}
+                  />
+                  {i < CIFAP_EDITIONS.length - 1 && (
+                    <motion.div
+                      className="cf-rd-vline"
+                      initial={{ scaleY: 0 }}
+                      animate={tlInView ? { scaleY: 1 } : { scaleY: 0 }}
+                      transition={{ duration: 0.38, delay: 0.22 + i * 0.1, ease: 'easeOut' }}
+                      style={{ transformOrigin: 'top' }}
+                    />
+                  )}
+                </div>
+                <div className="cf-rd-mob-right">
+                  <span className="cf-rd-year">{ed.year}</span>
+                  <span className="cf-rd-theme">{ed.themeShort}</span>
+                  <ul className="cf-prog-card__meta" style={{ marginTop: '6px' }}>
+                    <li><span>📅</span><span>{ed.dates}</span></li>
+                    <li><span>📍</span><span>Niaguis, Sénégal</span></li>
+                    <li><span>👥</span><span>{ed.participants ?? 'À définir'}</span></li>
+                  </ul>
+                  <span className={`cf-rd-badge cf-rd-badge--${ed.status}`}>
+                    {ed.status === 'upcoming' ? 'À VENIR' : 'PASSÉ'}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
           </div>
 
         </div>
@@ -1819,92 +1817,126 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
         }
         .cf-modal-close-btn:hover { border-color: #A5CE46; color: #2A2A2A; }
 
-        /* ── Info cards sous nœuds timeline ── */
-        .cf-rd-card {
-          width: 100%;
-          margin-top: 14px;
-          background: #ffffff;
-          border: 1.5px solid rgba(165,206,70,0.45);
-          border-radius: 10px;
-          padding: 14px 12px 12px;
+        /* ── PROGRESSION full-width body ── */
+        .cf-prog-body {
+          padding: 0 clamp(20px, 4vw, 60px);
+        }
+
+        /* ── Timeline visuelle (desktop) ── */
+        .cf-prog-vis {
+          display: flex;
+          align-items: flex-end;
+          justify-content: space-between;
+          max-width: 880px;
+          margin: 40px auto 56px;
+        }
+        .cf-prog-vis-col {
           display: flex;
           flex-direction: column;
-          gap: 8px;
+          align-items: center;
+          flex: 1;
+        }
+        .cf-prog-vis-year {
+          font-family: var(--font-body), sans-serif;
+          font-size: 20px;
+          font-weight: 800;
+          color: #E8A838;
+          margin-bottom: 12px;
+          line-height: 1;
+        }
+        .cf-prog-vis-col--upcoming .cf-prog-vis-year { color: #b8871a; }
+        .cf-prog-vis-row {
+          display: flex;
+          align-items: center;
+          width: 100%;
+        }
+
+        /* ── Cards agrandies ── */
+        .cf-prog-cards {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          justify-content: center;
+          max-width: 1600px;
+          margin: 0 auto;
+          padding-bottom: 8px;
+        }
+        .cf-prog-card {
+          background: #ffffff;
+          border: 1.5px solid rgba(165,206,70,0.4);
+          border-radius: 12px;
+          padding: 24px 22px 20px;
+          width: 280px;
+          flex-shrink: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
           cursor: pointer;
-          transition: border-color 0.22s, box-shadow 0.22s, transform 0.22s;
+          transition: border-color 0.22s, box-shadow 0.22s;
           text-align: left;
         }
-        .cf-rd-card:hover {
+        .cf-prog-card:hover {
           border-color: #00AD4C;
-          box-shadow: 0 6px 20px rgba(0,173,76,0.13);
-          transform: translateY(-3px);
+          box-shadow: 0 8px 28px rgba(0,173,76,0.16);
         }
-        .cf-rd-card--upcoming {
-          border-color: rgba(232,168,56,0.4);
+        .cf-prog-card--upcoming {
+          border-color: rgba(232,168,56,0.38);
           background: #FFFDF7;
         }
-        .cf-rd-card--upcoming:hover {
+        .cf-prog-card--upcoming:hover {
           border-color: #E8A838;
-          box-shadow: 0 6px 20px rgba(232,168,56,0.14);
+          box-shadow: 0 8px 28px rgba(232,168,56,0.15);
         }
-        .cf-rd-card__badge {
+        .cf-prog-card__badge {
           font-family: var(--font-body), sans-serif;
-          font-size: 8.5px;
+          font-size: 9px;
           font-weight: 800;
-          letter-spacing: 0.12em;
+          letter-spacing: 0.14em;
           text-transform: uppercase;
-          padding: 3px 8px;
-          border-radius: 3px;
+          padding: 4px 10px;
+          border-radius: 4px;
           align-self: flex-start;
         }
-        .cf-rd-card__badge--past     { background: #EBEBEB; color: #666; }
-        .cf-rd-card__badge--upcoming { background: #E8A838; color: #fff; }
-        .cf-rd-card__theme {
+        .cf-prog-card__badge--past     { background: #EBEBEB; color: #666; }
+        .cf-prog-card__badge--upcoming { background: #E8A838; color: #fff; }
+        .cf-prog-card__theme {
           font-family: var(--font-display), Georgia, serif;
-          font-size: 13.5px;
+          font-size: 18px;
           font-weight: 700;
           color: #2A2A2A;
           margin: 0;
-          line-height: 1.25;
+          line-height: 1.22;
         }
-        .cf-rd-card__meta {
+        .cf-prog-card__meta {
           list-style: none;
           padding: 0;
           margin: 0;
           display: flex;
           flex-direction: column;
-          gap: 4px;
+          gap: 7px;
+          flex: 1;
         }
-        .cf-rd-card__meta li {
+        .cf-prog-card__meta li {
           display: flex;
           align-items: flex-start;
-          gap: 5px;
+          gap: 7px;
           font-family: var(--font-body), sans-serif;
-          font-size: 11px;
+          font-size: 13px;
           color: #555;
-          line-height: 1.4;
+          line-height: 1.45;
         }
-        .cf-rd-card__meta li span:first-child { flex-shrink: 0; }
-        .cf-rd-card__cta {
+        .cf-prog-card__meta li span:first-child { flex-shrink: 0; }
+        .cf-prog-card__cta {
           font-family: var(--font-body), sans-serif;
-          font-size: 10.5px;
+          font-size: 12px;
           font-weight: 700;
           color: #00AD4C;
-          letter-spacing: 0.02em;
-          margin-top: 2px;
+          letter-spacing: 0.03em;
+          margin-top: 4px;
         }
-        .cf-rd-card--upcoming .cf-rd-card__cta { color: #b8871a; }
+        .cf-prog-card--upcoming .cf-prog-card__cta { color: #b8871a; }
 
-        /* ── Roadmap ── */
-        .cf-rd-grid {
-          display: grid;
-          grid-template-columns: repeat(5, 1fr);
-          gap: 8px;
-          align-items: start;
-          max-width: 960px;
-          margin: 0 auto;
-        }
-        .cf-rd-col { display: flex; flex-direction: column; align-items: center; text-align: center; }
+        /* ── Roadmap (legacy, plus utilisé desktop) ── */
         .cf-rd-year {
           font-family: var(--font-body), sans-serif;
           font-size: 18px;
@@ -1915,7 +1947,6 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
           margin-bottom: 10px;
           line-height: 1;
         }
-        .cf-rd-col--upcoming .cf-rd-year { color: #b8871a; }
         .cf-rd-node-row {
           display: flex;
           align-items: center;
@@ -2735,6 +2766,8 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
           .cf-lieu-map { height: 260px; }
           /* Roadmap */
           .cf-rd-grid { display: none; }
+          .cf-prog-vis { display: none; }
+          .cf-prog-cards { display: none; }
           .cf-rd-mob  { display: flex; flex-direction: column; gap: 0; }
           /* Slider : hide abs buttons, show mob nav */
           .cf-slider-outer { padding: 0; }
