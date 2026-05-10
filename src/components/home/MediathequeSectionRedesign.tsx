@@ -473,7 +473,7 @@ export default function MediathequeSectionRedesign() {
             background: none; border: none; padding: 0;
             width: 100%; text-align: left; cursor: pointer;
             font-family: var(--font-display), Georgia, serif;
-            font-size: clamp(17px, 1.6vw, 20px);
+            font-size: 17px;
             font-weight: 700; line-height: 1.22;
             color: #0A0A0A;
             transition: color 0.2s;

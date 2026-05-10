@@ -206,7 +206,7 @@ export default function HeroHome() {
         /* ── H1 ── */
         .nss-h1 {
           font-family: var(--font-display), Georgia, serif;
-          font-size: clamp(47px, 6.3vw, 90px);
+          font-size: clamp(42px, 5.67vw, 81px);
           font-weight: 600;
           line-height: 0.89;
           color: #ffffff;
@@ -224,7 +224,7 @@ export default function HeroHome() {
           font-size: clamp(15px, 1.15vw, 17px);
           font-weight: 300;
           line-height: 1.82;
-          color: #F5EDD6;
+          color: #ffffff;
           max-width: 500px;
           margin: 0 0 54px;
           text-align: justify;
@@ -331,7 +331,7 @@ export default function HeroHome() {
         @media (max-width: 768px) {
           .nss-hero { min-height: auto; }
           .nss-hero-body { padding: 96px 24px 52px; max-width: 100%; }
-          .nss-h1 { font-size: clamp(38px, 8.55vw, 58px); line-height: 0.92; }
+          .nss-h1 { font-size: clamp(34px, 7.70vw, 52px); line-height: 0.92; }
           .nss-desc { font-size: 15px; max-width: 100%; }
           .nss-statsbar { grid-template-columns: repeat(2, 1fr); }
           .nss-stat {
@@ -347,7 +347,7 @@ export default function HeroHome() {
         /* ── Small mobile ── */
         @media (max-width: 480px) {
           .nss-hero-body { padding: 84px 16px 40px; }
-          .nss-h1        { font-size: clamp(32px, 9.45vw, 45px); }
+          .nss-h1        { font-size: clamp(29px, 8.50vw, 40px); }
           .nss-desc      { font-size: 14px; line-height: 1.74; }
           .nss-eyebrow-text { font-size: 8px; letter-spacing: 0.16em; }
           .nss-btn-primary,

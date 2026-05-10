@@ -122,19 +122,19 @@ export default function ArticleCard({ article }: ArticleCardProps) {
           margin: 0;
         }
         .acard__titre a {
-          font-family: var(--font-display), Georgia, serif;
-          font-size: 15px;
-          font-weight: 700;
-          line-height: 1.22;
-          color: #2A2A2A;
-          text-decoration: none;
           display: -webkit-box;
           -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
           overflow: hidden;
-          transition: color 0.2s ease;
+          font-family: var(--font-display), Georgia, serif;
+          font-size: 17px;
+          font-weight: 700;
+          line-height: 1.22;
+          color: #0A0A0A;
+          text-decoration: none;
+          transition: color 0.22s ease;
         }
-        .acard__titre a:hover { color: #00AD4C; }
+        .acard__titre a:hover { color: #045627; }
 
         /* Extrait */
         .acard__excerpt {
@@ -144,6 +144,7 @@ export default function ArticleCard({ article }: ArticleCardProps) {
           line-height: 1.8;
           color: #2C2C28;
           text-align: justify;
+          hyphens: auto;
           margin: 0;
           display: -webkit-box;
           -webkit-line-clamp: 3;
@@ -164,7 +165,7 @@ export default function ArticleCard({ article }: ArticleCardProps) {
         /* Date */
         .acard__date {
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 11px;
+          font-size: 12px;
           color: #888780;
         }
 

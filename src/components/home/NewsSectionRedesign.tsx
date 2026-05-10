@@ -406,7 +406,7 @@ export default function NewsSectionRedesign() {
         }
         .nws-card__cat {
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 9.5px;
+          font-size: 10.5px;
           font-weight: 700;
           letter-spacing: 0.12em;
           text-transform: uppercase;
@@ -415,7 +415,7 @@ export default function NewsSectionRedesign() {
         }
         .nws-card__date {
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 11px;
+          font-size: 12px;
           color: #999;
           white-space: nowrap;
           display: inline-flex;

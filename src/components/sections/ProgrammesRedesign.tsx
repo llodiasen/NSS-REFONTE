@@ -449,8 +449,8 @@ export default function ProgrammesRedesign() {
           gap: 7px;
           font-family: var(--font-dm-sans), sans-serif;
           font-size: 12.5px;
-          font-weight: 400;
-          color: #555;
+          font-weight: 500;
+          color: ${NSS.vertFonce};
           line-height: 1.4;
         }
         .prg3-meta-green {
@@ -458,11 +458,8 @@ export default function ProgrammesRedesign() {
           font-weight: 600;
         }
         .prg3-meta-icon {
-          color: #BBBBBB;
-          flex-shrink: 0;
-        }
-        .prg3-meta-green .prg3-meta-icon {
           color: ${NSS.vertPrimaire};
+          flex-shrink: 0;
         }
 
         /* CTA */
