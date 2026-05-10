@@ -296,11 +296,11 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
               <h2 id="ced-pil" className="ced-h2">Les piliers de l&apos;agroécologie NSS</h2>
               <StaggerContainer className="ced-piliers-grid" stagger={0.12}>
                 {edition.piliers.map((p, i) => (
-                  <motion.div key={i} className={`ced-pilier-card${(p as any).active ? ' ced-pilier-card--active' : ''}`} variants={itemFadeUp}>
-                    {(p as any).active && <span className="ced-pilier-badge">CETTE ÉDITION</span>}
+                  <motion.div key={i} className={`ced-pilier-card${p.active ? ' ced-pilier-card--active' : ''}`} variants={itemFadeUp}>
+                    {p.active && <span className="ced-pilier-badge">CETTE ÉDITION</span>}
                     <span className="ced-pilier-icon" aria-hidden="true">{p.icon}</span>
                     <h3 className="ced-pilier-title">{p.title}</h3>
-                    {(p as any).edition != null && <p className="ced-pilier-edition">{(p as any).edition}</p>}
+                    {p.edition != null && <p className="ced-pilier-edition">{p.edition}</p>}
                     <p className="ced-pilier-body">{p.subtitle}</p>
                   </motion.div>
                 ))}
@@ -594,8 +594,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           position: absolute;
           inset: 0;
           background:
-            linear-gradient(to right, rgba(0,0,0,0.96) 0%, rgba(2,6,3,0.92) 40%, rgba(4,12,6,0.78) 65%, rgba(0,0,0,0.50) 100%),
-            linear-gradient(to bottom, rgba(0,0,0,0.30) 0%, transparent 25%, rgba(0,0,0,0.25) 100%);
+            linear-gradient(135deg, rgba(4,86,39,0.92) 0%, rgba(4,86,39,0.85) 35%, rgba(0,50,25,0.70) 65%, rgba(0,0,0,0.50) 100%);
         }
         .ced-hero__body {
           position: relative;
@@ -618,7 +617,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           font-family: var(--font-body), sans-serif;
           font-size: 10.5px;
           font-weight: 600;
-          letter-spacing: 0.14em;
+          letter-spacing: 0.18em;
           text-transform: uppercase;
           color: rgba(255,255,255,0.45);
           text-decoration: none;
@@ -643,7 +642,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           font-family: var(--font-body), sans-serif;
           font-size: 10.5px;
           font-weight: 600;
-          letter-spacing: 0.14em;
+          letter-spacing: 0.18em;
           text-transform: uppercase;
           color: rgba(255,255,255,0.70);
         }
@@ -658,11 +657,11 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
         }
         .ced-badge {
           font-family: var(--font-body), sans-serif;
-          font-size: 8.5px;
+          font-size: 9px;
           font-weight: 800;
           letter-spacing: 0.20em;
           text-transform: uppercase;
-          padding: 5px 12px;
+          padding: 6px 14px;
           border-radius: 4px;
         }
         .ced-badge--edition { background: #A5CE46; color: #2A2A2A; }
@@ -679,8 +678,8 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           line-height: 1.18;
           color: #ffffff;
           margin: 0 0 1.5rem;
-          max-width: 720px;
-          letter-spacing: -0.01em;
+          max-width: 700px;
+          letter-spacing: -0.02em;
         }
         .ced-hero__meta {
           display: flex;
@@ -707,11 +706,11 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
         .ced-page {
           display: grid;
           grid-template-columns: 1fr 309px;
-          gap: 2rem;
+          gap: 3rem;
           align-items: start;
-          max-width: 1200px;
+          max-width: 1280px;
           margin: 0 auto;
-          padding: 2rem 1.5rem 5rem;
+          padding: 2.5rem clamp(1rem, 3vw, 2rem) 5rem;
         }
         .ced-main {
           display: flex;
@@ -721,7 +720,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
 
         /* ── SECTIONS ── */
         .ced-section {
-          padding: 2.5rem 0;
+          padding: 3.5rem 0;
           border-bottom: 1px solid #f0efeb;
           background: #ffffff;
         }
@@ -729,21 +728,21 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
 
         .ced-h2 {
           font-family: var(--font-display), Georgia, serif;
-          font-size: 26px;
+          font-size: 32px;
           font-weight: 700;
           color: #2A2A2A;
           margin: 0 0 1.25rem;
           line-height: 1.2;
-          letter-spacing: -0.01em;
+          letter-spacing: -0.02em;
         }
         .ced-eyebrow {
           font-family: var(--font-body), sans-serif;
           font-size: 10px;
           font-weight: 700;
-          letter-spacing: 0.14em;
+          letter-spacing: 0.16em;
           text-transform: uppercase;
           color: #A5CE46;
-          margin: 0 0 10px;
+          margin: 0 0 12px;
         }
         .ced-text {
           font-family: var(--font-body), sans-serif;
@@ -753,13 +752,14 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           color: #2C2C28;
           margin: 0;
           text-align: justify;
+          hyphens: auto;
         }
 
         /* ── Programme 2 colonnes cards ── */
         .ced-prog-grid {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 16px;
+          gap: 20px;
         }
         .ced-prog-card {
           background: #FAFAF8;
@@ -773,6 +773,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
         .ced-prog-card:hover {
           background: #F5F3EE;
           transform: translateX(3px);
+          box-shadow: 0 2px 12px rgba(0,173,76,0.08);
         }
         .ced-prog-header {
           display: flex;
@@ -846,7 +847,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
         .ced-piliers-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 16px;
+          gap: 20px;
         }
         .ced-pilier-card {
           background: #ffffff;
@@ -863,6 +864,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           background: #F9F7F3;
           border-color: #A5CE46;
           opacity: 1;
+          box-shadow: 0 4px 20px rgba(0,173,76,0.12);
         }
         .ced-pilier-badge {
           font-family: var(--font-body), sans-serif;
@@ -899,8 +901,9 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
         .ced-stats-bar {
           background: #FAFAF8;
           border-radius: 12px;
-          padding: 24px;
+          padding: 28px 24px;
           margin-bottom: 1.5rem;
+          border: 1px solid rgba(165,206,70,0.20);
         }
         .ced-stats-row {
           display: grid;
@@ -919,7 +922,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
         .ced-stat:last-child { border-right: none; }
         .ced-stat-val {
           font-family: var(--font-display), Georgia, serif;
-          font-size: 44px;
+          font-size: 48px;
           font-weight: 700;
           color: #00AD4C;
           line-height: 1;
@@ -931,7 +934,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           font-weight: 600;
           color: #2C2C28;
           text-transform: uppercase;
-          letter-spacing: 0.06em;
+          letter-spacing: 0.08em;
           line-height: 1.35;
         }
 
@@ -1007,11 +1010,12 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           align-items: center;
           gap: 8px;
           text-align: center;
-          transition: border-color 0.2s, transform 0.2s;
+          transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
         }
         .ced-partenaire-card:hover {
           border-color: #00AD4C;
-          transform: translateY(-3px);
+          transform: translateY(-4px);
+          box-shadow: 0 8px 24px rgba(0,173,76,0.10);
         }
         .ced-partenaire-dot {
           width: 32px;
@@ -1050,14 +1054,14 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           position: relative;
         }
         .ced-quote::before {
-          content: '“';
+          content: '”';
           position: absolute;
           top: 8px;
           left: 16px;
           font-family: var(--font-display), Georgia, serif;
-          font-size: 64px;
+          font-size: 72px;
           color: #A5CE46;
-          opacity: 0.18;
+          opacity: 0.15;
           line-height: 1;
           pointer-events: none;
         }
@@ -1092,17 +1096,19 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           display: flex;
           align-items: center;
           gap: 12px;
-          padding: 14px 20px;
+          padding: 16px 24px;
           background: #ffffff;
           border: 1px solid #e4e1d9;
-          border-radius: 6px;
+          border-radius: 8px;
           text-decoration: none;
-          transition: border-color 0.18s, background 0.18s;
+          transition: border-color 0.18s, background 0.18s, transform 0.18s, box-shadow 0.18s;
           max-width: 48%;
         }
         .ced-nav__btn:hover {
           border-color: #A5CE46;
           background: rgba(165,206,70,0.05);
+          transform: translateY(-2px);
+          box-shadow: 0 4px 16px rgba(0,0,0,0.08);
         }
         .ced-nav__arrow {
           font-size: 20px;
@@ -1135,12 +1141,14 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           flex-direction: column;
           background: #ffffff;
           border: 1px solid #A5CE46;
-          border-radius: 8px;
+          border-radius: 12px;
           overflow: hidden;
           box-shadow: 0 4px 24px rgba(4,86,39,0.08);
+          max-height: calc(100vh - 120px);
+          overflow-y: auto;
         }
         .ced-acard {
-          padding: 18px 20px;
+          padding: 20px 24px;
           border-bottom: 1px solid #eef5e8;
           background: #ffffff;
         }
@@ -1287,13 +1295,13 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           width: 100%;
           text-align: center;
           font-family: var(--font-body), sans-serif;
-          font-size: 13px;
+          font-size: 12px;
           font-weight: 800;
-          letter-spacing: 0.16em;
+          letter-spacing: 0.20em;
           text-transform: uppercase;
           color: #ffffff;
           background: #00AD4C;
-          padding: 13px 16px;
+          padding: 15px 20px;
           border-radius: 5px;
           text-decoration: none;
           transition: background 0.18s ease, transform 0.18s ease;
@@ -1305,19 +1313,22 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           .ced-page { grid-template-columns: 1fr 265px; }
           .ced-piliers-grid { grid-template-columns: 1fr; gap: 12px; }
           .ced-prog-desc { padding-left: 0; }
+          .ced-stats-row { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 768px) {
           .ced-page { grid-template-columns: 1fr; padding: 1.5rem 1rem 3rem; }
           .ced-main  { order: 1; }
-          .ced-aside { order: 2; position: static; }
+          .ced-aside { order: 2; position: static; max-height: none; overflow-y: visible; }
           .ced-prog-grid    { grid-template-columns: 1fr; }
           .ced-piliers-grid { grid-template-columns: 1fr; }
+          .ced-partenaires-grid { grid-template-columns: 1fr; }
           .ced-stats-bar    { padding: 16px; }
           .ced-stats-row    { grid-template-columns: repeat(2, 1fr); gap: 16px; }
           .ced-stat         { border-right: none; border-bottom: 1px solid rgba(165,206,70,0.20); padding: 0 8px 16px; }
           .ced-stat:last-child { border-bottom: none; }
           .ced-stat-val     { font-size: 36px; }
-          .ced-partenaires-grid { grid-template-columns: 1fr; }
+          .ced-obj-item     { grid-template-columns: 40px 1fr; gap: 12px; }
+          .ced-obj-num      { font-size: 32px; }
           .ced-quote__text  { font-size: 16px; }
           .ced-hero { min-height: 300px; }
           .ced-hero__body { padding: 48px 1.25rem 40px; }

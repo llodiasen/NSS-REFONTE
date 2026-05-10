@@ -45,6 +45,8 @@ export interface CIFAPPilier {
   icon: string
   title: string
   subtitle: string
+  active?: boolean
+  edition?: string
 }
 
 export interface CIFAPProblematique {
