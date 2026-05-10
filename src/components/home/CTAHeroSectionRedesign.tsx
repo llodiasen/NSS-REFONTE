@@ -107,7 +107,7 @@ export default function CTAHeroSectionRedesign() {
         .cth-section {
           position: relative;
           overflow: hidden;
-          min-height: 300px;
+          min-height: 200px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -152,7 +152,7 @@ export default function CTAHeroSectionRedesign() {
           width: 100%;
           max-width: 900px;
           margin: 0 auto;
-          padding: 72px 80px;
+          padding: 48px 80px;
           text-align: center;
         }
 
@@ -184,7 +184,7 @@ export default function CTAHeroSectionRedesign() {
         /* ── H2 ── */
         .cth-h2 {
           font-family: var(--font-display), Georgia, serif;
-          font-size: clamp(44px, 5vw, 72px);
+          font-size: clamp(40px, 4.5vw, 65px);
           font-weight: 600;
           line-height: 0.94;
           color: ${NSS.creme};
@@ -264,20 +264,20 @@ export default function CTAHeroSectionRedesign() {
 
         /* ── Tablet ── */
         @media (max-width: 1024px) {
-          .cth-wrap { padding: 60px 48px; }
+          .cth-wrap { padding: 40px 48px; }
         }
 
         /* ── Mobile ── */
         @media (max-width: 768px) {
-          .cth-wrap { padding: 52px 24px; }
-          .cth-h2 { font-size: clamp(38px, 9vw, 58px); }
+          .cth-wrap { padding: 36px 24px; }
+          .cth-h2 { font-size: clamp(34px, 8.1vw, 52px); }
           .cth-sub { font-size: 15px; }
         }
 
         /* ── Small mobile ── */
         @media (max-width: 480px) {
-          .cth-wrap { padding: 64px 20px; }
-          .cth-h2 { font-size: clamp(34px, 10vw, 48px); }
+          .cth-wrap { padding: 40px 20px; }
+          .cth-h2 { font-size: clamp(31px, 9vw, 43px); }
           .cth-btns { flex-direction: column; align-items: stretch; }
           .cth-btn { text-align: center; justify-content: center; }
         }
