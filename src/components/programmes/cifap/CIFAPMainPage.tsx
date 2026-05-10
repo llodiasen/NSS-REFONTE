@@ -673,7 +673,7 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
                       {ed.status === 'upcoming' ? 'À VENIR' : 'PASSÉ'}
                     </span>
                     <h3 className="cf-prog-card__theme">{ed.themeShort}</h3>
-                    <p className="cf-prog-card__subtitle"><span style={{ fontStyle: 'normal', fontWeight: 700, color: '#045627' }}>Thème :</span> {ed.themeSubtitle}</p>
+                    <p className="cf-prog-card__subtitle">{ed.themeSubtitle}</p>
                     <div className="cf-prog-card__info-group">
                       <div className="cf-prog-card__info">📅 {ed.dates}</div>
                       <div className="cf-prog-card__info">📍 Niaguis, Sénégal</div>
