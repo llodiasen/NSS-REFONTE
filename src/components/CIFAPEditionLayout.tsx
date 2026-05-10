@@ -245,7 +245,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
               {edition.programme.map((item, i) => {
                 const Icon = PROG_ICONS[item.icon] ?? Leaf
                 return (
-                  <motion.div key={i} className="ced-prog-item" variants={itemFadeUp}>
+                  <motion.div key={i} className="ced-prog-card" variants={itemFadeUp}>
                     <div className="ced-prog-header">
                       <Icon size={20} color="#00AD4C" aria-hidden="true" strokeWidth={1.75} />
                       <h3 className="ced-prog-title">{item.title}</h3>
@@ -260,17 +260,19 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           {/* ③ Objectifs */}
           <AnimatedSection labelledby="ced-obj" eyebrow="OBJECTIFS">
             <h2 id="ced-obj" className="ced-h2">Objectifs</h2>
-            <ul className="ced-icon-list" role="list">
-              {edition.objectifs.map((obj, i) => (
-                <li key={i} className="ced-icon-item" role="listitem">
-                  <span className="ced-icon-em" aria-hidden="true">{obj.icon}</span>
-                  <span className="ced-icon-text">
-                    <strong className="ced-icon-strong">{obj.title}</strong>
-                    {' — '}{obj.desc}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            <StaggerContainer className="ced-obj-list-wrap" stagger={0.08}>
+              <ol className="ced-obj-list" role="list">
+                {edition.objectifs.map((obj, i) => (
+                  <motion.li key={i} className="ced-obj-item" role="listitem" variants={itemFadeUp}>
+                    <span className="ced-obj-num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                    <div className="ced-obj-body">
+                      <strong className="ced-obj-title">{obj.title}</strong>
+                      <p className="ced-obj-desc">{obj.desc}</p>
+                    </div>
+                  </motion.li>
+                ))}
+              </ol>
+            </StaggerContainer>
           </AnimatedSection>
 
           {/* ④ Problématique (optionnel) */}
@@ -292,31 +294,33 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           {edition.piliers && edition.piliers.length > 0 && (
             <AnimatedSection labelledby="ced-pil" eyebrow="PILIERS AGROÉCOLOGIE NSS">
               <h2 id="ced-pil" className="ced-h2">Les piliers de l&apos;agroécologie NSS</h2>
-              <ul className="ced-icon-list" role="list">
+              <StaggerContainer className="ced-piliers-grid" stagger={0.12}>
                 {edition.piliers.map((p, i) => (
-                  <li key={i} className="ced-icon-item" role="listitem">
-                    <span className="ced-icon-em" aria-hidden="true">{p.icon}</span>
-                    <span className="ced-icon-text">
-                      <strong className="ced-icon-strong">{p.title}</strong>
-                      {' — '}{p.subtitle}
-                    </span>
-                  </li>
+                  <motion.div key={i} className={`ced-pilier-card${(p as any).active ? ' ced-pilier-card--active' : ''}`} variants={itemFadeUp}>
+                    {(p as any).active && <span className="ced-pilier-badge">CETTE ÉDITION</span>}
+                    <span className="ced-pilier-icon" aria-hidden="true">{p.icon}</span>
+                    <h3 className="ced-pilier-title">{p.title}</h3>
+                    {(p as any).edition != null && <p className="ced-pilier-edition">{(p as any).edition}</p>}
+                    <p className="ced-pilier-body">{p.subtitle}</p>
+                  </motion.div>
                 ))}
-              </ul>
+              </StaggerContainer>
             </AnimatedSection>
           )}
 
           {/* ⑤ Participants — stats count-up + pays stagger */}
           <AnimatedSection labelledby="ced-part" eyebrow="PARTICIPANTS">
             <h2 id="ced-part" className="ced-h2">Participants</h2>
-            <StaggerContainer className="ced-stats-row" stagger={0.1}>
-              {edition.stats.map((s) => (
-                <motion.div key={s.label} className="ced-stat" role="listitem" variants={itemFadeUp}>
-                  <span className="ced-stat-val"><CountUp value={s.val} /></span>
-                  <span className="ced-stat-lbl">{s.label}</span>
-                </motion.div>
-              ))}
-            </StaggerContainer>
+            <div className="ced-stats-bar">
+              <StaggerContainer className="ced-stats-row" stagger={0.1}>
+                {edition.stats.map((s) => (
+                  <motion.div key={s.label} className="ced-stat" role="listitem" variants={itemFadeUp}>
+                    <span className="ced-stat-val"><CountUp value={s.val} /></span>
+                    <span className="ced-stat-lbl">{s.label}</span>
+                  </motion.div>
+                ))}
+              </StaggerContainer>
+            </div>
             <StaggerContainer className="ced-pays-grid" stagger={0.05}>
               {edition.pays.map((p) => (
                 <motion.span key={p.name} className="ced-pays-badge" role="listitem" variants={itemFadeUp}>
@@ -388,11 +392,15 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           {/* ⑧ Partenaires */}
           <AnimatedSection labelledby="ced-partners" eyebrow="PARTENAIRES">
             <h2 id="ced-partners" className="ced-h2">Partenaires organisateurs</h2>
-            <ul className="ced-bullet-list" role="list">
+            <StaggerContainer className="ced-partenaires-grid" stagger={0.1}>
               {edition.partenaires.map((p) => (
-                <li key={p} className="ced-bullet-item" role="listitem">{p}</li>
+                <motion.div key={p} className="ced-partenaire-card" variants={itemFadeUp}>
+                  <span className="ced-partenaire-dot" aria-hidden="true" />
+                  <span className="ced-partenaire-name">{p}</span>
+                  <span className="ced-partenaire-role">Organisateur</span>
+                </motion.div>
               ))}
-            </ul>
+            </StaggerContainer>
           </AnimatedSection>
 
           {/* ⑨ Navigation — slide-up au scroll */}
@@ -747,16 +755,24 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           text-align: justify;
         }
 
-        /* ── Programme 2 colonnes SVG ── */
+        /* ── Programme 2 colonnes cards ── */
         .ced-prog-grid {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 28px 40px;
+          gap: 16px;
         }
-        .ced-prog-item {
+        .ced-prog-card {
+          background: #FAFAF8;
+          border-radius: 8px;
+          padding: 20px 20px 20px 24px;
           display: flex;
           flex-direction: column;
-          gap: 6px;
+          gap: 8px;
+          transition: background 0.22s, transform 0.22s;
+        }
+        .ced-prog-card:hover {
+          background: #F5F3EE;
+          transform: translateX(3px);
         }
         .ced-prog-header {
           display: flex;
@@ -773,57 +789,137 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
         }
         .ced-prog-desc {
           font-family: var(--font-body), sans-serif;
-          font-size: 15px;
-          font-weight: 400;
+          font-size: 14px;
           color: #2C2C28;
-          line-height: 1.78;
+          line-height: 1.7;
           margin: 0;
           text-align: justify;
+          hyphens: auto;
           padding-left: 30px;
         }
 
-        /* ── Objectifs ── */
-        .ced-icon-list {
+        /* ── Objectifs numérotés ── */
+        .ced-obj-list-wrap { }
+        .ced-obj-list {
           list-style: none;
           margin: 0;
           padding: 0;
           display: flex;
           flex-direction: column;
-          gap: 12px;
         }
-        .ced-icon-item {
-          display: flex;
-          align-items: flex-start;
-          gap: 12px;
+        .ced-obj-item {
+          display: grid;
+          grid-template-columns: 52px 1fr;
+          gap: 16px;
+          padding: 20px 0;
+          border-bottom: 1px solid rgba(165,206,70,0.25);
+          align-items: start;
+        }
+        .ced-obj-item:last-child { border-bottom: none; }
+        .ced-obj-num {
+          font-family: var(--font-display), Georgia, serif;
+          font-size: 40px;
+          font-weight: 700;
+          color: #A5CE46;
+          opacity: 0.45;
+          line-height: 1;
+        }
+        .ced-obj-body { display: flex; flex-direction: column; gap: 6px; }
+        .ced-obj-title {
           font-family: var(--font-body), sans-serif;
-          font-size: 16px;
-          line-height: 1.8;
-          color: #2C2C28;
-          text-align: justify;
+          font-size: 15px;
+          font-weight: 700;
+          color: #2A2A2A;
+          line-height: 1.3;
         }
-        .ced-icon-em   { font-size: 18px; flex-shrink: 0; line-height: 1.5; min-width: 22px; text-align: center; }
-        .ced-icon-text { flex: 1; min-width: 0; }
-        .ced-icon-strong { font-weight: 700; color: #2A2A2A; }
+        .ced-obj-desc {
+          font-family: var(--font-body), sans-serif;
+          font-size: 14px;
+          color: #2C2C28;
+          line-height: 1.7;
+          margin: 0;
+          text-align: justify;
+          hyphens: auto;
+        }
 
-        /* ── Stats — blanc + border vert ── */
+        /* ── Piliers agroécologie ── */
+        .ced-piliers-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 16px;
+        }
+        .ced-pilier-card {
+          background: #ffffff;
+          border: 1px solid rgba(165,206,70,0.45);
+          border-radius: 12px;
+          padding: 24px;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          opacity: 0.75;
+          transition: opacity 0.2s;
+        }
+        .ced-pilier-card--active {
+          background: #F9F7F3;
+          border-color: #A5CE46;
+          opacity: 1;
+        }
+        .ced-pilier-badge {
+          font-family: var(--font-body), sans-serif;
+          font-size: 9px;
+          font-weight: 800;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          color: #00AD4C;
+          margin-bottom: 4px;
+        }
+        .ced-pilier-icon { font-size: 24px; line-height: 1; }
+        .ced-pilier-title {
+          font-family: var(--font-display), Georgia, serif;
+          font-size: 20px;
+          font-weight: 700;
+          color: #2A2A2A;
+          margin: 0;
+        }
+        .ced-pilier-edition {
+          font-family: var(--font-body), sans-serif;
+          font-size: 12px;
+          color: #A5CE46;
+          margin: 0;
+        }
+        .ced-pilier-body {
+          font-family: var(--font-body), sans-serif;
+          font-size: 13px;
+          color: #2C2C28;
+          line-height: 1.6;
+          margin: 0;
+        }
+
+        /* ── Stats bar ── */
+        .ced-stats-bar {
+          background: #FAFAF8;
+          border-radius: 12px;
+          padding: 24px;
+          margin-bottom: 1.5rem;
+        }
         .ced-stats-row {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
-          gap: 12px;
-          margin-bottom: 1.5rem;
+          gap: 0;
         }
         .ced-stat {
-          border: none;
-          background: transparent;
-          padding: 12px 8px;
           text-align: center;
+          padding: 0 16px;
+          border-right: 1px solid rgba(165,206,70,0.30);
           display: flex;
           flex-direction: column;
-          gap: 5px;
+          gap: 6px;
+          background: transparent;
         }
+        .ced-stat:last-child { border-right: none; }
         .ced-stat-val {
           font-family: var(--font-display), Georgia, serif;
-          font-size: 40px;
+          font-size: 44px;
           font-weight: 700;
           color: #00AD4C;
           line-height: 1;
@@ -832,7 +928,10 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
         .ced-stat-lbl {
           font-family: var(--font-body), sans-serif;
           font-size: 11px;
-          color: #888;
+          font-weight: 600;
+          color: #2C2C28;
+          text-transform: uppercase;
+          letter-spacing: 0.06em;
           line-height: 1.35;
         }
 
@@ -860,7 +959,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           white-space: nowrap;
         }
 
-        /* ── Listes bullet vert ── */
+        /* ── Listes bullet vert (intervenants, distinctions) ── */
         .ced-bullet-list {
           list-style: none;
           margin: 0;
@@ -892,7 +991,51 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
         .ced-bullet-strong { font-weight: 700; color: #2A2A2A; }
         .ced-bullet-sub    { color: #666; }
 
-        /* ── Citations — beige conservé ── */
+        /* ── Partenaires grid ── */
+        .ced-partenaires-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
+        }
+        .ced-partenaire-card {
+          background: #ffffff;
+          border: 1px solid rgba(165,206,70,0.40);
+          border-radius: 8px;
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 8px;
+          text-align: center;
+          transition: border-color 0.2s, transform 0.2s;
+        }
+        .ced-partenaire-card:hover {
+          border-color: #00AD4C;
+          transform: translateY(-3px);
+        }
+        .ced-partenaire-dot {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          background: rgba(0,173,76,0.10);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .ced-partenaire-name {
+          font-family: var(--font-body), sans-serif;
+          font-size: 14px;
+          font-weight: 700;
+          color: #2A2A2A;
+        }
+        .ced-partenaire-role {
+          font-family: var(--font-body), sans-serif;
+          font-size: 12px;
+          font-style: italic;
+          color: #A5CE46;
+        }
+
+        /* ── Citations redesign ── */
         .ced-citations {
           display: flex;
           flex-direction: column;
@@ -902,18 +1045,32 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           background: #F9F7F3;
           border: 1px solid rgba(232,168,56,0.22);
           border-radius: 8px;
-          padding: 20px 24px;
+          padding: 24px 24px 20px;
           margin: 0;
+          position: relative;
+        }
+        .ced-quote::before {
+          content: '“';
+          position: absolute;
+          top: 8px;
+          left: 16px;
+          font-family: var(--font-display), Georgia, serif;
+          font-size: 64px;
+          color: #A5CE46;
+          opacity: 0.18;
+          line-height: 1;
+          pointer-events: none;
         }
         .ced-quote__text {
           font-family: var(--font-display), Georgia, serif;
-          font-size: 15px;
+          font-size: 18px;
           font-weight: 400;
           font-style: italic;
-          line-height: 1.78;
+          line-height: 1.65;
           color: #2A2A2A;
-          margin: 0 0 10px;
+          margin: 0 0 14px;
           text-align: justify;
+          padding-top: 12px;
         }
         .ced-quote__foot {
           font-family: var(--font-body), sans-serif;
@@ -1146,14 +1303,22 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
         /* ── RESPONSIVE ── */
         @media (max-width: 1024px) {
           .ced-page { grid-template-columns: 1fr 265px; }
+          .ced-piliers-grid { grid-template-columns: 1fr; gap: 12px; }
+          .ced-prog-desc { padding-left: 0; }
         }
         @media (max-width: 768px) {
           .ced-page { grid-template-columns: 1fr; padding: 1.5rem 1rem 3rem; }
           .ced-main  { order: 1; }
           .ced-aside { order: 2; position: static; }
-          .ced-prog-grid  { grid-template-columns: 1fr; gap: 20px; }
-          .ced-prog-desc  { padding-left: 0; }
-          .ced-stats-row  { grid-template-columns: 1fr 1fr; }
+          .ced-prog-grid    { grid-template-columns: 1fr; }
+          .ced-piliers-grid { grid-template-columns: 1fr; }
+          .ced-stats-bar    { padding: 16px; }
+          .ced-stats-row    { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+          .ced-stat         { border-right: none; border-bottom: 1px solid rgba(165,206,70,0.20); padding: 0 8px 16px; }
+          .ced-stat:last-child { border-bottom: none; }
+          .ced-stat-val     { font-size: 36px; }
+          .ced-partenaires-grid { grid-template-columns: 1fr; }
+          .ced-quote__text  { font-size: 16px; }
           .ced-hero { min-height: 300px; }
           .ced-hero__body { padding: 48px 1.25rem 40px; }
           .ced-hero__h1   { font-size: clamp(20px, 5.5vw, 28px); }
