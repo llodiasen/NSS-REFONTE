@@ -46,10 +46,12 @@ const itemSlideLeft = {
 function AnimatedSection({
   labelledby,
   delay = 0,
+  eyebrow,
   children,
 }: {
   labelledby?: string
   delay?: number
+  eyebrow?: string
   children: React.ReactNode
 }) {
   const ref = useRef(null)
@@ -63,6 +65,7 @@ function AnimatedSection({
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 22 }}
       transition={{ duration: 0.5, delay, ease: 'easeOut' }}
     >
+      {eyebrow && <p className="ced-eyebrow">{eyebrow}</p>}
       {children}
     </motion.section>
   )
@@ -222,7 +225,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
         <main className="ced-main">
 
           {/* ① Présentation */}
-          <AnimatedSection labelledby="ced-pres">
+          <AnimatedSection labelledby="ced-pres" eyebrow="PRÉSENTATION">
             <h2 id="ced-pres" className="ced-h2">Présentation</h2>
             {edition.intro.map((para, i) => (
               <p
@@ -236,7 +239,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           </AnimatedSection>
 
           {/* ② Programme — stagger 0.08s */}
-          <AnimatedSection labelledby="ced-prog">
+          <AnimatedSection labelledby="ced-prog" eyebrow="PROGRAMME TECHNIQUE">
             <h2 id="ced-prog" className="ced-h2">Programme technique</h2>
             <StaggerContainer className="ced-prog-grid" stagger={0.08}>
               {edition.programme.map((item, i) => {
@@ -255,7 +258,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           </AnimatedSection>
 
           {/* ③ Objectifs */}
-          <AnimatedSection labelledby="ced-obj">
+          <AnimatedSection labelledby="ced-obj" eyebrow="OBJECTIFS">
             <h2 id="ced-obj" className="ced-h2">Objectifs</h2>
             <ul className="ced-icon-list" role="list">
               {edition.objectifs.map((obj, i) => (
@@ -272,7 +275,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
 
           {/* ④ Problématique (optionnel) */}
           {edition.problematique && edition.problematique.length > 0 && (
-            <AnimatedSection labelledby="ced-prob">
+            <AnimatedSection labelledby="ced-prob" eyebrow="PROBLÉMATIQUE">
               <h2 id="ced-prob" className="ced-h2">Problématique</h2>
               <ul className="ced-icon-list" role="list">
                 {edition.problematique.map((p, i) => (
@@ -287,7 +290,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
 
           {/* ⑤ Piliers agroécologie NSS (optionnel) */}
           {edition.piliers && edition.piliers.length > 0 && (
-            <AnimatedSection labelledby="ced-pil">
+            <AnimatedSection labelledby="ced-pil" eyebrow="PILIERS AGROÉCOLOGIE NSS">
               <h2 id="ced-pil" className="ced-h2">Les piliers de l&apos;agroécologie NSS</h2>
               <ul className="ced-icon-list" role="list">
                 {edition.piliers.map((p, i) => (
@@ -304,7 +307,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           )}
 
           {/* ⑤ Participants — stats count-up + pays stagger */}
-          <AnimatedSection labelledby="ced-part">
+          <AnimatedSection labelledby="ced-part" eyebrow="PARTICIPANTS">
             <h2 id="ced-part" className="ced-h2">Participants</h2>
             <StaggerContainer className="ced-stats-row" stagger={0.1}>
               {edition.stats.map((s) => (
@@ -326,7 +329,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
 
           {/* ⑤ Intervenants */}
           {edition.intervenants && edition.intervenants.length > 0 && (
-            <AnimatedSection labelledby="ced-interv">
+            <AnimatedSection labelledby="ced-interv" eyebrow="INTERVENANTS">
               <h2 id="ced-interv" className="ced-h2">Intervenants clés</h2>
               <ul className="ced-bullet-list" role="list">
                 {edition.intervenants.map((iv, i) => (
@@ -342,7 +345,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
 
           {/* ⑥ Citations — stagger slide-left */}
           {edition.citations.length > 0 && (
-            <AnimatedSection labelledby="ced-cit">
+            <AnimatedSection labelledby="ced-cit" eyebrow="VOIX DU TERRAIN">
               <h2 id="ced-cit" className="ced-h2">Voix du terrain</h2>
               <StaggerContainer className="ced-citations" stagger={0.15}>
                 {edition.citations.map((c, i) => (
@@ -361,7 +364,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
 
           {/* ⑦ Distinctions */}
           {edition.distinctions && edition.distinctions.length > 0 && (
-            <AnimatedSection labelledby="ced-dist">
+            <AnimatedSection labelledby="ced-dist" eyebrow="DISTINCTIONS">
               <h2 id="ced-dist" className="ced-h2">Cérémonie de distinctions</h2>
               <p className="ced-text" style={{ marginBottom: '1.25rem' }}>
                 Une cérémonie de distinctions a honoré{' '}
@@ -383,7 +386,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           )}
 
           {/* ⑧ Partenaires */}
-          <AnimatedSection labelledby="ced-partners">
+          <AnimatedSection labelledby="ced-partners" eyebrow="PARTENAIRES">
             <h2 id="ced-partners" className="ced-h2">Partenaires organisateurs</h2>
             <ul className="ced-bullet-list" role="list">
               {edition.partenaires.map((p) => (
@@ -592,7 +595,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           width: 100%;
           max-width: 1200px;
           margin: 0 auto;
-          padding: 60px clamp(1.5rem, 5vw, 4rem) 56px;
+          padding: 80px clamp(1.5rem, 5vw, 4rem) 60px;
         }
 
         /* Fil d'Ariane */
@@ -663,8 +666,8 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
 
         .ced-hero__h1 {
           font-family: var(--font-display), Georgia, serif;
-          font-size: clamp(22px, 3vw, 40px);
-          font-weight: 400;
+          font-size: clamp(26px, 3.5vw, 52px);
+          font-weight: 700;
           line-height: 1.18;
           color: #ffffff;
           margin: 0 0 1.5rem;
@@ -682,8 +685,8 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           align-items: center;
           gap: 5px;
           font-family: var(--font-body), sans-serif;
-          font-size: 12px;
-          color: #ffffff;
+          font-size: 14px;
+          color: #F5EDD6;
         }
         .ced-hero__meta-sep {
           width: 1px;
@@ -718,16 +721,21 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
 
         .ced-h2 {
           font-family: var(--font-display), Georgia, serif;
-          font-size: 22px;
-          font-weight: 300;
+          font-size: 26px;
+          font-weight: 700;
           color: #2A2A2A;
-          margin: 0 0 1.5rem;
+          margin: 0 0 1.25rem;
           line-height: 1.2;
           letter-spacing: -0.01em;
-          text-decoration: underline;
-          text-decoration-color: #A5CE46;
-          text-decoration-thickness: 2px;
-          text-underline-offset: 6px;
+        }
+        .ced-eyebrow {
+          font-family: var(--font-body), sans-serif;
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          color: #A5CE46;
+          margin: 0 0 10px;
         }
         .ced-text {
           font-family: var(--font-body), sans-serif;
@@ -805,9 +813,9 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           margin-bottom: 1.5rem;
         }
         .ced-stat {
-          background: #ffffff;
-          border: 1px solid rgba(165,206,70,0.30);
-          padding: 16px 12px;
+          border: none;
+          background: transparent;
+          padding: 12px 8px;
           text-align: center;
           display: flex;
           flex-direction: column;
@@ -815,9 +823,9 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
         }
         .ced-stat-val {
           font-family: var(--font-display), Georgia, serif;
-          font-size: 30px;
-          font-weight: 400;
-          color: #2A2A2A;
+          font-size: 40px;
+          font-weight: 700;
+          color: #00AD4C;
           line-height: 1;
           letter-spacing: -0.02em;
         }
@@ -891,9 +899,10 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           gap: 16px;
         }
         .ced-quote {
-          background: #F5F3EE;
-          border-left: 3px solid #E8A838;
-          padding: 20px 20px 20px 24px;
+          background: #F9F7F3;
+          border: 1px solid rgba(232,168,56,0.22);
+          border-radius: 8px;
+          padding: 20px 24px;
           margin: 0;
         }
         .ced-quote__text {
@@ -971,6 +980,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           border: 1px solid #A5CE46;
           border-radius: 8px;
           overflow: hidden;
+          box-shadow: 0 4px 24px rgba(4,86,39,0.08);
         }
         .ced-acard {
           padding: 18px 20px;
@@ -1065,8 +1075,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           overflow: hidden;
         }
         .ced-ed-item--active {
-          background: rgba(165,206,70,0.08);
-          border-left: 2.5px solid #00AD4C;
+          background: rgba(0,173,76,0.07);
         }
         .ced-ed-link {
           display: block;
@@ -1092,7 +1101,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           color: #2A2A2A;
           line-height: 1.2;
         }
-        .ced-ed-item--active .ced-ed-label { color: #045627; }
+        .ced-ed-item--active .ced-ed-label { color: #045627; font-weight: 800; }
         .ced-ed-badge {
           font-family: var(--font-body), sans-serif;
           font-size: 9.5px;
@@ -1105,7 +1114,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           white-space: nowrap;
         }
         .ced-ed-badge--past     { background: #f2f2f2; color: #999; }
-        .ced-ed-badge--upcoming { background: rgba(165,206,70,0.18); color: #5a8020; }
+        .ced-ed-badge--upcoming { background: rgba(232,168,56,0.15); color: #b8871a; }
         .ced-ed-theme {
           font-family: var(--font-body), sans-serif;
           font-size: 13px;
@@ -1130,9 +1139,9 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           padding: 13px 16px;
           border-radius: 5px;
           text-decoration: none;
-          transition: background 0.18s ease;
+          transition: background 0.18s ease, transform 0.18s ease;
         }
-        .ced-cta-btn:hover { background: #045627; }
+        .ced-cta-btn:hover { background: #045627; transform: scale(1.02); }
 
         /* ── RESPONSIVE ── */
         @media (max-width: 1024px) {
