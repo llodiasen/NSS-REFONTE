@@ -400,6 +400,7 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
   const [selectedEdition, setSelectedEdition] = useState<CifapEdition | null>(null)
   const progSwiperRef = useRef<SwiperType | null>(null)
   const [progIdx, setProgIdx] = useState(0)
+  const editionsDesc = [...CIFAP_EDITIONS].reverse()
 
   /* ── Slider éditions ── */
   const sliderRef = useRef<HTMLDivElement>(null)
@@ -590,7 +591,7 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
 
           {/* ── Timeline visuelle (desktop) — 3 nœuds dynamiques ── */}
           <div className="cf-prog-vis" aria-hidden="true">
-            {CIFAP_EDITIONS.slice(progIdx, progIdx + 3).map((ed, i) => (
+            {editionsDesc.slice(progIdx, progIdx + 3).map((ed, i) => (
               <div key={`vis-pos-${i}`} className={`cf-prog-vis-col${ed.status === 'upcoming' ? ' cf-prog-vis-col--upcoming' : ''}`}>
                 <AnimatePresence mode="wait">
                   <motion.span
@@ -657,7 +658,7 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
               className="cf-prog-swiper"
               aria-label="Éditions CIFAP"
             >
-              {CIFAP_EDITIONS.map((ed) => (
+              {editionsDesc.map((ed) => (
                 <SwiperSlide key={ed.year}>
                   <article
                     role="button"
@@ -690,7 +691,7 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
             <button
               className="cf-prog-nav cf-prog-nav--next"
               onClick={() => progSwiperRef.current?.slideNext()}
-              disabled={progIdx >= CIFAP_EDITIONS.length - 3}
+              disabled={progIdx >= editionsDesc.length - 3}
               aria-label="Édition suivante"
             >
               <ChevronRight size={20} />
