@@ -57,13 +57,13 @@ export default function HeroSectionRedesign() {
           {/* Eyebrow */}
           <motion.div className="qs-eyebrow" {...inView(0.08)}>
             <span className="qs-eyebrow-line" aria-hidden="true" />
-            <span className="qs-eyebrow-text">À PROPOS</span>
+            <span className="qs-eyebrow-text">QUI SOMMES-NOUS</span>
           </motion.div>
 
           {/* H2 */}
           <motion.h2 id="qs-titre" className="qs-h2" {...inViewScale(0.18)}>
-            Les femmes rurales, au cœur de la{' '}
-            <em>souveraineté alimentaire africaine.</em>
+            Nées du terrain,{' '}
+            <em>bâtisseuses de souveraineté.</em>
           </motion.h2>
           <motion.span
             className="qs-underline"
@@ -77,11 +77,12 @@ export default function HeroSectionRedesign() {
 
           {/* Description */}
           <motion.p className="qs-body" lang="fr" {...inView(0.28)}>
-            Créé au sein d&apos;une campagne mondiale pour la souveraineté alimentaire,
-            NSS s&apos;est imposé comme l&apos;alternative paysanne durable, économiquement
-            rentable et écologiquement viable. Aujourd&apos;hui, 175&nbsp;000 membres
-            et sympathisant·es unis dans 7 pays défendent une agriculture
-            familiale souveraine — de la semence à la table.
+            NSS est né d&apos;une conviction simple : personne ne connaît mieux
+            la terre que celles qui la cultivent. Depuis 2011, 175&nbsp;000
+            femmes rurales — organisées en 500&nbsp;associations dans 14&nbsp;pays —
+            protègent les semences paysannes, transmettent les savoirs
+            agroécologiques et portent leur souveraineté alimentaire devant
+            les instances continentales.
           </motion.p>
 
           {/* Citation */}
@@ -305,7 +306,7 @@ export default function HeroSectionRedesign() {
         }
         .qs-stat-value {
           font-family: var(--font-display), Georgia, serif;
-          font-size: 34px;
+          font-size: 22px;
           font-weight: 600;
           color: ${NSS.vertFonce};
           line-height: 1;

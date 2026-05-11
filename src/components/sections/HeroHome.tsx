@@ -85,21 +85,20 @@ export default function HeroHome() {
         >
           <span className="nss-eyebrow-line" />
           <span className="nss-eyebrow-text">
-            MOUVEMENT PANAFRICAIN · 14 PAYS
+            FEMMES · TERRE · SOUVERAINETÉ
           </span>
         </motion.div>
 
         {/* H1 */}
         <motion.h1 className="nss-h1" {...fadeScale(0.22)}>
-          Les femmes rurales<br />
-          <em>nourrissent l&apos;Afrique.</em>
+          Par nous-mêmes,<br />
+          <em>nous nourrissons l&apos;Afrique.</em>
         </motion.h1>
 
-        {/* Sous-titre — copywriting NSS */}
         <motion.p className="nss-desc" {...fadeUp(0.38)}>
-          De la graine semée à la table partagée, 175&nbsp;000 agricultrices
-          portent la souveraineté alimentaire d&apos;un continent entier.
-          Par leur force collective, elles changent le monde.
+          175&nbsp;000 paysannes unies dans 14 pays — formées, organisées,
+          souveraines. Ensemble, nous réinventons l&apos;agriculture africaine
+          depuis la graine jusqu&apos;à la table.
         </motion.p>
 
         {/* CTAs */}
@@ -150,7 +149,7 @@ export default function HeroHome() {
           background-image: url('/images/hero/hero-nss-femmes-rurales.jpg');
           background-size: cover;
           background-position: center 30%;
-          filter: saturate(0.60) brightness(0.72);
+          filter: saturate(0.75) brightness(0.85);
           z-index: 0;
         }
 
@@ -160,10 +159,10 @@ export default function HeroHome() {
           inset: 0;
           background: linear-gradient(
             114deg,
-            rgba(4,86,39,0.97)   0%,
-            rgba(4,86,39,0.90)  42%,
-            rgba(0,173,76,0.42) 72%,
-            rgba(4,86,39,0.08) 100%
+            rgba(4,86,39,0.82)   0%,
+            rgba(4,86,39,0.68)  45%,
+            rgba(0,173,76,0.20) 72%,
+            rgba(4,86,39,0.02) 100%
           );
           z-index: 1;
         }

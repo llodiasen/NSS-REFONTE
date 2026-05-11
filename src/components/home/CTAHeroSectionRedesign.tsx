@@ -60,9 +60,9 @@ export default function CTAHeroSectionRedesign() {
 
         {/* Sous-titre */}
         <motion.p className="cth-sub" {...inView(0.28)}>
-          Partagez-vous notre vision ? Adhérez à NSS et rejoignez{' '}
-          175&nbsp;000 femmes rurales qui transforment les systèmes
-          alimentaires en Afrique de l&apos;Ouest.
+          175&nbsp;000 femmes ont dit oui. Votre engagement — aussi grand
+          ou modeste soit-il — renforce la souveraineté alimentaire de
+          l&apos;Afrique de l&apos;Ouest. Votre place est parmi nous.
         </motion.p>
 
         {/* Boutons */}

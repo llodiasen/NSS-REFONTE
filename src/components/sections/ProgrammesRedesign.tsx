@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Calendar, MapPin, Users } from 'lucide-react'
 
 // ─── NSS Palette stricte ────────────────────────────────────────────────────
 const NSS = {
@@ -15,82 +14,80 @@ const NSS = {
 } as const
 
 // ─── Types ────────────────────────────────────────────────────────────────────
-interface MetaLine {
-  icon:   'calendar' | 'pin' | 'people'
-  text:   string
-  green?: boolean
+interface MetaItem {
+  icon:    string
+  label:   string
+  value:   string
+  detail?: string
 }
 
-interface Programme {
-  id:         string
-  label:      string
-  pill:       string
-  pillBorder: string
-  pillText:   string
-  titre:      string
-  sousTitre:  string
-  image:      string
-  imageAlt:   string
-  meta:       MetaLine[]
-  ctaLabel:   string
-  href:       string
+interface Evenement {
+  id:           string
+  titre:        string
+  sousTitre:    string
+  gradientFrom: string
+  gradientTo:   string
+  image?:       string
+  imageAlt?:    string
+  status:       'upcoming' | 'live'
+  meta:         [MetaItem, MetaItem]
+  description:  string
+  ctaLabel:     string
+  href:         string
 }
 
 // ─── Données ─────────────────────────────────────────────────────────────────
-const PROGRAMMES: Programme[] = [
+const EVENEMENTS: Evenement[] = [
   {
-    id:         'cifap',
-    label:      'PROGRAMME 01',
-    pill:       'AGROÉCOLOGIE',
-    pillBorder: NSS.vertPrimaire,
-    pillText:   NSS.vertPrimaire,
-    titre:      'CIFAP',
-    sousTitre:  "Camp International de Formation en Agroécologie Paysanne",
-    image:      '/images/actualites/nss-cifap-2025.jpg',
-    imageAlt:   'CIFAP 2025 — femmes agricultrices en formation agroécologique à Niaguis',
+    id:           'cifap',
+    titre:        'CIFAP',
+    sousTitre:    'Camp International de Formation en Agroécologie Paysanne',
+    gradientFrom: '#045627',
+    gradientTo:   '#00AD4C',
+    image:        '/images/programmes/Cifap/Cifap 2025 à Niaguis (67).jpg',
+    imageAlt:     'CIFAP 2025 — formation agroécologique à Niaguis, Sénégal',
+    status:       'upcoming',
     meta: [
-      { icon: 'calendar', text: 'Annuel · 4 éditions depuis 2022' },
-      { icon: 'pin',      text: 'Niaguis, Sénégal'               },
-      { icon: 'people',   text: '~200 participantes · 8 pays', green: true },
+      { icon: '📅', label: 'DATES', value: 'Sept. 2026' },
+      { icon: '📍', label: 'LIEU',  value: 'Niaguis',    detail: 'Sénégal'               },
     ],
-    ctaLabel: 'Voir les éditions',
-    href:     '/fr/programmes/cifap',
+    description:  "Un espace d'apprentissage collectif où les paysannes agroécologistes se forment, échangent et construisent ensemble des solutions pour la souveraineté alimentaire.",
+    ctaLabel:     'Voir les éditions',
+    href:         '/programmes/cifap',
   },
   {
-    id:         'rencontre',
-    label:      'PROGRAMME 02',
-    pill:       'RENCONTRES',
-    pillBorder: NSS.vertClair,
-    pillText:   '#3a6b00',
-    titre:      'Rencontre NSS',
-    sousTitre:  'Congrès Continentaux Biennaux',
-    image:      '/images/actualites/rencontre-2025.jpg',
-    imageAlt:   'Rencontre NSS — leaders paysannes en congrès continental',
+    id:           'rencontre',
+    titre:        'Rencontre NSS',
+    sousTitre:    'Congrès Continentaux Biennaux',
+    gradientFrom: '#1a4a0a',
+    gradientTo:   '#A5CE46',
+    image:        '/images/programmes/Cifap/foire-du-benin-1.webp',
+    imageAlt:     'Rencontre NSS — congrès continental des leaders paysannes',
+    status:       'upcoming',
     meta: [
-      { icon: 'calendar', text: 'Biennal · 5–7 jours'    },
-      { icon: 'pin',      text: "Afrique de l'Ouest"     },
-      { icon: 'people',   text: '500+ leaders · 14 pays', green: true },
+      { icon: '📅', label: 'DATES', value: '2027 (Prév.)' },
+      { icon: '📍', label: 'LIEU',  value: "Afr. de l'Ouest"                     },
     ],
-    ctaLabel: 'En savoir plus',
-    href:     '/fr/programmes',
+    description:  "Une plateforme continentale réunissant les leaders et actrices de la souveraineté alimentaire pour débattre, co-construire et amplifier les mouvements agroécologiques panafricains.",
+    ctaLabel:     'En savoir plus',
+    href:         '/programmes/rencontre',
   },
   {
-    id:         'foire',
-    label:      'PROGRAMME 03',
-    pill:       'FOIRE',
-    pillBorder: NSS.or,
-    pillText:   '#7a5200',
-    titre:      'Foire NSS',
-    sousTitre:  'Foire Annuelle de la Souveraineté Alimentaire',
-    image:      '/images/actualites/foire-djimini-semences-paysannes-2024.jpg',
-    imageAlt:   'Foire NSS — exposition semences paysannes et produits du terroir',
+    id:           'foire',
+    titre:        'Foire NSS',
+    sousTitre:    'Foire Annuelle de la Souveraineté Alimentaire',
+    gradientFrom: '#2a5c10',
+    gradientTo:   '#E8A838',
+    image:        '/images/programmes/Cifap/Foire-Djimini-2024-4-770x415.webp',
+    imageAlt:     'Foire NSS — Foire de Djimini 2024, souveraineté alimentaire',
+    status:       'upcoming',
     meta: [
-      { icon: 'calendar', text: 'Annuelle · 3 jours'           },
-      { icon: 'pin',      text: "Afrique de l'Ouest"           },
-      { icon: 'people',   text: '1 000+ visiteurs · 50+ orgs', green: true },
+      { icon: '📅', label: 'DATES', value: 'Sept. 2026' },
+      { icon: '📍', label: 'LIEU',  value: "Afr. de l'Ouest"                    },
     ],
-    ctaLabel: 'En savoir plus',
-    href:     '/fr/programmes',
+    description:  "Un festival d'agroécologie où paysannes, organisations et visiteurs célèbrent, découvrent et échangent les pratiques et innovations pour nourrir l'Afrique par elle-même.",
+    ctaLabel:     'En savoir plus',
+    href:         '/programmes/foire',
   },
 ]
 
@@ -111,71 +108,70 @@ const inViewScale = (delay = 0) => ({
   transition:  { duration: 0.80, delay, ease },
 })
 
-// ─── Icône meta ───────────────────────────────────────────────────────────────
-function MetaIcon({ type }: { type: MetaLine['icon'] }) {
-  if (type === 'calendar') return <Calendar size={13} strokeWidth={1.6} className="prg3-meta-icon" aria-hidden="true" />
-  if (type === 'pin')      return <MapPin   size={13} strokeWidth={1.6} className="prg3-meta-icon" aria-hidden="true" />
-  return                          <Users    size={13} strokeWidth={1.6} className="prg3-meta-icon" aria-hidden="true" />
-}
-
-// ─── Carte programme ─────────────────────────────────────────────────────────
-function ProgrammeCard({ p, index }: { p: Programme; index: number }) {
+// ─── Carte événement ─────────────────────────────────────────────────────────
+function EvenementCard({ ev, index }: { ev: Evenement; index: number }) {
   return (
     <motion.article
       className="prg3-card"
-      aria-label={p.titre}
+      aria-label={ev.titre}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.65, delay: 0.10 + index * 0.14, ease }}
       whileHover={{ y: -5, transition: { duration: 0.28, ease: 'easeOut' } }}
     >
-      {/* ── Image ── */}
+      {/* ── Image ou gradient placeholder ── */}
       <div className="prg3-img-wrap">
-        <Image
-          src={p.image}
-          alt={p.imageAlt}
-          fill
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="prg3-img"
-          loading="lazy"
-        />
-        <div className="prg3-img-ov" aria-hidden="true" />
+        {ev.image ? (
+          <Image
+            src={ev.image}
+            alt={ev.imageAlt ?? ev.titre}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="prg3-img"
+            loading="lazy"
+          />
+        ) : (
+          <div
+            className="prg3-gradient"
+            style={{ background: `linear-gradient(135deg, ${ev.gradientFrom} 0%, ${ev.gradientTo} 100%)` }}
+            aria-hidden="true"
+          />
+        )}
+        {ev.status === 'upcoming' && (
+          <span className="prg3-badge" aria-label="Événement à venir">À VENIR</span>
+        )}
       </div>
 
       {/* ── Contenu ── */}
       <div className="prg3-body">
 
-        {/* Label + pill */}
-        <div className="prg3-row-top">
-          <span className="prg3-label">{p.label}</span>
-          <span
-            className="prg3-pill"
-            style={{ borderColor: p.pillBorder, color: p.pillText }}
-          >
-            {p.pill}
-          </span>
-        </div>
-
         {/* Titre + sous-titre */}
         <div className="prg3-titles">
-          <h3 className="prg3-titre">{p.titre}</h3>
-          <p className="prg3-sous">{p.sousTitre}</p>
+          <h3 className="prg3-titre">{ev.titre}</h3>
+          <p className="prg3-sous">{ev.sousTitre}</p>
         </div>
 
-        {/* Meta */}
-        <ul className="prg3-meta" aria-label={`Infos ${p.titre}`}>
-          {p.meta.map(({ icon, text, green }) => (
-            <li key={text} className={`prg3-meta-item${green ? ' prg3-meta-green' : ''}`}>
-              <MetaIcon type={icon} />
-              <span>{text}</span>
-            </li>
+        {/* Meta — horizontale */}
+        <div className="prg3-meta-row" aria-label={`Infos ${ev.titre}`}>
+          {ev.meta.map((item, i) => (
+            <>
+              {i > 0 && <span key={`sep-${i}`} className="prg3-meta-sep" aria-hidden="true" />}
+              <div key={item.label} className="prg3-meta-item">
+                <span className="prg3-meta-label">{item.icon} {item.label}</span>
+                <span className="prg3-meta-value">{item.value}</span>
+                {item.detail && <span className="prg3-meta-detail">{item.detail}</span>}
+              </div>
+            </>
           ))}
-        </ul>
+        </div>
+
+        {/* Description */}
+        <p className="prg3-desc">{ev.description}</p>
 
         {/* CTA */}
-        <Link href={p.href} className="prg3-cta" aria-label={`${p.ctaLabel} — ${p.titre}`}>
-          {p.ctaLabel} →
+        <Link href={ev.href} className="prg3-cta" aria-label={`${ev.ctaLabel} — ${ev.titre}`}>
+          {ev.ctaLabel} →
         </Link>
 
       </div>
@@ -195,12 +191,12 @@ export default function ProgrammesRedesign() {
 
           <motion.div className="prg3-eyebrow" {...inView(0.06)}>
             <span className="prg3-eyebrow-line" aria-hidden="true" />
-            <span className="prg3-eyebrow-text">NOS PROGRAMMES</span>
+            <span className="prg3-eyebrow-text">PROCHAINS ÉVÉNEMENTS</span>
             <span className="prg3-eyebrow-line" aria-hidden="true" />
           </motion.div>
 
           <motion.h2 id="prg3-titre" className="prg3-h2" {...inViewScale(0.16)}>
-            Programmes <em>nés du terrain.</em>
+            Prochains <em>événements.</em>
           </motion.h2>
           <motion.span
             className="prg3-underline"
@@ -213,17 +209,17 @@ export default function ProgrammesRedesign() {
           />
 
           <motion.p className="prg3-intro" {...inView(0.26)}>
-            Trois programmes phares qui incarnent la mission NSS — formation
-            agroécologique, gouvernance continentale et valorisation des savoirs paysans.
+            Formation, congrès, foire — trois rendez-vous qui rassemblent
+            les femmes rurales d&apos;Afrique de l&apos;Ouest autour de la souveraineté alimentaire.
           </motion.p>
 
         </header>
 
         {/* ════ Grille 3 cartes ════ */}
-        <ul className="prg3-grid" role="list" aria-label="Programmes du mouvement NSS">
-          {PROGRAMMES.map((p, i) => (
-            <li key={p.id} role="listitem">
-              <ProgrammeCard p={p} index={i} />
+        <ul className="prg3-grid" role="list" aria-label="Prochains événements NSS">
+          {EVENEMENTS.map((ev, i) => (
+            <li key={ev.id} role="listitem">
+              <EvenementCard ev={ev} index={i} />
             </li>
           ))}
         </ul>
@@ -240,7 +236,7 @@ export default function ProgrammesRedesign() {
             style={{ transformOrigin: 'center' }}
           />
           <Link href="/fr/programmes" className="prg3-all">
-            Tous nos programmes
+            Voir tous nos programmes
             <svg width="14" height="8" viewBox="0 0 16 9" fill="none" aria-hidden="true">
               <path d="M1 4.5h13M10 1l4 3.5-4 3.5" stroke="currentColor"
                 strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -256,13 +252,13 @@ export default function ProgrammesRedesign() {
         .prg3-section {
           background: #ffffff;
           border-top: 1px solid rgba(0,173,76,0.08);
-          overflow: hidden;
         }
 
         .prg3-wrap {
-          max-width: 1280px;
+          max-width: 1200px;
           margin: 0 auto;
-          padding: 80px 24px 72px;
+          padding: 80px 32px 72px;
+          box-sizing: border-box;
         }
 
         /* ── En-tête ── */
@@ -327,9 +323,12 @@ export default function ProgrammesRedesign() {
           margin: 0;
           padding: 0;
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 24px;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 20px;
           align-items: start;
+        }
+        .prg3-grid > li {
+          min-width: 0;
         }
 
         /* ── Carte ── */
@@ -340,6 +339,8 @@ export default function ProgrammesRedesign() {
           overflow: hidden;
           display: flex;
           flex-direction: column;
+          min-width: 0;
+          width: 100%;
           box-shadow: 0 1px 6px rgba(0,0,0,0.05);
           transition:
             box-shadow   0.28s ease,
@@ -351,14 +352,13 @@ export default function ProgrammesRedesign() {
           border-color: rgba(0,173,76,0.28);
         }
 
-        /* ── Image ── */
+        /* ── Image / Gradient ── */
         .prg3-img-wrap {
           position: relative;
           width: 100%;
-          height: 220px;
+          height: 200px;
           flex-shrink: 0;
           overflow: hidden;
-          background: #0a1a0e;
         }
         .prg3-img {
           object-fit: cover;
@@ -366,15 +366,24 @@ export default function ProgrammesRedesign() {
           transition: transform 0.55s ease;
         }
         .prg3-card:hover .prg3-img { transform: scale(1.04); }
-        .prg3-img-ov {
+        .prg3-gradient {
+          width: 100%;
+          height: 100%;
+        }
+        .prg3-badge {
           position: absolute;
-          inset: 0;
-          background: linear-gradient(
-            to bottom,
-            rgba(0,0,0,0)    55%,
-            rgba(4,86,39,0.35) 100%
-          );
-          z-index: 1;
+          top: 10px;
+          right: 10px;
+          z-index: 10;
+          background: #045627;
+          color: #F5EDD6;
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 10px;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          padding: 4px 10px;
+          border-radius: 2px;
         }
 
         /* ── Corps ── */
@@ -386,39 +395,12 @@ export default function ProgrammesRedesign() {
           flex: 1;
         }
 
-        /* Label + pill */
-        .prg3-row-top {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 8px;
-        }
-        .prg3-label {
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 9px;
-          font-weight: 600;
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-          color: #ABABAB;
-        }
-        .prg3-pill {
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 8.5px;
-          font-weight: 700;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-          padding: 3px 10px;
-          border: 1px solid;
-          border-radius: 20px;
-          flex-shrink: 0;
-        }
-
         /* Titres */
         .prg3-titles { display: flex; flex-direction: column; gap: 5px; }
         .prg3-titre {
           font-family: var(--font-display), Georgia, serif;
           font-size: 26px;
-          font-weight: 700;
+          font-weight: 500;
           color: #111111;
           margin: 0;
           line-height: 1.12;
@@ -433,48 +415,99 @@ export default function ProgrammesRedesign() {
           font-weight: 400;
         }
 
-        /* Meta */
-        .prg3-meta {
-          list-style: none;
-          padding: 14px 0 0;
-          margin: 0;
+        /* Meta — horizontale */
+        .prg3-meta-row {
           display: flex;
-          flex-direction: column;
-          gap: 7px;
+          flex-direction: row;
+          align-items: flex-start;
+          gap: 0;
           border-top: 1px solid #F0EDE8;
+          padding-top: 14px;
         }
         .prg3-meta-item {
           display: flex;
+          flex-direction: row;
           align-items: center;
-          gap: 7px;
+          gap: 6px;
+          flex: 1;
+          min-width: 0;
+          overflow: hidden;
+        }
+        .prg3-meta-sep {
+          display: block;
+          width: 1px;
+          height: 16px;
+          background: #E4E0DB;
+          flex-shrink: 0;
+          align-self: center;
+          margin: 0 10px;
+        }
+        .prg3-meta-label {
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 12.5px;
+          font-size: 8px;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          color: #9CA3AF;
+          white-space: nowrap;
+          flex-shrink: 0;
+        }
+        .prg3-meta-value {
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 12px;
           font-weight: 500;
           color: ${NSS.vertFonce};
-          line-height: 1.4;
+          line-height: 1.2;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          min-width: 0;
         }
-        .prg3-meta-green {
-          color: ${NSS.vertPrimaire};
-          font-weight: 600;
-        }
-        .prg3-meta-icon {
-          color: ${NSS.vertPrimaire};
+        .prg3-meta-detail {
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 10px;
+          font-weight: 400;
+          color: #9CA3AF;
+          white-space: nowrap;
           flex-shrink: 0;
+        }
+
+        /* Description */
+        .prg3-desc {
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 13px;
+          font-weight: 400;
+          color: #2C2C28;
+          line-height: 1.6;
+          margin: 0;
+          text-align: justify;
+          hyphens: auto;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
         }
 
         /* CTA */
         .prg3-cta {
           display: inline-block;
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 13px;
+          font-size: 12px;
           font-weight: 700;
-          color: ${NSS.vertPrimaire};
+          color: ${NSS.vertFonce};
           text-decoration: none;
           margin-top: auto;
-          padding-top: 4px;
-          transition: color 0.22s ease;
+          padding: 8px 16px;
+          border: 1px solid ${NSS.vertClair};
+          border-radius: 4px;
+          align-self: flex-start;
+          transition: background 0.22s ease, color 0.22s ease;
         }
-        .prg3-cta:hover { color: ${NSS.vertFonce}; }
+        .prg3-cta:hover {
+          background: ${NSS.vertPrimaire};
+          color: #fff;
+          border-color: ${NSS.vertPrimaire};
+        }
 
         /* ── Footer ── */
         .prg3-footer {

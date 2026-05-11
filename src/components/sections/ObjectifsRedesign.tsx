@@ -26,32 +26,32 @@ const OBJECTIFS: Objectif[] = [
   {
     num:   '01',
     icon:  <Leaf size={22} strokeWidth={1.4} />,
-    titre: "Promouvoir l'agroécologie",
+    titre: "La terre comme héritage",
     desc:
-      "Valoriser les savoirs paysans, les semences traditionnelles et la biodiversité. " +
-      "L'agroécologie comme réponse souveraine et durable aux défis alimentaires " +
-      "de l'Afrique de l'Ouest.",
-    stat: { value: '500+', label: 'Associations AFR engagées' },
+      "Protéger les semences paysannes, transmettre les savoirs endogènes, " +
+      "pratiquer une agroécologie vivante. La terre n'est pas une ressource — " +
+      "c'est un héritage que nous rendons plus fertile à chaque génération.",
+    stat: { value: '500+', label: 'Associations de femmes rurales' },
   },
   {
     num:   '02',
     icon:  <Megaphone size={22} strokeWidth={1.4} />,
-    titre: "Amplifier la voix des paysannes",
+    titre: "La parole comme pouvoir",
     desc:
-      "Plaidoyer local, national et continental pour que les femmes rurales " +
-      "participent pleinement aux décisions sur l'agriculture, l'environnement " +
-      "et la souveraineté alimentaire.",
-    stat: { value: '7', label: 'Pays en mouvement' },
+      "Les décisions sur l'agriculture, le foncier et l'alimentation nous " +
+      "concernent — nous y participons. Du village à l'Union africaine, " +
+      "les paysannes de NSS portent leur voix là où se décide leur avenir.",
+    stat: { value: '14', label: 'Pays représentés' },
   },
   {
     num:   '03',
     icon:  <Globe size={22} strokeWidth={1.4} />,
-    titre: "Bâtir un mouvement continental",
+    titre: "L'union comme force",
     desc:
-      "Réseau de solidarité actif dans 7 pays, uni autour d'une vision commune : " +
-      "une Afrique où les femmes rurales décident, cultivent et transmettent " +
-      "leur souveraineté alimentaire.",
-    stat: { value: '14 ans', label: "D'engagement continu" },
+      "Seules, nous sommes invisibles. Ensemble, nous sommes 175 000. " +
+      "NSS tisse un réseau panafricain de solidarité où chaque association " +
+      "renforce les autres — de la Casamance au fleuve Niger.",
+    stat: { value: '14 ans', label: "D'engagement sans rupture" },
   },
 ]
 
@@ -87,7 +87,7 @@ export default function ObjectifsRedesign() {
         </motion.div>
 
         <motion.h2 id="obj-titre" className="obj-h2" {...inViewScale(0.16)}>
-          Trois piliers <em>pour bâtir ensemble.</em>
+          Agir, amplifier, <em>rassembler.</em>
         </motion.h2>
         <motion.span
           className="obj-underline"
@@ -100,8 +100,9 @@ export default function ObjectifsRedesign() {
         />
 
         <motion.p className="obj-intro" {...inView(0.26)}>
-          Trois piliers fondateurs qui guident l&apos;action du mouvement depuis 2011
-          pour une souveraineté alimentaire réelle en Afrique de l&apos;Ouest.
+          Depuis 2011, NSS agit sur trois fronts complémentaires — parce que
+          la souveraineté alimentaire se construit par la pratique, la parole
+          et la solidarité.
         </motion.p>
       </div>
 

@@ -160,7 +160,7 @@ export default function NewsSectionRedesign() {
           </motion.div>
 
           <motion.h2 id="nws-titre" className="nws-h2" {...inViewScale(0.16)}>
-            La vie <em>du mouvement.</em>
+            Le terrain <em>parle.</em>
           </motion.h2>
           <motion.span
             className="nws-underline"
@@ -173,8 +173,8 @@ export default function NewsSectionRedesign() {
           />
 
           <motion.p className="nws-intro" {...inView(0.26)}>
-            Rencontres, formations, plaidoyer et victoires — suivez l&apos;actualité
-            des&nbsp;175&nbsp;000 femmes rurales du réseau NSS.
+            Semences défendues, terres préservées, voix amplifiées — les femmes
+            rurales de NSS écrivent chaque jour un nouveau chapitre.
           </motion.p>
         </header>
 
