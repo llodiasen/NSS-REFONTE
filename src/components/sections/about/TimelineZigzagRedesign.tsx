@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 const NSS = {
   vertFonce:    '#045627',
@@ -9,6 +10,14 @@ const NSS = {
 } as const
 
 const ease = [0.22, 1, 0.36, 1] as const
+
+const PARTENAIRES = [
+  { nom: 'Grassroots International', logo: '/images/partenaires/Grassroots-international.jpg' },
+  { nom: 'AgroEcology Fund',         logo: '/images/partenaires/Agroecology-Fund.jpg' },
+  { nom: 'Thousand Currents',        logo: '/images/partenaires/thoussands-current-1.jpg' },
+  { nom: 'MATCH International',      logo: '/images/partenaires/Fond-egalite.png' },
+  { nom: 'Fahamu Africa',            logo: '/images/partenaires/logofahamu1.png' },
+] as const
 
 const ETAPES = [
   {
@@ -81,6 +90,24 @@ export default function TimelineZigzagRedesign() {
             </motion.li>
           ))}
         </ul>
+
+        {/* ══ Soutenus par ══ */}
+        <div className="tl-partners">
+          <p className="tl-partners-label">SOUTENUS PAR</p>
+          <div className="tl-logos" role="list" aria-label="Partenaires NSS">
+            {PARTENAIRES.map(({ nom, logo }) => (
+              <div key={nom} className="tl-logo-wrap" role="listitem">
+                <Image
+                  src={logo}
+                  alt={nom}
+                  fill
+                  sizes="110px"
+                  style={{ objectFit: 'contain' }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
 
       </div>
 
@@ -203,6 +230,48 @@ export default function TimelineZigzagRedesign() {
           margin: 0;
           text-align: justify;
           hyphens: auto;
+        }
+
+        /* ── Soutenus par ── */
+        .tl-partners {
+          margin-top: 64px;
+          padding-top: 40px;
+          border-top: 1px solid rgba(0, 0, 0, 0.07);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 24px;
+        }
+
+        .tl-partners-label {
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 9.5px;
+          font-weight: 700;
+          letter-spacing: 1.8px;
+          text-transform: uppercase;
+          color: #999;
+          margin: 0;
+        }
+
+        .tl-logos {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 28px;
+          flex-wrap: wrap;
+        }
+
+        .tl-logo-wrap {
+          position: relative;
+          width: 96px;
+          height: 44px;
+          filter: grayscale(1) opacity(0.45);
+          transition: filter 0.25s ease;
+          flex-shrink: 0;
+        }
+
+        .tl-logo-wrap:hover {
+          filter: grayscale(0) opacity(0.85);
         }
 
         /* ── Tablet (<1024px) : 2 colonnes ── */

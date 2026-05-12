@@ -4,11 +4,8 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 
 const NSS = {
-  vertFonce:    '#045627',
-  vertPrimaire: '#00AD4C',
-  vertClair:    '#A5CE46',
-  or:           '#E8A838',
-  creme:        '#F5EDD6',
+  vertClair: '#A5CE46',
+  or:        '#E8A838',
 } as const
 
 const ease = [0.22, 1, 0.36, 1] as const
@@ -24,182 +21,244 @@ export default function AboutHero() {
   return (
     <section className="ah" aria-labelledby="ah-titre">
 
+      {/* Fond photo */}
       <div className="ah-bg" aria-hidden />
+      {/* Overlay sombre */}
       <div className="ah-overlay" aria-hidden />
-      <div className="ah-grain" aria-hidden />
 
       <div className="ah-body">
 
+        {/* Fil d'Ariane */}
         <motion.nav
           className="ah-bc" aria-label="Fil d'Ariane"
           initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          transition={{ duration: 0.55, delay: 0.08 }}
+          transition={{ duration: 0.55, delay: 0.06 }}
         >
           <Link href="/fr" className="ah-bc-a">Accueil</Link>
           <span className="ah-bc-sep" aria-hidden>/</span>
           <span>À propos</span>
         </motion.nav>
 
+        {/* Eyebrow */}
         <motion.div
           className="ah-eyebrow"
           initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65, delay: 0.18, ease }}
+          transition={{ duration: 0.65, delay: 0.16, ease }}
         >
           <span className="ah-ey-line" aria-hidden />
           <span>NOTRE HISTOIRE</span>
           <span className="ah-ey-line" aria-hidden />
         </motion.div>
 
+        {/* H1 */}
         <motion.h1
           id="ah-titre" className="ah-h1"
           initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.85, delay: 0.30, ease }}
+          transition={{ duration: 0.85, delay: 0.28, ease }}
         >
           Un mouvement né des champs,{' '}
           <em>conduit par les femmes.</em>
         </motion.h1>
 
+        {/* Lead */}
         <motion.p
           className="ah-lead"
           initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75, delay: 0.46, ease }}
+          transition={{ duration: 0.75, delay: 0.42, ease }}
         >
           Depuis 2011, NSS fédère les femmes rurales d&apos;Afrique de l&apos;Ouest
           autour d&apos;une conviction&nbsp;: elles sont, elles-mêmes, la solution
           à la crise alimentaire du continent.
         </motion.p>
 
-      </div>
-
-      <motion.div
-        className="ah-statsbar"
-        role="list" aria-label="Chiffres clés"
-        initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.62, ease }}
-      >
-        <div className="ah-statsbar-inner">
-          {STATS.map(({ value, label }) => (
-            <div key={label} className="ah-statitem" role="listitem">
+        {/* Stats inline */}
+        <motion.div
+          className="ah-stats"
+          role="list" aria-label="Chiffres clés"
+          initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.70, delay: 0.58, ease }}
+        >
+          {STATS.map(({ value, label }, i) => (
+            <div key={label} className="ah-stat" role="listitem">
+              {i > 0 && <span className="ah-stat-sep" aria-hidden>|</span>}
               <span className="ah-stat-v">{value}</span>
               <span className="ah-stat-l">{label}</span>
             </div>
           ))}
-        </div>
-      </motion.div>
+        </motion.div>
+
+      </div>
 
       <style>{`
+        /* ── Hero ── */
         .ah {
-          position: relative; overflow: hidden;
-          min-height: 560px; display: flex; flex-direction: column;
+          position: relative;
+          overflow: hidden;
+          min-height: 580px;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
         }
+
+        /* ── Photo background ── */
         .ah-bg {
-          position: absolute; inset: 0;
+          position: absolute;
+          inset: 0;
           background:
             url('https://wasafrica.org/wp-content/uploads/2024/11/CENTRE-KARONGHEN-WATI-NANING-9-1.jpg')
             center 30% / cover no-repeat;
           z-index: 0;
         }
+
+        /* ── Overlay très sombre (style CIFAP) ── */
         .ah-overlay {
-          position: absolute; inset: 0;
-          background: linear-gradient(108deg,
-            rgba(2,18,8,0.97) 0%,
-            rgba(4,86,39,0.92) 38%,
-            rgba(3,58,22,0.82) 65%,
-            rgba(0,0,0,0.70) 100%
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            105deg,
+            rgba(0, 0, 0, 0.88) 0%,
+            rgba(2, 20, 8, 0.82) 40%,
+            rgba(4, 40, 16, 0.65) 70%,
+            rgba(0, 0, 0, 0.50) 100%
           );
           z-index: 1;
         }
-        .ah-grain {
-          position: absolute; inset: 0;
-          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-          pointer-events: none; z-index: 2;
-        }
+
+        /* ── Corps ── */
         .ah-body {
-          position: relative; z-index: 3; flex: 1;
-          max-width: 1400px; margin: 0 auto; width: 100%;
-          padding: 64px clamp(1rem, 2.5vw, 24px) 56px;
+          position: relative;
+          z-index: 2;
+          max-width: 1400px;
+          margin: 0 auto;
+          width: 100%;
+          padding: 72px clamp(1.5rem, 4vw, 64px) 64px;
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: column;
         }
+
+        /* ── Fil d'Ariane ── */
         .ah-bc {
-          display: flex; align-items: center; gap: 8px;
-          margin-bottom: 44px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          margin-bottom: 40px;
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 13px; color: rgba(255,255,255,0.80);
+          font-size: 13px;
+          color: rgba(255, 255, 255, 0.75);
         }
-        .ah-bc-a { color: rgba(255,255,255,0.48); text-decoration: none; transition: color .2s; }
+        .ah-bc-a {
+          color: rgba(255, 255, 255, 0.44);
+          text-decoration: none;
+          transition: color 0.2s;
+        }
         .ah-bc-a:hover { color: #fff; }
-        .ah-bc-sep { color: rgba(255,255,255,0.26); }
+        .ah-bc-sep { color: rgba(255, 255, 255, 0.24); }
+
+        /* ── Eyebrow ── */
         .ah-eyebrow {
-          display: flex; align-items: center; gap: 16px;
-          margin-bottom: 30px;
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          margin-bottom: 28px;
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 9.5px; font-weight: 700;
-          letter-spacing: 0.26em; text-transform: uppercase;
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: 0.26em;
+          text-transform: uppercase;
           color: ${NSS.or};
         }
         .ah-ey-line {
-          display: block; width: 40px; height: 1px;
-          background: rgba(232,168,56,0.44); flex-shrink: 0;
+          display: block;
+          width: 36px;
+          height: 1px;
+          background: rgba(232, 168, 56, 0.45);
+          flex-shrink: 0;
         }
+
+        /* ── H1 ── */
         .ah-h1 {
           font-family: var(--font-display), Georgia, serif;
-          font-size: clamp(30px, 4vw, 58px);
-          font-weight: 600; line-height: 1.07;
-          color: #ffffff; margin: 0 0 26px;
-          letter-spacing: -0.02em; max-width: 800px;
+          font-size: clamp(32px, 4.2vw, 62px);
+          font-weight: 700;
+          line-height: 1.08;
+          color: #ffffff;
+          margin: 0 0 28px;
+          letter-spacing: -0.02em;
+          max-width: 820px;
         }
-        .ah-h1 em { font-style: italic; color: ${NSS.vertClair}; }
-        .ah-lead {
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 17px; font-weight: 300; line-height: 1.78;
-          color: rgba(255,255,255,0.74); max-width: 520px; margin: 0;
-        }
-        /* Stats bar */
-        .ah-statsbar {
-          position: relative; z-index: 3;
-          background: rgba(4,86,39,0.90);
-          backdrop-filter: blur(12px);
-          border-top: 1px solid rgba(165,206,70,0.16);
-        }
-        .ah-statsbar-inner {
-          max-width: 1400px; margin: 0 auto;
-          padding: 0 clamp(1rem, 2.5vw, 24px);
-          display: grid; grid-template-columns: repeat(4, 1fr);
-        }
-        .ah-statitem {
-          display: flex; flex-direction: column; align-items: center;
-          padding: 22px 16px; gap: 5px;
-          border-left: 1px solid rgba(165,206,70,0.16);
-        }
-        .ah-statitem:first-child { border-left: none; }
-        .ah-stat-v {
-          font-family: var(--font-display), Georgia, serif;
-          font-size: clamp(20px, 2.2vw, 30px);
-          font-weight: 600; color: #ffffff;
-          line-height: 1; letter-spacing: -0.02em;
-        }
-        .ah-stat-l {
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 9px; font-weight: 700;
-          letter-spacing: 0.18em; text-transform: uppercase;
+        .ah-h1 em {
+          font-style: italic;
           color: ${NSS.vertClair};
         }
-        /* Responsive */
+
+        /* ── Lead ── */
+        .ah-lead {
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 16px;
+          font-weight: 300;
+          line-height: 1.75;
+          color: rgba(255, 255, 255, 0.72);
+          max-width: 540px;
+          margin: 0 0 48px;
+        }
+
+        /* ── Stats inline (style CIFAP) ── */
+        .ah-stats {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 0;
+          row-gap: 12px;
+        }
+
+        .ah-stat {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .ah-stat-sep {
+          font-size: 14px;
+          color: rgba(255, 255, 255, 0.20);
+          margin: 0 20px;
+          font-weight: 300;
+        }
+
+        .ah-stat-v {
+          font-family: var(--font-display), Georgia, serif;
+          font-size: clamp(20px, 2vw, 28px);
+          font-weight: 700;
+          color: ${NSS.vertClair};
+          line-height: 1;
+          letter-spacing: -0.01em;
+        }
+
+        .ah-stat-l {
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+          color: rgba(255, 255, 255, 0.55);
+        }
+
+        /* ── Responsive ── */
         @media (max-width: 768px) {
-          .ah { min-height: 460px; }
-          .ah-body { padding: 48px 20px 44px; }
-          .ah-statsbar-inner { grid-template-columns: repeat(2, 1fr); }
-          .ah-statitem:nth-child(1) { border-left: none; }
-          .ah-statitem:nth-child(2) { border-left: 1px solid rgba(165,206,70,0.16); }
-          .ah-statitem:nth-child(3) { border-left: none; border-top: 1px solid rgba(165,206,70,0.16); }
-          .ah-statitem:nth-child(4) { border-left: 1px solid rgba(165,206,70,0.16); border-top: 1px solid rgba(165,206,70,0.16); }
+          .ah { min-height: 500px; }
+          .ah-body { padding: 56px 24px 48px; }
+          .ah-stat-sep { margin: 0 12px; }
         }
+
         @media (max-width: 480px) {
-          .ah-h1 { font-size: clamp(24px, 7.5vw, 38px); }
+          .ah-h1 { font-size: clamp(26px, 8vw, 38px); }
           .ah-lead { font-size: 15px; }
-          .ah-stat-v { font-size: 22px; }
+          .ah-stats { gap: 8px; row-gap: 16px; }
+          .ah-stat-sep { margin: 0 8px; }
         }
+
         @media (prefers-reduced-motion: reduce) {
-          .ah-stat-v, .ah-stat-l { transition: none; }
+          .ah-h1, .ah-lead { transition: none; }
         }
       `}</style>
     </section>

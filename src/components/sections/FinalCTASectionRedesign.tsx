@@ -58,26 +58,6 @@ export default function FinalCTASectionRedesign() {
           </Link>
         </div>
 
-        {/* Separator */}
-        <div className="fcta-sep" aria-hidden />
-
-        {/* Partner logos */}
-        <p className="fcta-partners-label" aria-label="Soutenus par nos partenaires">
-          Soutenus par
-        </p>
-        <div className="fcta-logos" role="list" aria-label="Partenaires NSS">
-          {PARTENAIRES.map(({ nom, logo }) => (
-            <div key={nom} className="fcta-logo-wrap" role="listitem">
-              <Image
-                src={logo}
-                alt={nom}
-                fill
-                sizes="120px"
-                style={{ objectFit: 'contain' }}
-              />
-            </div>
-          ))}
-        </div>
 
       </div>
 
