@@ -119,7 +119,7 @@ export default function AboutDeclaration() {
         }
         .adc-h2-l1 {
           font-family: var(--font-display), Georgia, serif;
-          font-size: clamp(22px, 2.2vw, 34px);
+          font-size: clamp(24px, 2.2vw, 36px);
           font-weight: 700;
           line-height: 1.2;
           color: #2A2A2A;
@@ -129,7 +129,7 @@ export default function AboutDeclaration() {
         }
         .adc-h2-l2 {
           font-family: var(--font-display), Georgia, serif;
-          font-size: clamp(22px, 2.2vw, 34px);
+          font-size: clamp(24px, 2.2vw, 36px);
           font-weight: 700;
           line-height: 1.2;
           color: ${NSS.vertClair};

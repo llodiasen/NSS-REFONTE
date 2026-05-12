@@ -1,6 +1,7 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 
 const NSS = {
@@ -20,18 +21,7 @@ const PARTENAIRES = [
   { nom: 'Fahamu Africa',            logo: '/images/partenaires/logofahamu1.png' },
 ] as const
 
-type Etape = {
-  annee:      string
-  badge:      string
-  badgeColor: string
-  badgeBg:    string
-  titre:      string
-  texte:      string
-  actif:      boolean
-  dotStyle:   'active' | 'past' | 'future'
-}
-
-const ETAPES: Etape[] = [
+const ETAPES = [
   {
     annee:      '2011',
     badge:      'NAISSANCE',
@@ -39,8 +29,6 @@ const ETAPES: Etape[] = [
     badgeBg:    'rgba(0,173,76,0.10)',
     titre:      'Campagne fondatrice',
     texte:      "NSS naît comme expression des droits des femmes rurales, lançant une campagne globale pour la souveraineté alimentaire en Afrique de l'Ouest avec l'appui de 12 organisations fondatrices.",
-    actif:      true,
-    dotStyle:   'active',
   },
   {
     annee:      '2011–14',
@@ -49,8 +37,6 @@ const ETAPES: Etape[] = [
     badgeBg:    'rgba(107,114,128,0.08)',
     titre:      'De campagne à mouvement',
     texte:      "NSS s'affirme comme mouvement paysan autonome, ancré dans chaque pays membre d'Afrique de l'Ouest. Les premières associations de femmes rurales rejoignent massivement.",
-    actif:      false,
-    dotStyle:   'past',
   },
   {
     annee:      '2017',
@@ -59,8 +45,6 @@ const ETAPES: Etape[] = [
     badgeBg:    'rgba(232,168,56,0.10)',
     titre:      '1ère Assemblée Générale',
     texte:      "Instances dirigeantes constituées à 100 % de femmes rurales. Chaque pays représenté au Conseil d'Administration qui élit le bureau.",
-    actif:      false,
-    dotStyle:   'past',
   },
   {
     annee:      'Auj.',
@@ -69,12 +53,18 @@ const ETAPES: Etape[] = [
     badgeBg:    'rgba(165,206,70,0.10)',
     titre:      'Autonomie totale',
     texte:      "175 000 femmes rurales organisées en 500+ associations pilotent elles-mêmes le mouvement à travers 14 pays d'Afrique de l'Ouest.",
-    actif:      false,
-    dotStyle:   'future',
   },
 ]
 
+function dotStyle(i: number, selected: number): 'active' | 'past' | 'future' {
+  if (i === selected) return 'active'
+  if (i === ETAPES.length - 1) return 'future'
+  return 'past'
+}
+
 export default function TimelineZigzagRedesign() {
+  const [selected, setSelected] = useState(0)
+
   return (
     <section className="tl" aria-labelledby="tl-heading">
       <div className="tl-wrap">
@@ -106,15 +96,24 @@ export default function TimelineZigzagRedesign() {
         {/* ══ Timeline nodes ══ */}
         <motion.div
           className="tl-timeline"
-          aria-hidden="true"
+          role="tablist"
+          aria-label="Étapes du parcours"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.55, delay: 0.20, ease }}
         >
-          {ETAPES.map((e) => (
+          {ETAPES.map((e, i) => (
             <div key={e.annee} className="tl-col">
-              <div className={`tl-dot tl-dot--${e.dotStyle}`}>{e.annee}</div>
+              <button
+                type="button"
+                role="tab"
+                aria-selected={i === selected}
+                className={`tl-dot tl-dot--${dotStyle(i, selected)}`}
+                onClick={() => setSelected(i)}
+              >
+                {e.annee}
+              </button>
             </div>
           ))}
         </motion.div>
@@ -125,11 +124,12 @@ export default function TimelineZigzagRedesign() {
             <motion.li
               key={e.annee}
               role="listitem"
-              className={`tl-card${e.actif ? ' tl-card--actif' : ''}`}
+              className={`tl-card${i === selected ? ' tl-card--actif' : ''}`}
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.65, delay: 0.08 + i * 0.10, ease }}
+              onClick={() => setSelected(i)}
             >
               <span className="tl-ghost" aria-hidden="true">{e.annee}</span>
 
@@ -230,24 +230,42 @@ export default function TimelineZigzagRedesign() {
           font-size: 12px; font-weight: 700;
           letter-spacing: -0.01em;
           flex-shrink: 0;
+          cursor: pointer;
+          border: none;
+          transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease, color 0.22s ease;
+        }
+
+        .tl-dot:focus-visible {
+          outline: 2px solid ${NSS.vertPrimaire};
+          outline-offset: 3px;
         }
 
         .tl-dot--active {
           width: 66px; height: 66px;
           background: ${NSS.vertPrimaire};
           color: #ffffff;
-          box-shadow: 0 0 0 5px rgba(0,173,76,0.14);
+          box-shadow: 0 0 0 5px rgba(0,173,76,0.16);
+          transform: scale(1.05);
         }
 
         .tl-dot--past {
           background: ${NSS.vertFonce};
           color: #ffffff;
         }
+        .tl-dot--past:hover {
+          background: ${NSS.vertPrimaire};
+          transform: scale(1.06);
+        }
 
         .tl-dot--future {
           background: #ffffff;
           color: #2A2A2A;
           border: 1.5px solid #2A2A2A;
+        }
+        .tl-dot--future:hover {
+          border-color: ${NSS.vertPrimaire};
+          color: ${NSS.vertPrimaire};
+          transform: scale(1.06);
         }
 
         /* ── Grille ── */
@@ -266,17 +284,22 @@ export default function TimelineZigzagRedesign() {
           border-radius: 4px;
           padding: 28px 24px 32px;
           display: flex; flex-direction: column;
-          transition: box-shadow 0.24s ease, transform 0.24s ease;
+          cursor: pointer;
+          transition: background 0.30s ease, border-color 0.30s ease,
+                      box-shadow 0.24s ease, transform 0.24s ease;
         }
 
-        .tl-card:hover {
-          box-shadow: 0 6px 24px rgba(0,0,0,0.10);
-          transform: translateY(-3px);
+        .tl-card:not(.tl-card--actif):hover {
+          box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+          transform: translateY(-2px);
+          border-color: ${NSS.vertClair};
         }
 
         .tl-card--actif {
           background: ${NSS.vertFonce};
           border-color: ${NSS.vertFonce};
+          box-shadow: 0 8px 28px rgba(4,86,39,0.20);
+          transform: translateY(-3px);
         }
 
         /* ── Ghost year ── */
@@ -300,6 +323,7 @@ export default function TimelineZigzagRedesign() {
           padding: 4px 10px; border-radius: 100px;
           margin-bottom: 20px;
           position: relative; z-index: 1;
+          transition: color 0.30s ease, background 0.30s ease;
         }
         .tl-card--actif .tl-badge {
           color: ${NSS.vertClair} !important;
@@ -314,6 +338,7 @@ export default function TimelineZigzagRedesign() {
           margin-bottom: 16px;
           color: #2A2A2A;
           position: relative; z-index: 1;
+          transition: color 0.30s ease;
         }
         .tl-card--actif .tl-titre { color: #ffffff; }
 
@@ -324,6 +349,7 @@ export default function TimelineZigzagRedesign() {
           color: #2C2C28; margin: 0;
           text-align: justify; hyphens: auto;
           position: relative; z-index: 1;
+          transition: color 0.30s ease;
         }
         .tl-card--actif .tl-texte { color: rgba(255,255,255,0.72); }
 
@@ -368,7 +394,7 @@ export default function TimelineZigzagRedesign() {
         }
 
         @media (prefers-reduced-motion: reduce) {
-          .tl-card { transition: none; }
+          .tl-card, .tl-dot { transition: none; }
         }
       `}</style>
     </section>

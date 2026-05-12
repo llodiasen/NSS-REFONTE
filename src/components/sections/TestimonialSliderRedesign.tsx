@@ -415,7 +415,7 @@ export default function TestimonialSliderRedesign() {
           .ldr-photo { position: relative; width: 100%; height: 280px; overflow: hidden; background: #2c2c28; }
           .ldr-body { background: #ffffff; border-top: 3px solid ${NSS.vertPrimaire}; padding: 24px 24px 28px; display: flex; flex-direction: column; }
           .ldr-role { margin: 0 0 8px; font-family: var(--font-dm-sans), sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: ${NSS.vertClair}; }
-          .ldr-nom { margin: 0 0 4px; font-family: var(--font-display), Georgia, serif; font-size: 22px; font-weight: 700; line-height: 1.2; color: #2A2A2A; }
+          .ldr-nom { margin: 0 0 4px; font-family: var(--font-display), Georgia, serif; font-size: 20px; font-weight: 700; line-height: 1.2; color: #2A2A2A; }
           .ldr-orga { margin: 0 0 14px; font-family: var(--font-dm-sans), sans-serif; font-size: 13px; color: #666; line-height: 1.4; }
           .ldr-divider { height: 1px; background: #e8e6e0; margin-bottom: 14px; flex-shrink: 0; }
           .ldr-pays { display: flex; align-items: center; gap: 6px; margin: 0 0 18px; font-family: var(--font-dm-sans), sans-serif; font-size: 12px; font-weight: 500; color: #2C2C28; }

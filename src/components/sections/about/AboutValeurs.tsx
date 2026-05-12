@@ -191,7 +191,7 @@ export default function AboutValeurs() {
         /* Title */
         .val-card-titre {
           font-family: var(--font-display), Georgia, serif;
-          font-size: 28px; font-weight: 700;
+          font-size: 20px; font-weight: 700;
           color: #0A0A0A; margin: 0 0 8px; line-height: 1.1;
         }
         /* Accroche */
@@ -235,7 +235,7 @@ export default function AboutValeurs() {
         @media (max-width: 480px) {
           .val-header { padding: 44px 0 28px; }
           .val-card { padding: 28px 18px 26px; }
-          .val-card-titre { font-size: 24px; }
+          .val-card-titre { font-size: 20px; }
           .val-card-desc { font-size: 13.5px; }
         }
         @media (prefers-reduced-motion: reduce) {
