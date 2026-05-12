@@ -351,7 +351,7 @@ export default function TimelineZigzagRedesign() {
           position: relative; z-index: 1;
           transition: color 0.30s ease;
         }
-        .tl-card--actif .tl-texte { color: rgba(255,255,255,0.72); }
+        .tl-card--actif .tl-texte { color: #ffffff; }
 
         /* ── Soutenus par ── */
         .tl-partners {
