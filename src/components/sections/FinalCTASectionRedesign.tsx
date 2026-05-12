@@ -104,7 +104,7 @@ export default function FinalCTASectionRedesign() {
         /* Subtitle */
         .fcta-sub {
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 15px; color: rgba(245,237,214,.68);
+          font-size: 15px; color: #ffffff;
           line-height: 1.78; margin: 0 0 36px;
           max-width: 520px; text-align: center;
         }

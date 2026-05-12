@@ -7,6 +7,7 @@ const NSS = {
   vertFonce:    '#045627',
   vertPrimaire: '#00AD4C',
   vertClair:    '#A5CE46',
+  or:           '#E8A838',
 } as const
 
 const ease = [0.22, 1, 0.36, 1] as const
@@ -19,28 +20,59 @@ const PARTENAIRES = [
   { nom: 'Fahamu Africa',            logo: '/images/partenaires/logofahamu1.png' },
 ] as const
 
-const ETAPES = [
+type Etape = {
+  annee:      string
+  badge:      string
+  badgeColor: string
+  badgeBg:    string
+  titre:      string
+  texte:      string
+  actif:      boolean
+  dotStyle:   'active' | 'past' | 'future'
+}
+
+const ETAPES: Etape[] = [
   {
-    annee: '2011',
-    titre: 'La naissance',
-    texte: "12 organisations d'Afrique de l'Ouest lancent NSS pour la souveraineté alimentaire des femmes rurales.",
+    annee:      '2011',
+    badge:      'NAISSANCE',
+    badgeColor: NSS.vertPrimaire,
+    badgeBg:    'rgba(0,173,76,0.10)',
+    titre:      'Campagne fondatrice',
+    texte:      "NSS naît comme expression des droits des femmes rurales, lançant une campagne globale pour la souveraineté alimentaire en Afrique de l'Ouest avec l'appui de 12 organisations fondatrices.",
+    actif:      true,
+    dotStyle:   'active',
   },
   {
-    annee: '2011–14',
-    titre: 'La campagne',
-    texte: "Déploiement terrain. Séances d'éducation. Les premières associations de femmes rurales rejoignent.",
+    annee:      '2011–14',
+    badge:      'TRANSITION',
+    badgeColor: '#6B7280',
+    badgeBg:    'rgba(107,114,128,0.08)',
+    titre:      'De campagne à mouvement',
+    texte:      "NSS s'affirme comme mouvement paysan autonome, ancré dans chaque pays membre d'Afrique de l'Ouest. Les premières associations de femmes rurales rejoignent massivement.",
+    actif:      false,
+    dotStyle:   'past',
   },
   {
-    annee: '2014',
-    titre: 'Le mouvement',
-    texte: "500+ Associations de Femmes Rurales rejoignent NSS. Force paysanne autonome reconnue à l'échelle continentale.",
+    annee:      '2017',
+    badge:      'GOUVERNANCE',
+    badgeColor: NSS.or,
+    badgeBg:    'rgba(232,168,56,0.10)',
+    titre:      '1ère Assemblée Générale',
+    texte:      "Instances dirigeantes constituées à 100 % de femmes rurales. Chaque pays représenté au Conseil d'Administration qui élit le bureau.",
+    actif:      false,
+    dotStyle:   'past',
   },
   {
-    annee: '2017',
-    titre: '1ère Assemblée Générale',
-    texte: "Gouvernance 100 % féminine. Chaque pays représenté au Conseil d'Administration.",
+    annee:      'Auj.',
+    badge:      'LEADERSHIP',
+    badgeColor: NSS.vertClair,
+    badgeBg:    'rgba(165,206,70,0.10)',
+    titre:      'Autonomie totale',
+    texte:      "175 000 femmes rurales organisées en 500+ associations pilotent elles-mêmes le mouvement à travers 14 pays d'Afrique de l'Ouest.",
+    actif:      false,
+    dotStyle:   'future',
   },
-] as const
+]
 
 export default function TimelineZigzagRedesign() {
   return (
@@ -56,7 +88,7 @@ export default function TimelineZigzagRedesign() {
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.60, ease }}
           >
-            NOTRE PARCOURS
+            NOTRE HISTOIRE
           </motion.p>
 
           <motion.h2
@@ -67,9 +99,25 @@ export default function TimelineZigzagRedesign() {
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.72, delay: 0.10, ease }}
           >
-            De campagne à mouvement <em>continental.</em>
+            L&apos;évolution du mouvement <em>NSS.</em>
           </motion.h2>
         </header>
+
+        {/* ══ Timeline nodes ══ */}
+        <motion.div
+          className="tl-timeline"
+          aria-hidden="true"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.55, delay: 0.20, ease }}
+        >
+          {ETAPES.map((e) => (
+            <div key={e.annee} className="tl-col">
+              <div className={`tl-dot tl-dot--${e.dotStyle}`}>{e.annee}</div>
+            </div>
+          ))}
+        </motion.div>
 
         {/* ══ Grille 4 cartes ══ */}
         <ul className="tl-grid" role="list" aria-label="Étapes du parcours NSS">
@@ -77,14 +125,21 @@ export default function TimelineZigzagRedesign() {
             <motion.li
               key={e.annee}
               role="listitem"
-              className="tl-card"
+              className={`tl-card${e.actif ? ' tl-card--actif' : ''}`}
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.65, delay: 0.08 + i * 0.10, ease }}
             >
-              <span className="tl-annee">{e.annee}</span>
-              <span className="tl-sep" aria-hidden="true" />
+              <span className="tl-ghost" aria-hidden="true">{e.annee}</span>
+
+              <span
+                className="tl-badge"
+                style={{ color: e.badgeColor, backgroundColor: e.badgeBg }}
+              >
+                {e.badge}
+              </span>
+
               <strong className="tl-titre">{e.titre}</strong>
               <p className="tl-texte">{e.texte}</p>
             </motion.li>
@@ -97,13 +152,7 @@ export default function TimelineZigzagRedesign() {
           <div className="tl-logos" role="list" aria-label="Partenaires NSS">
             {PARTENAIRES.map(({ nom, logo }) => (
               <div key={nom} className="tl-logo-wrap" role="listitem">
-                <Image
-                  src={logo}
-                  alt={nom}
-                  fill
-                  sizes="110px"
-                  style={{ objectFit: 'contain' }}
-                />
+                <Image src={logo} alt={nom} fill sizes="110px" style={{ objectFit: 'contain' }} />
               </div>
             ))}
           </div>
@@ -112,11 +161,7 @@ export default function TimelineZigzagRedesign() {
       </div>
 
       <style>{`
-        /* ── Section ── */
-        .tl {
-          background: #ffffff;
-          overflow: hidden;
-        }
+        .tl { background: #ffffff; overflow: hidden; }
 
         .tl-wrap {
           max-width: 1400px;
@@ -126,170 +171,202 @@ export default function TimelineZigzagRedesign() {
         }
 
         /* ── En-tête ── */
-        .tl-header {
-          margin-bottom: 48px;
-          text-align: center;
-        }
+        .tl-header { margin-bottom: 48px; text-align: center; }
 
         .tl-eyebrow {
-          margin: 0 0 16px;
+          display: flex; align-items: center; justify-content: center; gap: 16px;
+          margin: 0 0 20px;
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 10px;
-          font-weight: 700;
-          letter-spacing: 1.5px;
-          text-transform: uppercase;
+          font-size: 10px; font-weight: 700;
+          letter-spacing: 1.5px; text-transform: uppercase;
           color: ${NSS.vertClair};
+        }
+        .tl-eyebrow::before,
+        .tl-eyebrow::after {
+          content: ''; display: block;
+          width: 36px; height: 1px;
+          background: ${NSS.vertClair}; opacity: 0.5;
+          flex-shrink: 0;
         }
 
         .tl-h2 {
           margin: 0;
           font-family: var(--font-display), Georgia, serif;
-          font-size: 36px;
-          font-weight: 700;
-          line-height: 1.2;
-          color: #2A2A2A;
-          letter-spacing: -0.01em;
+          font-size: 36px; font-weight: 700; line-height: 1.2;
+          color: #2A2A2A; letter-spacing: -0.01em;
+        }
+        .tl-h2 em { font-style: italic; color: ${NSS.vertPrimaire}; }
+
+        /* ── Timeline nodes ── */
+        .tl-timeline {
+          position: relative;
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          gap: 16px;
+          margin-bottom: 16px;
         }
 
-        .tl-h2 em {
-          font-style: italic;
-          color: ${NSS.vertClair};
+        .tl-timeline::before {
+          content: '';
+          position: absolute;
+          top: 50%; left: 0; right: 0;
+          height: 1.5px;
+          background: #dedad3;
+          transform: translateY(-50%);
+          z-index: 0;
+        }
+
+        .tl-col {
+          display: flex; align-items: center; justify-content: center;
+          position: relative; z-index: 1;
+          padding: 8px 0;
+        }
+
+        .tl-dot {
+          display: flex; align-items: center; justify-content: center;
+          width: 58px; height: 58px;
+          border-radius: 50%;
+          font-family: var(--font-display), Georgia, serif;
+          font-size: 12px; font-weight: 700;
+          letter-spacing: -0.01em;
+          flex-shrink: 0;
+        }
+
+        .tl-dot--active {
+          width: 66px; height: 66px;
+          background: ${NSS.vertPrimaire};
+          color: #ffffff;
+          box-shadow: 0 0 0 5px rgba(0,173,76,0.14);
+        }
+
+        .tl-dot--past {
+          background: ${NSS.vertFonce};
+          color: #ffffff;
+        }
+
+        .tl-dot--future {
+          background: #ffffff;
+          color: #2A2A2A;
+          border: 1.5px solid #2A2A2A;
         }
 
         /* ── Grille ── */
         .tl-grid {
-          list-style: none;
-          margin: 0;
-          padding: 0;
+          list-style: none; margin: 0; padding: 0;
           display: grid;
           grid-template-columns: 1fr 1fr 1fr 1fr;
-          gap: 32px;
-          width: 100%;
+          gap: 16px; width: 100%;
         }
 
         /* ── Carte ── */
         .tl-card {
+          position: relative; overflow: hidden;
           background: #ffffff;
-          border-radius: 0;
-          padding: 32px;
-          display: flex;
-          flex-direction: column;
-          box-shadow:
-            inset 0 0 0 1px ${NSS.vertClair},
-            0 2px 8px rgba(0, 0, 0, 0.08);
-          transition:
-            box-shadow 0.24s ease,
-            transform   0.24s ease;
+          border: 1px solid #e8e6e0;
+          border-radius: 4px;
+          padding: 28px 24px 32px;
+          display: flex; flex-direction: column;
+          transition: box-shadow 0.24s ease, transform 0.24s ease;
         }
 
         .tl-card:hover {
-          box-shadow:
-            inset 0 0 0 2px ${NSS.vertPrimaire},
-            0 4px 16px rgba(0, 0, 0, 0.12);
-          transform: translateY(-2px);
+          box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+          transform: translateY(-3px);
         }
 
-        /* ── Année ── */
-        .tl-annee {
+        .tl-card--actif {
+          background: ${NSS.vertFonce};
+          border-color: ${NSS.vertFonce};
+        }
+
+        /* ── Ghost year ── */
+        .tl-ghost {
+          position: absolute;
+          right: -2px; top: 4px;
           font-family: var(--font-display), Georgia, serif;
-          font-size: 16px;
-          font-weight: 700;
-          color: ${NSS.vertFonce};
-          display: block;
-          margin-bottom: 0;
+          font-size: 82px; font-weight: 900;
+          line-height: 1; letter-spacing: -0.03em;
+          color: rgba(0,0,0,0.042);
+          pointer-events: none; user-select: none;
+        }
+        .tl-card--actif .tl-ghost { color: rgba(165,206,70,0.10); }
+
+        /* ── Badge ── */
+        .tl-badge {
+          display: inline-block; width: fit-content;
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 9px; font-weight: 700;
+          letter-spacing: 0.14em; text-transform: uppercase;
+          padding: 4px 10px; border-radius: 100px;
+          margin-bottom: 20px;
+          position: relative; z-index: 1;
+        }
+        .tl-card--actif .tl-badge {
+          color: ${NSS.vertClair} !important;
+          background: rgba(165,206,70,0.15) !important;
         }
 
-        /* ── Underline sous l'année ── */
-        .tl-sep {
-          display: block;
-          width: 36px;
-          height: 2px;
-          background: ${NSS.vertClair};
-          margin-top: 8px;
-          margin-bottom: 16px;
-          flex-shrink: 0;
-        }
-
-        /* ── Titre carte ── */
+        /* ── Titre ── */
         .tl-titre {
           font-family: var(--font-display), Georgia, serif;
-          font-size: 22px;
-          font-weight: 700;
-          color: #2A2A2A;
-          display: block;
-          line-height: 1.25;
+          font-size: 20px; font-weight: 700;
+          line-height: 1.25; display: block;
           margin-bottom: 16px;
+          color: #2A2A2A;
+          position: relative; z-index: 1;
         }
+        .tl-card--actif .tl-titre { color: #ffffff; }
 
         /* ── Texte ── */
         .tl-texte {
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 14px;
-          line-height: 1.6;
-          color: #2C2C28;
-          margin: 0;
-          text-align: justify;
-          hyphens: auto;
+          font-size: 14px; line-height: 1.72;
+          color: #2C2C28; margin: 0;
+          text-align: justify; hyphens: auto;
+          position: relative; z-index: 1;
         }
+        .tl-card--actif .tl-texte { color: rgba(255,255,255,0.72); }
 
         /* ── Soutenus par ── */
         .tl-partners {
-          margin-top: 64px;
-          padding-top: 40px;
-          border-top: 1px solid rgba(0, 0, 0, 0.07);
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 24px;
+          margin-top: 64px; padding-top: 40px;
+          border-top: 1px solid rgba(0,0,0,0.07);
+          display: flex; flex-direction: column; align-items: center; gap: 24px;
         }
-
         .tl-partners-label {
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 9.5px;
-          font-weight: 700;
-          letter-spacing: 1.8px;
-          text-transform: uppercase;
-          color: #999;
-          margin: 0;
+          font-size: 9.5px; font-weight: 700;
+          letter-spacing: 1.8px; text-transform: uppercase;
+          color: #999; margin: 0;
         }
-
         .tl-logos {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 28px;
-          flex-wrap: wrap;
+          display: flex; align-items: center; justify-content: center;
+          gap: 28px; flex-wrap: wrap;
         }
-
         .tl-logo-wrap {
-          position: relative;
-          width: 96px;
-          height: 44px;
+          position: relative; width: 96px; height: 44px;
           filter: grayscale(1) opacity(0.45);
-          transition: filter 0.25s ease;
-          flex-shrink: 0;
+          transition: filter 0.25s ease; flex-shrink: 0;
         }
+        .tl-logo-wrap:hover { filter: grayscale(0) opacity(0.85); }
 
-        .tl-logo-wrap:hover {
-          filter: grayscale(0) opacity(0.85);
-        }
-
-        /* ── Tablet (<1024px) : 2 colonnes ── */
+        /* ── Tablet ── */
         @media (max-width: 1024px) {
           .tl-wrap { padding: 80px 40px; }
-          .tl-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
-          .tl-h2   { font-size: 30px; }
+          .tl-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+          .tl-timeline { grid-template-columns: 1fr 1fr; }
+          .tl-h2 { font-size: 30px; }
         }
 
-        /* ── Mobile (<640px) : 1 colonne ── */
+        /* ── Mobile ── */
         @media (max-width: 640px) {
           .tl-wrap { padding: 64px 24px; }
-          .tl-grid { grid-template-columns: 1fr; gap: 24px; }
+          .tl-grid { grid-template-columns: 1fr; gap: 14px; }
           .tl-card { padding: 24px; }
-          .tl-h2   { font-size: 26px; }
+          .tl-h2 { font-size: 26px; }
+          .tl-timeline { display: none; }
         }
 
-        /* ── Réduction de mouvement ── */
         @media (prefers-reduced-motion: reduce) {
           .tl-card { transition: none; }
         }

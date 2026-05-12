@@ -166,7 +166,7 @@ export default function PartnersSectionRedesign() {
         /* ── Section ── */
         .pts-section {
           position: relative;
-          background: #F5F3EE;
+          background: #F9F8F5;
           border-top: 1px solid rgba(0,0,0,0.06);
           overflow: hidden;
         }

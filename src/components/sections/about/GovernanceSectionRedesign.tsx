@@ -78,7 +78,7 @@ export default function GovernanceSectionRedesign() {
           display: inline-flex;
           align-items: center;
           gap: 5px;
-          background: #F5F3EE;
+          background: #F9F8F5;
           border: 1px solid rgba(165, 206, 70, 0.40);
           border-radius: 100px;
           padding: 5px 12px;

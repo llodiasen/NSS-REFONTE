@@ -94,7 +94,7 @@ export default function AboutHero() {
         .ah {
           position: relative;
           overflow: hidden;
-          min-height: 580px;
+          min-height: 480px;
           display: flex;
           flex-direction: column;
           justify-content: flex-end;
@@ -240,7 +240,7 @@ export default function AboutHero() {
           font-weight: 700;
           letter-spacing: 0.16em;
           text-transform: uppercase;
-          color: rgba(255, 255, 255, 0.55);
+          color: #ffffff;
         }
 
         /* ── Responsive ── */

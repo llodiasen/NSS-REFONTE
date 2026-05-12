@@ -31,7 +31,7 @@ const LEADERS: Leader[] = [
   {
     eyebrow:  'Présidente',
     nom:      'Mariama Sonko',
-    orga:     'NSS — Nous Sommes la Solution',
+    orga:     'AJAC LUKAAL — Association des Jeunes Agriculteurs de Casamance',
     pays:     'Sénégal',
     drapeau:  '🇸🇳',
     photo:    'https://res.cloudinary.com/dtjvjlkcc/image/upload/q_auto/f_auto/v1775741948/Mariama_sonko_presidente_nss_hjukz0.jpg',
@@ -65,7 +65,7 @@ const LEADERS: Leader[] = [
   {
     eyebrow:  'CA Guinée',
     nom:      'Sia A.M. Kamano',
-    orga:     'AGUISSA — Sécurité et Souveraineté Alimentaires',
+    orga:     'AGUISSA — Association Guinéenne pour la Sécurité et la Souveraineté Alimentaires',
     pays:     'Guinée',
     drapeau:  '🇬🇳',
     photo:    'https://wasafrica.org/wp-content/uploads/2024/08/Sia-A.-M.-Kamano-AGUISSA-1.jpg',
@@ -82,7 +82,7 @@ const LEADERS: Leader[] = [
   {
     eyebrow:  'CA Mali',
     nom:      'Yah Diakité',
-    orga:     'AMASSA — Souveraineté Alimentaire Mali',
+    orga:     'AMASSA — Association Malienne pour la Sécurité et la Souveraineté Alimentaires',
     pays:     'Mali',
     drapeau:  '🇲🇱',
     photo:    'https://wasafrica.org/wp-content/uploads/2024/08/Yah-Diakite-AMASSA-rotated-1.jpg',
@@ -171,27 +171,24 @@ const VISIBLES = 4
 /* ── Popup ───────────────────────────────────────────────────────────────── */
 function Popup({ leader, onClose }: { leader: Leader; onClose: () => void }) {
   useEffect(() => {
-    document.body.style.overflow = 'hidden'
+    document.body.classList.add('popup-open')
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
     window.addEventListener('keydown', onKey)
     return () => {
-      document.body.style.overflow = ''
+      document.body.classList.remove('popup-open')
       window.removeEventListener('keydown', onKey)
     }
   }, [onClose])
 
   return (
-    <AnimatePresence>
-      <motion.div
-        className="pop-overlay"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.25 }}
-        onClick={onClose}
-        aria-hidden="true"
-      />
-
+    <motion.div
+      className="pop-overlay"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.25 }}
+      onClick={onClose}
+    >
       <motion.div
         role="dialog"
         aria-modal="true"
@@ -262,7 +259,7 @@ function Popup({ leader, onClose }: { leader: Leader; onClose: () => void }) {
 
         </div>
       </motion.div>
-    </AnimatePresence>
+    </motion.div>
   )
 }
 
@@ -398,7 +395,7 @@ export default function TestimonialSliderRedesign() {
         </div>
 
         <style>{`
-          .ldr { background: #F5F3EE; overflow: hidden; }
+          .ldr { background: #F9F8F5; overflow: hidden; }
           .ldr-wrap { max-width: 1400px; margin: 0 auto; padding: 96px 64px; box-sizing: border-box; }
 
           /* Header */
@@ -432,10 +429,11 @@ export default function TestimonialSliderRedesign() {
           .ldr-toggle:hover { background: ${NSS.vertPrimaire}; color: #fff; }
 
           /* Popup overlay */
-          .pop-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.70); backdrop-filter: blur(4px); z-index: 1000; }
+          .pop-overlay { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(0,0,0,0.70); backdrop-filter: blur(4px); z-index: 1000; box-sizing: border-box; }
+          body.popup-open { overflow: hidden; position: fixed; width: 100%; }
 
           /* Popup modal */
-          .pop-modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1001; background: #fff; width: 90%; max-width: 680px; max-height: 85vh; overflow-y: auto; border-top: 4px solid ${NSS.vertPrimaire}; border-radius: 0; box-shadow: 0 24px 64px rgba(0,0,0,0.20); padding: 48px; box-sizing: border-box; }
+          .pop-modal { position: relative; background: #fff; width: 90%; max-width: 680px; max-height: 85vh; overflow-y: auto; border-top: 4px solid ${NSS.vertPrimaire}; border-radius: 0; box-shadow: 0 24px 64px rgba(0,0,0,0.20); padding: 48px; box-sizing: border-box; }
 
           /* Close */
           .pop-close { position: absolute; top: 20px; right: 20px; background: none; border: none; cursor: pointer; color: #2C2C28; padding: 6px; display: flex; align-items: center; transition: color 0.2s; }
@@ -457,7 +455,7 @@ export default function TestimonialSliderRedesign() {
 
           /* Stats */
           .pop-stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 8px; }
-          .pop-stat { background: #F5F3EE; padding: 16px; border-left: 3px solid ${NSS.vertPrimaire}; }
+          .pop-stat { background: #F9F8F5; padding: 16px; border-left: 3px solid ${NSS.vertPrimaire}; }
           .pop-stat-val { display: block; font-family: var(--font-display), Georgia, serif; font-size: 28px; font-weight: 700; color: ${NSS.vertPrimaire}; line-height: 1; margin-bottom: 4px; }
           .pop-stat-label { display: block; font-family: var(--font-dm-sans), sans-serif; font-size: 12px; color: #2C2C28; line-height: 1.3; }
 
@@ -469,7 +467,9 @@ export default function TestimonialSliderRedesign() {
       </section>
 
       {/* ══ Popup ══ */}
-      {selected && <Popup leader={selected} onClose={closePopup} />}
+      <AnimatePresence>
+        {selected && <Popup key="popup" leader={selected} onClose={closePopup} />}
+      </AnimatePresence>
     </>
   )
 }
