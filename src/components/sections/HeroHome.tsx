@@ -96,9 +96,10 @@ export default function HeroHome() {
         </motion.h1>
 
         <motion.p className="nss-desc" {...fadeUp(0.38)}>
-          175&nbsp;000 paysannes unies dans 14 pays — formées, organisées,
-          souveraines. Ensemble, nous réinventons l&apos;agriculture africaine
-          depuis la graine jusqu&apos;à la table.
+          175&nbsp;000 femmes rurales. 14 pays. Une seule conviction&nbsp;:
+          l&apos;Afrique se nourrit par ses propres mains. Depuis 2011, nous
+          cultivons, transformons et transmettons — parce que la souveraineté
+          alimentaire commence par nous.
         </motion.p>
 
         {/* CTAs */}
@@ -176,7 +177,7 @@ export default function HeroHome() {
           flex-direction: column;
           justify-content: center;
           padding: 148px 96px 88px;
-          max-width: 920px;
+          max-width: 1100px;
         }
 
         /* ── Eyebrow ── */

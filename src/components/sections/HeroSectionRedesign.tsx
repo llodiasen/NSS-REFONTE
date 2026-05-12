@@ -62,8 +62,8 @@ export default function HeroSectionRedesign() {
 
           {/* H2 */}
           <motion.h2 id="qs-titre" className="qs-h2" {...inViewScale(0.18)}>
-            Nées du terrain,{' '}
-            <em>bâtisseuses de souveraineté.</em>
+            Le mouvement des femmes rurales{' '}
+            <em>pour la souveraineté alimentaire.</em>
           </motion.h2>
           <motion.span
             className="qs-underline"
@@ -199,7 +199,7 @@ export default function HeroSectionRedesign() {
         }
         .qs-inner {
           max-width: 100%;
-          padding: 80px 80px;
+          padding: 80px 24px;
           display: grid;
           grid-template-columns: 1.15fr 0.85fr;
           gap: 80px;
@@ -306,7 +306,7 @@ export default function HeroSectionRedesign() {
         }
         .qs-stat-value {
           font-family: var(--font-display), Georgia, serif;
-          font-size: 22px;
+          font-size: 24px;
           font-weight: 600;
           color: ${NSS.vertFonce};
           line-height: 1;
@@ -473,10 +473,10 @@ export default function HeroSectionRedesign() {
 
         /* ── Tablet ── */
         @media (max-width: 1100px) {
-          .qs-inner { padding: 60px 48px; gap: 52px; }
+          .qs-inner { padding: 60px 24px; gap: 52px; }
         }
         @media (max-width: 1024px) {
-          .qs-inner { padding: 52px 40px; gap: 40px; }
+          .qs-inner { padding: 52px 24px; gap: 40px; }
         }
 
         /* ── Mobile ── */
@@ -496,7 +496,7 @@ export default function HeroSectionRedesign() {
           .qs-h2 { line-height: 1.2; }
           .qs-body { font-size: 14px; }
           .qs-video { min-height: 250px; }
-          .qs-stat-value { font-size: 28px; }
+          .qs-stat-value { font-size: 30px; }
         }
 
         /* ── Réduction de mouvement ── */

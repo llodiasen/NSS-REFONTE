@@ -1,320 +1,442 @@
-"use client";
+'use client'
 
-import { useState, useEffect, useCallback } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
+import Link from 'next/link'
 
-/* ── palette ─────────────────────────────────────────────────────────────── */
-const GOLD     = "#C9A227";
-const GREEN_VIF= "#2d9a6a";
-const GREEN_LT = "#4db882";
-const BORDER   = "#045627";
-const _BG       = "#ffffff";
-const _DARK     = "#071A10";
+const NSS = {
+  vertPrimaire: '#00AD4C',
+  vertClair:    '#A5CE46',
+} as const
 
-/* ── data ────────────────────────────────────────────────────────────────── */
-type Leader = { nom: string; role: string; orga: string; location: string; caption: string; photo: string; href: string };
+const ease = [0.22, 1, 0.36, 1] as const
 
-const LEADERS: Leader[] = [
-  {
-    nom: "Mariama Sonko",
-    role: "Présidente",
-    orga: "NSS",
-    location: "Sénégal",
-    caption: "Fondatrice et présidente depuis 2011, elle porte la voix des 175 000 membres de NSS sur la scène internationale de la souveraineté alimentaire.",
-    photo: "https://res.cloudinary.com/dtjvjlkcc/image/upload/q_auto/f_auto/v1775741948/Mariama_sonko_presidente_nss_hjukz0.jpg",
-    href: "/fr/mouvement/associations",
-  },
-  {
-    nom: "Esther Y. Boake",
-    role: "CA Ghana",
-    orga: "ABOFAB",
-    location: "Ghana",
-    caption: "Déléguée de l'ABOFAB, elle représente les organisations paysannes ghanéennes au sein du Conseil d'Administration de NSS.",
-    photo: "https://wasafrica.org/wp-content/uploads/2024/08/Esther-Y.-Boake-ABOFAB-1.jpg",
-    href: "/fr/mouvement/associations",
-  },
-  {
-    nom: "Sia A.M. Kamano",
-    role: "CA Guinée",
-    orga: "AGUISSA",
-    location: "Guinée",
-    caption: "Représentante de l'AGUISSA, elle œuvre pour l'autonomie des femmes paysannes guinéennes à travers l'agroécologie.",
-    photo: "https://wasafrica.org/wp-content/uploads/2024/08/Sia-A.-M.-Kamano-AGUISSA-1.jpg",
-    href: "/fr/mouvement/associations",
-  },
-  {
-    nom: "Yah Diakité",
-    role: "CA Mali",
-    orga: "AMASSA",
-    location: "Mali",
-    caption: "Pilier de l'AMASSA, elle engage les femmes rurales maliennes dans la préservation des semences paysannes et la biodiversité.",
-    photo: "https://wasafrica.org/wp-content/uploads/2024/08/Yah-Diakite-AMASSA-rotated-1.jpg",
-    href: "/fr/mouvement/associations",
-  },
-  {
-    nom: "Cadia Fernandes",
-    role: "CA Guinée-Bissau",
-    orga: "KAFO",
-    location: "Guinée-Bissau",
-    caption: "Représentante de KAFO, elle défend la vision NSS en Guinée-Bissau et milite pour le rôle central des femmes dans les systèmes alimentaires.",
-    photo: "https://wasafrica.org/wp-content/uploads/2024/08/Cadia-Fernandes-KAFO-1-1-rotated-1.jpg",
-    href: "/fr/mouvement/associations",
-  },
-  {
-    nom: "Catherine Soulama",
-    role: "CA Burkina Faso",
-    orga: "FENOP",
-    location: "Burkina Faso",
-    caption: "Déléguée de la FENOP, elle coordonne les actions du mouvement au Burkina Faso et incarne l'engagement collectif des femmes rurales burkinabè.",
-    photo: "https://wasafrica.org/wp-content/uploads/2024/08/Catherie-Soulama-FENOP-1-rotated-1.jpg",
-    href: "/fr/mouvement/associations",
-  },
-  {
-    nom: "Fanta Diamoutene",
-    role: "CA Mali",
-    orga: "AOPP",
-    location: "Mali",
-    caption: "Membre active de l'AOPP, elle mobilise les organisations paysannes autour des valeurs fondatrices de NSS et de la souveraineté alimentaire.",
-    photo: "https://wasafrica.org/wp-content/uploads/2024/08/Fanta-Diamoutene-AOPP-1-rotated-1.jpg",
-    href: "/fr/mouvement/associations",
-  },
-  {
-    nom: "Fatou B. Diop",
-    role: "CA Sénégal",
-    orga: "UGPM",
-    location: "Sénégal",
-    caption: "Porte-voix de l'UGPM, elle contribue à l'expansion du réseau NSS et à la promotion des droits des productrices rurales du Sénégal.",
-    photo: "https://wasafrica.org/wp-content/uploads/2024/08/Fatou-B.-Diop-UGPM.jpg",
-    href: "/fr/mouvement/associations",
-  },
-];
-
-const CPP   = 4; // cards per page
-const PAGES = Math.ceil(LEADERS.length / CPP);
-
-/* ── card ────────────────────────────────────────────────────────────────── */
-function LeaderCard({ l }: { l: Leader }) {
-  return (
-    <article className="tsl-card">
-      <div className="tsl-card-img">
-        <Image src={l.photo} alt={l.nom} fill
-          style={{ objectFit: "cover", objectPosition: "top center" }}
-          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" />
-        <div className="tsl-grad" />
-        <div className="tsl-body">
-          <p className="tsl-name">{l.nom}</p>
-          <p className="tsl-role">
-            {l.role}&nbsp;<span className="tsl-orga">· {l.orga}</span>
-          </p>
-          <p className="tsl-loc"><span className="tsl-dot" />{l.location}</p>
-          <Link href={l.href} className="tsl-cta">En savoir plus →</Link>
-        </div>
-      </div>
-    </article>
-  );
+type Leader = {
+  eyebrow: string
+  nom:     string
+  orga:    string
+  pays:    string
+  photo:   string
+  href:    string
 }
 
-/* ── main ────────────────────────────────────────────────────────────────── */
-export default function TestimonialSliderRedesign() {
-  const [page, setPage]     = useState(0);
-  const [paused, setPaused] = useState(false);
+const LEADERS_VISIBLES: Leader[] = [
+  {
+    eyebrow: 'Présidente',
+    nom:     'Mariama Sonko',
+    orga:    'NSS — Nous Sommes la Solution',
+    pays:    'Sénégal',
+    photo:   'https://res.cloudinary.com/dtjvjlkcc/image/upload/q_auto/f_auto/v1775741948/Mariama_sonko_presidente_nss_hjukz0.jpg',
+    href:    '/fr/mouvement/associations',
+  },
+  {
+    eyebrow: 'CA Ghana',
+    nom:     'Esther Y. Boake',
+    orga:    'ABOFAB — Organic Farming Project',
+    pays:    'Ghana',
+    photo:   'https://wasafrica.org/wp-content/uploads/2024/08/Esther-Y.-Boake-ABOFAB-1.jpg',
+    href:    '/fr/mouvement/associations',
+  },
+  {
+    eyebrow: 'CA Guinée',
+    nom:     'Sia A.M. Kamano',
+    orga:    'AGUISSA — Sécurité Alimentaire',
+    pays:    'Guinée',
+    photo:   'https://wasafrica.org/wp-content/uploads/2024/08/Sia-A.-M.-Kamano-AGUISSA-1.jpg',
+    href:    '/fr/mouvement/associations',
+  },
+  {
+    eyebrow: 'CA Mali',
+    nom:     'Yah Diakité',
+    orga:    'AMASSA — Souveraineté Alimentaire',
+    pays:    'Mali',
+    photo:   'https://wasafrica.org/wp-content/uploads/2024/08/Yah-Diakite-AMASSA-rotated-1.jpg',
+    href:    '/fr/mouvement/associations',
+  },
+]
 
-  const go = useCallback((n: number) => setPage(((n % PAGES) + PAGES) % PAGES), []);
+const LEADERS_SUPPLEMENTAIRES: Leader[] = [
+  {
+    eyebrow: 'CA Guinée-Bissau',
+    nom:     'Cadia Fernandes',
+    orga:    'KAFO — Femmes Rurales',
+    pays:    'Guinée-Bissau',
+    photo:   'https://wasafrica.org/wp-content/uploads/2024/08/Cadia-Fernandes-KAFO-1-1-rotated-1.jpg',
+    href:    '/fr/mouvement/associations',
+  },
+  {
+    eyebrow: 'CA Burkina Faso',
+    nom:     'Catherine Soulama',
+    orga:    'FENOP — Organisations Paysannes',
+    pays:    'Burkina Faso',
+    photo:   'https://wasafrica.org/wp-content/uploads/2024/08/Catherie-Soulama-FENOP-1-rotated-1.jpg',
+    href:    '/fr/mouvement/associations',
+  },
+  {
+    eyebrow: 'CA Mali',
+    nom:     'Fanta Diamoutene',
+    orga:    'AOPP — Organisations Paysannes',
+    pays:    'Mali',
+    photo:   'https://wasafrica.org/wp-content/uploads/2024/08/Fanta-Diamoutene-AOPP-1-rotated-1.jpg',
+    href:    '/fr/mouvement/associations',
+  },
+  {
+    eyebrow: 'CA Sénégal',
+    nom:     'Fatou B. Diop',
+    orga:    'UGPM — Groupements Paysans',
+    pays:    'Sénégal',
+    photo:   'https://wasafrica.org/wp-content/uploads/2024/08/Fatou-B.-Diop-UGPM.jpg',
+    href:    '/fr/mouvement/associations',
+  },
+]
 
-  useEffect(() => {
-    if (paused) return;
-    const t = setInterval(() => setPage(p => (p + 1) % PAGES), 7000);
-    return () => clearInterval(t);
-  }, [paused]);
-
+function LeaderCard({ l, delay = 0 }: { l: Leader; delay?: number }) {
   return (
-    <section className="tsl-section" aria-label="Nos leaders"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}>
+    <motion.li
+      role="listitem"
+      className="ldr-card"
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.65, delay, ease }}
+    >
+      <div className="ldr-photo">
+        <Image
+          src={l.photo}
+          alt={l.nom}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          style={{ objectFit: 'cover', objectPosition: 'top center' }}
+        />
+      </div>
 
-      {/* Header */}
-      <div className="tsl-header">
-        <p className="tsl-eyebrow">
-          <span className="tsl-eline" />Nos Leaders<span className="tsl-eline" />
+      <div className="ldr-body">
+        <p className="ldr-role">{l.eyebrow}</p>
+        <p className="ldr-nom">{l.nom}</p>
+        <p className="ldr-orga">{l.orga}</p>
+        <div className="ldr-divider" aria-hidden="true" />
+        <p className="ldr-pays">
+          <span className="ldr-dot" aria-hidden="true" />
+          {l.pays}
         </p>
-        <h2 className="tsl-h2">Les voix qui portent <em className="tsl-h2-em">le mouvement.</em></h2>
-        <p className="tsl-sub">175&nbsp;000 membres · 12 pays · 500+ associations de femmes rurales</p>
-      </div>
-
-      {/* Viewport */}
-      <div className="tsl-viewport">
-        <div className="tsl-track" style={{ transform: `translateX(-${page * 100}%)` }}>
-          {Array.from({ length: PAGES }).map((_, pi) => (
-            <div key={pi} className="tsl-slide">
-              <div className="tsl-grid">
-                {LEADERS.slice(pi * CPP, (pi + 1) * CPP).map(l => (
-                  <LeaderCard key={l.nom} l={l} />
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Navigation */}
-      <div className="tsl-nav">
-        <button className="tsl-arrow" onClick={() => go(page - 1)} aria-label="Précédent">
-          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden>
-            <path d="M13 16L7 10L13 4" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-        <div className="tsl-dots" role="tablist">
-          {Array.from({ length: PAGES }).map((_, i) => (
-            <button key={i} role="tab" aria-selected={i === page} aria-label={`Page ${i + 1}`}
-              className={`tsl-dot-btn${i === page ? " tsl-dot-btn--on" : ""}`}
-              onClick={() => go(i)} />
-          ))}
-        </div>
-        <button className="tsl-arrow" onClick={() => go(page + 1)} aria-label="Suivant">
-          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden>
-            <path d="M7 4L13 10L7 16" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-      </div>
-
-      {/* Global CTA */}
-      <div className="tsl-cta-wrap">
-        <Link href="/fr/mouvement/associations" className="tsl-cta-btn">
-          Voir toutes les associations →
+        <Link href={l.href} className="ldr-cta" aria-label={`En savoir plus sur ${l.nom}`}>
+          EN SAVOIR PLUS →
         </Link>
       </div>
+    </motion.li>
+  )
+}
 
-      <style suppressHydrationWarning>{`
-        .tsl-section { background:#FAF6EE; padding:100px 0 80px; overflow:hidden; }
+export default function TestimonialSliderRedesign() {
+  const [ouvert, setOuvert] = useState(false)
 
-        /* Header */
-        .tsl-header { text-align:center; padding:0 2rem; margin-bottom:48px; }
-        .tsl-eyebrow {
-          display:flex; align-items:center; justify-content:center; gap:14px;
-          font-family:var(--font-body); font-size:11px; font-weight:700;
-          text-transform:uppercase; letter-spacing:1.5px; color:#A5CE46; margin:0 0 18px;
-        }
-        .tsl-eline { display:block; width:28px; height:1px; background:rgba(165,206,70,0.5); flex-shrink:0; }
-        .tsl-h2 {
-          font-family:var(--font-display); font-size:clamp(24px,3vw,38px);
-          font-weight:600; color:#1a1a1a; margin:0 0 10px; line-height:1.15;
-        }
-        .tsl-h2-em { font-style:italic; font-weight:600; color:#A5CE46; }
-        .tsl-sub { font-family:var(--font-body); font-size:13px; color:#7a7a7a; margin:0; }
+  return (
+    <section className="ldr" aria-labelledby="ldr-heading">
+      <div className="ldr-wrap">
 
-        /* Slider */
-        .tsl-viewport { width:100%; overflow:hidden; }
-        .tsl-track { display:flex; transition:transform .65s cubic-bezier(.4,0,.2,1); will-change:transform; }
-        .tsl-slide { min-width:100%; padding:0 2rem; box-sizing:border-box; }
-        .tsl-grid {
-          display:grid; grid-template-columns:repeat(4,1fr); gap:20px;
+        {/* ══ En-tête ══ */}
+        <header className="ldr-header">
+          <motion.p
+            className="ldr-eyebrow"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.60, ease }}
+          >
+            NOS LEADERS
+          </motion.p>
+
+          <motion.h2
+            id="ldr-heading"
+            className="ldr-h2"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.72, delay: 0.10, ease }}
+          >
+            Les voix qui portent <em>le mouvement.</em>
+          </motion.h2>
+
+          <motion.p
+            className="ldr-sub"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.65, delay: 0.18, ease }}
+          >
+            Des femmes de terrain qui incarnent NSS par leur engagement,
+            leur vision et leur détermination.
+          </motion.p>
+        </header>
+
+        {/* ══ Grille visible ══ */}
+        <ul className="ldr-grid" role="list" aria-label="Leaders NSS">
+          {LEADERS_VISIBLES.map((l, i) => (
+            <LeaderCard key={l.nom} l={l} delay={0.08 + i * 0.09} />
+          ))}
+        </ul>
+
+        {/* ══ Grille supplémentaire ══ */}
+        <AnimatePresence>
+          {ouvert && (
+            <motion.ul
+              className="ldr-grid ldr-grid--extra"
+              role="list"
+              aria-label="Membres supplémentaires NSS"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              style={{ overflow: 'hidden' }}
+            >
+              {LEADERS_SUPPLEMENTAIRES.map((l, i) => (
+                <LeaderCard key={l.nom} l={l} delay={0.06 + i * 0.08} />
+              ))}
+            </motion.ul>
+          )}
+        </AnimatePresence>
+
+        {/* ══ Bouton toggle ══ */}
+        <div className="ldr-toggle-wrap">
+          <button
+            type="button"
+            className="ldr-toggle"
+            onClick={() => setOuvert(v => !v)}
+            aria-expanded={ouvert}
+          >
+            {ouvert ? 'VOIR MOINS ↑' : 'VOIR PLUS ↓'}
+          </button>
+        </div>
+
+      </div>
+
+      <style>{`
+        /* ── Section ── */
+        .ldr {
+          background: #F5F3EE;
+          overflow: hidden;
         }
 
-        /* Card */
-        .tsl-card {
-          border:2px solid ${BORDER}; border-radius:4px; overflow:hidden;
-          transition:transform .25s ease, box-shadow .25s ease;
-        }
-        .tsl-card:hover { transform:translateY(-5px); box-shadow:0 14px 36px rgba(4,86,39,.20); }
-        .tsl-card-img { position:relative; aspect-ratio:2/3; overflow:hidden; }
-        .tsl-card:hover .tsl-card-img > img { transform:scale(1.04); }
-        .tsl-card-img > img { transition:transform .6s ease !important; }
-
-        /* Gradient overlay */
-        .tsl-grad {
-          position:absolute; inset:0;
-          background:linear-gradient(to top,
-            rgba(4,12,8,.97) 0%,
-            rgba(4,12,8,.88) 30%,
-            rgba(4,12,8,.42) 56%,
-            transparent 78%
-          );
-          pointer-events:none;
+        .ldr-wrap {
+          max-width: 1400px;
+          margin: 0 auto;
+          padding: 96px 64px;
+          box-sizing: border-box;
         }
 
-        /* Card content */
-        .tsl-body {
-          position:absolute; bottom:0; left:0; right:0;
-          padding:20px 16px 18px;
-          display:flex; flex-direction:column; gap:4px;
+        /* ── En-tête ── */
+        .ldr-header {
+          margin-bottom: 48px;
         }
-        .tsl-name {
-          font-family:var(--font-display); font-size:16px; font-weight:400;
-          color:#fff; margin:0; line-height:1.2;
-        }
-        .tsl-role {
-          font-family:var(--font-body); font-size:10px; font-weight:700;
-          text-transform:uppercase; letter-spacing:1.2px; color:#ffffff; margin:0;
-        }
-        .tsl-orga { font-weight:400; letter-spacing:0; }
-        .tsl-loc {
-          display:flex; align-items:center; gap:6px;
-          font-family:var(--font-body); font-size:11px; color:${GREEN_LT}; margin:0 0 7px;
-        }
-        .tsl-dot {
-          width:5px; height:5px; border-radius:50%;
-          background:${GREEN_LT}; flex-shrink:0;
-        }
-        .tsl-caption {
-          font-family:var(--font-display); font-style:italic; font-size:11.5px;
-          color:#ffffff; line-height:1.65; margin:0 0 10px;
-          display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;
-        }
-        .tsl-cta {
-          font-family:var(--font-body); font-size:10px; font-weight:700;
-          text-transform:uppercase; letter-spacing:1.5px; color:${GREEN_LT};
-          text-decoration:none; transition:color .2s; width:fit-content;
-        }
-        .tsl-cta:hover { color:#fff; }
 
-        /* Navigation */
-        .tsl-nav {
-          display:flex; align-items:center; justify-content:center;
-          gap:24px; margin-top:36px; padding:0 2rem;
+        .ldr-eyebrow {
+          margin: 0 0 16px;
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 10px;
+          font-weight: 600;
+          letter-spacing: 1.5px;
+          text-transform: uppercase;
+          color: ${NSS.vertClair};
         }
-        .tsl-arrow {
-          width:44px; height:44px; border-radius:50%;
-          border:2px solid ${GREEN_VIF}; background:transparent; color:${GREEN_VIF};
-          display:flex; align-items:center; justify-content:center;
-          cursor:pointer; transition:background .2s, color .2s;
-          flex-shrink:0;
-        }
-        .tsl-arrow:hover { background:${GREEN_VIF}; color:#fff; }
-        .tsl-dots { display:flex; gap:8px; align-items:center; }
-        .tsl-dot-btn {
-          width:9px; height:9px; border-radius:50%;
-          border:2px solid #bbb; background:transparent;
-          cursor:pointer; padding:0;
-          transition:background .25s, border-color .25s, transform .25s;
-        }
-        .tsl-dot-btn--on { background:${GOLD}; border-color:${GOLD}; transform:scale(1.3); }
 
-        /* Global CTA */
-        .tsl-cta-wrap {
-          display:flex; justify-content:center; margin-top:32px; padding:0 2rem;
+        .ldr-h2 {
+          margin: 0 0 20px;
+          font-family: var(--font-display), Georgia, serif;
+          font-size: 36px;
+          font-weight: 700;
+          line-height: 1.2;
+          color: #2A2A2A;
+          letter-spacing: -0.01em;
         }
-        .tsl-cta-btn {
-          font-family:var(--font-body); font-size:13px; font-weight:700;
-          text-decoration:none; color:#ffffff;
-          background:#00AD4C; padding:12px 32px; border-radius:8px;
-          transition:filter .2s, transform .15s;
-          display:inline-flex; align-items:center; gap:6px;
-        }
-        .tsl-cta-btn:hover { filter:brightness(1.1); transform:translateY(-2px); }
 
-        /* Responsive */
-        @media (max-width:1024px) { .tsl-grid { grid-template-columns:repeat(3,1fr); } }
-        @media (max-width:768px) {
-          .tsl-grid { grid-template-columns:repeat(2,1fr); }
-          .tsl-slide { padding:0 1rem; }
-          .tsl-section { padding:72px 0 60px; }
+        .ldr-h2 em {
+          font-style: italic;
+          color: ${NSS.vertClair};
         }
-        @media (max-width:480px) {
-          .tsl-grid { grid-template-columns:1fr 1fr; gap:12px; }
-          .tsl-header,.tsl-nav { padding:0 1rem; }
+
+        .ldr-sub {
+          margin: 0;
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 16px;
+          line-height: 1.8;
+          color: #2C2C28;
+          max-width: 600px;
+          text-align: justify;
+          hyphens: auto;
+        }
+
+        /* ── Grilles ── */
+        .ldr-grid {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 20px;
+        }
+
+        .ldr-grid--extra {
+          margin-top: 20px;
+        }
+
+        /* ── Carte ── */
+        .ldr-card {
+          border: 1px solid #e0ddd6;
+          border-radius: 0;
+          overflow: hidden;
+          cursor: pointer;
+          transition:
+            transform    0.30s ease,
+            box-shadow   0.30s ease,
+            border-color 0.30s ease;
+        }
+
+        .ldr-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+          border-color: ${NSS.vertPrimaire};
+        }
+
+        /* ── Photo ── */
+        .ldr-photo {
+          position: relative;
+          width: 100%;
+          height: 280px;
+          overflow: hidden;
+          background: #2c2c28;
+        }
+
+        /* ── Corps ── */
+        .ldr-body {
+          background: #ffffff;
+          border-top: 3px solid ${NSS.vertPrimaire};
+          padding: 24px 24px 28px;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .ldr-role {
+          margin: 0 0 8px;
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 10px;
+          font-weight: 600;
+          letter-spacing: 1.5px;
+          text-transform: uppercase;
+          color: ${NSS.vertClair};
+        }
+
+        .ldr-nom {
+          margin: 0 0 4px;
+          font-family: var(--font-display), Georgia, serif;
+          font-size: 22px;
+          font-weight: 700;
+          line-height: 1.2;
+          color: #2A2A2A;
+        }
+
+        .ldr-orga {
+          margin: 0 0 14px;
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 13px;
+          color: #666;
+          line-height: 1.4;
+        }
+
+        .ldr-divider {
+          height: 1px;
+          background: #e8e6e0;
+          margin-bottom: 14px;
+          flex-shrink: 0;
+        }
+
+        .ldr-pays {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          margin: 0 0 18px;
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 12px;
+          font-weight: 500;
+          color: #2C2C28;
+        }
+
+        .ldr-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: ${NSS.vertPrimaire};
+          flex-shrink: 0;
+        }
+
+        .ldr-cta {
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: 1.5px;
+          text-transform: uppercase;
+          color: ${NSS.vertClair};
+          text-decoration: none;
+          transition: color 0.20s ease;
+          width: fit-content;
+        }
+
+        .ldr-card:hover .ldr-cta {
+          color: ${NSS.vertPrimaire};
+        }
+
+        /* ── Bouton toggle ── */
+        .ldr-toggle-wrap {
+          display: flex;
+          justify-content: center;
+          margin-top: 48px;
+        }
+
+        .ldr-toggle {
+          background: transparent;
+          border: 2px solid ${NSS.vertPrimaire};
+          color: ${NSS.vertPrimaire};
+          padding: 16px 48px;
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 14px;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 1.5px;
+          border-radius: 0;
+          cursor: pointer;
+          transition:
+            background  0.20s ease,
+            color       0.20s ease,
+            box-shadow  0.20s ease;
+        }
+
+        .ldr-toggle:hover {
+          background: ${NSS.vertPrimaire};
+          color: #ffffff;
+          box-shadow: 0 4px 12px rgba(0, 173, 76, 0.20);
+        }
+
+        /* ── Tablet (<1024px) : 2 colonnes ── */
+        @media (max-width: 1024px) {
+          .ldr-wrap { padding: 80px 40px; }
+          .ldr-grid { grid-template-columns: 1fr 1fr; gap: 18px; }
+          .ldr-h2   { font-size: 30px; }
+        }
+
+        /* ── Mobile (<640px) : 1 colonne ── */
+        @media (max-width: 640px) {
+          .ldr-wrap   { padding: 64px 32px; }
+          .ldr-grid   { grid-template-columns: 1fr; gap: 16px; }
+          .ldr-h2     { font-size: 26px; }
+          .ldr-photo  { height: 240px; }
+        }
+
+        /* ── Réduction de mouvement ── */
+        @media (prefers-reduced-motion: reduce) {
+          .ldr-card   { transition: none; }
+          .ldr-toggle { transition: none; }
         }
       `}</style>
     </section>
-  );
+  )
 }

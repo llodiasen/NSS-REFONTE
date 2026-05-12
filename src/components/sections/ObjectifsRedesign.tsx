@@ -26,31 +26,31 @@ const OBJECTIFS: Objectif[] = [
   {
     num:   '01',
     icon:  <Leaf size={22} strokeWidth={1.4} />,
-    titre: "La terre comme héritage",
+    titre: "La terre comme héritage vivant",
     desc:
-      "Protéger les semences paysannes, transmettre les savoirs endogènes, " +
-      "pratiquer une agroécologie vivante. La terre n'est pas une ressource — " +
-      "c'est un héritage que nous rendons plus fertile à chaque génération.",
+      "Nos mères nous ont transmis des savoirs que ni les marchés ni les " +
+      "semenciers ne peuvent remplacer. NSS protège et diffuse ces pratiques " +
+      "agroécologiques endogènes qui nourrissent l'Afrique depuis des générations.",
     stat: { value: '500+', label: 'Associations de femmes rurales' },
   },
   {
     num:   '02',
     icon:  <Megaphone size={22} strokeWidth={1.4} />,
-    titre: "La parole comme pouvoir",
+    titre: "La famille comme premier champ",
     desc:
-      "Les décisions sur l'agriculture, le foncier et l'alimentation nous " +
-      "concernent — nous y participons. Du village à l'Union africaine, " +
-      "les paysannes de NSS portent leur voix là où se décide leur avenir.",
+      "NSS promeut l'agriculture familiale comme modèle viable, durable et " +
+      "souverain. Nos paysannes portent cette conviction du village aux instances " +
+      "continentales — parce que décider de ce qu'on cultive, c'est décider de ce qu'on est.",
     stat: { value: '14', label: 'Pays représentés' },
   },
   {
     num:   '03',
     icon:  <Globe size={22} strokeWidth={1.4} />,
-    titre: "L'union comme force",
+    titre: "La gouvernance comme terrain de lutte",
     desc:
-      "Seules, nous sommes invisibles. Ensemble, nous sommes 175 000. " +
-      "NSS tisse un réseau panafricain de solidarité où chaque association " +
-      "renforce les autres — de la Casamance au fleuve Niger.",
+      "175 000 femmes, 14 pays, un seul mouvement. NSS s'étend vers d'autres " +
+      "régions du continent — parce que la souveraineté alimentaire ne connaît " +
+      "pas de frontières.",
     stat: { value: '14 ans', label: "D'engagement sans rupture" },
   },
 ]
@@ -87,7 +87,7 @@ export default function ObjectifsRedesign() {
         </motion.div>
 
         <motion.h2 id="obj-titre" className="obj-h2" {...inViewScale(0.16)}>
-          Agir, amplifier, <em>rassembler.</em>
+          Cultiver, transmettre, <em>décider ensemble.</em>
         </motion.h2>
         <motion.span
           className="obj-underline"
@@ -100,9 +100,9 @@ export default function ObjectifsRedesign() {
         />
 
         <motion.p className="obj-intro" {...inView(0.26)}>
-          Depuis 2011, NSS agit sur trois fronts complémentaires — parce que
-          la souveraineté alimentaire se construit par la pratique, la parole
-          et la solidarité.
+          Depuis 2011, NSS œuvre sur trois fronts : promouvoir les savoirs
+          paysans, développer l&apos;agriculture familiale et peser sur la
+          gouvernance agricole — du village aux instances continentales.
         </motion.p>
       </div>
 
@@ -233,7 +233,7 @@ export default function ObjectifsRedesign() {
           grid-template-columns: repeat(3, 1fr);
           gap: 20px;
           padding: 0 24px 72px;
-          max-width: 1280px;
+          max-width: 1400px;
           margin: 0 auto;
           box-sizing: border-box;
         }
@@ -323,7 +323,7 @@ export default function ObjectifsRedesign() {
         }
         .obj-stat-value {
           font-family: var(--font-display), Georgia, serif;
-          font-size: 36px;
+          font-size: 38px;
           font-weight: 600;
           color: ${NSS.vertPrimaire};
           line-height: 1;
@@ -331,7 +331,7 @@ export default function ObjectifsRedesign() {
         }
         .obj-stat-label {
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 9px;
+          font-size: 12px;
           font-weight: 600;
           letter-spacing: 0.16em;
           text-transform: uppercase;

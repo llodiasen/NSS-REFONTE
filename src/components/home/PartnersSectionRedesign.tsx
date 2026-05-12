@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import Link from 'next/link'
 
 // ─── NSS Palette stricte ────────────────────────────────────────────────────
 const NSS = {
@@ -110,10 +109,6 @@ export default function PartnersSectionRedesign() {
             style={{ transformOrigin: 'center' }}
           />
 
-          <motion.p className="pts-intro" {...inView(0.26)}>
-            Cinq organisations internationales qui croient au potentiel des femmes
-            rurales africaines et soutiennent le mouvement NSS sans imposer leur agenda.
-          </motion.p>
         </header>
 
         {/* ════════ Logos — grille ════════ */}
@@ -163,25 +158,6 @@ export default function PartnersSectionRedesign() {
           ))}
         </ul>
 
-        {/* ════════ Séparateur + CTA ════════ */}
-        <motion.div className="pts-footer" {...inView(0.20)}>
-          <motion.div
-            className="pts-sep"
-            aria-hidden="true"
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.90, ease }}
-            style={{ transformOrigin: 'center' }}
-          />
-          <Link href="/fr/mouvement/partenaires" className="pts-cta">
-            Découvrir nos partenariats
-            <svg width="14" height="8" viewBox="0 0 16 9" fill="none" aria-hidden="true">
-              <path d="M1 4.5h13M10 1l4 3.5-4 3.5" stroke="currentColor"
-                strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </Link>
-        </motion.div>
 
       </div>
 
@@ -212,7 +188,7 @@ export default function PartnersSectionRedesign() {
           z-index: 1;
           max-width: 1400px;
           margin: 0 auto;
-          padding: 96px 80px;
+          padding: 96px 24px;
         }
 
         /* ── En-tête ── */
@@ -430,10 +406,10 @@ export default function PartnersSectionRedesign() {
 
         /* ── Tablet ── */
         @media (max-width: 1100px) {
-          .pts-wrap { padding: 80px 48px; }
+          .pts-wrap { padding: 80px 24px; }
         }
         @media (max-width: 1024px) {
-          .pts-wrap { padding: 72px 40px; }
+          .pts-wrap { padding: 72px 24px; }
           .pts-item  { width: 176px; }
           .pts-logo-card { width: 176px; height: 80px; }
         }

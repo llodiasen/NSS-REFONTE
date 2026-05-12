@@ -54,16 +54,9 @@ export default function CTAHeroSectionRedesign() {
 
         {/* H2 */}
         <motion.h2 id="cth-titre" className="cth-h2" {...inViewScale(0.18)}>
-          Par nous-mêmes.<br />
-          <em>Pour nous-mêmes.</em>
+          Rejoignez le mouvement et{' '}
+          <em>agissons pour la souveraineté alimentaire.</em>
         </motion.h2>
-
-        {/* Sous-titre */}
-        <motion.p className="cth-sub" {...inView(0.28)}>
-          175&nbsp;000 femmes ont dit oui. Votre engagement — aussi grand
-          ou modeste soit-il — renforce la souveraineté alimentaire de
-          l&apos;Afrique de l&apos;Ouest. Votre place est parmi nous.
-        </motion.p>
 
         {/* Boutons */}
         <motion.div className="cth-btns" {...inView(0.38)}>
@@ -72,14 +65,14 @@ export default function CTAHeroSectionRedesign() {
             className="cth-btn cth-btn--primary"
             aria-label="Adhérer au mouvement NSS"
           >
-            Adhérer au mouvement
+            ADHÉRER AU MOUVEMENT
           </Link>
           <Link
             href="/fr/contact"
             className="cth-btn cth-btn--ghost"
             aria-label="Nous contacter"
           >
-            Nous contacter
+            NOUS CONTACTER
             <svg width="14" height="8" viewBox="0 0 16 9" fill="none" aria-hidden="true">
               <path d="M1 4.5h13M10 1l4 3.5-4 3.5" stroke="currentColor"
                 strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -107,7 +100,7 @@ export default function CTAHeroSectionRedesign() {
         .cth-section {
           position: relative;
           overflow: hidden;
-          min-height: 200px;
+          min-height: 420px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -150,9 +143,9 @@ export default function CTAHeroSectionRedesign() {
           position: relative;
           z-index: 3;
           width: 100%;
-          max-width: 900px;
+          max-width: 960px;
           margin: 0 auto;
-          padding: 48px 80px;
+          padding: 80px 24px;
           text-align: center;
         }
 
@@ -184,10 +177,10 @@ export default function CTAHeroSectionRedesign() {
         /* ── H2 ── */
         .cth-h2 {
           font-family: var(--font-display), Georgia, serif;
-          font-size: clamp(40px, 4.5vw, 65px);
+          font-size: clamp(28px, 3.2vw, 46px);
           font-weight: 600;
-          line-height: 0.94;
-          color: ${NSS.creme};
+          line-height: 1.08;
+          color: #ffffff;
           margin: 0 0 32px;
           letter-spacing: -0.01em;
         }
@@ -257,7 +250,7 @@ export default function CTAHeroSectionRedesign() {
           font-family: var(--font-display), Georgia, serif;
           font-size: 15px;
           font-style: italic;
-          color: #ffffff;
+          color: ${NSS.creme};
           margin: 36px 0 0;
           letter-spacing: 0.08em;
         }
@@ -270,14 +263,14 @@ export default function CTAHeroSectionRedesign() {
         /* ── Mobile ── */
         @media (max-width: 768px) {
           .cth-wrap { padding: 36px 24px; }
-          .cth-h2 { font-size: clamp(34px, 8.1vw, 52px); }
+          .cth-h2 { font-size: clamp(24px, 6vw, 36px); }
           .cth-sub { font-size: 15px; }
         }
 
         /* ── Small mobile ── */
         @media (max-width: 480px) {
           .cth-wrap { padding: 40px 20px; }
-          .cth-h2 { font-size: clamp(31px, 9vw, 43px); }
+          .cth-h2 { font-size: clamp(22px, 7.5vw, 30px); }
           .cth-btns { flex-direction: column; align-items: stretch; }
           .cth-btn { text-align: center; justify-content: center; }
         }

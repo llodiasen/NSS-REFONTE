@@ -155,12 +155,12 @@ export default function NewsSectionRedesign() {
 
           <motion.div className="nws-eyebrow" {...inView(0.06)}>
             <span className="nws-eyebrow-line" aria-hidden="true" />
-            <span className="nws-eyebrow-text">ACTUALITÉS</span>
+            <span className="nws-eyebrow-text">ACTUALITÉS DU MOUVEMENT</span>
             <span className="nws-eyebrow-line" aria-hidden="true" />
           </motion.div>
 
           <motion.h2 id="nws-titre" className="nws-h2" {...inViewScale(0.16)}>
-            Le terrain <em>parle.</em>
+            Le terrain parle, <em>les femmes rurales agissent.</em>
           </motion.h2>
           <motion.span
             className="nws-underline"
@@ -173,8 +173,9 @@ export default function NewsSectionRedesign() {
           />
 
           <motion.p className="nws-intro" {...inView(0.26)}>
-            Semences défendues, terres préservées, voix amplifiées — les femmes
-            rurales de NSS écrivent chaque jour un nouveau chapitre.
+            Agroécologie, souveraineté alimentaire, gouvernance paysanne — suivez
+            les actions, victoires et prises de parole des 175&nbsp;000 membres du
+            mouvement NSS à travers 14 pays d&apos;Afrique de l&apos;Ouest.
           </motion.p>
         </header>
 
@@ -237,7 +238,7 @@ export default function NewsSectionRedesign() {
         .nws-wrap {
           position: relative;
           z-index: 1;
-          max-width: 1200px;
+          max-width: 1400px;
           margin: 0 auto;
           padding: 82px 24px;
         }

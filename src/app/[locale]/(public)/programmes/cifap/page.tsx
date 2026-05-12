@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import '@/components/programmes/cifap/CIFAPMainPage.css'
 import CIFAPMainPage from '@/components/programmes/cifap/CIFAPMainPage'
 
 export const metadata: Metadata = {

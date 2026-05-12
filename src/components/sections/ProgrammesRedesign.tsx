@@ -191,12 +191,12 @@ export default function ProgrammesRedesign() {
 
           <motion.div className="prg3-eyebrow" {...inView(0.06)}>
             <span className="prg3-eyebrow-line" aria-hidden="true" />
-            <span className="prg3-eyebrow-text">PROCHAINS ÉVÉNEMENTS</span>
+            <span className="prg3-eyebrow-text">PROGRAMMES &amp; ÉVÉNEMENTS</span>
             <span className="prg3-eyebrow-line" aria-hidden="true" />
           </motion.div>
 
           <motion.h2 id="prg3-titre" className="prg3-h2" {...inViewScale(0.16)}>
-            Prochains <em>événements.</em>
+            Nos rendez-vous pour la <em>souveraineté alimentaire.</em>
           </motion.h2>
           <motion.span
             className="prg3-underline"
@@ -255,9 +255,9 @@ export default function ProgrammesRedesign() {
         }
 
         .prg3-wrap {
-          max-width: 1200px;
+          max-width: 1400px;
           margin: 0 auto;
-          padding: 80px 32px 72px;
+          padding: 80px 24px 72px;
           box-sizing: border-box;
         }
 
@@ -475,10 +475,10 @@ export default function ProgrammesRedesign() {
         /* Description */
         .prg3-desc {
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 13px;
-          font-weight: 400;
+          font-size: 14px;
+          font-weight: 300;
           color: #2C2C28;
-          line-height: 1.6;
+          line-height: 1.72;
           margin: 0;
           text-align: justify;
           hyphens: auto;

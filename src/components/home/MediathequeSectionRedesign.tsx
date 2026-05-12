@@ -32,50 +32,45 @@ interface VideoItem {
 }
 
 /* ─── Vidéos réelles ───────────────────────────────────────── */
-const LOCAL_MP4 =
-  "/Videos/Agro%C3%A9cologie%20et%20changement%20de%20paradigme%20pour%20une%20souverainet%C3%A9%20alimentaire%20-%20%C3%80%20Niaguis.mp4";
-
 const VIDEOS: VideoItem[] = [
   {
-    id: "v1",
-    videoSource: "local",
-    videoUrl: LOCAL_MP4,
-    youtubeId: null,
-    titre: "Agroécologie et changement de paradigme : l'Afrique de l'Ouest porte son plaidoyer depuis Niaguis",
-    date: "2024",
-    region: "Niaguis, Casamance — Sénégal",
-    thumb: "/images/actualites/nss-cifap-2025.jpg",
-    description:
-      "Après une immersion d'une semaine au centre agroécologique de Niaguis, les organisations paysannes de femmes du Burkina Faso, de la Gambie, du Ghana, de la Guinée-Bissau et du Sénégal rentrent mieux outillées pour promouvoir l'agroécologie dans leurs communautés.",
-    tags: ["Agroécologie", "Niaguis", "Plaidoyer"],
-  },
-  {
-    id: "v2",
-    videoSource: "cloudinary",
-    videoUrl:
-      "https://res.cloudinary.com/dtjvjlkcc/video/upload/v1776019281/NSS_CIFAP_2025_Mariama_Sonko_hommage_Razack_Belemgnegre_ouverture_4e_edition.mp4",
-    youtubeId: null,
-    titre: "Niaguis, terre de convergence : le CIFAP allume sa 4ᵉ flamme agroécologique",
-    date: "2025",
-    region: "Niaguis, Casamance — Sénégal",
-    thumb:
-      "https://res.cloudinary.com/dtjvjlkcc/video/upload/f_jpg,so_2/v1776019281/NSS_CIFAP_2025_Mariama_Sonko_hommage_Razack_Belemgnegre_ouverture_4e_edition.jpg",
-    description:
-      "Ouverture du CIFAP 2025 à Niaguis : la 4ᵉ édition du Camp International de Formation sur l'Agroécologie Paysanne réunit productrices, femmes leaders et acteurs ruraux de toute l'Afrique de l'Ouest.",
-    tags: ["CIFAP 2025", "Formation", "Ouverture"],
-  },
-  {
-    id: "v3",
+    id: "v6",
     videoSource: "youtube",
     videoUrl: null,
-    youtubeId: "boT5gIW072Q",
-    titre: "30 min avec Mariama Sonko : Écoféminisme et Agroécologie",
-    date: "2024",
-    region: "International",
-    thumb: "https://img.youtube.com/vi/boT5gIW072Q/hqdefault.jpg",
+    youtubeId: "_2AqLsFeSV8",
+    titre: "Vidéo NSS — Mouvement Nous Sommes la Solution",
+    date: "Mai 2026",
+    region: "Afrique de l'Ouest",
+    thumb: "https://img.youtube.com/vi/_2AqLsFeSV8/hqdefault.jpg",
     description:
-      "Mariama Sonko, présidente du mouvement NSS, développe les liens profonds entre écoféminisme et agroécologie paysanne — une vision politique des femmes rurales et de leur rapport à la terre.",
-    tags: ["Interview", "Écoféminisme", "Leadership"],
+      "Le mouvement NSS en action — femmes rurales, agroécologie et souveraineté alimentaire en Afrique de l'Ouest.",
+    tags: ["NSS", "Agroécologie", "Mouvement"],
+  },
+  {
+    id: "v5",
+    videoSource: "youtube",
+    videoUrl: null,
+    youtubeId: "Mj5bZNDsdco",
+    titre: "Nos semences, notre culture, notre identité !",
+    date: "Mai 2026",
+    region: "Ndiémane, Mbor — Sénégal",
+    thumb: "https://img.youtube.com/vi/Mj5bZNDsdco/hqdefault.jpg",
+    description:
+      "Mariama Sonko, Présidente du Mouvement NSS, prend la parole à la Foire locale des Semences Paysannes à Ndiémane : « Les semences, c'est notre mémoire, notre histoire, notre avenir. »",
+    tags: ["Semences", "Mariama Sonko", "Plaidoyer"],
+  },
+  {
+    id: "v4",
+    videoSource: "local",
+    videoUrl: "/Videos/Journ%C3%A9e%20internationale%20de%20la%20femme%20rurale%202025.mp4",
+    youtubeId: null,
+    titre: "Journée internationale de la femme rurale 2025 — Tambacounda",
+    date: "Octobre 2025",
+    region: "Tambacounda — Sénégal",
+    thumb: "/images/actualites/tamba-femmes-rurales-changement-climatique.webp",
+    description:
+      "Célébrée à Tambacounda, la Journée internationale de la femme rurale 2025 a réuni les femmes de la Gambie, de la Guinée-Bissau et du Sénégal. Événement présidé par Mariama Sonko, Présidente du Mouvement Panafricain NSS.",
+    tags: ["Femme rurale", "Tambacounda", "2025"],
   },
 ];
 
@@ -261,12 +256,12 @@ export default function MediathequeSectionRedesign() {
 
             <motion.div className="vds__eyebrow" {...inView(0.06)}>
               <span className="vds__ey-line" />
-              <span className="vds__ey-txt">VIDÉOS</span>
+              <span className="vds__ey-txt">LEUR PAROLE · EN IMAGES</span>
               <span className="vds__ey-line vds__ey-line--r" />
             </motion.div>
 
             <motion.h2 id="vds-heading" className="vds__h2" {...inViewScale(0.16)}>
-              Le mouvement NSS <em>en vidéo.</em>
+              Le terrain prend <em>la parole.</em>
             </motion.h2>
             <motion.span
               className="vds__underline"
@@ -279,8 +274,8 @@ export default function MediathequeSectionRedesign() {
             />
 
             <motion.p className="vds__sub" {...inView(0.26)}>
-              Témoignages de terrain, formations et plaidoyers — des femmes rurales
-              qui prennent la parole à travers 14&nbsp;pays d&apos;Afrique de l&apos;Ouest.
+              Formations, rencontres, plaidoyers — les femmes rurales de NSS racontent
+              leur combat pour la souveraineté alimentaire, de la Casamance au fleuve Niger.
             </motion.p>
           </header>
 
@@ -334,7 +329,7 @@ export default function MediathequeSectionRedesign() {
 
           .vds__wrap {
             position: relative; z-index: 1;
-            max-width: 1200px; margin: 0 auto;
+            max-width: 1400px; margin: 0 auto;
             padding: 82px 24px;
           }
 
@@ -363,7 +358,7 @@ export default function MediathequeSectionRedesign() {
             color: #2A2A2A; margin: 0 0 14px;
             letter-spacing: -0.015em;
           }
-          .vds__h2 em { font-style: italic; color: ${NSS.vertClair}; }
+          .vds__h2 em { font-style: italic; color: ${NSS.vertPrimaire}; }
           .vds__underline {
             display: block;
             height: 2px;
@@ -464,7 +459,7 @@ export default function MediathequeSectionRedesign() {
           .vc__meta {
             display: flex; align-items: center; gap: 6px;
             font-family: var(--font-dm-sans), sans-serif;
-            font-size: 11px; color: #888; margin: 0;
+            font-size: 13px; color: #888; margin: 0;
           }
           .vc__meta-icon { color: ${NSS.vertPrimaire}; flex-shrink: 0; }
 
@@ -486,7 +481,7 @@ export default function MediathequeSectionRedesign() {
 
           .vc__desc {
             font-family: var(--font-dm-sans), sans-serif;
-            font-size: 14px; font-weight: 400; line-height: 1.72;
+            font-size: 14px; font-weight: 300; line-height: 1.72;
             color: #4A4A4A; text-align: justify; hyphens: auto;
             margin: 0; flex: 1;
             display: -webkit-box;
