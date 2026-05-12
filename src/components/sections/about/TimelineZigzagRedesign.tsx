@@ -333,12 +333,13 @@ export default function TimelineZigzagRedesign() {
         /* ── Titre ── */
         .tl-titre {
           font-family: var(--font-display), Georgia, serif;
-          font-size: 20px; font-weight: 700;
+          font-size: 17px; font-weight: 700;
           line-height: 1.25; display: block;
           margin-bottom: 16px;
           color: #2A2A2A;
           position: relative; z-index: 1;
           transition: color 0.30s ease;
+          white-space: nowrap;
         }
         .tl-card--actif .tl-titre { color: #ffffff; }
 
@@ -382,6 +383,7 @@ export default function TimelineZigzagRedesign() {
           .tl-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
           .tl-timeline { grid-template-columns: 1fr 1fr; }
           .tl-h2 { font-size: 30px; }
+          .tl-titre { white-space: normal; }
         }
 
         /* ── Mobile ── */

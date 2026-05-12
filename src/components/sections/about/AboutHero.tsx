@@ -198,7 +198,7 @@ export default function AboutHero() {
           font-size: 16px;
           font-weight: 300;
           line-height: 1.75;
-          color: rgba(255, 255, 255, 0.72);
+          color: #ffffff;
           max-width: 540px;
           margin: 0 0 48px;
         }
