@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 
 const NSS = {
   vertFonce:    '#045627',
@@ -8,14 +7,6 @@ const NSS = {
   or:           '#E8A838',
   creme:        '#F5EDD6',
 } as const
-
-const PARTENAIRES = [
-  { nom: 'Grassroots International', logo: '/images/partenaires/Grassroots-international.jpg' },
-  { nom: 'AgroEcology Fund',         logo: '/images/partenaires/Agroecology-Fund.jpg' },
-  { nom: 'Thousand Currents',        logo: '/images/partenaires/thoussands-current-1.jpg' },
-  { nom: 'MATCH International',      logo: '/images/partenaires/Fond-egalite.png' },
-  { nom: 'Fahamu Africa',            logo: '/images/partenaires/logofahamu1.png' },
-]
 
 export default function FinalCTASectionRedesign() {
   return (

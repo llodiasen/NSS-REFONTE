@@ -22,7 +22,7 @@ export default function GovernanceSectionRedesign() {
         <p className="gpr-label">8 PAYS MEMBRES DU RÉSEAU NSS</p>
 
         <ul className="gpr-list" role="list">
-          {PAYS.map(({ flag, code, nom }) => (
+          {PAYS.map(({ code, nom }) => (
             <li key={code} className="gpr-badge" role="listitem">
               <span className="gpr-code" aria-hidden="true">{code}</span>
               <span className="gpr-nom">{nom}</span>
