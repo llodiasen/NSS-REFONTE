@@ -394,7 +394,7 @@ export default function TestimonialSliderRedesign() {
         </div>
 
         <style>{`
-          .ldr { background: #F9F8F5; overflow: hidden; }
+          .ldr { background: #ffffff; overflow: hidden; }
           .ldr-wrap { max-width: 1400px; margin: 0 auto; padding: 96px 64px; box-sizing: border-box; }
 
           /* Header */

@@ -161,8 +161,8 @@ export default function ObjectifsRedesign() {
           position: relative;
           z-index: 1;
           text-align: center;
-          padding: 60px 24px 40px;
-          max-width: 700px;
+          padding: clamp(4rem, 8vw, 6rem) clamp(1.5rem, 6vw, 5rem) 3rem;
+          max-width: 760px;
           margin: 0 auto;
         }
 
@@ -172,7 +172,7 @@ export default function ObjectifsRedesign() {
           align-items: center;
           justify-content: center;
           gap: 16px;
-          margin-bottom: 36px;
+          margin-bottom: 1rem;
         }
         .obj-eyebrow-line {
           display: block;
@@ -183,9 +183,9 @@ export default function ObjectifsRedesign() {
         }
         .obj-eyebrow-text {
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 9.5px;
-          font-weight: 700;
-          letter-spacing: 0.24em;
+          font-size: 0.75rem;
+          font-weight: 500;
+          letter-spacing: 0.12em;
           text-transform: uppercase;
           color: ${NSS.vertClair};
           white-space: nowrap;
@@ -194,11 +194,11 @@ export default function ObjectifsRedesign() {
         /* ── H2 ── */
         .obj-h2 {
           font-family: var(--font-display), Georgia, serif;
-          font-size: clamp(24px, 2.6vw, 34px);
-          font-weight: 700;
+          font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+          font-weight: 600;
           line-height: 1.2;
           color: #2A2A2A;
-          margin: 0 0 14px;
+          margin: 0 0 0.75rem;
           letter-spacing: -0.015em;
         }
         .obj-h2 em {
@@ -211,15 +211,15 @@ export default function ObjectifsRedesign() {
           width: 72px;
           background: ${NSS.vertClair};
           border-radius: 2px;
-          margin: 12px auto 24px;
+          margin: 0 auto 1.5rem;
         }
 
         /* ── Intro ── */
         .obj-intro {
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 16px;
+          font-size: 1rem;
           font-weight: 400;
-          line-height: 1.78;
+          line-height: 1.7;
           color: #2C2C28;
           margin: 0;
           text-align: center;
@@ -232,7 +232,7 @@ export default function ObjectifsRedesign() {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 20px;
-          padding: 0 24px 72px;
+          padding: 0 clamp(1.5rem, 6vw, 5rem) clamp(3rem, 5vw, 4.5rem);
           max-width: 1400px;
           margin: 0 auto;
           box-sizing: border-box;
@@ -282,8 +282,8 @@ export default function ObjectifsRedesign() {
         /* Titre carte */
         .obj-card-titre {
           font-family: var(--font-display), Georgia, serif;
-          font-size: 22px;
-          font-weight: 700;
+          font-size: 1.25rem;
+          font-weight: 600;
           color: #0A0A0A;
           margin: 0 0 20px;
           line-height: 1.22;
@@ -356,27 +356,24 @@ export default function ObjectifsRedesign() {
 
         /* ── Tablet ── */
         @media (max-width: 1024px) {
-          .obj-header { padding: 52px 24px 32px; }
-          .obj-grid { grid-template-columns: 1fr; gap: 16px; padding: 0 24px 60px; }
+          .obj-grid { grid-template-columns: 1fr; gap: 16px; }
           .obj-card { padding: 44px 32px 40px; }
           .obj-num { font-size: 72px; }
         }
 
         /* ── Mobile ── */
         @media (max-width: 768px) {
-          .obj-header { padding: 44px 20px 28px; }
           .obj-h2 { line-height: 1.2; }
-          .obj-grid { padding: 0 20px 52px; gap: 14px; }
+          .obj-grid { gap: 14px; }
           .obj-card { padding: 36px 24px 32px; }
           .obj-num { font-size: 64px; top: 10px; right: 18px; }
         }
 
         /* ── Small mobile ── */
         @media (max-width: 480px) {
-          .obj-header { padding: 36px 16px 24px; }
           .obj-h2 { line-height: 1.2; }
           .obj-intro { font-size: 14px; }
-          .obj-grid { padding: 0 16px 44px; gap: 12px; }
+          .obj-grid { gap: 12px; }
           .obj-card { padding: 28px 18px 26px; }
           .obj-card-titre { font-size: 19px; }
           .obj-card-desc { font-size: 13.5px; }

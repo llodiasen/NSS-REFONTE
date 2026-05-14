@@ -1,3 +1,4 @@
+import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { getLocale } from "next-intl/server";
 import {
@@ -6,7 +7,26 @@ import {
   Cormorant_Garamond,
   DM_Sans,
 } from "next/font/google";
+import PWARegister from "@/components/PWARegister";
 import "./globals.css";
+
+export const viewport: Viewport = {
+  themeColor: "#045627",
+  width: "device-width",
+  initialScale: 1,
+};
+
+export const metadata: Metadata = {
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "NSS",
+  },
+  icons: {
+    apple: "/images/pwa/apple-touch-icon.png",
+  },
+};
 
 const dmSerifDisplay = DM_Serif_Display({
   subsets: ["latin"],
@@ -56,6 +76,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     <html lang={locale} className={fontVars}>
       <body style={{ margin: 0, background: "#fff", color: "#111" }}>
         {children}
+        <PWARegister />
       </body>
     </html>
   );

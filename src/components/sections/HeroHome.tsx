@@ -196,9 +196,9 @@ export default function HeroHome() {
         }
         .nss-eyebrow-text {
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 9.5px;
-          font-weight: 600;
-          letter-spacing: 0.22em;
+          font-size: 0.75rem;
+          font-weight: 500;
+          letter-spacing: 0.12em;
           text-transform: uppercase;
           color: ${NSS.vertClair};
         }
@@ -206,9 +206,9 @@ export default function HeroHome() {
         /* ── H1 ── */
         .nss-h1 {
           font-family: var(--font-display), Georgia, serif;
-          font-size: clamp(42px, 5.67vw, 81px);
-          font-weight: 600;
-          line-height: 0.89;
+          font-size: clamp(2.2rem, 5vw, 3.2rem);
+          font-weight: 700;
+          line-height: 1.0;
           color: #ffffff;
           margin: 0 0 34px;
           letter-spacing: -0.01em;
@@ -222,8 +222,8 @@ export default function HeroHome() {
         .nss-desc {
           font-family: var(--font-dm-sans), sans-serif;
           font-size: clamp(15px, 1.15vw, 17px);
-          font-weight: 300;
-          line-height: 1.82;
+          font-weight: 400;
+          line-height: 1.7;
           color: #ffffff;
           max-width: 500px;
           margin: 0 0 54px;
@@ -331,7 +331,7 @@ export default function HeroHome() {
         @media (max-width: 768px) {
           .nss-hero { min-height: auto; }
           .nss-hero-body { padding: 96px 24px 52px; max-width: 100%; }
-          .nss-h1 { font-size: clamp(34px, 7.70vw, 52px); line-height: 0.92; }
+          .nss-h1 { line-height: 1.0; }
           .nss-desc { font-size: 15px; max-width: 100%; }
           .nss-statsbar { grid-template-columns: repeat(2, 1fr); }
           .nss-stat {
@@ -347,7 +347,7 @@ export default function HeroHome() {
         /* ── Small mobile ── */
         @media (max-width: 480px) {
           .nss-hero-body { padding: 84px 16px 40px; }
-          .nss-h1        { font-size: clamp(29px, 8.50vw, 40px); }
+          /* h1 size handled by base clamp */
           .nss-desc      { font-size: 14px; line-height: 1.74; }
           .nss-eyebrow-text { font-size: 8px; letter-spacing: 0.16em; }
           .nss-btn-primary,

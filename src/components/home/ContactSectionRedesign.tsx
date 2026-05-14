@@ -294,7 +294,7 @@ export default function ContactSectionRedesign() {
         /* ════ LAYOUT ═════════════════════════════════════════ */
         .csr__wrap {
           max-width: 100%;
-          padding: 112px var(--container-pad, 24px);
+          padding: clamp(4rem, 8vw, 6rem) clamp(1.5rem, 6vw, 5rem);
           display: grid;
           grid-template-columns: 1fr 1.4fr;
           gap: 72px;
@@ -317,7 +317,7 @@ export default function ContactSectionRedesign() {
           display: flex;
           align-items: center;
           gap: 14px;
-          margin-bottom: 24px;
+          margin-bottom: 1rem;
         }
         .csr__ey-bar {
           display: block;
@@ -328,9 +328,9 @@ export default function ContactSectionRedesign() {
         }
         .csr__ey-txt {
           font-family: var(--font-body, 'DM Sans', sans-serif);
-          font-size: 9.5px;
-          font-weight: 700;
-          letter-spacing: 0.26em;
+          font-size: 0.75rem;
+          font-weight: 500;
+          letter-spacing: 0.12em;
           text-transform: uppercase;
           color: #00AD4C;
         }
@@ -338,7 +338,7 @@ export default function ContactSectionRedesign() {
         /* H2 */
         .csr__h2 {
           font-family: var(--font-display), Georgia, serif;
-          font-size: clamp(22px, 2.8vw, 38px);
+          font-size: clamp(1.6rem, 3.5vw, 2.2rem);
           font-weight: 600;
           line-height: 1.1;
           color: #1a1a1a;
@@ -673,7 +673,6 @@ export default function ContactSectionRedesign() {
           .csr__wrap {
             grid-template-columns: 1fr;
             gap: 48px;
-            padding: 88px var(--container-pad, 20px);
           }
         }
         @media (max-width: 500px) {

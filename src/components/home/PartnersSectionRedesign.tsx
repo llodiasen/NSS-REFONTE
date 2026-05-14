@@ -188,13 +188,13 @@ export default function PartnersSectionRedesign() {
           z-index: 1;
           max-width: 1400px;
           margin: 0 auto;
-          padding: 96px 24px;
+          padding: clamp(4rem, 8vw, 6rem) clamp(1.5rem, 6vw, 5rem);
         }
 
         /* ── En-tête ── */
         .pts-header {
           text-align: center;
-          margin-bottom: 64px;
+          margin-bottom: 3rem;
         }
 
         /* ── Eyebrow centré ── */
@@ -203,7 +203,7 @@ export default function PartnersSectionRedesign() {
           align-items: center;
           justify-content: center;
           gap: 16px;
-          margin-bottom: 32px;
+          margin-bottom: 1rem;
         }
         .pts-eyebrow-line {
           display: block;
@@ -214,9 +214,9 @@ export default function PartnersSectionRedesign() {
         }
         .pts-eyebrow-text {
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 9.5px;
-          font-weight: 700;
-          letter-spacing: 0.24em;
+          font-size: 0.75rem;
+          font-weight: 500;
+          letter-spacing: 0.12em;
           text-transform: uppercase;
           color: ${NSS.vertClair};
           white-space: nowrap;
@@ -225,11 +225,11 @@ export default function PartnersSectionRedesign() {
         /* ── H2 ── */
         .pts-h2 {
           font-family: var(--font-display), Georgia, serif;
-          font-size: clamp(24px, 2.6vw, 34px);
-          font-weight: 700;
+          font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+          font-weight: 600;
           line-height: 1.2;
           color: #2A2A2A;
-          margin: 0 0 14px;
+          margin: 0 0 0.75rem;
           letter-spacing: -0.015em;
         }
         .pts-h2 em {
@@ -242,7 +242,7 @@ export default function PartnersSectionRedesign() {
           width: 72px;
           background: ${NSS.vertClair};
           border-radius: 2px;
-          margin: 12px auto 24px;
+          margin: 0 auto 1.5rem;
         }
 
         /* ── Intro ── */
@@ -405,18 +405,13 @@ export default function PartnersSectionRedesign() {
         .pts-cta:hover { color: ${NSS.vertPrimaire}; gap: 16px; }
 
         /* ── Tablet ── */
-        @media (max-width: 1100px) {
-          .pts-wrap { padding: 80px 24px; }
-        }
         @media (max-width: 1024px) {
-          .pts-wrap { padding: 72px 24px; }
           .pts-item  { width: 176px; }
           .pts-logo-card { width: 176px; height: 80px; }
         }
 
         /* ── Mobile ── */
         @media (max-width: 768px) {
-          .pts-wrap { padding: 64px 24px; }
           .pts-h2 { line-height: 1.2; }
           .pts-item  { width: 152px; }
           .pts-logo-card { width: 152px; height: 72px; padding: 12px 16px; }
@@ -425,7 +420,6 @@ export default function PartnersSectionRedesign() {
 
         /* ── Small mobile ── */
         @media (max-width: 480px) {
-          .pts-wrap { padding: 52px 16px; }
           .pts-h2 { line-height: 1.2; }
           .pts-item  { width: 140px; }
           .pts-logo-card { width: 140px; height: 66px; }

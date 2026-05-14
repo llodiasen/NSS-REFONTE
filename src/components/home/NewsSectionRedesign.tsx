@@ -240,13 +240,13 @@ export default function NewsSectionRedesign() {
           z-index: 1;
           max-width: 1400px;
           margin: 0 auto;
-          padding: 82px 24px;
+          padding: clamp(4rem, 8vw, 6rem) clamp(1.5rem, 6vw, 5rem);
         }
 
         /* ── En-tête ── */
         .nws-header {
           text-align: center;
-          margin-bottom: 54px;
+          margin-bottom: 3rem;
         }
 
         /* ── Eyebrow centré ── */
@@ -255,7 +255,7 @@ export default function NewsSectionRedesign() {
           align-items: center;
           justify-content: center;
           gap: 16px;
-          margin-bottom: 32px;
+          margin-bottom: 1rem;
         }
         .nws-eyebrow-line {
           display: block;
@@ -266,9 +266,9 @@ export default function NewsSectionRedesign() {
         }
         .nws-eyebrow-text {
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 9.5px;
-          font-weight: 700;
-          letter-spacing: 0.24em;
+          font-size: 0.75rem;
+          font-weight: 500;
+          letter-spacing: 0.12em;
           text-transform: uppercase;
           color: ${NSS.vertClair};
           white-space: nowrap;
@@ -277,11 +277,11 @@ export default function NewsSectionRedesign() {
         /* ── H2 ── */
         .nws-h2 {
           font-family: var(--font-display), Georgia, serif;
-          font-size: clamp(24px, 2.6vw, 34px);
-          font-weight: 700;
+          font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+          font-weight: 600;
           line-height: 1.2;
           color: #2A2A2A;
-          margin: 0 0 14px;
+          margin: 0 0 0.75rem;
           letter-spacing: -0.015em;
         }
         .nws-h2 em {
@@ -294,15 +294,15 @@ export default function NewsSectionRedesign() {
           width: 72px;
           background: ${NSS.vertClair};
           border-radius: 2px;
-          margin: 12px auto 24px;
+          margin: 0 auto 1.5rem;
         }
 
         /* ── Intro ── */
         .nws-intro {
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 16px;
+          font-size: 1rem;
           font-weight: 400;
-          line-height: 1.78;
+          line-height: 1.7;
           color: #2C2C28;
           max-width: 560px;
           margin: 0 auto;
@@ -436,8 +436,8 @@ export default function NewsSectionRedesign() {
           -webkit-box-orient: vertical;
           overflow: hidden;
           font-family: var(--font-display), Georgia, serif;
-          font-size: 17px;
-          font-weight: 700;
+          font-size: 1.25rem;
+          font-weight: 600;
           line-height: 1.22;
           color: #0A0A0A;
           text-decoration: none;
@@ -447,7 +447,7 @@ export default function NewsSectionRedesign() {
         .nws-card__excerpt {
           font-family: var(--font-dm-sans), sans-serif;
           font-size: 14px;
-          font-weight: 300;
+          font-weight: 400;
           line-height: 1.72;
           color: #4A4A4A;
           text-align: justify;
@@ -514,29 +514,21 @@ export default function NewsSectionRedesign() {
         .nws-cta:hover { color: ${NSS.vertPrimaire}; gap: 16px; }
 
         /* ── Tablet ── */
-        @media (max-width: 1100px) {
-          .nws-wrap { padding: 70px 24px; }
-        }
         @media (max-width: 1024px) {
-          .nws-wrap { padding: 64px 20px; }
           .nws-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         /* ── Mobile ── */
         @media (max-width: 768px) {
-          .nws-wrap { padding: 56px 20px; }
           .nws-h2 { line-height: 1.2; }
-          .nws-header { margin-bottom: 40px; }
-          .nws-card__titre a { font-size: 17px; }
+          .nws-header { margin-bottom: 2.5rem; }
         }
 
         /* ── Small mobile ── */
         @media (max-width: 640px) {
           .nws-grid { grid-template-columns: 1fr; }
-          .nws-wrap { padding: 48px 16px; }
           .nws-h2 { line-height: 1.2; }
           .nws-intro { font-size: 14px; }
-          .nws-card__titre a { font-size: 17px; }
         }
 
         /* ── Réduction de mouvement ── */

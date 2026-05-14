@@ -107,6 +107,11 @@ a, span, li, button, input, textarea, select, label {
   .hdrv2-actions { display: flex !important; }
 }
 
+/* ── PWA Bottom Nav — espace réservé ── */
+@media (max-width: 768px) {
+  body { padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px)); }
+}
+
 /* Accessibilité — prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

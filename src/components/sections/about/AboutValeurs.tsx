@@ -124,9 +124,10 @@ export default function AboutValeurs() {
 
       <style>{`
         .val-section {
-          background: #FAFAF8;
-          border-top: 1px solid rgba(0,0,0,0.06);
-          overflow: hidden; position: relative;
+          background: #ffffff;
+          border-top: 1px solid rgba(0,0,0,0.04);
+          overflow: hidden;
+          position: relative;
         }
         .val-wrap {
           max-width: 1400px; margin: 0 auto;

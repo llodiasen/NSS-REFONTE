@@ -110,16 +110,16 @@ export default function AboutHero() {
           z-index: 0;
         }
 
-        /* ── Overlay très sombre (style CIFAP) ── */
+        /* ── Overlay plus léger ── */
         .ah-overlay {
           position: absolute;
           inset: 0;
           background: linear-gradient(
             105deg,
-            rgba(0, 0, 0, 0.88) 0%,
-            rgba(2, 20, 8, 0.82) 40%,
-            rgba(4, 40, 16, 0.65) 70%,
-            rgba(0, 0, 0, 0.50) 100%
+            rgba(0, 0, 0, 0.56) 0%,
+            rgba(2, 20, 8, 0.46) 40%,
+            rgba(4, 40, 16, 0.30) 70%,
+            rgba(0, 0, 0, 0.18) 100%
           );
           z-index: 1;
         }

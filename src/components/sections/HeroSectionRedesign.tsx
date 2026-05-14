@@ -199,7 +199,7 @@ export default function HeroSectionRedesign() {
         }
         .qs-inner {
           max-width: 100%;
-          padding: 80px 24px;
+          padding: 80px clamp(2rem, 6vw, 80px);
           display: grid;
           grid-template-columns: 1.15fr 0.85fr;
           gap: 80px;
@@ -212,7 +212,7 @@ export default function HeroSectionRedesign() {
           display: flex;
           align-items: center;
           gap: 14px;
-          margin-bottom: 32px;
+          margin-bottom: 1rem;
         }
         .qs-eyebrow-line {
           display: block;
@@ -223,9 +223,9 @@ export default function HeroSectionRedesign() {
         }
         .qs-eyebrow-text {
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 9.5px;
-          font-weight: 700;
-          letter-spacing: 0.22em;
+          font-size: 0.75rem;
+          font-weight: 500;
+          letter-spacing: 0.12em;
           text-transform: uppercase;
           color: ${NSS.vertClair};
         }
@@ -233,11 +233,11 @@ export default function HeroSectionRedesign() {
         /* ── H2 ── */
         .qs-h2 {
           font-family: var(--font-display), Georgia, serif;
-          font-size: clamp(26px, 2.6vw, 36px);
-          font-weight: 700;
+          font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+          font-weight: 600;
           line-height: 1.2;
           color: #2A2A2A;
-          margin: 0 0 14px;
+          margin: 0 0 0.75rem;
           letter-spacing: -0.015em;
         }
         .qs-h2 em {
@@ -250,7 +250,7 @@ export default function HeroSectionRedesign() {
           width: 72px;
           background: ${NSS.vertClair};
           border-radius: 2px;
-          margin: 12px 0 28px;
+          margin: 0 0 1.5rem;
         }
 
         /* ── Body ── */
@@ -473,10 +473,10 @@ export default function HeroSectionRedesign() {
 
         /* ── Tablet ── */
         @media (max-width: 1100px) {
-          .qs-inner { padding: 60px 24px; gap: 52px; }
+          .qs-inner { padding: 60px clamp(2rem, 5vw, 56px); gap: 52px; }
         }
         @media (max-width: 1024px) {
-          .qs-inner { padding: 52px 24px; gap: 40px; }
+          .qs-inner { padding: 52px clamp(2rem, 4vw, 48px); gap: 40px; }
         }
 
         /* ── Mobile ── */

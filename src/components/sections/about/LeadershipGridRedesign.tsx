@@ -106,9 +106,9 @@ export default function LeadershipGridRedesign() {
         /* ── Section ──────────────────────────────────────────── */
         .lg-section { background: #ffffff; }
         .lg-wrap {
-          max-width: 1320px;
+          max-width: 1400px;
           margin: 0 auto;
-          padding: 88px 40px 96px;
+          padding: 96px 48px;
         }
 
         /* ── Header ───────────────────────────────────────────── */
@@ -139,6 +139,8 @@ export default function LeadershipGridRedesign() {
 
         /* ── Card ─────────────────────────────────────────────── */
         .lg-card {
+          width: 100%;
+          min-width: 0;
           border: 2px solid ${BORDER};
           border-radius: 4px;
           overflow: hidden;
@@ -184,29 +186,35 @@ export default function LeadershipGridRedesign() {
           font-family: var(--font-display);
           font-size: 17px; font-weight: 400;
           color: #ffffff; margin: 0 0 5px; line-height: 1.2;
+          word-break: break-word;
+          hyphens: auto;
         }
         .lg-role {
           font-family: var(--font-body);
           font-size: 10px; font-weight: 700;
           text-transform: uppercase; letter-spacing: 1.3px;
           color: ${GOLD}; margin: 0;
+          word-break: break-word;
+          hyphens: auto;
         }
 
         /* Footer */
         .lg-foot {
-          padding: 16px 18px 18px;
+          padding: 32px;
           display: flex; flex-direction: column; gap: 12px;
           flex: 1;
         }
         .lg-desc {
-          font-family: var(--font-display);
-          font-style: italic;
-          font-size: 13px; line-height: 1.65;
+          font-family: var(--font-body);
+          font-size: 13px; line-height: 1.6;
           color: ${GREEN_LT}; margin: 0;
           display: -webkit-box;
           -webkit-line-clamp: 3;
           -webkit-box-orient: vertical;
           overflow: hidden;
+          word-break: break-word;
+          hyphens: auto;
+          min-height: 60px;
         }
         .lg-cta {
           font-family: var(--font-body);
@@ -219,12 +227,17 @@ export default function LeadershipGridRedesign() {
         .lg-cta:hover { color: ${BORDER}; }
 
         /* ── Responsive ───────────────────────────────────────── */
-        @media (max-width: 1024px) {
-          .lg-grid { grid-template-columns: repeat(2, 1fr); }
+        @media (max-width: 1440px) {
+          .lg-wrap { max-width: 1200px; }
+          .lg-grid { grid-template-columns: repeat(3, 1fr); gap: 22px; }
         }
-        @media (max-width: 640px) {
-          .lg-wrap { padding: 60px 20px 72px; }
-          .lg-grid { grid-template-columns: 1fr; gap: 20px; }
+        @media (max-width: 1024px) {
+          .lg-wrap { max-width: 900px; padding: 96px 40px; }
+          .lg-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        }
+        @media (max-width: 768px) {
+          .lg-wrap { max-width: 100%; padding: 96px 32px; }
+          .lg-grid { grid-template-columns: 1fr; gap: 16px; }
         }
       `}</style>
     </section>

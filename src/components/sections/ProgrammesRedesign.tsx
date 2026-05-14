@@ -257,21 +257,21 @@ export default function ProgrammesRedesign() {
         .prg3-wrap {
           max-width: 1400px;
           margin: 0 auto;
-          padding: 80px 24px 72px;
+          padding: clamp(4rem, 8vw, 6rem) clamp(1.5rem, 6vw, 5rem);
           box-sizing: border-box;
         }
 
         /* ── En-tête ── */
         .prg3-header {
           text-align: center;
-          margin-bottom: 52px;
+          margin-bottom: 3rem;
         }
         .prg3-eyebrow {
           display: flex;
           align-items: center;
           justify-content: center;
           gap: 16px;
-          margin-bottom: 28px;
+          margin-bottom: 1rem;
         }
         .prg3-eyebrow-line {
           display: block;
@@ -282,20 +282,20 @@ export default function ProgrammesRedesign() {
         }
         .prg3-eyebrow-text {
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 9.5px;
-          font-weight: 700;
-          letter-spacing: 0.24em;
+          font-size: 0.75rem;
+          font-weight: 500;
+          letter-spacing: 0.12em;
           text-transform: uppercase;
           color: ${NSS.vertClair};
           white-space: nowrap;
         }
         .prg3-h2 {
           font-family: var(--font-display), Georgia, serif;
-          font-size: clamp(24px, 2.6vw, 34px);
-          font-weight: 700;
+          font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+          font-weight: 600;
           line-height: 1.2;
           color: #2A2A2A;
-          margin: 0 0 14px;
+          margin: 0 0 0.75rem;
           letter-spacing: -0.015em;
         }
         .prg3-h2 em { font-style: italic; color: ${NSS.vertClair}; }
@@ -305,13 +305,13 @@ export default function ProgrammesRedesign() {
           width: 72px;
           background: ${NSS.vertClair};
           border-radius: 2px;
-          margin: 12px auto 24px;
+          margin: 0 auto 1.5rem;
         }
         .prg3-intro {
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 16px;
+          font-size: 1rem;
           font-weight: 400;
-          line-height: 1.78;
+          line-height: 1.7;
           color: #2C2C28;
           max-width: 62ch;
           margin: 0 auto;
@@ -399,11 +399,11 @@ export default function ProgrammesRedesign() {
         .prg3-titles { display: flex; flex-direction: column; gap: 5px; }
         .prg3-titre {
           font-family: var(--font-display), Georgia, serif;
-          font-size: 26px;
-          font-weight: 500;
+          font-size: 1.25rem;
+          font-weight: 600;
           color: #111111;
           margin: 0;
-          line-height: 1.12;
+          line-height: 1.22;
           letter-spacing: -0.01em;
         }
         .prg3-sous {
@@ -476,7 +476,7 @@ export default function ProgrammesRedesign() {
         .prg3-desc {
           font-family: var(--font-dm-sans), sans-serif;
           font-size: 14px;
-          font-weight: 300;
+          font-weight: 400;
           color: #2C2C28;
           line-height: 1.72;
           margin: 0;
@@ -541,27 +541,20 @@ export default function ProgrammesRedesign() {
         .prg3-all:hover { color: ${NSS.vertPrimaire}; gap: 16px; }
 
         /* ── Tablet ── */
-        @media (max-width: 1100px) {
-          .prg3-wrap { padding: 72px 20px 64px; }
-        }
         @media (max-width: 1024px) {
           .prg3-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-          .prg3-wrap { padding: 64px 20px 56px; }
         }
 
         /* ── Mobile ── */
         @media (max-width: 768px) {
-          .prg3-wrap { padding: 56px 20px 48px; }
-          .prg3-header { margin-bottom: 40px; }
+          .prg3-header { margin-bottom: 2.5rem; }
           .prg3-img-wrap { height: 200px; }
         }
 
         /* ── Small mobile ── */
         @media (max-width: 640px) {
           .prg3-grid { grid-template-columns: 1fr; gap: 18px; }
-          .prg3-wrap { padding: 48px 16px 40px; }
           .prg3-img-wrap { height: 190px; }
-          .prg3-titre { font-size: 22px; }
         }
 
         /* ── Réduction de mouvement ── */

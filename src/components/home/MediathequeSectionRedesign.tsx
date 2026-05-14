@@ -330,15 +330,15 @@ export default function MediathequeSectionRedesign() {
           .vds__wrap {
             position: relative; z-index: 1;
             max-width: 1400px; margin: 0 auto;
-            padding: 82px 24px;
+            padding: clamp(4rem, 8vw, 6rem) clamp(1.5rem, 6vw, 5rem);
           }
 
           /* ══ En-tête ════════════════════════════════════════ */
-          .vds__hd { text-align: center; margin-bottom: 54px; }
+          .vds__hd { text-align: center; margin-bottom: 3rem; }
 
           .vds__eyebrow {
             display: flex; align-items: center; justify-content: center;
-            gap: 16px; margin-bottom: 32px;
+            gap: 16px; margin-bottom: 1rem;
           }
           .vds__ey-line {
             display: block; flex: 1; max-width: 56px; height: 1px;
@@ -346,16 +346,16 @@ export default function MediathequeSectionRedesign() {
           }
           .vds__ey-txt {
             font-family: var(--font-dm-sans), sans-serif;
-            font-size: 9.5px; font-weight: 700;
-            letter-spacing: 0.26em; text-transform: uppercase;
+            font-size: 0.75rem; font-weight: 500;
+            letter-spacing: 0.12em; text-transform: uppercase;
             color: ${NSS.vertClair}; white-space: nowrap;
           }
 
           .vds__h2 {
             font-family: var(--font-display), Georgia, serif;
-            font-size: clamp(24px, 2.6vw, 34px);
-            font-weight: 700; line-height: 1.2;
-            color: #2A2A2A; margin: 0 0 14px;
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            font-weight: 600; line-height: 1.2;
+            color: #2A2A2A; margin: 0 0 0.75rem;
             letter-spacing: -0.015em;
           }
           .vds__h2 em { font-style: italic; color: ${NSS.vertPrimaire}; }
@@ -365,13 +365,13 @@ export default function MediathequeSectionRedesign() {
             width: 72px;
             background: ${NSS.vertClair};
             border-radius: 2px;
-            margin: 12px auto 24px;
+            margin: 0 auto 1.5rem;
           }
 
           .vds__sub {
             font-family: var(--font-dm-sans), sans-serif;
-            font-size: 16px; font-weight: 400;
-            line-height: 1.78; color: #2C2C28;
+            font-size: 1rem; font-weight: 400;
+            line-height: 1.7; color: #2C2C28;
             max-width: 520px; margin: 0 auto;
           }
 
@@ -468,8 +468,8 @@ export default function MediathequeSectionRedesign() {
             background: none; border: none; padding: 0;
             width: 100%; text-align: left; cursor: pointer;
             font-family: var(--font-display), Georgia, serif;
-            font-size: 17px;
-            font-weight: 700; line-height: 1.22;
+            font-size: 1.25rem;
+            font-weight: 600; line-height: 1.22;
             color: #0A0A0A;
             transition: color 0.2s;
             display: -webkit-box;
@@ -481,7 +481,7 @@ export default function MediathequeSectionRedesign() {
 
           .vc__desc {
             font-family: var(--font-dm-sans), sans-serif;
-            font-size: 14px; font-weight: 300; line-height: 1.72;
+            font-size: 14px; font-weight: 400; line-height: 1.72;
             color: #4A4A4A; text-align: justify; hyphens: auto;
             margin: 0; flex: 1;
             display: -webkit-box;
@@ -524,21 +524,15 @@ export default function MediathequeSectionRedesign() {
           .vds__cta:hover { color: ${NSS.vertPrimaire}; gap: 16px; }
 
           /* ══ Responsive ══════════════════════════════════════ */
-          @media (max-width: 1100px) {
-            .vds__wrap { padding: 70px 24px; }
-          }
           @media (max-width: 1024px) {
-            .vds__wrap { padding: 64px 20px; }
             .vds__grid { grid-template-columns: repeat(2, 1fr); }
           }
           @media (max-width: 768px) {
-            .vds__wrap { padding: 56px 20px; }
             .vds__h2 { line-height: 1.2; }
-            .vds__hd { margin-bottom: 40px; }
+            .vds__hd { margin-bottom: 2.5rem; }
           }
           @media (max-width: 640px) {
             .vds__grid { grid-template-columns: 1fr; gap: 18px; }
-            .vds__wrap { padding: 48px 16px; }
             .vds__h2 { line-height: 1.2; }
           }
 

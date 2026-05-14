@@ -145,7 +145,7 @@ export default function CTAHeroSectionRedesign() {
           width: 100%;
           max-width: 960px;
           margin: 0 auto;
-          padding: 80px 24px;
+          padding: clamp(4rem, 8vw, 6rem) clamp(1.5rem, 6vw, 5rem);
           text-align: center;
         }
 
@@ -155,7 +155,7 @@ export default function CTAHeroSectionRedesign() {
           align-items: center;
           justify-content: center;
           gap: 16px;
-          margin-bottom: 36px;
+          margin-bottom: 1rem;
         }
         .cth-eyebrow-line {
           display: block;
@@ -166,9 +166,9 @@ export default function CTAHeroSectionRedesign() {
         }
         .cth-eyebrow-text {
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 9.5px;
-          font-weight: 600;
-          letter-spacing: 0.26em;
+          font-size: 0.75rem;
+          font-weight: 500;
+          letter-spacing: 0.12em;
           text-transform: uppercase;
           color: ${NSS.or};
           white-space: nowrap;
@@ -177,11 +177,11 @@ export default function CTAHeroSectionRedesign() {
         /* ── H2 ── */
         .cth-h2 {
           font-family: var(--font-display), Georgia, serif;
-          font-size: clamp(28px, 3.2vw, 46px);
+          font-size: clamp(1.6rem, 3.5vw, 2.2rem);
           font-weight: 600;
-          line-height: 1.08;
+          line-height: 1.15;
           color: #ffffff;
-          margin: 0 0 32px;
+          margin: 0 0 2rem;
           letter-spacing: -0.01em;
         }
         .cth-h2 em {
@@ -255,22 +255,13 @@ export default function CTAHeroSectionRedesign() {
           letter-spacing: 0.08em;
         }
 
-        /* ── Tablet ── */
-        @media (max-width: 1024px) {
-          .cth-wrap { padding: 40px 48px; }
-        }
-
         /* ── Mobile ── */
         @media (max-width: 768px) {
-          .cth-wrap { padding: 36px 24px; }
-          .cth-h2 { font-size: clamp(24px, 6vw, 36px); }
           .cth-sub { font-size: 15px; }
         }
 
         /* ── Small mobile ── */
         @media (max-width: 480px) {
-          .cth-wrap { padding: 40px 20px; }
-          .cth-h2 { font-size: clamp(22px, 7.5vw, 30px); }
           .cth-btns { flex-direction: column; align-items: stretch; }
           .cth-btn { text-align: center; justify-content: center; }
         }

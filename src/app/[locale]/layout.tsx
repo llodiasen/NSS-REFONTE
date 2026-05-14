@@ -5,6 +5,7 @@ import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import Script from "next/script";
 import { routing } from "@/i18n/routing";
+import BottomNav from "@/components/layout/BottomNav";
 
 export const metadata: Metadata = {
   title: {
@@ -50,6 +51,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
     <>
       <NextIntlClientProvider messages={messages}>
         {children}
+        <BottomNav />
       </NextIntlClientProvider>
 
       {process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN && (

@@ -1,0 +1,64 @@
+{
+  "name": "Nous Sommes la Solution",
+  "short_name": "NSS",
+  "description": "Mouvement panafricain de 175 000 femmes rurales engagées pour la souveraineté alimentaire et l'agroécologie paysanne.",
+  "start_url": "/fr",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#045627",
+  "lang": "fr",
+  "dir": "ltr",
+  "orientation": "portrait-primary",
+  "categories": ["social", "education"],
+  "icons": [
+    {
+      "src": "/images/pwa/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/pwa/icon-192x192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/images/pwa/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/pwa/icon-512x512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Actualités",
+      "short_name": "Actus",
+      "description": "Dernières actualités du mouvement NSS",
+      "url": "/fr/ressources/actualites",
+      "icons": [{ "src": "/images/pwa/icon-192x192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Programmes",
+      "short_name": "Programmes",
+      "description": "Nos programmes et événements",
+      "url": "/fr/programmes",
+      "icons": [{ "src": "/images/pwa/icon-192x192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Contact",
+      "short_name": "Contact",
+      "description": "Contacter le mouvement NSS",
+      "url": "/fr/contact",
+      "icons": [{ "src": "/images/pwa/icon-192x192.png", "sizes": "192x192", "type": "image/png" }]
+    }
+  ],
+  "screenshots": []
+}
