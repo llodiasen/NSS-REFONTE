@@ -192,7 +192,7 @@ export default function AboutValeurs() {
         /* Title */
         .val-card-titre {
           font-family: var(--font-display), Georgia, serif;
-          font-size: 24px; font-weight: 700;
+          font-size: 24px; font-weight: 500;
           color: #0A0A0A; margin: 0 0 8px; line-height: 1.1;
         }
         /* Accroche */
@@ -212,7 +212,7 @@ export default function AboutValeurs() {
         /* Description */
         .val-card-desc {
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 14px; line-height: 1.78; color: #4A4A4A; margin: 0;
+          font-size: 15px; font-weight: 400; line-height: 1.78; color: #000000; margin: 0;
           text-align: justify; hyphens: auto; flex: 1;
         }
         /* Bottom accent */
@@ -238,7 +238,7 @@ export default function AboutValeurs() {
           .val-header { padding: 44px 0 28px; }
           .val-card { padding: 28px 18px 26px; }
           .val-card-titre { font-size: 24px; }
-          .val-card-desc { font-size: 13.5px; }
+          .val-card-desc { font-size: 14px; }
         }
         @media (prefers-reduced-motion: reduce) {
           .val-card { transition: none; }

@@ -1,371 +1,494 @@
-"use client";
+'use client'
 
-import { useState } from "react";
+import { useState, useEffect } from 'react'
+
+const YOUTUBE_ID = '_2AqLsFeSV8'
+const THUMB = `https://img.youtube.com/vi/${YOUTUBE_ID}/maxresdefault.jpg`
 
 const OBJECTIFS = [
   {
-    num: "01",
-    text: "Promouvoir les savoirs agricoles transmis pendant des générations et qui ont préservé la souveraineté alimentaire sur le continent.",
+    num:   '01',
+    titre: 'Promouvoir les savoirs agricoles transmis pendant des générations.',
+    desc:  'Promouvoir les savoirs agricoles transmis pendant des générations et qui ont longtemps préservé la souveraineté alimentaire sur le continent africain.',
   },
   {
-    num: "02",
-    text: "Promouvoir l'agriculture familiale à travers l'agro-écologie.",
+    num:   '02',
+    titre: "Promouvoir l'agriculture familiale via l'agro-écologie.",
+    desc:  "Encourager les pratiques d'agriculture familiale et les méthodes agroécologiques comme alternative durable aux systèmes industriels.",
   },
   {
-    num: "03",
-    text: "Influencer les décideurs et promouvoir une meilleure gouvernance agricole.",
+    num:   '03',
+    titre: 'Influencer les décideurs pour une meilleure gouvernance.',
+    desc:  'Peser sur les instances locales, nationales et continentales pour une politique agricole juste et favorable aux femmes rurales.',
   },
-];
-
-const ACTIONS = [
-  "Organiser des séances d'Information-Éducation-Communication (IEC) sur la souveraineté alimentaire et sur l'agro-écologie.",
-  "Organiser des sessions de partage de techniques et de pratiques culturales endogènes et agro-écologiques.",
-  "Intervenir dans des réunions pour provoquer des changements de comportement ou d'attitude en faveur de la souveraineté alimentaire.",
-];
-
-function VideoModal({ onClose }: { onClose: () => void }) {
-  return (
-    <div
-      onClick={onClose}
-      style={{
-        position: "fixed", inset: 0, zIndex: 1000,
-        background: "rgba(0,0,0,0.92)",
-        display: "flex", alignItems: "center", justifyContent: "center",
-      }}
-    >
-      <div onClick={(e) => e.stopPropagation()} style={{ width: "min(900px, 92vw)", aspectRatio: "16/9", position: "relative" }}>
-        <iframe
-          src="https://www.youtube.com/embed/?autoplay=1"
-          style={{ width: "100%", height: "100%", border: "none" }}
-          allow="autoplay; fullscreen"
-        />
-        <button
-          onClick={onClose}
-          style={{
-            position: "absolute", top: "-40px", right: 0,
-            background: "none", border: "none", color: "#fff",
-            fontSize: "14px", cursor: "pointer", fontFamily: "var(--font-body)",
-            letterSpacing: "0.1em",
-          }}
-        >
-          ESC · Fermer
-        </button>
-      </div>
-    </div>
-  );
-}
+]
 
 export default function MouvementVision() {
-  const [modalOpen, setModalOpen] = useState(false);
+  const [open, setOpen] = useState<string>('01')
+  const [modal, setModal] = useState(false)
+
+  useEffect(() => {
+    if (!modal) return
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setModal(false) }
+    document.addEventListener('keydown', onKey)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = ''
+    }
+  }, [modal])
 
   return (
-    <>
-      {/* ══ SECTION UNIFIÉE VISION + OBJECTIFS ══ */}
-      <section style={{ background: "#ffffff" }}>
-        <div
-          className="vision-unified-grid"
-          style={{
-            maxWidth: "var(--container-max)",
-            margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            minHeight: "560px",
-          }}
-        >
-          {/* ── COLONNE GAUCHE ── */}
-          <div style={{
-            borderRight: "1px solid rgba(0,0,0,0.07)",
-            padding: "40px 44px",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-          }}>
+    <section className="mv" aria-labelledby="mv-titre">
 
-            {/* Eyebrow */}
-            <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "20px" }}>
-              <span style={{ display: "block", width: "28px", height: "1px", background: "#2D6A4F", flexShrink: 0 }} />
-              <span style={{
-                fontFamily: "var(--font-body)",
-                fontSize: "9px", fontWeight: 600,
-                letterSpacing: "0.18em", textTransform: "uppercase",
-                color: "#2D6A4F",
-              }}>
-                Nous Sommes la Solution
-              </span>
-            </div>
+      <div className="mv-container">
 
-            {/* H2 */}
-            <h2 style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "clamp(23px, 2.8vw, 36px)", fontWeight: 400, lineHeight: 1.12,
-              color: "#071A10", marginBottom: "16px",
-            }}>
-              Notre vision,{" "}
-              <em style={{ fontStyle: "italic", color: "#52B788" }}>
-                nos engagements
-              </em>
-            </h2>
+        {/* ══ GRID ══ */}
+        <div className="mv-body">
 
-            {/* Texte vision */}
-            <p style={{
-              fontFamily: "var(--font-body)",
-              fontSize: "14px", lineHeight: 1.75, color: "#111111",
-              textAlign: "justify",
-              borderBottom: "1px solid rgba(0,0,0,0.07)",
-              marginBottom: "24px", paddingBottom: "24px",
-            }}>
-              Nous Sommes la Solution œuvre pour une Afrique où les femmes rurales,
-              impliquées dans la prise de décision, cultivent, transforment et consomment
-              les produits de l&apos;agriculture familiale tout en préservant l&apos;environnement
-              pour un développement durable.
-            </p>
+          {/* ── Colonne gauche : header + accordéon ── */}
+          <div className="mv-left">
 
-            {/* Label objectifs */}
-            <p style={{
-              fontFamily: "var(--font-body)",
-              fontSize: "11px", letterSpacing: "0.16em",
-              textTransform: "uppercase", color: "rgba(0,0,0,0.35)",
-              marginBottom: "12px", fontWeight: 500,
-            }}>
-              Objectifs — Ce que nous visons
-            </p>
+            <header className="mv-header">
+              <span className="mv-eyebrow">NOUS SOMMES LA SOLUTION</span>
+              <h2 id="mv-titre" className="mv-h2">
+                Notre vision, <em>nos engagements</em>
+              </h2>
+              <p className="mv-intro">
+                Nous Sommes la Solution œuvre pour une Afrique où les femmes rurales,
+                impliquées dans la prise de décision, cultivent, transforment et consomment
+                les produits de l&apos;agriculture familiale tout en préservant
+                l&apos;environnement pour un développement durable.
+              </p>
+            </header>
 
-            {/* Liste objectifs */}
-            <div>
-              {OBJECTIFS.map(({ num, text }) => (
-                <div
-                  key={num}
-                  className="obj-item"
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "48px 1fr",
-                    borderTop: "1px solid rgba(0,0,0,0.06)",
-                    padding: "12px 6px",
-                    transition: "background 0.2s, padding-left 0.2s",
-                    cursor: "default",
-                  }}
-                >
-                  <span
-                    className="obj-num"
-                    style={{
-                      fontFamily: "var(--font-display)",
-                      fontSize: "22px", lineHeight: 1,
-                      color: "rgba(82,183,136,0.3)",
-                      transition: "color 0.2s",
-                      paddingTop: "3px",
-                    }}
+            <p className="mv-obj-label">OBJECTIFS — CE QUE NOUS VISONS</p>
+
+            {OBJECTIFS.map(({ num, titre, desc }) => {
+              const isOpen = open === num
+              return (
+                <div key={num} className="mv-item">
+                  <button
+                    className="mv-item-hd"
+                    onClick={() => setOpen(isOpen ? '' : num)}
+                    aria-expanded={isOpen}
                   >
-                    {num}
-                  </span>
-                  <span
-                    className="obj-text"
-                    style={{
-                      fontFamily: "var(--font-body)",
-                      fontSize: "16px", lineHeight: 1.65,
-                      color: "#111111",
-                      transition: "color 0.2s",
-                    }}
-                  >
-                    {text}
-                  </span>
+                    <span className="mv-num">{num}</span>
+                    <span className="mv-titre">{titre}</span>
+                    <svg
+                      className={`mv-chevron${isOpen ? ' is-open' : ''}`}
+                      width="14" height="14" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor"
+                      strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+                      aria-hidden
+                    >
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </button>
+                  <div className={`mv-desc-wrap${isOpen ? ' is-open' : ''}`} aria-hidden={!isOpen}>
+                    <p className="mv-desc">{desc}</p>
+                  </div>
                 </div>
-              ))}
-            </div>
+              )
+            })}
 
-            {/* Citation expansion */}
-            <div style={{
-              marginTop: "18px",
-              background: "rgba(82,183,136,0.05)",
-              borderLeft: "2px solid #52B788",
-              padding: "14px 18px",
-              borderRadius: "0 4px 4px 0",
-            }}>
-              <p style={{
-                fontFamily: "var(--font-body)",
-                fontSize: "16px", fontStyle: "italic",
-                lineHeight: 1.7, color: "#111111", margin: 0,
-              }}>
+            <blockquote className="mv-quote">
+              <p>
                 NSS vise à s&apos;élargir vers d&apos;autres régions du continent,
                 en relation avec d&apos;autres initiatives similaires, afin de se
                 donner un cachet continental.
               </p>
-            </div>
+            </blockquote>
+
           </div>
 
-          {/* ── COLONNE DROITE — Vidéo ── */}
-          <div style={{
-            position: "relative",
-            background: "#0D2B1A",
-            backgroundImage: "repeating-linear-gradient(45deg, rgba(82,183,136,0.04) 0px, rgba(82,183,136,0.04) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(-45deg, rgba(82,183,136,0.04) 0px, rgba(82,183,136,0.04) 1px, transparent 1px, transparent 12px)",
-            overflow: "hidden",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "flex-end",
-          }}>
+          {/* ── Colonne droite : vidéo ── */}
+          <div className="mv-right">
 
-            {/* Overlay gradient */}
-            <div aria-hidden="true" style={{
-              position: "absolute", inset: 0,
-              background: "linear-gradient(180deg, rgba(7,26,16,0.15) 0%, transparent 40%, rgba(7,26,16,0.75) 100%)",
-            }} />
-
-            {/* Badge durée */}
-            <div style={{
-              position: "absolute", top: "20px", right: "20px", zIndex: 2,
-              background: "rgba(7,26,16,0.75)",
-              border: "1px solid rgba(255,255,255,0.15)",
-              borderRadius: "40px",
-              padding: "5px 12px",
-              fontFamily: "'DM Sans', var(--font-body), sans-serif",
-              fontSize: "11px", color: "#ffffff",
-              letterSpacing: "0.05em",
-            }}>
-              04:32
-            </div>
-
-            {/* Bouton Play — centré */}
-            <div style={{
-              position: "absolute", inset: 0, zIndex: 2,
-              display: "flex", flexDirection: "column",
-              alignItems: "center", justifyContent: "center", gap: "14px",
-            }}>
+            <div
+              className="mv-vid"
+              style={{ backgroundImage: `url(${THUMB})` }}
+            >
+              <div className="mv-vid-overlay" aria-hidden="true" />
               <button
-                onClick={() => setModalOpen(true)}
-                className="play-btn"
-                aria-label="Regarder le documentaire"
-                style={{
-                  width: "80px", height: "80px", borderRadius: "50%",
-                  border: "2px solid rgba(255,255,255,0.5)",
-                  background: "rgba(255,255,255,0.1)",
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  cursor: "pointer",
-                  transition: "background 0.3s cubic-bezier(0.34,1.56,0.64,1), border-color 0.3s, transform 0.3s cubic-bezier(0.34,1.56,0.64,1)",
-                }}
+                className="mv-play"
+                onClick={() => setModal(true)}
+                aria-label="Regarder le documentaire NSS"
               >
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="#ffffff" style={{ marginLeft: "4px" }}>
+                <svg
+                  width="20" height="20" viewBox="0 0 24 24"
+                  fill="#ffffff" aria-hidden
+                  style={{ paddingLeft: '3px' }}
+                >
                   <polygon points="5,3 19,12 5,21" />
                 </svg>
               </button>
-              <span style={{
-                fontFamily: "'DM Sans', var(--font-body), sans-serif",
-                fontSize: "10px", letterSpacing: "0.12em",
-                textTransform: "uppercase", color: "rgba(255,255,255,0.6)",
-              }}>
-                Regarder le film
-              </span>
+              <p className="mv-play-label">REGARDER LE FILM</p>
             </div>
 
-            {/* Info bas */}
-            <div style={{ position: "relative", zIndex: 2, padding: "28px 32px" }}>
-              <span style={{
-                display: "block",
-                fontFamily: "'DM Sans', var(--font-body), sans-serif",
-                fontSize: "9px", letterSpacing: "0.14em",
-                textTransform: "uppercase", color: "#E07B39",
-                marginBottom: "6px",
-              }}>
-                NSS — Documentaire
-              </span>
-              <p style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "20px", fontWeight: 400,
-                color: "#ffffff", margin: "0 0 4px",
-                lineHeight: 1.2,
-              }}>
-                Les femmes rurales, actrices du changement
-              </p>
-              <span style={{
-                fontFamily: "'DM Sans', var(--font-body), sans-serif",
-                fontSize: "11px", color: "rgba(255,255,255,0.35)",
-              }}>
-                Afrique de l&apos;Ouest · 2024
-              </span>
+            <div className="mv-caption">
+              <span className="mv-cap-tag">NSS — DOCUMENTAIRE</span>
+              <p className="mv-cap-titre">Les femmes rurales, actrices du changement</p>
+              <span className="mv-cap-meta">Afrique de l&apos;Ouest · 2024</span>
             </div>
+
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* ══ CONSOLIDER & ÉLARGIR ══ */}
-      <section style={{ background: "#f7f4ef" }}>
-        <div style={{ maxWidth: "var(--container-max)", margin: "0 auto", padding: "96px var(--container-pad)" }}>
-          <div className="consolider-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px", alignItems: "start" }}>
-
-            {/* Gauche */}
-            <div>
-              <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "28px" }}>
-                <span style={{ display: "block", width: "32px", height: "1px", background: "rgba(29,122,82,0.4)" }} />
-                <span style={{ fontFamily: "var(--font-body)", fontSize: "9px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "3px", color: "var(--green-600)" }}>
-                  Nos actions
-                </span>
-              </div>
-              <h2 style={{
-                fontFamily: "var(--font-display)", fontSize: "clamp(23px, 3vw, 38px)",
-                fontWeight: 400, lineHeight: 1.2,
-                color: "#071A10", marginBottom: "24px",
-              }}>
-                Consolider et élargir{" "}
-                <em style={{ fontStyle: "italic", color: "var(--green-600)" }}>
-                  «&nbsp;Nous Sommes la Solution&nbsp;»
-                </em>
-              </h2>
-              <p style={{
-                fontFamily: "var(--font-body)", fontSize: "16px",
-                fontWeight: 400, lineHeight: 1.75,
-                color: "#111111", margin: 0,
-              }}>
-                En vue de contribuer au mouvement pour la souveraineté alimentaire,
-                les membres de Nous sommes la solution sont invités à :
-              </p>
-            </div>
-
-            {/* Droite */}
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              {ACTIONS.map((action, i) => (
-                <div key={i} style={{
-                  display: "flex", gap: "28px", alignItems: "flex-start",
-                  padding: "28px 0",
-                  borderBottom: i < ACTIONS.length - 1 ? "1px solid rgba(29,122,82,0.12)" : "none",
-                }}>
-                  <span style={{
-                    fontFamily: "var(--font-display)", fontSize: "32px",
-                    fontWeight: 400, lineHeight: 1,
-                    color: "rgba(29,122,82,0.2)",
-                    flexShrink: 0, paddingTop: "4px",
-                  }}>
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <p style={{
-                    fontFamily: "var(--font-body)", fontSize: "16px",
-                    fontWeight: 400, lineHeight: 1.75,
-                    color: "#111111", margin: 0,
-                  }}>
-                    {action}
-                  </p>
-                </div>
-              ))}
-            </div>
+      {/* ── Modal vidéo ── */}
+      {modal && (
+        <div
+          className="mv-modal-ov"
+          onClick={() => setModal(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Documentaire NSS"
+        >
+          <button
+            className="mv-modal-close"
+            onClick={() => setModal(false)}
+            aria-label="Fermer"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+              <path d="M18 6 6 18M6 6l12 12" />
+            </svg>
+          </button>
+          <div className="mv-modal-box" onClick={(e) => e.stopPropagation()}>
+            <iframe
+              className="mv-modal-frame"
+              src={`https://www.youtube-nocookie.com/embed/${YOUTUBE_ID}?autoplay=1&rel=0`}
+              title="NSS — Mouvement Nous Sommes la Solution"
+              allow="autoplay; encrypted-media; fullscreen"
+              allowFullScreen
+            />
           </div>
         </div>
-      </section>
-
-      {/* Modal vidéo */}
-      {modalOpen && <VideoModal onClose={() => setModalOpen(false)} />}
+      )}
 
       <style>{`
-        .play-btn:hover {
-          background: rgba(224,123,57,0.4) !important;
-          border-color: #E07B39 !important;
-          transform: scale(1.1);
+        /* ── Section ── */
+        .mv {
+          background: #ffffff;
+          width: 100%;
+          padding: 100px 24px 80px;
+          box-sizing: border-box;
         }
-        .obj-item:hover { background: rgba(45,106,79,0.04); padding-left: 6px; }
-        .obj-item:hover .obj-num  { color: rgba(82,183,136,0.65) !important; }
-        .obj-item:hover .obj-text { color: #071A10 !important; }
+        .mv-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+          box-sizing: border-box;
+        }
 
+        /* ══ Header (dans colonne gauche) ══ */
+        .mv-header {
+          text-align: left;
+          margin-bottom: 48px;
+        }
+        .mv-eyebrow {
+          display: block;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 11px;
+          font-weight: 500;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          color: #00AD4C;
+          margin-bottom: 20px;
+        }
+        .mv-h2 {
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-size: 52px;
+          font-weight: 600;
+          line-height: 1.1;
+          color: #2A2A2A;
+          margin: 0 0 20px;
+          letter-spacing: -0.01em;
+        }
+        .mv-h2 em {
+          font-style: italic;
+          color: #00AD4C;
+          font-weight: 600;
+        }
+        .mv-intro {
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 16px;
+          font-weight: 300;
+          line-height: 1.8;
+          color: #4A4A4A;
+          margin: 0;
+          text-align: justify;
+          text-align-last: left;
+        }
+
+        /* ══ Grid ══ */
+        .mv-body {
+          display: grid;
+          grid-template-columns: 55fr 45fr;
+          gap: 80px;
+          align-items: stretch;
+        }
+
+        /* ── Colonne gauche ── */
+        .mv-left {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+        }
+        .mv-obj-label {
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 10px;
+          font-weight: 500;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          color: #888;
+          margin: 0 0 24px;
+          border-bottom: 1px solid rgba(0,0,0,0.08);
+          padding-bottom: 12px;
+        }
+
+        /* Items accordéon */
+        .mv-item {
+          border-bottom: 1px solid rgba(0,0,0,0.07);
+        }
+        .mv-item-hd {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          padding: 20px 0;
+          background: none;
+          border: none;
+          cursor: pointer;
+          text-align: left;
+          transition: 0.25s ease;
+        }
+        .mv-num {
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 12px;
+          font-weight: 500;
+          color: #00AD4C;
+          margin-right: 16px;
+          flex-shrink: 0;
+        }
+        .mv-titre {
+          flex: 1;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-size: 20px;
+          font-weight: 500;
+          color: #2A2A2A;
+          line-height: 1.3;
+          text-align: left;
+        }
+        .mv-chevron {
+          color: #888;
+          flex-shrink: 0;
+          margin-left: 8px;
+          transition: transform 0.2s ease, color 0.2s ease;
+        }
+        .mv-chevron.is-open {
+          transform: rotate(180deg);
+          color: #00AD4C;
+        }
+
+        /* Contenu expandable */
+        .mv-desc-wrap {
+          overflow: hidden;
+          max-height: 0;
+          transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .mv-desc-wrap.is-open {
+          max-height: 200px;
+        }
+        .mv-desc {
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 16px;
+          font-weight: 300;
+          line-height: 1.72;
+          color: #2A2A2A;
+          margin: 0;
+          padding: 12px 0 4px 28px;
+        }
+
+        /* Citation */
+        .mv-quote {
+          border-left: 3px solid #E8A838;
+          padding-left: 20px;
+          margin: 32px 0 0;
+        }
+        .mv-quote p {
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-size: 18px;
+          font-style: italic;
+          font-weight: 400;
+          line-height: 1.7;
+          color: #2A2A2A;
+          opacity: 0.75;
+          margin: 0;
+        }
+
+        /* ── Colonne droite ── */
+        .mv-right {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+        }
+        .mv-vid {
+          flex: 1;
+          background: #045627 center / cover no-repeat;
+          border-radius: 12px;
+          overflow: hidden;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+        .mv-vid-overlay {
+          position: absolute;
+          inset: 0;
+          background: rgba(4, 86, 39, 0.62);
+          border-radius: 12px;
+        }
+        .mv-play {
+          position: relative;
+          z-index: 1;
+          width: 64px;
+          height: 64px;
+          border-radius: 50%;
+          background: #E8A838;
+          border: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          box-shadow: 0 0 0 8px rgba(232, 168, 56, 0.2);
+          transition: transform 0.25s ease;
+        }
+        .mv-play:hover {
+          transform: scale(1.08);
+        }
+        .mv-play-label {
+          position: relative;
+          z-index: 1;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 10px;
+          font-weight: 600;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: rgba(245, 237, 214, 0.75);
+          margin: 12px 0 0;
+        }
+
+        /* Modal */
+        .mv-modal-ov {
+          position: fixed;
+          inset: 0;
+          z-index: 9999;
+          background: rgba(2, 22, 10, 0.92);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 24px;
+          backdrop-filter: blur(8px);
+          animation: mv-fadein 0.18s ease;
+        }
+        @keyframes mv-fadein { from { opacity: 0 } to { opacity: 1 } }
+        .mv-modal-close {
+          position: fixed;
+          top: 20px;
+          right: 24px;
+          width: 40px;
+          height: 40px;
+          background: rgba(255,255,255,0.08);
+          border: 1px solid rgba(255,255,255,0.18);
+          border-radius: 50%;
+          color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: background 0.2s;
+        }
+        .mv-modal-close:hover { background: rgba(255,255,255,0.16); }
+        .mv-modal-box {
+          width: 100%;
+          max-width: 900px;
+          aspect-ratio: 16 / 9;
+          border-radius: 8px;
+          overflow: hidden;
+          background: #000;
+        }
+        .mv-modal-frame {
+          width: 100%;
+          height: 100%;
+          border: none;
+        }
+
+        /* Caption vidéo */
+        .mv-caption {
+          padding-top: 20px;
+        }
+        .mv-cap-tag {
+          display: block;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 10px;
+          font-weight: 500;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+          color: #00AD4C;
+          margin-bottom: 8px;
+        }
+        .mv-cap-titre {
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-size: 22px;
+          font-weight: 600;
+          color: #2A2A2A;
+          line-height: 1.2;
+          margin: 0;
+        }
+        .mv-cap-meta {
+          display: block;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 12px;
+          font-weight: 300;
+          color: #888;
+          margin-top: 6px;
+        }
+
+        /* ── Tablet ── */
         @media (max-width: 900px) {
-          .vision-unified-grid { grid-template-columns: 1fr !important; }
-          .consolider-grid     { grid-template-columns: 1fr !important; gap: 40px !important; }
+          .mv {
+            padding: 80px 32px;
+          }
+          .mv-body {
+            grid-template-columns: 1fr;
+            gap: 48px;
+          }
+          .mv-right {
+            order: -1;
+          }
+        }
+
+        /* ── Mobile ── */
+        @media (max-width: 640px) {
+          .mv {
+            padding: 60px 20px;
+          }
+          .mv-h2 {
+            font-size: 36px;
+          }
+          .mv-intro {
+            font-size: 15px;
+          }
+        }
+
+        /* ── Réduction de mouvement ── */
+        @media (prefers-reduced-motion: reduce) {
+          .mv-chevron,
+          .mv-play,
+          .mv-desc-wrap { transition: none; }
         }
       `}</style>
-    </>
-  );
+    </section>
+  )
 }
