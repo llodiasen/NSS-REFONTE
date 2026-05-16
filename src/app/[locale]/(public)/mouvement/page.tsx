@@ -56,36 +56,37 @@ export default function MouvementPage() {
             textAlign: "center",
           }}
         >
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "12px", marginBottom: "20px" }}>
-            <span style={{ display: "block", width: "28px", height: "1.5px", background: "#ffffff", flexShrink: 0 }} aria-hidden />
-            <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.14em", color: "#ffffff" }}>
-              REJOINDRE LE MOUVEMENT
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", marginBottom: "20px" }}>
+            <span style={{ display: "block", width: "28px", height: "1.5px", background: "#F5EDD6", flexShrink: 0 }} aria-hidden />
+            <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.14em", color: "#F5EDD6" }}>
+              ENSEMBLE, NOUS SOMMES LA SOLUTION
             </span>
-            <span style={{ display: "block", width: "28px", height: "1.5px", background: "#ffffff", flexShrink: 0 }} aria-hidden />
+            <span style={{ display: "block", width: "28px", height: "1.5px", background: "#F5EDD6", flexShrink: 0 }} aria-hidden />
           </div>
           <h2
             style={{
               fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
-              fontSize: "clamp(26px, 3vw, 40px)",
+              fontSize: "clamp(1.8rem, 4vw, 2.4rem)",
               fontWeight: 600,
-              lineHeight: 1.15,
-              color: "#ffffff",
+              lineHeight: 1.2,
+              color: "#F5EDD6",
               marginBottom: "16px",
               letterSpacing: "-0.015em",
             }}
           >
-            Rejoindre le mouvement,{" "}
-            <em style={{ fontStyle: "italic", color: "#E8A838" }}>agir ensemble.</em>
+            Rejoignez 175&nbsp;000 femmes qui{" "}
+            <em style={{ fontStyle: "italic", color: "#E8A838" }}>nourrissent l&apos;Afrique.</em>
           </h2>
           <div style={{ width: "60px", height: "3px", background: "#00AD4C", borderRadius: "2px", margin: "0 auto 1.5rem" }} aria-hidden />
           <p
             style={{
               fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
-              fontSize: "16px",
+              fontSize: "14px",
               lineHeight: 1.7,
-              color: "#ffffff",
-              maxWidth: "560px",
+              color: "rgba(245, 237, 214, 0.85)",
+              maxWidth: "600px",
               margin: "0 auto 40px",
+              textAlign: "center",
             }}
           >
             Partagez nos valeurs&nbsp;? Adhérez à NSS et rejoignez 175&nbsp;000 femmes
