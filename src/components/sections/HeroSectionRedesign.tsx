@@ -94,14 +94,6 @@ export default function HeroSectionRedesign() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.78, delay: 0.12, ease }}
         >
-          {/* Floating card 14 pays */}
-          {!playing && (
-            <div className="hsr-fc" aria-label="14 pays membres">
-              <span className="hsr-fc-num">14</span>
-              <span className="hsr-fc-lbl">Pays membres</span>
-            </div>
-          )}
-
           {/* Vidéo */}
           <div
             className="hsr-vid"
@@ -267,28 +259,6 @@ export default function HeroSectionRedesign() {
           padding-top: 28px;
         }
 
-        /* ── FLOATING CARD ── */
-        .hsr-fc {
-          position: absolute;
-          top: -20px; left: -36px;
-          z-index: 2;
-          background: #045627;
-          border-radius: 12px;
-          padding: 16px 20px;
-          display: flex; flex-direction: column; gap: 4px;
-        }
-        .hsr-fc-num {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: 32px; font-weight: 600;
-          color: #A5CE46; line-height: 1;
-        }
-        .hsr-fc-lbl {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 10px; font-weight: 500;
-          color: rgba(245,237,214,0.7);
-          text-transform: uppercase; letter-spacing: 0.08em;
-        }
-
         /* ── VIDÉO ── */
         .hsr-vid {
           border-radius: 16px;
@@ -364,7 +334,6 @@ export default function HeroSectionRedesign() {
           .hsr-bg-right { display: none; }
           .hsr-wrap { grid-template-columns: 1fr; gap: 48px; }
           .hsr-right { padding-top: 20px; }
-          .hsr-fc { top: -12px; left: 12px; }
           .hsr-vid { aspect-ratio: 4/3; }
         }
 
