@@ -261,7 +261,7 @@ export default function MediathequeSectionRedesign() {
             </motion.div>
 
             <motion.h2 id="vds-heading" className="vds__h2" {...inViewScale(0.16)}>
-              Leur parole · <em>en images.</em>
+              Leur parole · <em>en images</em>
             </motion.h2>
             <motion.span
               className="vds__underline"
