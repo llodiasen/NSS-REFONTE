@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import HeroHome from "@/components/sections/HeroHome";
 import ImpactSection from "@/components/sections/ImpactSection";
+import MissionSection from "@/components/sections/MissionSection";
 import HeroSectionRedesign from "@/components/sections/HeroSectionRedesign";
 import ObjectifsRedesign from "@/components/sections/ObjectifsRedesign";
 import ProgrammesRedesign from "@/components/sections/ProgrammesRedesign";
@@ -29,7 +30,9 @@ export default async function HomePage() {
       <HeroHome />
       {/* 02 — Notre impact */}
       <ImpactSection />
-      {/* 03 — Qui sommes-nous redesign */}
+      {/* 03 — Notre mission */}
+      <MissionSection />
+      {/* 04 — Qui sommes-nous redesign */}
       <HeroSectionRedesign />
       {/* 03 — Nos objectifs (vert foncé, 3 cartes) */}
       <ObjectifsRedesign />
