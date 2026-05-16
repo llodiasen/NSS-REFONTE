@@ -77,7 +77,7 @@ export default function MouvementPage() {
             Rejoignez 175&nbsp;000 femmes qui{" "}
             <em style={{ fontStyle: "italic", color: "#E8A838" }}>nourrissent l&apos;Afrique.</em>
           </h2>
-          <div style={{ width: "60px", height: "3px", background: "#00AD4C", borderRadius: "2px", margin: "0 auto 1.5rem" }} aria-hidden />
+          <div style={{ width: "60px", height: "3px", background: "#ffffff", borderRadius: "2px", margin: "0 auto 1.5rem" }} aria-hidden />
           <p
             style={{
               fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
