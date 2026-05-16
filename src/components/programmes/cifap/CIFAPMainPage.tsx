@@ -3,15 +3,9 @@
 import { useRef, useState, useEffect } from 'react'
 import { motion, AnimatePresence, useInView } from 'framer-motion'
 import Link from 'next/link'
-import { MapPin, Calendar, Users, X, ChevronLeft, ChevronRight } from 'lucide-react'
-import { Swiper as SwiperReact, SwiperSlide } from 'swiper/react'
-import { Pagination } from 'swiper/modules'
-import type { Swiper as SwiperType } from 'swiper'
-import 'swiper/css'
-import 'swiper/css/pagination'
+import { MapPin, Calendar, Users, X } from 'lucide-react'
 import {
   CIFAP_EDITIONS,
-  CIFAP_PAYS,
   CIFAP_PARTENAIRES_NSS,
   CIFAP_PARTENAIRES_BAILLEURS,
 } from '@/data/cifap/index'
@@ -392,15 +386,10 @@ function LeafletMap() {
    COMPOSANT PRINCIPAL
 ════════════════════════════════════════════════════ */
 export default function CIFAPMainPage({ locale }: { locale: string }) {
-  const tlRef    = useRef(null)
-  const tlInView = useInView(tlRef, { once: true, margin: '-40px' })
   const ctaRef   = useRef(null)
   const ctaInView = useInView(ctaRef, { once: true, margin: '-60px' })
 
   const [selectedEdition, setSelectedEdition] = useState<CifapEdition | null>(null)
-  const progSwiperRef = useRef<SwiperType | null>(null)
-  const [progIdx, setProgIdx] = useState(0)
-  const editionsDesc = [...CIFAP_EDITIONS].reverse()
 
   /* ── Slider éditions ── */
   const sliderRef = useRef<HTMLDivElement>(null)
@@ -572,153 +561,6 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════
-          2. PROGRESSION — fond alt #FAFAF8
-      ══════════════════════════════════════════════ */}
-      <section className="cf-sec cf-sec--alt" aria-labelledby="cf-proc-h2">
-        {/* Header centré */}
-        <div className="cf-sec__inner">
-          <SectionHeader
-            titleId="cf-proc-h2"
-            eyebrow="PROGRESSION"
-            title="Quatre ans de formation cumulative."
-            sub="Chaque édition approfondit un thème agroécologique précis, construisant progressivement l'expertise du mouvement NSS."
-          />
-        </div>
-
-        {/* Corps full-width */}
-        <div className="cf-prog-body" ref={tlRef}>
-
-          {/* ── Timeline visuelle (desktop) — 3 nœuds dynamiques ── */}
-          <div className="cf-prog-vis" aria-hidden="true">
-            {editionsDesc.slice(progIdx, progIdx + 3).map((ed, i) => (
-              <div key={`vis-pos-${i}`} className={`cf-prog-vis-col${ed.status === 'upcoming' ? ' cf-prog-vis-col--upcoming' : ''}`}>
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={ed.year}
-                    className="cf-prog-vis-year"
-                    initial={{ opacity: 0, y: -5 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 5 }}
-                    transition={{ duration: 0.18 }}
-                  >
-                    {ed.year}
-                  </motion.span>
-                </AnimatePresence>
-                <div className="cf-prog-vis-row">
-                  <motion.div
-                    className={`cf-rd-dot${ed.status === 'upcoming' ? ' cf-rd-dot--upcoming' : ''}`}
-                    initial={{ scale: 0.4, opacity: 0 }}
-                    animate={tlInView ? { scale: 1, opacity: 1 } : { scale: 0.4, opacity: 0 }}
-                    transition={{ delay: 0.1 + i * 0.12, duration: 0.35, ease: 'backOut' }}
-                    whileHover={{ scale: 1.5 }}
-                    whileTap={{ scale: 0.85 }}
-                  />
-                  {i < 2 && (
-                    <div className="cf-rd-conn">
-                      <motion.div
-                        className="cf-rd-conn-fill"
-                        initial={{ scaleX: 0 }}
-                        animate={tlInView ? { scaleX: 1 } : { scaleX: 0 }}
-                        transition={{ duration: 0.6, delay: 0.3 + i * 0.15, ease: 'easeOut' }}
-                        style={{ transformOrigin: 'left' }}
-                      />
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* ── Swiper cards ── */}
-          <div className="cf-prog-swiper-wrap">
-            <button
-              className="cf-prog-nav cf-prog-nav--prev"
-              onClick={() => progSwiperRef.current?.slidePrev()}
-              disabled={progIdx === 0}
-              aria-label="Édition précédente"
-            >
-              <ChevronLeft size={20} />
-            </button>
-
-            <SwiperReact
-              modules={[Pagination]}
-              onSwiper={(s) => { progSwiperRef.current = s }}
-              onSlideChange={(s) => setProgIdx(s.activeIndex)}
-              grabCursor
-              slidesPerView={3}
-              spaceBetween={20}
-              pagination={{ clickable: true, el: '.cf-prog-dots' }}
-              breakpoints={{
-                0:    { slidesPerView: 1.25, spaceBetween: 14 },
-                640:  { slidesPerView: 2,    spaceBetween: 16 },
-                768:  { slidesPerView: 2.4,  spaceBetween: 18 },
-                1024: { slidesPerView: 3,    spaceBetween: 20 },
-              }}
-              className="cf-prog-swiper"
-              aria-label="Éditions CIFAP"
-            >
-              {editionsDesc.map((ed) => (
-                <SwiperSlide key={ed.year}>
-                  <article
-                    role="button"
-                    tabIndex={0}
-                    aria-label={`Édition CIFAP ${ed.year} — ${ed.themeShort}. Cliquer pour le détail.`}
-                    className={`cf-prog-card${ed.status === 'upcoming' ? ' cf-prog-card--upcoming' : ''}`}
-                    onClick={() => setSelectedEdition(ed)}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedEdition(ed) }
-                    }}
-                  >
-                    <span className={`cf-prog-card__badge cf-prog-card__badge--${ed.status}`}>
-                      {ed.status === 'upcoming' ? 'À VENIR' : 'PASSÉ'}
-                    </span>
-                    <h3 className="cf-prog-card__theme">{ed.themeShort}</h3>
-                    <p className="cf-prog-card__subtitle">{ed.themeSubtitle}</p>
-                    <div className="cf-prog-card__info-group">
-                      <div className="cf-prog-card__info">📅 {ed.dates}</div>
-                      <div className="cf-prog-card__info">📍 Niaguis, Sénégal</div>
-                      <div className="cf-prog-card__info">👥 {ed.participants ?? 'À définir · 8 pays'}</div>
-                    </div>
-                    <span className="cf-prog-card__cta">
-                      {ed.status === 'upcoming' ? 'Bientôt →' : 'Voir le détail →'}
-                    </span>
-                  </article>
-                </SwiperSlide>
-              ))}
-            </SwiperReact>
-
-            <button
-              className="cf-prog-nav cf-prog-nav--next"
-              onClick={() => progSwiperRef.current?.slideNext()}
-              disabled={progIdx >= editionsDesc.length - 3}
-              aria-label="Édition suivante"
-            >
-              <ChevronRight size={20} />
-            </button>
-          </div>
-
-          {/* Dots pagination */}
-          <div className="cf-prog-dots" aria-label="Navigation éditions" />
-
-        </div>
-
-        {/* ── Pays participants ── */}
-        <div className="cf-sec__inner">
-          <div className="cf-pays-block">
-            <p className="cf-eyebrow" style={{ marginBottom: '20px', textTransform: 'none' }}>Notre réseau</p>
-            <StaggerGrid className="cf-pays-grid" stagger={0.06}>
-              {CIFAP_PAYS.map((p) => (
-                <motion.span key={p.name} className="cf-pays-badge" role="listitem" variants={fadeUp}>
-                  <span className="cf-pays-flag" aria-hidden="true">{p.flag}</span>
-                  <span className="cf-pays-name">{p.name}</span>
-                </motion.span>
-              ))}
-            </StaggerGrid>
-          </div>
-        </div>
-
-      </section>
 
 
       {/* ══════════════════════════════════════════════
