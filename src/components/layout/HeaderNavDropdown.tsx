@@ -52,8 +52,8 @@ export default function HeaderNavDropdown({ items, onClose }: Props) {
           <span
             style={{
               display: "block",
-              fontSize: item.indent ? "13px" : "15px",
-              fontWeight: item.indent ? 400 : 500,
+              fontSize: item.indent ? "12px" : "13px",
+              fontWeight: 400,
               color: item.indent ? "#2a7a4a" : "#0f2b1a",
               lineHeight: 1.3,
             }}
@@ -64,7 +64,7 @@ export default function HeaderNavDropdown({ items, onClose }: Props) {
           <span
             style={{
               display: "block",
-              fontSize: "12px",
+              fontSize: "11px",
               color: "#aaa",
               lineHeight: 1.4,
             }}
