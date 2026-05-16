@@ -127,7 +127,7 @@ export default function AboutOrganisations() {
         .ao-h2 {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: clamp(1.875rem, 3.5vw, 1.875rem);
-          font-weight: 600;
+          font-weight: 400;
           color: #2A2A2A;
           line-height: 1.2;
           margin: 0;

@@ -190,7 +190,7 @@ export default function TimelineZigzagRedesign() {
         .tl-h2 {
           margin: 0 0 0;
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: clamp(24px, 2.6vw, 34px); font-weight: 600; line-height: 1.2;
+          font-size: clamp(24px, 2.6vw, 34px); font-weight: 400; line-height: 1.2;
           color: #2A2A2A; letter-spacing: -0.015em;
         }
         .tl-h2 em { font-style: italic; color: #A5CE46; }
@@ -343,7 +343,7 @@ export default function TimelineZigzagRedesign() {
         /* ── Titre ── */
         .tl-titre {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: 20px; font-weight: 400;
+          font-size: 17px; font-weight: 400;
           line-height: 1.1; display: block;
           margin-bottom: 8px;
           color: #0A0A0A;
@@ -355,7 +355,7 @@ export default function TimelineZigzagRedesign() {
         /* ── Texte ── */
         .tl-texte {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 15px; line-height: 1.78;
+          font-size: 14px; line-height: 1.78;
           color: #000000; margin: 0;
           text-align: justify; hyphens: auto;
           position: relative; z-index: 1;

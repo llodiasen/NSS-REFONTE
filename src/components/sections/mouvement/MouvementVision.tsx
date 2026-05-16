@@ -211,7 +211,7 @@ export default function MouvementVision() {
         }
         .mv-h2 {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: clamp(2.125rem, 3.5vw, 2.125rem);
+          font-size: clamp(2rem, 3.5vw, 2rem);
           font-weight: 500;
           line-height: 1.1;
           color: #2A2A2A;

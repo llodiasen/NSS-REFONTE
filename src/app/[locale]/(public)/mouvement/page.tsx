@@ -57,25 +57,25 @@ export default function MouvementPage() {
           }}
         >
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", marginBottom: "20px" }}>
-            <span style={{ display: "block", width: "28px", height: "1.5px", background: "#F5EDD6", flexShrink: 0 }} aria-hidden />
-            <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.14em", color: "#F5EDD6" }}>
+            <span style={{ display: "block", width: "28px", height: "1.5px", background: "#ffffff", flexShrink: 0 }} aria-hidden />
+            <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.14em", color: "#ffffff" }}>
               ENSEMBLE, NOUS SOMMES LA SOLUTION
             </span>
-            <span style={{ display: "block", width: "28px", height: "1.5px", background: "#F5EDD6", flexShrink: 0 }} aria-hidden />
+            <span style={{ display: "block", width: "28px", height: "1.5px", background: "#ffffff", flexShrink: 0 }} aria-hidden />
           </div>
           <h2
             style={{
               fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
-              fontSize: "clamp(1.8rem, 4vw, 2.4rem)",
+              fontSize: "clamp(1.71rem, 3.8vw, 2.28rem)",
               fontWeight: 600,
               lineHeight: 1.2,
-              color: "#F5EDD6",
+              color: "#ffffff",
               marginBottom: "16px",
               letterSpacing: "-0.015em",
             }}
           >
             Rejoignez 175&nbsp;000 femmes qui{" "}
-            <em style={{ fontStyle: "italic", color: "#E8A838" }}>nourrissent l&apos;Afrique.</em>
+            <em style={{ fontStyle: "italic", color: "#ffffff" }}>nourrissent l&apos;Afrique.</em>
           </h2>
           <div style={{ width: "60px", height: "3px", background: "#ffffff", borderRadius: "2px", margin: "0 auto 1.5rem" }} aria-hidden />
           <p
@@ -83,7 +83,7 @@ export default function MouvementPage() {
               fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
               fontSize: "14px",
               lineHeight: 1.7,
-              color: "rgba(245, 237, 214, 0.85)",
+              color: "#ffffff",
               maxWidth: "600px",
               margin: "0 auto 40px",
               textAlign: "center",

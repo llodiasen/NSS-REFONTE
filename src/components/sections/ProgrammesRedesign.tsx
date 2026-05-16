@@ -257,7 +257,7 @@ export default function ProgrammesRedesign() {
         .prg3-wrap {
           max-width: 1400px;
           margin: 0 auto;
-          padding: clamp(4rem, 8vw, 6rem) clamp(1.5rem, 6vw, 5rem);
+          padding: clamp(4rem, 8vw, 6rem) clamp(1rem, 2.5vw, 2rem);
           box-sizing: border-box;
         }
 
@@ -282,7 +282,7 @@ export default function ProgrammesRedesign() {
         }
         .prg3-eyebrow-text {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 0.75rem;
+          font-size: 0.7rem;
           font-weight: 500;
           letter-spacing: 0.12em;
           text-transform: uppercase;
@@ -291,8 +291,8 @@ export default function ProgrammesRedesign() {
         }
         .prg3-h2 {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-          font-weight: 600;
+          font-size: clamp(1.875rem, 3.5vw, 1.875rem);
+          font-weight: 400;
           line-height: 1.2;
           color: #2A2A2A;
           margin: 0 0 0.75rem;
@@ -400,7 +400,7 @@ export default function ProgrammesRedesign() {
         .prg3-titre {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 1.25rem;
-          font-weight: 600;
+          font-weight: 400;
           color: #111111;
           margin: 0;
           line-height: 1.22;
@@ -409,7 +409,7 @@ export default function ProgrammesRedesign() {
         .prg3-sous {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 12px;
-          color: #999;
+          color: #045627;
           margin: 0;
           line-height: 1.5;
           font-weight: 400;

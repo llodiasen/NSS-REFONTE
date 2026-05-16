@@ -216,29 +216,29 @@ export default function HeroSectionRedesign() {
         }
         .qs-eyebrow-line {
           display: block;
-          width: 44px;
-          height: 1px;
-          background: ${NSS.vertClair};
+          width: 28px;
+          height: 1.5px;
+          background: ${NSS.vertPrimaire};
           flex-shrink: 0;
         }
         .qs-eyebrow-text {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 0.75rem;
+          font-size: 11px;
           font-weight: 500;
-          letter-spacing: 0.12em;
+          letter-spacing: 0.14em;
           text-transform: uppercase;
-          color: ${NSS.vertClair};
+          color: ${NSS.vertPrimaire};
         }
 
         /* ── H2 ── */
         .qs-h2 {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-          font-weight: 600;
-          line-height: 1.2;
+          font-size: clamp(2rem, 3.5vw, 2rem);
+          font-weight: 500;
+          line-height: 1.1;
           color: #2A2A2A;
           margin: 0 0 0.75rem;
-          letter-spacing: -0.015em;
+          letter-spacing: -0.01em;
         }
         .qs-h2 em {
           font-style: italic;
@@ -314,7 +314,7 @@ export default function HeroSectionRedesign() {
         }
         .qs-stat-label {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 10px;
+          font-size: 12px;
           font-weight: 500;
           color: #555;
           line-height: 1.4;

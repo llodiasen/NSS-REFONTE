@@ -27,35 +27,24 @@ export default function AboutPartenaires() {
           <span aria-hidden style={{ display: "block", width: "28px", height: "1.5px", background: "#00AD4C", flexShrink: 0 }} />
         </div>
 
-        {/* ── Titre ── */}
-        <h2 style={{
-          fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
-          fontSize: "clamp(26px, 2.8vw, 36px)",
-          fontWeight: 600,
-          color: "#2A2A2A",
-          lineHeight: 1.2,
-          margin: "0 0 0",
-          letterSpacing: "-0.015em",
-        }}>
-          Ensemble, plus <em style={{ fontStyle: "italic", color: "#A5CE46" }}>forts.</em>
-        </h2>
-
         {/* ── Underline ── */}
         <div style={{ width: "60px", height: "3px", background: "#00AD4C", borderRadius: "2px", margin: "0.75rem auto 2.5rem" }} aria-hidden />
 
         {/* ── Logos ── */}
         <div style={{
           display: "flex",
-          flexWrap: "wrap",
+          flexWrap: "nowrap",
           justifyContent: "center",
           alignItems: "center",
-          gap: "32px 40px",
+          gap: "20px",
         }}>
           {PARTENAIRES.map(({ src, alt }) => (
             <div
               key={alt}
               style={{
-                width: "160px",
+                flex: "1 1 0",
+                minWidth: 0,
+                maxWidth: "160px",
                 height: "80px",
                 borderRadius: "10px",
                 background: "#f9f8f5",
@@ -64,16 +53,15 @@ export default function AboutPartenaires() {
                 alignItems: "center",
                 justifyContent: "center",
                 overflow: "hidden",
-                flexShrink: 0,
                 transition: "box-shadow 0.2s ease",
               }}
             >
               <Image
                 src={src}
                 alt={alt}
-                width={130}
-                height={60}
-                style={{ objectFit: "contain" }}
+                width={120}
+                height={55}
+                style={{ objectFit: "contain", maxWidth: "90%", maxHeight: "90%" }}
               />
             </div>
           ))}

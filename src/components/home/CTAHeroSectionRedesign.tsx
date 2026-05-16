@@ -186,7 +186,7 @@ export default function CTAHeroSectionRedesign() {
         }
         .cth-h2 em {
           font-style: italic;
-          color: ${NSS.vertClair};
+          color: #ffffff;
         }
 
         /* ── Sous-titre ── */

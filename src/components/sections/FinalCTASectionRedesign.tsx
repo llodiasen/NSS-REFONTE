@@ -100,7 +100,7 @@ export default function FinalCTASectionRedesign() {
           font-weight: 600; color: #ffffff;
           line-height: 1.1; margin: 0 0 22px; letter-spacing: -0.015em;
         }
-        .fcta-h2 em { font-style: italic; color: ${NSS.or}; }
+        .fcta-h2 em { font-style: italic; color: #ffffff; }
         /* Subtitle */
         .fcta-sub {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
@@ -118,7 +118,7 @@ export default function FinalCTASectionRedesign() {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 11px; font-weight: 700;
           text-decoration: none; text-transform: uppercase; letter-spacing: 0.13em;
-          padding: 14px 32px; border-radius: 2px;
+          padding: 9px 20px; border-radius: 4px;
           transition: background .22s, color .22s, border-color .22s, transform .15s, gap .2s;
           display: inline-flex; align-items: center; gap: 10px;
         }

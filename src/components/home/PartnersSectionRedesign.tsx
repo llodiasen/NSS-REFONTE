@@ -226,7 +226,7 @@ export default function PartnersSectionRedesign() {
         .pts-h2 {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-          font-weight: 600;
+          font-weight: 400;
           line-height: 1.2;
           color: #2A2A2A;
           margin: 0 0 0.75rem;
@@ -264,16 +264,16 @@ export default function PartnersSectionRedesign() {
           display: flex;
           align-items: flex-start;
           justify-content: center;
-          flex-wrap: wrap;
-          gap: 24px 16px;
+          flex-wrap: nowrap;
+          gap: 16px;
         }
         .pts-item {
           display: flex;
           flex-direction: column;
           align-items: center;
           gap: 12px;
-          flex: 0 0 auto;
-          width: 200px;
+          flex: 1 1 0;
+          min-width: 0;
         }
 
         /* ── Card logo ── */
@@ -282,7 +282,7 @@ export default function PartnersSectionRedesign() {
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 200px;
+          width: 100%;
           height: 88px;
           padding: 16px 20px;
           background: #FAFAF9;

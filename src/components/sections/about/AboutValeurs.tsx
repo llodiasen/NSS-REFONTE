@@ -164,7 +164,7 @@ export default function AboutValeurs() {
         .val-h2 {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: clamp(24px, 2.6vw, 34px);
-          font-weight: 700; line-height: 1.2;
+          font-weight: 500; line-height: 1.2;
           color: #2A2A2A; margin: 0 0 14px; letter-spacing: -0.015em;
         }
         .val-h2 em { font-style: italic; color: ${NSS.vertPrimaire}; }
@@ -227,7 +227,7 @@ export default function AboutValeurs() {
         /* Description */
         .val-card-desc {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 15px; font-weight: 400; line-height: 1.78; color: #000000; margin: 0;
+          font-size: 14px; font-weight: 300; line-height: 1.78; color: #000000; margin: 0;
           text-align: justify; hyphens: auto; flex: 1;
         }
         /* Bottom accent */

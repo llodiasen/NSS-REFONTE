@@ -330,7 +330,7 @@ export default function MediathequeSectionRedesign() {
           .vds__wrap {
             position: relative; z-index: 1;
             max-width: 1400px; margin: 0 auto;
-            padding: clamp(4rem, 8vw, 6rem) clamp(1.5rem, 6vw, 5rem);
+            padding: clamp(4rem, 8vw, 6rem) clamp(1rem, 2.5vw, 2rem);
           }
 
           /* ══ En-tête ════════════════════════════════════════ */
@@ -354,7 +354,7 @@ export default function MediathequeSectionRedesign() {
           .vds__h2 {
             font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
             font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-            font-weight: 600; line-height: 1.2;
+            font-weight: 400; line-height: 1.2;
             color: #2A2A2A; margin: 0 0 0.75rem;
             letter-spacing: -0.015em;
           }

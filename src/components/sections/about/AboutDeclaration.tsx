@@ -57,17 +57,18 @@ export default function AboutDeclaration() {
             En Afrique de l&apos;Ouest, l&apos;agriculture familiale nourrit{' '}
             <strong>70&nbsp;%</strong> des populations. Ce sont les femmes rurales
             qui en assurent l&apos;essentiel — semailles, récoltes, transformation,
-            conservation.
-          </p>
-          <p className="adc-body">
-            Pourtant, elles ont un accès limité à la terre, aux ressources et aux
-            décisions qui gouvernent leur travail.
+            conservation. Pourtant, elles ont un accès limité à la terre, aux
+            ressources et aux décisions qui gouvernent leur travail.
           </p>
           <p className="adc-body">
             NSS est né pour changer cela. Non pas pour demander de l&apos;aide,
             mais pour affirmer que les femmes rurales africaines sont,
             elles-mêmes, la solution à la crise alimentaire du continent.
           </p>
+
+          <a href="/fr/mouvement" className="adc-btn">
+            LE MOUVEMENT →
+          </a>
         </motion.div>
 
         {/* ══ COLONNE DROITE 50% ══ */}
@@ -143,7 +144,7 @@ export default function AboutDeclaration() {
         .adc-wrap {
           max-width: 1400px;
           margin: 0 auto;
-          padding: 96px 64px 48px;
+          padding: 96px 64px 20px;
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 64px;
@@ -175,30 +176,20 @@ export default function AboutDeclaration() {
 
         /* ── H2 ── */
         .adc-h2 {
-          margin: 0 0 16px;
-          display: flex;
-          flex-direction: column;
+          margin: 0 0 1rem;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-size: clamp(2rem, 3.5vw, 2rem);
+          font-weight: 500;
+          line-height: 1.2;
+          letter-spacing: -0.01em;
         }
         .adc-h2-l1 {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: clamp(2.125rem, 3.5vw, 2.125rem);
-          font-weight: 500;
-          line-height: 1.1;
-          color: #2A2A2A;
-          letter-spacing: -0.01em;
-          display: block;
+          color: rgb(42, 42, 42);
           font-style: normal;
-          white-space: nowrap;
         }
         .adc-h2-l2 {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: clamp(2.125rem, 3.5vw, 2.125rem);
-          font-weight: 500;
-          line-height: 1.1;
-          color: ${NSS.vertClair};
-          letter-spacing: -0.01em;
+          color: #00AD4C;
           font-style: italic;
-          display: block;
         }
 
         /* ── Underline ── */
@@ -215,15 +206,39 @@ export default function AboutDeclaration() {
         /* ── Corps ── */
         .adc-body {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 14px;
+          font-size: 15px;
+          font-weight: 300;
           line-height: 1.8;
-          color: #2C2C28;
+          color: #4A4A4A;
           margin: 0 0 16px;
           text-align: justify;
-          hyphens: auto;
+          text-align-last: left;
         }
         .adc-body:last-child { margin-bottom: 0; }
-        .adc-body strong { font-weight: 700; color: ${NSS.vertPrimaire}; }
+        .adc-body strong { font-weight: 600; color: #00AD4C; }
+
+        /* ── Bouton ── */
+        .adc-btn {
+          margin-top: 16px;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          background: #045627;
+          color: #ffffff;
+          border: none;
+          border-radius: 6px;
+          padding: 9px 18px;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 11px;
+          font-weight: 500;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+          cursor: pointer;
+          transition: background 0.2s;
+          text-decoration: none;
+        }
+        .adc-btn:hover { background: #033d1a; transform: translateY(-2px); }
+        .adc-btn:active { transform: translateY(0); }
 
         /* ── Colonne droite ── */
         .adc-right {
@@ -296,7 +311,7 @@ export default function AboutDeclaration() {
         .adc-cap-titre {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 16px;
-          font-weight: 600;
+          font-weight: 300;
           color: #2A2A2A;
           margin: 0;
           line-height: 1.3;
@@ -366,7 +381,6 @@ export default function AboutDeclaration() {
         /* ── Mobile <480px ── */
         @media (max-width: 480px) {
           .adc-wrap { padding: 56px 20px; }
-          .adc-h2-l1 { white-space: normal; }
         }
 
         /* ── Réduction de mouvement ── */

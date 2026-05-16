@@ -194,8 +194,8 @@ export default function ObjectifsRedesign() {
         /* ── H2 ── */
         .obj-h2 {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-          font-weight: 600;
+          font-size: clamp(1.875rem, 3.5vw, 1.875rem);
+          font-weight: 400;
           line-height: 1.2;
           color: #2A2A2A;
           margin: 0 0 0.75rem;
@@ -232,7 +232,7 @@ export default function ObjectifsRedesign() {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 20px;
-          padding: 0 clamp(1.5rem, 6vw, 5rem) clamp(3rem, 5vw, 4.5rem);
+          padding: 0 clamp(1rem, 2.5vw, 2rem) clamp(3rem, 5vw, 4.5rem);
           max-width: 1400px;
           margin: 0 auto;
           box-sizing: border-box;
@@ -261,13 +261,13 @@ export default function ObjectifsRedesign() {
         /* Numéro décoratif — watermark */
         .obj-num {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: 88px;
+          font-size: 96px;
           font-weight: 600;
-          color: rgba(0,173,76,0.07);
+          color: rgba(0,173,76,0.06);
           line-height: 1;
           position: absolute;
-          top: 12px;
-          right: 28px;
+          top: 8px;
+          right: 24px;
           pointer-events: none;
           user-select: none;
           letter-spacing: -0.04em;
@@ -276,17 +276,17 @@ export default function ObjectifsRedesign() {
         /* Icône */
         .obj-icon {
           color: ${NSS.vertPrimaire};
-          margin-bottom: 24px;
+          margin-bottom: 26px;
         }
 
         /* Titre carte */
         .obj-card-titre {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: 1.25rem;
-          font-weight: 600;
+          font-size: 22px;
+          font-weight: 500;
           color: #0A0A0A;
-          margin: 0 0 20px;
-          line-height: 1.22;
+          margin: 0 0 8px;
+          line-height: 1.1;
         }
 
         /* Séparateur */
@@ -303,10 +303,13 @@ export default function ObjectifsRedesign() {
         .obj-card-desc {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 14px;
-          font-weight: 400;
+          font-weight: 300;
           line-height: 1.78;
-          color: #4A4A4A;
+          color: #000000;
           margin: 0 0 32px;
+          text-align: justify;
+          hyphens: auto;
+          flex: 1;
           text-align: justify;
           hyphens: auto;
           flex: 1;

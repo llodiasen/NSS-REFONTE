@@ -160,7 +160,7 @@ export default function MouvementHero() {
         /* ── H1 ── */
         .mh-h1 {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: clamp(2.2rem, 5vw, 3.2rem);
+          font-size: clamp(2.09rem, 4.75vw, 3.04rem);
           font-weight: 700;
           line-height: 1.1;
           color: #ffffff;
@@ -170,7 +170,7 @@ export default function MouvementHero() {
         }
         .mh-h1 em {
           font-style: italic;
-          color: ${C_GREEN};
+          color: #ffffff;
         }
 
         /* ── Lead ── */
@@ -220,7 +220,7 @@ export default function MouvementHero() {
           text-transform: uppercase;
           letter-spacing: 0.1em;
           color: #ffffff;
-          opacity: 0.6;
+          opacity: 1;
         }
 
         /* ── Tablet ── */
