@@ -115,6 +115,7 @@ export default function MouvementPage() {
             </Link>
             <Link
               href="/fr/contact"
+              className="cta-btn-outline"
               style={{
                 fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
                 fontSize: "12px",
@@ -127,7 +128,7 @@ export default function MouvementPage() {
                 borderRadius: "4px",
                 textDecoration: "none",
                 display: "inline-block",
-                transition: "border-color 0.2s ease, background 0.2s ease",
+                transition: "border-color 0.2s ease, background 0.2s ease, transform 0.2s ease",
               }}
             >
               Nous contacter →
@@ -137,7 +138,8 @@ export default function MouvementPage() {
       </section>
 
       <style>{`
-        .cta-btn-primary:hover { background: var(--green-700) !important; transform: translateY(-2px); }
+        .cta-btn-primary:hover { background: #E8A838 !important; color: #045627 !important; transform: translateY(-2px); }
+        .cta-btn-outline:hover { border-color: #ffffff !important; background: rgba(255,255,255,0.08) !important; transform: translateY(-2px); }
       `}</style>
 
       {/* 07 -- Formulaire de contact */}
