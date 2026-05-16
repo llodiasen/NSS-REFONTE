@@ -65,27 +65,15 @@ export default function ProgrammesRedesign() {
       {/* ── HEADER ── */}
       <header className="prg-header">
 
-        <motion.div
-          className="prg-eyebrow"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.65, ease }}
-        >
-          <span className="prg-ey-line" aria-hidden="true" />
-          <span>PROGRAMMES &amp; ÉVÉNEMENTS</span>
-          <span className="prg-ey-line" aria-hidden="true" />
-        </motion.div>
-
         <motion.h2
           id="prg-titre"
           className="prg-h2"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.72, delay: 0.1, ease }}
+          transition={{ duration: 0.72, ease }}
         >
-          Nos rendez-vous pour la <em>souveraineté alimentaire.</em>
+          Programmes &amp; Événements
         </motion.h2>
 
         <motion.span
