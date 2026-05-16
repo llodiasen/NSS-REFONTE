@@ -256,7 +256,7 @@ export default function MediathequeSectionRedesign() {
 
             <motion.div className="vds__eyebrow" {...inView(0.06)}>
               <span className="vds__ey-line" />
-              <span className="vds__ey-txt">LEUR PAROLE · EN IMAGES</span>
+              <span className="vds__ey-txt">Le terrain prend la parole.</span>
               <span className="vds__ey-line vds__ey-line--r" />
             </motion.div>
 
