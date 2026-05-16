@@ -25,11 +25,11 @@ export default function MouvementPage() {
       {/* 03 — Nos 6 engagements */}
       <EngagementsSection />
 
-      {/* 04 — Organisations membres */}
-      <AboutOrganisations />
-
-      {/* 05 — Leaders du mouvement */}
+      {/* 04 — Leaders du mouvement */}
       <MouvementLeaders />
+
+      {/* 05 — Organisations membres */}
+      <AboutOrganisations />
 
       {/* 06 — CTA Faire un don */}
       <section style={{
