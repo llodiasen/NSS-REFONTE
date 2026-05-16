@@ -56,7 +56,7 @@ export default function MouvementVision() {
                 <span className="mv-ey-line" aria-hidden />
               </div>
               <h2 id="mv-titre" className="mv-h2">
-                Notre vision, <em>nos engagements</em>
+                Nos champs, notre liberté, <em>notre souveraineté alimentaire.</em>
               </h2>
               <p className="mv-intro">
                 Nous Sommes la Solution œuvre pour une Afrique où les femmes rurales,
