@@ -186,7 +186,7 @@ export default function EngagementsSection() {
         }
         .eng-h2 {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+          font-size: clamp(1.875rem, 3.5vw, 1.875rem);
           font-weight: 600;
           color: #2A2A2A;
           line-height: 1.2;
@@ -195,7 +195,7 @@ export default function EngagementsSection() {
         }
         .eng-h2 em {
           font-style: italic;
-          color: #A5CE46;
+          color: #045627;
         }
         .eng-ul {
           width: 60px;
@@ -206,8 +206,8 @@ export default function EngagementsSection() {
         }
         .eng-desc {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 14px;
-          color: #6b7280;
+          font-size: 15px;
+          color: BLACK;
           line-height: 1.7;
           margin: 0;
         }
@@ -252,7 +252,7 @@ export default function EngagementsSection() {
         /* Tag */
         .eng-tag {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 10px;
+          font-size: 12px;
           font-weight: 500;
           letter-spacing: 0.1em;
           text-transform: uppercase;
@@ -272,8 +272,8 @@ export default function EngagementsSection() {
         /* Card text */
         .eng-text {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 13px;
-          color: #6b7280;
+          font-size: 14px;
+          color: BLACK;
           line-height: 1.7;
           text-align: justify;
           margin: 0;

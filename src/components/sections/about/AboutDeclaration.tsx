@@ -1,5 +1,6 @@
 ﻿'use client'
 
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 const NSS = {
@@ -8,12 +9,25 @@ const NSS = {
 } as const
 
 const VIDEO_ID  = 'FothaoeQsQ8'
-const VIDEO_SRC = `https://www.youtube-nocookie.com/embed/${VIDEO_ID}?autoplay=1&mute=1&controls=1&rel=0&modestbranding=1&loop=1&playlist=${VIDEO_ID}`
 const VIDEO_TTL = "Au Sénégal : Le Combat des Agricultrices pour l'Accès à la Propriété"
+const THUMB     = `https://img.youtube.com/vi/${VIDEO_ID}/maxresdefault.jpg`
 
 const ease = [0.22, 1, 0.36, 1] as const
 
 export default function AboutDeclaration() {
+  const [modal, setModal] = useState(false)
+
+  useEffect(() => {
+    if (!modal) return
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setModal(false) }
+    document.addEventListener('keydown', onKey)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = ''
+    }
+  }, [modal])
+
   return (
     <section className="adc" aria-labelledby="adc-titre">
       <div className="adc-wrap">
@@ -64,20 +78,59 @@ export default function AboutDeclaration() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.78, delay: 0.12, ease }}
         >
-          {/* Vidéo YouTube */}
-          <div className="adc-vid-wrap">
-            <iframe
-              src={VIDEO_SRC}
-              title={VIDEO_TTL}
-              allow="autoplay; encrypted-media; picture-in-picture"
-              allowFullScreen
-              className="adc-iframe"
-            />
+          {/* Vidéo — thumbnail + play */}
+          <div
+            className="adc-vid"
+            style={{ backgroundImage: `url(${THUMB})` }}
+          >
+            <div className="adc-vid-overlay" aria-hidden="true" />
+            <button
+              className="adc-play"
+              onClick={() => setModal(true)}
+              aria-label={`Regarder : ${VIDEO_TTL}`}
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#ffffff" aria-hidden style={{ paddingLeft: '3px' }}>
+                <polygon points="5,3 19,12 5,21" />
+              </svg>
+            </button>
+            <p className="adc-play-label">REGARDER LA VIDÉO</p>
+          </div>
+
+          <div className="adc-caption">
+            <span className="adc-cap-tag">MARIAMA SONKO — PRÉSIDENTE NSS</span>
+            <p className="adc-cap-titre">Au Sénégal : Le Combat des Agricultrices</p>
+            <span className="adc-cap-meta">Afrique de l&apos;Ouest · 2024</span>
           </div>
 
         </motion.div>
 
       </div>
+
+      {/* Modal vidéo */}
+      {modal && (
+        <div
+          className="adc-modal-ov"
+          onClick={() => setModal(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={VIDEO_TTL}
+        >
+          <button className="adc-modal-close" onClick={() => setModal(false)} aria-label="Fermer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+              <path d="M18 6 6 18M6 6l12 12" />
+            </svg>
+          </button>
+          <div className="adc-modal-box" onClick={(e) => e.stopPropagation()}>
+            <iframe
+              className="adc-modal-frame"
+              src={`https://www.youtube-nocookie.com/embed/${VIDEO_ID}?autoplay=1&rel=0`}
+              title={VIDEO_TTL}
+              allow="autoplay; encrypted-media; fullscreen"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      )}
 
       <style>{`
         /* ── Section ── */
@@ -176,24 +229,122 @@ export default function AboutDeclaration() {
           flex-direction: column;
         }
 
-        /* ── Vidéo ── */
-        .adc-vid-wrap {
-          position: relative;
+        /* ── Vidéo thumbnail ── */
+        .adc-vid {
           flex: 1;
-          min-height: 260px;
-          width: 100%;
+          min-height: 280px;
+          background: #045627 center / cover no-repeat;
+          border-radius: 12px;
           overflow: hidden;
-          border-radius: 8px;
-          background: #041a0c;
-          box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
         }
-        .adc-iframe {
+        .adc-vid-overlay {
           position: absolute;
           inset: 0;
+          background: rgba(4, 86, 39, 0.55);
+          border-radius: 12px;
+        }
+        .adc-play {
+          position: relative;
+          z-index: 1;
+          width: 64px;
+          height: 64px;
+          border-radius: 50%;
+          background: #E8A838;
+          border: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          box-shadow: 0 0 0 8px rgba(232, 168, 56, 0.2);
+          transition: transform 0.25s ease;
+        }
+        .adc-play:hover { transform: scale(1.08); }
+        .adc-play-label {
+          position: relative;
+          z-index: 1;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 10px;
+          font-weight: 600;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: rgba(245, 237, 214, 0.75);
+          margin: 12px 0 0;
+        }
+
+        /* Caption */
+        .adc-caption {
+          margin-top: 16px;
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+        }
+        .adc-cap-tag {
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 10px;
+          font-weight: 600;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: #00AD4C;
+        }
+        .adc-cap-titre {
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-size: 16px;
+          font-weight: 600;
+          color: #2A2A2A;
+          margin: 0;
+          line-height: 1.3;
+        }
+        .adc-cap-meta {
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 12px;
+          color: #9ca3af;
+        }
+
+        /* Modal */
+        .adc-modal-ov {
+          position: fixed;
+          inset: 0;
+          z-index: 9999;
+          background: rgba(2, 22, 10, 0.92);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 24px;
+          backdrop-filter: blur(8px);
+          animation: adc-fadein 0.18s ease;
+        }
+        @keyframes adc-fadein { from { opacity: 0 } to { opacity: 1 } }
+        .adc-modal-close {
+          position: fixed;
+          top: 20px;
+          right: 24px;
+          width: 40px;
+          height: 40px;
+          background: rgba(255,255,255,0.08);
+          border: 1px solid rgba(255,255,255,0.18);
+          border-radius: 50%;
+          color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+        }
+        .adc-modal-box {
+          width: 100%;
+          max-width: 900px;
+          aspect-ratio: 16/9;
+          border-radius: 10px;
+          overflow: hidden;
+        }
+        .adc-modal-frame {
           width: 100%;
           height: 100%;
           border: none;
-          display: block;
         }
 
         /* ── Tablet ── */

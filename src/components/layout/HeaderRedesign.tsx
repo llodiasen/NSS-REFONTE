@@ -86,17 +86,17 @@ export default function HeaderRedesign() {
 
         {/* ── Bandeau ── */}
         {bannerVisible && (
-          <div className="relative flex h-10 items-center justify-center bg-[#045627] px-5">
-            <p className="text-[11.5px] font-medium tracking-wide text-[#F5EDD6]">
+          <div className="relative flex h-9 items-center justify-center border-b border-[#00AD4C]/10 bg-[#f9f8f5] px-5">
+            <p className="text-[11px] font-medium tracking-wide text-[#4a4a4a]">
               500+ Associations de Femmes Rurales nous ont rejoints —{" "}
               <Link href={`/${locale}/mouvement`}
-                className="font-bold text-[#E8A838] transition-opacity hover:opacity-80">
+                className="font-semibold text-[#00AD4C] transition-opacity hover:opacity-75">
                 Découvrir →
               </Link>
             </p>
             <button onClick={dismissBanner} aria-label="Fermer l'annonce"
-              className="absolute right-3.5 flex h-6 w-6 items-center justify-center rounded text-[#F5EDD6]/50 transition-colors hover:text-[#F5EDD6]">
-              <X size={13} />
+              className="absolute right-3.5 flex h-6 w-6 items-center justify-center rounded text-[#9ca3af] transition-colors hover:text-[#2A2A2A]">
+              <X size={12} />
             </button>
           </div>
         )}
@@ -157,7 +157,7 @@ export default function HeaderRedesign() {
                     <>
                       <button onClick={() => setLangDropOpen((v) => !v)}
                         aria-label={`Langue : ${active.label}`} aria-expanded={langDropOpen}
-                        className="flex items-center gap-1.5 rounded-md border border-[#00AD4C]/20 bg-[#045627] px-2.5 py-1.5 text-[11px] font-semibold text-[#F5EDD6] transition-all hover:bg-[#00AD4C]">
+                        className="flex items-center gap-1.5 rounded-md border border-[#00AD4C]/30 bg-white px-2.5 py-1.5 text-[11px] font-semibold text-[#2A2A2A] transition-all hover:border-[#00AD4C] hover:text-[#00AD4C]">
                         <Globe size={12} />
                         {active.label}
                         <ChevronDown size={9} className={`transition-transform duration-200 ${langDropOpen ? "rotate-180" : ""}`} />

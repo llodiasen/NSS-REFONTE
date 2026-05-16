@@ -323,7 +323,7 @@ export default function ObjectifsRedesign() {
         }
         .obj-stat-value {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: 38px;
+          font-size: 26px;
           font-weight: 600;
           color: ${NSS.vertPrimaire};
           line-height: 1;

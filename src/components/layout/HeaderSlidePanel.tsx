@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { getMegaColumns } from "./mega-nav-config";
 
 const PANEL_LANGS = [
@@ -23,7 +24,6 @@ export default function HeaderSlidePanel({
 }: Props) {
   const columns = getMegaColumns(locale);
 
-  // 4 sections : Notre mission, Nos programmes, Ressources + Actualités direct
   const sections = [
     { heading: "Notre mission",  links: columns[0].links },
     { heading: "Nos programmes", links: columns[1].links },
@@ -38,10 +38,11 @@ export default function HeaderSlidePanel({
         aria-hidden="true"
         style={{
           position: "fixed", inset: 0, top: `${topOffset}px`,
-          background: isOpen ? "rgba(0,0,0,0.30)" : "rgba(0,0,0,0)",
+          background: isOpen ? "rgba(0,0,0,0.20)" : "rgba(0,0,0,0)",
           transition: "background 0.3s",
           pointerEvents: isOpen ? "all" : "none",
           zIndex: 100,
+          backdropFilter: isOpen ? "blur(2px)" : "none",
         }}
       />
 
@@ -52,71 +53,105 @@ export default function HeaderSlidePanel({
         aria-label="Menu principal"
         style={{
           position: "fixed", top: `${topOffset}px`, right: 0,
-          width: "280px", background: "#0f2b1a",
-          borderRadius: "0 0 0 12px",
+          width: "300px",
+          background: "#ffffff",
+          borderLeft: "1px solid #e5e7eb",
+          borderRadius: "0 0 0 16px",
           transform: isOpen ? "translateX(0)" : "translateX(100%)",
-          transition: "transform 0.3s cubic-bezier(0.4,0,0.2,1)",
+          transition: "transform 0.32s cubic-bezier(0.4,0,0.2,1)",
           zIndex: 101,
           overflowY: "auto",
           maxHeight: `calc(100vh - ${topOffset}px)`,
+          boxShadow: "-8px 0 32px rgba(0,0,0,0.08)",
+          display: "flex",
+          flexDirection: "column",
         }}
       >
-        {/* Header */}
-        <div style={{ padding: "16px 20px 12px", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-          <span style={{ fontSize: "10px", textTransform: "uppercase", letterSpacing: "1.5px", fontWeight: 700, color: "rgba(255,255,255,0.5)" }}>
-            Navigation
-          </span>
+        {/* Logo + fermer */}
+        <div style={{ padding: "20px 20px 16px", borderBottom: "1px solid #f3f4f6", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <Image src="/images/logo/LOGO NSS.png" alt="NSS" width={110} height={30} style={{ objectFit: "contain", objectPosition: "left" }} />
+          <button
+            onClick={onClose}
+            aria-label="Fermer le menu"
+            style={{ width: "32px", height: "32px", border: "1px solid #e5e7eb", borderRadius: "8px", background: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", color: "#6b7280" }}
+          >
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth={2} strokeLinecap="round" fill="none">
+              <path d="M18 6 6 18M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Lien direct Accueil */}
+        <div style={{ padding: "12px 20px 0" }}>
+          <Link href={`/${locale}`} onClick={onClose} style={{ display: "flex", alignItems: "center", gap: "10px", padding: "10px 0", textDecoration: "none", borderBottom: "1px solid #f3f4f6" }}>
+            <span style={{ width: "32px", height: "32px", background: "#f0faf4", borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+              <svg viewBox="0 0 24 24" width="15" height="15" stroke="#00AD4C" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" fill="none">
+                <path d="M3 12l2 -2m0 0l7 -7l7 7M5 10v10a1 1 0 0 0 1 1h3m10 -11l2 2m-2 -2v10a1 1 0 0 1 -1 1h-3m-6 0a1 1 0 0 0 1 -1v-4a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1m-6 0h6" />
+              </svg>
+            </span>
+            <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", fontWeight: 500, color: "#2A2A2A" }}>Accueil</span>
+          </Link>
         </div>
 
         {/* Sections nav */}
-        {sections.map((section) => (
-          <div key={section.heading} style={{ padding: "12px 20px", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-            <div style={{ fontSize: "10px", textTransform: "uppercase", fontWeight: 700, color: "#5a9e72", letterSpacing: "1px", marginBottom: "6px" }}>
-              {section.heading}
+        <div style={{ flex: 1, padding: "4px 20px" }}>
+          {sections.map((section) => (
+            <div key={section.heading} style={{ paddingTop: "16px", paddingBottom: "8px", borderBottom: "1px solid #f3f4f6" }}>
+              <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "10px", textTransform: "uppercase", fontWeight: 600, color: "#00AD4C", letterSpacing: "0.12em", marginBottom: "8px" }}>
+                {section.heading}
+              </div>
+              {section.links.map(({ icon: Icon, title, href }) => (
+                <Link key={href} href={href} onClick={onClose}
+                  style={{ display: "flex", alignItems: "center", gap: "10px", padding: "8px 0", textDecoration: "none" }}
+                  className="spanel-link"
+                >
+                  <span style={{ width: "30px", height: "30px", minWidth: "30px", background: "#f9fafb", border: "1px solid #f3f4f6", borderRadius: "7px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <Icon size={12} color="#6b7280" strokeWidth={2} />
+                  </span>
+                  <span className="spanel-link-title" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", fontWeight: 400, color: "#374151", lineHeight: 1.3 }}>
+                    {title}
+                  </span>
+                </Link>
+              ))}
             </div>
-            {section.links.map(({ icon: Icon, title, href }) => (
-              <Link key={href} href={href} onClick={onClose} className="spanel-link"
-                style={{ display: "flex", alignItems: "center", gap: "10px", padding: "7px 0", textDecoration: "none" }}>
-                <span style={{ width: "24px", height: "24px", minWidth: "24px", background: "rgba(255,255,255,0.06)", borderRadius: "5px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <Icon size={11} color="#5a9e72" strokeWidth={2} />
-                </span>
-                <span className="spanel-link-title" style={{ fontSize: "13px", fontWeight: 500, color: "#e8f5eb", lineHeight: 1.3 }}>
-                  {title}
-                </span>
-              </Link>
-            ))}
-          </div>
-        ))}
+          ))}
 
-        {/* Actualités — lien direct */}
-        <div style={{ padding: "12px 20px", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-          <Link href={`/${locale}/ressources/actualites`} onClick={onClose} className="spanel-link"
-            style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none", padding: "4px 0" }}>
-            <span className="spanel-link-title" style={{ fontSize: "14px", fontWeight: 600, color: "#fff" }}>
-              Actualités
-            </span>
-          </Link>
+          {/* Contact direct */}
+          <div style={{ paddingTop: "16px", paddingBottom: "8px" }}>
+            <Link href={`/${locale}/contact`} onClick={onClose}
+              style={{ display: "flex", alignItems: "center", gap: "10px", padding: "8px 0", textDecoration: "none" }}
+              className="spanel-link"
+            >
+              <span style={{ width: "30px", height: "30px", background: "#f9fafb", border: "1px solid #f3f4f6", borderRadius: "7px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <svg viewBox="0 0 24 24" width="12" height="12" stroke="#6b7280" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" fill="none">
+                  <path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z" />
+                  <path d="M3 7l9 6 9-6" />
+                </svg>
+              </span>
+              <span className="spanel-link-title" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", fontWeight: 400, color: "#374151" }}>
+                Contact
+              </span>
+            </Link>
+          </div>
         </div>
 
-        {/* CTA */}
-        <div style={{ padding: "14px 20px", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+        {/* Footer: CTA + langue */}
+        <div style={{ borderTop: "1px solid #f3f4f6", padding: "16px 20px 24px" }}>
+
+          {/* CTA */}
           <Link href={`/${locale}/agir/rejoindre`} onClick={onClose}
-            style={{ display: "block", background: "#E8A838", color: "#045627", fontSize: "13px", fontWeight: 700, padding: "10px", borderRadius: "8px", textAlign: "center", textDecoration: "none" }}>
-            Nous rejoindre →
+            style={{ display: "block", background: "#E8A838", color: "#045627", fontFamily: "'DM Sans', sans-serif", fontSize: "13px", fontWeight: 700, padding: "12px", borderRadius: "8px", textAlign: "center", textDecoration: "none", letterSpacing: "0.04em", marginBottom: "14px" }}>
+            Adhérer au mouvement →
           </Link>
-        </div>
 
-        {/* Lang switcher */}
-        <div style={{ padding: "12px 20px" }}>
-          <div style={{ fontSize: "9px", textTransform: "uppercase", fontWeight: 700, color: "rgba(255,255,255,0.4)", marginBottom: "8px", letterSpacing: "1px" }}>
-            Langue
-          </div>
-          <div style={{ display: "flex", gap: "5px" }}>
+          {/* Lang switcher */}
+          <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+            <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "10px", textTransform: "uppercase", fontWeight: 500, color: "#9ca3af", letterSpacing: "0.1em", marginRight: "4px" }}>Langue</span>
             {PANEL_LANGS.map(({ code, label, flag }) => {
               const active = currentLang === code;
               return (
                 <button key={code} onClick={() => onSwitchLang(code)}
-                  style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", border: "1px solid rgba(255,255,255,0.15)", borderRadius: "4px", padding: "4px 10px", cursor: "pointer", background: active ? "rgba(255,255,255,0.15)" : "transparent", color: "#fff", fontWeight: active ? 600 : 400 }}>
+                  style={{ display: "flex", alignItems: "center", gap: "5px", fontFamily: "'DM Sans', sans-serif", fontSize: "11px", border: `1px solid ${active ? "#00AD4C" : "#e5e7eb"}`, borderRadius: "6px", padding: "5px 10px", cursor: "pointer", background: active ? "#f0faf4" : "#ffffff", color: active ? "#00AD4C" : "#6b7280", fontWeight: active ? 600 : 400, transition: "all 0.15s" }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={`https://flagcdn.com/20x15/${flag}.png`} width={14} height={11} alt={label} style={{ borderRadius: "1px" }} />
                   {label}
@@ -129,7 +164,7 @@ export default function HeaderSlidePanel({
 
       <style>{`
         .spanel-link-title { transition: color 0.15s; }
-        .spanel-link:hover .spanel-link-title { color: #fff !important; }
+        .spanel-link:hover .spanel-link-title { color: #00AD4C !important; }
       `}</style>
     </>
   );

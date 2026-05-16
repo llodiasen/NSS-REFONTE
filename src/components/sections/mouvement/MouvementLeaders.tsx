@@ -11,7 +11,7 @@ const LEADERS = [
     abbr:         'AJAC LUKAAL',
     pays:         'Sénégal',
     organisation: 'Association des Jeunes Agriculteurs de Casamance',
-    photo:        'https://wasafrica.org/wp-content/uploads/2024/08/Mariama-Sonko-AJAC-LUKAAL.jpg',
+    photo:        '/images/actualites/portrait-mariama-sonko-femme-rurale.jpg',
   },
   {
     id:           'esther-boake',
@@ -81,8 +81,9 @@ const LEADERS = [
 
 /* ─── Composant ────────────────────────────────────────────────────────────── */
 export default function MouvementLeaders() {
-  const [expanded, setExpanded] = useState(false)
-  const visible = expanded ? LEADERS : LEADERS.slice(0, 6)
+  const [count, setCount] = useState(4)
+  const visible = LEADERS.slice(0, count)
+  const hasMore = count < LEADERS.length
 
   return (
     <section className="ml-section" aria-labelledby="ml-titre">
@@ -109,12 +110,12 @@ export default function MouvementLeaders() {
         {/* ── Grille ── */}
         <div className="ml-grid" role="list">
           {visible.map((leader, i) => {
-            const isNew = expanded && i >= 6
+            const isNew = i >= count - 4 && count > 4
             return (
               <article
                 key={leader.id}
                 className={`ml-card${isNew ? ' ml-card--new' : ''}`}
-                style={isNew ? { animationDelay: `${(i - 6) * 60}ms` } : undefined}
+                style={isNew ? { animationDelay: `${(i % 4) * 60}ms` } : undefined}
                 role="listitem"
                 aria-label={leader.nom}
               >
@@ -133,8 +134,20 @@ export default function MouvementLeaders() {
                 <div className="ml-body">
                   {/* Meta : ABBR · Pays */}
                   <div className="ml-meta">
+                    <svg className="ml-meta-icon ml-meta-icon--green" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" fill="none" aria-hidden="true">
+                      <path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                      <path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1" />
+                      <path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                      <path d="M17 10h2a2 2 0 0 1 2 2v1" />
+                      <path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                      <path d="M3 13v-1a2 2 0 0 1 2 -2h2" />
+                    </svg>
                     <span className="ml-abbr">{leader.abbr}</span>
                     <span className="ml-sep" aria-hidden>·</span>
+                    <svg className="ml-meta-icon ml-meta-icon--gray" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" fill="none" aria-hidden="true">
+                      <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+                      <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
+                    </svg>
                     <span className="ml-pays">{leader.pays.toUpperCase()}</span>
                   </div>
 
@@ -144,31 +157,32 @@ export default function MouvementLeaders() {
                   {/* Nom complet organisation */}
                   <p className="ml-asso">{leader.organisation}</p>
 
-                  {/* Séparateur soft */}
-                  <div className="ml-sep-line" aria-hidden />
-
-                  {/* CTA */}
-                  <span className="ml-cta" aria-label={`En savoir plus sur ${leader.nom}`}>
-                    EN SAVOIR PLUS →
-                  </span>
                 </div>
               </article>
             )
           })}
         </div>
 
-        {/* ── Voir plus ── */}
-        {!expanded && LEADERS.length > 6 && (
-          <div className="ml-more-wrap">
+        {/* ── Voir plus / Voir moins ── */}
+        <div className="ml-more-wrap">
+          {hasMore ? (
             <button
               className="ml-more"
-              onClick={() => setExpanded(true)}
-              aria-label={`Afficher les ${LEADERS.length - 6} leaders restants`}
+              onClick={() => setCount(c => Math.min(c + 4, LEADERS.length))}
+              aria-label="Afficher 4 leaders de plus"
             >
               VOIR PLUS →
             </button>
-          </div>
-        )}
+          ) : (
+            <button
+              className="ml-more"
+              onClick={() => setCount(4)}
+              aria-label="Afficher moins de leaders"
+            >
+              ← VOIR MOINS
+            </button>
+          )}
+        </div>
 
       </div>
 
@@ -210,7 +224,7 @@ export default function MouvementLeaders() {
 
         .ml-h2 {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: clamp(26px, 2.8vw, 36px);
+          font-size: clamp(1.875rem, 3.5vw, 1.875rem);
           font-weight: 600;
           line-height: 1.2;
           color: #2A2A2A;
@@ -218,7 +232,7 @@ export default function MouvementLeaders() {
           margin: 0;
           letter-spacing: -0.015em;
         }
-        .ml-h2 em { font-style: italic; color: #A5CE46; }
+        .ml-h2 em { font-style: italic; color: #045627; }
 
         .ml-underline {
           display: block;
@@ -228,7 +242,7 @@ export default function MouvementLeaders() {
         }
         .ml-desc {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 15px; font-weight: 400; line-height: 1.7;
+          font-size: 14px; font-weight: 400; line-height: 1.7;
           color: #5a5a5a; margin: 1.25rem 0 0; text-align: center;
         }
 
@@ -275,7 +289,7 @@ export default function MouvementLeaders() {
 
         /* ── Corps ── */
         .ml-body {
-          padding: 24px 28px 28px;
+          padding: 20px 24px 20px;
           display: flex;
           flex-direction: column;
           flex: 1;
@@ -285,9 +299,15 @@ export default function MouvementLeaders() {
         .ml-meta {
           display: flex;
           align-items: center;
-          gap: 10px;
+          gap: 6px;
           margin-bottom: 10px;
         }
+        .ml-meta-icon {
+          flex-shrink: 0;
+          display: block;
+        }
+        .ml-meta-icon--green { color: #00AD4C; }
+        .ml-meta-icon--gray  { color: #9ca3af; }
         .ml-abbr {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 11px;
@@ -313,8 +333,8 @@ export default function MouvementLeaders() {
         /* Nom leader */
         .ml-nom {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: 20px;
-          font-weight: 600;
+          font-size: 18px;
+          font-weight: 400;
           color: #2A2A2A;
           line-height: 1.2;
           margin: 0 0 10px;
@@ -338,6 +358,7 @@ export default function MouvementLeaders() {
           line-height: 1.6;
           margin: 0 0 18px;
           flex: 1;
+          text-align:justify;
         }
 
         /* CTA EN SAVOIR PLUS */
@@ -374,7 +395,7 @@ export default function MouvementLeaders() {
           background: transparent;
           border: 1.5px solid #5a9a2f;
           border-radius: 4px;
-          padding: 13px 36px;
+          padding: 9px 22px;
           cursor: pointer;
           transition: background 0.22s ease, color 0.22s ease;
         }

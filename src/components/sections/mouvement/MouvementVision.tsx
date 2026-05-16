@@ -211,7 +211,7 @@ export default function MouvementVision() {
         }
         .mv-h2 {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: 45px;
+          font-size: clamp(2.125rem, 3.5vw, 2.125rem);
           font-weight: 500;
           line-height: 1.1;
           color: #2A2A2A;
@@ -225,7 +225,7 @@ export default function MouvementVision() {
         }
         .mv-intro {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 16px;
+          font-size: 14px;
           font-weight: 300;
           line-height: 1.8;
           color: #4A4A4A;
@@ -286,7 +286,7 @@ export default function MouvementVision() {
         .mv-titre {
           flex: 1;
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: 18px;
+          font-size: 16px;
           font-weight: 500;
           color: #2A2A2A;
           line-height: 1.3;
@@ -315,7 +315,7 @@ export default function MouvementVision() {
         }
         .mv-desc {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 16px;
+          font-size: 14px;
           font-weight: 300;
           line-height: 1.72;
           color: #2A2A2A;
@@ -325,17 +325,17 @@ export default function MouvementVision() {
 
         /* Citation */
         .mv-quote {
-          border-left: 3px solid #E8A838;
+          border-left: 3px solid #045627;
           padding-left: 20px;
           margin: 1.25rem 0 0;
         }
         .mv-quote p {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: 18px;
+          font-size: 15px;
           font-style: italic;
           font-weight: 400;
           line-height: 1.7;
-          color: #2A2A2A;
+          color: black;
           opacity: 0.75;
           margin: 0;
         }
@@ -454,8 +454,8 @@ export default function MouvementVision() {
         }
         .mv-cap-titre {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: 22px;
-          font-weight: 600;
+          font-size: 16px;
+          font-weight: 400;
           color: #2A2A2A;
           line-height: 1.2;
           margin: 0;

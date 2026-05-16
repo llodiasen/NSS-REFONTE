@@ -289,7 +289,7 @@ export default function ContactSectionNSS() {
         }
         .cn-h2 {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+          font-size: clamp(1.875rem, 3.5vw, 1.875rem);
           font-weight: 600;
           color: #2A2A2A;
           line-height: 1.2;
@@ -298,7 +298,7 @@ export default function ContactSectionNSS() {
         }
         .cn-h2 em {
           font-style: italic;
-          color: #A5CE46;
+          color: #045627;
         }
         .cn-ul {
           width: 60px;

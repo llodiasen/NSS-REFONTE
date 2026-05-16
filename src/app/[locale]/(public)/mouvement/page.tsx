@@ -57,11 +57,11 @@ export default function MouvementPage() {
           }}
         >
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "12px", marginBottom: "20px" }}>
-            <span style={{ display: "block", width: "28px", height: "1.5px", background: "var(--green-300)", flexShrink: 0 }} aria-hidden />
-            <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.14em", color: "var(--green-300)" }}>
+            <span style={{ display: "block", width: "28px", height: "1.5px", background: "#ffffff", flexShrink: 0 }} aria-hidden />
+            <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.14em", color: "#ffffff" }}>
               REJOINDRE LE MOUVEMENT
             </span>
-            <span style={{ display: "block", width: "28px", height: "1.5px", background: "var(--green-300)", flexShrink: 0 }} aria-hidden />
+            <span style={{ display: "block", width: "28px", height: "1.5px", background: "#ffffff", flexShrink: 0 }} aria-hidden />
           </div>
           <h2
             style={{
@@ -83,7 +83,7 @@ export default function MouvementPage() {
               fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
               fontSize: "16px",
               lineHeight: 1.7,
-              color: "rgba(255,255,255,0.85)",
+              color: "#ffffff",
               maxWidth: "560px",
               margin: "0 auto 40px",
             }}
@@ -102,7 +102,7 @@ export default function MouvementPage() {
                 textTransform: "uppercase",
                 color: "#ffffff",
                 background: "#00AD4C",
-                padding: "14px 32px",
+                padding: "10px 22px",
                 borderRadius: "4px",
                 textDecoration: "none",
                 display: "inline-block",
@@ -122,7 +122,7 @@ export default function MouvementPage() {
                 textTransform: "uppercase",
                 color: "#ffffff",
                 border: "1.5px solid rgba(255,255,255,0.42)",
-                padding: "14px 32px",
+                padding: "10px 22px",
                 borderRadius: "4px",
                 textDecoration: "none",
                 display: "inline-block",

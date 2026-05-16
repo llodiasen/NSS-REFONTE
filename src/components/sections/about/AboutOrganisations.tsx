@@ -79,13 +79,17 @@ export default function AboutOrganisations() {
       </div>
 
       {/* ── Bouton ── */}
-      {!expanded && (
-        <div className="ao-btn-wrap">
+      <div className="ao-btn-wrap">
+        {!expanded ? (
           <button className="ao-btn" onClick={() => setExpanded(true)}>
             Voir toutes les organisations →
           </button>
-        </div>
-      )}
+        ) : (
+          <button className="ao-btn" onClick={() => setExpanded(false)}>
+            ← Voir moins
+          </button>
+        )}
+      </div>
 
       <style>{`
         /* ── Section ── */
@@ -122,7 +126,7 @@ export default function AboutOrganisations() {
         }
         .ao-h2 {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+          font-size: clamp(1.875rem, 3.5vw, 1.875rem);
           font-weight: 600;
           color: #2A2A2A;
           line-height: 1.2;
@@ -131,7 +135,7 @@ export default function AboutOrganisations() {
         }
         .ao-h2 em {
           font-style: italic;
-          color: #A5CE46;
+          color: #045627;
         }
         .ao-ul {
           width: 60px;
@@ -200,14 +204,14 @@ export default function AboutOrganisations() {
         /* ── Card content ── */
         .ao-abbr {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 12px;
+          font-size: 16px;
           font-weight: 600;
           color: #2A2A2A;
         }
         .ao-nom {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 10px;
-          color: #6b7280;
+          font-size: 14px;
+          color: Black;
           text-align: center;
           line-height: 1.5;
           margin: 0;
