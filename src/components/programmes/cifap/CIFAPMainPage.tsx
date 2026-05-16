@@ -381,11 +381,26 @@ function LeafletMap() {
 /* ════════════════════════════════════════════════════
    COMPOSANT PRINCIPAL
 ════════════════════════════════════════════════════ */
+const CIFAP_VIDEO_ID = 'VIDEO_ID_CIFAP_2025'
+const CIFAP_THUMB = `https://img.youtube.com/vi/${CIFAP_VIDEO_ID}/maxresdefault.jpg`
+
 export default function CIFAPMainPage({ locale }: { locale: string }) {
   const ctaRef   = useRef(null)
   const ctaInView = useInView(ctaRef, { once: true, margin: '-60px' })
 
   const [selectedEdition, setSelectedEdition] = useState<CifapEdition | null>(null)
+  const [videoModal, setVideoModal] = useState(false)
+
+  useEffect(() => {
+    if (!videoModal) return
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setVideoModal(false) }
+    document.addEventListener('keydown', onKey)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = ''
+    }
+  }, [videoModal])
 
   /* ── Slider éditions ── */
   const sliderRef = useRef<HTMLDivElement>(null)
@@ -539,13 +554,21 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
             </div>
             <div className="cf-pv-right">
               <div className="cf-pv-sticky">
-                <div className="cf-pv-video-wrap">
-                  <iframe
-                    src="https://www.youtube.com/embed/VIDEO_ID_CIFAP_2025"
-                    title="CIFAP 4e édition 2025 — Agroécologie Paysanne NSS"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
+                <div
+                  className="cf-pv-video-wrap"
+                  style={{ backgroundImage: `url(${CIFAP_THUMB})` }}
+                >
+                  <div className="cf-pv-vid-overlay" aria-hidden="true" />
+                  <button
+                    className="cf-pv-play"
+                    onClick={() => setVideoModal(true)}
+                    aria-label="Regarder la vidéo CIFAP"
+                  >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#ffffff" aria-hidden style={{ paddingLeft: '3px' }}>
+                      <polygon points="5,3 19,12 5,21" />
+                    </svg>
+                  </button>
+                  <p className="cf-pv-play-label">REGARDER LE FILM</p>
                 </div>
                 <blockquote className="cf-pv-testimonial">
                   <p>&laquo;&nbsp;Grâce au CIFAP, j&apos;ai appris des techniques que j&apos;applique directement dans mon groupement. Nos récoltes ont augmenté et nous n&apos;avons plus besoin de produits chimiques.&nbsp;&raquo;</p>
@@ -972,6 +995,33 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
           />
         )}
       </AnimatePresence>
+
+      {/* ── Modal vidéo CIFAP ── */}
+      {videoModal && (
+        <div
+          style={{ position:'fixed', inset:0, zIndex:9999, background:'rgba(2,22,10,0.92)', display:'flex', alignItems:'center', justifyContent:'center', padding:'24px', backdropFilter:'blur(8px)', animation:'cfVidIn 0.18s ease' }}
+          onClick={() => setVideoModal(false)}
+          role="dialog" aria-modal="true" aria-label="Vidéo CIFAP"
+        >
+          <button
+            onClick={() => setVideoModal(false)}
+            aria-label="Fermer"
+            style={{ position:'fixed', top:'20px', right:'24px', width:'40px', height:'40px', background:'rgba(255,255,255,0.08)', border:'1px solid rgba(255,255,255,0.18)', borderRadius:'50%', color:'#fff', display:'flex', alignItems:'center', justifyContent:'center', cursor:'pointer' }}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M18 6 6 18M6 6l12 12" /></svg>
+          </button>
+          <div onClick={(e) => e.stopPropagation()} style={{ width:'100%', maxWidth:'900px', aspectRatio:'16/9', borderRadius:'8px', overflow:'hidden', background:'#000' }}>
+            <iframe
+              style={{ width:'100%', height:'100%', border:'none' }}
+              src={`https://www.youtube-nocookie.com/embed/${CIFAP_VIDEO_ID}?autoplay=1&rel=0`}
+              title="CIFAP — Agroécologie Paysanne NSS"
+              allow="autoplay; encrypted-media; fullscreen"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      )}
+      <style>{`@keyframes cfVidIn { from { opacity:0 } to { opacity:1 } }`}</style>
 
     </>
   )
