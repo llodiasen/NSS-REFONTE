@@ -215,7 +215,7 @@ export default function CTAHeroSectionRedesign() {
           letter-spacing: 0.13em;
           text-transform: uppercase;
           text-decoration: none;
-          padding: 15px 36px;
+          padding: 9px 22px;
           border-radius: 2px;
           display: inline-flex;
           align-items: center;

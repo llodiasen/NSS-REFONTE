@@ -1,510 +1,379 @@
-﻿'use client'
+'use client'
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
-// ─── NSS Palette stricte ────────────────────────────────────────────────────
-const NSS = {
-  vertFonce:    '#045627',
-  vertPrimaire: '#00AD4C',
-  vertClair:    '#145c28',
-  or:           '#E8A838',
-  creme:        '#F5EDD6',
-} as const
-
-// ─── Cloudinary assets ───────────────────────────────────────────────────────
 const VIDEO_URL =
   'https://res.cloudinary.com/dtjvjlkcc/video/upload/q_auto/f_auto/v1775741043/Mariama_Sonko_-_Chairwoman_of_the_Nous_sommes_la_SOLUTION_movement_S%C3%A9negal_--_SeedIsLife_ak3z9z.mp4'
 const THUMB_URL =
   'https://res.cloudinary.com/dtjvjlkcc/image/upload/q_auto/f_auto/v1775741948/Mariama_sonko_presidente_nss_hjukz0.jpg'
 
-// ─── Stats ───────────────────────────────────────────────────────────────────
-const STATS: { value: string; label: string }[] = [
-  { value: '2011',  label: 'Fondation' },
-  { value: '12',    label: 'Organisations fondatrices' },
-  { value: '500+',  label: 'Associations de Femmes Rurales' },
-]
-
-// ─── Animation helpers ────────────────────────────────────────────────────────
 const ease = [0.22, 1, 0.36, 1] as const
 
-const inView = (delay = 0) => ({
-  initial:     { opacity: 0, y: 28 },
-  whileInView: { opacity: 1, y: 0  },
-  viewport:    { once: true, margin: '-80px' },
-  transition:  { duration: 0.75, delay, ease },
-})
+const STATS = [
+  { num: '2011', lbl: 'Fondation'           },
+  { num: '175k', lbl: 'Membres actives'     },
+  { num: '500+', lbl: 'Associations rurales' },
+] as const
 
-const inViewScale = (delay = 0) => ({
-  initial:     { opacity: 0, y: 32, scale: 0.97 as number },
-  whileInView: { opacity: 1, y: 0,  scale: 1    as number },
-  viewport:    { once: true, margin: '-80px' },
-  transition:  { duration: 0.80, delay, ease },
-})
+function IconPlay() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M8 5v14l11-7z" />
+    </svg>
+  )
+}
 
-// ─── Component ────────────────────────────────────────────────────────────────
 export default function HeroSectionRedesign() {
   const [playing, setPlaying] = useState(false)
 
   return (
-    <section className="qs-section" aria-labelledby="qs-titre">
-      <div className="qs-inner">
+    <section className="hsr" aria-labelledby="hsr-titre">
 
-        {/* ════════ COL GAUCHE ════════ */}
-        <div className="qs-left">
+      {/* Fond blanc uniforme */}
 
-          {/* Eyebrow */}
-          <motion.div className="qs-eyebrow" {...inView(0.08)}>
-            <span className="qs-eyebrow-line" aria-hidden="true" />
-            <span className="qs-eyebrow-text">QUI SOMMES-NOUS</span>
-          </motion.div>
+      <div className="hsr-wrap">
 
-          {/* H2 */}
-          <motion.h2 id="qs-titre" className="qs-h2" {...inViewScale(0.18)}>
-            Le mouvement des femmes rurales{' '}
+        {/* ══ COLONNE GAUCHE ══ */}
+        <motion.div
+          className="hsr-left"
+          initial={{ opacity: 0, x: -24 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.78, ease }}
+        >
+          {/* Surtitle — ligne gauche uniquement */}
+          <div className="hsr-eyebrow" aria-hidden="true">
+            <span className="hsr-ey-line" />
+            <span>QUI SOMMES-NOUS</span>
+          </div>
+
+          <h2 id="hsr-titre" className="hsr-h2">
+            Le mouvement des femmes rurales,{' '}
             <em>pour la souveraineté alimentaire.</em>
-          </motion.h2>
-          <motion.span
-            className="qs-underline"
-            aria-hidden="true"
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.55, delay: 0.30, ease: [0.22, 1, 0.36, 1] }}
-            style={{ transformOrigin: 'left' }}
-          />
+          </h2>
 
-          {/* Description */}
-          <motion.p className="qs-body" lang="fr" {...inView(0.28)}>
-            NSS est né d&apos;une conviction simple : personne ne connaît mieux
-            la terre que celles qui la cultivent. Depuis 2011, 175&nbsp;000
-            femmes rurales — organisées en 500&nbsp;associations dans 14&nbsp;pays —
-            protègent les semences paysannes, transmettent les savoirs
-            agroécologiques et portent leur souveraineté alimentaire devant
-            les instances continentales.
-          </motion.p>
-
-          {/* Citation */}
-          <motion.blockquote className="qs-quote" {...inView(0.36)}>
-            <p className="qs-quote-text">
-              &ldquo;Par nous-mêmes. Pour nous-mêmes. En nous-mêmes.&rdquo;
+          <blockquote className="hsr-quote">
+            <div className="hsr-quote-bar" aria-hidden="true" />
+            <p className="hsr-quote-text">
+              Par nous-mêmes. Pour nous-mêmes. En nous-mêmes.
             </p>
-          </motion.blockquote>
+          </blockquote>
 
-          {/* Stats */}
-          <motion.div className="qs-stats" role="list" {...inView(0.44)}>
-            {STATS.map(({ value, label }) => (
-              <div key={label} className="qs-stat" role="listitem">
-                <span className="qs-stat-value">{value}</span>
-                <span className="qs-stat-label">{label}</span>
+          <p className="hsr-body">
+            NSS est né d&apos;une conviction simple&nbsp;: personne ne connaît mieux
+            la terre que celles qui la cultivent. Depuis 2011, 175&nbsp;000 femmes
+            rurales — organisées en 500 associations dans 14 pays — protègent les
+            semences paysannes, transmettent les savoirs agroécologiques et portent
+            leur souveraineté alimentaire devant les instances continentales.
+          </p>
+
+          {/* Stats 3 colonnes bordées */}
+          <div className="hsr-stats" role="list" aria-label="Chiffres clés">
+            {STATS.map(({ num, lbl }) => (
+              <div key={lbl} className="hsr-stat" role="listitem">
+                <span className="hsr-stat-num">{num}</span>
+                <span className="hsr-stat-lbl">{lbl}</span>
               </div>
             ))}
-          </motion.div>
+          </div>
 
-          {/* CTA */}
-          <motion.div {...inView(0.52)}>
-            <Link href="/fr/mouvement" className="qs-cta">
-              Découvrir le mouvement
-              <svg
-                width="16" height="9" viewBox="0 0 16 9"
-                fill="none" aria-hidden="true"
-                className="qs-cta-arrow"
-              >
-                <path
-                  d="M1 4.5h13M10 1l4 3.5-4 3.5"
-                  stroke="currentColor"
-                  strokeWidth="1.4"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </Link>
-          </motion.div>
-        </div>
+          {/* CTA souligné */}
+          <Link href="/fr/mouvement" className="hsr-cta">
+            DÉCOUVRIR LE MOUVEMENT →
+            <span className="hsr-cta-line" aria-hidden="true" />
+          </Link>
+        </motion.div>
 
-        {/* ════════ COL DROITE — vidéo Mariama Sonko ════════ */}
+        {/* ══ COLONNE DROITE ══ */}
         <motion.div
-          className="qs-right"
-          initial={{ opacity: 0, x: 32 }}
+          className="hsr-right"
+          initial={{ opacity: 0, x: 24 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.85, delay: 0.20, ease }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.78, delay: 0.12, ease }}
         >
-          <div className="qs-video-outer">
-            <div
-              className="qs-video"
-              onClick={() => !playing && setPlaying(true)}
-              style={{ cursor: playing ? 'default' : 'pointer' }}
-            >
-              {playing ? (
-                <video
-                  src={VIDEO_URL}
-                  controls
-                  autoPlay
-                  playsInline
-                  className="qs-video-el"
-                />
-              ) : (
-                <>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={THUMB_URL}
-                    alt="Mariama Sonko — Présidente Nous Sommes la Solution"
-                    className="qs-video-el"
-                  />
-                  <div className="qs-video-veil" />
-
-                  {/* Bouton play */}
-                  <button
-                    className="qs-play"
-                    aria-label="Regarder la vidéo de Mariama Sonko"
-                    onClick={(e) => { e.stopPropagation(); setPlaying(true) }}
-                  >
-                    <span className="qs-play-ring" aria-hidden="true" />
-                    <svg
-                      width="22" height="22" viewBox="0 0 24 24"
-                      fill="none" aria-hidden="true"
-                      className="qs-play-icon"
-                    >
-                      <path d="M6 4.75L19.25 12 6 19.25V4.75Z" fill="currentColor" />
-                    </svg>
-                  </button>
-
-                  {/* Badge */}
-                  <div className="qs-badge">
-                    <span className="qs-badge-dot" aria-hidden="true" />
-                    Regarder la vidéo
-                  </div>
-                </>
-              )}
+          {/* Floating card 14 pays */}
+          {!playing && (
+            <div className="hsr-fc" aria-label="14 pays membres">
+              <span className="hsr-fc-num">14</span>
+              <span className="hsr-fc-lbl">Pays membres</span>
             </div>
+          )}
 
-            {/* Légende */}
-            <p className="qs-legend">
-              Mariama Sonko — Présidente, Nous Sommes la Solution
-            </p>
+          {/* Vidéo */}
+          <div
+            className="hsr-vid"
+            style={{ backgroundImage: !playing ? `url(${THUMB_URL})` : undefined }}
+          >
+            {playing ? (
+              /* eslint-disable-next-line jsx-a11y/media-has-caption */
+              <video
+                src={VIDEO_URL}
+                controls
+                autoPlay
+                playsInline
+                className="hsr-vid-el"
+              />
+            ) : (
+              <>
+                <div className="hsr-vid-overlay" aria-hidden="true" />
+
+                {/* Bouton play centré */}
+                <div className="hsr-play-wrap">
+                  <button
+                    className="hsr-play"
+                    onClick={() => setPlaying(true)}
+                    aria-label="Regarder la vidéo de Mariama Sonko"
+                  >
+                    <IconPlay />
+                  </button>
+                  <p className="hsr-play-lbl">REGARDER LA VIDÉO</p>
+                </div>
+
+                {/* Footer gradient */}
+                <div className="hsr-vid-footer">
+                  <span className="hsr-vf-tag">MARIAMA SONKO — PRÉSIDENTE NSS</span>
+                  <p className="hsr-vf-titre">Au Sénégal : Le Combat des Agricultrices</p>
+                </div>
+              </>
+            )}
           </div>
         </motion.div>
 
       </div>
 
-      {/* ════════ Styles ════════ */}
       <style>{`
-        /* ── Section ── */
-        .qs-section {
-          background: #ffffff;
-          border-top: 1px solid rgba(165,206,70,0.20);
+        /* ── SECTION ── */
+        .hsr {
+          position: relative;
           overflow: hidden;
-        }
-        .qs-inner {
-          max-width: 100%;
-          padding: 80px clamp(2rem, 6vw, 80px);
-          display: grid;
-          grid-template-columns: 1.15fr 0.85fr;
-          gap: 80px;
-          align-items: center;
-          box-sizing: border-box;
+          background: #ffffff;
+          padding: clamp(3rem, 6vw, 4.5rem) clamp(1.5rem, 6vw, 5rem);
         }
 
-        /* ── Eyebrow ── */
-        .qs-eyebrow {
+        /* ── GRID ── */
+        .hsr-wrap {
+          position: relative;
+          z-index: 1;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 64px;
+          align-items: center;
+          max-width: 1100px;
+          margin: 0 auto;
+        }
+
+        /* ── EYEBROW (ligne gauche uniquement) ── */
+        .hsr-eyebrow {
           display: flex;
           align-items: center;
-          gap: 14px;
-          margin-bottom: 1rem;
-        }
-        .qs-eyebrow-line {
-          display: block;
-          width: 28px;
-          height: 1.5px;
-          background: ${NSS.vertPrimaire};
-          flex-shrink: 0;
-        }
-        .qs-eyebrow-text {
+          gap: 12px;
+          margin-bottom: 20px;
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 11px;
-          font-weight: 500;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
-          color: ${NSS.vertPrimaire};
+          font-size: 11px; font-weight: 500;
+          letter-spacing: 0.14em; text-transform: uppercase;
+          color: #00AD4C;
+        }
+        .hsr-ey-line {
+          display: block; width: 28px; height: 1.5px;
+          background: #00AD4C; flex-shrink: 0;
         }
 
         /* ── H2 ── */
-        .qs-h2 {
+        .hsr-h2 {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: clamp(2rem, 3.5vw, 2rem);
-          font-weight: 500;
-          line-height: 1.1;
-          color: #2A2A2A;
-          margin: 0 0 0.75rem;
-          letter-spacing: -0.01em;
+          font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+          font-weight: 500; letter-spacing: -0.01em; line-height: 1.1;
+          color: #2A2A2A; margin: 0 0 20px;
         }
-        .qs-h2 em {
-          font-style: italic;
-          color: ${NSS.vertPrimaire};
+        .hsr-h2 em { color: #00AD4C; font-style: italic; }
+
+        /* ── BLOCKQUOTE ── */
+        .hsr-quote {
+          display: flex; align-items: stretch; gap: 0;
+          margin: 0 0 24px; padding: 0;
         }
-        .qs-underline {
-          display: block;
-          height: 2px;
-          width: 72px;
-          background: ${NSS.vertClair};
-          border-radius: 2px;
-          margin: 0 0 1.5rem;
+        .hsr-quote-bar {
+          width: 3px; background: #00AD4C;
+          border-radius: 2px; margin-right: 16px; flex-shrink: 0;
+        }
+        .hsr-quote-text {
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-size: 16px; font-style: italic;
+          color: #2A2A2A; line-height: 1.7; margin: 0;
         }
 
-        /* ── Body ── */
-        .qs-body {
+        /* ── PARAGRAPHE ── */
+        .hsr-body {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 16px;
-          font-weight: 400;
-          line-height: 1.82;
-          color: #2A2A2A;
-          text-align: justify;
-          hyphens: auto;
-          margin: 0 0 24px;
-        }
-
-        /* ── Citation ── */
-        .qs-quote {
-          border-left: 3px solid ${NSS.or};
-          padding: 2px 0 2px 18px;
+          font-size: 14px; font-weight: 300;
+          color: #4A4A4A; line-height: 1.8;
+          text-align: justify; text-align-last: left;
           margin: 0 0 32px;
         }
-        .qs-quote-text {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: 18px;
-          font-style: italic;
-          line-height: 1.60;
-          color: #111;
-          margin: 0;
-        }
 
-        /* ── Stats ── */
-        .qs-stats {
-          display: flex;
-          align-items: flex-start;
-          gap: 0;
-          margin: 0 0 32px;
-          border-top: 1px solid #E8E8E8;
-          border-bottom: 1px solid #E8E8E8;
-          padding: 16px 0;
-        }
-        .qs-stat {
-          display: flex;
-          flex-direction: column;
-          gap: 5px;
-          flex: 1;
-          padding: 0 20px 0 0;
-          border-right: 1px solid #E8E8E8;
-          margin-right: 20px;
-        }
-        .qs-stat:last-child {
-          border-right: none;
-          margin-right: 0;
-          padding-right: 0;
-        }
-        .qs-stat-value {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: 24px;
-          font-weight: 600;
-          color: ${NSS.vertFonce};
-          line-height: 1;
-          letter-spacing: -0.02em;
-        }
-        .qs-stat-label {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 12px;
-          font-weight: 500;
-          color: #555;
-          line-height: 1.4;
-        }
-
-        /* ── CTA ── */
-        .qs-cta {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 11px;
-          font-weight: 700;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
-          color: ${NSS.vertFonce};
-          text-decoration: none;
-          border-bottom: 1.5px solid ${NSS.vertPrimaire};
-          padding-bottom: 3px;
-          transition: color 0.2s, gap 0.2s;
-        }
-        .qs-cta-arrow {
-          transition: transform 0.2s ease;
-        }
-        .qs-cta:hover { color: ${NSS.vertPrimaire}; gap: 16px; }
-        .qs-cta:hover .qs-cta-arrow { transform: translateX(4px); }
-
-        /* ── Droite — vidéo ── */
-        .qs-right {
-          display: flex;
-          flex-direction: column;
-          height: 100%;
-        }
-        .qs-video-outer {
-          display: flex;
-          flex-direction: column;
-          flex: 1;
-          width: 100%;
-        }
-        .qs-video {
-          position: relative;
-          width: 100%;
-          min-height: 420px;
-          flex: 1;
-          border-radius: 12px 12px 0 0;
+        /* ── STATS ── */
+        .hsr-stats {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          border: 0.5px solid #e5e7eb;
+          border-radius: 10px;
           overflow: hidden;
-          background: #061409;
-          box-shadow:
-            0 0 0 1px rgba(232,168,56,0.18),
-            0 2px 0 0 ${NSS.or},
-            0 24px 64px rgba(4,86,39,0.18),
-            0 4px 16px rgba(0,0,0,0.12);
+          margin-bottom: 32px;
         }
-        .qs-video-el {
-          position: absolute;
-          inset: 0;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: center top;
-          display: block;
-        }
-        .qs-video-veil {
-          position: absolute;
-          inset: 0;
-          background:
-            linear-gradient(to top,   rgba(4,86,39,0.72) 0%, transparent 45%),
-            linear-gradient(to bottom, rgba(0,0,0,0.18)  0%, transparent 25%);
-        }
-
-        /* ── Bouton play ── */
-        .qs-play {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: 70px;
-          height: 70px;
-          border-radius: 50%;
-          background: ${NSS.or};
-          color: ${NSS.vertFonce};
-          border: none;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          z-index: 2;
-          box-shadow:
-            0 0 0 8px rgba(232,168,56,0.15),
-            0 6px 28px rgba(232,168,56,0.60);
-          transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s;
-        }
-        .qs-play:hover {
-          transform: translate(-50%, -50%) scale(1.12);
-          box-shadow:
-            0 0 0 12px rgba(232,168,56,0.12),
-            0 10px 40px rgba(232,168,56,0.75);
-        }
-        .qs-play-ring {
-          position: absolute;
-          inset: -10px;
-          border-radius: 50%;
-          border: 1.5px solid rgba(232,168,56,0.40);
-          animation: qs-pulse 2.2s ease-out infinite;
-          pointer-events: none;
-        }
-        @keyframes qs-pulse {
-          0%   { transform: scale(1);    opacity: 1; }
-          100% { transform: scale(1.65); opacity: 0; }
-        }
-        .qs-play-icon { position: relative; z-index: 1; margin-left: 3px; }
-
-        /* ── Badge ── */
-        .qs-badge {
-          position: absolute;
-          bottom: 18px;
-          left: 20px;
-          z-index: 3;
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 9px;
-          font-weight: 700;
-          letter-spacing: 0.22em;
-          text-transform: uppercase;
-          color: rgba(245,237,214,0.85);
-        }
-        .qs-badge-dot {
-          width: 6px;
-          height: 6px;
-          border-radius: 50%;
-          background: ${NSS.vertPrimaire};
-          flex-shrink: 0;
-          animation: qs-blink 1.8s ease-in-out infinite;
-        }
-        @keyframes qs-blink {
-          0%, 100% { opacity: 1; }
-          50%       { opacity: 0.2; }
-        }
-
-        /* ── Légende ── */
-        .qs-legend {
-          background: ${NSS.vertFonce};
-          color: rgba(245,237,214,0.90);
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 10px;
-          font-weight: 600;
-          letter-spacing: 0.20em;
-          text-transform: uppercase;
+        .hsr-stat {
+          padding: 16px 14px;
+          border-right: 0.5px solid #e5e7eb;
           text-align: center;
-          padding: 13px 20px;
-          margin: 0;
-          border-radius: 0 0 12px 12px;
+          display: flex; flex-direction: column; gap: 4px;
+        }
+        .hsr-stat:last-child { border-right: none; }
+        .hsr-stat-num {
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-size: 28px; font-weight: 600;
+          color: #00AD4C; line-height: 1;
+        }
+        .hsr-stat-lbl {
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 10px; font-weight: 400;
+          color: #6b7280; letter-spacing: 0.06em;
         }
 
-        /* ── Tablet ── */
-        @media (max-width: 1100px) {
-          .qs-inner { padding: 60px clamp(2rem, 5vw, 56px); gap: 52px; }
+        /* ── CTA SOULIGNÉ ── */
+        .hsr-cta {
+          display: inline-flex;
+          flex-direction: column;
+          gap: 3px;
+          background: transparent;
+          border: none;
+          color: #00AD4C;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 12px; font-weight: 500;
+          letter-spacing: 0.1em; text-transform: uppercase;
+          cursor: pointer; text-decoration: none; padding: 0;
+          transition: opacity 0.2s;
         }
-        @media (max-width: 1024px) {
-          .qs-inner { padding: 52px clamp(2rem, 4vw, 48px); gap: 40px; }
-        }
-
-        /* ── Mobile ── */
-        @media (max-width: 768px) {
-          .qs-inner {
-            grid-template-columns: 1fr;
-            padding: 56px 24px;
-            gap: 40px;
-          }
-          .qs-h2 { line-height: 1.2; }
-          .qs-video { min-height: 300px; }
-        }
-
-        /* ── Small mobile ── */
-        @media (max-width: 480px) {
-          .qs-inner { padding: 44px 16px; gap: 32px; }
-          .qs-h2 { line-height: 1.2; }
-          .qs-body { font-size: 14px; }
-          .qs-video { min-height: 250px; }
-          .qs-stat-value { font-size: 30px; }
+        .hsr-cta:hover { opacity: 0.75; }
+        .hsr-cta-line {
+          display: block; width: 100%;
+          height: 1.5px; background: #00AD4C;
         }
 
-        /* ── Réduction de mouvement ── */
+        /* ── COLONNE DROITE ── */
+        .hsr-right {
+          position: relative;
+          padding-top: 28px;
+        }
+
+        /* ── FLOATING CARD ── */
+        .hsr-fc {
+          position: absolute;
+          top: -20px; left: -36px;
+          z-index: 2;
+          background: #045627;
+          border-radius: 12px;
+          padding: 16px 20px;
+          display: flex; flex-direction: column; gap: 4px;
+        }
+        .hsr-fc-num {
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-size: 32px; font-weight: 600;
+          color: #A5CE46; line-height: 1;
+        }
+        .hsr-fc-lbl {
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 10px; font-weight: 500;
+          color: rgba(245,237,214,0.7);
+          text-transform: uppercase; letter-spacing: 0.08em;
+        }
+
+        /* ── VIDÉO ── */
+        .hsr-vid {
+          border-radius: 16px;
+          overflow: hidden;
+          aspect-ratio: 8/9;
+          position: relative;
+          background: #1a2e1a center / cover no-repeat;
+        }
+        .hsr-vid-overlay {
+          position: absolute; inset: 0;
+          background: rgba(4,86,39,0.42);
+          z-index: 0;
+        }
+        .hsr-vid-el {
+          position: absolute; inset: 0;
+          width: 100%; height: 100%;
+          object-fit: cover; display: block;
+        }
+
+        /* ── PLAY WRAP ── */
+        .hsr-play-wrap {
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -60%);
+          display: flex; flex-direction: column;
+          align-items: center; gap: 12px;
+          z-index: 1;
+        }
+        .hsr-play {
+          width: 56px; height: 56px;
+          border-radius: 50%;
+          border: 2px solid rgba(255,255,255,0.9);
+          background: rgba(255,255,255,0.1);
+          display: flex; align-items: center; justify-content: center;
+          cursor: pointer; color: #ffffff;
+          transition: background 0.25s ease, transform 0.25s ease;
+        }
+        .hsr-play:hover {
+          background: rgba(255,255,255,0.2);
+          transform: scale(1.06);
+        }
+        .hsr-play-lbl {
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 10px; text-transform: uppercase;
+          color: rgba(255,255,255,0.6);
+          letter-spacing: 0.12em;
+          margin: 0; white-space: nowrap;
+        }
+
+        /* ── VIDEO FOOTER ── */
+        .hsr-vid-footer {
+          position: absolute;
+          bottom: 0; left: 0; right: 0;
+          padding: 20px 20px 16px;
+          background: linear-gradient(to top, rgba(4,86,39,0.95) 0%, transparent 100%);
+          z-index: 1;
+        }
+        .hsr-vf-tag {
+          display: block;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 10px; text-transform: uppercase;
+          letter-spacing: 0.1em; color: #A5CE46;
+          margin-bottom: 4px;
+        }
+        .hsr-vf-titre {
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-size: 16px; font-weight: 600;
+          color: #ffffff; margin: 0; line-height: 1.3;
+        }
+
+        /* ── MOBILE ≤ 640px ── */
+        @media (max-width: 640px) {
+          .hsr-bg-right { display: none; }
+          .hsr-wrap { grid-template-columns: 1fr; gap: 48px; }
+          .hsr-right { padding-top: 20px; }
+          .hsr-fc { top: -12px; left: 12px; }
+          .hsr-vid { aspect-ratio: 4/3; }
+        }
+
         @media (prefers-reduced-motion: reduce) {
-          .qs-play-ring, .qs-badge-dot { animation: none; }
+          .hsr-play { transition: none; }
+          .hsr-cta  { transition: none; }
         }
       `}</style>
+
     </section>
   )
 }
-
