@@ -85,7 +85,7 @@ export default function ObjectifsRedesign() {
           <span className="obj-eyeline" />
         </div>
         <h2 id="obj-titre" className="obj-h2">
-          Cultiver, transmettre, <em>décider ensemble.</em>
+          Ce qui nous guide, <em>chaque jour.</em>
         </h2>
         <span className="obj-underline" aria-hidden="true" />
         <p className="obj-desc">
