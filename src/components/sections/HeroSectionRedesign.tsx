@@ -208,29 +208,27 @@ export default function HeroSectionRedesign() {
 
         /* ── STATS ── */
         .hsr-stats {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          border: 0.5px solid #e5e7eb;
-          border-radius: 10px;
-          overflow: hidden;
+          display: flex;
+          gap: 0;
           margin-bottom: 32px;
         }
         .hsr-stat {
-          padding: 16px 14px;
-          border-right: 0.5px solid #e5e7eb;
-          text-align: center;
-          display: flex; flex-direction: column; gap: 4px;
+          flex: 1;
+          padding: 0 20px 0 0;
+          border-left: 2px solid #e5e7eb;
+          padding-left: 16px;
+          display: flex; flex-direction: column; gap: 3px;
         }
-        .hsr-stat:last-child { border-right: none; }
+        .hsr-stat:first-child { border-left: none; padding-left: 0; }
         .hsr-stat-num {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: 28px; font-weight: 600;
-          color: #00AD4C; line-height: 1;
+          font-size: 24px; font-weight: 600;
+          color: #2A2A2A; line-height: 1;
         }
         .hsr-stat-lbl {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 10px; font-weight: 400;
-          color: #6b7280; letter-spacing: 0.06em;
+          color: #9ca3af; letter-spacing: 0.04em;
         }
 
         /* ── CTA SOULIGNÉ ── */
