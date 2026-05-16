@@ -353,7 +353,7 @@ export default function MediathequeSectionRedesign() {
 
           .vds__h2 {
             font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            font-size: clamp(1.44rem, 3.15vw, 1.98rem);
             font-weight: 400; line-height: 1.2;
             color: #2A2A2A; margin: 0 0 0.75rem;
             letter-spacing: -0.015em;

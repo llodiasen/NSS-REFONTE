@@ -277,7 +277,7 @@ export default function NewsSectionRedesign() {
         /* ── H2 ── */
         .nws-h2 {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+          font-size: clamp(1.44rem, 3.15vw, 1.98rem);
           font-weight: 600;
           line-height: 1.2;
           color: #2A2A2A;

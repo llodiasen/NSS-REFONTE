@@ -176,7 +176,7 @@ export default function HeroSectionRedesign() {
         /* ── H2 ── */
         .hsr-h2 {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+          font-size: clamp(1.62rem, 3.15vw, 2.34rem);
           font-weight: 500; letter-spacing: -0.01em; line-height: 1.1;
           color: #2A2A2A; margin: 0 0 20px;
         }
