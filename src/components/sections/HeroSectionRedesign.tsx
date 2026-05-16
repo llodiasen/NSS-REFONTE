@@ -111,8 +111,6 @@ export default function HeroSectionRedesign() {
             ) : (
               <>
                 <div className="hsr-vid-overlay" aria-hidden="true" />
-
-                {/* Bouton play centré */}
                 <div className="hsr-play-wrap">
                   <button
                     className="hsr-play"
@@ -123,14 +121,14 @@ export default function HeroSectionRedesign() {
                   </button>
                   <p className="hsr-play-lbl">REGARDER LA VIDÉO</p>
                 </div>
-
-                {/* Footer gradient */}
-                <div className="hsr-vid-footer">
-                  <span className="hsr-vf-tag">MARIAMA SONKO — PRÉSIDENTE NSS</span>
-                  <p className="hsr-vf-titre">Au Sénégal : Le Combat des Agricultrices</p>
-                </div>
               </>
             )}
+          </div>
+
+          {/* Légende sous la vidéo */}
+          <div className="hsr-caption">
+            <span className="hsr-cap-tag">MARIAMA SONKO — PRÉSIDENTE NSS</span>
+            <p className="hsr-cap-titre">Au Sénégal : Le Combat des Agricultrices</p>
           </div>
         </motion.div>
 
@@ -152,7 +150,7 @@ export default function HeroSectionRedesign() {
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 64px;
-          align-items: center;
+          align-items: stretch;
           max-width: 1100px;
           margin: 0 auto;
         }
@@ -240,8 +238,8 @@ export default function HeroSectionRedesign() {
           border: none;
           color: #00AD4C;
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 12px; font-weight: 500;
-          letter-spacing: 0.1em; text-transform: uppercase;
+          font-size: 10px; font-weight: 500;
+          letter-spacing: 0.08em; text-transform: uppercase;
           cursor: pointer; text-decoration: none; padding: 0;
           transition: opacity 0.2s;
         }
@@ -254,14 +252,14 @@ export default function HeroSectionRedesign() {
         /* ── COLONNE DROITE ── */
         .hsr-right {
           position: relative;
-          padding-top: 28px;
+          display: flex; flex-direction: column;
         }
 
         /* ── VIDÉO ── */
         .hsr-vid {
           border-radius: 16px;
           overflow: hidden;
-          aspect-ratio: 3/2;
+          flex: 1; min-height: 240px;
           position: relative;
           background: #1a2e1a center / cover no-repeat;
         }
@@ -306,33 +304,27 @@ export default function HeroSectionRedesign() {
           margin: 0; white-space: nowrap;
         }
 
-        /* ── VIDEO FOOTER ── */
-        .hsr-vid-footer {
-          position: absolute;
-          bottom: 0; left: 0; right: 0;
-          padding: 20px 20px 16px;
-          background: linear-gradient(to top, rgba(4,86,39,0.95) 0%, transparent 100%);
-          z-index: 1;
+        /* ── LÉGENDE ── */
+        .hsr-caption {
+          padding: 12px 0 0;
+          display: flex; flex-direction: column; gap: 3px;
         }
-        .hsr-vf-tag {
-          display: block;
+        .hsr-cap-tag {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 10px; text-transform: uppercase;
-          letter-spacing: 0.1em; color: #A5CE46;
-          margin-bottom: 4px;
+          font-size: 10px; font-weight: 600;
+          letter-spacing: 0.1em; text-transform: uppercase;
+          color: #00AD4C;
         }
-        .hsr-vf-titre {
+        .hsr-cap-titre {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: 16px; font-weight: 600;
-          color: #ffffff; margin: 0; line-height: 1.3;
+          font-size: 14px; font-weight: 400;
+          color: #6b7280; margin: 0; line-height: 1.3;
         }
 
         /* ── MOBILE ≤ 640px ── */
         @media (max-width: 640px) {
-          .hsr-bg-right { display: none; }
-          .hsr-wrap { grid-template-columns: 1fr; gap: 48px; }
-          .hsr-right { padding-top: 20px; }
-          .hsr-vid { aspect-ratio: 4/3; }
+          .hsr-wrap { grid-template-columns: 1fr; gap: 40px; align-items: start; }
+          .hsr-vid { min-height: 200px; aspect-ratio: 4/3; flex: unset; }
         }
 
         @media (prefers-reduced-motion: reduce) {

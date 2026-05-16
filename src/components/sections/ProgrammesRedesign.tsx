@@ -333,13 +333,13 @@ export default function ProgrammesRedesign() {
 
         /* ── BOUTON ── */
         .prg-cta {
-          display: inline-flex; align-items: center; gap: 6px;
+          display: inline-flex; align-items: center; gap: 5px;
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 11px; font-weight: 500;
-          letter-spacing: 0.08em; text-transform: uppercase;
+          font-size: 10px; font-weight: 500;
+          letter-spacing: 0.07em; text-transform: uppercase;
           color: #00AD4C;
-          border: 1.5px solid #00AD4C;
-          border-radius: 6px; padding: 9px 16px;
+          border: 1px solid #00AD4C;
+          border-radius: 4px; padding: 6px 12px;
           background: transparent;
           width: fit-content;
           text-decoration: none;

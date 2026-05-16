@@ -152,8 +152,6 @@ export default function PartnersSectionRedesign() {
                 </div>
               </a>
 
-              {/* Rôle en-dessous */}
-              <p className="pts-role">{p.role}</p>
             </motion.li>
           ))}
         </ul>
@@ -262,18 +260,18 @@ export default function PartnersSectionRedesign() {
           margin: 0;
           padding: 0;
           display: flex;
-          align-items: flex-start;
+          align-items: stretch;
           justify-content: center;
-          flex-wrap: nowrap;
-          gap: 16px;
+          flex-wrap: wrap;
+          gap: 12px;
         }
         .pts-item {
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 12px;
-          flex: 1 1 0;
+          flex: 1 1 160px;
           min-width: 0;
+          max-width: 220px;
         }
 
         /* ── Card logo ── */
@@ -404,27 +402,16 @@ export default function PartnersSectionRedesign() {
         }
         .pts-cta:hover { color: ${NSS.vertPrimaire}; gap: 16px; }
 
-        /* ── Tablet ── */
-        @media (max-width: 1024px) {
-          .pts-item  { width: 176px; }
-          .pts-logo-card { width: 176px; height: 80px; }
-        }
-
         /* ── Mobile ── */
-        @media (max-width: 768px) {
-          .pts-h2 { line-height: 1.2; }
-          .pts-item  { width: 152px; }
-          .pts-logo-card { width: 152px; height: 72px; padding: 12px 16px; }
-          .pts-grid { gap: 18px 12px; }
+        @media (max-width: 640px) {
+          .pts-grid { gap: 10px; }
+          .pts-item { flex-basis: calc(50% - 10px); max-width: calc(50% - 10px); }
+          .pts-logo-card { height: 72px; padding: 12px 16px; }
         }
 
         /* ── Small mobile ── */
-        @media (max-width: 480px) {
-          .pts-h2 { line-height: 1.2; }
-          .pts-item  { width: 140px; }
-          .pts-logo-card { width: 140px; height: 66px; }
-          .pts-grid { gap: 14px 10px; }
-          .pts-role { font-size: 10px; }
+        @media (max-width: 360px) {
+          .pts-logo-card { height: 60px; }
         }
 
         /* ── Réduction de mouvement ── */
