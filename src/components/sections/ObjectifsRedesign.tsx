@@ -81,7 +81,7 @@ export default function ObjectifsRedesign() {
       <header className="obj-header">
         <div className="obj-eyebrow" aria-hidden="true">
           <span className="obj-eyeline" />
-          <span>NOS OBJECTIFS</span>
+          <span>NOS VALEURS</span>
           <span className="obj-eyeline" />
         </div>
         <h2 id="obj-titre" className="obj-h2">
