@@ -3,10 +3,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
-const NSS = {
-  vertPrimaire: '#00AD4C',
-  vertClair:    '#145c28',
-} as const
 
 const VIDEO_ID  = 'FothaoeQsQ8'
 const VIDEO_TTL = "Au Sénégal : Le Combat des Agricultrices pour l'Accès à la Propriété"

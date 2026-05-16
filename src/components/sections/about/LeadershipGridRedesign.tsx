@@ -5,7 +5,7 @@ import Link from "next/link";
 const GOLD      = "#E8A838";
 const GREEN_LT  = "#A5CE46";
 const BORDER    = "#045627";
-const CHARCOAL  = "#2A2A2A";
+
 
 /* ── data ────────────────────────────────────────────────────────────────── */
 type Leader = { nom: string; role: string; location: string; orga: string; description: string; photo: string; href: string };
