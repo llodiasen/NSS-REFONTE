@@ -560,57 +560,6 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
 
 
       {/* ══════════════════════════════════════════════
-          4. OBJECTIFS — fond alt #FAFAF8
-      ══════════════════════════════════════════════ */}
-      <section className="cf-sec cf-sec--white" aria-labelledby="cf-obj-h2">
-        <div className="cf-sec__inner">
-          <SectionHeader
-            titleId="cf-obj-h2"
-            eyebrow="MISSION"
-            title="Renforcer les capacités des leaders paysans."
-            sub="Former, relier, durer — la triple vocation du CIFAP au service de la souveraineté alimentaire."
-          />
-          <StaggerGrid className="cf-obj-grid" stagger={0.08}>
-            {[
-              {
-                icon: '📚',
-                title: 'Former des leaders qui changent leurs territoires',
-                desc: 'Renforcer les capacités des leaders paysans, techniciens et animateurs en techniques agroécologiques appliquées — des compétences immédiatement transférables sur le terrain.',
-              },
-              {
-                icon: '🌾',
-                title: "Diffuser l'agroécologie paysanne",
-                desc: "Disséminer des pratiques agricoles respectueuses de l'environnement et reproductibles dans chaque pays membre du réseau NSS.",
-              },
-              {
-                icon: '📈',
-                title: 'Améliorer rendements & autonomie',
-                desc: "Augmenter les rendements agricoles et la viabilité économique des exploitations — santé des sols, réduction des intrants chimiques, revenus préservés.",
-              },
-              {
-                icon: '🤝',
-                title: 'Consolider la souveraineté alimentaire',
-                desc: "Ancrer la souveraineté alimentaire en Afrique de l'Ouest à travers des pratiques agroécologiques paysannes durables maîtrisées par les communautés.",
-              },
-              {
-                icon: '🌍',
-                title: 'Construire un réseau continental',
-                desc: "Tisser un réseau de femmes rurales organisées capables d'essaimer l'agroécologie paysanne dans leurs territoires, d'un pays à l'autre, d'une génération à l'autre.",
-              },
-            ].map((o) => (
-              <motion.div key={o.title} className="cf-obj-item" variants={fadeUp}>
-                <span className="cf-obj-icon" aria-hidden="true">{o.icon}</span>
-                <div>
-                  <strong className="cf-obj-title">{o.title}</strong>
-                  <p className="cf-obj-desc">{o.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </StaggerGrid>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════
           3. TRIPLE VOCATION — fond blanc, texte pur
       ══════════════════════════════════════════════ */}
       <section className="cf-sec cf-sec--alt" aria-labelledby="cf-voc-h2">
@@ -656,6 +605,57 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
                 <h3 className="cf-tv-title">{v.title}</h3>
                 <p className="cf-tv-text">{v.desc}</p>
               </motion.article>
+            ))}
+          </StaggerGrid>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════
+          4. OBJECTIFS — fond alt #FAFAF8
+      ══════════════════════════════════════════════ */}
+      <section className="cf-sec cf-sec--white" aria-labelledby="cf-obj-h2">
+        <div className="cf-sec__inner">
+          <SectionHeader
+            titleId="cf-obj-h2"
+            eyebrow="MISSION"
+            title="Renforcer les capacités des leaders paysans."
+            sub="Former, relier, durer — la triple vocation du CIFAP au service de la souveraineté alimentaire."
+          />
+          <StaggerGrid className="cf-obj-grid" stagger={0.08}>
+            {[
+              {
+                icon: '📚',
+                title: 'Former des leaders qui changent leurs territoires',
+                desc: 'Renforcer les capacités des leaders paysans, techniciens et animateurs en techniques agroécologiques appliquées — des compétences immédiatement transférables sur le terrain.',
+              },
+              {
+                icon: '🌾',
+                title: "Diffuser l'agroécologie paysanne",
+                desc: "Disséminer des pratiques agricoles respectueuses de l'environnement et reproductibles dans chaque pays membre du réseau NSS.",
+              },
+              {
+                icon: '📈',
+                title: 'Améliorer rendements & autonomie',
+                desc: "Augmenter les rendements agricoles et la viabilité économique des exploitations — santé des sols, réduction des intrants chimiques, revenus préservés.",
+              },
+              {
+                icon: '🤝',
+                title: 'Consolider la souveraineté alimentaire',
+                desc: "Ancrer la souveraineté alimentaire en Afrique de l'Ouest à travers des pratiques agroécologiques paysannes durables maîtrisées par les communautés.",
+              },
+              {
+                icon: '🌍',
+                title: 'Construire un réseau continental',
+                desc: "Tisser un réseau de femmes rurales organisées capables d'essaimer l'agroécologie paysanne dans leurs territoires, d'un pays à l'autre, d'une génération à l'autre.",
+              },
+            ].map((o) => (
+              <motion.div key={o.title} className="cf-obj-item" variants={fadeUp}>
+                <span className="cf-obj-icon" aria-hidden="true">{o.icon}</span>
+                <div>
+                  <strong className="cf-obj-title">{o.title}</strong>
+                  <p className="cf-obj-desc">{o.desc}</p>
+                </div>
+              </motion.div>
             ))}
           </StaggerGrid>
         </div>
