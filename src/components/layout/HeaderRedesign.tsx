@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useLocale } from "next-intl";
-import { ChevronDown, Globe, X } from "lucide-react";
+import { ChevronDown, X } from "lucide-react";
 import HeaderNavDropdown from "./HeaderNavDropdown";
 import HeaderSlidePanel from "./HeaderSlidePanel";
 import { getMegaColumns } from "./mega-nav-config";
@@ -158,7 +158,8 @@ export default function HeaderRedesign() {
                       <button onClick={() => setLangDropOpen((v) => !v)}
                         aria-label={`Langue : ${active.label}`} aria-expanded={langDropOpen}
                         className="flex items-center gap-1.5 rounded-md border border-[#00AD4C]/30 bg-white px-2.5 py-1.5 text-[11px] font-semibold text-[#2A2A2A] transition-all hover:border-[#00AD4C] hover:text-[#00AD4C]">
-                        <Globe size={12} />
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={`https://flagcdn.com/20x15/${active.flag}.png`} width={16} height={12} alt={active.label} className="rounded-[1px]" />
                         {active.label}
                         <ChevronDown size={9} className={`transition-transform duration-200 ${langDropOpen ? "rotate-180" : ""}`} />
                       </button>
