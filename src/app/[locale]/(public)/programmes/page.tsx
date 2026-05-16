@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import ProgrammeHero from '@/components/sections/ProgrammeHero'
 import StatsSection  from '@/components/sections/StatsSection'
@@ -135,7 +135,7 @@ export default async function ProgrammesPage({
         }
         .phub-intro__eyebrow {
           display: block;
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 9.5px;
           font-weight: 700;
           letter-spacing: 0.24em;
@@ -144,7 +144,7 @@ export default async function ProgrammesPage({
           margin-bottom: 20px;
         }
         .phub-intro__h2 {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 47px;
           font-weight: 600;
           line-height: 1.0;
@@ -154,7 +154,7 @@ export default async function ProgrammesPage({
         }
         .phub-intro__h2 em { font-style: italic; color: #00AD4C; }
         .phub-intro__text {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 15px;
           font-weight: 300;
           line-height: 1.78;
@@ -172,7 +172,7 @@ export default async function ProgrammesPage({
           border-radius: 4px;
         }
         .phub-intro__stat-value {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 64px;
           font-weight: 600;
           color: #E8A838;
@@ -180,7 +180,7 @@ export default async function ProgrammesPage({
           letter-spacing: -0.02em;
         }
         .phub-intro__stat-label {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 13px;
           font-weight: 300;
           line-height: 1.6;
@@ -199,7 +199,7 @@ export default async function ProgrammesPage({
         }
         .phub-cards__eyebrow {
           display: block;
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 9.5px;
           font-weight: 700;
           letter-spacing: 0.24em;
@@ -209,7 +209,7 @@ export default async function ProgrammesPage({
           text-align: center;
         }
         .phub-cards__h2 {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 47px;
           font-weight: 600;
           line-height: 1.0;
@@ -240,7 +240,7 @@ export default async function ProgrammesPage({
           gap: 20px;
         }
         .phub-cta__h2 {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 47px;
           font-weight: 600;
           line-height: 1.0;
@@ -250,7 +250,7 @@ export default async function ProgrammesPage({
         }
         .phub-cta__h2 em { font-style: italic; color: #A5CE46; }
         .phub-cta__sub {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 15px;
           font-weight: 300;
           line-height: 1.78;
@@ -259,7 +259,7 @@ export default async function ProgrammesPage({
           max-width: 560px;
         }
         .phub-cta__btn {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 11px;
           font-weight: 700;
           letter-spacing: 0.13em;

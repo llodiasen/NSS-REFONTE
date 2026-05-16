@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
@@ -39,7 +39,7 @@ export default function HeaderLangSwitcher({ currentLocale }: Props) {
           display: "flex", alignItems: "center", gap: "6px",
           padding: "7px 10px", borderRadius: "8px",
           border: "1px solid rgba(0,0,0,0.11)", background: "transparent",
-          fontFamily: "var(--font-body)", fontSize: "13px", fontWeight: 600,
+          fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "13px", fontWeight: 600,
           color: "#1a1a1a", cursor: "pointer", transition: "all 0.15s",
           whiteSpace: "nowrap",
         }}
@@ -91,7 +91,7 @@ export default function HeaderLangSwitcher({ currentLocale }: Props) {
                     width: "100%", padding: "10px 14px",
                     border: "none", cursor: "pointer",
                     background: isActive ? "#f0fdf4" : "transparent",
-                    fontFamily: "var(--font-body)", fontSize: "13px",
+                    fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "13px",
                     fontWeight: isActive ? 600 : 400,
                     color: isActive ? "#0f2b1a" : "#3a3a3a",
                     transition: "background 0.1s",

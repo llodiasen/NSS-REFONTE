@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 interface CTAFinalProps {
   locale: string;
@@ -64,7 +64,7 @@ export default function CTAFinal({ locale }: CTAFinalProps) {
           background: #2d5c3a;
         }
         .ctaf-eyebrow {
-          font-family: var(--font-body);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 10px;
           letter-spacing: 2px;
           text-transform: uppercase;
@@ -72,7 +72,7 @@ export default function CTAFinal({ locale }: CTAFinalProps) {
           white-space: nowrap;
         }
         .ctaf-title {
-          font-family: var(--font-display);
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 40px;
           font-weight: 800;
           color: #fff;
@@ -84,7 +84,7 @@ export default function CTAFinal({ locale }: CTAFinalProps) {
           color: #4caf80;
         }
         .ctaf-subtitle {
-          font-family: var(--font-body);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 14px;
           color: rgba(255,255,255,0.65);
           line-height: 1.7;
@@ -97,7 +97,7 @@ export default function CTAFinal({ locale }: CTAFinalProps) {
           flex-wrap: wrap;
         }
         .ctaf-btn {
-          font-family: var(--font-body);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 13px;
           font-weight: 600;
           text-decoration: none;

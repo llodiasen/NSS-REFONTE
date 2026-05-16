@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 
@@ -69,7 +69,7 @@ export default function ImpactStrip() {
             >
               <div
                 style={{
-                  fontFamily: "var(--font-display)",
+                  fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
                   fontSize: "clamp(36px, 4vw, 56px)",
                   fontWeight: 800,
                   lineHeight: 1,
@@ -82,7 +82,7 @@ export default function ImpactStrip() {
               </div>
               <div
                 style={{
-                  fontFamily: "var(--font-body)",
+                  fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
                   fontSize: "12px",
                   fontWeight: 500,
                   letterSpacing: "0.06em",

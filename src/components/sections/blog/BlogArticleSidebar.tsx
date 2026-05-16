@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Link from "next/link";
 import { type Article } from "@/data/articles";
 
@@ -49,7 +49,7 @@ export default function BlogArticleSidebar({ related, locale, categories, active
       <div style={{ border: "1px solid rgba(0,0,0,0.07)", borderRadius: "16px", padding: "28px" }}>
         <div style={{ display: "flex", alignItems: "center", marginBottom: "20px" }}>
           <span aria-hidden="true" style={{ width: "20px", height: "1px", background: "var(--green-600)", marginRight: "10px", flexShrink: 0 }} />
-          <span style={{ fontFamily: "var(--font-body)", fontSize: "10px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2px", color: "var(--green-600)" }}>
+          <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "10px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2px", color: "var(--green-600)" }}>
             Catégories
           </span>
         </div>
@@ -58,7 +58,7 @@ export default function BlogArticleSidebar({ related, locale, categories, active
             href={`/${locale}/${basePath}`}
             style={{
               display: "block",
-              fontFamily: "var(--font-body)",
+              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
               fontSize: "14px",
               fontWeight: !activeCategory ? 600 : 400,
               color: !activeCategory ? "var(--green-600)" : "var(--text-body)",
@@ -82,7 +82,7 @@ export default function BlogArticleSidebar({ related, locale, categories, active
                   display: "flex",
                   alignItems: "center",
                   gap: "8px",
-                  fontFamily: "var(--font-body)",
+                  fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
                   fontSize: "14px",
                   fontWeight: isActive ? 600 : 400,
                   color: isActive ? b.color : "var(--text-body)",
@@ -106,7 +106,7 @@ export default function BlogArticleSidebar({ related, locale, categories, active
         <div>
           <div style={{ display: "flex", alignItems: "center", marginBottom: "20px" }}>
             <span aria-hidden="true" style={{ width: "20px", height: "1px", background: "var(--green-600)", marginRight: "10px", flexShrink: 0 }} />
-            <span style={{ fontFamily: "var(--font-body)", fontSize: "10px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2px", color: "var(--green-600)" }}>
+            <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "10px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2px", color: "var(--green-600)" }}>
               À lire aussi
             </span>
           </div>
@@ -123,10 +123,10 @@ export default function BlogArticleSidebar({ related, locale, categories, active
                     <Image src={articleImage(a)} alt={a.title} fill style={{ objectFit: "cover" }} sizes="110px" />
                   </div>
                   <div style={{ flex: 1 }}>
-                    <span style={{ display: "inline-block", fontFamily: "var(--font-body)", fontSize: "10px", fontWeight: 600, letterSpacing: "1px", textTransform: "uppercase", background: b.bg, color: b.color, borderRadius: "12px", padding: "2px 8px", marginBottom: "8px" }}>
+                    <span style={{ display: "inline-block", fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "10px", fontWeight: 600, letterSpacing: "1px", textTransform: "uppercase", background: b.bg, color: b.color, borderRadius: "12px", padding: "2px 8px", marginBottom: "8px" }}>
                       {a.category}
                     </span>
-                    <p style={{ fontFamily: "var(--font-body)", fontSize: "15px", fontWeight: 500, color: "var(--text-primary)", lineHeight: 1.45, textAlign: "justify" }}>
+                    <p style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "15px", fontWeight: 500, color: "var(--text-primary)", lineHeight: 1.45, textAlign: "justify" }}>
                       {a.title}
                     </p>
                   </div>

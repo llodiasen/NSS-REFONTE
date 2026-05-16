@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const NSS = {
   vertFonce:    '#045627',
   vertPrimaire: '#00AD4C',
-  vertClair:    '#A5CE46',
+  vertClair:    '#145c28',
 } as const
 
 export default function OfflinePage() {

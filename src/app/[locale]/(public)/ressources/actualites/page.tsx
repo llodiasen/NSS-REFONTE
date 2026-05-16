@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { ARTICLES } from "@/data/articles";
 import ActualitesClient from "./ActualitesClient";
 
@@ -75,7 +75,7 @@ export default function ActualitesPage() {
             />
             <span
               style={{
-                fontFamily: "var(--font-body, sans-serif)",
+                fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
                 fontSize: "11px",
                 fontWeight: 600,
                 letterSpacing: "2.5px",
@@ -116,7 +116,7 @@ export default function ActualitesPage() {
           {/* Subtitle */}
           <p
             style={{
-              fontFamily: "var(--font-body, sans-serif)",
+              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
               fontSize: "17px",
               lineHeight: 1.7,
               color: "#ffffff",

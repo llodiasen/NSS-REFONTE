@@ -8,7 +8,7 @@ import { Facebook, Instagram, Linkedin } from 'lucide-react'
 const NSS = {
   vertFonce:    '#045627',
   vertPrimaire: '#00AD4C',
-  vertClair:    '#A5CE46',
+  vertClair:    '#145c28',
   or:           '#E8A838',
   creme:        '#F5EDD6',
 } as const
@@ -222,7 +222,7 @@ export default function FooterRedesign({ locale }: FooterRedesignProps) {
           flex-direction: column;
         }
         .ftr__brand-desc {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 13px;
           font-weight: 300;
           line-height: 1.75;
@@ -233,7 +233,7 @@ export default function FooterRedesign({ locale }: FooterRedesignProps) {
         }
 
         .ftr__tagline {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 15px;
           font-style: italic;
           font-weight: 400;
@@ -282,7 +282,7 @@ export default function FooterRedesign({ locale }: FooterRedesignProps) {
         }
 
         .ftr-col__title {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 13.5px;
           font-weight: 700;
           letter-spacing: 0.22em;
@@ -310,7 +310,7 @@ export default function FooterRedesign({ locale }: FooterRedesignProps) {
         }
 
         .ftr-link {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 14px;
           font-weight: 300;
           color: #ffffff;
@@ -336,7 +336,7 @@ export default function FooterRedesign({ locale }: FooterRedesignProps) {
         }
 
         .ftr__copy {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 14px;
           font-weight: 300;
           color: #ffffff;
@@ -350,7 +350,7 @@ export default function FooterRedesign({ locale }: FooterRedesignProps) {
         }
 
         .ftr__bottom-link {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 14px;
           font-weight: 300;
           color: #ffffff;
@@ -394,3 +394,4 @@ export default function FooterRedesign({ locale }: FooterRedesignProps) {
     </footer>
   )
 }
+

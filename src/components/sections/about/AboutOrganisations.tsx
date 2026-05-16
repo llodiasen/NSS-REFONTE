@@ -1,226 +1,253 @@
-import Image from "next/image";
-import Link from "next/link";
+﻿'use client'
 
+import { useState } from 'react'
+import Image from 'next/image'
+
+/* ── Data ──────────────────────────────────────────────────────────────────── */
 const ORGS = [
-  { src: "/images/Associations/UGPM.webp",                                   alt: "UGPM",         pays: "Sénégal",        fondatrice: true  },
-  { src: "/images/Associations/FENOP.webp",                                  alt: "FENOP",        pays: "Burkina Faso",   fondatrice: true  },
-  { src: "/images/Associations/AGUISSA.webp",                                alt: "AGUISSA",      pays: "Niger",          fondatrice: true  },
-  { src: "/images/Associations/KAFO.webp",                                   alt: "KAFO",         pays: "Gambie",         fondatrice: true  },
-  { src: "/images/Associations/AJAC-1536x1044-1-768x522.webp",               alt: "AJAC",         pays: "Guinée-Bissau",  fondatrice: true  },
-  { src: "/images/Associations/AMASSA-e1723163900160.webp",                   alt: "AMASSA",       pays: "Mali",           fondatrice: false },
-  { src: "/images/Associations/CAFO.webp",                                   alt: "CAFO",         pays: "Mali",           fondatrice: false },
-  { src: "/images/Associations/ABOFAM-768x723.webp",                         alt: "ABOFAM",       pays: "Bénin",          fondatrice: false },
-  { src: "/images/Associations/AGAFAM.webp",                                 alt: "AGAFAM",       pays: "Guinée",         fondatrice: false },
-  { src: "/images/Associations/AOOP.webp",                                   alt: "AOOP",         pays: "Bénin",          fondatrice: false },
-  { src: "/images/Associations/RUWFAG-768x768.webp",                         alt: "RUWFAG",       pays: "Ghana",          fondatrice: false },
-  { src: "/images/Associations/RESACIFROAT.webp",                            alt: "RESACIFROAT",  pays: "Réseau régional",fondatrice: false },
-  { src: "/images/Associations/CATALUNYA-1.webp",                            alt: "CATALUNYA",    pays: "Catalogne",      fondatrice: false },
-  { src: "/images/Associations/547437753_4181170195485869_2155655902466265095_n.jpg", alt: "NSS", pays: "Afrique de l'Ouest", fondatrice: false },
-];
+  /* 5 visibles par défaut */
+  { abbr: 'UGPM',        src: '/images/Associations/UGPM.webp',                        nom: 'Union des Groupements Paysans de Mékhé',                                 pays: 'Sénégal'      },
+  { abbr: 'FENOP',       src: '/images/Associations/FENOP.webp',                        nom: 'Fédération Nationale des Organisations Paysannes',                        pays: 'Burkina Faso' },
+  { abbr: 'AGUISSA',     src: '/images/Associations/AGUISSA.webp',                      nom: 'Association Guinéenne pour la Sécurité et la Souveraineté Alimentaires',   pays: 'Guinée'       },
+  { abbr: 'KAFO',        src: '/images/Associations/KAFO.webp',                         nom: 'Fédération Paysanne de KAFO',                                             pays: 'Guinée Bissau'},
+  { abbr: 'AMASSA',      src: '/images/Associations/AMASSA-e1723163900160.webp',        nom: 'Association Malienne pour la Sécurité et la Souveraineté Alimentaire',     pays: 'Mali'         },
+  /* 8 cachées par défaut */
+  { abbr: 'CAFO',        src: '/images/Associations/CAFO.webp',                         nom: 'Coordination des Associations et ONG Féminines du Mali',                  pays: 'Mali'         },
+  { abbr: 'ABOFAP',      src: '/images/Associations/ABOFAM-768x723.webp',               nom: 'Assono Organic Farming Project',                                          pays: 'Ghana'        },
+  { abbr: 'AGACFEM',     src: '/images/Associations/AGAFAM.webp',                       nom: "Association Guinéenne pour l'Allègement des Charges Féminines",           pays: 'Guinée'       },
+  { abbr: 'AOPP',        src: '/images/Associations/AOOP.webp',                         nom: 'Associations des Organisations Professionnelles Paysannes',               pays: 'Mali'         },
+  { abbr: 'RUWFAG',      src: '/images/Associations/RUWFAG-768x768.webp',               nom: 'Rural Women Farmers Association of Ghana',                                pays: 'Ghana'        },
+  { abbr: 'RESACIFROAT', src: '/images/Associations/RESACIFROAT.webp',                  nom: "Réseau d'Appui à la Citoyenneté des Femmes Rurales Ouest-Africaines",     pays: 'Burkina Faso' },
+  { abbr: 'CGF',         src: '/images/Associations/CATALUNYA-1.webp',                  nom: 'Catalunya Gambia Foundation',                                             pays: 'Gambie'       },
+  { abbr: 'AJAC',        src: '/images/Associations/AJAC-1536x1044-1-768x522.webp',     nom: 'Association des Jeunes Agriculteurs de Casamance',                        pays: 'Sénégal'      },
+]
 
-const COUNTERS = [
-  { value: "12", suffix: "+", label: "Organisations" },
-  { value: "5",  suffix: "",  label: "Pays fondateurs" },
-  { value: "175", suffix: "k", label: "Membres" },
-];
+const VISIBLE = 5
 
+/* ── Component ──────────────────────────────────────────────────────────────── */
 export default function AboutOrganisations() {
+  const [expanded, setExpanded] = useState(false)
+
   return (
-    <section style={{ background: "#ffffff" }}>
-      <div style={{
-        maxWidth: "var(--container-max)",
-        margin: "0 auto",
-        padding: "72px 48px",
-      }}>
+    <section className="ao-s">
 
-        {/* ── En-tête centré ── */}
-        <div style={{ textAlign: "center", marginBottom: "48px" }}>
-
-          {/* Eyebrow */}
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "12px", marginBottom: "16px" }}>
-            <span aria-hidden="true" style={{ display: "block", width: "28px", height: "1px", background: "#2D6A4F" }} />
-            <span style={{ fontFamily: "var(--font-body)", fontSize: "9px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2.5px", color: "#2D6A4F" }}>
-              Le Réseau
-            </span>
-            <span aria-hidden="true" style={{ display: "block", width: "28px", height: "1px", background: "#2D6A4F" }} />
-          </div>
-
-          {/* Titre */}
-          <h2 style={{
-            fontFamily: "var(--font-display)",
-            fontSize: "clamp(21px, 3vw, 36px)",
-            fontWeight: 400, lineHeight: 1.18,
-            color: "#071A10", marginBottom: "12px",
-          }}>
-            Nos organisations{" "}
-            <em style={{ fontStyle: "italic", color: "#52B788" }}>membres.</em>
-          </h2>
-
-          {/* Sous-titre */}
-          <p style={{
-            fontFamily: "var(--font-body)", fontSize: "14px",
-            color: "#5A7A65", marginBottom: "32px",
-          }}>
-            14 pays · 5 organisations fondatrices · 500+ associations affiliées
-          </p>
-
-          {/* Compteurs */}
-          <div style={{
-            display: "inline-grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            border: "1px solid rgba(0,0,0,0.08)",
-            borderRadius: "12px",
-            overflow: "hidden",
-          }}>
-            {COUNTERS.map(({ value, suffix, label }, i) => (
-              <div key={label} style={{
-                padding: "20px 40px",
-                textAlign: "center",
-                borderRight: i < COUNTERS.length - 1 ? "1px solid rgba(0,0,0,0.08)" : "none",
-              }}>
-                <div style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: "32px", fontWeight: 400,
-                  color: "#071A10", lineHeight: 1, marginBottom: "4px",
-                }}>
-                  {value}<span style={{ color: "#52B788" }}>{suffix}</span>
-                </div>
-                <div style={{
-                  fontFamily: "var(--font-body)", fontSize: "10px",
-                  textTransform: "uppercase", letterSpacing: "1.5px",
-                  color: "#5A7A65",
-                }}>
-                  {label}
-                </div>
-              </div>
-            ))}
-          </div>
+      {/* ── Header ── */}
+      <div className="ao-hd">
+        <div className="ao-surtitle">
+          <span className="ao-line" aria-hidden />
+          <span>LE RÉSEAU</span>
+          <span className="ao-line" aria-hidden />
         </div>
 
-        {/* ── Grille logos ── */}
-        <div className="org-grid" style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(6, 1fr)",
-          gap: "16px",
-          marginBottom: "48px",
-        }}>
-          {ORGS.map(({ src, alt, pays, fondatrice }) => (
-            <div key={alt} className="org-card" style={{
-              position: "relative",
-              background: "#ffffff",
-              border: "1.5px solid rgba(0,0,0,0.08)",
-              borderRadius: "12px",
-              aspectRatio: "4/3",
-              overflow: "hidden",
-              transition: "transform 0.35s cubic-bezier(0.23,1,0.32,1), box-shadow 0.35s cubic-bezier(0.23,1,0.32,1), border-color 0.35s",
-              cursor: "default",
-            }}>
+        <h2 className="ao-h2">
+          Nos organisations, <em>nos racines.</em>
+        </h2>
 
-              {/* Badge fondatrice/membre */}
-              <span className="org-badge" style={{
-                position: "absolute", top: "8px", right: "8px", zIndex: 2,
-                background: "rgba(82,183,136,0.1)",
-                color: "#2D6A4F",
-                fontFamily: "var(--font-body)",
-                fontSize: "8px", fontWeight: 600,
-                textTransform: "uppercase", letterSpacing: "0.08em",
-                padding: "3px 7px", borderRadius: "20px",
-                opacity: 0,
-                transition: "opacity 0.35s cubic-bezier(0.23,1,0.32,1)",
-              }}>
-                {fondatrice ? "Fondatrice" : "Membre"}
-              </span>
+        <div className="ao-ul" aria-hidden />
 
-              {/* Logo */}
-              <div className="org-logo" style={{
-                position: "absolute", inset: 0,
-                display: "flex", alignItems: "center", justifyContent: "center",
-                padding: "16px",
-                transition: "transform 0.35s cubic-bezier(0.34,1.56,0.64,1)",
-              }}>
-                <Image
-                  src={src}
-                  alt={alt}
-                  width={120}
-                  height={72}
-                  style={{ objectFit: "contain", width: "100%", height: "100%" }}
-                />
-              </div>
-
-              {/* Overlay infos au hover */}
-              <div className="org-overlay" style={{
-                position: "absolute", bottom: 0, left: 0, right: 0,
-                background: "linear-gradient(to top, rgba(7,26,16,0.85) 0%, transparent 100%)",
-                padding: "24px 10px 10px",
-                opacity: 0,
-                transition: "opacity 0.35s cubic-bezier(0.23,1,0.32,1)",
-              }}>
-                <p className="org-name" style={{
-                  fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 700,
-                  color: "#ffffff", margin: "0 0 2px",
-                  transform: "translateY(4px)",
-                  transition: "transform 0.35s cubic-bezier(0.23,1,0.32,1)",
-                }}>
-                  {alt}
-                </p>
-                <p className="org-pays" style={{
-                  fontFamily: "var(--font-body)", fontSize: "10px",
-                  color: "rgba(255,255,255,0.65)", margin: 0,
-                  transform: "translateY(4px)",
-                  transition: "transform 0.35s cubic-bezier(0.23,1,0.32,1) 50ms",
-                  opacity: 0,
-                  transitionProperty: "transform, opacity",
-                }}>
-                  {pays}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* ── Bouton ── */}
-        <div style={{ textAlign: "center" }}>
-          <Link
-            href="/fr/mouvement/associations"
-            className="org-btn"
-            style={{
-              display: "inline-block",
-              fontFamily: "var(--font-body)", fontSize: "14px", fontWeight: 500,
-              color: "#071A10", textDecoration: "none",
-              border: "1.5px solid #071A10",
-              borderRadius: "40px",
-              padding: "14px 32px",
-              transition: "background 0.25s ease, color 0.25s ease, transform 0.25s ease",
-            }}
-          >
-            Voir toutes les organisations <span className="org-btn-arrow">→</span>
-          </Link>
-        </div>
+        <p className="ao-desc">
+          Plus de 500 associations de femmes rurales réparties dans 14 pays
+          d&apos;Afrique de l&apos;Ouest — un réseau vivant, ancré dans les territoires.
+        </p>
       </div>
 
+      {/* ── Grid ── */}
+      <div className="ao-grid">
+        {ORGS.map((org, i) => {
+          const hidden = i >= VISIBLE
+          return (
+            <div
+              key={org.abbr}
+              className={`ao-card${hidden ? (expanded ? ' ao-card--show' : ' ao-card--hidden') : ''}`}
+              style={expanded && hidden ? { animationDelay: `${(i - VISIBLE) * 60}ms` } : undefined}
+            >
+              <div className="ao-img-wrap">
+                <Image
+                  src={org.src}
+                  alt={org.abbr}
+                  width={64}
+                  height={64}
+                  style={{ objectFit: 'contain', width: '100%', height: '100%' }}
+                />
+              </div>
+              <span className="ao-abbr">{org.abbr}</span>
+              <p className="ao-nom">{org.nom}</p>
+              <span className="ao-pays">{org.pays}</span>
+            </div>
+          )
+        })}
+      </div>
+
+      {/* ── Bouton ── */}
+      {!expanded && (
+        <div className="ao-btn-wrap">
+          <button className="ao-btn" onClick={() => setExpanded(true)}>
+            Voir toutes les organisations →
+          </button>
+        </div>
+      )}
+
       <style>{`
-        .org-card:hover {
-          transform: translateY(-5px) !important;
-          border-color: rgba(82,183,136,0.45) !important;
-          box-shadow: 0 12px 32px rgba(13,43,26,0.1) !important;
+        /* ── Section ── */
+        .ao-s {
+          background: #ffffff;
+          padding: clamp(3rem, 6vw, 4.5rem) clamp(1.5rem, 6vw, 5rem);
         }
-        .org-card:hover .org-badge   { opacity: 1 !important; }
-        .org-card:hover .org-logo    { transform: scale(1.08) !important; }
-        .org-card:hover .org-overlay { opacity: 1 !important; }
-        .org-card:hover .org-name    { transform: translateY(0) !important; }
-        .org-card:hover .org-pays    { transform: translateY(0) !important; opacity: 1 !important; }
 
-        .org-btn:hover {
-          background: #071A10 !important;
-          color: #ffffff !important;
-          transform: translateY(-2px) !important;
+        /* ── Header ── */
+        .ao-hd {
+          max-width: 640px;
+          margin: 0 auto 36px;
+          text-align: center;
         }
-        .org-btn:hover .org-btn-arrow { display: inline-block; transform: translateX(4px); transition: transform 0.2s ease; }
+        .ao-surtitle {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          margin-bottom: 16px;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 11px;
+          font-weight: 500;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          color: #00AD4C;
+        }
+        .ao-line {
+          display: block;
+          width: 28px;
+          height: 1.5px;
+          background: #00AD4C;
+          flex-shrink: 0;
+        }
+        .ao-h2 {
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+          font-weight: 600;
+          color: #2A2A2A;
+          line-height: 1.2;
+          margin: 0;
+          letter-spacing: -0.015em;
+        }
+        .ao-h2 em {
+          font-style: italic;
+          color: #A5CE46;
+        }
+        .ao-ul {
+          width: 60px;
+          height: 3px;
+          background: #00AD4C;
+          border-radius: 2px;
+          margin: 0.75rem auto 1.25rem;
+        }
+        .ao-desc {
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 13px;
+          color: #6b7280;
+          line-height: 1.7;
+          margin: 0;
+        }
 
-        @media (max-width: 1024px) { .org-grid { grid-template-columns: repeat(4, 1fr) !important; } }
-        @media (max-width: 768px)  { .org-grid { grid-template-columns: repeat(3, 1fr) !important; } }
-        @media (max-width: 480px)  { .org-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+        /* ── Grid ── */
+        .ao-grid {
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          gap: 16px;
+          max-width: 1100px;
+          margin: 0 auto 32px;
+        }
+
+        /* ── Card ── */
+        .ao-card {
+          border: 0.5px solid #e5e7eb;
+          border-radius: 10px;
+          padding: 20px 12px 16px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+          transition: border-color 0.2s ease;
+        }
+        .ao-card:hover { border-color: #00AD4C; }
+
+        /* Hidden / animé */
+        .ao-card--hidden { display: none; }
+        .ao-card--show {
+          display: flex;
+          opacity: 0;
+          transform: translateY(10px);
+          animation: ao-in 0.3s ease forwards;
+        }
+        @keyframes ao-in {
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── Logo ── */
+        .ao-img-wrap {
+          width: 64px;
+          height: 64px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          background: #f9f9f9;
+          border-radius: 8px;
+          overflow: hidden;
+          padding: 6px;
+          box-sizing: border-box;
+        }
+
+        /* ── Card content ── */
+        .ao-abbr {
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 12px;
+          font-weight: 600;
+          color: #2A2A2A;
+        }
+        .ao-nom {
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 10px;
+          color: #6b7280;
+          text-align: center;
+          line-height: 1.5;
+          margin: 0;
+        }
+        .ao-pays {
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 10px;
+          font-weight: 500;
+          color: #00AD4C;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+        }
+
+        /* ── Bouton ── */
+        .ao-btn-wrap { text-align: center; }
+        .ao-btn {
+          border: 1.5px solid #00AD4C;
+          color: #00AD4C;
+          background: transparent;
+          padding: 11px 24px;
+          border-radius: 8px;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 12px;
+          font-weight: 500;
+          cursor: pointer;
+          transition: background 0.2s ease, color 0.2s ease;
+        }
+        .ao-btn:hover {
+          background: #00AD4C;
+          color: #ffffff;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 900px) {
+          .ao-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 640px) {
+          .ao-grid { grid-template-columns: repeat(2, 1fr); }
+        }
       `}</style>
     </section>
-  );
+  )
 }

@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Link from "next/link";
 
 /* ── palette ─────────────────────────────────────────────────────────────── */
@@ -115,18 +115,19 @@ export default function LeadershipGridRedesign() {
         .lg-header { text-align: center; margin-bottom: 52px; }
         .lg-eyebrow {
           display: flex; align-items: center; justify-content: center; gap: 14px;
-          font-family: var(--font-body); font-size: 9px; font-weight: 700;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif; font-size: 9px; font-weight: 700;
           text-transform: uppercase; letter-spacing: 3px;
           color: ${GREEN_LT}; margin: 0 0 16px;
         }
         .lg-eline { display: block; width: 28px; height: 1px; background: ${GREEN_LT}; flex-shrink: 0; }
         .lg-h2 {
-          font-family: var(--font-display);
-          font-size: clamp(22px, 3vw, 36px);
-          font-weight: 400; color: ${CHARCOAL}; margin: 0 0 10px; line-height: 1.15;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-size: clamp(24px, 2.6vw, 34px);
+          font-weight: 500; color: #2A2A2A; margin: 0 0 14px; line-height: 1.2;
+          letter-spacing: -0.015em;
         }
         .lg-sub {
-          font-family: var(--font-body); font-size: 13px;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif; font-size: 13px;
           color: #7a7a7a; margin: 0; letter-spacing: .4px;
         }
 
@@ -183,19 +184,18 @@ export default function LeadershipGridRedesign() {
           padding: 18px 16px 14px;
         }
         .lg-name {
-          font-family: var(--font-display);
-          font-size: 17px; font-weight: 400;
-          color: #ffffff; margin: 0 0 5px; line-height: 1.2;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-size: 22px; font-weight: 400;
+          color: #ffffff; margin: 0 0 8px; line-height: 1.1;
           word-break: break-word;
           hyphens: auto;
         }
         .lg-role {
-          font-family: var(--font-body);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 10px; font-weight: 700;
-          text-transform: uppercase; letter-spacing: 1.3px;
+          text-transform: uppercase; letter-spacing: 0.10em;
           color: ${GOLD}; margin: 0;
-          word-break: break-word;
-          hyphens: auto;
+          white-space: nowrap;
         }
 
         /* Footer */
@@ -205,19 +205,19 @@ export default function LeadershipGridRedesign() {
           flex: 1;
         }
         .lg-desc {
-          font-family: var(--font-body);
-          font-size: 13px; line-height: 1.6;
-          color: ${GREEN_LT}; margin: 0;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 15px; line-height: 1.78;
+          color: #000000; margin: 0;
           display: -webkit-box;
           -webkit-line-clamp: 3;
           -webkit-box-orient: vertical;
           overflow: hidden;
-          word-break: break-word;
+          text-align: justify;
           hyphens: auto;
           min-height: 60px;
         }
         .lg-cta {
-          font-family: var(--font-body);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 10px; font-weight: 700;
           text-transform: uppercase; letter-spacing: 1.8px;
           color: ${GREEN_LT}; text-decoration: none;

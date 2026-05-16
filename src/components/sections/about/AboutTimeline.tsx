@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useRef, useEffect } from "react";
 
@@ -147,13 +147,13 @@ export default function AboutTimeline() {
         }
         .rm__ey {
           display: block;
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 9.5px; font-weight: 700;
           letter-spacing: 0.26em; text-transform: uppercase;
           color: #00AD4C; margin-bottom: 14px;
         }
         .rm__h2 {
-          font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: clamp(28px, 3.2vw, 44px);
           font-weight: 500; line-height: 1.1;
           color: #0a1f10; margin: 0;
@@ -238,7 +238,7 @@ export default function AboutTimeline() {
         /* ══ Texte carte ════════════════════════════════════════ */
         .rm__year {
           display: block;
-          font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 30px; font-weight: 600;
           line-height: 1; color: #E8A838;
           margin-bottom: 8px;
@@ -248,7 +248,7 @@ export default function AboutTimeline() {
 
         .rm__label {
           display: block;
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 15.5px; font-weight: 700;
           color: #045627; margin-bottom: 10px;
           line-height: 1.3;
@@ -257,7 +257,7 @@ export default function AboutTimeline() {
         .rm__card:hover .rm__label { color: #00AD4C; }
 
         .rm__body {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 15px; line-height: 1.68;
           color: #4a5a4a; margin: 0;
           text-align: justify;
@@ -266,7 +266,7 @@ export default function AboutTimeline() {
         .rm__hint {
           position: absolute;
           bottom: 14px; left: 20px;
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 10px; font-weight: 700;
           letter-spacing: 0.1em; text-transform: uppercase;
           color: #00AD4C;
@@ -322,7 +322,7 @@ export default function AboutTimeline() {
         /* ══ Hint scroll ════════════════════════════════════════ */
         .rm__scroll-hint {
           text-align: center;
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 11px; font-weight: 600;
           letter-spacing: 0.14em; text-transform: uppercase;
           color: rgba(0,0,0,0.3);
@@ -361,7 +361,7 @@ export default function AboutTimeline() {
         .rm-modal__close:hover { color: #0a1f10; background: rgba(0,0,0,0.08); }
         .rm-modal__year {
           display: inline-block;
-          font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 14px; font-weight: 700;
           letter-spacing: 0.1em; text-transform: uppercase;
           color: #fff;
@@ -372,7 +372,7 @@ export default function AboutTimeline() {
         }
         .rm-modal__label {
           display: block;
-          font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: clamp(22px, 2.2vw, 28px);
           font-weight: 600; line-height: 1.15;
           color: #0a1f10; margin: 0 0 6px;
@@ -385,7 +385,7 @@ export default function AboutTimeline() {
           margin: 16px 0 20px;
         }
         .rm-modal__body {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 15px; line-height: 1.78;
           color: #2e3d2e; margin: 0;
           text-align: justify;

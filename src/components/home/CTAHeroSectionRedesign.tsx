@@ -7,7 +7,7 @@ import Link from 'next/link'
 const NSS = {
   vertFonce:    '#045627',
   vertPrimaire: '#00AD4C',
-  vertClair:    '#A5CE46',
+  vertClair:    '#145c28',
   or:           '#E8A838',
   creme:        '#F5EDD6',
 } as const
@@ -165,7 +165,7 @@ export default function CTAHeroSectionRedesign() {
           background: rgba(232,168,56,0.45);
         }
         .cth-eyebrow-text {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 0.75rem;
           font-weight: 500;
           letter-spacing: 0.12em;
@@ -176,7 +176,7 @@ export default function CTAHeroSectionRedesign() {
 
         /* ── H2 ── */
         .cth-h2 {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: clamp(1.6rem, 3.5vw, 2.2rem);
           font-weight: 600;
           line-height: 1.15;
@@ -191,7 +191,7 @@ export default function CTAHeroSectionRedesign() {
 
         /* ── Sous-titre ── */
         .cth-sub {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 16px;
           font-weight: 300;
           line-height: 1.78;
@@ -209,7 +209,7 @@ export default function CTAHeroSectionRedesign() {
           flex-wrap: wrap;
         }
         .cth-btn {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 11px;
           font-weight: 700;
           letter-spacing: 0.13em;
@@ -247,7 +247,7 @@ export default function CTAHeroSectionRedesign() {
 
         /* ── Tagline ── */
         .cth-tagline {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 15px;
           font-style: italic;
           color: ${NSS.creme};
@@ -274,3 +274,4 @@ export default function CTAHeroSectionRedesign() {
     </section>
   )
 }
+

@@ -8,7 +8,7 @@ import type React from 'react'
 const NSS = {
   vertFonce:    '#045627',
   vertPrimaire: '#00AD4C',
-  vertClair:    '#A5CE46',
+  vertClair:    '#145c28',
   or:           '#E8A838',
   creme:        '#F5EDD6',
 } as const
@@ -182,7 +182,7 @@ export default function ObjectifsRedesign() {
           background: rgba(165,206,70,0.40);
         }
         .obj-eyebrow-text {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 0.75rem;
           font-weight: 500;
           letter-spacing: 0.12em;
@@ -193,7 +193,7 @@ export default function ObjectifsRedesign() {
 
         /* ── H2 ── */
         .obj-h2 {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: clamp(1.6rem, 3.5vw, 2.2rem);
           font-weight: 600;
           line-height: 1.2;
@@ -216,7 +216,7 @@ export default function ObjectifsRedesign() {
 
         /* ── Intro ── */
         .obj-intro {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 1rem;
           font-weight: 400;
           line-height: 1.7;
@@ -260,7 +260,7 @@ export default function ObjectifsRedesign() {
 
         /* Numéro décoratif — watermark */
         .obj-num {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 88px;
           font-weight: 600;
           color: rgba(0,173,76,0.07);
@@ -281,7 +281,7 @@ export default function ObjectifsRedesign() {
 
         /* Titre carte */
         .obj-card-titre {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 1.25rem;
           font-weight: 600;
           color: #0A0A0A;
@@ -301,7 +301,7 @@ export default function ObjectifsRedesign() {
 
         /* Description */
         .obj-card-desc {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 14px;
           font-weight: 400;
           line-height: 1.78;
@@ -322,7 +322,7 @@ export default function ObjectifsRedesign() {
           border-top: 1px solid rgba(0,0,0,0.07);
         }
         .obj-stat-value {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 38px;
           font-weight: 600;
           color: ${NSS.vertPrimaire};
@@ -330,7 +330,7 @@ export default function ObjectifsRedesign() {
           letter-spacing: -0.02em;
         }
         .obj-stat-label {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 12px;
           font-weight: 600;
           letter-spacing: 0.16em;
@@ -388,3 +388,4 @@ export default function ObjectifsRedesign() {
     </section>
   )
 }
+

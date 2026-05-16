@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 
@@ -30,7 +30,7 @@ export default function BlogNewsletter() {
         <div>
           <h2
             style={{
-              fontFamily: "var(--font-display)",
+              fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
               fontSize: "28px",
               fontWeight: 400,
               lineHeight: 1.25,
@@ -40,7 +40,7 @@ export default function BlogNewsletter() {
           >
             Restez informé du mouvement.
           </h2>
-          <p style={{ fontFamily: "var(--font-body)", fontSize: "14px", fontWeight: 400, color: "var(--text-muted)", lineHeight: 1.7 }}>
+          <p style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "14px", fontWeight: 400, color: "var(--text-muted)", lineHeight: 1.7 }}>
             Recevez les actualités NSS directement dans votre boîte mail — sans
             publicité, sans cession de données. Un email par mois, l&apos;essentiel.
           </p>
@@ -49,7 +49,7 @@ export default function BlogNewsletter() {
         {/* ── Droite — Formulaire ── */}
         <div>
           {submitted ? (
-            <p style={{ fontFamily: "var(--font-body)", fontSize: "15px", fontWeight: 500, color: "var(--green-700)" }}>
+            <p style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "15px", fontWeight: 500, color: "var(--green-700)" }}>
               ✓ Merci ! Vous êtes bien inscrit(e).
             </p>
           ) : (
@@ -66,7 +66,7 @@ export default function BlogNewsletter() {
                 style={{
                   flex: 1,
                   minWidth: "180px",
-                  fontFamily: "var(--font-body)",
+                  fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
                   fontSize: "14px",
                   padding: "16px 20px",
                   border: "1px solid rgba(0,0,0,0.1)",
@@ -78,7 +78,7 @@ export default function BlogNewsletter() {
               <button
                 type="submit"
                 style={{
-                  fontFamily: "var(--font-body)",
+                  fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
                   fontSize: "14px",
                   fontWeight: 600,
                   padding: "16px 28px",

@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 
 export default function AboutGenese() {
   return (
@@ -20,7 +20,7 @@ export default function AboutGenese() {
           {/* Tag */}
           <div style={{ display: "flex", alignItems: "center", marginBottom: "20px" }}>
             <span aria-hidden="true" style={{ width: "28px", height: "1px", background: "var(--green-600)", marginRight: "12px", flexShrink: 0 }} />
-            <span style={{ fontFamily: "var(--font-body)", fontSize: "9px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2px", color: "var(--green-600)" }}>
+            <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "9px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2px", color: "var(--green-600)" }}>
               Notre genèse
             </span>
           </div>
@@ -28,7 +28,7 @@ export default function AboutGenese() {
           {/* H2 */}
           <h2
             style={{
-              fontFamily: "var(--font-display)",
+              fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
               fontSize: "36px",
               fontWeight: 400,
               lineHeight: 1.15,
@@ -40,11 +40,11 @@ export default function AboutGenese() {
           </h2>
 
           {/* Paragraphe 1 — drop cap */}
-          <p style={{ fontFamily: "var(--font-body)", fontSize: "17px", fontWeight: 400, lineHeight: 1.8, color: "var(--text-body)", marginBottom: "24px" }}>
+          <p style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "17px", fontWeight: 400, lineHeight: 1.8, color: "var(--text-body)", marginBottom: "24px" }}>
             <span
               aria-hidden="true"
               style={{
-                fontFamily: "var(--font-display)",
+                fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
                 fontSize: "58px",
                 fontWeight: 400,
                 lineHeight: 0.75,
@@ -69,7 +69,7 @@ export default function AboutGenese() {
           </p>
 
           {/* Paragraphe 2 */}
-          <p style={{ fontFamily: "var(--font-body)", fontSize: "17px", fontWeight: 400, lineHeight: 1.8, color: "var(--text-body)" }}>
+          <p style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "17px", fontWeight: 400, lineHeight: 1.8, color: "var(--text-body)" }}>
             Plus de 500 Associations de Femmes Rurales (AFR) ont rejoint le
             mouvement depuis lors. Aujourd&apos;hui NSS compte 175&nbsp;000 membres et
             sympathisants à travers 14 pays d&apos;Afrique de l&apos;Ouest, unis autour

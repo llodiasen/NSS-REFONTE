@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import EngagementsSection from "@/components/sections/EngagementsSection";
 
 export const metadata: Metadata = {
@@ -20,12 +20,12 @@ export default function EngagementsPage() {
             textTransform: "uppercase",
             color: "#2d6a47",
             marginBottom: "20px",
-            fontFamily: "var(--font-body)",
+            fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
           }}>
             Nos convictions
           </span>
           <h1 style={{
-            fontFamily: "var(--font-display)",
+            fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
             fontSize: "clamp(2rem, 5vw, 3.5rem)",
             fontWeight: 700,
             lineHeight: 1.15,
@@ -35,7 +35,7 @@ export default function EngagementsPage() {
             Ce en quoi nous croyons, ce pour quoi nous agissons
           </h1>
           <p style={{
-            fontFamily: "var(--font-body)",
+            fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
             fontSize: "16px",
             lineHeight: 1.7,
             color: "#b8c9bf",

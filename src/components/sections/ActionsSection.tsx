@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import Image from "next/image";
 
 /* ─── Types ─────────────────────────────────────────────── */
@@ -112,11 +112,11 @@ function CarteEvenement({ ev }: { ev: Evenement }) {
           sizes="(max-width: 768px) 100vw, 33vw"
         />
         {/* Badge type */}
-        <span style={{ position: "absolute", top: "12px", left: "12px", background: typeSt.bg, color: typeSt.color, fontFamily: "var(--font-body)", fontSize: "10px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", padding: "3px 10px", borderRadius: "20px" }}>
+        <span style={{ position: "absolute", top: "12px", left: "12px", background: typeSt.bg, color: typeSt.color, fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "10px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", padding: "3px 10px", borderRadius: "20px" }}>
           {ev.type}
         </span>
         {/* Badge statut */}
-        <span style={{ position: "absolute", top: "12px", right: "12px", background: avenir ? "#D6F5EB" : "#EEEDE9", color: avenir ? "#0E6E4A" : "#888780", fontFamily: "var(--font-body)", fontSize: "10px", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", padding: "3px 10px", borderRadius: "20px" }}>
+        <span style={{ position: "absolute", top: "12px", right: "12px", background: avenir ? "#D6F5EB" : "#EEEDE9", color: avenir ? "#0E6E4A" : "#888780", fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "10px", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", padding: "3px 10px", borderRadius: "20px" }}>
           {avenir ? "À venir" : "Passé"}
         </span>
       </div>
@@ -126,28 +126,28 @@ function CarteEvenement({ ev }: { ev: Evenement }) {
 
         {/* Date + lieu */}
         <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
-          <span style={{ display: "flex", alignItems: "center", gap: "5px", fontFamily: "var(--font-body)", fontSize: "12px", fontWeight: 500, color: dateColor }}>
+          <span style={{ display: "flex", alignItems: "center", gap: "5px", fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "12px", fontWeight: 500, color: dateColor }}>
             <IconCalendar color={dateColor} />{ev.date}
           </span>
-          <span style={{ display: "flex", alignItems: "center", gap: "5px", fontFamily: "var(--font-body)", fontSize: "12px", color: "#4a4a45" }}>
+          <span style={{ display: "flex", alignItems: "center", gap: "5px", fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "12px", color: "#4a4a45" }}>
             <IconPin color="#4a4a45" />{ev.lieu}
           </span>
         </div>
 
         {/* Titre */}
-        <h3 style={{ fontFamily: "var(--font-display)", fontSize: "18px", fontWeight: 400, lineHeight: 1.3, color: "var(--text-primary)", margin: 0 }}>
+        <h3 style={{ fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif", fontSize: "18px", fontWeight: 400, lineHeight: 1.3, color: "var(--text-primary)", margin: 0 }}>
           {ev.titre}
         </h3>
 
         {/* Description */}
-        <p style={{ fontFamily: "var(--font-body)", fontSize: "15px", lineHeight: 1.6, color: "var(--text-primary)", margin: 0, textAlign: "justify" }}>
+        <p style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "15px", lineHeight: 1.6, color: "var(--text-primary)", margin: 0, textAlign: "justify" }}>
           {ev.description}
         </p>
 
         {/* Tags */}
         <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
           {ev.tags.map((tag) => (
-            <span key={tag} style={{ background: tagBg, color: tagColor, fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 500, padding: "3px 10px", borderRadius: "20px" }}>
+            <span key={tag} style={{ background: tagBg, color: tagColor, fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px", fontWeight: 500, padding: "3px 10px", borderRadius: "20px" }}>
               {tag}
             </span>
           ))}
@@ -160,7 +160,7 @@ function CarteEvenement({ ev }: { ev: Evenement }) {
             className="evt-btn"
             style={{
               display: "inline-block",
-              fontFamily: "var(--font-body)",
+              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
               fontSize: "12px",
               fontWeight: 600,
               letterSpacing: "0.03em",
@@ -195,15 +195,15 @@ export default function ActionsSection() {
         <div style={{ textAlign: "center", marginBottom: "48px" }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "14px", marginBottom: "18px" }}>
             <div style={{ width: "40px", height: "1px", background: "#1D9E75" }} />
-            <span style={{ fontFamily: "var(--font-body)", fontSize: "9px", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "#1D9E75" }}>
+            <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "9px", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "#1D9E75" }}>
               Nos événements
             </span>
             <div style={{ width: "40px", height: "1px", background: "#1D9E75" }} />
           </div>
-          <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(21px, 3vw, 30px)", fontWeight: 400, fontStyle: "normal", color: "var(--text-primary)", lineHeight: 1.18, margin: "0 0 16px" }}>
+          <h2 style={{ fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif", fontSize: "clamp(21px, 3vw, 30px)", fontWeight: 400, fontStyle: "normal", color: "var(--text-primary)", lineHeight: 1.18, margin: "0 0 16px" }}>
             Se rencontrer, se former, agir ensemble.
           </h2>
-          <p style={{ fontFamily: "var(--font-body)", fontSize: "clamp(14px, 1.5vw, 17px)", lineHeight: 1.65, color: "var(--text-primary)", maxWidth: "580px", margin: "0 auto" }}>
+          <p style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "clamp(14px, 1.5vw, 17px)", lineHeight: 1.65, color: "var(--text-primary)", maxWidth: "580px", margin: "0 auto" }}>
             Formations, ateliers et rencontres portés par le réseau NSS pour renforcer les femmes rurales à travers l&apos;Afrique de l&apos;Ouest.
           </p>
         </div>
@@ -220,7 +220,7 @@ export default function ActionsSection() {
             className="evt-voir-btn"
             style={{
               display: "inline-block",
-              fontFamily: "var(--font-body)",
+              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
               fontSize: "13px",
               fontWeight: 600,
               color: "#ffffff",

@@ -1,6 +1,6 @@
-const NSS = {
+﻿const NSS = {
   vertFonce:  '#045627',
-  vertClair:  '#A5CE46',
+  vertClair:  '#145c28',
 } as const
 
 const PAYS = [
@@ -35,8 +35,6 @@ export default function GovernanceSectionRedesign() {
       <style>{`
         .gpr {
           background: #ffffff;
-          border-top: 1px solid rgba(0, 0, 0, 0.06);
-          border-bottom: 1px solid rgba(0, 0, 0, 0.06);
           overflow: hidden;
         }
 
@@ -51,7 +49,7 @@ export default function GovernanceSectionRedesign() {
         }
 
         .gpr-label {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 9.5px;
           font-weight: 700;
           letter-spacing: 1.5px;
@@ -92,7 +90,7 @@ export default function GovernanceSectionRedesign() {
         }
 
         .gpr-code {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 9px;
           font-weight: 800;
           color: ${NSS.vertFonce};
@@ -100,7 +98,7 @@ export default function GovernanceSectionRedesign() {
         }
 
         .gpr-nom {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 11px;
           font-weight: 500;
           color: ${NSS.vertFonce};
@@ -135,3 +133,4 @@ export default function GovernanceSectionRedesign() {
     </section>
   )
 }
+

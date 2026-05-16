@@ -1,4 +1,4 @@
-interface SectionHeaderProps {
+﻿interface SectionHeaderProps {
   label: string;
   title: string;
   subtitle?: string;
@@ -47,7 +47,7 @@ export default function SectionHeader({
         />
         <span
           style={{
-            fontFamily: "var(--font-body)",
+            fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
             fontSize: "9px",
             fontWeight: 600,
             textTransform: "uppercase",
@@ -73,7 +73,7 @@ export default function SectionHeader({
       {/* Titre */}
       <h2
         style={{
-          fontFamily: "var(--font-display)",
+          fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
           fontSize: "clamp(21px, 3vw, 30px)",
           fontWeight: 400,
           lineHeight: 1.18,
@@ -89,7 +89,7 @@ export default function SectionHeader({
       {subtitle && (
         <p
           style={{
-            fontFamily: "var(--font-body)",
+            fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
             fontSize: "clamp(14px, 1.5vw, 17px)",
             fontWeight: 400,
             lineHeight: 1.65,

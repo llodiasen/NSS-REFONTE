@@ -8,7 +8,7 @@ import Link from 'next/link'
 const NSS = {
   vertFonce:    '#045627',
   vertPrimaire: '#00AD4C',
-  vertClair:    '#A5CE46',
+  vertClair:    '#145c28',
   or:           '#E8A838',
   creme:        '#F5EDD6',
 } as const
@@ -222,7 +222,7 @@ export default function HeroSectionRedesign() {
           flex-shrink: 0;
         }
         .qs-eyebrow-text {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 0.75rem;
           font-weight: 500;
           letter-spacing: 0.12em;
@@ -232,7 +232,7 @@ export default function HeroSectionRedesign() {
 
         /* ── H2 ── */
         .qs-h2 {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: clamp(1.6rem, 3.5vw, 2.2rem);
           font-weight: 600;
           line-height: 1.2;
@@ -255,7 +255,7 @@ export default function HeroSectionRedesign() {
 
         /* ── Body ── */
         .qs-body {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 16px;
           font-weight: 400;
           line-height: 1.82;
@@ -272,7 +272,7 @@ export default function HeroSectionRedesign() {
           margin: 0 0 32px;
         }
         .qs-quote-text {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 18px;
           font-style: italic;
           line-height: 1.60;
@@ -305,7 +305,7 @@ export default function HeroSectionRedesign() {
           padding-right: 0;
         }
         .qs-stat-value {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 24px;
           font-weight: 600;
           color: ${NSS.vertFonce};
@@ -313,7 +313,7 @@ export default function HeroSectionRedesign() {
           letter-spacing: -0.02em;
         }
         .qs-stat-label {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 10px;
           font-weight: 500;
           color: #555;
@@ -325,7 +325,7 @@ export default function HeroSectionRedesign() {
           display: inline-flex;
           align-items: center;
           gap: 10px;
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 11px;
           font-weight: 700;
           letter-spacing: 0.14em;
@@ -436,7 +436,7 @@ export default function HeroSectionRedesign() {
           display: flex;
           align-items: center;
           gap: 8px;
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 9px;
           font-weight: 700;
           letter-spacing: 0.22em;
@@ -460,7 +460,7 @@ export default function HeroSectionRedesign() {
         .qs-legend {
           background: ${NSS.vertFonce};
           color: rgba(245,237,214,0.90);
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 10px;
           font-weight: 600;
           letter-spacing: 0.20em;
@@ -507,3 +507,4 @@ export default function HeroSectionRedesign() {
     </section>
   )
 }
+

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -365,7 +365,7 @@ export default function ActualitesClient({ articles }: { articles: Article[] }) 
 
         .act-card__titre { margin: 0 0 10px; }
         .act-card__titre-link {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 20px;
           font-weight: 700;
           color: #2A2A2A;
@@ -380,7 +380,7 @@ export default function ActualitesClient({ articles }: { articles: Article[] }) 
         .act-card__titre-link:hover { color: #00AD4C; }
 
         .act-card__desc {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 14px;
           font-weight: 300;
           color: #2C2C28;
@@ -403,7 +403,7 @@ export default function ActualitesClient({ articles }: { articles: Article[] }) 
         }
 
         .act-card__date {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 11px;
           color: #888780;
           display: inline-flex;
@@ -440,7 +440,7 @@ export default function ActualitesClient({ articles }: { articles: Article[] }) 
           margin-bottom: 2.5rem;
         }
         .na-surtitre {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 12px;
           font-weight: 600;
           letter-spacing: 0.1em;
@@ -449,7 +449,7 @@ export default function ActualitesClient({ articles }: { articles: Article[] }) 
           margin-bottom: 0.75rem;
         }
         .na-titre {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 36px;
           font-weight: 700;
           line-height: 1.15;
@@ -461,7 +461,7 @@ export default function ActualitesClient({ articles }: { articles: Article[] }) 
           font-weight: 400;
         }
         .na-desc {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 15px;
           line-height: 1.7;
           color: #555;
@@ -475,7 +475,7 @@ export default function ActualitesClient({ articles }: { articles: Article[] }) 
         }
         .na-stat-val {
           display: block;
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 40px;
           font-weight: 700;
           color: #00AD4C;
@@ -483,7 +483,7 @@ export default function ActualitesClient({ articles }: { articles: Article[] }) 
           margin-bottom: 6px;
         }
         .na-stat-label {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 13px;
           color: #777;
           line-height: 1.4;

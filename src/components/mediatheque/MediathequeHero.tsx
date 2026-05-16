@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 export default function MediathequeHero() {
   return (
@@ -37,7 +37,7 @@ export default function MediathequeHero() {
         }}
       >
         {/* Breadcrumb */}
-        <p style={{ fontFamily: "var(--font-body)", fontSize: "14px", fontWeight: 400, color: "#ffffff", marginBottom: "28px" }}>
+        <p style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "14px", fontWeight: 400, color: "#ffffff", marginBottom: "28px" }}>
           <Link href="/fr" style={{ color: "#ffffff", textDecoration: "none" }}>Accueil</Link>
           {" / "}
           <span style={{ color: "#ffffff" }}>Vidéos</span>
@@ -46,7 +46,7 @@ export default function MediathequeHero() {
         {/* Eyebrow */}
         <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "24px" }}>
           <span aria-hidden="true" style={{ display: "block", width: "28px", height: "1px", background: "rgba(127,212,166,0.4)", flexShrink: 0 }} />
-          <span style={{ fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2.5px", color: "var(--green-300, #7aab8a)", whiteSpace: "nowrap" }}>
+          <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2.5px", color: "var(--green-300, #7aab8a)", whiteSpace: "nowrap" }}>
             Médiathèque NSS — Vidéos
           </span>
           <span aria-hidden="true" style={{ display: "block", width: "28px", height: "1px", background: "rgba(127,212,166,0.4)", flexShrink: 0 }} />
@@ -55,7 +55,7 @@ export default function MediathequeHero() {
         {/* Titre */}
         <h1
           style={{
-            fontFamily: "var(--font-display)",
+            fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
             fontSize: "clamp(32px, 4vw, 52px)",
             fontWeight: 400,
             lineHeight: 1.12,
@@ -70,7 +70,7 @@ export default function MediathequeHero() {
         {/* Sous-titre */}
         <p
           style={{
-            fontFamily: "var(--font-body)",
+            fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
             fontSize: "17px",
             lineHeight: 1.7,
             color: "#ffffff",
@@ -86,7 +86,7 @@ export default function MediathequeHero() {
         <Link
           href="#contenu"
           style={{
-            fontFamily: "var(--font-body)",
+            fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
             fontSize: "13px",
             fontWeight: 500,
             color: "#ffffff",

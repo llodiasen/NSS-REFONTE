@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 const CROSSHATCH = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath d='M0 0l12 12M12 0L0 12' stroke='white' stroke-width='0.8'/%3E%3C/svg%3E")`;
 
@@ -37,7 +37,7 @@ export default function BlogHero() {
         }}
       >
         {/* Breadcrumb */}
-        <p style={{ fontFamily: "var(--font-body)", fontSize: "12px", fontWeight: 400, color: "rgba(255,255,255,0.4)", marginBottom: "28px" }}>
+        <p style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "12px", fontWeight: 400, color: "rgba(255,255,255,0.4)", marginBottom: "28px" }}>
           <Link href="/fr" style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none" }}>Accueil</Link>
           {" / "}
           <span style={{ color: "rgba(255,255,255,0.7)" }}>Blog</span>
@@ -46,7 +46,7 @@ export default function BlogHero() {
         {/* Tag */}
         <div style={{ display: "flex", alignItems: "center", marginBottom: "20px" }}>
           <span aria-hidden="true" style={{ width: "28px", height: "1px", background: "rgba(127,212,166,0.4)", marginRight: "12px", flexShrink: 0 }} />
-          <span style={{ fontFamily: "var(--font-body)", fontSize: "9px", fontWeight: 500, letterSpacing: "3px", textTransform: "uppercase", color: "var(--green-300)" }}>
+          <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "9px", fontWeight: 500, letterSpacing: "3px", textTransform: "uppercase", color: "var(--green-300)" }}>
             Actualités &amp; ressources
           </span>
         </div>
@@ -54,7 +54,7 @@ export default function BlogHero() {
         {/* H1 */}
         <h1
           style={{
-            fontFamily: "var(--font-display)",
+            fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
             fontSize: "clamp(36px, 5vw, 48px)",
             fontWeight: 400,
             lineHeight: 1.1,
@@ -70,7 +70,7 @@ export default function BlogHero() {
         {/* Sous-titre */}
         <p
           style={{
-            fontFamily: "var(--font-body)",
+            fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
             fontSize: "16px",
             fontWeight: 300,
             lineHeight: 1.7,

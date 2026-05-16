@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { motion } from 'framer-motion'
 
@@ -46,7 +46,7 @@ export default function FilterTabs({ tabs, activeTab, onChange }: FilterTabsProp
 
         .ftabs-tab {
           position: relative;
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 13px;
           font-weight: 400;
           color: #2C2C28;

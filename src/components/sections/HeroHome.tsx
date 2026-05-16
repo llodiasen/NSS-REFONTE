@@ -7,7 +7,7 @@ import Link from 'next/link'
 const NSS = {
   vertFonce:    '#045627',
   vertPrimaire: '#00AD4C',
-  vertClair:    '#A5CE46',
+  vertClair:    '#145c28',
   or:           '#E8A838',
   creme:        '#F5EDD6',
 } as const
@@ -195,7 +195,7 @@ export default function HeroHome() {
           flex-shrink: 0;
         }
         .nss-eyebrow-text {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 0.75rem;
           font-weight: 500;
           letter-spacing: 0.12em;
@@ -205,7 +205,7 @@ export default function HeroHome() {
 
         /* ── H1 ── */
         .nss-h1 {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: clamp(2.2rem, 5vw, 3.2rem);
           font-weight: 700;
           line-height: 1.0;
@@ -220,7 +220,7 @@ export default function HeroHome() {
 
         /* ── Description ── */
         .nss-desc {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: clamp(15px, 1.15vw, 17px);
           font-weight: 400;
           line-height: 1.7;
@@ -238,7 +238,7 @@ export default function HeroHome() {
           flex-wrap: wrap;
         }
         .nss-btn-primary {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 11px;
           font-weight: 700;
           letter-spacing: 0.13em;
@@ -256,7 +256,7 @@ export default function HeroHome() {
           transform: translateY(-2px);
         }
         .nss-btn-ghost {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 11px;
           font-weight: 600;
           letter-spacing: 0.13em;
@@ -299,7 +299,7 @@ export default function HeroHome() {
           border-right: 1px solid rgba(165, 206, 70, 0.12);
         }
         .nss-stat-num {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: clamp(36px, 3.2vw, 50px);
           font-weight: 600;
           color: #ffffff;
@@ -308,7 +308,7 @@ export default function HeroHome() {
           display: block;
         }
         .nss-stat-lbl {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 9px;
           font-weight: 500;
           text-transform: uppercase;
@@ -363,3 +363,4 @@ export default function HeroHome() {
     </section>
   )
 }
+

@@ -50,7 +50,11 @@ export default function MouvementVision() {
           <div className="mv-left">
 
             <header className="mv-header">
-              <span className="mv-eyebrow">NOUS SOMMES LA SOLUTION</span>
+              <div className="mv-eyebrow">
+                <span className="mv-ey-line" aria-hidden />
+                <span>NOUS SOMMES LA SOLUTION</span>
+                <span className="mv-ey-line" aria-hidden />
+              </div>
               <h2 id="mv-titre" className="mv-h2">
                 Notre vision, <em>nos engagements</em>
               </h2>
@@ -171,7 +175,7 @@ export default function MouvementVision() {
         .mv {
           background: #ffffff;
           width: 100%;
-          padding: 100px 24px 80px;
+          padding: clamp(3rem, 6vw, 4.5rem) 24px;
           box-sizing: border-box;
         }
         .mv-container {
@@ -184,31 +188,40 @@ export default function MouvementVision() {
         /* ══ Header (dans colonne gauche) ══ */
         .mv-header {
           text-align: left;
-          margin-bottom: 48px;
+          margin-bottom: 1.5rem;
         }
         .mv-eyebrow {
-          display: block;
+          display: flex;
+          align-items: center;
+          gap: 12px;
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 11px;
           font-weight: 500;
-          letter-spacing: 0.2em;
+          letter-spacing: 0.14em;
           text-transform: uppercase;
           color: #00AD4C;
-          margin-bottom: 20px;
+          margin-bottom: 0.75rem;
+        }
+        .mv-ey-line {
+          display: block;
+          width: 28px;
+          height: 1.5px;
+          background: #00AD4C;
+          flex-shrink: 0;
         }
         .mv-h2 {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: 52px;
-          font-weight: 600;
+          font-size: 45px;
+          font-weight: 500;
           line-height: 1.1;
           color: #2A2A2A;
-          margin: 0 0 20px;
+          margin: 0 0 1rem;
           letter-spacing: -0.01em;
         }
         .mv-h2 em {
           font-style: italic;
           color: #00AD4C;
-          font-weight: 600;
+          font-weight: 500;
         }
         .mv-intro {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
@@ -225,7 +238,7 @@ export default function MouvementVision() {
         .mv-body {
           display: grid;
           grid-template-columns: 55fr 45fr;
-          gap: 80px;
+          gap: 40px;
           align-items: stretch;
         }
 
@@ -242,9 +255,9 @@ export default function MouvementVision() {
           letter-spacing: 0.2em;
           text-transform: uppercase;
           color: #888;
-          margin: 0 0 24px;
+          margin: 0 0 0.75rem;
           border-bottom: 1px solid rgba(0,0,0,0.08);
-          padding-bottom: 12px;
+          padding-bottom: 10px;
         }
 
         /* Items accordéon */
@@ -255,7 +268,7 @@ export default function MouvementVision() {
           display: flex;
           align-items: center;
           width: 100%;
-          padding: 20px 0;
+          padding: 10px 0;
           background: none;
           border: none;
           cursor: pointer;
@@ -273,7 +286,7 @@ export default function MouvementVision() {
         .mv-titre {
           flex: 1;
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: 20px;
+          font-size: 18px;
           font-weight: 500;
           color: #2A2A2A;
           line-height: 1.3;
@@ -295,6 +308,7 @@ export default function MouvementVision() {
           overflow: hidden;
           max-height: 0;
           transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        text-align:justify;
         }
         .mv-desc-wrap.is-open {
           max-height: 200px;
@@ -313,7 +327,7 @@ export default function MouvementVision() {
         .mv-quote {
           border-left: 3px solid #E8A838;
           padding-left: 20px;
-          margin: 32px 0 0;
+          margin: 1.25rem 0 0;
         }
         .mv-quote p {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;

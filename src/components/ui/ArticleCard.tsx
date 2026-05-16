@@ -98,7 +98,7 @@ export default function ArticleCard({ article }: ArticleCardProps) {
           left: 12px;
           background: #A5CE46;
           color: #045627;
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 9px;
           font-weight: 700;
           letter-spacing: 1px;
@@ -126,7 +126,7 @@ export default function ArticleCard({ article }: ArticleCardProps) {
           -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
           overflow: hidden;
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 17px;
           font-weight: 700;
           line-height: 1.22;
@@ -138,7 +138,7 @@ export default function ArticleCard({ article }: ArticleCardProps) {
 
         /* Extrait */
         .acard__excerpt {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 14px;
           font-weight: 300;
           line-height: 1.8;
@@ -164,14 +164,14 @@ export default function ArticleCard({ article }: ArticleCardProps) {
 
         /* Date */
         .acard__date {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 12px;
           color: #888780;
         }
 
         /* CTA */
         .acard__cta {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 13px;
           font-weight: 600;
           color: #00AD4C;

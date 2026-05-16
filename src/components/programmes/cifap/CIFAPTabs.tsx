@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
@@ -103,7 +103,7 @@ export default function CIFAPTabs() {
           display: inline-flex;
           align-items: center;
           gap: 7px;
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 13px;
           font-weight: 700;
           letter-spacing: 0.05em;
@@ -180,7 +180,7 @@ export default function CIFAPTabs() {
           padding: 2rem 0 3rem;
         }
         .ctabs-nav__btn {
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 13px;
           font-weight: 600;
           color: #045627;

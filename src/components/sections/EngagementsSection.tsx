@@ -1,168 +1,293 @@
-import SectionHeader from "@/components/ui/SectionHeader";
+﻿import type { ReactNode } from 'react'
 
-interface Card {
-  icon: string;
-  category: string;
-  title: string;
-  description: string;
-  accentColor: string;
-  iconBg: string;
-  iconColor: string;
-  badgeBg: string;
-  badgeColor: string;
-  dark?: boolean;
+/* ── Tabler outline icons (SVG inline) ──────────────────────────────────── */
+function Svg({ children }: { children: ReactNode }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="20" height="20"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      aria-hidden="true"
+    >
+      {children}
+    </svg>
+  )
 }
 
-const CARDS: Card[] = [
-  {
-    icon: "🌾",
-    category: "Alimentation",
-    title: "Souveraineté alimentaire",
-    description: "Le droit de chaque communauté de décider librement de son système de production et d'alimentation.",
-    accentColor: "#1a6b3c",
-    iconBg: "#dcfce7", iconColor: "#1a6b3c",
-    badgeBg: "#dcfce7", badgeColor: "#1a6b3c",
-  },
-  {
-    icon: "🏡",
-    category: "Économie rurale",
-    title: "Agriculture familiale",
-    description: "La famille comme première force de travail, cadre d'éducation et de création d'emplois en harmonie avec la nature.",
-    accentColor: "#d97706",
-    iconBg: "#fef3c7", iconColor: "#92400e",
-    badgeBg: "#fef3c7", badgeColor: "#92400e",
-  },
-  {
-    icon: "♀",
-    category: "Droits",
-    title: "Droits des femmes",
-    description: "Accès équitable à la terre, au financement et aux espaces de décision pour toutes les agricultrices du réseau.",
-    accentColor: "#7c3aed",
-    iconBg: "#ede9fe", iconColor: "#7c3aed",
-    badgeBg: "#ede9fe", badgeColor: "#7c3aed",
-  },
-  {
-    icon: "🌱",
-    category: "Environnement",
-    title: "Agroécologie & Biodiversité",
-    description: "Semences paysannes résilientes, cycles naturels sans intrants chimiques et préservation de la diversité du vivant.",
-    accentColor: "#1a6b3c",
-    iconBg: "rgba(255,255,255,0.12)", iconColor: "#74c69d",
-    badgeBg: "rgba(255,255,255,0.14)", badgeColor: "#74c69d",
-    dark: true,
-  },
-  {
-    icon: "⚖️",
-    category: "Équité",
-    title: "Accès équitable aux ressources",
-    description: "Ressources agricoles accessibles à toutes selon les besoins, avec une pleine prise en compte du genre.",
-    accentColor: "#c0392b",
-    iconBg: "#fee2e2", iconColor: "#b91c1c",
-    badgeBg: "#fee2e2", badgeColor: "#b91c1c",
-  },
-  {
-    icon: "🤝",
-    category: "Gouvernance",
-    title: "Gouvernance participative",
-    description: "Les familles paysannes au cœur de la définition, du suivi et de l'évaluation des politiques agricoles.",
-    accentColor: "#0d9488",
-    iconBg: "#ccfbf1", iconColor: "#0d9488",
-    badgeBg: "#ccfbf1", badgeColor: "#0d9488",
-  },
-];
+const ICONS: Record<string, ReactNode> = {
+  wheat: (
+    <Svg>
+      <path d="M3 21l10 -10" />
+      <path d="M12.5 8.5c1 -2 4 -2 5 0c1 3 -2.5 6 -5 5c-2.5 1 -6 -2 -5 -5c1 -2 4 -2 5 0" />
+      <path d="M15 3v4" />
+      <path d="M15 7c-.667 1.333 -1.333 2 -2 2" />
+    </Svg>
+  ),
+  homeHeart: (
+    <Svg>
+      <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2" />
+      <path d="M19 13.488v-1.488h2l-9 -9l-9 9h2v7a2 2 0 0 0 2 2h4.512" />
+      <path
+        d="M21.854 15.146a2.5 2.5 0 0 0 -3.536 0l-.318 .318l-.318 -.318a2.5 2.5 0 0 0 -3.536 3.536l3.854 3.854l3.854 -3.854a2.5 2.5 0 0 0 0 -3.536z"
+        fill="currentColor"
+        strokeWidth={0}
+      />
+    </Svg>
+  ),
+  genderFemale: (
+    <Svg>
+      <path d="M11 11m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+      <path d="M11 15v6" />
+      <path d="M8 18h6" />
+    </Svg>
+  ),
+  plant2: (
+    <Svg>
+      <path d="M12 10a6 6 0 0 0 -6 -6h-3v1.5c0 3.314 2.686 6 6 6h3" />
+      <path d="M12 10v10" />
+      <path d="M12 13a6 6 0 0 1 6 -6h2v1.5a6 6 0 0 1 -6 6h-2" />
+    </Svg>
+  ),
+  scale: (
+    <Svg>
+      <path d="M7 20l10 0" />
+      <path d="M6 6l6 -1l6 1" />
+      <path d="M12 5v15" />
+      <path d="M6 6l-3 9h6z" />
+      <path d="M18 6l-3 9h6z" />
+    </Svg>
+  ),
+  usersGroup: (
+    <Svg>
+      <path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1" />
+      <path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path d="M17 10h2a2 2 0 0 1 2 2v1" />
+      <path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path d="M3 13v-1a2 2 0 0 1 2 -2h2" />
+    </Svg>
+  ),
+}
 
+/* ── Data ────────────────────────────────────────────────────────────────── */
+const CARDS = [
+  {
+    icon: 'wheat',
+    tag: 'Alimentation',
+    title: 'Souveraineté alimentaire',
+    desc: "Le droit de chaque communauté de décider librement de son système de production et d'alimentation.",
+  },
+  {
+    icon: 'homeHeart',
+    tag: 'Économie rurale',
+    title: 'Agriculture familiale',
+    desc: "La famille comme première force de travail, cadre d'éducation et de création d'emplois en harmonie avec la nature.",
+  },
+  {
+    icon: 'genderFemale',
+    tag: 'Droits',
+    title: 'Droits des femmes',
+    desc: "Accès équitable à la terre, au financement et aux espaces de décision pour toutes les agricultrices du réseau.",
+  },
+  {
+    icon: 'plant2',
+    tag: 'Environnement',
+    title: 'Agroécologie & Biodiversité',
+    desc: "Semences paysannes résilientes, cycles naturels sans intrants chimiques et préservation de la diversité du vivant.",
+  },
+  {
+    icon: 'scale',
+    tag: 'Équité',
+    title: 'Accès équitable aux ressources',
+    desc: "Ressources agricoles accessibles à toutes selon les besoins, avec une pleine prise en compte du genre.",
+  },
+  {
+    icon: 'usersGroup',
+    tag: 'Gouvernance',
+    title: 'Gouvernance participative',
+    desc: "Les familles paysannes au cœur de la définition, du suivi et de l'évaluation des politiques agricoles.",
+  },
+]
+
+/* ── Component ───────────────────────────────────────────────────────────── */
 export default function EngagementsSection() {
   return (
-    <section style={{ background: "#ffffff" }}>
-      <div className="eng-wrap" style={{ maxWidth: "var(--container-max)", margin: "0 auto", padding: "72px 56px" }}>
+    <section className="eng-s">
 
-        <SectionHeader
-          label="Nos engagements"
-          title="Ce qui nous guide chaque jour."
-        />
-
-        {/* Grille 3 × 2 */}
-        <div className="eng-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "20px" }}>
-          {CARDS.map((card) => (
-            <div
-              key={card.title}
-              style={{
-                background: card.dark ? "#0f2b1a" : "#ffffff",
-                borderRadius: "16px",
-                border: "0.5px solid #eaeae8",
-                padding: "32px 26px 28px",
-                display: "flex",
-                flexDirection: "column",
-                gap: "14px",
-                boxShadow: card.dark ? "none" : "0 1px 4px rgba(0,0,0,0.04)",
-                borderBottom: `3px solid ${card.accentColor}`,
-              }}
-            >
-              {/* Icône */}
-              <div style={{
-                width: "48px", height: "48px", borderRadius: "12px",
-                background: card.iconBg,
-                display: "flex", alignItems: "center", justifyContent: "center",
-                fontSize: "22px", flexShrink: 0,
-              }}>
-                {card.icon}
-              </div>
-
-              {/* Badge catégorie */}
-              <span style={{
-                display: "inline-block",
-                alignSelf: "flex-start",
-                fontFamily: "var(--font-body)",
-                fontSize: "10px",
-                fontWeight: 600,
-                textTransform: "uppercase",
-                letterSpacing: "1.5px",
-                background: card.badgeBg,
-                color: card.badgeColor,
-                borderRadius: "20px",
-                padding: "3px 10px",
-              }}>
-                {card.category}
-              </span>
-
-              {/* Titre */}
-              <h3 style={{
-                fontFamily: "var(--font-body)",
-                fontSize: "16px",
-                fontWeight: 700,
-                lineHeight: 1.3,
-                color: card.dark ? "#ffffff" : "#0f1f0f",
-                margin: 0,
-              }}>
-                {card.title}
-              </h3>
-
-              {/* Description */}
-              <p style={{
-                fontFamily: "var(--font-body)",
-                fontSize: "14px",
-                fontWeight: 400,
-                lineHeight: 1.75,
-                color: card.dark ? "rgba(255,255,255,0.65)" : "#6a6a6a",
-                textAlign: "justify",
-                margin: 0,
-              }}>
-                {card.description}
-              </p>
-            </div>
-          ))}
+      {/* ── Header ── */}
+      <div className="eng-hd">
+        <div className="eng-surtitle">
+          <span className="eng-line" aria-hidden />
+          <span>NOS ENGAGEMENTS</span>
+          <span className="eng-line" aria-hidden />
         </div>
+
+        <h2 className="eng-h2">
+          Ce à quoi nous croyons,{' '}
+          <em>ce que nous faisons.</em>
+        </h2>
+
+        <div className="eng-ul" aria-hidden />
+
+        <p className="eng-desc">
+          Six engagements fondamentaux qui guident chaque action du réseau NSS
+          à travers l&apos;Afrique de l&apos;Ouest.
+        </p>
+      </div>
+
+      {/* ── Grid ── */}
+      <div className="eng-grid">
+        {CARDS.map((card) => (
+          <div key={card.title} className="eng-card">
+            <div className="eng-icon">{ICONS[card.icon]}</div>
+            <span className="eng-tag">{card.tag}</span>
+            <h3 className="eng-title">{card.title}</h3>
+            <p className="eng-text">{card.desc}</p>
+          </div>
+        ))}
       </div>
 
       <style>{`
+        /* ── Section ── */
+        .eng-s {
+          background: #f9f8f5;
+          padding: clamp(3rem, 6vw, 4.5rem) clamp(1.5rem, 6vw, 5rem);
+        }
+
+        /* ── Header ── */
+        .eng-hd {
+          max-width: 640px;
+          margin: 0 auto 48px;
+          text-align: center;
+        }
+        .eng-surtitle {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          margin-bottom: 16px;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 11px;
+          font-weight: 500;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          color: #00AD4C;
+        }
+        .eng-line {
+          display: block;
+          width: 28px;
+          height: 1.5px;
+          background: #00AD4C;
+          flex-shrink: 0;
+        }
+        .eng-h2 {
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+          font-weight: 600;
+          color: #2A2A2A;
+          line-height: 1.2;
+          margin: 0;
+          letter-spacing: -0.015em;
+        }
+        .eng-h2 em {
+          font-style: italic;
+          color: #A5CE46;
+        }
+        .eng-ul {
+          width: 60px;
+          height: 3px;
+          background: #00AD4C;
+          border-radius: 2px;
+          margin: 0.75rem auto 1.5rem;
+        }
+        .eng-desc {
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 14px;
+          color: #6b7280;
+          line-height: 1.7;
+          margin: 0;
+        }
+
+        /* ── Grid ── */
+        .eng-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 20px;
+          max-width: 1100px;
+          margin: 0 auto;
+        }
+
+        /* ── Card ── */
+        .eng-card {
+          background: #ffffff;
+          border: 0.5px solid #e5e7eb;
+          border-radius: 12px;
+          padding: 28px 24px;
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          transition: border-color 0.2s ease;
+        }
+        .eng-card:hover {
+          border-color: #00AD4C;
+        }
+
+        /* Icon wrapper */
+        .eng-icon {
+          width: 44px;
+          height: 44px;
+          border-radius: 10px;
+          background: #f0faf4;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #00AD4C;
+          flex-shrink: 0;
+        }
+
+        /* Tag */
+        .eng-tag {
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 10px;
+          font-weight: 500;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: #00AD4C;
+        }
+
+        /* Card title */
+        .eng-title {
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 16px;
+          font-weight: 600;
+          color: #2A2A2A;
+          line-height: 1.3;
+          margin: 0;
+        }
+
+        /* Card text */
+        .eng-text {
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 13px;
+          color: #6b7280;
+          line-height: 1.7;
+          text-align: justify;
+          margin: 0;
+        }
+
+        /* ── Responsive ── */
         @media (max-width: 1024px) {
-          .eng-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .eng-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 640px) {
-          .eng-wrap { padding: 52px 20px !important; }
-          .eng-grid { grid-template-columns: 1fr !important; }
+          .eng-s { padding: 52px 20px; }
+          .eng-grid { grid-template-columns: 1fr; }
         }
       `}</style>
     </section>
-  );
+  )
 }

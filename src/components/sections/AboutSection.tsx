@@ -172,7 +172,7 @@ export default function AboutSection() {
 
         /* H2 */
         .ab-h2 {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: clamp(28px, 3.2vw, 46px);
           font-weight: 400;
           line-height: 1.12;
@@ -187,7 +187,7 @@ export default function AboutSection() {
 
         /* Texte descriptif */
         .ab-vision {
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 16px;
           line-height: 1.85;
           color: #3a3a3a;
@@ -203,7 +203,7 @@ export default function AboutSection() {
           border-radius: 0 6px 6px 0;
         }
         .ab-quote-text {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 18px;
           font-style: italic;
           font-weight: 400;
@@ -235,7 +235,7 @@ export default function AboutSection() {
           gap: 4px;
         }
         .ab-milestone-value {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 34px;
           font-weight: 400;
           color: #045627;

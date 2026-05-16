@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 const STATS = [
   { val: "175 000", lbl: "Membres actives" },
@@ -80,7 +80,7 @@ export default function AboutCTA() {
           margin-bottom: 48px;
         }
         .ac__tl-line {
-          font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: clamp(18px, 2vw, 24px);
           font-style: italic;
           font-weight: 400;
@@ -88,7 +88,7 @@ export default function AboutCTA() {
           letter-spacing: 0.01em;
         }
         .ac__tl-sep {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           color: rgba(232,168,56,0.35);
           font-size: 18px;
         }
@@ -104,13 +104,13 @@ export default function AboutCTA() {
         /* ══ Corps ══════════════════════════════════════════════ */
         .ac__ey {
           display: block;
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 9.5px; font-weight: 700;
           letter-spacing: 0.28em; text-transform: uppercase;
           color: #A5CE46; margin-bottom: 18px;
         }
         .ac__h2 {
-          font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: clamp(34px, 4vw, 56px);
           font-weight: 500; line-height: 1.1;
           color: #fff; margin: 0 0 24px;
@@ -118,7 +118,7 @@ export default function AboutCTA() {
         }
         .ac__h2 em { font-style: italic; color: #A5CE46; }
         .ac__body {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: clamp(15px, 1.4vw, 17px);
           line-height: 1.75; color: rgba(255,255,255,0.6);
           max-width: 560px; margin: 0 auto 44px;
@@ -131,7 +131,7 @@ export default function AboutCTA() {
           margin-bottom: 64px;
         }
         .ac__btn {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 13.5px; font-weight: 600;
           text-decoration: none;
           border-radius: 4px;
@@ -172,13 +172,13 @@ export default function AboutCTA() {
         }
         .ac__stat:last-child { border-right: none; }
         .ac__stat-val {
-          font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: clamp(26px, 2.8vw, 36px);
           font-weight: 600; line-height: 1;
           color: #fff; margin-bottom: 6px;
         }
         .ac__stat-lbl {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 10px; font-weight: 600;
           letter-spacing: 0.16em; text-transform: uppercase;
           color: rgba(255,255,255,0.3);

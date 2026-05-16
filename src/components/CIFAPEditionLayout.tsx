@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useRef, useState, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
@@ -614,7 +614,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
         }
         .ced-breadcrumb__link {
           position: relative;
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 10.5px;
           font-weight: 600;
           letter-spacing: 0.18em;
@@ -639,7 +639,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
         .ced-breadcrumb__link:hover::after { transform: scaleX(1); }
         .ced-breadcrumb__sep    { color: rgba(255,255,255,0.25); font-size: 13px; }
         .ced-breadcrumb__current {
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 10.5px;
           font-weight: 600;
           letter-spacing: 0.18em;
@@ -656,7 +656,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           flex-wrap: wrap;
         }
         .ced-badge {
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 9px;
           font-weight: 800;
           letter-spacing: 0.20em;
@@ -672,7 +672,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
         }
 
         .ced-hero__h1 {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: clamp(26px, 3.5vw, 52px);
           font-weight: 700;
           line-height: 1.18;
@@ -691,7 +691,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           display: inline-flex;
           align-items: center;
           gap: 5px;
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 14px;
           color: #F5EDD6;
         }
@@ -727,7 +727,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
         .ced-section:last-of-type { border-bottom: none; }
 
         .ced-h2 {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 32px;
           font-weight: 700;
           color: #2A2A2A;
@@ -736,7 +736,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           letter-spacing: -0.02em;
         }
         .ced-eyebrow {
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 10px;
           font-weight: 700;
           letter-spacing: 0.16em;
@@ -745,7 +745,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           margin: 0 0 12px;
         }
         .ced-text {
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 16px;
           font-weight: 400;
           line-height: 1.85;
@@ -781,7 +781,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           gap: 10px;
         }
         .ced-prog-title {
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 15px;
           font-weight: 700;
           color: #2A2A2A;
@@ -789,7 +789,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           line-height: 1.3;
         }
         .ced-prog-desc {
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 14px;
           color: #2C2C28;
           line-height: 1.7;
@@ -818,7 +818,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
         }
         .ced-obj-item:last-child { border-bottom: none; }
         .ced-obj-num {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 40px;
           font-weight: 700;
           color: #A5CE46;
@@ -827,14 +827,14 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
         }
         .ced-obj-body { display: flex; flex-direction: column; gap: 6px; }
         .ced-obj-title {
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 15px;
           font-weight: 700;
           color: #2A2A2A;
           line-height: 1.3;
         }
         .ced-obj-desc {
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 14px;
           color: #2C2C28;
           line-height: 1.7;
@@ -867,7 +867,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           box-shadow: 0 4px 20px rgba(0,173,76,0.12);
         }
         .ced-pilier-badge {
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 9px;
           font-weight: 800;
           letter-spacing: 0.14em;
@@ -877,20 +877,20 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
         }
         .ced-pilier-icon { font-size: 24px; line-height: 1; }
         .ced-pilier-title {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 20px;
           font-weight: 700;
           color: #2A2A2A;
           margin: 0;
         }
         .ced-pilier-edition {
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 12px;
           color: #A5CE46;
           margin: 0;
         }
         .ced-pilier-body {
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 13px;
           color: #2C2C28;
           line-height: 1.6;
@@ -921,7 +921,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
         }
         .ced-stat:last-child { border-right: none; }
         .ced-stat-val {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 48px;
           font-weight: 700;
           color: #00AD4C;
@@ -929,7 +929,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           letter-spacing: -0.02em;
         }
         .ced-stat-lbl {
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 11px;
           font-weight: 600;
           color: #2C2C28;
@@ -955,7 +955,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
         }
         .ced-pays-flag { font-size: 24px; line-height: 1; flex-shrink: 0; }
         .ced-pays-name {
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 13px;
           font-weight: 600;
           color: #F5EDD6;
@@ -975,7 +975,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           display: flex;
           align-items: flex-start;
           gap: 10px;
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 16px;
           line-height: 1.8;
           color: #2C2C28;
@@ -1027,13 +1027,13 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           justify-content: center;
         }
         .ced-partenaire-name {
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 14px;
           font-weight: 700;
           color: #2A2A2A;
         }
         .ced-partenaire-role {
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 12px;
           font-style: italic;
           color: #A5CE46;
@@ -1058,7 +1058,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           position: absolute;
           top: 8px;
           left: 16px;
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 72px;
           color: #A5CE46;
           opacity: 0.15;
@@ -1066,7 +1066,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           pointer-events: none;
         }
         .ced-quote__text {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 18px;
           font-weight: 400;
           font-style: italic;
@@ -1077,7 +1077,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           padding-top: 12px;
         }
         .ced-quote__foot {
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 13px;
           color: #2C2C28;
           margin: 0;
@@ -1118,7 +1118,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
         }
         .ced-nav__info   { display: flex; flex-direction: column; gap: 3px; }
         .ced-nav__label  {
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 9.5px;
           font-weight: 700;
           letter-spacing: 0.14em;
@@ -1126,7 +1126,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           color: #aaa;
         }
         .ced-nav__title  {
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 13px;
           font-weight: 600;
           color: #2A2A2A;
@@ -1155,7 +1155,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
         .ced-acard:last-of-type { border-bottom: none; }
 
         .ced-atitle {
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 11.5px;
           font-weight: 700;
           letter-spacing: 0.20em;
@@ -1178,7 +1178,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           min-width: 0;
         }
         .ced-akey {
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 14px;
           font-weight: 700;
           color: #2A2A2A;
@@ -1186,14 +1186,14 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           flex-shrink: 0;
         }
         .ced-aval {
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 14px;
           color: #555;
           margin-left: auto;
           text-align: right;
         }
         .ced-alink {
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 14.5px;
           color: #00AD4C;
           text-decoration: none;
@@ -1214,7 +1214,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           display: flex;
           align-items: center;
           gap: 8px;
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 15px;
           color: #2C2C28;
         }
@@ -1260,7 +1260,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           margin-bottom: 3px;
         }
         .ced-ed-label {
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 14px;
           font-weight: 700;
           color: #2A2A2A;
@@ -1268,7 +1268,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
         }
         .ced-ed-item--active .ced-ed-label { color: #045627; font-weight: 800; }
         .ced-ed-badge {
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 9.5px;
           font-weight: 800;
           letter-spacing: 0.12em;
@@ -1281,7 +1281,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
         .ced-ed-badge--past     { background: #f2f2f2; color: #999; }
         .ced-ed-badge--upcoming { background: rgba(232,168,56,0.15); color: #b8871a; }
         .ced-ed-theme {
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 13px;
           color: #888;
           line-height: 1.4;
@@ -1294,7 +1294,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
           display: block;
           width: 100%;
           text-align: center;
-          font-family: var(--font-body), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif, sans-serif;
           font-size: 12px;
           font-weight: 800;
           letter-spacing: 0.20em;

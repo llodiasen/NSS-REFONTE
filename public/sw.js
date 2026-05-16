@@ -8,8 +8,12 @@ const PRECACHE_URLS = [
   '/manifest.json',
 ]
 
+// ─── Mode développement : désactiver tout le cache ────────────────────────────
+const IS_DEV = self.location.hostname === 'localhost' || self.location.hostname === '127.0.0.1'
+
 // ─── Install ─────────────────────────────────────────────────────────────────
 self.addEventListener('install', (event) => {
+  if (IS_DEV) { self.skipWaiting(); return }
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => cache.addAll(PRECACHE_URLS))
@@ -34,6 +38,9 @@ self.addEventListener('activate', (event) => {
 
 // ─── Fetch ────────────────────────────────────────────────────────────────────
 self.addEventListener('fetch', (event) => {
+  // En dev : on ne cache rien, toutes les requêtes vont au réseau
+  if (IS_DEV) return
+
   const { request } = event
   const url = new URL(request.url)
 

@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { motion } from 'framer-motion'
 import { Sprout, Wheat, Users } from 'lucide-react'
@@ -7,7 +7,7 @@ import type React from 'react'
 const NSS = {
   vertFonce:    '#045627',
   vertPrimaire: '#00AD4C',
-  vertClair:    '#A5CE46',
+  vertClair:    '#145c28',
   or:           '#E8A838',
 } as const
 
@@ -95,6 +95,17 @@ export default function AboutValeurs() {
             style={{ transformOrigin: 'center' }}
           />
 
+          <motion.p
+            className="val-desc"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.65, delay: 0.34, ease }}
+          >
+            Trois piliers fondamentaux qui orientent chaque action, chaque décision,
+            chaque engagement de NSS depuis 2011.
+          </motion.p>
+
         </header>
 
         <div className="val-grid">
@@ -111,7 +122,7 @@ export default function AboutValeurs() {
             >
               <span className="val-num" aria-hidden>{num}</span>
               <div className="val-icon" aria-hidden>{icon}</div>
-              <h3 className="val-card-titre">{titre}</h3>
+              <h3 className="val-card-titre" style={{ fontWeight: 500 }}>{titre}</h3>
               <p className="val-card-accroche">{accroche}</p>
               <div className="val-card-sep" aria-hidden />
               <p className="val-card-desc">{desc}</p>
@@ -124,8 +135,7 @@ export default function AboutValeurs() {
 
       <style>{`
         .val-section {
-          background: #ffffff;
-          border-top: 1px solid rgba(0,0,0,0.04);
+          background: #f9f8f5;
           overflow: hidden;
           position: relative;
         }
@@ -141,26 +151,31 @@ export default function AboutValeurs() {
         }
         .val-eyebrow {
           display: flex; align-items: center; justify-content: center;
-          gap: 16px; margin-bottom: 32px;
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 9.5px; font-weight: 700;
-          letter-spacing: 0.24em; text-transform: uppercase;
-          color: ${NSS.vertClair};
+          gap: 12px; margin-bottom: 24px;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 11px; font-weight: 500;
+          letter-spacing: 0.14em; text-transform: uppercase;
+          color: #00AD4C;
         }
         .val-ey-line {
-          display: block; flex: 1; max-width: 56px; height: 1px;
-          background: rgba(165,206,70,0.40);
+          display: block; width: 28px; height: 1.5px;
+          background: #00AD4C; flex-shrink: 0;
         }
         .val-h2 {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: clamp(24px, 2.6vw, 34px);
           font-weight: 700; line-height: 1.2;
           color: #2A2A2A; margin: 0 0 14px; letter-spacing: -0.015em;
         }
         .val-h2 em { font-style: italic; color: ${NSS.vertPrimaire}; }
         .val-underline {
-          display: block; height: 2px; width: 72px;
-          background: ${NSS.vertClair}; border-radius: 2px; margin: 0 auto;
+          display: block; height: 3px; width: 60px;
+          background: #00AD4C; border-radius: 2px; margin: 0.75rem auto 0;
+        }
+        .val-desc {
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 15px; font-weight: 400; line-height: 1.7;
+          color: #5a5a5a; margin: 1.5rem 0 0; text-align: center;
         }
         /* Grid */
         .val-grid {
@@ -181,7 +196,7 @@ export default function AboutValeurs() {
         }
         /* Watermark */
         .val-num {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 96px; font-weight: 600;
           color: rgba(0,173,76,0.06); line-height: 1;
           position: absolute; top: 8px; right: 24px;
@@ -191,13 +206,13 @@ export default function AboutValeurs() {
         .val-icon { color: ${NSS.vertPrimaire}; margin-bottom: 26px; }
         /* Title */
         .val-card-titre {
-          font-family: var(--font-display), Georgia, serif;
-          font-size: 24px; font-weight: 500;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-size: 24px; font-weight: 500 !important;
           color: #0A0A0A; margin: 0 0 8px; line-height: 1.1;
         }
         /* Accroche */
         .val-card-accroche {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 10px; font-weight: 700;
           letter-spacing: 0.10em; text-transform: uppercase;
           color: ${NSS.vertClair}; margin: 0 0 20px;
@@ -211,7 +226,7 @@ export default function AboutValeurs() {
         }
         /* Description */
         .val-card-desc {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 15px; font-weight: 400; line-height: 1.78; color: #000000; margin: 0;
           text-align: justify; hyphens: auto; flex: 1;
         }
@@ -248,3 +263,4 @@ export default function AboutValeurs() {
     </section>
   )
 }
+

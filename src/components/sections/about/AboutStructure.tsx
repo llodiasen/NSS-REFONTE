@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 
@@ -53,14 +53,14 @@ export default function AboutStructure() {
       <div style={{
         maxWidth: "var(--container-max)",
         margin: "0 auto",
-        padding: "var(--section-py) var(--container-pad)",
+        padding: "72px clamp(1.5rem, 4vw, 48px) 80px",
       }}>
 
         {/* ── Wrapper fond arrondi ── */}
         <div style={{
           background: "#ffffff",
           borderRadius: "8px",
-          padding: "56px 40px",
+          padding: "0",
         }}>
 
           {/* En-tête centré */}
@@ -68,7 +68,7 @@ export default function AboutStructure() {
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "12px", marginBottom: "16px" }}>
               <span aria-hidden="true" style={{ display: "block", width: "28px", height: "1px", background: "#2D6A4F" }} />
               <span style={{
-                fontFamily: "var(--font-body)", fontSize: "9px", fontWeight: 600,
+                fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "9px", fontWeight: 600,
                 textTransform: "uppercase", letterSpacing: "2.5px", color: "#2D6A4F",
               }}>
                 Notre Histoire
@@ -76,10 +76,11 @@ export default function AboutStructure() {
               <span aria-hidden="true" style={{ display: "block", width: "28px", height: "1px", background: "#2D6A4F" }} />
             </div>
             <h2 style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "clamp(21px, 3vw, 34px)",
-              fontWeight: 400, lineHeight: 1.18,
-              color: "#071A10", margin: 0,
+              fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
+              fontSize: "clamp(24px, 2.6vw, 34px)",
+              fontWeight: 500, lineHeight: 1.2,
+              color: "#2A2A2A", margin: "0 0 14px",
+              letterSpacing: "-0.015em",
             }}>
               L&apos;évolution du mouvement{" "}
               <em style={{ fontStyle: "italic", color: "#52B788" }}>NSS</em>
@@ -128,7 +129,7 @@ export default function AboutStructure() {
                         border: `3px solid ${border}`,
                         display: "flex", alignItems: "center", justifyContent: "center",
                         cursor: "pointer",
-                        fontFamily: "var(--font-body)",
+                        fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
                         fontSize: step.nodeLabel.length > 4 ? "10px" : "13px",
                         fontWeight: 700,
                         transition: "transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s cubic-bezier(0.34,1.56,0.64,1), background 0.2s, border-color 0.2s",
@@ -168,7 +169,7 @@ export default function AboutStructure() {
                   <span aria-hidden="true" style={{
                     position: "absolute",
                     top: "-10px", right: "8px",
-                    fontFamily: "var(--font-display)",
+                    fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
                     fontSize: "72px", fontWeight: 400, lineHeight: 1,
                     color: isActive ? "rgba(255,255,255,0.06)" : "rgba(13,43,26,0.07)",
                     userSelect: "none", pointerEvents: "none",
@@ -180,30 +181,30 @@ export default function AboutStructure() {
                   {/* Badge */}
                   <span style={{
                     display: "inline-block",
-                    fontFamily: "var(--font-body)", fontSize: "10px", fontWeight: 600,
-                    textTransform: "uppercase", letterSpacing: "1px",
+                    fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "10px", fontWeight: 700,
+                    textTransform: "uppercase", letterSpacing: "0.10em",
                     background: step.badgeBg, color: step.badgeColor,
                     borderRadius: "20px", padding: "3px 10px",
-                    marginBottom: "14px",
+                    marginBottom: "14px", whiteSpace: "nowrap",
                   }}>
                     {step.badge}
                   </span>
 
                   {/* Titre */}
                   <p style={{
-                    fontFamily: "var(--font-body)", fontSize: "16px", fontWeight: 700,
-                    color: isActive ? "#ffffff" : "#111111",
-                    lineHeight: 1.3, marginBottom: "10px",
+                    fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif", fontSize: "24px", fontWeight: 400,
+                    color: isActive ? "#ffffff" : "#0A0A0A",
+                    lineHeight: 1.1, margin: "0 0 8px",
                   }}>
                     {step.title}
                   </p>
 
                   {/* Description */}
                   <p style={{
-                    fontFamily: "var(--font-body)", fontSize: "16px", fontWeight: 400,
-                    color: isActive ? "rgba(255,255,255,0.75)" : "#111111",
-                    lineHeight: 1.7, margin: "0 0 16px",
-                    textAlign: "justify",
+                    fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "15px", fontWeight: 400,
+                    color: isActive ? "rgba(255,255,255,0.85)" : "#000000",
+                    lineHeight: 1.78, margin: "0 0 16px",
+                    textAlign: "justify", hyphens: "auto",
                   }}>
                     {step.desc}
                   </p>
@@ -211,7 +212,7 @@ export default function AboutStructure() {
                   {/* Lien */}
                   <span className={`tl-link ${isActive ? "tl-link-visible" : ""}`} style={{
                     display: "block",
-                    fontFamily: "var(--font-body)", fontSize: "11px",
+                    fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px",
                     textTransform: "uppercase", letterSpacing: "0.08em",
                     color: "#52B788",
                     opacity: isActive ? 1 : 0,

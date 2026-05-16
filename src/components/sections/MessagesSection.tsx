@@ -1,4 +1,4 @@
-interface Belief {
+﻿interface Belief {
   num: string;
   title: string;
   description: string;
@@ -62,7 +62,7 @@ export default function MessagesSection() {
           text-transform: uppercase;
           color: #4caf80;
           margin: 0 0 32px;
-          font-family: var(--font-body);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
         }
         .bel-eyebrow::before {
           content: '';
@@ -87,13 +87,13 @@ export default function MessagesSection() {
           border-bottom: 0.5px solid rgba(255,255,255,0.1);
         }
         .bel-num {
-          font-family: var(--font-body);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 12px;
           color: rgba(255,255,255,0.35);
           padding-top: 1px;
         }
         .bel-title {
-          font-family: var(--font-display);
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 18px;
           font-weight: 600;
           color: #fff;
@@ -102,7 +102,7 @@ export default function MessagesSection() {
           letter-spacing: -0.01em;
         }
         .bel-desc {
-          font-family: var(--font-body);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 14px;
           color: #fff;
           line-height: 1.7;

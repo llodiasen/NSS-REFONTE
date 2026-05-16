@@ -1,12 +1,11 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import MouvementHero from "@/components/sections/mouvement/MouvementHero";
 import MouvementVision from "@/components/sections/mouvement/MouvementVision";
-import TimelineZigzagRedesign from "@/components/sections/about/TimelineZigzagRedesign";
 import EngagementsSection from "@/components/sections/EngagementsSection";
 import AboutOrganisations from "@/components/sections/about/AboutOrganisations";
 import MouvementLeaders from "@/components/sections/mouvement/MouvementLeaders";
-import AboutPartenaires from "@/components/sections/about/AboutPartenaires";
+import ContactSectionNSS from "@/components/sections/ContactSectionNSS";
 
 export const metadata: Metadata = {
   title: "Le Mouvement NSS — Valeurs, structure et organisations membres",
@@ -23,9 +22,6 @@ export default function MouvementPage() {
       {/* 02 — Vision & Objectifs */}
       <MouvementVision />
 
-      {/* 03 — Roadmap historique */}
-      <TimelineZigzagRedesign />
-
       {/* 03 — Nos 6 engagements */}
       <EngagementsSection />
 
@@ -34,9 +30,6 @@ export default function MouvementPage() {
 
       {/* 05 — Leaders du mouvement */}
       <MouvementLeaders />
-
-      {/* 06 — Partenaires */}
-      <AboutPartenaires />
 
       {/* 06 — CTA Faire un don */}
       <section style={{
@@ -63,54 +56,52 @@ export default function MouvementPage() {
             textAlign: "center",
           }}
         >
-          <span
-            style={{
-              fontFamily: "var(--font-body)",
-              fontSize: "11px",
-              fontWeight: 600,
-              textTransform: "uppercase",
-              letterSpacing: "2.5px",
-              color: "var(--green-300)",
-              display: "block",
-              marginBottom: "20px",
-            }}
-          >
-            Rejoindre le mouvement
-          </span>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "12px", marginBottom: "20px" }}>
+            <span style={{ display: "block", width: "28px", height: "1.5px", background: "var(--green-300)", flexShrink: 0 }} aria-hidden />
+            <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.14em", color: "var(--green-300)" }}>
+              REJOINDRE LE MOUVEMENT
+            </span>
+            <span style={{ display: "block", width: "28px", height: "1.5px", background: "var(--green-300)", flexShrink: 0 }} aria-hidden />
+          </div>
           <h2
             style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "clamp(28px, 3vw, 38px)",
-              fontWeight: 400,
-              lineHeight: 1.18,
+              fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
+              fontSize: "clamp(26px, 3vw, 40px)",
+              fontWeight: 600,
+              lineHeight: 1.15,
               color: "#ffffff",
               marginBottom: "16px",
+              letterSpacing: "-0.015em",
             }}
           >
-            Rejoindre le mouvement
+            Rejoindre le mouvement,{" "}
+            <em style={{ fontStyle: "italic", color: "#E8A838" }}>agir ensemble.</em>
           </h2>
+          <div style={{ width: "60px", height: "3px", background: "#00AD4C", borderRadius: "2px", margin: "0 auto 1.5rem" }} aria-hidden />
           <p
             style={{
-              fontFamily: "var(--font-body)",
+              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
               fontSize: "16px",
               lineHeight: 1.7,
-              color: "#ffffff",
-              maxWidth: "680px",
+              color: "rgba(255,255,255,0.85)",
+              maxWidth: "560px",
               margin: "0 auto 40px",
             }}
           >
-            Partagez-vous notre vision ? Adhérez à NSS et rejoignez 175&nbsp;000 femmes
+            Partagez nos valeurs&nbsp;? Adhérez à NSS et rejoignez 175&nbsp;000 femmes
             rurales qui transforment les systèmes alimentaires en Afrique de l&apos;Ouest.
           </p>
           <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
             <Link
               href="/fr/agir/rejoindre"
               style={{
-                fontFamily: "var(--font-body)",
-                fontSize: "14px",
-                fontWeight: 600,
+                fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+                fontSize: "12px",
+                fontWeight: 700,
+                letterSpacing: "0.13em",
+                textTransform: "uppercase",
                 color: "#ffffff",
-                background: "var(--green-600)",
+                background: "#00AD4C",
                 padding: "14px 32px",
                 borderRadius: "4px",
                 textDecoration: "none",
@@ -124,16 +115,18 @@ export default function MouvementPage() {
             <Link
               href="/fr/contact"
               style={{
-                fontFamily: "var(--font-body)",
-                fontSize: "14px",
-                fontWeight: 500,
+                fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+                fontSize: "12px",
+                fontWeight: 600,
+                letterSpacing: "0.13em",
+                textTransform: "uppercase",
                 color: "#ffffff",
-                border: "1px solid rgba(255,255,255,0.4)",
+                border: "1.5px solid rgba(255,255,255,0.42)",
                 padding: "14px 32px",
                 borderRadius: "4px",
                 textDecoration: "none",
                 display: "inline-block",
-                transition: "border-color 0.2s ease",
+                transition: "border-color 0.2s ease, background 0.2s ease",
               }}
             >
               Nous contacter →
@@ -145,6 +138,9 @@ export default function MouvementPage() {
       <style>{`
         .cta-btn-primary:hover { background: var(--green-700) !important; transform: translateY(-2px); }
       `}</style>
+
+      {/* 07 -- Formulaire de contact */}
+      <ContactSectionNSS />
     </>
   );
 }

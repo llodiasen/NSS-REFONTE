@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 export default function CTASection() {
   return (
@@ -37,7 +37,7 @@ export default function CTASection() {
         {/* Eyebrow */}
         <span
           style={{
-            fontFamily: "var(--font-body)",
+            fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
             fontSize: "9px",
             fontWeight: 600,
             textTransform: "uppercase",
@@ -53,7 +53,7 @@ export default function CTASection() {
         {/* H2 */}
         <h2
           style={{
-            fontFamily: "var(--font-display)",
+            fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
             fontSize: "clamp(21px, 3vw, 34px)",
             fontWeight: 400,
             lineHeight: 1.18,
@@ -67,7 +67,7 @@ export default function CTASection() {
         {/* Sous-titre */}
         <p
           style={{
-            fontFamily: "var(--font-body)",
+            fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
             fontSize: "16px",
             lineHeight: 1.7,
             color: "#ffffff",
@@ -92,7 +92,7 @@ export default function CTASection() {
             href="/fr/agir/rejoindre"
             className="cta-btn-primary"
             style={{
-              fontFamily: "var(--font-body)",
+              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
               fontSize: "14px",
               fontWeight: 600,
               color: "#ffffff",
@@ -112,7 +112,7 @@ export default function CTASection() {
           <Link
             href="/fr/contact"
             style={{
-              fontFamily: "var(--font-body)",
+              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
               fontSize: "14px",
               fontWeight: 500,
               color: "#ffffff",

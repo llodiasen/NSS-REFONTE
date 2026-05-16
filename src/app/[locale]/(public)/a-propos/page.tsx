@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import AboutHero from "@/components/sections/about/AboutHero";
 import AboutDeclaration from "@/components/sections/about/AboutDeclaration";
-import TimelineZigzagRedesign from "@/components/sections/about/TimelineZigzagRedesign";
 import GovernanceSectionRedesign from "@/components/sections/about/GovernanceSectionRedesign";
 import AboutValeurs from "@/components/sections/about/AboutValeurs";
-import TestimonialSliderRedesign from "@/components/sections/TestimonialSliderRedesign";
+import TimelineZigzagRedesign from "@/components/sections/about/TimelineZigzagRedesign";
+import AboutPartenaires from "@/components/sections/about/AboutPartenaires";
 import FinalCTASectionRedesign from "@/components/sections/FinalCTASectionRedesign";
-import ContactSectionRedesign from "@/components/home/ContactSectionRedesign";
+import ContactSectionNSS from "@/components/sections/ContactSectionNSS";
 
 export const metadata: Metadata = {
   title: "À propos — Nous Sommes la Solution (NSS)",
@@ -19,20 +19,20 @@ export default function AProposPage() {
     <>
       {/* 01 — Hero */}
       <AboutHero />
-      {/* 02 — Identité & Mission */}
+      {/* 02 — Notre Mission */}
       <AboutDeclaration />
       {/* 03 — Pays membres */}
       <GovernanceSectionRedesign />
       {/* 04 — Nos Valeurs */}
       <AboutValeurs />
-      {/* 05 — Frise chronologique */}
+      {/* 05 — Notre Histoire (timeline) */}
       <TimelineZigzagRedesign />
-      {/* 06 — Leaders & Coordinatrices */}
-      <TestimonialSliderRedesign />
+      {/* 06 — Partenaires */}
+      <AboutPartenaires />
       {/* 07 — CTA final */}
       <FinalCTASectionRedesign />
       {/* 08 — Formulaire de contact */}
-      <ContactSectionRedesign />
+      <ContactSectionNSS />
     </>
   );
 }

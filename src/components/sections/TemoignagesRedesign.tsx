@@ -8,7 +8,7 @@ import Link from 'next/link'
 const NSS = {
   vertFonce:    '#045627',
   vertPrimaire: '#00AD4C',
-  vertClair:    '#A5CE46',
+  vertClair:    '#145c28',
   or:           '#E8A838',
   creme:        '#F5EDD6',
 } as const
@@ -201,7 +201,7 @@ export default function TemoignagesRedesign() {
           background: rgba(165,206,70,0.38);
         }
         .tem-eyebrow-text {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 9.5px;
           font-weight: 600;
           letter-spacing: 0.24em;
@@ -212,7 +212,7 @@ export default function TemoignagesRedesign() {
 
         /* ── H2 ── */
         .tem-h2 {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: clamp(40px, 5vw, 68px);
           font-weight: 600;
           line-height: 1.0;
@@ -256,7 +256,7 @@ export default function TemoignagesRedesign() {
 
         /* Guillemet décoratif */
         .tem-card-quote {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 72px;
           font-weight: 600;
           color: ${NSS.vertClair};
@@ -270,7 +270,7 @@ export default function TemoignagesRedesign() {
         /* Citation */
         .tem-card-cite { margin: 0 0 28px; }
         .tem-card-text {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: clamp(17px, 1.5vw, 21px);
           font-style: italic;
           font-weight: 400;
@@ -315,7 +315,7 @@ export default function TemoignagesRedesign() {
           gap: 3px;
         }
         .tem-card-nom {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 14px;
           font-weight: 700;
           color: #F5EDD6;
@@ -323,7 +323,7 @@ export default function TemoignagesRedesign() {
           letter-spacing: -0.01em;
         }
         .tem-card-role {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 9px;
           font-weight: 600;
           letter-spacing: 0.12em;
@@ -332,7 +332,7 @@ export default function TemoignagesRedesign() {
           margin: 0;
         }
         .tem-card-pays {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 11px;
           font-weight: 400;
           color: #F5EDD6;
@@ -352,7 +352,7 @@ export default function TemoignagesRedesign() {
 
         /* Organisation */
         .tem-card-orga {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 10px;
           font-weight: 400;
           color: #F5EDD6;
@@ -390,7 +390,7 @@ export default function TemoignagesRedesign() {
           display: inline-flex;
           align-items: center;
           gap: 10px;
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 11px;
           font-weight: 700;
           letter-spacing: 0.13em;
@@ -439,3 +439,4 @@ export default function TemoignagesRedesign() {
     </section>
   )
 }
+

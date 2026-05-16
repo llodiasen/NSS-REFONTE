@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -282,7 +282,7 @@ export default function EventsSectionRedesign() {
           background: linear-gradient(90deg, #00AD4C, transparent);
         }
         .evs__eyebrow-txt {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 9.5px;
           font-weight: 700;
           letter-spacing: 0.24em;
@@ -290,7 +290,7 @@ export default function EventsSectionRedesign() {
           color: #00AD4C;
         }
         .evs__h2 {
-          font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: clamp(22px, 2.8vw, 38px);
           font-weight: 600;
           line-height: 1.1;
@@ -303,7 +303,7 @@ export default function EventsSectionRedesign() {
           color: #00AD4C;
         }
         .evs__sub {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: clamp(14px, 1.5vw, 17px);
           line-height: 1.75;
           color: #3a5040;
@@ -368,7 +368,7 @@ export default function EventsSectionRedesign() {
           top: 12px;
           left: 12px;
           z-index: 2;
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 9px;
           font-weight: 700;
           letter-spacing: 0.18em;
@@ -381,7 +381,7 @@ export default function EventsSectionRedesign() {
           top: 12px;
           right: 12px;
           z-index: 2;
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 9px;
           font-weight: 700;
           letter-spacing: 0.14em;
@@ -412,7 +412,7 @@ export default function EventsSectionRedesign() {
           align-items: center;
           flex-wrap: wrap;
           gap: 6px 10px;
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 12px;
           color: #6a7a6a;
         }
@@ -426,7 +426,7 @@ export default function EventsSectionRedesign() {
           line-height: 1;
         }
         .evc__titre {
-          font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: clamp(15px, 1.4vw, 18px);
           font-weight: 600;
           line-height: 1.25;
@@ -440,7 +440,7 @@ export default function EventsSectionRedesign() {
         }
         .evc__titre a:hover { color: #00AD4C; }
         .evc__desc {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 14.5px;
           line-height: 1.70;
           color: #3a5040;
@@ -454,7 +454,7 @@ export default function EventsSectionRedesign() {
           gap: 6px;
         }
         .evc__tag {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 11px;
           font-weight: 500;
           color: #045627;
@@ -469,7 +469,7 @@ export default function EventsSectionRedesign() {
           margin: 2px 0;
         }
         .evc__cta {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 12.5px;
           font-weight: 700;
           letter-spacing: 0.04em;
@@ -507,7 +507,7 @@ export default function EventsSectionRedesign() {
         }
         .evs__foot-btn {
           display: inline-block;
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 11px;
           font-weight: 700;
           letter-spacing: 0.14em;

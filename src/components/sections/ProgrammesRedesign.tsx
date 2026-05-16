@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
@@ -8,7 +8,7 @@ import Link from 'next/link'
 const NSS = {
   vertFonce:    '#045627',
   vertPrimaire: '#00AD4C',
-  vertClair:    '#A5CE46',
+  vertClair:    '#145c28',
   or:           '#E8A838',
   creme:        '#F5EDD6',
 } as const
@@ -281,7 +281,7 @@ export default function ProgrammesRedesign() {
           background: rgba(165,206,70,0.40);
         }
         .prg3-eyebrow-text {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 0.75rem;
           font-weight: 500;
           letter-spacing: 0.12em;
@@ -290,7 +290,7 @@ export default function ProgrammesRedesign() {
           white-space: nowrap;
         }
         .prg3-h2 {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: clamp(1.6rem, 3.5vw, 2.2rem);
           font-weight: 600;
           line-height: 1.2;
@@ -308,7 +308,7 @@ export default function ProgrammesRedesign() {
           margin: 0 auto 1.5rem;
         }
         .prg3-intro {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 1rem;
           font-weight: 400;
           line-height: 1.7;
@@ -377,7 +377,7 @@ export default function ProgrammesRedesign() {
           z-index: 10;
           background: #045627;
           color: #F5EDD6;
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 10px;
           font-weight: 700;
           text-transform: uppercase;
@@ -398,7 +398,7 @@ export default function ProgrammesRedesign() {
         /* Titres */
         .prg3-titles { display: flex; flex-direction: column; gap: 5px; }
         .prg3-titre {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 1.25rem;
           font-weight: 600;
           color: #111111;
@@ -407,7 +407,7 @@ export default function ProgrammesRedesign() {
           letter-spacing: -0.01em;
         }
         .prg3-sous {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 12px;
           color: #999;
           margin: 0;
@@ -443,7 +443,7 @@ export default function ProgrammesRedesign() {
           margin: 0 10px;
         }
         .prg3-meta-label {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 8px;
           font-weight: 700;
           text-transform: uppercase;
@@ -453,7 +453,7 @@ export default function ProgrammesRedesign() {
           flex-shrink: 0;
         }
         .prg3-meta-value {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 12px;
           font-weight: 500;
           color: ${NSS.vertFonce};
@@ -464,7 +464,7 @@ export default function ProgrammesRedesign() {
           min-width: 0;
         }
         .prg3-meta-detail {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 10px;
           font-weight: 400;
           color: #9CA3AF;
@@ -474,7 +474,7 @@ export default function ProgrammesRedesign() {
 
         /* Description */
         .prg3-desc {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 14px;
           font-weight: 400;
           color: #2C2C28;
@@ -491,7 +491,7 @@ export default function ProgrammesRedesign() {
         /* CTA */
         .prg3-cta {
           display: inline-block;
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 12px;
           font-weight: 700;
           color: ${NSS.vertFonce};
@@ -527,7 +527,7 @@ export default function ProgrammesRedesign() {
           display: inline-flex;
           align-items: center;
           gap: 10px;
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 11px;
           font-weight: 700;
           letter-spacing: 0.13em;
@@ -566,3 +566,4 @@ export default function ProgrammesRedesign() {
     </section>
   )
 }
+

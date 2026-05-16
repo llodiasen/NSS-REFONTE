@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { Play, LayoutGrid, List, X } from "lucide-react";
@@ -145,7 +145,7 @@ function VideoModal({ video, onClose }: { video: ActiveVideo; onClose: () => voi
       >
         {/* Titre */}
         <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: "12px", gap: "16px" }}>
-          <p style={{ fontFamily: "var(--font-display)", fontSize: "16px", fontWeight: 600, color: "#fff", lineHeight: 1.35, margin: 0 }}>
+          <p style={{ fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif", fontSize: "16px", fontWeight: 600, color: "#fff", lineHeight: 1.35, margin: 0 }}>
             {video.titre}
           </p>
           <button
@@ -196,7 +196,7 @@ function VideoModal({ video, onClose }: { video: ActiveVideo; onClose: () => voi
         </div>
         <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
 
-        <p style={{ fontFamily: "var(--font-body)", fontSize: "12px", color: "rgba(255,255,255,0.4)", marginTop: "10px", textAlign: "center" }}>
+        <p style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "12px", color: "rgba(255,255,255,0.4)", marginTop: "10px", textAlign: "center" }}>
           Cliquez en dehors pour fermer
         </p>
       </div>
@@ -247,8 +247,8 @@ export default function MediathequeGrid({ activePill, search }: Props) {
               <Play size={20} color="#fff" fill="#fff" style={{ marginLeft: "3px" }} />
             </div>
             <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "16px", zIndex: 2 }}>
-              <div style={{ fontFamily: "var(--font-display)", fontSize: "18px", fontWeight: 700, color: "#fff", lineHeight: 1.3 }}>Journal du 1er septembre 2025 — Femmes paysannes et souveraineté alimentaire</div>
-              <div style={{ fontFamily: "var(--font-body)", fontSize: "12px", color: "rgba(255,255,255,0.65)", marginTop: "4px" }}>Agroécologie · 14 mars 2025 · 12 400 vues</div>
+              <div style={{ fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif", fontSize: "18px", fontWeight: 700, color: "#fff", lineHeight: 1.3 }}>Journal du 1er septembre 2025 — Femmes paysannes et souveraineté alimentaire</div>
+              <div style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "12px", color: "rgba(255,255,255,0.65)", marginTop: "4px" }}>Agroécologie · 14 mars 2025 · 12 400 vues</div>
             </div>
           </div>
 
@@ -269,8 +269,8 @@ export default function MediathequeGrid({ activePill, search }: Props) {
                     <Play size={12} color="#fff" fill="#fff" style={{ marginLeft: "2px" }} />
                   </div>
                   <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "8px 10px", zIndex: 2 }}>
-                    <div style={{ fontFamily: "var(--font-display)", fontSize: "13px", fontWeight: 600, color: "#fff", lineHeight: 1.3 }}>{c.titre}</div>
-                    <div style={{ fontFamily: "var(--font-body)", fontSize: "11px", color: "rgba(255,255,255,0.6)", marginTop: "2px" }}>{c.meta}</div>
+                    <div style={{ fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif", fontSize: "13px", fontWeight: 600, color: "#fff", lineHeight: 1.3 }}>{c.titre}</div>
+                    <div style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px", color: "rgba(255,255,255,0.6)", marginTop: "2px" }}>{c.meta}</div>
                   </div>
                 </div>
               );
@@ -282,7 +282,7 @@ export default function MediathequeGrid({ activePill, search }: Props) {
       {/* S5 — Grille vidéos */}
       <section className="mth-pad" style={{ paddingTop: "28px" }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "16px" }}>
-          <span style={{ fontFamily: "var(--font-body)", fontSize: "14px", fontWeight: 600, color: "#1a1a1a" }}>
+          <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "14px", fontWeight: 600, color: "#1a1a1a" }}>
             Toutes les vidéos
             <span style={{ fontSize: "13px", color: "#888", fontWeight: 400, marginLeft: "6px" }}>({cards.length} vidéos)</span>
           </span>
@@ -317,11 +317,11 @@ export default function MediathequeGrid({ activePill, search }: Props) {
                   )}
                 </div>
                 <div style={{ padding: "14px 16px 16px", display: "flex", flexDirection: "column", flex: 1 }}>
-                  <div style={{ fontFamily: "var(--font-display)", fontSize: "16px", fontWeight: 700, color: "#1a1a1a", lineHeight: 1.3, marginBottom: "8px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{card.titre}</div>
-                  <div style={{ fontFamily: "var(--font-body)", fontSize: "13px", color: "#555", lineHeight: 1.6, flex: 1, display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{card.excerpt}</div>
+                  <div style={{ fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif", fontSize: "16px", fontWeight: 700, color: "#1a1a1a", lineHeight: 1.3, marginBottom: "8px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{card.titre}</div>
+                  <div style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "13px", color: "#555", lineHeight: 1.6, flex: 1, display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{card.excerpt}</div>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "12px", borderTop: "1px solid #f0f0f0", paddingTop: "10px" }}>
-                    <span style={{ fontFamily: "var(--font-body)", fontSize: "11px", color: "#aaa" }}>{card.date} · {card.vues} vues</span>
-                    <span style={{ fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 600, background: "#eaf3ee", color: "#1a6b3c", padding: "2px 8px", borderRadius: "20px", whiteSpace: "nowrap" }}>{card.tag}</span>
+                    <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px", color: "#aaa" }}>{card.date} · {card.vues} vues</span>
+                    <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px", fontWeight: 600, background: "#eaf3ee", color: "#1a6b3c", padding: "2px 8px", borderRadius: "20px", whiteSpace: "nowrap" }}>{card.tag}</span>
                   </div>
                 </div>
               </div>
@@ -337,7 +337,7 @@ export default function MediathequeGrid({ activePill, search }: Props) {
           const isActive = page === n;
           return (
             <button key={i} onClick={() => { if (!isNaN(n) && n > 0) setPage(n); }}
-              style={{ fontFamily: "var(--font-body)", width: "32px", height: "32px", borderRadius: "7px", border: "1px solid #dde8de", background: isActive ? "#0f2b1a" : "#fff", color: isActive ? "#fff" : "#555", fontWeight: isActive ? 600 : 400, fontSize: "13px", cursor: "pointer", transition: "all 0.15s" }}>
+              style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", width: "32px", height: "32px", borderRadius: "7px", border: "1px solid #dde8de", background: isActive ? "#0f2b1a" : "#fff", color: isActive ? "#fff" : "#555", fontWeight: isActive ? 600 : 400, fontSize: "13px", cursor: "pointer", transition: "all 0.15s" }}>
               {p}
             </button>
           );
@@ -348,10 +348,10 @@ export default function MediathequeGrid({ activePill, search }: Props) {
       <div className="mth-pad" style={{ paddingBottom: "60px" }}>
         <div style={{ background: "#1a6b3c", borderRadius: "12px", padding: "24px 28px", display: "flex", justifyContent: "space-between", alignItems: "center", gap: "16px", flexWrap: "wrap" }}>
           <div>
-            <div style={{ fontFamily: "var(--font-display)", fontSize: "18px", fontWeight: 700, color: "#fff" }}>Vous avez filmé une action sur le terrain ?</div>
-            <div style={{ fontFamily: "var(--font-body)", fontSize: "14px", color: "#a8d5b5", marginTop: "4px" }}>Partagez vos vidéos avec les 175 000 membres du réseau NSS.</div>
+            <div style={{ fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif", fontSize: "18px", fontWeight: 700, color: "#fff" }}>Vous avez filmé une action sur le terrain ?</div>
+            <div style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "14px", color: "#a8d5b5", marginTop: "4px" }}>Partagez vos vidéos avec les 175 000 membres du réseau NSS.</div>
           </div>
-          <button style={{ fontFamily: "var(--font-body)", background: "#fff", color: "#1a6b3c", fontSize: "14px", fontWeight: 600, padding: "10px 20px", borderRadius: "8px", border: "none", cursor: "pointer", whiteSpace: "nowrap" }}>
+          <button style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", background: "#fff", color: "#1a6b3c", fontSize: "14px", fontWeight: 600, padding: "10px 20px", borderRadius: "8px", border: "none", cursor: "pointer", whiteSpace: "nowrap" }}>
             Soumettre une vidéo
           </button>
         </div>

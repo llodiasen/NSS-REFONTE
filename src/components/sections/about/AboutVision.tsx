@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 
 const STATS = [
   { number: "175 000", label: "Femmes rurales membres du mouvement" },
@@ -35,7 +35,7 @@ export default function AboutVision() {
                 style={{ width: "28px", height: "2px", background: "#1a6b3c", flexShrink: 0 }}
               />
               <span style={{
-                fontFamily: "var(--font-body)",
+                fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
                 fontSize: "9px",
                 fontWeight: 600,
                 textTransform: "uppercase",
@@ -48,7 +48,7 @@ export default function AboutVision() {
 
             {/* Titre */}
             <h2 style={{
-              fontFamily: "var(--font-display)",
+              fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
               fontSize: "clamp(21px, 3vw, 36px)",
               fontWeight: 400,
               lineHeight: 1.18,
@@ -60,7 +60,7 @@ export default function AboutVision() {
 
             {/* Texte vision avec filet vert */}
             <p style={{
-              fontFamily: "var(--font-body)",
+              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
               fontSize: "14px",
               fontWeight: 400,
               lineHeight: 1.85,
@@ -93,7 +93,7 @@ export default function AboutVision() {
                   }}
                 >
                   <span style={{
-                    fontFamily: "var(--font-display)",
+                    fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
                     fontSize: "34px",
                     fontWeight: 400,
                     color: "#1a6b3c",
@@ -104,7 +104,7 @@ export default function AboutVision() {
                     {number}
                   </span>
                   <span style={{
-                    fontFamily: "var(--font-body)",
+                    fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
                     fontSize: "14px",
                     fontWeight: 400,
                     color: "#7a7a7a",

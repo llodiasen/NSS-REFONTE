@@ -1,4 +1,4 @@
-export default function AboutMission() {
+﻿export default function AboutMission() {
   return (
     <section style={{ background: "var(--green-900)", width: "100%" }}>
       <div
@@ -18,14 +18,14 @@ export default function AboutMission() {
           {/* Tag */}
           <div style={{ display: "flex", alignItems: "center", marginBottom: "20px" }}>
             <span aria-hidden="true" style={{ width: "28px", height: "1px", background: "rgba(127,212,166,0.4)", marginRight: "12px", flexShrink: 0 }} />
-            <span style={{ fontFamily: "var(--font-body)", fontSize: "9px", fontWeight: 500, letterSpacing: "3px", textTransform: "uppercase", color: "var(--green-300)" }}>
+            <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "9px", fontWeight: 500, letterSpacing: "3px", textTransform: "uppercase", color: "var(--green-300)" }}>
               Notre mission
             </span>
           </div>
 
           <h2
             style={{
-              fontFamily: "var(--font-display)",
+              fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
               fontSize: "34px",
               fontWeight: 400,
               lineHeight: 1.2,
@@ -41,7 +41,7 @@ export default function AboutMission() {
         <div>
           <p
             style={{
-              fontFamily: "var(--font-body)",
+              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
               fontSize: "16px",
               fontWeight: 300,
               lineHeight: 1.8,
@@ -56,7 +56,7 @@ export default function AboutMission() {
           </p>
           <p
             style={{
-              fontFamily: "var(--font-body)",
+              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
               fontSize: "16px",
               fontWeight: 300,
               lineHeight: 1.8,

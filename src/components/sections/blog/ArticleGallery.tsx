@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
@@ -61,14 +61,14 @@ export default function ArticleGallery({ items, title = "Galerie photographique"
       <div style={{ marginTop: "48px", marginBottom: "24px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "10px" }}>
           <span style={{ display: "block", width: "28px", height: "1px", background: "var(--green-600)", flexShrink: 0 }} />
-          <span style={{ fontFamily: "var(--font-body)", fontSize: "9px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2px", color: "var(--green-600)" }}>
+          <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "9px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2px", color: "var(--green-600)" }}>
             Galerie
           </span>
         </div>
-        <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(20px,2.5vw,26px)", fontWeight: 400, color: "#071A10", margin: "0 0 6px" }}>
+        <h2 style={{ fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif", fontSize: "clamp(20px,2.5vw,26px)", fontWeight: 400, color: "#071A10", margin: "0 0 6px" }}>
           {title}
         </h2>
-        <p style={{ fontFamily: "var(--font-body)", fontSize: "13px", color: "#9ca3af", margin: 0 }}>
+        <p style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "13px", color: "#9ca3af", margin: 0 }}>
           {subtitle ?? `${items.length} photos — Cliquez pour agrandir`}
         </p>
       </div>
@@ -283,7 +283,7 @@ export default function ArticleGallery({ items, title = "Galerie photographique"
           padding: 0 0 14px; flex-shrink: 0;
         }
         .gal-lb-counter {
-          font-family: var(--font-body); font-size: 12px;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif; font-size: 12px;
           color: rgba(255,255,255,0.4); letter-spacing: 1px;
         }
         .gal-lb-close {
@@ -304,7 +304,7 @@ export default function ArticleGallery({ items, title = "Galerie photographique"
           to   { opacity: 1; transform: scale(1); }
         }
         .gal-lb-caption {
-          font-family: var(--font-body); font-size: 12px;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif; font-size: 12px;
           color: rgba(255,255,255,0.4); text-align: center;
           padding: 12px 0 0; margin: 0; flex-shrink: 0; letter-spacing: 0.3px;
         }

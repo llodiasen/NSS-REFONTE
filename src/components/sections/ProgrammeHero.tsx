@@ -97,7 +97,7 @@ export default function ProgrammeHero({ eyebrow, title, subtitle, imageSrc }: Pr
         }
 
         .phero__eyebrow {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 11px;
           font-weight: 700;
           letter-spacing: 2px;
@@ -106,7 +106,7 @@ export default function ProgrammeHero({ eyebrow, title, subtitle, imageSrc }: Pr
         }
 
         .phero__h1 {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 48px;
           font-weight: 600;
           line-height: 1.0;
@@ -117,7 +117,7 @@ export default function ProgrammeHero({ eyebrow, title, subtitle, imageSrc }: Pr
         }
 
         .phero__sub {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 18px;
           font-weight: 300;
           line-height: 1.6;

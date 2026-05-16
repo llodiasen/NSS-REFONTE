@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -59,7 +59,7 @@ function renderContent(content: string, dropCap = true): React.ReactNode[] {
 
     if (block.startsWith("## ")) {
       nodes.push(
-        <h2 key={i} style={{ fontFamily: "var(--font-display)", fontSize: "clamp(20px,2.5vw,26px)", fontWeight: 400, color: "#071A10", marginBottom: "16px", marginTop: "40px", lineHeight: 1.25 }}>
+        <h2 key={i} style={{ fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif", fontSize: "clamp(20px,2.5vw,26px)", fontWeight: 400, color: "#071A10", marginBottom: "16px", marginTop: "40px", lineHeight: 1.25 }}>
           {block.replace(/^## /, "")}
         </h2>
       );
@@ -69,7 +69,7 @@ function renderContent(content: string, dropCap = true): React.ReactNode[] {
     if (block.startsWith("> ")) {
       nodes.push(
         <blockquote key={i} style={{ borderLeft: "2px solid #1D9E75", padding: "4px 0 4px 24px", margin: "36px 0" }}>
-          <p style={{ fontFamily: "var(--font-display)", fontSize: "17px", fontWeight: 400, fontStyle: "italic", color: "#2d5a3d", lineHeight: 1.6, margin: 0, textAlign: "justify" }}>
+          <p style={{ fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif", fontSize: "17px", fontWeight: 400, fontStyle: "italic", color: "#2d5a3d", lineHeight: 1.6, margin: 0, textAlign: "justify" }}>
             {renderInline(block.replace(/^> /, ""))}
           </p>
         </blockquote>
@@ -82,8 +82,8 @@ function renderContent(content: string, dropCap = true): React.ReactNode[] {
       const first = block.charAt(0);
       const rest = block.slice(1);
       nodes.push(
-        <p key={i} style={{ fontFamily: "var(--font-body)", fontSize: "17px", lineHeight: 1.85, color: "#1a1a1a", marginBottom: "24px", textAlign: "justify" }}>
-          <span aria-hidden="true" style={{ fontFamily: "var(--font-display)", fontSize: "60px", fontWeight: 400, lineHeight: 0.75, color: "var(--green-700)", float: "left", marginRight: "8px", marginTop: "8px" }}>{first}</span>
+        <p key={i} style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "17px", lineHeight: 1.85, color: "#1a1a1a", marginBottom: "24px", textAlign: "justify" }}>
+          <span aria-hidden="true" style={{ fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif", fontSize: "60px", fontWeight: 400, lineHeight: 0.75, color: "var(--green-700)", float: "left", marginRight: "8px", marginTop: "8px" }}>{first}</span>
           {renderInline(rest)}
         </p>
       );
@@ -91,7 +91,7 @@ function renderContent(content: string, dropCap = true): React.ReactNode[] {
     }
 
     nodes.push(
-      <p key={i} style={{ fontFamily: "var(--font-body)", fontSize: "17px", lineHeight: 1.85, color: "#1a1a1a", marginBottom: "24px", textAlign: "justify" }}>
+      <p key={i} style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "17px", lineHeight: 1.85, color: "#1a1a1a", marginBottom: "24px", textAlign: "justify" }}>
         {renderInline(block)}
       </p>
     );
@@ -164,7 +164,7 @@ export default async function ActualitesSlugPage({ params }: Props) {
         <div aria-hidden="true" style={{ position: "absolute", inset: 0, background: ["linear-gradient(to right, rgba(0,0,0,0.97) 0%, rgba(3,8,5,0.95) 40%, rgba(6,14,9,0.88) 65%, rgba(0,0,0,0.70) 100%)", "linear-gradient(to bottom, rgba(0,0,0,0.40) 0%, transparent 35%, rgba(0,0,0,0.35) 100%)", "radial-gradient(ellipse 70% 50% at 20% 80%, rgba(45,154,106,0.08), transparent 65%)"].join(", "), zIndex: 1 }} />
         <div style={{ position: "relative", zIndex: 2, maxWidth: "var(--container-max)", margin: "0 auto", padding: "48px var(--container-pad) 32px" }}>
           <div style={{ maxWidth: "820px" }}>
-            <p style={{ fontFamily: "var(--font-body)", fontSize: "14px", color: "rgba(255,255,255,0.4)", marginBottom: "28px" }}>
+            <p style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "14px", color: "rgba(255,255,255,0.4)", marginBottom: "28px" }}>
               <Link href={`/${locale}`} style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none" }}>Accueil</Link>
               {" / "}
               <Link href={`/${locale}/ressources/actualites`} style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none" }}>Actualités</Link>
@@ -172,11 +172,11 @@ export default async function ActualitesSlugPage({ params }: Props) {
               <span style={{ color: "rgba(255,255,255,0.7)" }}>Article</span>
             </p>
             <div style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap", marginBottom: "20px" }}>
-              <span style={{ fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 600, letterSpacing: "1px", textTransform: "uppercase", background: badge.bg, color: badge.color, borderRadius: "20px", padding: "4px 12px" }}>
+              <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px", fontWeight: 600, letterSpacing: "1px", textTransform: "uppercase", background: badge.bg, color: badge.color, borderRadius: "20px", padding: "4px 12px" }}>
                 {article.category}
               </span>
             </div>
-            <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(22px, 2.8vw, 32px)", fontWeight: 400, lineHeight: 1.15, color: "#ffffff", marginBottom: "0" }}>
+            <h1 style={{ fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif", fontSize: "clamp(22px, 2.8vw, 32px)", fontWeight: 400, lineHeight: 1.15, color: "#ffffff", marginBottom: "0" }}>
               {article.title}
             </h1>
             <ArticleMeta date={formatDate(article.publishedAt)} readTime={`${minutes} min de lecture`} location={article.location} dark />
@@ -198,14 +198,14 @@ export default async function ActualitesSlugPage({ params }: Props) {
               {(article.stats?.length || article.coverCaption) && (
                 <figcaption style={{ marginTop: "12px", display: "flex", alignItems: "center", flexWrap: "wrap", gap: "0 24px" }}>
                   {article.stats?.map(({ label, value }, i) => (
-                    <span key={label} style={{ display: "flex", alignItems: "baseline", gap: "6px", fontFamily: "var(--font-body)", fontSize: "13px", color: "#4b5563" }}>
+                    <span key={label} style={{ display: "flex", alignItems: "baseline", gap: "6px", fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "13px", color: "#4b5563" }}>
                       {i > 0 && <span aria-hidden="true" style={{ color: "#d1d5db", marginRight: "0" }}>·</span>}
-                      <strong style={{ fontFamily: "var(--font-display)", fontSize: "20px", fontWeight: 400, color: "#1D9E75", lineHeight: 1 }}>{value}</strong>
+                      <strong style={{ fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif", fontSize: "20px", fontWeight: 400, color: "#1D9E75", lineHeight: 1 }}>{value}</strong>
                       <span style={{ fontWeight: 500, textTransform: "lowercase", letterSpacing: "0.01em" }}>{label}</span>
                     </span>
                   ))}
                   {article.coverCaption && (
-                    <span style={{ fontFamily: "var(--font-body)", fontSize: "13px", color: "#6b7280", fontStyle: "italic" }}>
+                    <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "13px", color: "#6b7280", fontStyle: "italic" }}>
                       {article.coverCaption}
                     </span>
                   )}
@@ -294,7 +294,7 @@ export default async function ActualitesSlugPage({ params }: Props) {
             {article.tags && article.tags.length > 0 && (
               <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginTop: "40px" }}>
                 {article.tags.map((tag) => (
-                  <span key={tag} style={{ fontFamily: "var(--font-body)", fontSize: "12px", fontWeight: 500, color: "#1D9E75", background: "rgba(29,158,117,0.08)", border: "1px solid rgba(29,158,117,0.2)", borderRadius: "20px", padding: "4px 12px" }}>
+                  <span key={tag} style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "12px", fontWeight: 500, color: "#1D9E75", background: "rgba(29,158,117,0.08)", border: "1px solid rgba(29,158,117,0.2)", borderRadius: "20px", padding: "4px 12px" }}>
                     {tag}
                   </span>
                 ))}
@@ -304,12 +304,12 @@ export default async function ActualitesSlugPage({ params }: Props) {
             {/* Navigation prev/next */}
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "16px", borderTop: "1px solid rgba(0,0,0,0.07)", marginTop: "48px", paddingTop: "32px", flexWrap: "wrap" }}>
               {prev ? (
-                <Link href={`/${locale}/ressources/actualites/${prev.slug}`} style={{ display: "flex", alignItems: "center", gap: "8px", textDecoration: "none", maxWidth: "44%", fontFamily: "var(--font-body)", fontSize: "13px", fontWeight: 500, color: "var(--text-muted)" }}>
+                <Link href={`/${locale}/ressources/actualites/${prev.slug}`} style={{ display: "flex", alignItems: "center", gap: "8px", textDecoration: "none", maxWidth: "44%", fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "13px", fontWeight: 500, color: "var(--text-muted)" }}>
                   ← <span style={{ color: "var(--text-primary)" }}>{prev.title}</span>
                 </Link>
               ) : <span />}
               {next && (
-                <Link href={`/${locale}/ressources/actualites/${next.slug}`} style={{ display: "flex", alignItems: "center", gap: "8px", textDecoration: "none", maxWidth: "44%", textAlign: "right", marginLeft: "auto", fontFamily: "var(--font-body)", fontSize: "13px", fontWeight: 500, color: "var(--text-muted)" }}>
+                <Link href={`/${locale}/ressources/actualites/${next.slug}`} style={{ display: "flex", alignItems: "center", gap: "8px", textDecoration: "none", maxWidth: "44%", textAlign: "right", marginLeft: "auto", fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "13px", fontWeight: 500, color: "var(--text-muted)" }}>
                   <span style={{ color: "var(--text-primary)" }}>{next.title}</span> →
                 </Link>
               )}

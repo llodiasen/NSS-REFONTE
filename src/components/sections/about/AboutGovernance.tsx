@@ -1,4 +1,4 @@
-const COUNTRIES = [
+﻿const COUNTRIES = [
   { flag: "🇧🇫", name: "Burkina Faso" },
   { flag: "🇨🇮", name: "Côte d'Ivoire" },
   { flag: "🇬🇲", name: "Gambie" },
@@ -108,20 +108,20 @@ export default function AboutGovernance() {
         .ag__hd { text-align: center; margin-bottom: 72px; }
         .ag__ey {
           display: block;
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 9.5px; font-weight: 700;
           letter-spacing: 0.28em; text-transform: uppercase;
           color: #00AD4C; margin-bottom: 16px;
         }
         .ag__h2 {
-          font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: clamp(28px, 3vw, 42px);
           font-weight: 500; line-height: 1.15;
           color: #0a1f10; margin: 0 0 20px;
         }
         .ag__h2 em { font-style: italic; color: #00AD4C; }
         .ag__intro {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 15px; line-height: 1.7;
           color: #4a5a4a; margin: 0; max-width: 520px;
           margin-left: auto; margin-right: auto;
@@ -178,17 +178,17 @@ export default function AboutGovernance() {
         .ag__node--low .ag__node-detail { color: rgba(0,0,0,0.35); }
 
         .ag__node-label {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 15px; font-weight: 700; line-height: 1.2;
           margin-bottom: 6px;
         }
         .ag__node-sub {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 12.5px; line-height: 1.5;
           margin-bottom: 4px;
         }
         .ag__node-detail {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 10.5px; font-weight: 500;
           letter-spacing: 0.06em; text-transform: uppercase;
         }
@@ -214,7 +214,7 @@ export default function AboutGovernance() {
         }
         .ag__flag { font-size: 14px; line-height: 1; }
         .ag__cname {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 12px; font-weight: 500;
           color: #2e3d2e;
         }
@@ -235,13 +235,13 @@ export default function AboutGovernance() {
         }
         .ag__stat:last-child { border-right: none; }
         .ag__stat-val {
-          font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: clamp(22px, 3vw, 30px);
           font-weight: 600; color: #045627; line-height: 1;
           margin-bottom: 4px;
         }
         .ag__stat-lbl {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 10.5px; font-weight: 500;
           color: #7a8a7a; text-align: center;
           line-height: 1.4;

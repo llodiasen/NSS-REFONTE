@@ -1,10 +1,10 @@
-'use client'
+﻿'use client'
 
 import { motion } from 'framer-motion'
 
 const NSS = {
   vertPrimaire: '#00AD4C',
-  vertClair:    '#A5CE46',
+  vertClair:    '#145c28',
 } as const
 
 const VIDEO_ID  = 'FothaoeQsQ8'
@@ -26,7 +26,11 @@ export default function AboutDeclaration() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.78, ease }}
         >
-          <p className="adc-eyebrow">NOTRE MISSION</p>
+          <div className="adc-eyebrow">
+            <span className="adc-ey-line" aria-hidden />
+            <span>NOTRE MISSION</span>
+            <span className="adc-ey-line" aria-hidden />
+          </div>
 
           <h2 id="adc-titre" className="adc-h2">
             <span className="adc-h2-l1">Les femmes rurales nourrissent l&apos;Afrique.</span>
@@ -102,13 +106,18 @@ export default function AboutDeclaration() {
 
         /* ── Eyebrow ── */
         .adc-eyebrow {
-          margin: 0 0 16px;
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 10px;
-          font-weight: 700;
-          letter-spacing: 1.5px;
+          display: flex; align-items: center; gap: 12px;
+          margin: 0 0 18px;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 11px;
+          font-weight: 500;
+          letter-spacing: 0.14em;
           text-transform: uppercase;
-          color: ${NSS.vertClair};
+          color: #00AD4C;
+        }
+        .adc-ey-line {
+          display: block; width: 28px; height: 1.5px;
+          background: #00AD4C; flex-shrink: 0;
         }
 
         /* ── H2 ── */
@@ -118,7 +127,7 @@ export default function AboutDeclaration() {
           flex-direction: column;
         }
         .adc-h2-l1 {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 30px;
           font-weight: 700;
           line-height: 1.2;
@@ -128,7 +137,7 @@ export default function AboutDeclaration() {
           white-space: nowrap;
         }
         .adc-h2-l2 {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 30px;
           font-weight: 700;
           line-height: 1.2;
@@ -140,17 +149,17 @@ export default function AboutDeclaration() {
         /* ── Underline ── */
         .adc-underline {
           display: block;
-          width: 80px;
-          height: 2px;
-          background: ${NSS.vertClair};
-          border-radius: 1px;
+          width: 60px;
+          height: 3px;
+          background: #00AD4C;
+          border-radius: 2px;
           margin-bottom: 32px;
           flex-shrink: 0;
         }
 
         /* ── Corps ── */
         .adc-body {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 16px;
           line-height: 1.8;
           color: #2C2C28;
@@ -215,3 +224,4 @@ export default function AboutDeclaration() {
     </section>
   )
 }
+

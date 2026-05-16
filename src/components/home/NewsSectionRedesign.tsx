@@ -10,7 +10,7 @@ import { ARTICLES, type Article } from '@/data/articles'
 const NSS = {
   vertFonce:    '#045627',
   vertPrimaire: '#00AD4C',
-  vertClair:    '#A5CE46',
+  vertClair:    '#145c28',
   or:           '#E8A838',
   creme:        '#F5EDD6',
 } as const
@@ -265,7 +265,7 @@ export default function NewsSectionRedesign() {
           background: rgba(165,206,70,0.40);
         }
         .nws-eyebrow-text {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 0.75rem;
           font-weight: 500;
           letter-spacing: 0.12em;
@@ -276,7 +276,7 @@ export default function NewsSectionRedesign() {
 
         /* ── H2 ── */
         .nws-h2 {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: clamp(1.6rem, 3.5vw, 2.2rem);
           font-weight: 600;
           line-height: 1.2;
@@ -299,7 +299,7 @@ export default function NewsSectionRedesign() {
 
         /* ── Intro ── */
         .nws-intro {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 1rem;
           font-weight: 400;
           line-height: 1.7;
@@ -376,7 +376,7 @@ export default function NewsSectionRedesign() {
           justify-content: center;
         }
         .nws-card__fallback span {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 2.2rem;
           font-weight: 600;
           color: rgba(165,206,70,0.45);
@@ -406,7 +406,7 @@ export default function NewsSectionRedesign() {
           flex-wrap: wrap;
         }
         .nws-card__cat {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 10.5px;
           font-weight: 700;
           letter-spacing: 0.12em;
@@ -415,7 +415,7 @@ export default function NewsSectionRedesign() {
           border-radius: 2px;
         }
         .nws-card__date {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 12px;
           color: #999;
           white-space: nowrap;
@@ -435,7 +435,7 @@ export default function NewsSectionRedesign() {
           -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
           overflow: hidden;
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 1.25rem;
           font-weight: 600;
           line-height: 1.22;
@@ -445,7 +445,7 @@ export default function NewsSectionRedesign() {
         }
         .nws-card__titre a:hover { color: ${NSS.vertFonce}; }
         .nws-card__excerpt {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 14px;
           font-weight: 400;
           line-height: 1.72;
@@ -468,7 +468,7 @@ export default function NewsSectionRedesign() {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 11px;
           font-weight: 700;
           letter-spacing: 0.13em;
@@ -500,7 +500,7 @@ export default function NewsSectionRedesign() {
           display: inline-flex;
           align-items: center;
           gap: 10px;
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 11px;
           font-weight: 700;
           letter-spacing: 0.13em;
@@ -541,3 +541,4 @@ export default function NewsSectionRedesign() {
     </section>
   )
 }
+

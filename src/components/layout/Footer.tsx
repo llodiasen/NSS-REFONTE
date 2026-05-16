@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { Facebook, Youtube, Linkedin } from "lucide-react";
 
 interface FooterProps {
@@ -28,7 +28,7 @@ const NAV_AGIR = [
 ];
 
 const linkStyle: React.CSSProperties = {
-  fontFamily: "var(--font-body)",
+  fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
   fontSize: "13px",
   fontWeight: 400,
   color: "rgba(255,255,255,0.45)",
@@ -39,7 +39,7 @@ const linkStyle: React.CSSProperties = {
 };
 
 const headingStyle: React.CSSProperties = {
-  fontFamily: "var(--font-body)",
+  fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
   fontSize: "11px",
   fontWeight: 500,
   textTransform: "uppercase",
@@ -86,7 +86,7 @@ export default function Footer({ locale }: FooterProps) {
           <Link href={`/${locale}`} style={{ textDecoration: "none", display: "inline-block", marginBottom: "14px" }}>
             <span
               style={{
-                fontFamily: "var(--font-display)",
+                fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
                 fontSize: "18px",
                 fontWeight: 400,
                 color: "#ffffff",
@@ -98,7 +98,7 @@ export default function Footer({ locale }: FooterProps) {
           </Link>
           <p
             style={{
-              fontFamily: "var(--font-body)",
+              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
               fontSize: "11px",
               fontWeight: 400,
               color: "rgba(255,255,255,0.3)",
@@ -110,7 +110,7 @@ export default function Footer({ locale }: FooterProps) {
           </p>
           <p
             style={{
-              fontFamily: "var(--font-body)",
+              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
               fontSize: "13px",
               fontWeight: 300,
               fontStyle: "italic",
@@ -176,7 +176,7 @@ export default function Footer({ locale }: FooterProps) {
           gap: "12px",
         }}
       >
-        <p style={{ fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 400, color: "rgba(255,255,255,0.25)" }}>
+        <p style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px", fontWeight: 400, color: "rgba(255,255,255,0.25)" }}>
           © {year} Nous Sommes la Solution (NSS). Tous droits réservés.
         </p>
         <div style={{ display: "flex", gap: "20px" }}>

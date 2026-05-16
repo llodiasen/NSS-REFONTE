@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useMemo } from "react";
 import Image from "next/image";
@@ -77,7 +77,7 @@ export default function BlogContent() {
               key={f}
               onClick={() => handleFilter(f)}
               style={{
-                fontFamily: "var(--font-body)",
+                fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
                 fontSize: "13px",
                 fontWeight: 500,
                 padding: "10px 22px",
@@ -99,7 +99,7 @@ export default function BlogContent() {
             onChange={(e) => handleSearch(e.target.value)}
             style={{
               marginLeft: "auto",
-              fontFamily: "var(--font-body)",
+              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
               fontSize: "13px",
               padding: "10px 18px",
               border: "1px solid rgba(0,0,0,0.1)",
@@ -115,7 +115,7 @@ export default function BlogContent() {
         <div style={{ padding: "48px 0 40px" }}>
           <div style={{ display: "flex", alignItems: "center", marginBottom: "28px" }}>
             <span aria-hidden="true" style={{ width: "28px", height: "1px", background: "var(--green-600)", marginRight: "12px", flexShrink: 0 }} />
-            <span style={{ fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2px", color: "var(--green-600)" }}>
+            <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2px", color: "var(--green-600)" }}>
               Article à la une
             </span>
           </div>
@@ -132,15 +132,15 @@ export default function BlogContent() {
               />
             </div>
             <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", gap: "12px" }}>
-              <span style={{ display: "inline-block", fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 600, letterSpacing: "1px", textTransform: "uppercase", background: badge.bg, color: badge.color, borderRadius: "20px", padding: "4px 12px", alignSelf: "flex-start" }}>
+              <span style={{ display: "inline-block", fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px", fontWeight: 600, letterSpacing: "1px", textTransform: "uppercase", background: badge.bg, color: badge.color, borderRadius: "20px", padding: "4px 12px", alignSelf: "flex-start" }}>
                 {FEATURED.category}
               </span>
-              <p style={{ fontFamily: "var(--font-body)", fontSize: "12px", color: "var(--text-muted)" }}>{formatDate(FEATURED.publishedAt)}</p>
-              <h2 style={{ fontFamily: "var(--font-display)", fontSize: "24px", fontWeight: 400, lineHeight: 1.3, color: "var(--text-primary)" }}>
+              <p style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "12px", color: "var(--text-muted)" }}>{formatDate(FEATURED.publishedAt)}</p>
+              <h2 style={{ fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif", fontSize: "24px", fontWeight: 400, lineHeight: 1.3, color: "var(--text-primary)" }}>
                 {FEATURED.title}
               </h2>
-              <p style={{ fontFamily: "var(--font-body)", fontSize: "14px", color: "var(--text-muted)", lineHeight: 1.65 }}>{FEATURED.excerpt}</p>
-              <Link href={`/fr/ressources/actualites/${FEATURED.slug}`} style={{ fontFamily: "var(--font-body)", fontSize: "13px", fontWeight: 600, color: "var(--green-600)", textDecoration: "none" }}>
+              <p style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "14px", color: "var(--text-muted)", lineHeight: 1.65 }}>{FEATURED.excerpt}</p>
+              <Link href={`/fr/ressources/actualites/${FEATURED.slug}`} style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "13px", fontWeight: 600, color: "var(--green-600)", textDecoration: "none" }}>
                 Lire l&apos;article →
               </Link>
             </div>
@@ -151,13 +151,13 @@ export default function BlogContent() {
         <div style={{ padding: "8px 0 0" }}>
           <div style={{ display: "flex", alignItems: "center", marginBottom: "28px" }}>
             <span aria-hidden="true" style={{ width: "28px", height: "1px", background: "var(--green-600)", marginRight: "12px", flexShrink: 0 }} />
-            <span style={{ fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2px", color: "var(--green-600)" }}>
+            <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2px", color: "var(--green-600)" }}>
               Tous les articles
             </span>
           </div>
 
           {visible.length === 0 ? (
-            <p style={{ fontFamily: "var(--font-body)", fontSize: "15px", color: "var(--text-muted)", textAlign: "center", padding: "60px 0" }}>
+            <p style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "15px", color: "var(--text-muted)", textAlign: "center", padding: "60px 0" }}>
               Aucun article trouvé.
             </p>
           ) : (
@@ -172,15 +172,15 @@ export default function BlogContent() {
                   >
                     <div style={{ position: "relative", height: "200px" }}>
                       <Image src={articleImage(a)} alt={a.title} fill style={{ objectFit: "cover" }} sizes="(max-width: 768px) 100vw, 33vw" />
-                      <span style={{ position: "absolute", top: "16px", left: "16px", fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 600, letterSpacing: "1px", textTransform: "uppercase", background: b.bg, color: b.color, borderRadius: "20px", padding: "4px 12px" }}>
+                      <span style={{ position: "absolute", top: "16px", left: "16px", fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px", fontWeight: 600, letterSpacing: "1px", textTransform: "uppercase", background: b.bg, color: b.color, borderRadius: "20px", padding: "4px 12px" }}>
                         {a.category}
                       </span>
                     </div>
                     <div style={{ padding: "24px" }}>
-                      <p style={{ fontFamily: "var(--font-body)", fontSize: "12px", color: "var(--text-muted)", marginBottom: "8px" }}>{formatDate(a.publishedAt)}</p>
-                      <h3 style={{ fontFamily: "var(--font-display)", fontSize: "17px", fontWeight: 400, lineHeight: 1.35, color: "var(--text-primary)", marginBottom: "10px" }}>{a.title}</h3>
-                      <p style={{ fontFamily: "var(--font-body)", fontSize: "13px", color: "var(--text-muted)", lineHeight: 1.6, marginBottom: "16px", display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{a.excerpt}</p>
-                      <Link href={`/fr/ressources/actualites/${a.slug}`} style={{ fontFamily: "var(--font-body)", fontSize: "12px", fontWeight: 600, color: "var(--green-600)", textDecoration: "none" }}>
+                      <p style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "12px", color: "var(--text-muted)", marginBottom: "8px" }}>{formatDate(a.publishedAt)}</p>
+                      <h3 style={{ fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif", fontSize: "17px", fontWeight: 400, lineHeight: 1.35, color: "var(--text-primary)", marginBottom: "10px" }}>{a.title}</h3>
+                      <p style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "13px", color: "var(--text-muted)", lineHeight: 1.6, marginBottom: "16px", display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{a.excerpt}</p>
+                      <Link href={`/fr/ressources/actualites/${a.slug}`} style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "12px", fontWeight: 600, color: "var(--green-600)", textDecoration: "none" }}>
                         Lire l&apos;article →
                       </Link>
                     </div>
@@ -197,7 +197,7 @@ export default function BlogContent() {
             <button
               onClick={() => setPage((p) => Math.max(1, p - 1))}
               disabled={page === 1}
-              style={{ width: "36px", height: "36px", borderRadius: "8px", border: "1px solid rgba(0,0,0,0.08)", background: "transparent", cursor: page === 1 ? "default" : "pointer", opacity: page === 1 ? 0.35 : 1, fontFamily: "var(--font-body)", fontSize: "14px", color: "var(--text-muted)" }}
+              style={{ width: "36px", height: "36px", borderRadius: "8px", border: "1px solid rgba(0,0,0,0.08)", background: "transparent", cursor: page === 1 ? "default" : "pointer", opacity: page === 1 ? 0.35 : 1, fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "14px", color: "var(--text-muted)" }}
             >
               ←
             </button>
@@ -205,7 +205,7 @@ export default function BlogContent() {
               <button
                 key={n}
                 onClick={() => setPage(n)}
-                style={{ width: "36px", height: "36px", borderRadius: "8px", border: n === page ? "1px solid var(--green-600)" : "1px solid rgba(0,0,0,0.08)", background: n === page ? "var(--green-600)" : "transparent", color: n === page ? "#fff" : "var(--text-muted)", cursor: "pointer", fontFamily: "var(--font-body)", fontSize: "14px", fontWeight: n === page ? 600 : 400 }}
+                style={{ width: "36px", height: "36px", borderRadius: "8px", border: n === page ? "1px solid var(--green-600)" : "1px solid rgba(0,0,0,0.08)", background: n === page ? "var(--green-600)" : "transparent", color: n === page ? "#fff" : "var(--text-muted)", cursor: "pointer", fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "14px", fontWeight: n === page ? 600 : 400 }}
               >
                 {n}
               </button>
@@ -213,7 +213,7 @@ export default function BlogContent() {
             <button
               onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
               disabled={page === totalPages}
-              style={{ width: "36px", height: "36px", borderRadius: "8px", border: "1px solid rgba(0,0,0,0.08)", background: "transparent", cursor: page === totalPages ? "default" : "pointer", opacity: page === totalPages ? 0.35 : 1, fontFamily: "var(--font-body)", fontSize: "14px", color: "var(--text-muted)" }}
+              style={{ width: "36px", height: "36px", borderRadius: "8px", border: "1px solid rgba(0,0,0,0.08)", background: "transparent", cursor: page === totalPages ? "default" : "pointer", opacity: page === totalPages ? 0.35 : 1, fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "14px", color: "var(--text-muted)" }}
             >
               →
             </button>

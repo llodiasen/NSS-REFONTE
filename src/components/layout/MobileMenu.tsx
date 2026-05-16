@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -56,7 +56,7 @@ export default function MobileMenu({ navItems, topLinks, locales, currentLocale,
       >
         {/* Header drawer */}
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "20px 20px", borderBottom: "1px solid rgba(0,0,0,0.07)", background: "#0f2b1a" }}>
-          <span style={{ fontFamily: "var(--font-display)", fontSize: "15px", color: "#fff" }}>
+          <span style={{ fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif", fontSize: "15px", color: "#fff" }}>
             Nouvelles Semences du Sahel
           </span>
           <button
@@ -83,7 +83,7 @@ export default function MobileMenu({ navItems, topLinks, locales, currentLocale,
                     padding: "12px 14px",
                     border: "none",
                     background: "transparent",
-                    fontFamily: "var(--font-body)",
+                    fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
                     fontSize: "15px",
                     fontWeight: 600,
                     color: "#1a1a1a",
@@ -114,7 +114,7 @@ export default function MobileMenu({ navItems, topLinks, locales, currentLocale,
                           padding: "10px 12px",
                           borderRadius: "8px",
                           textDecoration: "none",
-                          fontFamily: "var(--font-body)",
+                          fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
                           fontSize: "14px",
                           fontWeight: isActive(child.href) ? 600 : 400,
                           color: isActive(child.href) ? "#0f2b1a" : "#4a4a4a",
@@ -141,7 +141,7 @@ export default function MobileMenu({ navItems, topLinks, locales, currentLocale,
                   padding: "12px 14px",
                   borderRadius: "10px",
                   textDecoration: "none",
-                  fontFamily: "var(--font-body)",
+                  fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
                   fontSize: "15px",
                   fontWeight: isActive(item.href) ? 700 : 500,
                   color: isActive(item.href) ? "#0f2b1a" : "#1a1a1a",
@@ -160,7 +160,7 @@ export default function MobileMenu({ navItems, topLinks, locales, currentLocale,
                 <Link
                   key={l.href}
                   href={l.href}
-                  style={{ display: "block", padding: "12px 14px", borderRadius: "10px", textDecoration: "none", fontFamily: "var(--font-body)", fontSize: "15px", fontWeight: 500, color: "#1a1a1a" }}
+                  style={{ display: "block", padding: "12px 14px", borderRadius: "10px", textDecoration: "none", fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "15px", fontWeight: 500, color: "#1a1a1a" }}
                 >
                   {l.label}
                 </Link>
@@ -183,7 +183,7 @@ export default function MobileMenu({ navItems, topLinks, locales, currentLocale,
                   borderRadius: "8px",
                   border: "none",
                   background: currentLocale === l.code ? "#0f2b1a" : "#f5f5f5",
-                  fontFamily: "var(--font-body)",
+                  fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
                   fontSize: "13px",
                   fontWeight: 600,
                   color: currentLocale === l.code ? "#fff" : "#555",
@@ -194,10 +194,10 @@ export default function MobileMenu({ navItems, topLinks, locales, currentLocale,
               </button>
             ))}
           </div>
-          <Link href={`/${locale}/membre/dashboard`} style={{ display: "block", textAlign: "center", padding: "11px", borderRadius: "8px", border: "1.5px solid #1d7a52", fontFamily: "var(--font-body)", fontSize: "13px", fontWeight: 600, color: "#1d7a52", textDecoration: "none" }}>
+          <Link href={`/${locale}/membre/dashboard`} style={{ display: "block", textAlign: "center", padding: "11px", borderRadius: "8px", border: "1.5px solid #1d7a52", fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "13px", fontWeight: 600, color: "#1d7a52", textDecoration: "none" }}>
             Espace Membre
           </Link>
-          <Link href={`/${locale}/agir/donner`} style={{ display: "block", textAlign: "center", padding: "11px", borderRadius: "8px", background: "#c0392b", fontFamily: "var(--font-body)", fontSize: "13px", fontWeight: 600, color: "#fff", textDecoration: "none" }}>
+          <Link href={`/${locale}/agir/donner`} style={{ display: "block", textAlign: "center", padding: "11px", borderRadius: "8px", background: "#c0392b", fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "13px", fontWeight: 600, color: "#fff", textDecoration: "none" }}>
             Faire un don
           </Link>
         </div>

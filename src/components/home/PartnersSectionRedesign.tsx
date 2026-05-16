@@ -7,7 +7,7 @@ import Image from 'next/image'
 const NSS = {
   vertFonce:    '#045627',
   vertPrimaire: '#00AD4C',
-  vertClair:    '#A5CE46',
+  vertClair:    '#145c28',
   or:           '#E8A838',
   creme:        '#F5EDD6',
 } as const
@@ -213,7 +213,7 @@ export default function PartnersSectionRedesign() {
           background: rgba(165,206,70,0.40);
         }
         .pts-eyebrow-text {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 0.75rem;
           font-weight: 500;
           letter-spacing: 0.12em;
@@ -224,7 +224,7 @@ export default function PartnersSectionRedesign() {
 
         /* ── H2 ── */
         .pts-h2 {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: clamp(1.6rem, 3.5vw, 2.2rem);
           font-weight: 600;
           line-height: 1.2;
@@ -247,7 +247,7 @@ export default function PartnersSectionRedesign() {
 
         /* ── Intro ── */
         .pts-intro {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 16px;
           font-weight: 400;
           line-height: 1.78;
@@ -329,7 +329,7 @@ export default function PartnersSectionRedesign() {
         }
         .pts-logo-card:hover .pts-overlay { opacity: 1; }
         .pts-overlay-nom {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 11px;
           font-weight: 700;
           color: #ffffff;
@@ -338,7 +338,7 @@ export default function PartnersSectionRedesign() {
           letter-spacing: 0;
         }
         .pts-overlay-pays {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 9px;
           font-weight: 500;
           letter-spacing: 0.14em;
@@ -348,7 +348,7 @@ export default function PartnersSectionRedesign() {
 
         /* ── Rôle ── */
         .pts-role {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 10.5px;
           font-weight: 400;
           line-height: 1.55;
@@ -373,7 +373,7 @@ export default function PartnersSectionRedesign() {
           background: linear-gradient(90deg, transparent, #D0D0D0 30%, #D0D0D0 70%, transparent);
         }
         .pts-footer-text {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 17px;
           font-style: normal;
           font-weight: 400;
@@ -391,7 +391,7 @@ export default function PartnersSectionRedesign() {
           display: inline-flex;
           align-items: center;
           gap: 10px;
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 11px;
           font-weight: 700;
           letter-spacing: 0.13em;
@@ -436,3 +436,4 @@ export default function PartnersSectionRedesign() {
     </section>
   )
 }
+

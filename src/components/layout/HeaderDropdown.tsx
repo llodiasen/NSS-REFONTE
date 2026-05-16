@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 interface DropdownItem {
   label: string;
@@ -48,7 +48,7 @@ export default function HeaderDropdown({ items, onMouseEnter, onMouseLeave }: Pr
               display: "block",
               padding: "10px 16px",
               textDecoration: "none",
-              fontFamily: "var(--font-body)",
+              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
               fontSize: "13px",
               fontWeight: 500,
               color: "#1a1a1a",

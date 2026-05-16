@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState } from 'react'
 import { motion, useInView, type Variants } from 'framer-motion'
@@ -88,7 +88,7 @@ export default function ArticleGrid({ articles, filterTabs, filterKey }: Article
 
         .agrid__empty {
           grid-column: 1 / -1;
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 14px;
           color: #888;
           text-align: center;

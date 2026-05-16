@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import Image from "next/image";
@@ -116,7 +116,7 @@ function VideoCard({ video }: { video: Video }) {
             )}
 
             {video.duree && state === "idle" && (
-              <span style={{ position: "absolute", bottom: "8px", right: "8px", background: "rgba(0,0,0,0.65)", color: "#ffffff", fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 500, padding: "2px 7px", borderRadius: "4px", zIndex: 2, letterSpacing: "0.02em" }}>
+              <span style={{ position: "absolute", bottom: "8px", right: "8px", background: "rgba(0,0,0,0.65)", color: "#ffffff", fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px", fontWeight: 500, padding: "2px 7px", borderRadius: "4px", zIndex: 2, letterSpacing: "0.02em" }}>
                 {video.duree}
               </span>
             )}
@@ -154,7 +154,7 @@ function VideoCard({ video }: { video: Video }) {
         <span
           style={{
             display: "inline-block",
-            fontFamily: "var(--font-body)",
+            fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
             fontSize: "11px",
             fontWeight: 600,
             textTransform: "uppercase",
@@ -173,7 +173,7 @@ function VideoCard({ video }: { video: Video }) {
         {/* Titre */}
         <p
           style={{
-            fontFamily: "var(--font-display)",
+            fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
             fontSize: "17px",
             fontWeight: 400,
             color: "var(--text-primary)",
@@ -187,7 +187,7 @@ function VideoCard({ video }: { video: Video }) {
         {/* Méta */}
         <p
           style={{
-            fontFamily: "var(--font-body)",
+            fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
             fontSize: "14px",
             color: "var(--text-muted)",
             margin: 0,
@@ -233,7 +233,7 @@ export default function MediathequeSection() {
             className="media-cta"
             style={{
               display: "inline-block",
-              fontFamily: "var(--font-body)",
+              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
               fontSize: "14px",
               fontWeight: 500,
               color: "#ffffff",

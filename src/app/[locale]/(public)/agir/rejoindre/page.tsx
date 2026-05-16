@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import RejoindreForm from "@/components/sections/RejoindreForm";
@@ -99,7 +99,7 @@ export default function RejoindrePagee() {
           padding: "48px var(--container-pad) 40px",
         }}>
           {/* Breadcrumb */}
-          <p style={{ fontFamily: "var(--font-body)", fontSize: "14px", fontWeight: 400, color: "#ffffff", marginBottom: "28px" }}>
+          <p style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "14px", fontWeight: 400, color: "#ffffff", marginBottom: "28px" }}>
             <Link href="/fr" style={{ color: "#ffffff", textDecoration: "none" }}>Accueil</Link>
             {" / "}
             <span style={{ color: "#ffffff" }}>Adhésion</span>
@@ -108,7 +108,7 @@ export default function RejoindrePagee() {
           {/* Label */}
           <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "24px" }}>
             <span aria-hidden="true" style={{ display: "block", width: "28px", height: "1px", background: "rgba(127,212,166,0.4)", flexShrink: 0 }} />
-            <span style={{ fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2.5px", color: "var(--green-300)", whiteSpace: "nowrap" }}>
+            <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2.5px", color: "var(--green-300)", whiteSpace: "nowrap" }}>
               Rejoindre NSS
             </span>
             <span aria-hidden="true" style={{ display: "block", width: "28px", height: "1px", background: "rgba(127,212,166,0.4)", flexShrink: 0 }} />
@@ -116,7 +116,7 @@ export default function RejoindrePagee() {
 
           {/* Titre */}
           <h1 style={{
-            fontFamily: "var(--font-display)",
+            fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
             fontSize: "clamp(32px, 4vw, 52px)",
             fontWeight: 400,
             lineHeight: 1.12,
@@ -130,7 +130,7 @@ export default function RejoindrePagee() {
 
           {/* Sous-titre */}
           <p style={{
-            fontFamily: "var(--font-body)",
+            fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
             fontSize: "17px",
             lineHeight: 1.7,
             color: "#ffffff",
@@ -145,7 +145,7 @@ export default function RejoindrePagee() {
           <Link
             href="#formulaire"
             style={{
-              fontFamily: "var(--font-body)",
+              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
               fontSize: "13px",
               fontWeight: 500,
               color: "#ffffff",
@@ -166,8 +166,8 @@ export default function RejoindrePagee() {
       <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", background: "#2d6a4f" }}>
         {STATS.map(({ value, label }, i) => (
           <div key={label} style={{ padding: "28px 32px", textAlign: "center", borderRight: i < STATS.length - 1 ? "1px solid rgba(255,255,255,0.12)" : "none" }}>
-            <div style={{ fontFamily: "var(--font-display)", fontSize: "38px", fontWeight: 400, color: "#ffffff", lineHeight: 1, marginBottom: "6px" }}>{value}</div>
-            <div style={{ fontFamily: "var(--font-body)", fontSize: "10px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "2px", color: "rgba(255,255,255,0.5)" }}>{label}</div>
+            <div style={{ fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif", fontSize: "38px", fontWeight: 400, color: "#ffffff", lineHeight: 1, marginBottom: "6px" }}>{value}</div>
+            <div style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "10px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "2px", color: "rgba(255,255,255,0.5)" }}>{label}</div>
           </div>
         ))}
       </div>
@@ -178,10 +178,10 @@ export default function RejoindrePagee() {
           <div style={{ textAlign: "center", marginBottom: "52px" }}>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "12px", marginBottom: "16px" }}>
               <span style={{ width: "28px", height: "1px", background: "rgba(29,106,63,0.35)", display: "block" }} />
-              <span style={{ fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2.5px", color: "var(--green-600)" }}>Pourquoi adhérer</span>
+              <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2.5px", color: "var(--green-600)" }}>Pourquoi adhérer</span>
               <span style={{ width: "28px", height: "1px", background: "rgba(29,106,63,0.35)", display: "block" }} />
             </div>
-            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(26px,3vw,38px)", fontWeight: 400, color: "#071A10", margin: 0 }}>
+            <h2 style={{ fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif", fontSize: "clamp(26px,3vw,38px)", fontWeight: 400, color: "#071A10", margin: 0 }}>
               Rejoindre NSS, c&apos;est{" "}
               <em style={{ fontStyle: "italic", color: "var(--green-600)" }}>choisir un camp.</em>
             </h2>
@@ -192,8 +192,8 @@ export default function RejoindrePagee() {
                 <div style={{ width: "52px", height: "52px", borderRadius: "50%", background: "rgba(29,122,82,0.1)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "24px", marginBottom: "18px" }}>
                   {icon}
                 </div>
-                <h3 style={{ fontFamily: "var(--font-display)", fontSize: "20px", fontWeight: 400, color: "#071A10", marginBottom: "10px" }}>{titre}</h3>
-                <p style={{ fontFamily: "var(--font-body)", fontSize: "15px", lineHeight: 1.7, color: "#4b5563", margin: 0 }}>{texte}</p>
+                <h3 style={{ fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif", fontSize: "20px", fontWeight: 400, color: "#071A10", marginBottom: "10px" }}>{titre}</h3>
+                <p style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "15px", lineHeight: 1.7, color: "#4b5563", margin: 0 }}>{texte}</p>
               </div>
             ))}
           </div>
@@ -207,10 +207,10 @@ export default function RejoindrePagee() {
 
             {/* Colonne gauche — engagements */}
             <div>
-              <span style={{ fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2.5px", color: "var(--green-600)", display: "block", marginBottom: "16px" }}>
+              <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2.5px", color: "var(--green-600)", display: "block", marginBottom: "16px" }}>
                 S&apos;engager concrètement
               </span>
-              <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(22px,2.5vw,30px)", fontWeight: 400, color: "#071A10", marginBottom: "28px", lineHeight: 1.2 }}>
+              <h2 style={{ fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif", fontSize: "clamp(22px,2.5vw,30px)", fontWeight: 400, color: "#071A10", marginBottom: "28px", lineHeight: 1.2 }}>
                 Adhérer,{" "}
                 <em style={{ fontStyle: "italic", color: "var(--green-600)" }}>c&apos;est agir.</em>
               </h2>
@@ -219,8 +219,8 @@ export default function RejoindrePagee() {
                   <div key={titre} style={{ display: "flex", gap: "14px", alignItems: "flex-start" }}>
                     <CheckCircle2 size={18} style={{ color: "var(--green-600)", flexShrink: 0, marginTop: "3px" }} />
                     <div>
-                      <p style={{ fontFamily: "var(--font-body)", fontSize: "14px", fontWeight: 700, color: "#071A10", marginBottom: "4px" }}>{titre}</p>
-                      <p style={{ fontFamily: "var(--font-body)", fontSize: "13px", lineHeight: 1.65, color: "#6b7280", margin: 0 }}>{texte}</p>
+                      <p style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "14px", fontWeight: 700, color: "#071A10", marginBottom: "4px" }}>{titre}</p>
+                      <p style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "13px", lineHeight: 1.65, color: "#6b7280", margin: 0 }}>{texte}</p>
                     </div>
                   </div>
                 ))}
@@ -239,11 +239,11 @@ export default function RejoindrePagee() {
                         background: i === 0 ? "var(--green-600)" : "rgba(0,0,0,0.08)",
                         color: i === 0 ? "#fff" : "#9ca3af",
                         display: "flex", alignItems: "center", justifyContent: "center",
-                        fontFamily: "var(--font-body)", fontSize: "12px", fontWeight: 600,
+                        fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "12px", fontWeight: 600,
                       }}>
                         {i + 1}
                       </div>
-                      <span style={{ fontFamily: "var(--font-body)", fontSize: "10px", color: i === 0 ? "var(--green-600)" : "#9ca3af", whiteSpace: "nowrap" }}>{step}</span>
+                      <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "10px", color: i === 0 ? "var(--green-600)" : "#9ca3af", whiteSpace: "nowrap" }}>{step}</span>
                     </div>
                     {i < STEPS.length - 1 && (
                       <div style={{ flex: 1, height: "1px", background: "rgba(0,0,0,0.1)", margin: "0 8px", marginBottom: "20px" }} />
@@ -266,18 +266,18 @@ export default function RejoindrePagee() {
           <div style={{ textAlign: "center", marginBottom: "48px" }}>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "12px", marginBottom: "16px" }}>
               <span style={{ width: "28px", height: "1px", background: "rgba(29,106,63,0.35)", display: "block" }} />
-              <span style={{ fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2.5px", color: "var(--green-600)" }}>FAQ</span>
+              <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2.5px", color: "var(--green-600)" }}>FAQ</span>
               <span style={{ width: "28px", height: "1px", background: "rgba(29,106,63,0.35)", display: "block" }} />
             </div>
-            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(24px,3vw,34px)", fontWeight: 400, color: "#071A10", margin: 0 }}>
+            <h2 style={{ fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif", fontSize: "clamp(24px,3vw,34px)", fontWeight: 400, color: "#071A10", margin: 0 }}>
               Questions fréquentes
             </h2>
           </div>
           <div className="faq-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "20px" }}>
             {FAQ.map(({ q, r }) => (
               <div key={q} style={{ background: "#ffffff", borderRadius: "12px", padding: "28px 24px", border: "1.5px solid rgba(0,0,0,0.07)" }}>
-                <h3 style={{ fontFamily: "var(--font-display)", fontSize: "17px", fontWeight: 400, color: "#071A10", marginBottom: "12px", lineHeight: 1.3 }}>{q}</h3>
-                <p style={{ fontFamily: "var(--font-body)", fontSize: "14px", lineHeight: 1.7, color: "#4b5563", margin: 0 }}>{r}</p>
+                <h3 style={{ fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif", fontSize: "17px", fontWeight: 400, color: "#071A10", marginBottom: "12px", lineHeight: 1.3 }}>{q}</h3>
+                <p style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "14px", lineHeight: 1.7, color: "#4b5563", margin: 0 }}>{r}</p>
               </div>
             ))}
           </div>
@@ -287,18 +287,18 @@ export default function RejoindrePagee() {
       {/* ── FOOTER CTA ── */}
       <section style={{ background: "#1a3d2b", padding: "72px var(--container-pad)", textAlign: "center" }}>
         <div style={{ maxWidth: "640px", margin: "0 auto" }}>
-          <span style={{ fontFamily: "var(--font-body)", fontSize: "11px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2.5px", color: "var(--green-300)", display: "block", marginBottom: "16px" }}>
+          <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2.5px", color: "var(--green-300)", display: "block", marginBottom: "16px" }}>
             Ensemble
           </span>
-          <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(26px,3vw,38px)", fontWeight: 400, color: "#ffffff", marginBottom: "16px", lineHeight: 1.18 }}>
+          <h2 style={{ fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif", fontSize: "clamp(26px,3vw,38px)", fontWeight: 400, color: "#ffffff", marginBottom: "16px", lineHeight: 1.18 }}>
             Par nous-mêmes. Pour nous-mêmes.{" "}
             <em style={{ fontStyle: "italic", color: "var(--green-300)" }}>En nous-mêmes.</em>
           </h2>
-          <p style={{ fontFamily: "var(--font-body)", fontSize: "16px", lineHeight: 1.7, color: "rgba(255,255,255,0.75)", marginBottom: "36px" }}>
+          <p style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "16px", lineHeight: 1.7, color: "rgba(255,255,255,0.75)", marginBottom: "36px" }}>
             Vous avez une question avant d&apos;adhérer ? Notre équipe est disponible pour vous accompagner dans votre démarche.
           </p>
           <Link href="/fr/contact" className="cta-orange-btn" style={{
-            fontFamily: "var(--font-body)", fontSize: "14px", fontWeight: 600,
+            fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "14px", fontWeight: 600,
             color: "#ffffff", background: "#e07a2f",
             padding: "14px 36px", borderRadius: "40px",
             textDecoration: "none", display: "inline-block",

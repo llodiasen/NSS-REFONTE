@@ -1,14 +1,14 @@
-'use client'
+﻿'use client'
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useLocale } from 'next-intl'
-import { Home, Newspaper, CalendarDays, Images, Mail, type LucideIcon } from 'lucide-react'
+import { Home, Newspaper, CalendarDays, GalleryHorizontal, Mail, type LucideIcon } from 'lucide-react'
 
 const NSS = {
   vertFonce:    '#045627',
   vertPrimaire: '#00AD4C',
-  vertClair:    '#A5CE46',
+  vertClair:    '#145c28',
 } as const
 
 interface NavItem {
@@ -22,7 +22,7 @@ const NAV_ITEMS: NavItem[] = [
   { key: 'home',       label: 'Accueil',    icon: Home,        path: ''                       },
   { key: 'actualites', label: 'Actualités', icon: Newspaper,   path: '/ressources/actualites' },
   { key: 'programmes', label: 'Programmes', icon: CalendarDays,path: '/programmes'            },
-  { key: 'galerie',    label: 'Galerie',    icon: Images,      path: '/ressources/galerie'    },
+  { key: 'galerie',    label: 'Galerie',    icon: GalleryHorizontal, path: '/ressources/galerie' },
   { key: 'contact',    label: 'Contact',    icon: Mail,        path: '/contact'               },
 ]
 
@@ -121,7 +121,7 @@ export default function BottomNav() {
 
         /* ── Label ── */
         .bnav-label {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 9.5px;
           font-weight: 500;
           letter-spacing: 0.01em;
@@ -150,3 +150,4 @@ export default function BottomNav() {
     </nav>
   )
 }
+

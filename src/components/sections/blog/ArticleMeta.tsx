@@ -1,4 +1,4 @@
-interface Props {
+﻿interface Props {
   author?: string;
   date?: string;
   readTime?: string;
@@ -105,7 +105,7 @@ export default function ArticleMeta({ author, date, readTime, sourceName, source
       display: "flex",
       alignItems: "center",
       flexWrap: "nowrap",
-      fontFamily: "var(--font-body)",
+      fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
       fontSize: "13px",
       color: textColor,
       marginTop: "16px",

@@ -1,25 +1,15 @@
-'use client'
+﻿'use client'
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import Image from 'next/image'
-
 const NSS = {
   vertFonce:    '#045627',
   vertPrimaire: '#00AD4C',
-  vertClair:    '#A5CE46',
+  vertClair:    '#145c28',
   or:           '#E8A838',
 } as const
 
 const ease = [0.22, 1, 0.36, 1] as const
-
-const PARTENAIRES = [
-  { nom: 'Grassroots International', logo: '/images/partenaires/Grassroots-international.jpg' },
-  { nom: 'AgroEcology Fund',         logo: '/images/partenaires/Agroecology-Fund.jpg' },
-  { nom: 'Thousand Currents',        logo: '/images/partenaires/thoussands-current-1.jpg' },
-  { nom: 'MATCH International',      logo: '/images/partenaires/Fond-egalite.png' },
-  { nom: 'Fahamu Africa',            logo: '/images/partenaires/logofahamu1.png' },
-] as const
 
 const ETAPES = [
   {
@@ -71,15 +61,17 @@ export default function TimelineZigzagRedesign() {
 
         {/* ══ En-tête ══ */}
         <header className="tl-header">
-          <motion.p
+          <motion.div
             className="tl-eyebrow"
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.60, ease }}
           >
-            NOTRE HISTOIRE
-          </motion.p>
+            <span className="tl-ey-line" aria-hidden />
+            <span>NOTRE HISTOIRE</span>
+            <span className="tl-ey-line" aria-hidden />
+          </motion.div>
 
           <motion.h2
             id="tl-heading"
@@ -91,6 +83,26 @@ export default function TimelineZigzagRedesign() {
           >
             L&apos;évolution du mouvement <em>NSS.</em>
           </motion.h2>
+
+          <motion.span
+            className="tl-underline" aria-hidden
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.50, delay: 0.20, ease }}
+            style={{ transformOrigin: 'center' }}
+          />
+
+          <motion.p
+            className="tl-desc"
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.60, delay: 0.26, ease }}
+          >
+            D&apos;une campagne de 5 pays en 2011 à un réseau panafricain de 14 nations —
+            l&apos;histoire d&apos;un mouvement construit par et pour les femmes rurales.
+          </motion.p>
         </header>
 
         {/* ══ Timeline nodes ══ */}
@@ -146,17 +158,6 @@ export default function TimelineZigzagRedesign() {
           ))}
         </ul>
 
-        {/* ══ Soutenus par ══ */}
-        <div className="tl-partners">
-          <p className="tl-partners-label">SOUTENUS PAR</p>
-          <div className="tl-logos" role="list" aria-label="Partenaires NSS">
-            {PARTENAIRES.map(({ nom, logo }) => (
-              <div key={nom} className="tl-logo-wrap" role="listitem">
-                <Image src={logo} alt={nom} fill sizes="110px" style={{ objectFit: 'contain' }} />
-              </div>
-            ))}
-          </div>
-        </div>
 
       </div>
 
@@ -171,31 +172,40 @@ export default function TimelineZigzagRedesign() {
         }
 
         /* ── En-tête ── */
-        .tl-header { margin-bottom: 48px; text-align: center; }
+        .tl-header { margin-bottom: 52px; text-align: center; }
 
         .tl-eyebrow {
-          display: flex; align-items: center; justify-content: center; gap: 16px;
+          display: flex; align-items: center; justify-content: center; gap: 12px;
           margin: 0 0 20px;
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 10px; font-weight: 700;
-          letter-spacing: 1.5px; text-transform: uppercase;
-          color: ${NSS.vertClair};
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 11px; font-weight: 500;
+          letter-spacing: 0.14em; text-transform: uppercase;
+          color: #00AD4C;
         }
-        .tl-eyebrow::before,
-        .tl-eyebrow::after {
-          content: ''; display: block;
-          width: 36px; height: 1px;
-          background: ${NSS.vertClair}; opacity: 0.5;
-          flex-shrink: 0;
+        .tl-ey-line {
+          display: block; width: 28px; height: 1.5px;
+          background: #00AD4C; flex-shrink: 0;
         }
 
         .tl-h2 {
-          margin: 0;
-          font-family: var(--font-display), Georgia, serif;
-          font-size: 36px; font-weight: 700; line-height: 1.2;
-          color: #2A2A2A; letter-spacing: -0.01em;
+          margin: 0 0 0;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-size: clamp(24px, 2.6vw, 34px); font-weight: 600; line-height: 1.2;
+          color: #2A2A2A; letter-spacing: -0.015em;
         }
-        .tl-h2 em { font-style: italic; color: ${NSS.vertPrimaire}; }
+        .tl-h2 em { font-style: italic; color: #A5CE46; }
+
+        .tl-underline {
+          display: block; height: 3px; width: 60px;
+          background: #00AD4C; border-radius: 2px;
+          margin: 0.75rem auto 0;
+        }
+        .tl-desc {
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 15px; font-weight: 400; line-height: 1.7;
+          color: #5a5a5a; margin: 1.25rem auto 0;
+          max-width: 580px; text-align: center;
+        }
 
         /* ── Timeline nodes ── */
         .tl-timeline {
@@ -226,7 +236,7 @@ export default function TimelineZigzagRedesign() {
           display: flex; align-items: center; justify-content: center;
           width: 58px; height: 58px;
           border-radius: 50%;
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 12px; font-weight: 700;
           letter-spacing: -0.01em;
           flex-shrink: 0;
@@ -282,7 +292,7 @@ export default function TimelineZigzagRedesign() {
           background: #ffffff;
           border: 1px solid #e8e6e0;
           border-radius: 4px;
-          padding: 28px 24px 32px;
+          padding: 28px 12px 32px;
           display: flex; flex-direction: column;
           cursor: pointer;
           transition: background 0.30s ease, border-color 0.30s ease,
@@ -306,7 +316,7 @@ export default function TimelineZigzagRedesign() {
         .tl-ghost {
           position: absolute;
           right: -2px; top: 4px;
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 82px; font-weight: 900;
           line-height: 1; letter-spacing: -0.03em;
           color: rgba(0,0,0,0.042);
@@ -317,9 +327,9 @@ export default function TimelineZigzagRedesign() {
         /* ── Badge ── */
         .tl-badge {
           display: inline-block; width: fit-content;
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 9px; font-weight: 700;
-          letter-spacing: 0.14em; text-transform: uppercase;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 10px; font-weight: 700;
+          letter-spacing: 0.10em; text-transform: uppercase;
           padding: 4px 10px; border-radius: 100px;
           margin-bottom: 20px;
           position: relative; z-index: 1;
@@ -332,57 +342,33 @@ export default function TimelineZigzagRedesign() {
 
         /* ── Titre ── */
         .tl-titre {
-          font-family: var(--font-display), Georgia, serif;
-          font-size: 17px; font-weight: 700;
-          line-height: 1.25; display: block;
-          margin-bottom: 16px;
-          color: #2A2A2A;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-size: 20px; font-weight: 400;
+          line-height: 1.1; display: block;
+          margin-bottom: 8px;
+          color: #0A0A0A;
           position: relative; z-index: 1;
           transition: color 0.30s ease;
-          white-space: nowrap;
         }
         .tl-card--actif .tl-titre { color: #ffffff; }
 
         /* ── Texte ── */
         .tl-texte {
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 14px; line-height: 1.72;
-          color: #2C2C28; margin: 0;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 15px; line-height: 1.78;
+          color: #000000; margin: 0;
           text-align: justify; hyphens: auto;
           position: relative; z-index: 1;
           transition: color 0.30s ease;
         }
-        .tl-card--actif .tl-texte { color: #ffffff; }
+        .tl-card--actif .tl-texte { color: WHITE; }
 
-        /* ── Soutenus par ── */
-        .tl-partners {
-          margin-top: 64px; padding-top: 40px;
-          border-top: 1px solid rgba(0,0,0,0.07);
-          display: flex; flex-direction: column; align-items: center; gap: 24px;
-        }
-        .tl-partners-label {
-          font-family: var(--font-dm-sans), sans-serif;
-          font-size: 9.5px; font-weight: 700;
-          letter-spacing: 1.8px; text-transform: uppercase;
-          color: #999; margin: 0;
-        }
-        .tl-logos {
-          display: flex; align-items: center; justify-content: center;
-          gap: 28px; flex-wrap: wrap;
-        }
-        .tl-logo-wrap {
-          position: relative; width: 96px; height: 44px;
-          filter: grayscale(1) opacity(0.45);
-          transition: filter 0.25s ease; flex-shrink: 0;
-        }
-        .tl-logo-wrap:hover { filter: grayscale(0) opacity(0.85); }
 
         /* ── Tablet ── */
         @media (max-width: 1024px) {
           .tl-wrap { padding: 80px 40px; }
           .tl-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
           .tl-timeline { grid-template-columns: 1fr 1fr; }
-          .tl-h2 { font-size: 30px; }
           .tl-titre { white-space: normal; }
         }
 
@@ -391,7 +377,7 @@ export default function TimelineZigzagRedesign() {
           .tl-wrap { padding: 64px 24px; }
           .tl-grid { grid-template-columns: 1fr; gap: 14px; }
           .tl-card { padding: 24px; }
-          .tl-h2 { font-size: 26px; }
+          .tl-titre { font-size: 20px; }
           .tl-timeline { display: none; }
         }
 
@@ -402,3 +388,4 @@ export default function TimelineZigzagRedesign() {
     </section>
   )
 }
+

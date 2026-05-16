@@ -10,7 +10,7 @@ import { MapPin, Calendar } from "lucide-react";
 const NSS = {
   vertFonce:    '#045627',
   vertPrimaire: '#00AD4C',
-  vertClair:    '#A5CE46',
+  vertClair:    '#145c28',
   or:           '#E8A838',
   creme:        '#F5EDD6',
 } as const
@@ -345,14 +345,14 @@ export default function MediathequeSectionRedesign() {
             background: rgba(165,206,70,0.35);
           }
           .vds__ey-txt {
-            font-family: var(--font-dm-sans), sans-serif;
+            font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
             font-size: 0.75rem; font-weight: 500;
             letter-spacing: 0.12em; text-transform: uppercase;
             color: ${NSS.vertClair}; white-space: nowrap;
           }
 
           .vds__h2 {
-            font-family: var(--font-display), Georgia, serif;
+            font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
             font-size: clamp(1.6rem, 3.5vw, 2.2rem);
             font-weight: 600; line-height: 1.2;
             color: #2A2A2A; margin: 0 0 0.75rem;
@@ -369,7 +369,7 @@ export default function MediathequeSectionRedesign() {
           }
 
           .vds__sub {
-            font-family: var(--font-dm-sans), sans-serif;
+            font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
             font-size: 1rem; font-weight: 400;
             line-height: 1.7; color: #2C2C28;
             max-width: 520px; margin: 0 auto;
@@ -419,7 +419,7 @@ export default function MediathequeSectionRedesign() {
             position: absolute; bottom: 14px; left: 14px; z-index: 3;
             display: flex; align-items: center; gap: 5px;
             background: ${NSS.vertFonce}; color: ${NSS.creme};
-            font-family: var(--font-dm-sans), sans-serif;
+            font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
             font-size: 9px; font-weight: 700;
             letter-spacing: 0.18em; text-transform: uppercase;
             padding: 4px 10px; border-radius: 1px;
@@ -458,7 +458,7 @@ export default function MediathequeSectionRedesign() {
           }
           .vc__meta {
             display: flex; align-items: center; gap: 6px;
-            font-family: var(--font-dm-sans), sans-serif;
+            font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
             font-size: 13px; color: #888; margin: 0;
           }
           .vc__meta-icon { color: ${NSS.vertPrimaire}; flex-shrink: 0; }
@@ -467,7 +467,7 @@ export default function MediathequeSectionRedesign() {
           .vc__titre-btn {
             background: none; border: none; padding: 0;
             width: 100%; text-align: left; cursor: pointer;
-            font-family: var(--font-display), Georgia, serif;
+            font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
             font-size: 1.25rem;
             font-weight: 600; line-height: 1.22;
             color: #0A0A0A;
@@ -480,7 +480,7 @@ export default function MediathequeSectionRedesign() {
           .vc__titre-btn:hover { color: ${NSS.vertFonce}; }
 
           .vc__desc {
-            font-family: var(--font-dm-sans), sans-serif;
+            font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
             font-size: 14px; font-weight: 400; line-height: 1.72;
             color: #4A4A4A; text-align: justify; hyphens: auto;
             margin: 0; flex: 1;
@@ -493,7 +493,7 @@ export default function MediathequeSectionRedesign() {
             display: flex; flex-wrap: wrap; gap: 5px; margin-top: 2px;
           }
           .vc__tag {
-            font-family: var(--font-dm-sans), sans-serif;
+            font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
             font-size: 10px; font-weight: 500;
             color: ${NSS.vertFonce};
             background: rgba(0,173,76,0.07);
@@ -513,7 +513,7 @@ export default function MediathequeSectionRedesign() {
           }
           .vds__cta {
             display: inline-flex; align-items: center; gap: 10px;
-            font-family: var(--font-dm-sans), sans-serif;
+            font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
             font-size: 11px; font-weight: 700;
             letter-spacing: 0.13em; text-transform: uppercase;
             color: ${NSS.vertFonce}; text-decoration: none;
@@ -546,3 +546,4 @@ export default function MediathequeSectionRedesign() {
     </>
   );
 }
+

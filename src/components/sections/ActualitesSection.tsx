@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import Image from "next/image";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { ARTICLES } from "@/data/articles";
@@ -125,7 +125,7 @@ export default function ActualitesSection() {
                   {/* Title */}
                   <h3
                     style={{
-                      fontFamily: "var(--font-display)",
+                      fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
                       fontSize: "18px",
                       fontWeight: 400,
                       lineHeight: 1.3,
@@ -169,7 +169,7 @@ export default function ActualitesSection() {
                       href={`/fr/ressources/actualites/${article.slug}`}
                       className="actu-link"
                       style={{
-                        fontFamily: "var(--font-body)",
+                        fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
                         fontSize: "13px",
                         fontWeight: 600,
                         color: "#3b6d11",
@@ -192,7 +192,7 @@ export default function ActualitesSection() {
             href="/fr/ressources/actualites"
             className="actu-cta"
             style={{
-              fontFamily: "var(--font-body)",
+              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
               fontSize: "13px",
               fontWeight: 500,
               color: "#ffffff",

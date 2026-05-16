@@ -1,9 +1,9 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 
 const NSS = {
   vertFonce:    '#045627',
   vertPrimaire: '#00AD4C',
-  vertClair:    '#A5CE46',
+  vertClair:    '#145c28',
   or:           '#E8A838',
   creme:        '#F5EDD6',
 } as const
@@ -12,7 +12,8 @@ export default function FinalCTASectionRedesign() {
   return (
     <section className="fcta" aria-labelledby="fcta-heading">
 
-      <div className="fcta-glow" aria-hidden />
+      <div className="fcta-bg" aria-hidden />
+      <div className="fcta-overlay" aria-hidden />
 
       <div className="fcta-inner">
 
@@ -31,14 +32,14 @@ export default function FinalCTASectionRedesign() {
         {/* Subtitle */}
         <p className="fcta-sub">
           175&nbsp;000 femmes rurales transforment déjà les systèmes alimentaires
-          en Afrique de l&apos;Ouest. Rejoignez le mouvement, portez la voix de
-          votre communauté, et construisez l&apos;avenir avec nous.
+          en Afrique de l&apos;Ouest. Rejoignez le mouvement,
+          construisez l&apos;avenir avec nous.
         </p>
 
         {/* CTAs */}
         <div className="fcta-btns">
           <Link href="/fr/agir/rejoindre" className="fcta-btn fcta-btn--fill">
-            Adhérer à NSS
+            Adhérer au mouvement
           </Link>
           <Link href="/fr/contact" className="fcta-btn fcta-btn--ghost">
             Nous contacter
@@ -55,19 +56,27 @@ export default function FinalCTASectionRedesign() {
       <style suppressHydrationWarning>{`
         .fcta {
           position: relative; overflow: hidden;
-          background: linear-gradient(158deg, ${NSS.vertFonce} 0%, #021f0e 52%, #000000 100%);
-          padding: 80px clamp(1rem, 2.5vw, 24px) 72px;
+          padding: 110px clamp(1rem, 2.5vw, 24px) 100px;
           text-align: center;
         }
-        .fcta-glow {
-          position: absolute; top: 50%; left: 50%;
-          transform: translate(-50%, -60%);
-          width: 640px; height: 380px; border-radius: 50%;
-          background: radial-gradient(ellipse, rgba(0,173,76,.12) 0%, transparent 70%);
-          pointer-events: none;
+        .fcta-bg {
+          position: absolute; inset: 0;
+          background: url('http://wasafrica.org/wp-content/uploads/2024/11/CENTRE-KARONGHEN-WATI-NANING-9-1.jpg')
+            center / cover no-repeat;
+          z-index: 0;
+        }
+        .fcta-overlay {
+          position: absolute; inset: 0;
+          background: linear-gradient(
+            158deg,
+            rgba(4,86,39,0.88) 0%,
+            rgba(2,18,8,0.90) 50%,
+            rgba(0,0,0,0.92) 100%
+          );
+          z-index: 1;
         }
         .fcta-inner {
-          position: relative;
+          position: relative; z-index: 2;
           max-width: 680px; margin: 0 auto;
           display: flex; flex-direction: column; align-items: center;
         }
@@ -75,7 +84,7 @@ export default function FinalCTASectionRedesign() {
         .fcta-eyebrow {
           display: flex; align-items: center; gap: 16px;
           margin-bottom: 24px;
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 9.5px; font-weight: 700;
           letter-spacing: 0.26em; text-transform: uppercase;
           color: ${NSS.or};
@@ -86,15 +95,15 @@ export default function FinalCTASectionRedesign() {
         }
         /* H2 */
         .fcta-h2 {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: clamp(24px, 3.2vw, 42px);
-          font-weight: 600; color: ${NSS.creme};
+          font-weight: 600; color: #ffffff;
           line-height: 1.1; margin: 0 0 22px; letter-spacing: -0.015em;
         }
         .fcta-h2 em { font-style: italic; color: ${NSS.or}; }
         /* Subtitle */
         .fcta-sub {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 15px; color: #ffffff;
           line-height: 1.78; margin: 0 0 36px;
           max-width: 520px; text-align: center;
@@ -106,7 +115,7 @@ export default function FinalCTASectionRedesign() {
           margin-bottom: 0;
         }
         .fcta-btn {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 11px; font-weight: 700;
           text-decoration: none; text-transform: uppercase; letter-spacing: 0.13em;
           padding: 14px 32px; border-radius: 2px;
@@ -121,12 +130,12 @@ export default function FinalCTASectionRedesign() {
           background: #008f3e; border-color: #008f3e; transform: translateY(-3px);
         }
         .fcta-btn--ghost {
-          background: transparent; color: ${NSS.creme};
-          border: 1.5px solid rgba(245,237,214,.42);
+          background: transparent; color: #ffffff;
+          border: 1.5px solid rgba(255,255,255,.42);
         }
         .fcta-btn--ghost:hover {
-          border-color: rgba(245,237,214,.80);
-          background: rgba(245,237,214,.06);
+          border-color: rgba(255,255,255,.80);
+          background: rgba(255,255,255,.08);
           transform: translateY(-3px); gap: 16px;
         }
         /* Separator */
@@ -136,7 +145,7 @@ export default function FinalCTASectionRedesign() {
         }
         /* Partners label */
         .fcta-partners-label {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 9px; font-weight: 700;
           letter-spacing: 0.22em; text-transform: uppercase;
           color: rgba(255,255,255,.30); margin: 0 0 20px;
@@ -171,3 +180,4 @@ export default function FinalCTASectionRedesign() {
     </section>
   )
 }
+

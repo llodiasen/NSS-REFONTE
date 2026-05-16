@@ -1,20 +1,20 @@
-'use client'
+﻿'use client'
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
 const NSS = {
-  vertClair: '#A5CE46',
+  vertClair: '#145c28',
   or:        '#E8A838',
 } as const
 
 const ease = [0.22, 1, 0.36, 1] as const
 
 const STATS = [
-  { value: '2011',    label: 'Fondation' },
-  { value: '175 000', label: 'Membres actives' },
-  { value: '14',      label: 'Pays' },
-  { value: '500+',    label: 'Associations' },
+  { value: '2011',    label: 'Fondation',       color: '#00AD4C' },
+  { value: '175 000', label: 'Membres actives',  color: '#00AD4C' },
+  { value: '14',      label: 'Pays',             color: '#E24B4A' },
+  { value: '500+',    label: 'Associations',     color: '#00AD4C' },
 ]
 
 export default function AboutHero() {
@@ -56,8 +56,8 @@ export default function AboutHero() {
           initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, delay: 0.28, ease }}
         >
-          Un mouvement né des champs,{' '}
-          <em>conduit par les femmes.</em>
+          Depuis 2011, portées par la terre,{' '}
+          <em>guidées par leurs valeurs.</em>
         </motion.h1>
 
         {/* Lead */}
@@ -78,10 +78,10 @@ export default function AboutHero() {
           initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.70, delay: 0.58, ease }}
         >
-          {STATS.map(({ value, label }, i) => (
+          {STATS.map(({ value, label, color }, i) => (
             <div key={label} className="ah-stat" role="listitem">
               {i > 0 && <span className="ah-stat-sep" aria-hidden>|</span>}
-              <span className="ah-stat-v">{value}</span>
+              <span className="ah-stat-v" style={{ color }}>{value}</span>
               <span className="ah-stat-l">{label}</span>
             </div>
           ))}
@@ -94,7 +94,7 @@ export default function AboutHero() {
         .ah {
           position: relative;
           overflow: hidden;
-          min-height: 480px;
+          min-height: 400px;
           display: flex;
           flex-direction: column;
           justify-content: flex-end;
@@ -110,16 +110,16 @@ export default function AboutHero() {
           z-index: 0;
         }
 
-        /* ── Overlay plus léger ── */
+        /* ── Overlay ── */
         .ah-overlay {
           position: absolute;
           inset: 0;
           background: linear-gradient(
             105deg,
-            rgba(0, 0, 0, 0.56) 0%,
-            rgba(2, 20, 8, 0.46) 40%,
-            rgba(4, 40, 16, 0.30) 70%,
-            rgba(0, 0, 0, 0.18) 100%
+            rgba(0, 0, 0, 0.88) 0%,
+            rgba(2, 20, 8, 0.78) 40%,
+            rgba(4, 40, 16, 0.65) 70%,
+            rgba(0, 0, 0, 0.52) 100%
           );
           z-index: 1;
         }
@@ -131,7 +131,7 @@ export default function AboutHero() {
           max-width: 1400px;
           margin: 0 auto;
           width: 100%;
-          padding: 72px clamp(1.5rem, 4vw, 64px) 64px;
+          padding: 48px clamp(1.5rem, 4vw, 64px) 36px;
           box-sizing: border-box;
           display: flex;
           flex-direction: column;
@@ -142,8 +142,8 @@ export default function AboutHero() {
           display: flex;
           align-items: center;
           gap: 8px;
-          margin-bottom: 40px;
-          font-family: var(--font-dm-sans), sans-serif;
+          margin-bottom: 20px;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 13px;
           color: rgba(255, 255, 255, 0.75);
         }
@@ -160,8 +160,8 @@ export default function AboutHero() {
           display: flex;
           align-items: center;
           gap: 16px;
-          margin-bottom: 28px;
-          font-family: var(--font-dm-sans), sans-serif;
+          margin-bottom: 16px;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 10px;
           font-weight: 700;
           letter-spacing: 0.26em;
@@ -178,12 +178,12 @@ export default function AboutHero() {
 
         /* ── H1 ── */
         .ah-h1 {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: clamp(32px, 4.2vw, 62px);
           font-weight: 700;
           line-height: 1.08;
           color: #ffffff;
-          margin: 0 0 28px;
+          margin: 0 0 18px;
           letter-spacing: -0.02em;
           max-width: 820px;
         }
@@ -194,13 +194,13 @@ export default function AboutHero() {
 
         /* ── Lead ── */
         .ah-lead {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 16px;
           font-weight: 300;
           line-height: 1.75;
           color: #ffffff;
           max-width: 540px;
-          margin: 0 0 48px;
+          margin: 0 0 28px;
         }
 
         /* ── Stats inline (style CIFAP) ── */
@@ -226,16 +226,15 @@ export default function AboutHero() {
         }
 
         .ah-stat-v {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: clamp(20px, 2vw, 28px);
           font-weight: 700;
-          color: ${NSS.vertClair};
           line-height: 1;
           letter-spacing: -0.01em;
         }
 
         .ah-stat-l {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 10px;
           font-weight: 700;
           letter-spacing: 0.16em;
@@ -245,7 +244,7 @@ export default function AboutHero() {
 
         /* ── Responsive ── */
         @media (max-width: 768px) {
-          .ah { min-height: 500px; }
+          .ah { min-height: 420px; }
           .ah-body { padding: 56px 24px 48px; }
           .ah-stat-sep { margin: 0 12px; }
         }
@@ -264,3 +263,4 @@ export default function AboutHero() {
     </section>
   )
 }
+

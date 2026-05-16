@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import ProgrammeHero from '@/components/sections/ProgrammeHero'
 import ArticleGrid   from '@/components/sections/ArticleGrid'
@@ -111,7 +111,7 @@ export default async function AgroecologiePage({
         }
         .agro-intro__eyebrow {
           display: block;
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 9.5px;
           font-weight: 700;
           letter-spacing: 0.24em;
@@ -120,7 +120,7 @@ export default async function AgroecologiePage({
           margin-bottom: 20px;
         }
         .agro-intro__h2 {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 47px;
           font-weight: 600;
           line-height: 1.0;
@@ -130,7 +130,7 @@ export default async function AgroecologiePage({
         }
         .agro-intro__h2 em { font-style: italic; color: #00AD4C; }
         .agro-intro__text {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 15px;
           font-weight: 300;
           line-height: 1.78;
@@ -154,7 +154,7 @@ export default async function AgroecologiePage({
           border-radius: 2px;
         }
         .agro-intro__fact-value {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 48px;
           font-weight: 600;
           color: #E8A838;
@@ -162,7 +162,7 @@ export default async function AgroecologiePage({
           letter-spacing: -0.02em;
         }
         .agro-intro__fact-label {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 12px;
           font-weight: 400;
           color: #4A4A4A;
@@ -177,7 +177,7 @@ export default async function AgroecologiePage({
           padding: 40px 24px;
         }
         .agro-cta__link {
-          font-family: var(--font-dm-sans), sans-serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 13px;
           font-weight: 600;
           color: #A5CE46;

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
@@ -327,7 +327,7 @@ export default function ContactSectionRedesign() {
           flex-shrink: 0;
         }
         .csr__ey-txt {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 0.75rem;
           font-weight: 500;
           letter-spacing: 0.12em;
@@ -337,7 +337,7 @@ export default function ContactSectionRedesign() {
 
         /* H2 */
         .csr__h2 {
-          font-family: var(--font-display), Georgia, serif;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: clamp(1.6rem, 3.5vw, 2.2rem);
           font-weight: 600;
           line-height: 1.1;
@@ -353,7 +353,7 @@ export default function ContactSectionRedesign() {
 
         /* Sous-titre */
         .csr__sub {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: clamp(14px, 1.4vw, 16px);
           line-height: 1.80;
           color: #3a5040;
@@ -415,7 +415,7 @@ export default function ContactSectionRedesign() {
           gap: 3px;
         }
         .csr__info-lbl {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 9px;
           font-weight: 700;
           letter-spacing: 0.18em;
@@ -423,7 +423,7 @@ export default function ContactSectionRedesign() {
           color: #9aaa9a;
         }
         .csr__info-val {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 14px;
           line-height: 1.55;
           color: #1a2e1a;
@@ -439,7 +439,7 @@ export default function ContactSectionRedesign() {
           display: flex;
           align-items: center;
           gap: 10px;
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 12px;
           color: #9aaa9a;
           margin-top: 28px;
@@ -497,7 +497,7 @@ export default function ContactSectionRedesign() {
 
         /* Label */
         .csr__lbl {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 10px;
           font-weight: 700;
           letter-spacing: 0.14em;
@@ -513,7 +513,7 @@ export default function ContactSectionRedesign() {
           border: 1px solid rgba(4,86,39,0.15);
           border-radius: 3px;
           padding: 10px 12px;
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 14px;
           color: #1a2e1a;
           outline: none;
@@ -551,13 +551,13 @@ export default function ContactSectionRedesign() {
 
         /* Erreurs */
         .csr__err {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 11px;
           color: #c0392b;
           line-height: 1.4;
         }
         .csr__srv-err {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 13px;
           color: #c0392b;
           background: rgba(192,57,43,0.06);
@@ -583,7 +583,7 @@ export default function ContactSectionRedesign() {
           cursor: pointer;
         }
         .csr__rgpd-txt {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 12px;
           line-height: 1.65;
           color: #6a7a6a;
@@ -596,7 +596,7 @@ export default function ContactSectionRedesign() {
           align-items: center;
           justify-content: center;
           gap: 10px;
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 11px;
           font-weight: 700;
           letter-spacing: 0.14em;
@@ -622,7 +622,7 @@ export default function ContactSectionRedesign() {
 
         /* Note délai */
         .csr__delay {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 11.5px;
           color: #b8c8b8;
           text-align: center;
@@ -653,14 +653,14 @@ export default function ContactSectionRedesign() {
           color: #00AD4C;
         }
         .csr__ok-title {
-          font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 28px;
           font-weight: 600;
           color: #045627;
           margin: 0;
         }
         .csr__ok-body {
-          font-family: var(--font-body, 'DM Sans', sans-serif);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 14px;
           line-height: 1.72;
           color: #3a5040;
