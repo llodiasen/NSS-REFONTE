@@ -263,7 +263,7 @@ export default function HeroSectionRedesign() {
         .hsr-vid {
           border-radius: 16px;
           overflow: hidden;
-          aspect-ratio: 8/9;
+          aspect-ratio: 3/2;
           position: relative;
           background: #1a2e1a center / cover no-repeat;
         }
