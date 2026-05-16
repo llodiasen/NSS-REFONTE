@@ -4,11 +4,7 @@ import { useRef, useState, useEffect } from 'react'
 import { motion, AnimatePresence, useInView } from 'framer-motion'
 import Link from 'next/link'
 import { MapPin, Calendar, Users, X } from 'lucide-react'
-import {
-  CIFAP_EDITIONS,
-  CIFAP_PARTENAIRES_NSS,
-  CIFAP_PARTENAIRES_BAILLEURS,
-} from '@/data/cifap/index'
+import { CIFAP_EDITIONS } from '@/data/cifap/index'
 
 /* ── Type édition ── */
 type CifapEdition = (typeof CIFAP_EDITIONS)[number]
@@ -885,28 +881,6 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
       </section>
 
 
-      {/* ══════════════════════════════════════════════
-          9. PARTENAIRES — fond alt #FAFAF8
-      ══════════════════════════════════════════════ */}
-      <section className="cf-sec cf-sec--white" aria-labelledby="cf-pt-h2">
-        <div className="cf-sec__inner">
-          <SectionHeader
-            titleId="cf-pt-h2"
-            eyebrow="ALLIANCE"
-            title="Des organisations qui construisent l'agroécologie."
-            sub="Organisateurs et bailleurs de fonds du mouvement NSS."
-          />
-          <StaggerGrid className="cf-pt-grid" stagger={0.07}>
-            {[...CIFAP_PARTENAIRES_NSS, ...CIFAP_PARTENAIRES_BAILLEURS].map((p) => (
-              <motion.div key={p.name} className="cf-pt-logo-cell" variants={fadeUp}>
-                <div className="cf-pt-logo-wrap">
-                  <img src={p.logo} alt={p.name} className="cf-pt-logo-img" loading="lazy" />
-                </div>
-              </motion.div>
-            ))}
-          </StaggerGrid>
-        </div>
-      </section>
 
       {/* ══════════════════════════════════════════════
           11. CTA FINAL — fond vert foncé #045627
