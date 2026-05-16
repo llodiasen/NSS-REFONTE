@@ -181,20 +181,22 @@ export default function AboutDeclaration() {
         }
         .adc-h2-l1 {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: 30px;
-          font-weight: 700;
-          line-height: 1.2;
+          font-size: clamp(2.125rem, 3.5vw, 2.125rem);
+          font-weight: 500;
+          line-height: 1.1;
           color: #2A2A2A;
+          letter-spacing: -0.01em;
           display: block;
           font-style: normal;
           white-space: nowrap;
         }
         .adc-h2-l2 {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: 30px;
-          font-weight: 700;
-          line-height: 1.2;
+          font-size: clamp(2.125rem, 3.5vw, 2.125rem);
+          font-weight: 500;
+          line-height: 1.1;
           color: ${NSS.vertClair};
+          letter-spacing: -0.01em;
           font-style: italic;
           display: block;
         }
