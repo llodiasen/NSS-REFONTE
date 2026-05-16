@@ -151,7 +151,7 @@ export default function ObjectifsRedesign() {
         }
         .obj-h2 {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: clamp(1.44rem, 3.15vw, 2.52rem);
+          font-size: clamp(1.37rem, 2.99vw, 2.39rem);
           font-weight: 500; letter-spacing: -0.01em; line-height: 1.2;
           color: #2A2A2A; margin: 0;
         }

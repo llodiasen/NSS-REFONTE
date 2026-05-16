@@ -225,7 +225,7 @@ export default function PartnersSectionRedesign() {
         /* ── H2 ── */
         .pts-h2 {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: clamp(1.44rem, 3.15vw, 1.98rem);
+          font-size: clamp(1.37rem, 2.99vw, 1.88rem);
           font-weight: 400;
           line-height: 1.2;
           color: #2A2A2A;
