@@ -117,7 +117,7 @@ export default function HeaderRedesign() {
               className="hidden flex-1 items-center justify-center gap-0.5 pl-4 md:flex">
 
               <Link href={`/${locale}`}
-                className="group relative px-3 py-2 text-[14px] font-medium text-[#1a2a1a] transition-colors hover:text-[#00AD4C]">
+                className="group relative px-3 py-2 text-[12px] font-medium text-[#1a2a1a] transition-colors hover:text-[#00AD4C]">
                 Accueil
                 <span className="absolute inset-x-3 bottom-1 h-px origin-left scale-x-0 bg-[#00AD4C] transition-transform duration-200 group-hover:scale-x-100" />
               </Link>
@@ -129,7 +129,7 @@ export default function HeaderRedesign() {
                   <div key={key} className="relative">
                     <button onClick={() => setOpenDrop(isOpen ? null : key)}
                       aria-expanded={isOpen} aria-haspopup="true"
-                      className={`group relative flex items-center gap-1 px-3 py-2 text-[14px] font-medium transition-colors ${isOpen ? "text-[#00AD4C]" : "text-[#1a2a1a] hover:text-[#00AD4C]"}`}>
+                      className={`group relative flex items-center gap-1 px-3 py-2 text-[12px] font-medium transition-colors ${isOpen ? "text-[#00AD4C]" : "text-[#1a2a1a] hover:text-[#00AD4C]"}`}>
                       {label}
                       <ChevronDown size={11} className={`shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
                       <span className={`absolute inset-x-3 bottom-1 h-px origin-left bg-[#00AD4C] transition-transform duration-200 ${isOpen ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`} />
@@ -140,7 +140,7 @@ export default function HeaderRedesign() {
               })}
 
               <Link href={`/${locale}/contact`}
-                className="group relative px-3 py-2 text-[14px] font-medium text-[#1a2a1a] transition-colors hover:text-[#00AD4C]">
+                className="group relative px-3 py-2 text-[12px] font-medium text-[#1a2a1a] transition-colors hover:text-[#00AD4C]">
                 Contact
                 <span className="absolute inset-x-3 bottom-1 h-px origin-left scale-x-0 bg-[#00AD4C] transition-transform duration-200 group-hover:scale-x-100" />
               </Link>
