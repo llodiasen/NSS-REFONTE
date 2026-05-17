@@ -46,7 +46,7 @@ export default function ProgrammesHero() {
           min-height: 500px;
           display: flex;
           flex-direction: column;
-          justify-content: flex-end;
+          justify-content: center;
         }
         .prh-bg {
           position: absolute;
