@@ -1,111 +1,170 @@
-﻿import Link from "next/link";
+import Link from "next/link"
 
 export default function MediathequeHero() {
   return (
-    <section
-      style={{
-        position: "relative",
-        overflow: "hidden",
-        color: "#ffffff",
-        backgroundImage: `url('http://wasafrica.org/wp-content/uploads/2024/11/CENTRE-KARONGHEN-WATI-NANING-9-1.jpg')`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
-      {/* Overlay */}
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          inset: 0,
-          background: [
-            "linear-gradient(to right, rgba(0,0,0,0.97) 0%, rgba(3,8,5,0.95) 40%, rgba(6,14,9,0.88) 65%, rgba(0,0,0,0.70) 100%)",
-            "linear-gradient(to bottom, rgba(0,0,0,0.40) 0%, transparent 35%, rgba(0,0,0,0.35) 100%)",
-            "radial-gradient(ellipse 70% 50% at 20% 80%, rgba(45,154,106,0.08), transparent 65%)",
-          ].join(", "),
-        }}
-      />
+    <section className="mh" aria-label="En-tête médiathèque">
 
-      <div
-        style={{
-          position: "relative",
-          zIndex: 1,
-          maxWidth: "var(--container-max)",
-          margin: "0 auto",
-          padding: "48px var(--container-pad) 44px",
-        }}
-      >
+      <div className="mh-bg" aria-hidden="true" />
+      <div className="mh-overlay" aria-hidden="true" />
+
+      <div className="mh-body">
+
         {/* Breadcrumb */}
-        <p style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "14px", fontWeight: 400, color: "#ffffff", marginBottom: "28px" }}>
-          <Link href="/fr" style={{ color: "#ffffff", textDecoration: "none" }}>Accueil</Link>
-          {" / "}
-          <span style={{ color: "#ffffff" }}>Vidéos</span>
-        </p>
+        <nav className="mh-bc" aria-label="Fil d'Ariane">
+          <Link href="/fr" className="mh-bc-link">Accueil</Link>
+          <span className="mh-bc-sep" aria-hidden="true">/</span>
+          <span>Médiathèque</span>
+        </nav>
 
         {/* Eyebrow */}
-        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "24px" }}>
-          <span aria-hidden="true" style={{ display: "block", width: "28px", height: "1px", background: "rgba(127,212,166,0.4)", flexShrink: 0 }} />
-          <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2.5px", color: "var(--green-300, #7aab8a)", whiteSpace: "nowrap" }}>
-            Médiathèque NSS — Vidéos
-          </span>
-          <span aria-hidden="true" style={{ display: "block", width: "28px", height: "1px", background: "rgba(127,212,166,0.4)", flexShrink: 0 }} />
+        <div className="mh-eyebrow" aria-hidden="true">
+          <span className="mh-ey-line" />
+          <span className="mh-ey-txt">MÉDIATHÈQUE NSS</span>
+          <span className="mh-ey-line" />
         </div>
 
-        {/* Titre */}
-        <h1
-          style={{
-            fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
-            fontSize: "clamp(32px, 4vw, 52px)",
-            fontWeight: 400,
-            lineHeight: 1.12,
-            color: "#ffffff",
-            marginBottom: "20px",
-            maxWidth: "660px",
-          }}
-        >
-          Le mouvement en vidéos.
+        {/* H1 */}
+        <h1 className="mh-h1">
+          Leur parole,
+          <em>en images.</em>
         </h1>
 
-        {/* Sous-titre */}
-        <p
-          style={{
-            fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
-            fontSize: "17px",
-            lineHeight: 1.7,
-            color: "#ffffff",
-            maxWidth: "520px",
-            marginBottom: "36px",
-          }}
-        >
-          Reportages, témoignages et formations filmées —
-          la vie du réseau NSS à travers 14 pays.
+        {/* Sub */}
+        <p className="mh-sub">
+          Reportages, témoignages et formations filmées — la vie du réseau
+          NSS à travers 14 pays d&apos;Afrique de l&apos;Ouest.
         </p>
 
-        {/* CTA */}
-        <Link
-          href="#contenu"
-          style={{
-            fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
-            fontSize: "13px",
-            fontWeight: 500,
-            color: "#ffffff",
-            textDecoration: "none",
-            border: "1px solid rgba(255,255,255,0.3)",
-            borderRadius: "24px",
-            padding: "10px 22px",
-            display: "inline-block",
-          }}
-          className="mth-hero-cta"
-        >
-          Explorer les ressources →
-        </Link>
+        <a href="#contenu" className="mh-cta">Explorer les vidéos →</a>
 
       </div>
 
       <style>{`
-        .mth-hero-cta:hover { border-color: rgba(255,255,255,0.7) !important; }
+        .mh {
+          position: relative;
+          height: 340px;
+          overflow: hidden;
+          display: flex;
+          align-items: flex-end;
+          background: #0d1a0d;
+        }
+
+        .mh-bg {
+          position: absolute;
+          inset: 0;
+          background-image: url('/images/actualites/nss-cifap-2025.jpg');
+          background-size: cover;
+          background-position: center 35%;
+        }
+
+        .mh-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            to right,
+            rgba(4,22,8,0.93) 0%,
+            rgba(4,22,8,0.78) 52%,
+            rgba(4,22,8,0.45) 100%
+          );
+        }
+
+        .mh-body {
+          position: relative;
+          z-index: 2;
+          padding: 0 80px 44px;
+          max-width: 640px;
+        }
+
+        /* Breadcrumb */
+        .mh-bc {
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 12px;
+          color: rgba(255,255,255,0.45);
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          margin-bottom: 22px;
+        }
+        .mh-bc-link {
+          color: rgba(255,255,255,0.45);
+          text-decoration: none;
+          transition: color 0.2s;
+        }
+        .mh-bc-link:hover { color: rgba(255,255,255,0.8); }
+        .mh-bc-sep { color: rgba(255,255,255,0.2); }
+
+        /* Eyebrow */
+        .mh-eyebrow {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 14px;
+        }
+        .mh-ey-line {
+          display: block;
+          width: 22px;
+          height: 1px;
+          background: rgba(165,206,70,0.5);
+          flex-shrink: 0;
+        }
+        .mh-ey-txt {
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 10px;
+          font-weight: 500;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: #A5CE46;
+        }
+
+        /* H1 */
+        .mh-h1 {
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-size: clamp(2rem, 4.5vw, 3rem);
+          font-weight: 600;
+          color: #ffffff;
+          line-height: 1.05;
+          margin: 0 0 14px;
+          letter-spacing: -0.01em;
+        }
+        .mh-h1 em {
+          display: block;
+          color: #A5CE46;
+          font-style: italic;
+        }
+
+        /* Sub */
+        .mh-sub {
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 14px;
+          font-weight: 300;
+          color: rgba(255,255,255,0.62);
+          line-height: 1.7;
+          margin: 0 0 22px;
+          max-width: 460px;
+        }
+
+        /* CTA */
+        .mh-cta {
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 12px;
+          font-weight: 500;
+          color: #ffffff;
+          text-decoration: none;
+          border: 1px solid rgba(255,255,255,0.28);
+          border-radius: 24px;
+          padding: 9px 20px;
+          display: inline-block;
+          transition: border-color 0.2s;
+          letter-spacing: 0.04em;
+        }
+        .mh-cta:hover { border-color: rgba(255,255,255,0.65); }
+
+        @media (max-width: 768px) {
+          .mh { height: auto; min-height: 260px; }
+          .mh-body { padding: 0 24px 32px; }
+          .mh-h1 { font-size: clamp(1.75rem, 7vw, 2.4rem); }
+        }
       `}</style>
     </section>
-  );
+  )
 }

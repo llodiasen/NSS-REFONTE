@@ -150,14 +150,14 @@ function VideoModal({ item, onClose }: { item: VideoItem; onClose: () => void })
 /* ─── Animation helpers ────────────────────────────────────── */
 const ease = [0.22, 1, 0.36, 1] as const
 
-const inView = (delay = 0) => ({
+const _inView = (delay = 0) => ({
   initial:     { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0  },
   viewport:    { once: true, margin: '-80px' },
   transition:  { duration: 0.72, delay, ease },
 })
 
-const inViewScale = (delay = 0) => ({
+const _inViewScale = (delay = 0) => ({
   initial:     { opacity: 0, y: 30, scale: 0.97 as number },
   whileInView: { opacity: 1, y: 0,  scale: 1    as number },
   viewport:    { once: true, margin: '-80px' },
