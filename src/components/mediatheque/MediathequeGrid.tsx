@@ -263,22 +263,19 @@ function VideoModal({ video, onClose }: { video: ActiveVideo; onClose: () => voi
 
 /* ── Main ───────────────────────────────────────────────────────────────────── */
 
-interface Props { activeTab: string; activePill: string; search: string }
+const PILLS = ["Tous", "Événements", "Agroécologie", "Médias", "NSS"]
 
-export default function MediathequeGrid({ activePill, search }: Props) {
-  const [page, setPage] = useState(1)
+export default function MediathequeGrid() {
+  const [activePill, setActivePill] = useState("Tous")
+  const [visible, setVisible]       = useState(PER_PAGE)
   const [activeVideo, setActiveVideo] = useState<ActiveVideo | null>(null)
 
   const filtered = CARDS
-    .filter((c) => {
-      if (activePill !== "Tous" && c.categorie !== activePill) return false
-      if (search && !c.titre.toLowerCase().includes(search.toLowerCase())) return false
-      return true
-    })
+    .filter((c) => activePill === "Tous" || c.categorie === activePill)
     .sort((a, b) => b.sortDate.localeCompare(a.sortDate))
 
-  const totalPages = Math.ceil(filtered.length / PER_PAGE)
-  const paged = filtered.slice((page - 1) * PER_PAGE, page * PER_PAGE)
+  const paged = filtered.slice(0, visible)
+  const hasMore = visible < filtered.length
 
   return (
     <>
@@ -286,11 +283,21 @@ export default function MediathequeGrid({ activePill, search }: Props) {
 
       <section className="mg-wrap" aria-label="Grille de vidéos">
 
-        {/* Header grille */}
-        <div className="mg-bar">
-          <span className="mg-count">
-            {filtered.length} vidéo{filtered.length !== 1 ? "s" : ""}
-          </span>
+        {/* Filtres */}
+        <div className="mg-pills" role="group" aria-label="Filtrer par catégorie">
+          {PILLS.map((pill) => {
+            const active = activePill === pill
+            return (
+              <button
+                key={pill}
+                onClick={() => { setActivePill(pill); setVisible(PER_PAGE) }}
+                className={`mg-pill${active ? ' mg-pill--active' : ''}`}
+                aria-pressed={active}
+              >
+                {pill}
+              </button>
+            )
+          })}
         </div>
 
         {/* Grille */}
@@ -345,35 +352,14 @@ export default function MediathequeGrid({ activePill, search }: Props) {
           </div>
         )}
 
-        {/* Pagination */}
-        {totalPages > 1 && (
-          <div className="mg-pag" role="navigation" aria-label="Pagination">
+        {/* Voir plus */}
+        {hasMore && (
+          <div className="mg-voir-plus">
             <button
-              className="mg-pag-btn"
-              onClick={() => setPage((p) => Math.max(1, p - 1))}
-              disabled={page === 1}
-              aria-label="Page précédente"
+              className="mg-voir-plus-btn"
+              onClick={() => setVisible((v) => v + PER_PAGE)}
             >
-              ‹
-            </button>
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) => (
-              <button
-                key={n}
-                className={`mg-pag-btn${page === n ? " mg-pag-btn--active" : ""}`}
-                onClick={() => setPage(n)}
-                aria-label={`Page ${n}`}
-                aria-current={page === n ? "page" : undefined}
-              >
-                {n}
-              </button>
-            ))}
-            <button
-              className="mg-pag-btn"
-              onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-              disabled={page === totalPages}
-              aria-label="Page suivante"
-            >
-              ›
+              Voir plus
             </button>
           </div>
         )}
@@ -383,21 +369,39 @@ export default function MediathequeGrid({ activePill, search }: Props) {
       <style>{`
         /* ── WRAP ── */
         .mg-wrap {
-          padding: 28px 80px 60px;
+          padding: 32px 80px 80px;
         }
 
-        /* ── HEADER BAR ── */
-        .mg-bar {
+        /* ── PILLS ── */
+        .mg-pills {
           display: flex;
           align-items: center;
-          justify-content: space-between;
-          margin-bottom: 20px;
+          justify-content: center;
+          gap: 7px;
+          flex-wrap: wrap;
+          margin-bottom: 32px;
         }
-        .mg-count {
+        .mg-pill {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 14px;
+          font-size: 12px;
           font-weight: 400;
-          color: #6b7280;
+          padding: 6px 16px;
+          border-radius: 20px;
+          cursor: pointer;
+          border: 1px solid #e0e8e2;
+          background: #ffffff;
+          color: #555555;
+          transition: all 0.15s;
+        }
+        .mg-pill:hover:not(.mg-pill--active) {
+          border-color: #00AD4C;
+          color: #00AD4C;
+        }
+        .mg-pill--active {
+          background: #045627;
+          border-color: #045627;
+          color: #ffffff;
+          font-weight: 500;
         }
 
         /* ── GRILLE ── */
@@ -541,43 +545,28 @@ export default function MediathequeGrid({ activePill, search }: Props) {
           color: #9ca3af;
         }
 
-        /* ── PAGINATION ── */
-        .mg-pag {
+        /* ── VOIR PLUS ── */
+        .mg-voir-plus {
           display: flex;
-          align-items: center;
           justify-content: center;
-          gap: 6px;
-          padding: 32px 0 8px;
+          padding: 36px 0 8px;
         }
-        .mg-pag-btn {
+        .mg-voir-plus-btn {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          width: 34px;
-          height: 34px;
-          border-radius: 8px;
-          border: 1px solid #e5e7eb;
-          background: #ffffff;
-          color: #555555;
           font-size: 13px;
-          font-weight: 400;
+          font-weight: 500;
+          color: #045627;
+          background: #ffffff;
+          border: 1px solid #e0e8e2;
+          border-radius: 99px;
+          padding: 10px 36px;
           cursor: pointer;
-          transition: all 0.15s;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          letter-spacing: 0.02em;
+          transition: all 0.2s;
         }
-        .mg-pag-btn:hover:not(:disabled):not(.mg-pag-btn--active) {
+        .mg-voir-plus-btn:hover {
           border-color: #00AD4C;
-          color: #00AD4C;
-        }
-        .mg-pag-btn--active {
-          background: #045627;
-          border-color: #045627;
-          color: #ffffff;
-          font-weight: 600;
-        }
-        .mg-pag-btn:disabled {
-          opacity: 0.35;
-          cursor: default;
+          background: #f0f9f0;
         }
 
         /* ── SPINNER ── */

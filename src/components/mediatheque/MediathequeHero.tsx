@@ -2,11 +2,6 @@ import Link from 'next/link'
 
 const C_GREEN = '#97C459'
 
-const STATS = [
-  { value: '15',  label: 'Vidéos',      color: C_GREEN, last: false },
-  { value: '14',  label: 'Pays',        color: C_GREEN, last: false },
-  { value: '2017', label: 'Depuis',     color: C_GREEN, last: true  },
-]
 
 export default function MediathequeHero() {
   return (
@@ -45,15 +40,6 @@ export default function MediathequeHero() {
         {/* CTA */}
         <a href="#contenu" className="vh-cta">Explorer les vidéos →</a>
 
-        {/* Stats */}
-        <div className="vh-stats" role="list" aria-label="Chiffres médiathèque">
-          {STATS.map(({ value, label, color, last }) => (
-            <div key={label} className={`vh-stat${last ? '' : ' vh-stat--sep'}`} role="listitem">
-              <span className="vh-stat-v" style={{ color }}>{value}</span>
-              <span className="vh-stat-l">{label}</span>
-            </div>
-          ))}
-        </div>
 
       </div>
 
@@ -145,35 +131,15 @@ export default function MediathequeHero() {
         }
         .vh-cta:hover { border-color: rgba(255,255,255,0.75); }
 
-        /* Stats */
-        .vh-stats {
-          display: flex; align-items: baseline; flex-wrap: wrap;
-          border-top: 1px solid rgba(255,255,255,0.12);
-          padding-top: 20px; margin-top: 28px; row-gap: 12px;
-        }
-        .vh-stat { display: flex; align-items: baseline; gap: 6px; }
-        .vh-stat--sep { padding-right: 28px; margin-right: 28px; border-right: 1px solid rgba(255,255,255,0.15); }
-        .vh-stat-v {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: 1.25rem; font-weight: 700; line-height: 1; letter-spacing: -0.01em;
-        }
-        .vh-stat-l {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 10px; font-weight: 500;
-          text-transform: uppercase; letter-spacing: 0.1em; color: #ffffff;
-        }
-
         /* Tablet */
         @media (max-width: 768px) {
           .vh { min-height: 520px; }
           .vh-body { padding: 60px 24px 40px; }
-          .vh-stat--sep { padding-right: 20px; margin-right: 20px; }
         }
         @media (max-width: 480px) {
           .vh { min-height: 540px; }
           .vh-body { padding: 56px 20px 36px; }
           .vh-h1 { max-width: 100%; }
-          .vh-stat--sep { padding-right: 14px; margin-right: 14px; }
         }
       `}</style>
     </section>
