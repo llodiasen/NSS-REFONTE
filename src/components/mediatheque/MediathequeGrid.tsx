@@ -26,52 +26,9 @@ interface ActiveVideo {
 
 /* ── Data ───────────────────────────────────────────────────────────────────── */
 
+/* Toutes les vidéos disponibles du projet, ordre décroissant par date */
 const CARDS: VideoCard[] = [
-  {
-    categorie: "Médias",
-    titre: "Journal TV 20h — Femmes paysannes et souveraineté alimentaire",
-    excerpt: "Le mouvement NSS à la une du Journal Télévisé de 20h. Une couverture médiatique nationale qui met en lumière les actions des femmes rurales pour la souveraineté alimentaire.",
-    date: "1 sept. 2025", sortDate: "2025-09-01", duree: "4 min",
-    thumb: "https://img.youtube.com/vi/LGkcZMWNgZA/maxresdefault.jpg",
-    bg: "linear-gradient(135deg,#1a4a2e,#2d7a4e)",
-    youtubeId: "LGkcZMWNgZA",
-  },
-  {
-    categorie: "Agroécologie",
-    titre: "Au Sénégal : Le Combat des Agricultrices pour l'Accès à la Propriété",
-    excerpt: "Reportage de terrain au Sénégal sur les luttes des femmes rurales pour accéder à la propriété foncière. Témoignages de paysannes qui cultivent depuis des générations des terres qu'elles ne possèdent pas.",
-    date: "20 juin 2024", sortDate: "2024-06-20", duree: "12 min",
-    thumb: "https://img.youtube.com/vi/FothaoeQsQ8/maxresdefault.jpg",
-    bg: "linear-gradient(135deg,#2a1a3a,#5a3a7a)",
-    youtubeId: "FothaoeQsQ8",
-  },
-  {
-    categorie: "NSS",
-    titre: "30 Min avec Mariama Sonko : Écoféminisme et Agroécologie",
-    excerpt: "Interview approfondie avec Mariama Sonko, leader du mouvement NSS, sur les liens entre écoféminisme et agroécologie. Une vision politique et spirituelle de la relation des femmes rurales à la terre.",
-    date: "15 nov. 2024", sortDate: "2024-11-15", duree: "28 min",
-    thumb: "https://img.youtube.com/vi/boT5gIW072Q/maxresdefault.jpg",
-    bg: "linear-gradient(135deg,#1a2a3a,#2a5a7a)",
-    youtubeId: "boT5gIW072Q",
-  },
-  {
-    categorie: "Événements",
-    titre: "Quatrième édition du CIFAP — Formation sur l'Agroécologie Paysanne",
-    excerpt: "Des centaines de femmes rurales venues de toute l'Afrique de l'Ouest réunies pour partager savoirs, pratiques et engagements autour de la souveraineté alimentaire.",
-    date: "30 août 2025", sortDate: "2025-08-30", duree: "18 min",
-    thumb: "https://res.cloudinary.com/dtjvjlkcc/video/upload/f_jpg,so_2/v1775999944/Quatri%C3%A8me_%C3%A9dition_du_Camp_International_de_Formation_sur_l_Agro%C3%A9cologie_Paysanne_CIFAP_jppmln.jpg",
-    bg: "linear-gradient(135deg,#0f2b1a,#1a6b3c)",
-    cloudinaryUrl: "https://res.cloudinary.com/dtjvjlkcc/video/upload/q_auto/f_auto/v1775999944/Quatri%C3%A8me_%C3%A9dition_du_Camp_International_de_Formation_sur_l_Agro%C3%A9cologie_Paysanne_CIFAP_jppmln.mp4",
-  },
-  {
-    categorie: "Événements",
-    titre: "CIFAP 4e édition — Mme Tabara partage ses impressions sur l'agroécologie",
-    excerpt: "Lors de la 4e édition du CIFAP, Mme Tabara a salué l'initiative qui renforce les compétences en agroécologie. Un véritable cadre d'apprentissage, de partage d'expériences et de réseautage.",
-    date: "30 août 2025", sortDate: "2025-08-30", duree: "5 min",
-    thumb: "https://res.cloudinary.com/dtjvjlkcc/video/upload/f_jpg,so_2/v1776000623/20_NOUS_SOMMES_LA_SOLUTION_-_Facebook_uf48gq.jpg",
-    bg: "linear-gradient(135deg,#0f2b1a,#1a6b3c)",
-    cloudinaryUrl: "https://res.cloudinary.com/dtjvjlkcc/video/upload/q_auto/f_auto/v1776000623/20_NOUS_SOMMES_LA_SOLUTION_-_Facebook_uf48gq.mp4",
-  },
+  /* ── 15 sept. 2025 ── */
   {
     categorie: "Événements",
     titre: "CIFAP 2025 — Mme Mariama Sonko rend hommage à M. Razack Belemgnegre",
@@ -90,11 +47,40 @@ const CARDS: VideoCard[] = [
     bg: "linear-gradient(135deg,#0f2b1a,#1a5c34)",
     cloudinaryUrl: "https://res.cloudinary.com/dtjvjlkcc/video/upload/q_auto/f_auto/v1775993935/Cifap_2025__Mme_Tabara_Ndiaye_invite_les_femmes_du_mouvement_NSS_%C3%A0_s_engager_plus_dans_la_lutte_vwpfgz.mp4",
   },
+  /* ── 1 sept. 2025 ── */
+  {
+    categorie: "Médias",
+    titre: "Journal TV 20h — Femmes paysannes et souveraineté alimentaire",
+    excerpt: "Le mouvement NSS à la une du Journal Télévisé de 20h. Une couverture médiatique nationale qui met en lumière les actions des femmes rurales pour la souveraineté alimentaire.",
+    date: "1 sept. 2025", sortDate: "2025-09-01", duree: "4 min",
+    thumb: "https://img.youtube.com/vi/LGkcZMWNgZA/maxresdefault.jpg",
+    bg: "linear-gradient(135deg,#1a4a2e,#2d7a4e)",
+    youtubeId: "LGkcZMWNgZA",
+  },
+  /* ── 30 août 2025 ── */
+  {
+    categorie: "Événements",
+    titre: "Quatrième édition du CIFAP — Camp International de Formation sur l'Agroécologie Paysanne",
+    excerpt: "Des centaines de femmes rurales venues de toute l'Afrique de l'Ouest réunies pendant plusieurs jours pour partager savoirs, pratiques et engagements autour de la souveraineté alimentaire.",
+    date: "30 août 2025", sortDate: "2025-08-30", duree: "18 min",
+    thumb: "https://res.cloudinary.com/dtjvjlkcc/video/upload/f_jpg,so_2/v1775999944/Quatri%C3%A8me_%C3%A9dition_du_Camp_International_de_Formation_sur_l_Agro%C3%A9cologie_Paysanne_CIFAP_jppmln.jpg",
+    bg: "linear-gradient(135deg,#0f2b1a,#1a6b3c)",
+    cloudinaryUrl: "https://res.cloudinary.com/dtjvjlkcc/video/upload/q_auto/f_auto/v1775999944/Quatri%C3%A8me_%C3%A9dition_du_Camp_International_de_Formation_sur_l_Agro%C3%A9cologie_Paysanne_CIFAP_jppmln.mp4",
+  },
+  {
+    categorie: "Événements",
+    titre: "CIFAP 4e édition — Mme Tabara partage ses impressions sur l'agroécologie",
+    excerpt: "Lors de la 4e édition du CIFAP, Mme Tabara a salué l'initiative qui renforce les compétences en agroécologie. Un véritable cadre d'apprentissage, de partage d'expériences et de réseautage.",
+    date: "30 août 2025", sortDate: "2025-08-29", duree: "5 min",
+    thumb: "https://res.cloudinary.com/dtjvjlkcc/video/upload/f_jpg,so_2/v1776000623/20_NOUS_SOMMES_LA_SOLUTION_-_Facebook_uf48gq.jpg",
+    bg: "linear-gradient(135deg,#0f2b1a,#1a6b3c)",
+    cloudinaryUrl: "https://res.cloudinary.com/dtjvjlkcc/video/upload/q_auto/f_auto/v1776000623/20_NOUS_SOMMES_LA_SOLUTION_-_Facebook_uf48gq.mp4",
+  },
   {
     categorie: "NSS",
     titre: "Ziguinchor TV — CIFAP 3e édition : Mme Mariama Sonko, Présidente NSS",
     excerpt: "Mme Mariama Sonko, présidente du mouvement NSS, exprime sa fierté et sa vision pour la 3e édition du CIFAP à Niaguis. Un moment fort pour les femmes rurales d'Afrique de l'Ouest.",
-    date: "30 août 2025", sortDate: "2025-08-29", duree: "3 min",
+    date: "30 août 2025", sortDate: "2025-08-28", duree: "3 min",
     thumb: "https://res.cloudinary.com/dtjvjlkcc/video/upload/f_jpg,so_2/v1776021074/Ziguinchor_TV_CIFAP_3%C3%A8me_Edition_Mouvement_NSS_Mme_Mariama_Sonko_Pr%C3%A9sidente_NSS_2_adfoi0.jpg",
     bg: "linear-gradient(135deg,#0f2b1a,#2a6b3c)",
     cloudinaryUrl: "https://res.cloudinary.com/dtjvjlkcc/video/upload/q_auto/f_auto/v1776021074/Ziguinchor_TV_CIFAP_3%C3%A8me_Edition_Mouvement_NSS_Mme_Mariama_Sonko_Pr%C3%A9sidente_NSS_2_adfoi0.mp4",
@@ -103,11 +89,32 @@ const CARDS: VideoCard[] = [
     categorie: "NSS",
     titre: "Ziguinchor TV — CIFAP 3e édition : Iya Diakité, Coordinatrice NSS Mali",
     excerpt: "Iya Diakité, coordinatrice NSS au Mali, revient sur les enseignements de la 3e édition du CIFAP. Elle partage comment les pratiques agroécologiques transforment les communautés rurales.",
-    date: "30 août 2025", sortDate: "2025-08-28", duree: "4 min",
+    date: "30 août 2025", sortDate: "2025-08-27", duree: "4 min",
     thumb: "https://res.cloudinary.com/dtjvjlkcc/video/upload/f_jpg,so_2/v1776020349/Ziguinchor_TV_CIFAP_3%C3%A8me_Edition_Niaguis_Mouvement_NSS_Iya_Diakit%C3%A9_Coordonnatrice_Mvt_NSS_Mali_gkeoco.jpg",
     bg: "linear-gradient(135deg,#1a2a3a,#2a5a7a)",
     cloudinaryUrl: "https://res.cloudinary.com/dtjvjlkcc/video/upload/q_auto/f_auto/v1776020349/Ziguinchor_TV_CIFAP_3%C3%A8me_Edition_Niaguis_Mouvement_NSS_Iya_Diakit%C3%A9_Coordonnatrice_Mvt_NSS_Mali_gkeoco.mp4",
   },
+  /* ── 15 nov. 2024 ── */
+  {
+    categorie: "NSS",
+    titre: "30 Min avec Mariama Sonko : Écoféminisme et Agroécologie",
+    excerpt: "Interview approfondie avec Mariama Sonko, leader du mouvement NSS, sur les liens entre écoféminisme et agroécologie. Une vision politique et spirituelle de la relation des femmes rurales à la terre.",
+    date: "15 nov. 2024", sortDate: "2024-11-15", duree: "28 min",
+    thumb: "https://img.youtube.com/vi/boT5gIW072Q/maxresdefault.jpg",
+    bg: "linear-gradient(135deg,#1a2a3a,#2a5a7a)",
+    youtubeId: "boT5gIW072Q",
+  },
+  /* ── 20 juin 2024 ── */
+  {
+    categorie: "Agroécologie",
+    titre: "Au Sénégal : Le Combat des Agricultrices pour l'Accès à la Propriété",
+    excerpt: "Reportage de terrain au Sénégal sur les luttes des femmes rurales pour accéder à la propriété foncière. Témoignages de paysannes qui cultivent depuis des générations des terres qu'elles ne possèdent pas.",
+    date: "20 juin 2024", sortDate: "2024-06-20", duree: "12 min",
+    thumb: "https://img.youtube.com/vi/FothaoeQsQ8/maxresdefault.jpg",
+    bg: "linear-gradient(135deg,#2a1a3a,#5a3a7a)",
+    youtubeId: "FothaoeQsQ8",
+  },
+  /* ── 22 mars 2024 ── */
   {
     categorie: "Agroécologie",
     titre: "NSS à Pescara – Journée Mondiale de l'Eau (1/3)",

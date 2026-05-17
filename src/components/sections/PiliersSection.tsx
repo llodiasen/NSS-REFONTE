@@ -287,7 +287,7 @@ export default function PiliersSection() {
         /* ── TEXTE ── */
         .pil-text {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 15px;
+          font-size: 14px;
           font-weight: 300;
           color: #4A4A4A;
           line-height: 1.8;

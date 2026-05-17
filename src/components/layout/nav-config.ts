@@ -23,7 +23,7 @@ export function buildNavItems(locale: string) {
         { label: "Actualités", href: `/${locale}/ressources/actualites`, description: "Dernières nouvelles" },
         { label: "FAQ", href: `/${locale}/ressources/faq`, description: "Questions fréquentes" },
         { label: "Galerie", href: `/${locale}/ressources/galerie`, description: "Photos du terrain" },
-        { label: "Vidéos", href: `/${locale}/mediatheque`, description: "Reportages & témoignages" },
+        { label: "Vidéos", href: `/${locale}/videos`, description: "Reportages & témoignages" },
       ],
     },
     {

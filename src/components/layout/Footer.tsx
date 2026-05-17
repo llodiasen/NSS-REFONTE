@@ -17,7 +17,7 @@ const NAV_PROGRAMMES = [
   { label: "EMMAP",             href: "/programmes/emmap" },
   { label: "Actualit\u00e9s",   href: "/ressources/actualites" },
   { label: "Galerie",           href: "/ressources/galerie" },
-  { label: "Vid\u00e9os", href: "/mediatheque" },
+  { label: "Vid\u00e9os", href: "/videos" },
 ];
 
 const NAV_AGIR = [

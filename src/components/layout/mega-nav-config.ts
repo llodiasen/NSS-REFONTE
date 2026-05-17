@@ -55,7 +55,7 @@ export function getMegaColumns(locale: string): MegaColumn[] {
       heading: "Ressources",
       links: [
         { icon: FileText, title: "Publications & rapports", description: "Rapports annuels, études",           href: `/${locale}/ressources/actualites` },
-        { icon: Video,    title: "Vidéos",                   description: "Reportages, témoignages filmés",      href: `/${locale}/mediatheque` },
+        { icon: Video,    title: "Vidéos",                   description: "Reportages, témoignages filmés",      href: `/${locale}/videos` },
         { icon: Calendar, title: "Agenda & événements",    description: "Formations, forums, rencontres",     href: `/${locale}/ressources/actualites` },
         { icon: Search,   title: "Presse & médias",        description: "Communiqués, porte-parole",          href: `/${locale}/ressources/galerie` },
       ],

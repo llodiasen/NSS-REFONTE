@@ -30,7 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       "/ressources/faq",
       "/ressources/actualites",
       "/ressources/galerie",
-      "/mediatheque",
+      "/videos",
       "/agir/rejoindre",
       "/agir/donner",
       "/contact",
@@ -66,7 +66,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const videoPages = LOCALES.flatMap((locale) =>
     videoSlugs.map((id) => ({
-      url: `${BASE_URL}/${locale}/mediatheque#${id}`,
+      url: `${BASE_URL}/${locale}/videos#${id}`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.5,

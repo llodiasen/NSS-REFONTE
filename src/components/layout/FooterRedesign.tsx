@@ -31,7 +31,7 @@ const NAV_MOUVEMENT: NavItem[] = [
   { label: 'Associations',    href: '/mouvement/associations'   },
   { label: 'Actualités',      href: '/ressources/actualites'    },
   { label: 'Galerie',         href: '/ressources/galerie'       },
-  { label: 'Vidéos',          href: '/mediatheque'              },
+  { label: 'Vidéos',          href: '/videos'                   },
 ]
 
 const NAV_PROGRAMMES: NavItem[] = [

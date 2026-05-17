@@ -9,7 +9,7 @@
     { "source": "/medias-minorites-paix", "destination": "/fr/programmes/emmap", "permanent": true },
     { "source": "/event/:slug*", "destination": "/fr/ressources/actualites/:slug*", "permanent": true },
     { "source": "/galerie-nss", "destination": "/fr/ressources/galerie", "permanent": true },
-    { "source": "/videos", "destination": "/fr/ressources/videos", "permanent": true },
+    { "source": "/fr/mediatheque", "destination": "/fr/videos", "permanent": true },
     { "source": "/contact-nss", "destination": "/fr/contact", "permanent": true }
   ]
 }

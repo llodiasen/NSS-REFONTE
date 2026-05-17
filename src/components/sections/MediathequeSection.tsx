@@ -229,7 +229,7 @@ export default function MediathequeSection() {
         {/* Bouton bas */}
         <div style={{ textAlign: "center", marginTop: "48px" }}>
           <Link
-            href="/mediatheque"
+            href="/videos"
             className="media-cta"
             style={{
               display: "inline-block",

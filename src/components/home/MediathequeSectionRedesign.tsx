@@ -259,7 +259,7 @@ export default function MediathequeSectionRedesign() {
 
           {/* ── CTA ── */}
           <div className="vds__foot">
-            <Link href="/fr/mediatheque" className="vds__cta">
+            <Link href="/fr/videos" className="vds__cta">
               VOIR TOUTES LES VIDÉOS →
             </Link>
           </div>
