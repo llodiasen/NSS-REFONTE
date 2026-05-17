@@ -61,7 +61,7 @@ export default function MediathequeHero() {
         .vh {
           position: relative;
           overflow: hidden;
-          min-height: 620px;
+          min-height: 500px;
           display: flex;
           flex-direction: column;
           justify-content: flex-end;
@@ -165,12 +165,12 @@ export default function MediathequeHero() {
 
         /* Tablet */
         @media (max-width: 768px) {
-          .vh { min-height: 600px; }
+          .vh { min-height: 520px; }
           .vh-body { padding: 60px 24px 40px; }
           .vh-stat--sep { padding-right: 20px; margin-right: 20px; }
         }
         @media (max-width: 480px) {
-          .vh { min-height: 580px; }
+          .vh { min-height: 540px; }
           .vh-body { padding: 56px 20px 36px; }
           .vh-h1 { max-width: 100%; }
           .vh-stat--sep { padding-right: 14px; margin-right: 14px; }
