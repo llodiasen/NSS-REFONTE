@@ -3,7 +3,6 @@ import { PROGRAMMES } from '@/lib/programmes'
 import ProgrammesHero from '@/components/programmes/ProgrammesHero'
 import ProgrammeCard  from '@/components/programmes/ProgrammeCard'
 import AgendaBlock    from '@/components/programmes/AgendaBlock'
-import Header         from '@/components/layout/Header'
 
 export const metadata: Metadata = {
   title: 'Nos programmes — NSS',
@@ -26,53 +25,48 @@ export default async function ProgrammesPage({ params }: PageProps) {
 
   return (
     <>
-      <Header />
-      <main>
+      <ProgrammesHero />
 
-        <ProgrammesHero />
+      <div className="max-w-6xl mx-auto px-4 py-10 space-y-8">
 
-        <div className="max-w-6xl mx-auto px-4 py-10 space-y-8">
-
-          {/* ── Grille des programmes ── */}
-          <section aria-labelledby="programmes-titre">
-            <div className="flex items-baseline justify-between mb-4">
-              <h2
-                id="programmes-titre"
-                className="text-[17px] font-medium text-foreground"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
-              >
-                Tous les programmes
-              </h2>
-              <a
-                href="#agenda"
-                className="text-xs text-nss-principal hover:underline"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
-              >
-                Voir l&apos;agenda ↓
-              </a>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-              {sorted.map((p) => (
-                <ProgrammeCard key={p.slug} programme={p} locale={locale} />
-              ))}
-            </div>
-          </section>
-
-          {/* ── Agenda ── */}
-          <section id="agenda" aria-labelledby="agenda-titre">
+        {/* ── Grille des programmes ── */}
+        <section aria-labelledby="programmes-titre">
+          <div className="flex items-baseline justify-between mb-4">
             <h2
-              id="agenda-titre"
-              className="text-[17px] font-medium text-foreground mb-4"
+              id="programmes-titre"
+              className="text-[17px] font-medium text-foreground"
               style={{ fontFamily: "'DM Sans', sans-serif" }}
             >
-              Agenda 2026
+              Tous les programmes
             </h2>
-            <AgendaBlock programmes={sorted} />
-          </section>
+            <a
+              href="#agenda"
+              className="text-xs text-nss-principal hover:underline"
+              style={{ fontFamily: "'DM Sans', sans-serif" }}
+            >
+              Voir l&apos;agenda ↓
+            </a>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {sorted.map((p) => (
+              <ProgrammeCard key={p.slug} programme={p} locale={locale} />
+            ))}
+          </div>
+        </section>
 
-        </div>
+        {/* ── Agenda ── */}
+        <section id="agenda" aria-labelledby="agenda-titre">
+          <h2
+            id="agenda-titre"
+            className="text-[17px] font-medium text-foreground mb-4"
+            style={{ fontFamily: "'DM Sans', sans-serif" }}
+          >
+            Agenda 2026
+          </h2>
+          <AgendaBlock programmes={sorted} />
+        </section>
 
-      </main>
+      </div>
     </>
   )
 }

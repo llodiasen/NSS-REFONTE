@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Header from '@/components/layout/Header'
 import GalerieClient from '@/components/galerie/GalerieClient'
 
 export const metadata: Metadata = {
@@ -9,12 +8,5 @@ export const metadata: Metadata = {
 }
 
 export default function GaleriePage() {
-  return (
-    <>
-      <Header />
-      <main>
-        <GalerieClient />
-      </main>
-    </>
-  )
+  return <GalerieClient />
 }
