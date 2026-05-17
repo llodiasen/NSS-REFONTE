@@ -51,7 +51,7 @@ export default function ProgrammeCard({ programme: p, locale = 'fr' }: Props) {
 
         {/* Badge type */}
         <span
-          className="self-start inline-flex items-center gap-1.5 text-[11px] font-medium px-2 py-1 rounded"
+          className="self-start inline-flex items-center gap-1.5 text-[12px] font-medium px-2 py-1 rounded"
           style={{ background: type.bg, color: type.color, fontFamily: "'DM Sans', sans-serif" }}
         >
           <TypeIcon size={11} aria-hidden="true" />
@@ -60,7 +60,7 @@ export default function ProgrammeCard({ programme: p, locale = 'fr' }: Props) {
 
         {/* Nom */}
         <h3
-          className="text-[15px] font-medium text-foreground leading-snug"
+          className="text-[16px] font-medium text-foreground leading-snug"
           style={{ fontFamily: "'DM Sans', sans-serif" }}
         >
           {p.nom}
@@ -68,7 +68,7 @@ export default function ProgrammeCard({ programme: p, locale = 'fr' }: Props) {
 
         {/* Description */}
         <p
-          className="text-[12px] leading-relaxed line-clamp-2"
+          className="text-[13px] leading-relaxed line-clamp-2"
           style={{ color: '#6B7280', fontFamily: "'DM Sans', sans-serif" }}
         >
           {p.description}
@@ -81,19 +81,19 @@ export default function ProgrammeCard({ programme: p, locale = 'fr' }: Props) {
         >
           <div className="flex items-start gap-2">
             <Calendar size={12} className="mt-0.5 flex-shrink-0" style={{ color: '#9CA3AF' }} aria-hidden="true" />
-            <span className="text-[11px]" style={{ color: '#4B5563', fontFamily: "'DM Sans', sans-serif" }}>
+            <span className="text-[12px]" style={{ color: '#4B5563', fontFamily: "'DM Sans', sans-serif" }}>
               {p.prochaine_date}
             </span>
           </div>
           <div className="flex items-start gap-2">
             <MapPin size={12} className="mt-0.5 flex-shrink-0" style={{ color: '#9CA3AF' }} aria-hidden="true" />
-            <span className="text-[11px]" style={{ color: '#4B5563', fontFamily: "'DM Sans', sans-serif" }}>
+            <span className="text-[12px]" style={{ color: '#4B5563', fontFamily: "'DM Sans', sans-serif" }}>
               {p.lieu}
             </span>
           </div>
           <div className="flex items-start gap-2">
             <Users size={12} className="mt-0.5 flex-shrink-0" style={{ color: '#9CA3AF' }} aria-hidden="true" />
-            <span className="text-[11px]" style={{ color: '#4B5563', fontFamily: "'DM Sans', sans-serif" }}>
+            <span className="text-[12px]" style={{ color: '#4B5563', fontFamily: "'DM Sans', sans-serif" }}>
               {p.public_cible} · {p.frequence}
             </span>
           </div>
@@ -106,14 +106,14 @@ export default function ProgrammeCard({ programme: p, locale = 'fr' }: Props) {
         style={{ borderTop: '0.5px solid #e5e7eb' }}
       >
         <span
-          className="text-[11px] font-medium px-2 py-0.5 rounded"
+          className="text-[12px] font-medium px-2 py-0.5 rounded"
           style={{ background: statut.bg, color: statut.color, fontFamily: "'DM Sans', sans-serif" }}
         >
           {statut.label}
         </span>
         <Link
           href={`/${locale}/programmes/${p.slug}`}
-          className="text-[12px] font-medium hover:underline whitespace-nowrap"
+          className="text-[13px] font-medium hover:underline whitespace-nowrap"
           style={{ color: '#1D9E75', fontFamily: "'DM Sans', sans-serif" }}
           aria-label={`Voir le programme ${p.nom}`}
         >

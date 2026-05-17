@@ -50,7 +50,7 @@ export default function MediathequeHero() {
           min-height: 480px;
           display: flex;
           flex-direction: column;
-          justify-content: flex-end;
+          justify-content: flex-start;
         }
         .vh-bg {
           position: absolute;

@@ -79,7 +79,7 @@ export default function ProgrammesHero() {
           display: flex; align-items: center; gap: 6px;
           margin-bottom: 32px;
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 12px;
+          font-size: 13px;
         }
         .prh-bc-home { color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
         .prh-bc-home:hover { color: #ffffff; }
@@ -91,7 +91,7 @@ export default function ProgrammesHero() {
           display: flex; align-items: center; gap: 10px;
           margin-bottom: 16px;
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 11px; font-weight: 500;
+          font-size: 12px; font-weight: 500;
           letter-spacing: 0.14em; text-transform: uppercase;
           color: ${C_GREEN};
         }
@@ -100,7 +100,7 @@ export default function ProgrammesHero() {
         /* H1 */
         .prh-h1 {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+          font-size: clamp(1.68rem, 3.36vw, 2.31rem);
           font-weight: 700; line-height: 1.1;
           color: #ffffff; max-width: 600px;
           margin: 0 0 20px; letter-spacing: -0.02em;
@@ -110,7 +110,7 @@ export default function ProgrammesHero() {
         /* Lead */
         .prh-lead {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 1rem; font-weight: 400; line-height: 1.7;
+          font-size: 1.05rem; font-weight: 400; line-height: 1.7;
           color: #ffffff; max-width: 520px; margin: 0;
         }
 

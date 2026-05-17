@@ -34,7 +34,7 @@ export default function AgendaBlock({ programmes }: Props) {
       >
         <CalendarDays size={16} style={{ color: '#9CA3AF' }} aria-hidden="true" />
         <span
-          className="text-[14px] font-medium"
+          className="text-[15px] font-medium"
           style={{ color: '#111827', fontFamily: "'DM Sans', sans-serif" }}
         >
           Prochains événements
@@ -59,13 +59,13 @@ export default function AgendaBlock({ programmes }: Props) {
                 {date ? (
                   <>
                     <p
-                      className="text-[10px] font-medium uppercase leading-none mb-0.5"
+                      className="text-[11px] font-medium uppercase leading-none mb-0.5"
                       style={{ color: '#6B7280', fontFamily: "'DM Sans', sans-serif" }}
                     >
                       {date.month}
                     </p>
                     <p
-                      className="text-[20px] font-semibold leading-none"
+                      className="text-[21px] font-semibold leading-none"
                       style={{ color: '#111827', fontFamily: "'DM Sans', sans-serif" }}
                     >
                       {date.day}
@@ -73,7 +73,7 @@ export default function AgendaBlock({ programmes }: Props) {
                   </>
                 ) : (
                   <p
-                    className="text-[13px] font-medium"
+                    className="text-[14px] font-medium"
                     style={{ color: '#9CA3AF', fontFamily: "'DM Sans', sans-serif" }}
                   >
                     TBD
@@ -87,13 +87,13 @@ export default function AgendaBlock({ programmes }: Props) {
               {/* Info */}
               <div className="flex-1 min-w-0">
                 <p
-                  className="text-[13px] font-medium leading-snug"
+                  className="text-[14px] font-medium leading-snug"
                   style={{ color: '#111827', fontFamily: "'DM Sans', sans-serif" }}
                 >
                   {p.nom}
                 </p>
                 <p
-                  className="text-[11px] mt-0.5 truncate"
+                  className="text-[12px] mt-0.5 truncate"
                   style={{ color: '#6B7280', fontFamily: "'DM Sans', sans-serif" }}
                 >
                   {p.lieu} · {p.prochaine_date} · {p.public_cible}
@@ -102,7 +102,7 @@ export default function AgendaBlock({ programmes }: Props) {
 
               {/* Statut */}
               <span
-                className="text-[11px] font-medium px-2 py-0.5 rounded flex-shrink-0"
+                className="text-[12px] font-medium px-2 py-0.5 rounded flex-shrink-0"
                 style={{ background: statut.bg, color: statut.color, fontFamily: "'DM Sans', sans-serif" }}
               >
                 {statut.label}
