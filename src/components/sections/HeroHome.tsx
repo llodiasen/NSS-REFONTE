@@ -21,12 +21,6 @@ function fadeScale(delay: number) {
   }
 }
 
-const STATS = [
-  { num: '175 000', lbl: 'Membres actives' },
-  { num: '500+',    lbl: 'Associations'    },
-  { num: '14',      lbl: 'Pays membres'    },
-  { num: '14 ans',  lbl: "D'engagement"   },
-] as const
 
 function IconPlay() {
   return (
@@ -83,22 +77,6 @@ export default function HeroHome() {
 
       </div>
 
-      {/* ── Stats strip ── */}
-      <motion.div
-        className="nh-stats"
-        role="list"
-        aria-label="Chiffres clés NSS"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.70, delay: 0.68, ease }}
-      >
-        {STATS.map(({ num, lbl }) => (
-          <div key={lbl} className="nh-stat" role="listitem">
-            <span className="nh-stat-num">{num}</span>
-            <span className="nh-stat-lbl">{lbl}</span>
-          </div>
-        ))}
-      </motion.div>
 
       <style>{`
         /* ── Section ── */
@@ -274,50 +252,10 @@ export default function HeroHome() {
           color: #ffffff;
         }
 
-        /* ── Stats strip ── */
-        .nh-stats {
-          position: relative;
-          z-index: 2;
-          display: flex;
-          align-items: stretch;
-          border-top: 0.5px solid rgba(255,255,255,0.08);
-          padding: 0 72px;
-        }
-        .nh-stat {
-          display: flex;
-          align-items: baseline;
-          gap: 10px;
-          padding: 20px 40px 20px 0;
-          border-right: 0.5px solid rgba(255,255,255,0.08);
-          margin-right: 40px;
-        }
-        .nh-stat:last-child {
-          border-right: none;
-          padding-right: 0;
-          margin-right: 0;
-        }
-        .nh-stat-num {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: 28px;
-          font-weight: 700;
-          color: #A5CE46;
-          line-height: 1;
-          white-space: nowrap;
-        }
-        .nh-stat-lbl {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 10px;
-          font-weight: 400;
-          color: rgba(255,255,255,0.45);
-          text-transform: uppercase;
-          letter-spacing: 0.1em;
-          white-space: nowrap;
-        }
 
         /* ── Tablet ── */
         @media (max-width: 1024px) {
           .nh-body  { padding: 0 48px 40px; }
-          .nh-stats { padding: 0 48px; }
           .nh-scroll { right: 40px; }
         }
 
@@ -327,24 +265,6 @@ export default function HeroHome() {
           .nh-body   { padding: 0 24px 36px; }
           .nh-h1     { font-size: clamp(2rem, 8vw, 2.8rem); }
           .nh-desc   { font-size: 14px; }
-          .nh-stats  {
-            flex-wrap: wrap;
-            padding: 0 24px;
-          }
-          .nh-stat {
-            flex: 0 0 calc(50% - 12px);
-            border-right: none;
-            margin-right: 0;
-            padding-right: 0;
-            border-bottom: 0.5px solid rgba(255,255,255,0.08);
-          }
-          .nh-stat:nth-child(odd) {
-            border-right: 0.5px solid rgba(255,255,255,0.08);
-            padding-right: 16px;
-            margin-right: 0;
-          }
-          .nh-stat:nth-child(3),
-          .nh-stat:nth-child(4) { border-bottom: none; }
         }
 
         @media (prefers-reduced-motion: reduce) {

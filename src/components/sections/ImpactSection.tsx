@@ -196,8 +196,8 @@ export default function ImpactSection() {
         /* ── H2 ── */
         .imp-h2 {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: clamp(1.8rem, 3.5vw, 2.4rem);
-          font-weight: 500;
+          font-size: clamp(1.62rem, 3.15vw, 2.16rem);
+          font-weight: 600;
           letter-spacing: -0.01em;
           line-height: 1.15;
           color: #2A2A2A;
@@ -211,7 +211,7 @@ export default function ImpactSection() {
         /* ── PARAGRAPHE ── */
         .imp-body {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 14px;
+          font-size: 15px;
           font-weight: 300;
           color: #4A4A4A;
           line-height: 1.8;

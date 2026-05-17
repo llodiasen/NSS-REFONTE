@@ -212,8 +212,8 @@ export default function MissionSection() {
         /* ── H2 ── */
         .msn-h2 {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: clamp(1.8rem, 3.5vw, 2.2rem);
-          font-weight: 500;
+          font-size: clamp(1.62rem, 3.15vw, 1.98rem);
+          font-weight: 600;
           letter-spacing: -0.01em;
           line-height: 1.15;
           color: #2A2A2A;
@@ -228,7 +228,7 @@ export default function MissionSection() {
         /* ── PARAGRAPHES ── */
         .msn-body {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 14px;
+          font-size: 15px;
           font-weight: 300;
           color: #4A4A4A;
           line-height: 1.8;
@@ -261,7 +261,7 @@ export default function MissionSection() {
         }
         .msn-hl-text {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 13px;
+          font-size: 15px;
           font-weight: 300;
           color: #4A4A4A;
           line-height: 1.6;

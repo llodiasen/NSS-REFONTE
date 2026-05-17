@@ -244,40 +244,9 @@ export default function MediathequeSectionRedesign() {
     <>
       {active && <VideoModal item={active} onClose={() => setActive(null)} />}
 
-      <section className="vds" aria-labelledby="vds-heading">
-
-        {/* Grille de fond subtile */}
-        <div className="vds__pattern" aria-hidden="true" />
+      <section className="vds" aria-label="Leur parole en images — Vidéos NSS">
 
         <div className="vds__wrap">
-
-          {/* ── En-tête ── */}
-          <header className="vds__hd">
-
-            <motion.div className="vds__eyebrow" {...inView(0.06)}>
-              <span className="vds__ey-line" />
-              <span className="vds__ey-txt">LEUR PAROLE · EN IMAGES</span>
-              <span className="vds__ey-line vds__ey-line--r" />
-            </motion.div>
-
-            <motion.h2 id="vds-heading" className="vds__h2" {...inViewScale(0.16)}>
-              Leur parole · <em>en images</em>
-            </motion.h2>
-            <motion.span
-              className="vds__underline"
-              aria-hidden="true"
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.55, delay: 0.26, ease: [0.22, 1, 0.36, 1] }}
-              style={{ transformOrigin: 'center' }}
-            />
-
-            <motion.p className="vds__sub" {...inView(0.26)}>
-              Formations, rencontres, plaidoyers — les femmes rurales de NSS racontent
-              leur combat pour la souveraineté alimentaire, de la Casamance au fleuve Niger.
-            </motion.p>
-          </header>
 
           {/* ── Grille 3 cartes ── */}
           <ul className="vds__grid" role="list" aria-label="Vidéos NSS">
@@ -289,24 +258,11 @@ export default function MediathequeSectionRedesign() {
           </ul>
 
           {/* ── CTA ── */}
-          <motion.div className="vds__foot" {...inView(0.20)}>
-            <motion.div
-              className="vds__sep"
-              aria-hidden="true"
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.90, ease }}
-              style={{ transformOrigin: 'center' }}
-            />
+          <div className="vds__foot">
             <Link href="/fr/mediatheque" className="vds__cta">
-              Voir toutes les vidéos
-              <svg width="14" height="8" viewBox="0 0 16 9" fill="none" aria-hidden="true">
-                <path d="M1 4.5h13M10 1l4 3.5-4 3.5" stroke="currentColor"
-                  strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+              VOIR TOUTES LES VIDÉOS →
             </Link>
-          </motion.div>
+          </div>
         </div>
 
         <style>{`
@@ -329,50 +285,8 @@ export default function MediathequeSectionRedesign() {
 
           .vds__wrap {
             position: relative; z-index: 1;
-            max-width: 1400px; margin: 0 auto;
-            padding: clamp(4rem, 8vw, 6rem) clamp(1rem, 2.5vw, 2rem);
-          }
-
-          /* ══ En-tête ════════════════════════════════════════ */
-          .vds__hd { text-align: center; margin-bottom: 3rem; }
-
-          .vds__eyebrow {
-            display: flex; align-items: center; justify-content: center;
-            gap: 16px; margin-bottom: 1rem;
-          }
-          .vds__ey-line {
-            display: block; flex: 1; max-width: 56px; height: 1px;
-            background: rgba(165,206,70,0.35);
-          }
-          .vds__ey-txt {
-            font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-            font-size: 0.75rem; font-weight: 500;
-            letter-spacing: 0.12em; text-transform: uppercase;
-            color: ${NSS.vertClair}; white-space: nowrap;
-          }
-
-          .vds__h2 {
-            font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-            font-size: clamp(1.37rem, 2.99vw, 1.88rem);
-            font-weight: 400; line-height: 1.2;
-            color: #2A2A2A; margin: 0 0 0.75rem;
-            letter-spacing: -0.015em;
-          }
-          .vds__h2 em { font-style: italic; color: ${NSS.vertPrimaire}; }
-          .vds__underline {
-            display: block;
-            height: 2px;
-            width: 72px;
-            background: ${NSS.vertClair};
-            border-radius: 2px;
-            margin: 0 auto 1.5rem;
-          }
-
-          .vds__sub {
-            font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-            font-size: 1rem; font-weight: 400;
-            line-height: 1.7; color: #2C2C28;
-            max-width: 520px; margin: 0 auto;
+            max-width: 1200px; margin: 0 auto;
+            padding: 48px 40px;
           }
 
           /* ══ Grille ═════════════════════════════════════════ */
@@ -380,14 +294,15 @@ export default function MediathequeSectionRedesign() {
             list-style: none; margin: 0; padding: 0;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
+            gap: 20px;
+            align-items: stretch;
           }
 
           /* ══ Carte ══════════════════════════════════════════ */
           .vc {
-            background: #FAFAF9;
-            border: 1px solid rgba(0,0,0,0.08);
-            border-radius: 2px;
+            background: #ffffff;
+            border: 0.5px solid #e5e7eb;
+            border-radius: 14px;
             overflow: hidden;
             display: flex; flex-direction: column;
             height: 100%;
@@ -454,26 +369,31 @@ export default function MediathequeSectionRedesign() {
           .vc__body {
             padding: 22px 22px 20px;
             display: flex; flex-direction: column;
-            flex: 1; gap: 10px;
+            flex: 1; gap: 0;
           }
           .vc__meta {
-            display: flex; align-items: center; gap: 6px;
+            display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
             font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-            font-size: 13px; color: #888; margin: 0;
+            font-size: 11px; color: #4A4A4A;
+            padding: 10px 0;
+            margin-bottom: 12px;
+            border-top: 0.5px solid #f3f4f6;
+            border-bottom: 0.5px solid #f3f4f6;
           }
-          .vc__meta-icon { color: ${NSS.vertPrimaire}; flex-shrink: 0; }
+          .vc__meta-icon { color: #9ca3af; flex-shrink: 0; display: flex; align-items: center; }
 
           .vc__titre { margin: 0; }
           .vc__titre-btn {
             background: none; border: none; padding: 0;
             width: 100%; text-align: left; cursor: pointer;
             font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-            font-size: 1.25rem;
-            font-weight: 600; line-height: 1.22;
-            color: #0A0A0A;
+            font-size: 18px;
+            font-weight: 600; line-height: 1.25;
+            color: #2A2A2A;
             transition: color 0.2s;
+            margin: 0 0 12px;
             display: -webkit-box;
-            -webkit-line-clamp: 2;
+            -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
           }
@@ -481,9 +401,9 @@ export default function MediathequeSectionRedesign() {
 
           .vc__desc {
             font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-            font-size: 14px; font-weight: 400; line-height: 1.72;
-            color: #4A4A4A; text-align: justify; hyphens: auto;
-            margin: 0; flex: 1;
+            font-size: 14px; font-weight: 300; line-height: 1.7;
+            color: #4A4A4A; text-align: justify; text-align-last: left;
+            margin: 0 0 16px; flex: 1;
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
@@ -494,22 +414,19 @@ export default function MediathequeSectionRedesign() {
           }
           .vc__tag {
             font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-            font-size: 10px; font-weight: 500;
-            color: ${NSS.vertFonce};
-            background: rgba(0,173,76,0.07);
-            border: 1px solid rgba(0,173,76,0.18);
-            padding: 2px 9px; border-radius: 2px;
+            font-size: 10px; font-weight: 600;
+            color: #045627;
+            background: #eaf5ee;
+            border: 1px solid #c3e6cc;
+            padding: 3px 10px; border-radius: 99px;
+            letter-spacing: 0.08em; text-transform: uppercase;
           }
 
           /* ══ Footer ══════════════════════════════════════════ */
           .vds__foot {
-            margin-top: 60px;
-            display: flex; flex-direction: column;
-            align-items: center; gap: 24px;
-          }
-          .vds__sep {
-            width: 100%; max-width: 640px; height: 1px;
-            background: linear-gradient(90deg, transparent, #D0D0D0 30%, #D0D0D0 70%, transparent);
+            margin-top: 32px;
+            display: flex;
+            justify-content: center;
           }
           .vds__cta {
             display: inline-flex; align-items: center; gap: 10px;
@@ -527,13 +444,9 @@ export default function MediathequeSectionRedesign() {
           @media (max-width: 1024px) {
             .vds__grid { grid-template-columns: repeat(2, 1fr); }
           }
-          @media (max-width: 768px) {
-            .vds__h2 { line-height: 1.2; }
-            .vds__hd { margin-bottom: 2.5rem; }
-          }
           @media (max-width: 640px) {
-            .vds__grid { grid-template-columns: 1fr; gap: 18px; }
-            .vds__h2 { line-height: 1.2; }
+            .vds__wrap { padding: 32px 20px; }
+            .vds__grid { grid-template-columns: 1fr; gap: 16px; }
           }
 
           /* ── Réduction de mouvement ── */
