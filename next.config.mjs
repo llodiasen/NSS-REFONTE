@@ -8,7 +8,8 @@ const nextConfig = {
     return [
       { source: "/:locale/ressources/videos",   destination: "/:locale/mediatheque", permanent: true },
       { source: "/:locale/mediatheque/videos",  destination: "/:locale/mediatheque", permanent: true },
-      { source: "/:locale/mediatheque/photos",  destination: "/:locale/ressources/galerie", permanent: true },
+      { source: "/:locale/mediatheque/photos",  destination: "/:locale/galerie", permanent: true },
+      { source: "/:locale/ressources/galerie", destination: "/:locale/galerie", permanent: true },
     ];
   },
   images: {

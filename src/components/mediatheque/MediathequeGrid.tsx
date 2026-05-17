@@ -16,10 +16,11 @@ interface VideoCard {
   bg: string
   youtubeId?: string
   cloudinaryUrl?: string
+  localUrl?: string
 }
 
 interface ActiveVideo {
-  type: "youtube" | "cloudinary"
+  type: "youtube" | "cloudinary" | "local"
   src: string
   titre: string
 }
@@ -28,6 +29,35 @@ interface ActiveVideo {
 
 /* Toutes les vidéos disponibles du projet, ordre décroissant par date */
 const CARDS: VideoCard[] = [
+  /* ── Mai 2026 ── */
+  {
+    categorie: "NSS",
+    titre: "Vidéo NSS — Mouvement Nous Sommes la Solution",
+    excerpt: "Le mouvement NSS en action — femmes rurales, agroécologie et souveraineté alimentaire en Afrique de l'Ouest.",
+    date: "Mai 2026", sortDate: "2026-05-01", duree: "3 min",
+    thumb: "https://img.youtube.com/vi/_2AqLsFeSV8/maxresdefault.jpg",
+    bg: "linear-gradient(135deg,#0f2b1a,#2a6b3c)",
+    youtubeId: "_2AqLsFeSV8",
+  },
+  {
+    categorie: "Agroécologie",
+    titre: "Nos semences, notre culture, notre identité !",
+    excerpt: "Mariama Sonko, Présidente du Mouvement NSS, prend la parole à la Foire locale des Semences Paysannes à Ndiémane : « Les semences, c'est notre mémoire, notre histoire, notre avenir. »",
+    date: "Mai 2026", sortDate: "2026-04-30", duree: "5 min",
+    thumb: "https://img.youtube.com/vi/Mj5bZNDsdco/maxresdefault.jpg",
+    bg: "linear-gradient(135deg,#0f2b1a,#1a5c34)",
+    youtubeId: "Mj5bZNDsdco",
+  },
+  /* ── Octobre 2025 ── */
+  {
+    categorie: "Événements",
+    titre: "Journée internationale de la femme rurale 2025 — Tambacounda",
+    excerpt: "Célébrée à Tambacounda, la Journée internationale de la femme rurale 2025 a réuni les femmes de la Gambie, de la Guinée-Bissau et du Sénégal. Événement présidé par Mariama Sonko, Présidente du Mouvement Panafricain NSS.",
+    date: "Octobre 2025", sortDate: "2025-10-15", duree: "15 min",
+    thumb: "/images/actualites/tamba-femmes-rurales-changement-climatique.webp",
+    bg: "linear-gradient(135deg,#1a2a0f,#3a6b1c)",
+    localUrl: "/Videos/Journ%C3%A9e%20internationale%20de%20la%20femme%20rurale%202025.mp4",
+  },
   /* ── 15 sept. 2025 ── */
   {
     categorie: "Événements",
@@ -149,6 +179,7 @@ const PER_PAGE = 9
 /* ── Helper ─────────────────────────────────────────────────────────────────── */
 
 function getActiveVideo(card: VideoCard): ActiveVideo | null {
+  if (card.localUrl)      return { type: "local",      src: card.localUrl,      titre: card.titre }
   if (card.cloudinaryUrl) return { type: "cloudinary", src: card.cloudinaryUrl, titre: card.titre }
   if (card.youtubeId)     return { type: "youtube",    src: card.youtubeId,     titre: card.titre }
   return null
@@ -486,7 +517,7 @@ export default function MediathequeGrid({ activePill, search }: Props) {
         .mg-h3 {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
           font-size: 17px;
-          font-weight: 600;
+          font-weight: 400;
           color: #2A2A2A;
           line-height: 1.25;
           margin: 0;
@@ -504,6 +535,8 @@ export default function MediathequeGrid({ activePill, search }: Props) {
           line-height: 1.65;
           margin: 0;
           flex: 1;
+          text-align: justify;
+          text-align-last: left;
           display: -webkit-box;
           -webkit-line-clamp: 3;
           -webkit-box-orient: vertical;

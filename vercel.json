@@ -8,7 +8,8 @@
     { "source": "/fr/nos-programmes", "destination": "/fr/programmes", "permanent": true },
     { "source": "/medias-minorites-paix", "destination": "/fr/programmes/emmap", "permanent": true },
     { "source": "/event/:slug*", "destination": "/fr/ressources/actualites/:slug*", "permanent": true },
-    { "source": "/galerie-nss", "destination": "/fr/ressources/galerie", "permanent": true },
+    { "source": "/galerie-nss", "destination": "/fr/galerie", "permanent": true },
+    { "source": "/fr/ressources/galerie", "destination": "/fr/galerie", "permanent": true },
     { "source": "/fr/mediatheque", "destination": "/fr/videos", "permanent": true },
     { "source": "/contact-nss", "destination": "/fr/contact", "permanent": true }
   ]

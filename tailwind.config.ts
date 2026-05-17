@@ -34,10 +34,19 @@ const config: Config = {
         success: "#22C55E",
         warning: "#F59E0B",
         danger: "#EF4444",
+        foreground: "#2A2A2A",
+        nss: {
+          nuit:        "#0C3D2A",
+          principal:   "#1D9E75",
+          moyen:       "#0F6E56",
+          clair:       "#EAF3DE",
+          "clair-txt": "#3B6D11",
+          accent:      "#5DCAA5",
+        },
       },
       fontFamily: {
-        display: ["var(--font-fira)", "Fira Sans Condensed", "sans-serif"],
-        body: ["var(--font-inter)", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "Cormorant Garamond", "Georgia", "serif"],
+        body:    ["var(--font-dm-sans)", "DM Sans", "system-ui", "sans-serif"],
       },
       boxShadow: {
         card: "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)",
