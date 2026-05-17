@@ -60,7 +60,7 @@ export default function ProgrammeCard({ programme: p, locale = 'fr' }: Props) {
 
         {/* Nom */}
         <h3
-          className="text-[16px] font-medium text-foreground leading-snug"
+          className="text-[16px] font-semibold text-foreground leading-snug"
           style={{ fontFamily: "'DM Sans', sans-serif" }}
         >
           {p.nom}

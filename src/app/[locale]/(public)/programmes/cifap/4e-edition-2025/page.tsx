@@ -1,11 +1,20 @@
-import type { Metadata } from 'next'
-import CIFAPEditionLayout from '@/components/CIFAPEditionLayout'
-import { edition2025 } from '@/data/cifap/edition-2025'
+import { notFound }           from 'next/navigation'
+import type { Metadata }      from 'next'
+import { getEditionBySlug, getEditionsSorted } from '@/lib/cifap-editions'
+import EditionHero            from '@/components/cifap/edition/EditionHero'
+import EditionTabs            from '@/components/cifap/edition/EditionTabs'
+import SectionPresentation    from '@/components/cifap/edition/SectionPresentation'
+import SectionProgramme       from '@/components/cifap/edition/SectionProgramme'
+import SectionObjectifs       from '@/components/cifap/edition/SectionObjectifs'
+import SectionParticipants    from '@/components/cifap/edition/SectionParticipants'
+import SectionGalerie         from '@/components/cifap/edition/SectionGalerie'
+import SectionTemoignages     from '@/components/cifap/edition/SectionTemoignages'
+import SectionPartenaires     from '@/components/cifap/edition/SectionPartenaires'
+import EditionCtaBanner       from '@/components/cifap/edition/EditionCtaBanner'
 
 export const metadata: Metadata = {
   title: 'CIFAP 2025 — 4e édition : Cultures horticoles en agroécologie paysanne | NSS',
-  description:
-    'Quatrième édition du CIFAP, 14–21 septembre 2025 à Niaguis, Sénégal. ~60 participants de 8 pays autour des techniques pratiques de conduite des cultures horticoles en agroécologie paysanne.',
+  description: 'Quatrième édition du CIFAP, 14–21 septembre 2025 à Niaguis, Sénégal. ~60 participants de 8 pays autour des cultures horticoles en agroécologie paysanne.',
 }
 
 export default async function CIFAP2025Page({
@@ -14,6 +23,33 @@ export default async function CIFAP2025Page({
   params: Promise<{ locale: string }>
 }) {
   const { locale } = await params
+  const edition = getEditionBySlug('4e-edition-2025')
+  if (!edition) notFound()
+  const toutes = getEditionsSorted()
 
-  return <CIFAPEditionLayout edition={edition2025} locale={locale} />
+  const visibleIds = [
+    'presentation', 'programme', 'objectifs', 'participants',
+    edition.galerie_count ? 'galerie' : null,
+    edition.temoignages.length > 0 ? 'temoignages' : null,
+    'partenaires',
+  ].filter(Boolean) as string[]
+
+  return (
+    <div className="bg-gray-50 min-h-screen">
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        <EditionHero edition={edition} toutes={toutes} locale={locale} />
+      </div>
+      <EditionTabs visibleIds={visibleIds} />
+      <div className="max-w-4xl mx-auto px-4 py-10 space-y-12">
+        <SectionPresentation edition={edition} />
+        <SectionProgramme items={edition.programme_technique} />
+        <SectionObjectifs objectifs={edition.objectifs} />
+        <SectionParticipants edition={edition} />
+        {edition.galerie_count && <SectionGalerie count={edition.galerie_count} />}
+        {edition.temoignages.length > 0 && <SectionTemoignages temoignages={edition.temoignages} />}
+        <SectionPartenaires partenaires={edition.partenaires} />
+        <EditionCtaBanner locale={locale} />
+      </div>
+    </div>
+  )
 }

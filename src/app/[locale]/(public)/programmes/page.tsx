@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import { PROGRAMMES } from '@/lib/programmes'
-import ProgrammesHero from '@/components/programmes/ProgrammesHero'
-import ProgrammeCard  from '@/components/programmes/ProgrammeCard'
-import AgendaBlock    from '@/components/programmes/AgendaBlock'
+import ProgrammesHero        from '@/components/programmes/ProgrammesHero'
+import ProgrammeCard         from '@/components/programmes/ProgrammeCard'
+import AgendaBlock           from '@/components/programmes/AgendaBlock'
+import CifapEditionsSection  from '@/components/programmes/CifapEditionsSection'
 
 export const metadata: Metadata = {
   title: 'Nos programmes — NSS',
@@ -27,14 +28,14 @@ export default async function ProgrammesPage({ params }: PageProps) {
     <>
       <ProgrammesHero />
 
-      <div className="max-w-6xl mx-auto px-4 py-10 space-y-8">
+      <div className="max-w-6xl mx-auto px-4 py-12 space-y-16">
 
         {/* ── Grille des programmes ── */}
         <section aria-labelledby="programmes-titre">
           <div className="flex items-baseline justify-between mb-4">
             <h2
               id="programmes-titre"
-              className="text-[18px] font-medium text-foreground"
+              className="text-[18px] font-semibold text-foreground"
               style={{ fontFamily: "'DM Sans', sans-serif" }}
             >
               Tous les programmes
@@ -58,13 +59,16 @@ export default async function ProgrammesPage({ params }: PageProps) {
         <section id="agenda" aria-labelledby="agenda-titre">
           <h2
             id="agenda-titre"
-            className="text-[18px] font-medium text-foreground mb-4"
+            className="text-[18px] font-semibold text-foreground mb-4"
             style={{ fontFamily: "'DM Sans', sans-serif" }}
           >
             Agenda 2026
           </h2>
           <AgendaBlock programmes={sorted} />
         </section>
+
+        {/* ── Éditions CIFAP ── */}
+        <CifapEditionsSection locale={locale} />
 
       </div>
     </>
