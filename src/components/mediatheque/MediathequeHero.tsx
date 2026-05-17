@@ -1,168 +1,179 @@
-import Link from "next/link"
+import Link from 'next/link'
+
+const C_GREEN = '#97C459'
+
+const STATS = [
+  { value: '15',  label: 'Vidéos',      color: C_GREEN, last: false },
+  { value: '14',  label: 'Pays',        color: C_GREEN, last: false },
+  { value: '2017', label: 'Depuis',     color: C_GREEN, last: true  },
+]
 
 export default function MediathequeHero() {
   return (
-    <section className="mh" aria-label="En-tête médiathèque">
+    <section className="vh" aria-labelledby="vh-titre">
 
-      <div className="mh-bg" aria-hidden="true" />
-      <div className="mh-overlay" aria-hidden="true" />
+      <div className="vh-bg" aria-hidden />
+      <div className="vh-overlay" aria-hidden />
 
-      <div className="mh-body">
+      <div className="vh-body">
 
-        {/* Breadcrumb */}
-        <nav className="mh-bc" aria-label="Fil d'Ariane">
-          <Link href="/fr" className="mh-bc-link">Accueil</Link>
-          <span className="mh-bc-sep" aria-hidden="true">/</span>
-          <span>Médiathèque</span>
+        {/* Fil d'Ariane */}
+        <nav className="vh-bc" aria-label="Fil d'Ariane">
+          <Link href="/fr" className="vh-bc-home">Accueil</Link>
+          <span className="vh-bc-sep" aria-hidden>›</span>
+          <span className="vh-bc-curr">Médiathèque</span>
         </nav>
 
-        {/* Eyebrow */}
-        <div className="mh-eyebrow" aria-hidden="true">
-          <span className="mh-ey-line" />
-          <span className="mh-ey-txt">MÉDIATHÈQUE NSS</span>
-          <span className="mh-ey-line" />
+        {/* Label */}
+        <div className="vh-label" aria-hidden="false">
+          <span className="vh-label-line" aria-hidden />
+          <span>MÉDIATHÈQUE NSS</span>
         </div>
 
         {/* H1 */}
-        <h1 className="mh-h1">
-          Leur parole,
+        <h1 id="vh-titre" className="vh-h1">
+          Leur parole,{' '}
           <em>en images.</em>
         </h1>
 
-        {/* Sub */}
-        <p className="mh-sub">
+        {/* Lead */}
+        <p className="vh-lead">
           Reportages, témoignages et formations filmées — la vie du réseau
           NSS à travers 14 pays d&apos;Afrique de l&apos;Ouest.
         </p>
 
-        <a href="#contenu" className="mh-cta">Explorer les vidéos →</a>
+        {/* CTA */}
+        <a href="#contenu" className="vh-cta">Explorer les vidéos →</a>
+
+        {/* Stats */}
+        <div className="vh-stats" role="list" aria-label="Chiffres médiathèque">
+          {STATS.map(({ value, label, color, last }) => (
+            <div key={label} className={`vh-stat${last ? '' : ' vh-stat--sep'}`} role="listitem">
+              <span className="vh-stat-v" style={{ color }}>{value}</span>
+              <span className="vh-stat-l">{label}</span>
+            </div>
+          ))}
+        </div>
 
       </div>
 
       <style>{`
-        .mh {
+        .vh {
           position: relative;
-          height: 340px;
           overflow: hidden;
+          min-height: 500px;
           display: flex;
-          align-items: flex-end;
-          background: #0d1a0d;
+          flex-direction: column;
+          justify-content: flex-end;
         }
-
-        .mh-bg {
+        .vh-bg {
           position: absolute;
           inset: 0;
-          background-image: url('/images/actualites/nss-cifap-2025.jpg');
-          background-size: cover;
-          background-position: center 35%;
+          background: url('/images/actualites/nss-cifap-2025.jpg') center / cover no-repeat;
+          z-index: 0;
         }
-
-        .mh-overlay {
+        .vh-overlay {
           position: absolute;
           inset: 0;
           background: linear-gradient(
             to right,
-            rgba(4,22,8,0.93) 0%,
-            rgba(4,22,8,0.78) 52%,
-            rgba(4,22,8,0.45) 100%
+            rgba(5,12,5,0.88) 50%,
+            rgba(5,12,5,0.40) 100%
           );
+          z-index: 1;
         }
-
-        .mh-body {
+        .vh-body {
           position: relative;
           z-index: 2;
-          padding: 0 80px 44px;
-          max-width: 640px;
+          max-width: 1400px;
+          margin: 0 auto;
+          width: 100%;
+          padding: 80px clamp(1.5rem, 4vw, 44px) 44px;
+          box-sizing: border-box;
         }
 
         /* Breadcrumb */
-        .mh-bc {
+        .vh-bc {
+          display: flex; align-items: center; gap: 6px;
+          margin-bottom: 32px;
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 12px;
-          color: rgba(255,255,255,0.45);
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          margin-bottom: 22px;
         }
-        .mh-bc-link {
-          color: rgba(255,255,255,0.45);
-          text-decoration: none;
-          transition: color 0.2s;
-        }
-        .mh-bc-link:hover { color: rgba(255,255,255,0.8); }
-        .mh-bc-sep { color: rgba(255,255,255,0.2); }
+        .vh-bc-home { color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
+        .vh-bc-home:hover { color: #ffffff; }
+        .vh-bc-sep  { color: rgba(255,255,255,0.4); }
+        .vh-bc-curr { color: #ffffff; }
 
-        /* Eyebrow */
-        .mh-eyebrow {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          margin-bottom: 14px;
-        }
-        .mh-ey-line {
-          display: block;
-          width: 22px;
-          height: 1px;
-          background: rgba(165,206,70,0.5);
-          flex-shrink: 0;
-        }
-        .mh-ey-txt {
+        /* Label */
+        .vh-label {
+          display: flex; align-items: center; gap: 10px;
+          margin-bottom: 16px;
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 10px;
-          font-weight: 500;
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-          color: #A5CE46;
+          font-size: 11px; font-weight: 500;
+          letter-spacing: 0.14em; text-transform: uppercase;
+          color: ${C_GREEN};
         }
+        .vh-label-line { display: block; width: 28px; height: 1.5px; background: ${C_GREEN}; flex-shrink: 0; }
 
         /* H1 */
-        .mh-h1 {
+        .vh-h1 {
           font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: clamp(2rem, 4.5vw, 3rem);
-          font-weight: 600;
-          color: #ffffff;
-          line-height: 1.05;
-          margin: 0 0 14px;
-          letter-spacing: -0.01em;
+          font-size: clamp(2.09rem, 4.75vw, 3.04rem);
+          font-weight: 700; line-height: 1.1;
+          color: #ffffff; max-width: 600px;
+          margin: 0 0 20px; letter-spacing: -0.02em;
         }
-        .mh-h1 em {
-          display: block;
-          color: #A5CE46;
-          font-style: italic;
-        }
+        .vh-h1 em { font-style: italic; color: #ffffff; }
 
-        /* Sub */
-        .mh-sub {
+        /* Lead */
+        .vh-lead {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 14px;
-          font-weight: 300;
-          color: rgba(255,255,255,0.62);
-          line-height: 1.7;
-          margin: 0 0 22px;
-          max-width: 460px;
+          font-size: 1rem; font-weight: 400; line-height: 1.7;
+          color: #ffffff; max-width: 520px; margin: 0 0 24px;
         }
 
         /* CTA */
-        .mh-cta {
+        .vh-cta {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 12px;
-          font-weight: 500;
-          color: #ffffff;
-          text-decoration: none;
-          border: 1px solid rgba(255,255,255,0.28);
-          border-radius: 24px;
-          padding: 9px 20px;
+          font-size: 12px; font-weight: 500;
+          color: #ffffff; text-decoration: none;
+          border: 1px solid rgba(255,255,255,0.35);
+          border-radius: 24px; padding: 9px 22px;
           display: inline-block;
           transition: border-color 0.2s;
           letter-spacing: 0.04em;
         }
-        .mh-cta:hover { border-color: rgba(255,255,255,0.65); }
+        .vh-cta:hover { border-color: rgba(255,255,255,0.75); }
 
+        /* Stats */
+        .vh-stats {
+          display: flex; align-items: baseline; flex-wrap: wrap;
+          border-top: 1px solid rgba(255,255,255,0.12);
+          padding-top: 20px; margin-top: 28px; row-gap: 12px;
+        }
+        .vh-stat { display: flex; align-items: baseline; gap: 6px; }
+        .vh-stat--sep { padding-right: 28px; margin-right: 28px; border-right: 1px solid rgba(255,255,255,0.15); }
+        .vh-stat-v {
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-size: 1.25rem; font-weight: 700; line-height: 1; letter-spacing: -0.01em;
+        }
+        .vh-stat-l {
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 10px; font-weight: 500;
+          text-transform: uppercase; letter-spacing: 0.1em; color: #ffffff;
+        }
+
+        /* Tablet */
         @media (max-width: 768px) {
-          .mh { height: auto; min-height: 260px; }
-          .mh-body { padding: 0 24px 32px; }
-          .mh-h1 { font-size: clamp(1.75rem, 7vw, 2.4rem); }
+          .vh { min-height: 520px; }
+          .vh-body { padding: 60px 24px 40px; }
+          .vh-stat--sep { padding-right: 20px; margin-right: 20px; }
+        }
+        @media (max-width: 480px) {
+          .vh { min-height: 540px; }
+          .vh-body { padding: 56px 20px 36px; }
+          .vh-h1 { max-width: 100%; }
+          .vh-stat--sep { padding-right: 14px; margin-right: 14px; }
         }
       `}</style>
     </section>

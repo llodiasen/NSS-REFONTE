@@ -294,7 +294,7 @@ export default function GalerieClient() {
       <div className="gal-page">
 
         {/* ── HERO ── */}
-        <div className="gal-hero">
+        <section className="gal-hero" aria-labelledby="gal-h1-id">
           <Image
             src="/images/hero/hero-nss-femmes-rurales.jpg"
             alt="Femmes rurales NSS"
@@ -303,38 +303,57 @@ export default function GalerieClient() {
             sizes="100vw"
             style={{ objectFit: 'cover', zIndex: 0 }}
           />
-          <div className="gal-hero-overlay" />
-          <div className="gal-hero-content">
+          <div className="gal-hero-overlay" aria-hidden />
+          <div className="gal-hero-body">
+
             {/* Breadcrumb */}
-            <nav className="gal-breadcrumb" aria-label="Fil d'Ariane">
+            <nav className="gal-bc" aria-label="Fil d'Ariane">
               {breadcrumb.map((seg, i) => (
-                <span key={i}>
-                  {i > 0 && <span className="gal-bc-sep"> / </span>}
-                  {seg.href || seg.onClick ? (
-                    <button
-                      className="gal-bc-link"
-                      onClick={seg.onClick ?? undefined}
-                    >
-                      {seg.label}
-                    </button>
+                <span key={i} className="gal-bc-item">
+                  {i > 0 && <span className="gal-bc-sep" aria-hidden>›</span>}
+                  {seg.onClick ? (
+                    <button className="gal-bc-link" onClick={seg.onClick}>{seg.label}</button>
+                  ) : seg.href ? (
+                    <a href={seg.href} className="gal-bc-link">{seg.label}</a>
                   ) : (
-                    <span className="gal-bc-current">{seg.label}</span>
+                    <span className="gal-bc-curr">{seg.label}</span>
                   )}
                 </span>
               ))}
             </nav>
 
-            {/* Surtitle */}
-            <div className="gal-surtitle" aria-hidden="true">
-              <span className="gal-sur-line" />
-              <span className="gal-sur-text">— GALERIE — PHOTOS —</span>
+            {/* Label */}
+            <div className="gal-label" aria-hidden="false">
+              <span className="gal-label-line" aria-hidden />
+              <span>GALERIE PHOTO NSS</span>
             </div>
 
-            <h1 className="gal-h1">{h1}</h1>
+            {/* H1 */}
+            <h1 id="gal-h1-id" className="gal-h1">{h1}</h1>
 
-            <p className="gal-hero-desc">{heroDesc}</p>
+            {/* Lead */}
+            <p className="gal-hero-lead">{heroDesc}</p>
+
+            {/* Stats — vue albums uniquement */}
+            {view === 'albums' && (
+              <div className="gal-hero-stats" role="list" aria-label="Chiffres galerie">
+                <div className="gal-stat gal-stat--sep" role="listitem">
+                  <span className="gal-stat-v">{TOTAL_PHOTOS}</span>
+                  <span className="gal-stat-l">Photos</span>
+                </div>
+                <div className="gal-stat gal-stat--sep" role="listitem">
+                  <span className="gal-stat-v">{ALBUMS.length}</span>
+                  <span className="gal-stat-l">Albums</span>
+                </div>
+                <div className="gal-stat" role="listitem">
+                  <span className="gal-stat-v">2023</span>
+                  <span className="gal-stat-l">Depuis</span>
+                </div>
+              </div>
+            )}
+
           </div>
-        </div>
+        </section>
 
         {/* ── BARRE FILTRES (albums seulement) ── */}
         {view === 'albums' && (
@@ -453,77 +472,94 @@ export default function GalerieClient() {
         /* ── HERO ── */
         .gal-hero {
           position: relative;
-          background: #1a2e1a;
-          border-radius: 0 0 12px 12px;
-          padding: 48px 56px;
           overflow: hidden;
-          margin-bottom: 32px;
-          min-height: 280px;
+          min-height: 500px;
           display: flex;
-          align-items: flex-end;
+          flex-direction: column;
+          justify-content: flex-end;
+          margin-bottom: 32px;
         }
         .gal-hero-overlay {
           position: absolute; inset: 0; z-index: 1;
-          background: rgba(5,12,5,0.72);
+          background: linear-gradient(
+            to right,
+            rgba(5,12,5,0.88) 50%,
+            rgba(5,12,5,0.40) 100%
+          );
         }
-        .gal-hero-content {
+        .gal-hero-body {
           position: relative; z-index: 2;
-          max-width: 600px;
+          max-width: 1400px;
+          margin: 0 auto;
+          width: 100%;
+          padding: 80px clamp(1.5rem, 4vw, 44px) 44px;
+          box-sizing: border-box;
         }
 
         /* Breadcrumb */
-        .gal-breadcrumb {
-          display: flex; align-items: center; flex-wrap: wrap; gap: 2px;
-          margin-bottom: 16px;
+        .gal-bc {
+          display: flex; align-items: center; gap: 6px;
+          margin-bottom: 32px;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 12px;
         }
-        .gal-bc-sep { color: rgba(255,255,255,0.25); font-size: 11px; margin: 0 2px; }
+        .gal-bc-item { display: flex; align-items: center; gap: 6px; }
         .gal-bc-link {
           background: none; border: none; padding: 0; cursor: pointer;
-          font-family: 'DM Sans', sans-serif; font-size: 11px;
-          color: rgba(255,255,255,0.40);
-          text-decoration: underline; text-underline-offset: 2px;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif; font-size: 12px;
+          color: rgba(255,255,255,0.6);
+          text-decoration: none;
           transition: color 0.2s;
         }
-        .gal-bc-link:hover { color: rgba(255,255,255,0.70); }
-        .gal-bc-current {
-          font-family: 'DM Sans', sans-serif; font-size: 11px;
-          color: rgba(255,255,255,0.40);
-        }
+        .gal-bc-link:hover { color: #ffffff; }
+        .gal-bc-sep { color: rgba(255,255,255,0.4); }
+        .gal-bc-curr { color: #ffffff; }
 
-        /* Surtitle */
-        .gal-surtitle {
-          display: flex; align-items: center; gap: 8px;
-          margin-bottom: 12px;
-        }
-        .gal-sur-line {
-          display: block; width: 24px; height: 1.5px;
-          background: #A5CE46; flex-shrink: 0;
-        }
-        .gal-sur-text {
-          font-family: 'DM Sans', sans-serif;
-          font-size: 10px; font-weight: 500;
+        /* Label */
+        .gal-label {
+          display: flex; align-items: center; gap: 10px;
+          margin-bottom: 16px;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 11px; font-weight: 500;
           letter-spacing: 0.14em; text-transform: uppercase;
-          color: #A5CE46;
+          color: #97C459;
         }
+        .gal-label-line { display: block; width: 28px; height: 1.5px; background: #97C459; flex-shrink: 0; }
 
         /* H1 */
         .gal-h1 {
-          font-family: 'Cormorant Garamond', Georgia, serif;
-          font-size: clamp(1.8rem, 4vw, 2.6rem);
-          font-weight: 600;
-          color: #ffffff;
-          line-height: 1.12;
-          margin: 0 0 14px;
-          letter-spacing: -0.01em;
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-size: clamp(2.09rem, 4.75vw, 3.04rem);
+          font-weight: 700; line-height: 1.1;
+          color: #ffffff; max-width: 600px;
+          margin: 0 0 20px; letter-spacing: -0.02em;
         }
-        .gal-h1 em { color: #A5CE46; font-style: italic; }
+        .gal-h1 em { font-style: italic; color: #ffffff; }
 
-        /* Desc */
-        .gal-hero-desc {
-          font-family: 'DM Sans', sans-serif;
-          font-size: 14px; font-weight: 300;
-          color: rgba(255,255,255,0.65);
-          line-height: 1.7; margin: 0;
+        /* Lead */
+        .gal-hero-lead {
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 1rem; font-weight: 400; line-height: 1.7;
+          color: #ffffff; max-width: 520px; margin: 0;
+        }
+
+        /* Stats */
+        .gal-hero-stats {
+          display: flex; align-items: baseline; flex-wrap: wrap;
+          border-top: 1px solid rgba(255,255,255,0.12);
+          padding-top: 20px; margin-top: 28px; row-gap: 12px;
+        }
+        .gal-stat { display: flex; align-items: baseline; gap: 6px; }
+        .gal-stat--sep { padding-right: 28px; margin-right: 28px; border-right: 1px solid rgba(255,255,255,0.15); }
+        .gal-stat-v {
+          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-size: 1.25rem; font-weight: 700; line-height: 1; letter-spacing: -0.01em;
+          color: #97C459;
+        }
+        .gal-stat-l {
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 10px; font-weight: 500;
+          text-transform: uppercase; letter-spacing: 0.1em; color: #ffffff;
         }
 
         /* ── FILTRES ── */
@@ -715,7 +751,9 @@ export default function GalerieClient() {
         }
 
         @media (max-width: 768px) {
-          .gal-hero { padding: 32px 20px; }
+          .gal-hero { min-height: 520px; }
+          .gal-hero-body { padding: 60px 24px 40px; }
+          .gal-stat--sep { padding-right: 20px; margin-right: 20px; }
           .gal-filters {
             margin: 0 20px 20px;
             flex-direction: column; align-items: flex-start;
@@ -728,6 +766,10 @@ export default function GalerieClient() {
         }
 
         @media (max-width: 480px) {
+          .gal-hero { min-height: 540px; }
+          .gal-hero-body { padding: 56px 20px 36px; }
+          .gal-h1 { max-width: 100%; }
+          .gal-stat--sep { padding-right: 14px; margin-right: 14px; }
           .gal-grid-albums { grid-template-columns: 1fr 1fr; }
         }
       `}</style>

@@ -582,7 +582,7 @@ export default function CIFAPEditionLayout({ edition, locale }: Props) {
         .ced-hero {
           position: relative;
           overflow: hidden;
-          min-height: 380px;
+          min-height: 480px;
           display: flex;
           align-items: center;
           background-image: url('https://wasafrica.org/wp-content/uploads/2024/11/CENTRE-KARONGHEN-WATI-NANING-9-1.jpg');

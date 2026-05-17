@@ -378,17 +378,6 @@ export default function MediathequeGrid({ activePill, search }: Props) {
           </div>
         )}
 
-        {/* CTA bas de page */}
-        <div className="mg-cta-wrap">
-          <div className="mg-cta-box">
-            <div>
-              <p className="mg-cta-title">Vous avez filmé une action sur le terrain ?</p>
-              <p className="mg-cta-sub">Partagez vos vidéos avec les 175&nbsp;000 membres du réseau NSS.</p>
-            </div>
-            <button className="mg-cta-btn">Soumettre une vidéo</button>
-          </div>
-        </div>
-
       </section>
 
       <style>{`
@@ -591,50 +580,6 @@ export default function MediathequeGrid({ activePill, search }: Props) {
           cursor: default;
         }
 
-        /* ── CTA BAS ── */
-        .mg-cta-wrap {
-          margin-top: 40px;
-        }
-        .mg-cta-box {
-          background: #045627;
-          border-radius: 14px;
-          padding: 24px 28px;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          gap: 20px;
-          flex-wrap: wrap;
-        }
-        .mg-cta-title {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: 18px;
-          font-weight: 600;
-          color: #ffffff;
-          margin: 0 0 4px;
-        }
-        .mg-cta-sub {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 14px;
-          font-weight: 300;
-          color: rgba(255,255,255,0.7);
-          margin: 0;
-        }
-        .mg-cta-btn {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          background: #A5CE46;
-          color: #045627;
-          font-size: 13px;
-          font-weight: 500;
-          padding: 11px 22px;
-          border-radius: 8px;
-          border: none;
-          cursor: pointer;
-          white-space: nowrap;
-          letter-spacing: 0.02em;
-          transition: background 0.2s;
-        }
-        .mg-cta-btn:hover { background: #96be38; }
-
         /* ── SPINNER ── */
         @keyframes mgSpin { to { transform: rotate(360deg); } }
 
@@ -648,7 +593,6 @@ export default function MediathequeGrid({ activePill, search }: Props) {
         @media (max-width: 640px) {
           .mg-wrap { padding: 20px 20px 40px; }
           .mg-grid { grid-template-columns: 1fr; }
-          .mg-cta-box { flex-direction: column; align-items: flex-start; }
         }
       `}</style>
     </>
