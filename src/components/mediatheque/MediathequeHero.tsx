@@ -61,7 +61,7 @@ export default function MediathequeHero() {
         .vh {
           position: relative;
           overflow: hidden;
-          min-height: 500px;
+          min-height: 480px;
           display: flex;
           flex-direction: column;
           justify-content: flex-end;
