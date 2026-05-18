@@ -90,26 +90,26 @@ export default function ProgrammesHero() {
         .prh-label {
           display: flex; align-items: center; gap: 10px;
           margin-bottom: 16px;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: 'Outfit', var(--font-body), sans-serif;
           font-size: 12px; font-weight: 500;
-          letter-spacing: 0.14em; text-transform: uppercase;
+          letter-spacing: 0.12em; text-transform: uppercase;
           color: ${C_GREEN};
         }
         .prh-label-line { display: block; width: 28px; height: 1.5px; background: ${C_GREEN}; flex-shrink: 0; }
 
         /* H1 */
         .prh-h1 {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: clamp(1.68rem, 3.36vw, 2.31rem);
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: clamp(36px, 5vw, 56px);
           font-weight: 700; line-height: 1.1;
-          color: #ffffff; max-width: 600px;
-          margin: 0 0 20px; letter-spacing: -0.02em;
+          color: rgb(246,243,238); max-width: 600px;
+          margin: 0 0 20px;
         }
-        .prh-h1 em { font-style: italic; color: #ffffff; }
+        .prh-h1 em { color: rgb(246,243,238); }
 
         /* Lead */
         .prh-lead {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: 'Source Serif 4', var(--font-source-serif), serif;
           font-size: 1.05rem; font-weight: 400; line-height: 1.7;
           color: #ffffff; max-width: 520px; margin: 0;
         }

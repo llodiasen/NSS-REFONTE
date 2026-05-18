@@ -247,8 +247,8 @@ export default function ProgrammesEvenementsSection() {
 
         /* ── H3 ── */
         .pev-h3 {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: 22px;
+          font-family: 'DM Sans', sans-serif;
+          font-size: 18px;
           font-weight: 600;
           color: #2A2A2A;
           line-height: 1.1;

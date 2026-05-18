@@ -386,7 +386,7 @@ export default function MediathequeSectionRedesign() {
           .vc__titre-btn {
             background: none; border: none; padding: 0;
             width: 100%; text-align: left; cursor: pointer;
-            font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+            font-family: 'DM Sans', sans-serif;
             font-size: 18px;
             font-weight: 600; line-height: 1.25;
             color: #2A2A2A;

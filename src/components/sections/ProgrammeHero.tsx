@@ -31,14 +31,15 @@ export default function ProgrammeHero({ eyebrow, title, subtitle, imageSrc }: Pr
 
       {/* Contenu */}
       <div className="phero__wrap">
-        <motion.span
-          className="phero__eyebrow"
+        <motion.div
+          className="phero__label"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.4, delay: 0.2 }}
         >
-          {eyebrow}
-        </motion.span>
+          <span className="phero__label-line" aria-hidden />
+          <span className="phero__eyebrow">{eyebrow}</span>
+        </motion.div>
 
         <motion.h1
           className="phero__h1"
@@ -65,9 +66,10 @@ export default function ProgrammeHero({ eyebrow, title, subtitle, imageSrc }: Pr
         .phero {
           position: relative;
           width: 100%;
-          height: 100vh;
+          min-height: 500px;
           display: flex;
-          align-items: flex-end;
+          flex-direction: column;
+          justify-content: center;
           overflow: hidden;
         }
 
@@ -80,7 +82,7 @@ export default function ProgrammeHero({ eyebrow, title, subtitle, imageSrc }: Pr
         .phero__overlay {
           position: absolute;
           inset: 0;
-          background: rgba(4,86,39,0.70);
+          background: linear-gradient(to right, rgba(5,12,5,0.88) 50%, rgba(5,12,5,0.40) 100%);
           z-index: 1;
         }
 
@@ -88,40 +90,48 @@ export default function ProgrammeHero({ eyebrow, title, subtitle, imageSrc }: Pr
           position: relative;
           z-index: 2;
           width: 100%;
-          max-width: 1200px;
+          max-width: 1400px;
           margin: 0 auto;
-          padding: 0 24px 80px;
+          padding: 80px clamp(1.5rem, 4vw, 44px) 44px;
+          box-sizing: border-box;
           display: flex;
           flex-direction: column;
-          gap: 16px;
+          gap: 0;
         }
 
+        .phero__label {
+          display: flex; align-items: center; gap: 10px;
+          margin-bottom: 16px;
+        }
+        .phero__label-line {
+          display: block; width: 28px; height: 1.5px;
+          background: #97C459; flex-shrink: 0;
+        }
         .phero__eyebrow {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 11px;
-          font-weight: 700;
-          letter-spacing: 2px;
+          font-size: 12px;
+          font-weight: 500;
+          letter-spacing: 0.12em;
           text-transform: uppercase;
-          color: #A5CE46;
+          color: #97C459;
         }
 
         .phero__h1 {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
-          font-size: 48px;
-          font-weight: 600;
-          line-height: 1.0;
-          color: #ffffff;
-          margin: 0;
-          letter-spacing: -0.01em;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: clamp(36px, 5vw, 56px);
+          font-weight: 700;
+          line-height: 1.1;
+          color: rgb(246,243,238);
+          margin: 0 0 16px;
           max-width: 700px;
         }
 
         .phero__sub {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 18px;
-          font-weight: 300;
-          line-height: 1.6;
-          color: #F5EDD6;
+          font-family: 'Source Serif 4', var(--font-source-serif), serif;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 1.7;
+          color: rgb(246,243,238);
           margin: 0;
           max-width: 560px;
           display: -webkit-box;
@@ -132,7 +142,6 @@ export default function ProgrammeHero({ eyebrow, title, subtitle, imageSrc }: Pr
 
         @media (max-width: 768px) {
           .phero { height: 60vh; }
-          .phero__h1 { font-size: 30px; }
           .phero__sub { font-size: 15px; }
           .phero__wrap { padding: 0 20px 48px; }
         }

@@ -297,7 +297,7 @@ export default function ActualitesHomepageSection() {
 
         /* ── H3 ── */
         .ach-h3 {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: 'DM Sans', sans-serif;
           font-size: 18px;
           font-weight: 600;
           color: #2A2A2A;

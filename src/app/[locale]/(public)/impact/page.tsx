@@ -4,6 +4,7 @@ import SectionHeader from "@/components/ui/SectionHeader";
 import Section from "@/components/ui/Section";
 import StatCounter from "@/components/ui/StatCounter";
 import Button from "@/components/ui/Button";
+import PageHero from "@/components/ui/PageHero";
 
 export const metadata: Metadata = {
   title: "Notre Impact — 175 000 femmes pour la souveraineté alimentaire",
@@ -59,22 +60,13 @@ export default async function ImpactPage({ params }: ImpactPageProps) {
   return (
     <>
       {/* HERO */}
-      <section className="bg-primary-900 text-white py-20 lg:py-28">
-        <Container>
-          <div className="max-w-3xl">
-            <span className="text-primary-300 font-semibold text-sm uppercase tracking-wider block mb-4">
-              NSS en chiffres
-            </span>
-            <h1 className="font-display text-4xl lg:text-6xl font-bold leading-tight mb-6">
-              175 000 femmes. Un seul mouvement. Un continent qui se nourrit.
-            </h1>
-            <p className="text-primary-100 text-lg leading-relaxed">
-              NSS n&apos;est pas une promesse. C&apos;est une réalité vécue sur le terrain, dans les champs,
-              dans les marchés, dans les assemblées — par des centaines de milliers de femmes rurales africaines.
-            </p>
-          </div>
-        </Container>
-      </section>
+      <PageHero
+        label="NSS en chiffres"
+        title="175 000 femmes. Un seul mouvement. Un continent qui se nourrit."
+        subtitle="NSS n'est pas une promesse. C'est une réalité vécue sur le terrain, dans les champs, dans les marchés, dans les assemblées — par des centaines de milliers de femmes rurales africaines."
+        imageSrc="/images/actualites/tamba-femmes-rurales-changement-climatique.webp"
+        imagePosition="center 40%"
+      />
 
       {/* CHIFFRES ANIMÉS */}
       <Section variant="white">

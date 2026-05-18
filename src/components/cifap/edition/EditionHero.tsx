@@ -2,6 +2,9 @@ import Link from 'next/link'
 import { CalendarDays, Clock, MapPin, Users } from 'lucide-react'
 import type { CifapEdition } from '@/lib/cifap-editions'
 
+const C_GREEN = '#97C459'
+const FALLBACK_IMG = '/images/actualites/camp-formation-agroecologie-niaguis-2024.jpg'
+
 interface Props {
   edition: CifapEdition
   toutes: CifapEdition[]
@@ -9,71 +12,206 @@ interface Props {
 }
 
 export default function EditionHero({ edition: e, toutes, locale }: Props) {
+  const bgImage = e.hero_image ?? FALLBACK_IMG
+
   return (
-    <section className="bg-nss-nuit rounded-3xl px-8 py-10 mb-0">
+    <section className="eh" aria-labelledby="eh-titre">
 
-      {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-gray-400 text-sm mb-6" aria-label="Fil d'Ariane">
-        <Link href={`/${locale}`} className="hover:text-gray-200 transition-colors">Accueil</Link>
-        <span aria-hidden>/</span>
-        <Link href={`/${locale}/programmes`} className="hover:text-gray-200 transition-colors">Programmes</Link>
-        <span aria-hidden>/</span>
-        <Link href={`/${locale}/programmes/cifap`} className="hover:text-gray-200 transition-colors">CIFAP</Link>
-        <span aria-hidden>/</span>
-        <span className="text-gray-300">{e.numero}e édition {e.annee}</span>
-      </nav>
+      <div className="eh-bg" style={{ backgroundImage: `url('${bgImage}')` }} aria-hidden />
+      <div className="eh-overlay" aria-hidden />
 
-      {/* Eyebrow */}
-      <p className="text-nss-lime text-xs uppercase tracking-widest mb-4">
-        —— CIFAP — {e.numero}E ÉDITION · {e.annee}
-      </p>
+      <div className="eh-body">
 
-      {/* Titre 2 lignes */}
-      <h1 className="font-bold text-4xl md:text-5xl leading-tight mb-6">
-        <span className="text-white">{e.titre_ligne1}</span>
-        <br />
-        <span className="text-nss-lime italic">{e.titre_ligne2}</span>
-      </h1>
+        {/* Breadcrumb */}
+        <nav className="eh-bc" aria-label="Fil d'Ariane">
+          <Link href={`/${locale}`} className="eh-bc-link">Accueil</Link>
+          <span className="eh-bc-sep" aria-hidden>›</span>
+          <Link href={`/${locale}/programmes`} className="eh-bc-link">Programmes</Link>
+          <span className="eh-bc-sep" aria-hidden>›</span>
+          <Link href={`/${locale}/programmes/cifap`} className="eh-bc-link">CIFAP</Link>
+          <span className="eh-bc-sep" aria-hidden>›</span>
+          <span className="eh-bc-curr">{e.numero}e édition {e.annee}</span>
+        </nav>
 
-      {/* Meta row */}
-      <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-gray-300 text-sm">
-        <span className="flex items-center gap-2">
-          <CalendarDays size={16} className="text-nss-lime flex-shrink-0" aria-hidden="true" />
-          {e.dates}
-        </span>
-        <span className="flex items-center gap-2">
-          <Clock size={16} className="text-nss-lime flex-shrink-0" aria-hidden="true" />
-          {e.jours_formation} jours
-        </span>
-        <span className="flex items-center gap-2">
-          <MapPin size={16} className="text-nss-lime flex-shrink-0" aria-hidden="true" />
-          {e.lieu}
-        </span>
-        <span className="flex items-center gap-2">
-          <Users size={16} className="text-nss-lime flex-shrink-0" aria-hidden="true" />
-          {e.participants} participants · {e.pays_representes} pays
-        </span>
+        {/* Label */}
+        <div className="eh-label">
+          <span className="eh-label-line" aria-hidden />
+          <span>CIFAP — {e.numero}E ÉDITION · {e.annee}</span>
+        </div>
+
+        {/* H1 */}
+        <h1 id="eh-titre" className="eh-h1">
+          {e.titre_ligne1}{' '}
+          <em>{e.titre_ligne2}</em>
+        </h1>
+
+        {/* Lead */}
+        <p className="eh-lead">{e.theme}</p>
+
+        {/* Meta */}
+        <div className="eh-meta">
+          <span className="eh-meta-item">
+            <CalendarDays size={14} aria-hidden="true" />
+            {e.dates}
+          </span>
+          <span className="eh-meta-sep" aria-hidden>·</span>
+          <span className="eh-meta-item">
+            <Clock size={14} aria-hidden="true" />
+            {e.jours_formation} jours
+          </span>
+          <span className="eh-meta-sep" aria-hidden>·</span>
+          <span className="eh-meta-item">
+            <MapPin size={14} aria-hidden="true" />
+            {e.lieu}
+          </span>
+          <span className="eh-meta-sep" aria-hidden>·</span>
+          <span className="eh-meta-item">
+            <Users size={14} aria-hidden="true" />
+            {e.participants} · {e.pays_representes} pays
+          </span>
+        </div>
+
+        {/* Timeline éditions */}
+        <div className="eh-timeline">
+          {toutes.map((ed) => (
+            <Link
+              key={ed.slug}
+              href={`/${locale}/programmes/cifap/${ed.slug}`}
+              className={`eh-tl-btn${ed.slug === e.slug ? ' eh-tl-btn--active' : ''}`}
+            >
+              {ed.numero}e éd. {ed.annee}
+            </Link>
+          ))}
+        </div>
+
       </div>
 
-      {/* Timeline éditions */}
-      <div
-        className="flex items-center gap-3 mt-8 pt-6 overflow-x-auto"
-        style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}
-      >
-        {toutes.map((ed) => (
-          <Link
-            key={ed.slug}
-            href={`/${locale}/programmes/cifap/${ed.slug}`}
-            className={`text-xs px-3 py-1.5 rounded-full whitespace-nowrap transition-colors ${
-              ed.slug === e.slug
-                ? 'bg-nss-lime text-nss-nuit font-semibold'
-                : 'text-gray-400 hover:text-gray-200'
-            }`}
-          >
-            {ed.numero}e éd. {ed.annee}
-          </Link>
-        ))}
-      </div>
+      <style>{`
+        .eh {
+          position: relative;
+          overflow: hidden;
+          min-height: 500px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+        .eh-bg {
+          position: absolute;
+          inset: 0;
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          z-index: 0;
+        }
+        .eh-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            to right,
+            rgba(5,12,5,0.88) 50%,
+            rgba(5,12,5,0.40) 100%
+          );
+          z-index: 1;
+        }
+        .eh-body {
+          position: relative;
+          z-index: 2;
+          max-width: 1400px;
+          margin: 0 auto;
+          width: 100%;
+          padding: 80px clamp(1.5rem, 4vw, 44px) 44px;
+          box-sizing: border-box;
+        }
+
+        /* Breadcrumb */
+        .eh-bc {
+          display: flex; align-items: center; gap: 6px;
+          margin-bottom: 32px;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 13px;
+        }
+        .eh-bc-link { color: #ffffff; text-decoration: none; transition: color 0.2s; }
+        .eh-bc-link:hover { color: #ffffff; }
+        .eh-bc-sep  { color: rgba(255,255,255,0.7); }
+        .eh-bc-curr { color: #ffffff; }
+
+        /* Label */
+        .eh-label {
+          display: flex; align-items: center; gap: 10px;
+          margin-bottom: 16px;
+          font-family: 'Outfit', var(--font-body), sans-serif;
+          font-size: 12px; font-weight: 500;
+          letter-spacing: 0.12em; text-transform: uppercase;
+          color: ${C_GREEN};
+        }
+        .eh-label-line { display: block; width: 28px; height: 1.5px; background: ${C_GREEN}; flex-shrink: 0; }
+
+        /* H1 */
+        .eh-h1 {
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: clamp(32px, 4.5vw, 52px);
+          font-weight: 700; line-height: 1.1;
+          color: rgb(246,243,238); max-width: 680px;
+          margin: 0 0 16px;
+        }
+        .eh-h1 em { font-style: normal; color: rgb(246,243,238); }
+
+        /* Lead */
+        .eh-lead {
+          font-family: 'Source Serif 4', var(--font-source-serif), serif;
+          font-size: 1.05rem; font-weight: 400; line-height: 1.7;
+          color: #ffffff; max-width: 560px;
+          margin: 0 0 24px;
+        }
+
+        /* Meta */
+        .eh-meta {
+          display: flex; flex-wrap: wrap; align-items: center;
+          gap: 8px;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 13px;
+          color: #ffffff;
+          margin-bottom: 32px;
+        }
+        .eh-meta-item { display: flex; align-items: center; gap: 5px; }
+        .eh-meta-sep  { color: rgba(255,255,255,0.3); }
+
+        /* Timeline */
+        .eh-timeline {
+          display: flex; align-items: center; gap: 8px;
+          flex-wrap: wrap;
+          padding-top: 20px;
+          border-top: 1px solid rgba(255,255,255,0.15);
+        }
+        .eh-tl-btn {
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-size: 12px;
+          padding: 5px 14px;
+          border-radius: 999px;
+          text-decoration: none;
+          white-space: nowrap;
+          transition: color 0.2s;
+          color: #ffffff;
+        }
+        .eh-tl-btn:hover { color: #ffffff; }
+        .eh-tl-btn--active {
+          background: ${C_GREEN};
+          color: #0a2618;
+          font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+          .eh { min-height: 520px; }
+          .eh-body { padding: 60px 24px 40px; }
+          .eh-meta { flex-direction: column; align-items: flex-start; gap: 6px; }
+          .eh-meta-sep { display: none; }
+        }
+        @media (max-width: 480px) {
+          .eh { min-height: 540px; }
+          .eh-body { padding: 56px 20px 36px; }
+          .eh-h1 { max-width: 100%; }
+        }
+      `}</style>
     </section>
   )
 }

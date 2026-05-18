@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ExternalLink, ShieldCheck, Heart, Leaf, Megaphone, Users } from "lucide-react";
+import PageHero from "@/components/ui/PageHero";
 
 export const metadata: Metadata = {
   title: "Soutenir NSS — Faire un don pour la souveraineté alimentaire | wasafrica.org",
@@ -47,21 +48,13 @@ export default async function DonnerPage({ params }: PageProps) {
   return (
     <>
       {/* Hero */}
-      <section className="bg-primary-900 py-16 px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-primary-300 text-sm font-semibold tracking-widest uppercase mb-3">
-            Agir
-          </p>
-          <h1 className="font-display text-3xl sm:text-4xl font-bold text-white mb-4">
-            Votre soutien change ce qui se passe dans les champs
-          </h1>
-          <p className="text-primary-100 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-            NSS ne demande pas de charité. Elle demande un soutien concret pour que les femmes
-            rurales africaines puissent agir à plus grande échelle, former plus d&apos;agricultrices,
-            et peser davantage dans les décisions qui les concernent.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        label="Agir"
+        title="Votre soutien change ce qui se passe dans les champs"
+        subtitle="NSS ne demande pas de charité. Elle demande un soutien concret pour que les femmes rurales africaines puissent agir à plus grande échelle, former plus d'agricultrices, et peser davantage dans les décisions qui les concernent."
+        imageSrc="/images/actualites/lutte-mariama-sonko-agroecologie.jpg"
+        imagePosition="center 35%"
+      />
 
       {/* Ce que votre don finance */}
       <section className="py-16 px-4 bg-white">

@@ -6,6 +6,8 @@ import {
   Outfit,
   Cormorant_Garamond,
   DM_Sans,
+  Fraunces,
+  Source_Serif_4,
 } from "next/font/google";
 import PWARegister from "@/components/PWARegister";
 import "./globals.css";
@@ -62,6 +64,23 @@ const dmSans = DM_Sans({
   preload: false,
 });
 
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  weight: ["700"],
+  style: ["normal", "italic"],
+  variable: "--font-fraunces",
+  display: "block",
+  preload: false,
+});
+
+const sourceSerif4 = Source_Serif_4({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-source-serif",
+  display: "swap",
+  preload: false,
+});
+
 export default async function RootLayout({ children }: { children: ReactNode }) {
   const locale = await getLocale();
 
@@ -70,6 +89,8 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     outfit.variable,
     cormorantGaramond.variable,
     dmSans.variable,
+    fraunces.variable,
+    sourceSerif4.variable,
   ].join(" ");
 
   return (

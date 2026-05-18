@@ -3,6 +3,7 @@ import Container from "@/components/ui/Container";
 import SectionHeader from "@/components/ui/SectionHeader";
 import Section from "@/components/ui/Section";
 import Badge from "@/components/ui/Badge";
+import PageHero from "@/components/ui/PageHero";
 
 export const metadata: Metadata = {
   title: "Nos Associations membres — Mouvement NSS",
@@ -41,22 +42,13 @@ export default function AssociationsPage() {
   return (
     <>
       {/* HERO */}
-      <section className="bg-primary-900 text-white py-20 lg:py-28">
-        <Container>
-          <div className="max-w-2xl">
-            <span className="text-primary-300 font-semibold text-sm uppercase tracking-wider block mb-4">
-              Nos organisations membres
-            </span>
-            <h1 className="font-display text-4xl lg:text-6xl font-bold leading-tight mb-6">
-              Les femmes qui portent le mouvement
-            </h1>
-            <p className="text-primary-100 text-lg leading-relaxed">
-              13 associations fondatrices. 7 pays. Des centaines de milliers de femmes
-              rurales unies autour d&apos;une même conviction : elles sont la solution.
-            </p>
-          </div>
-        </Container>
-      </section>
+      <PageHero
+        label="Nos organisations membres"
+        title="Les femmes qui portent le mouvement"
+        subtitle="13 associations fondatrices. 7 pays. Des centaines de milliers de femmes rurales unies autour d'une même conviction : elles sont la solution."
+        imageSrc="/images/actualites/organisations-femmes-rurales-nss.jpg"
+        imagePosition="center 40%"
+      />
 
       {/* ASSOCIATIONS PAR PAYS */}
       <Section variant="neutral">

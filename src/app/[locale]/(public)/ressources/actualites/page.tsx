@@ -37,8 +37,8 @@ export default function ActualitesPage() {
             position: "absolute",
             inset: 0,
             background: [
-              "linear-gradient(to right, rgba(0,0,0,0.97) 0%, rgba(3,8,5,0.95) 40%, rgba(6,14,9,0.88) 65%, rgba(0,0,0,0.70) 100%)",
-              "linear-gradient(to bottom, rgba(0,0,0,0.40) 0%, transparent 35%, rgba(0,0,0,0.35) 100%)",
+              "linear-gradient(to right, rgba(0,0,0,0.78) 0%, rgba(3,8,5,0.72) 40%, rgba(6,14,9,0.58) 65%, rgba(0,0,0,0.35) 100%)",
+              "linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, transparent 35%, rgba(0,0,0,0.20) 100%)",
               "radial-gradient(ellipse 70% 50% at 20% 80%, rgba(45,154,106,0.08), transparent 65%)",
             ].join(", "),
           }}
@@ -75,10 +75,10 @@ export default function ActualitesPage() {
             />
             <span
               style={{
-                fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+                fontFamily: "'Outfit', var(--font-body), sans-serif",
                 fontSize: "11px",
-                fontWeight: 600,
-                letterSpacing: "2.5px",
+                fontWeight: 500,
+                letterSpacing: "0.12em",
                 textTransform: "uppercase",
                 color: "#8fbe6b",
                 whiteSpace: "nowrap",
@@ -101,11 +101,11 @@ export default function ActualitesPage() {
           {/* H1 */}
           <h1
             style={{
-              fontFamily: "var(--font-display, serif)",
-              fontSize: "clamp(32px, 4vw, 52px)",
-              fontWeight: 400,
-              lineHeight: 1.12,
-              color: "#F6F3EE",
+              fontFamily: "'Fraunces', var(--font-fraunces), serif",
+              fontSize: "clamp(36px, 5vw, 56px)",
+              fontWeight: 700,
+              lineHeight: 1.1,
+              color: "rgb(246, 243, 238)",
               marginBottom: "24px",
               maxWidth: "680px",
             }}
@@ -116,8 +116,9 @@ export default function ActualitesPage() {
           {/* Subtitle */}
           <p
             style={{
-              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
-              fontSize: "17px",
+              fontFamily: "'Outfit', var(--font-body), sans-serif",
+              fontSize: "16px",
+              fontWeight: 400,
               lineHeight: 1.7,
               color: "#ffffff",
               maxWidth: "520px",

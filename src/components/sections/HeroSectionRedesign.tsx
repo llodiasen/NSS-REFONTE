@@ -178,7 +178,7 @@ export default function HeroSectionRedesign() {
           font-weight: 600; letter-spacing: -0.01em; line-height: 1.1;
           color: #2A2A2A; margin: 0 0 20px;
         }
-        .hsr-h2 em { color: #00AD4C; font-style: italic; }
+        .hsr-h2 em { color: #00AD4C; }
 
         /* ── BLOCKQUOTE ── */
         .hsr-quote {

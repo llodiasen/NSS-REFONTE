@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import FAQ from "@/components/sections/FAQ";
 import type { FAQItem } from "@/components/sections/FAQ";
+import PageHero from "@/components/ui/PageHero";
 
 export const metadata: Metadata = {
   title: "Foire aux questions — Mouvement NSS | wasafrica.org",
@@ -103,20 +104,13 @@ export default function FAQPage() {
       />
 
       {/* Hero */}
-      <section className="bg-primary-900 py-16 px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-primary-300 text-sm font-semibold tracking-widest uppercase mb-3">
-            FAQ
-          </p>
-          <h1 className="font-display text-3xl sm:text-4xl font-bold text-white mb-4">
-            Vos questions, nos réponses
-          </h1>
-          <p className="text-primary-100 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-            Tout ce que vous voulez savoir sur la souveraineté alimentaire, l&apos;agroécologie
-            et le mouvement Nous Sommes la Solution.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        label="FAQ"
+        title="Vos questions, nos réponses"
+        subtitle="Tout ce que vous voulez savoir sur la souveraineté alimentaire, l'agroécologie et le mouvement Nous Sommes la Solution."
+        imageSrc="/images/actualites/portrait-mariama-sonko-femme-rurale.jpg"
+        imagePosition="center 25%"
+      />
 
       {/* FAQ accordéon */}
       <section className="py-16 px-4 bg-neutral-50">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import ContactForm from "@/components/sections/ContactForm";
+import PageHero from "@/components/ui/PageHero";
 
 export const metadata: Metadata = {
   title: "Nous contacter — Mouvement NSS | wasafrica.org",
@@ -41,20 +42,12 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
   return (
     <>
       {/* Hero */}
-      <section className="bg-primary-900 py-16 px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-primary-300 text-sm font-semibold tracking-widest uppercase mb-3">
-            Contact
-          </p>
-          <h1 className="font-display text-3xl sm:text-4xl font-bold text-white mb-4">
-            Parlons ensemble
-          </h1>
-          <p className="text-primary-100 text-base sm:text-lg leading-relaxed max-w-xl mx-auto">
-            Une question sur le mouvement, un projet de partenariat,
-            une demande d&apos;adhésion — nous sommes là.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        label="Contact"
+        title="Parlons ensemble."
+        subtitle="Une question sur le mouvement, un projet de partenariat, une demande d'adhésion — nous sommes là."
+        imageSrc="/images/galerie/rencontre-1.jpg"
+      />
 
       {/* Layout 2 colonnes */}
       <section className="py-16 px-4 bg-neutral-50">

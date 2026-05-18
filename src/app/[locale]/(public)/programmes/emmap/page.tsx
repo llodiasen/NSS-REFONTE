@@ -4,6 +4,7 @@ import Container from "@/components/ui/Container";
 import SectionHeader from "@/components/ui/SectionHeader";
 import Section from "@/components/ui/Section";
 import Button from "@/components/ui/Button";
+import PageHero from "@/components/ui/PageHero";
 
 export const metadata: Metadata = {
   title: "EMMAP — Médias, Minorités et Paix | NSS",
@@ -29,24 +30,13 @@ export default async function EMMAPPage({ params }: EMMAPPageProps) {
   return (
     <>
       {/* HERO */}
-      <section className="bg-primary-900 text-white py-20 lg:py-28">
-        <Container>
-          <div className="max-w-2xl">
-            <span className="inline-block bg-earth-500 text-white text-xs font-bold
-                             px-3 py-1 rounded-full uppercase tracking-wider mb-6">
-              Programme phare
-            </span>
-            <h1 className="font-display text-4xl lg:text-6xl font-bold leading-tight mb-6">
-              Donner aux communautés rurales les outils de leur parole
-            </h1>
-            <p className="text-primary-100 text-lg leading-relaxed">
-              Le programme EMMAP (Engagement des Médias pour les Minorités, l&apos;Agriculture
-              et la Paix) forme les femmes rurales à produire, diffuser et utiliser
-              l&apos;information comme outil de changement.
-            </p>
-          </div>
-        </Container>
-      </section>
+      <PageHero
+        label="Programme phare · EMMAP"
+        title="Donner aux communautés rurales les outils de leur parole"
+        subtitle="Le programme EMMAP forme les femmes rurales à produire, diffuser et utiliser l'information comme outil de changement."
+        imageSrc="/images/actualites/techniques-agricoles-bio-gambie.jpg"
+        imagePosition="center 40%"
+      />
 
       {/* PUBLIC */}
       <Section variant="primary-light">

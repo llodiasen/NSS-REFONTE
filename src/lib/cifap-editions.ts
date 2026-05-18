@@ -26,6 +26,7 @@ export interface CifapEdition {
   numero: number
   slug: string
   theme: string
+  hero_image?: string
   titre_ligne1: string
   titre_ligne2: string
   statut: 'passe' | 'en-cours' | 'a-venir'
@@ -52,6 +53,7 @@ export const CIFAP_EDITIONS: CifapEdition[] = [
     numero: 1,
     slug: '1ere-edition-2022',
     theme: 'Bio-intrants',
+    hero_image: '/images/actualites/camp-formation-agroecologie-niaguis-2024.jpg',
     titre_ligne1: 'Bio-intrants —',
     titre_ligne2: 'biofertilisants et biopesticides',
     statut: 'passe',
@@ -95,6 +97,7 @@ export const CIFAP_EDITIONS: CifapEdition[] = [
     numero: 2,
     slug: '2e-edition-2023',
     theme: 'Semences paysannes',
+    hero_image: '/images/actualites/autonomisation-semenciere-souverainete-alimentaire-2023.jpg',
     titre_ligne1: 'Production des semences',
     titre_ligne2: 'horticoles paysannes',
     statut: 'passe',
@@ -155,6 +158,7 @@ export const CIFAP_EDITIONS: CifapEdition[] = [
     numero: 3,
     slug: '3e-edition-2024',
     theme: 'Bio-protecteurs',
+    hero_image: '/images/actualites/nss-cifap-3e-edition-bio-protecteurs.jpg',
     titre_ligne1: 'Bio-protecteurs en',
     titre_ligne2: 'agroécologie paysanne',
     statut: 'passe',
@@ -203,6 +207,7 @@ export const CIFAP_EDITIONS: CifapEdition[] = [
     numero: 4,
     slug: '4e-edition-2025',
     theme: 'Conduite des cultures horticoles',
+    hero_image: '/images/actualites/nss-cifap-2025.jpg',
     titre_ligne1: 'Cultures horticoles en',
     titre_ligne2: 'agroécologie paysanne',
     statut: 'passe',

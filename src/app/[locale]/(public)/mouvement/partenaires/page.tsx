@@ -3,6 +3,7 @@ import { ExternalLink } from "lucide-react";
 import Container from "@/components/ui/Container";
 import SectionHeader from "@/components/ui/SectionHeader";
 import Section from "@/components/ui/Section";
+import PageHero from "@/components/ui/PageHero";
 
 export const metadata: Metadata = {
   title: "Nos Partenaires — Mouvement NSS",
@@ -52,22 +53,13 @@ export default function PartenairesPage() {
   return (
     <>
       {/* HERO */}
-      <section className="bg-primary-900 text-white py-20 lg:py-28">
-        <Container>
-          <div className="max-w-2xl">
-            <span className="text-primary-300 font-semibold text-sm uppercase tracking-wider block mb-4">
-              Ils nous font confiance
-            </span>
-            <h1 className="font-display text-4xl lg:text-6xl font-bold leading-tight mb-6">
-              Des partenaires qui croient en notre autonomie
-            </h1>
-            <p className="text-primary-100 text-lg leading-relaxed">
-              NSS est un mouvement conduit par des femmes rurales africaines. Nos partenaires
-              le savent et nous soutiennent sans imposer leur agenda.
-            </p>
-          </div>
-        </Container>
-      </section>
+      <PageHero
+        label="Ils nous font confiance"
+        title="Des partenaires qui croient en notre autonomie"
+        subtitle="NSS est un mouvement conduit par des femmes rurales africaines. Nos partenaires le savent et nous soutiennent sans imposer leur agenda."
+        imageSrc="/images/actualites/thousand-currents/main.jpg"
+        imagePosition="center 50%"
+      />
 
       {/* PARTENAIRES */}
       <Section variant="neutral">

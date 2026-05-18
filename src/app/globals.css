@@ -87,6 +87,9 @@ a, span, li, button, input, textarea, select, label {
 
 @layer utilities {
   .text-balance { text-wrap: balance; }
+  .font-medium { font-weight: 600; }
+  .text-\[15px\] { font-size: 15px; }
+  .text-\[14px\] { font-size: 15px; }
 }
 
 /* ── Container padding — responsive ── */

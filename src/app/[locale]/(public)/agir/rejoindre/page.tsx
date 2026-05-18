@@ -77,61 +77,56 @@ export default function RejoindrePagee() {
         position: "relative",
         overflow: "hidden",
         color: "#ffffff",
-        backgroundImage: `url('http://wasafrica.org/wp-content/uploads/2024/11/CENTRE-KARONGHEN-WATI-NANING-9-1.jpg')`,
+        backgroundImage: `url('/images/actualites/camp-formation-agroecologie-niaguis-2024.jpg')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
+        minHeight: "500px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
       }}>
         {/* Overlay */}
         <div aria-hidden="true" style={{
           position: "absolute",
           inset: 0,
-          background: [
-            "linear-gradient(to right, rgba(10,38,24,0.90) 0%, rgba(10,38,24,0.82) 40%, rgba(10,38,24,0.55) 70%, transparent 100%)",
-            "radial-gradient(ellipse 70% 50% at 20% 80%, rgba(45,154,106,0.18), transparent 65%)",
-          ].join(", "),
+          background: "linear-gradient(to right, rgba(5,12,5,0.88) 50%, rgba(5,12,5,0.40) 100%)",
         }} />
         <div style={{
           position: "relative",
           zIndex: 1,
-          maxWidth: "var(--container-max)",
+          maxWidth: "1400px",
           margin: "0 auto",
-          padding: "48px var(--container-pad) 40px",
+          padding: "80px clamp(1.5rem, 4vw, 44px) 44px",
+          width: "100%",
+          boxSizing: "border-box",
         }}>
-          {/* Breadcrumb */}
-          <p style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "14px", fontWeight: 400, color: "#ffffff", marginBottom: "28px" }}>
-            <Link href="/fr" style={{ color: "#ffffff", textDecoration: "none" }}>Accueil</Link>
-            {" / "}
-            <span style={{ color: "#ffffff" }}>Adhésion</span>
-          </p>
-
           {/* Label */}
-          <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "24px" }}>
-            <span aria-hidden="true" style={{ display: "block", width: "28px", height: "1px", background: "rgba(127,212,166,0.4)", flexShrink: 0 }} />
-            <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2.5px", color: "var(--green-300)", whiteSpace: "nowrap" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px" }}>
+            <span aria-hidden="true" style={{ display: "block", width: "28px", height: "1.5px", background: "#97C459", flexShrink: 0 }} />
+            <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "12px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.12em", color: "#97C459", whiteSpace: "nowrap" }}>
               Rejoindre NSS
             </span>
-            <span aria-hidden="true" style={{ display: "block", width: "28px", height: "1px", background: "rgba(127,212,166,0.4)", flexShrink: 0 }} />
           </div>
 
           {/* Titre */}
           <h1 style={{
-            fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
-            fontSize: "clamp(32px, 4vw, 52px)",
-            fontWeight: 400,
-            lineHeight: 1.12,
-            color: "#ffffff",
-            marginBottom: "24px",
+            fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+            fontSize: "clamp(36px, 5vw, 56px)",
+            fontWeight: 700,
+            lineHeight: 1.1,
+            color: "rgb(246, 243, 238)",
+            margin: "0 0 16px",
             maxWidth: "700px",
           }}>
-            Votre place est dans{" "}
-            <em style={{ fontStyle: "italic", color: "var(--green-300)" }}>ce mouvement.</em>
+            Votre place est dans ce mouvement.
           </h1>
 
           {/* Sous-titre */}
           <p style={{
-            fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
-            fontSize: "17px",
+            fontFamily: "'Source Serif 4', var(--font-source-serif), serif",
+            fontSize: "16px",
+            fontWeight: 400,
             lineHeight: 1.7,
             color: "#ffffff",
             maxWidth: "560px",

@@ -185,7 +185,6 @@ export default function CTAHeroSectionRedesign() {
           letter-spacing: -0.01em;
         }
         .cth-h2 em {
-          font-style: italic;
           color: #ffffff;
         }
 

@@ -147,8 +147,8 @@ export default function HeroHome() {
           flex: 1;
           display: flex;
           flex-direction: column;
-          justify-content: flex-end;
-          padding: 0 72px 48px;
+          justify-content: center;
+          padding: 48px 72px;
         }
 
         /* ── Overtitle ── */
@@ -162,7 +162,7 @@ export default function HeroHome() {
           display: block;
           width: 32px;
           height: 1.5px;
-          background: #A5CE46;
+          background: #97C459;
           flex-shrink: 0;
         }
         .nh-over-txt {
@@ -171,12 +171,12 @@ export default function HeroHome() {
           font-weight: 500;
           letter-spacing: 0.16em;
           text-transform: uppercase;
-          color: #A5CE46;
+          color: #97C459;
         }
 
         /* ── H1 ── */
         .nh-h1 {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: clamp(2.8rem, 6vw, 4rem);
           font-weight: 600;
           color: #ffffff;
@@ -186,13 +186,12 @@ export default function HeroHome() {
         }
         .nh-h1 em {
           display: block;
-          color: #A5CE46;
-          font-style: italic;
+          color: #97C459;
         }
 
         /* ── Description ── */
         .nh-desc {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: 'Source Serif 4', var(--font-source-serif), serif;
           font-size: 15px;
           font-weight: 300;
           color: rgba(255,255,255,0.7);
@@ -255,14 +254,14 @@ export default function HeroHome() {
 
         /* ── Tablet ── */
         @media (max-width: 1024px) {
-          .nh-body  { padding: 0 48px 40px; }
+          .nh-body  { padding: 40px 48px; }
           .nh-scroll { right: 40px; }
         }
 
         /* ── Mobile 375px ── */
         @media (max-width: 640px) {
           .nh-scroll { display: none; }
-          .nh-body   { padding: 0 24px 36px; }
+          .nh-body   { padding: 36px 24px; }
           .nh-h1     { font-size: clamp(2rem, 8vw, 2.8rem); }
           .nh-desc   { font-size: 14px; }
         }

@@ -5,6 +5,7 @@ import { motion, AnimatePresence, useInView } from 'framer-motion'
 import Link from 'next/link'
 import { MapPin, Calendar, Users, X } from 'lucide-react'
 import { CIFAP_EDITIONS } from '@/data/cifap/index'
+import PageHero from '@/components/ui/PageHero'
 
 /* ── Type édition ── */
 type CifapEdition = (typeof CIFAP_EDITIONS)[number]
@@ -436,77 +437,13 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
       {/* ══════════════════════════════════════════════
           HERO
       ══════════════════════════════════════════════ */}
-      <motion.section
-        className="cf-hero"
-        aria-labelledby="cf-h1"
-        initial={{ opacity: 0, scale: 0.97 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.65, ease: 'easeOut' }}
-      >
-        <div className="cf-hero__overlay" aria-hidden="true" />
-        <div className="cf-hero__body">
-
-          <motion.div
-            className="cf-hero__eyebrow"
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.14, duration: 0.5 }}
-          >
-            <span className="cf-hero__eyebrow-line" aria-hidden="true" />
-            <span>NOS PROGRAMMES</span>
-            <span className="cf-hero__eyebrow-sep" aria-hidden="true">·</span>
-            <span>CIFAP</span>
-            <span className="cf-hero__eyebrow-line" aria-hidden="true" />
-          </motion.div>
-
-          <motion.h1
-            id="cf-h1"
-            className="cf-hero__h1"
-            initial={{ opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.24, duration: 0.62 }}
-          >
-            Camp International de Formation<br />en Agroécologie Paysanne
-          </motion.h1>
-
-          <motion.p
-            className="cf-hero__sub"
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.44, duration: 0.52 }}
-          >
-            Cultiver, transformer, vendre — maîtriser l&apos;agroécologie paysanne.
-            Depuis 2022, NSS réunit chaque année des leaders et techniciens
-            des Associations de Femmes Rurales d&apos;Afrique de l&apos;Ouest
-            autour d&apos;un thème précis, dans une logique de progression cumulative.
-          </motion.p>
-
-          <motion.div
-            className="cf-hero__stats"
-            role="list"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.54, duration: 0.5 }}
-          >
-            {[
-              { val: '4',    lbl: 'Éditions' },
-              { val: '8',    lbl: 'Pays' },
-              { val: '200+', lbl: 'Participantes formées' },
-            ].map((s, i) => (
-              <span key={s.lbl} role="listitem" className="cf-hero__stat">
-                <span className="cf-hero__stat-val"><CountUp value={s.val} /></span>
-                <span className="cf-hero__stat-lbl">{s.lbl}</span>
-                {i < 2 && <span className="cf-hero__sep" aria-hidden="true" />}
-              </span>
-            ))}
-            <span role="listitem" className="cf-hero__loc">
-              <MapPin size={11} aria-hidden="true" />
-              <span>Niaguis, Sénégal · Depuis 2022</span>
-            </span>
-          </motion.div>
-
-        </div>
-      </motion.section>
+      <PageHero
+        label="Programmes · CIFAP"
+        title={<>Camp International de Formation<br />en Agroécologie Paysanne</>}
+        subtitle="Cultiver, transformer, vendre — maîtriser l'agroécologie paysanne. Depuis 2022, NSS réunit chaque année des leaders des Associations de Femmes Rurales d'Afrique de l'Ouest autour d'un thème précis."
+        imageSrc="/images/programmes/Cifap/Cifap 2025 à Niaguis (1)/Hero - Cifap.jpg"
+        imagePosition="center 40%"
+      />
 
       {/* ══════════════════════════════════════════════
           1. PRÉSENTATION + VIDÉO — fond blanc

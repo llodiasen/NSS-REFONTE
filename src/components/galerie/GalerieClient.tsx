@@ -4,8 +4,9 @@ import { useState, useEffect, useCallback } from 'react'
 import { createPortal } from 'react-dom'
 import Image from 'next/image'
 import { Search } from 'lucide-react'
-import { ALBUMS, TOTAL_PHOTOS } from '@/data/galerie'
+import { ALBUMS } from '@/data/galerie'
 import type { Album, Categorie, Photo } from '@/data/galerie'
+import PageHero from '@/components/ui/PageHero'
 
 /* ── Badge couleurs par catégorie ───────────────────────────── */
 const BADGE: Record<Categorie, { bg: string; color: string; label: string }> = {
@@ -294,66 +295,12 @@ export default function GalerieClient() {
       <div className="gal-page">
 
         {/* ── HERO ── */}
-        <section className="gal-hero" aria-labelledby="gal-h1-id">
-          <Image
-            src="/images/hero/hero-nss-femmes-rurales.jpg"
-            alt="Femmes rurales NSS"
-            fill
-            priority
-            sizes="100vw"
-            style={{ objectFit: 'cover', zIndex: 0 }}
-          />
-          <div className="gal-hero-overlay" aria-hidden />
-          <div className="gal-hero-body">
-
-            {/* Breadcrumb */}
-            <nav className="gal-bc" aria-label="Fil d'Ariane">
-              {breadcrumb.map((seg, i) => (
-                <span key={i} className="gal-bc-item">
-                  {i > 0 && <span className="gal-bc-sep" aria-hidden>›</span>}
-                  {seg.onClick ? (
-                    <button className="gal-bc-link" onClick={seg.onClick}>{seg.label}</button>
-                  ) : seg.href ? (
-                    <a href={seg.href} className="gal-bc-link">{seg.label}</a>
-                  ) : (
-                    <span className="gal-bc-curr">{seg.label}</span>
-                  )}
-                </span>
-              ))}
-            </nav>
-
-            {/* Label */}
-            <div className="gal-label" aria-hidden="false">
-              <span className="gal-label-line" aria-hidden />
-              <span>GALERIE PHOTO NSS</span>
-            </div>
-
-            {/* H1 */}
-            <h1 id="gal-h1-id" className="gal-h1">{h1}</h1>
-
-            {/* Lead */}
-            <p className="gal-hero-lead">{heroDesc}</p>
-
-            {/* Stats — vue albums uniquement */}
-            {view === 'albums' && (
-              <div className="gal-hero-stats" role="list" aria-label="Chiffres galerie">
-                <div className="gal-stat gal-stat--sep" role="listitem">
-                  <span className="gal-stat-v">{TOTAL_PHOTOS}</span>
-                  <span className="gal-stat-l">Photos</span>
-                </div>
-                <div className="gal-stat gal-stat--sep" role="listitem">
-                  <span className="gal-stat-v">{ALBUMS.length}</span>
-                  <span className="gal-stat-l">Albums</span>
-                </div>
-                <div className="gal-stat" role="listitem">
-                  <span className="gal-stat-v">2023</span>
-                  <span className="gal-stat-l">Depuis</span>
-                </div>
-              </div>
-            )}
-
-          </div>
-        </section>
+        <PageHero
+          label="Galerie Photo"
+          title={h1}
+          subtitle={heroDesc}
+          imageSrc="/images/hero/hero-nss-femmes-rurales.jpg"
+        />
 
         {/* ── BARRE FILTRES (albums seulement) ── */}
         {view === 'albums' && (

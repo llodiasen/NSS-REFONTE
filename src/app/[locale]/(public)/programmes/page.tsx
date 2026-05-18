@@ -28,10 +28,10 @@ export default async function ProgrammesPage({ params }: PageProps) {
     <>
       <ProgrammesHero />
 
-      <div className="max-w-6xl mx-auto px-4 py-12 space-y-16">
+      <div className="max-w-6xl mx-auto px-4 py-10 space-y-10">
 
         {/* ── Grille des programmes ── */}
-        <section aria-labelledby="programmes-titre">
+        <section aria-labelledby="programmes-titre" className="py-[24px]">
           <div className="flex items-baseline justify-between mb-4">
             <h2
               id="programmes-titre"
@@ -56,7 +56,7 @@ export default async function ProgrammesPage({ params }: PageProps) {
         </section>
 
         {/* ── Agenda ── */}
-        <section id="agenda" aria-labelledby="agenda-titre">
+        <section id="agenda" aria-labelledby="agenda-titre" className="py-[24px]">
           <h2
             id="agenda-titre"
             className="text-[18px] font-semibold text-foreground mb-4"
@@ -68,7 +68,9 @@ export default async function ProgrammesPage({ params }: PageProps) {
         </section>
 
         {/* ── Éditions CIFAP ── */}
-        <CifapEditionsSection locale={locale} />
+        <section className="py-[24px]">
+          <CifapEditionsSection locale={locale} />
+        </section>
 
       </div>
     </>

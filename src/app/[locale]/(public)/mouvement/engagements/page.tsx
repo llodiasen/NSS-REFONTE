@@ -1,5 +1,6 @@
 ﻿import type { Metadata } from "next";
 import EngagementsSection from "@/components/sections/EngagementsSection";
+import PageHero from "@/components/ui/PageHero";
 
 export const metadata: Metadata = {
   title: "Nos Engagements — Mouvement NSS",
@@ -11,43 +12,13 @@ export default function EngagementsPage() {
   return (
     <>
       {/* HERO */}
-      <section style={{ background: "#0e2418", color: "#fff", padding: "80px 40px" }}>
-        <div style={{ maxWidth: "960px", margin: "0 auto" }}>
-          <span style={{
-            display: "block",
-            fontSize: "10px",
-            letterSpacing: "2px",
-            textTransform: "uppercase",
-            color: "#2d6a47",
-            marginBottom: "20px",
-            fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
-          }}>
-            Nos convictions
-          </span>
-          <h1 style={{
-            fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
-            fontSize: "clamp(2rem, 5vw, 3.5rem)",
-            fontWeight: 700,
-            lineHeight: 1.15,
-            marginBottom: "24px",
-            letterSpacing: "-0.02em",
-          }}>
-            Ce en quoi nous croyons, ce pour quoi nous agissons
-          </h1>
-          <p style={{
-            fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
-            fontSize: "16px",
-            lineHeight: 1.7,
-            color: "#b8c9bf",
-            maxWidth: "560px",
-            margin: 0,
-          }}>
-            Les engagements de NSS ne sont pas des déclarations d&apos;intention. Ce sont des
-            pratiques vécues quotidiennement par 175 000 femmes rurales à travers l&apos;Afrique
-            de l&apos;Ouest.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        label="Nos convictions"
+        title="Ce en quoi nous croyons, ce pour quoi nous agissons"
+        subtitle="Les engagements de NSS ne sont pas des déclarations d'intention. Ce sont des pratiques vécues quotidiennement par 175 000 femmes rurales à travers l'Afrique de l'Ouest."
+        imageSrc="/images/actualites/femmes-africaines-gardiennes-semences.jpg"
+        imagePosition="center 35%"
+      />
 
       <EngagementsSection />
     </>

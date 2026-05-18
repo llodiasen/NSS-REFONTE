@@ -36,9 +36,7 @@ export default async function CIFAP2025Page({
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      <div className="max-w-4xl mx-auto px-4 py-8">
-        <EditionHero edition={edition} toutes={toutes} locale={locale} />
-      </div>
+      <EditionHero edition={edition} toutes={toutes} locale={locale} />
       <EditionTabs visibleIds={visibleIds} />
       <div className="max-w-4xl mx-auto px-4 py-10 space-y-12">
         <SectionPresentation edition={edition} />
