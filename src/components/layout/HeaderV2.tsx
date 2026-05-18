@@ -30,7 +30,7 @@ const C = {
 /* ─── Nav data ───────────────────────────────────────────── */
 type DropItem = { icon: LucideIcon; label: string; sub: string; href: string } | null;
 
-const NAV_DROPS: { key: string; label: string; items: DropItem[] }[] = [
+const NAV_DROPS: { key: string; label: string; href?: string; items: DropItem[] }[] = [
   {
     key: "mission",
     label: "Notre mission",
@@ -45,6 +45,7 @@ const NAV_DROPS: { key: string; label: string; items: DropItem[] }[] = [
   {
     key: "programmes",
     label: "Nos programmes",
+    href: "/programmes",
     items: [
       { icon: Sprout,    label: "CIFAP",         sub: "Camp de formation agroécologie",       href: "/programmes/cifap" },
       { icon: Megaphone, label: "Rencontre NSS", sub: "Congrès continentaux biennaux",        href: "/programmes" },
@@ -277,6 +278,21 @@ export default function HeaderV2() {
               onMouseEnter={() => openDd(drop.key)}
               onMouseLeave={closeDd}
             >
+              {drop.href ? (
+                <Link
+                  href={`/${locale}${drop.href}`}
+                  aria-haspopup="true"
+                  className="nss-nav-link"
+                  style={{
+                    ...nl(pathname.includes(drop.href)),
+                    background: openDrop === drop.key ? C.cream : "none",
+                  }}
+                >
+                  {drop.label}
+                  <ChevronDown size={12} color={C.textL}
+                    style={{ transition: "transform 0.2s", transform: openDrop === drop.key ? "rotate(180deg)" : "none" }} />
+                </Link>
+              ) : (
               <button
                 aria-expanded={openDrop === drop.key}
                 aria-haspopup="true"
@@ -290,6 +306,7 @@ export default function HeaderV2() {
                 <ChevronDown size={12} color={C.textL}
                   style={{ transition: "transform 0.2s", transform: openDrop === drop.key ? "rotate(180deg)" : "none" }} />
               </button>
+              )}
               {openDrop === drop.key && (
                 <NavDropdown
                   items={drop.items}
