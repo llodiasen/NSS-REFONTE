@@ -195,7 +195,7 @@ function StaggerGrid({ className, stagger = 0.09, children }: { className?: stri
 }
 
 /* ── CountUp ── */
-function CountUp({ value }: { value: string }) {
+function _CountUp({ value }: { value: string }) {
   const match   = value.match(/^([^0-9]*)(\d+)([^0-9]*)$/)
   const prefix  = match?.[1] ?? ''
   const numeric = match ? parseInt(match[2], 10) : NaN

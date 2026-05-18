@@ -259,7 +259,7 @@ export default function GalerieClient() {
   }
 
   /* Breadcrumb */
-  const breadcrumb = view === 'albums'
+  const _breadcrumb = view === 'albums'
     ? [{ label: 'Accueil', href: '/fr' }, { label: 'Galerie', href: null }]
     : [
         { label: 'Accueil', href: '/fr' },
