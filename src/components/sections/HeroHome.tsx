@@ -194,7 +194,7 @@ export default function HeroHome() {
           font-family: 'Source Serif 4', var(--font-source-serif), serif;
           font-size: 15px;
           font-weight: 300;
-          color: rgba(255,255,255,0.7);
+          color: #ffffff;
           line-height: 1.7;
           max-width: 520px;
           margin: 0 0 36px;
