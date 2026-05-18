@@ -1,7 +1,7 @@
 const ITEMS = [
   {
     label: 'Semences paysannes protégées',
-    sub: 'Préservation des savoirs agroécologiques transmis de génération en génération',
+    sub: 'Savoirs agroécologiques transmis de génération en génération',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M12 10a6 6 0 0 0 -6 -6h-3v2a6 6 0 0 0 6 6h3" />
@@ -12,7 +12,7 @@ const ITEMS = [
   },
   {
     label: 'Souveraineté alimentaire',
-    sub: "Chaque communauté décide librement de son système de production et d'alimentation",
+    sub: 'Chaque communauté décide librement de son système alimentaire',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M12 20v-7" />
@@ -28,8 +28,8 @@ const ITEMS = [
     ),
   },
   {
-    label: 'Gouvernance 100 % féminine',
-    sub: 'Les femmes rurales dirigent, décident et portent le mouvement depuis 2011',
+    label: 'Gouvernance 100 % féminine',
+    sub: 'Les femmes rurales dirigent et portent le mouvement depuis 2011',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <circle cx="12" cy="9" r="5" />
@@ -40,7 +40,7 @@ const ITEMS = [
   },
   {
     label: 'Agroécologie sans frontières',
-    sub: 'Pratiques durables, sans intrants chimiques, ancrées dans les territoires africains',
+    sub: 'Pratiques durables, sans intrants chimiques, ancrées en Afrique',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M2 9a10 10 0 0 1 10 10v3" />
@@ -54,28 +54,37 @@ const ITEMS = [
 export default function ReassuranceBarSection() {
   return (
     <section className="rsb" aria-label="Nos engagements">
-      <div className="rsb-grid" role="list">
-        {ITEMS.map((item, i) => (
-          <div
-            key={item.label}
-            className={`rsb-item${i === ITEMS.length - 1 ? ' rsb-item--last' : ''}`}
-            role="listitem"
-          >
-            <div className="rsb-icon-wrap" aria-hidden="true">
-              {item.icon}
+      <div className="rsb-inner">
+        <div className="rsb-grid" role="list">
+          {ITEMS.map((item, i) => (
+            <div
+              key={item.label}
+              className={`rsb-item${i === ITEMS.length - 1 ? ' rsb-item--last' : ''}`}
+              role="listitem"
+            >
+              <div className="rsb-icon-wrap" aria-hidden="true">
+                {item.icon}
+              </div>
+              <p className="rsb-label">{item.label}</p>
+              <p className="rsb-sub">{item.sub}</p>
             </div>
-            <div className="rsb-divider" aria-hidden="true" />
-            <p className="rsb-label">{item.label}</p>
-            <p className="rsb-sub">{item.sub}</p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
       <style>{`
         /* ── SECTION ── */
         .rsb {
-          background: #045627;
+          background: #ffffff;
+          border-top: 0.5px solid #f3f4f6;
+          border-bottom: 0.5px solid #f3f4f6;
           width: 100%;
+        }
+
+        /* ── INNER ── */
+        .rsb-inner {
+          max-width: 1100px;
+          margin: 0 auto;
         }
 
         /* ── GRID ── */
@@ -86,8 +95,8 @@ export default function ReassuranceBarSection() {
 
         /* ── ITEM ── */
         .rsb-item {
-          padding: 28px 24px;
-          border-right: 0.5px solid rgba(255,255,255,0.08);
+          padding: 28px 32px;
+          border-right: 0.5px solid #f3f4f6;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -100,24 +109,15 @@ export default function ReassuranceBarSection() {
 
         /* ── ICON WRAPPER ── */
         .rsb-icon-wrap {
-          width: 42px;
-          height: 42px;
-          border-radius: 50%;
-          background: rgba(165,206,70,0.12);
+          width: 40px;
+          height: 40px;
+          border-radius: 10px;
+          background: #f0faf4;
           display: flex;
           align-items: center;
           justify-content: center;
           flex-shrink: 0;
-          color: #A5CE46;
-        }
-
-        /* ── DIVIDER ── */
-        .rsb-divider {
-          width: 24px;
-          height: 1.5px;
-          background: rgba(165,206,70,0.4);
-          margin: 0 auto;
-          flex-shrink: 0;
+          color: #00AD4C;
         }
 
         /* ── LABEL ── */
@@ -125,7 +125,7 @@ export default function ReassuranceBarSection() {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: 13px;
           font-weight: 500;
-          color: #ffffff;
+          color: #2A2A2A;
           line-height: 1.3;
           margin: 0;
         }
@@ -133,10 +133,11 @@ export default function ReassuranceBarSection() {
         /* ── SOUS-TEXTE ── */
         .rsb-sub {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: 11px;
+          font-size: 12px;
           font-weight: 300;
-          color: rgba(255,255,255,0.55);
-          line-height: 1.5;
+          color: #9ca3af;
+          line-height: 1.6;
+          max-width: 180px;
           margin: 0;
         }
 
@@ -146,14 +147,14 @@ export default function ReassuranceBarSection() {
             grid-template-columns: repeat(2, 1fr);
           }
           .rsb-item {
-            border-right: 0.5px solid rgba(255,255,255,0.08);
+            border-right: 0.5px solid #f3f4f6;
           }
           .rsb-item:nth-child(2n) {
             border-right: none;
           }
           .rsb-item:nth-child(1),
           .rsb-item:nth-child(2) {
-            border-bottom: 0.5px solid rgba(255,255,255,0.08);
+            border-bottom: 0.5px solid #f3f4f6;
           }
           .rsb-item--last {
             border-right: none;
