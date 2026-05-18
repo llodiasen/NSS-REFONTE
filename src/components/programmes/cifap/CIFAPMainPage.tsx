@@ -5,7 +5,6 @@ import { motion, AnimatePresence, useInView } from 'framer-motion'
 import Link from 'next/link'
 import { MapPin, Calendar, Users, X } from 'lucide-react'
 import { CIFAP_EDITIONS } from '@/data/cifap/index'
-import PageHero from '@/components/ui/PageHero'
 
 /* ── Type édition ── */
 type CifapEdition = (typeof CIFAP_EDITIONS)[number]
@@ -358,7 +357,6 @@ function LeafletMap() {
    COMPOSANT PRINCIPAL
 ════════════════════════════════════════════════════ */
 const CIFAP_VIDEO_ID = 'VIDEO_ID_CIFAP_2025'
-const CIFAP_THUMB = `https://img.youtube.com/vi/${CIFAP_VIDEO_ID}/maxresdefault.jpg`
 
 export default function CIFAPMainPage({ locale }: { locale: string }) {
   const ctaRef   = useRef(null)
@@ -412,83 +410,39 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
       {/* ══════════════════════════════════════════════
           HERO
       ══════════════════════════════════════════════ */}
-      <PageHero
-        label="Programmes · CIFAP"
-        title={<>Camp International de Formation<br />en Agroécologie Paysanne</>}
-        subtitle="Cultiver, transformer, vendre — maîtriser l'agroécologie paysanne. Depuis 2022, NSS réunit chaque année des leaders des Associations de Femmes Rurales d'Afrique de l'Ouest autour d'un thème précis."
-        imageSrc="/images/programmes/Cifap/Cifap 2025 à Niaguis (1)/Hero - Cifap.jpg"
-        imagePosition="center 40%"
-      />
-
-      {/* ══════════════════════════════════════════════
-          1. PRÉSENTATION + VIDÉO — fond blanc
-      ══════════════════════════════════════════════ */}
-      <section className="cf-sec cf-sec--white" aria-labelledby="cf-pres-h2">
-        <div className="cf-sec__inner">
-          <div className="cf-pv-layout">
-            <div className="cf-pv-left">
-              <SectionHeader
-                titleId="cf-pres-h2"
-                eyebrow="LE CIFAP"
-                title="Un camp continental pour l'agroécologie paysanne."
-                sub="Former les leaders, relier les territoires, construire la durabilité — depuis 2022 à Niaguis, Sénégal."
-                left
-              />
-              <motion.p
-                className="cf-pres-text"
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-60px' }}
-                transition={{ duration: 0.5, ease: 'easeOut' }}
-              >
-                Le CIFAP est bien plus qu&apos;une formation : c&apos;est une voix continentale
-                pour la souveraineté alimentaire. Comme l&apos;affirme Mariama Sonko, présidente NSS :{' '}
-                <em className="cf-pres-quote">
-                  &laquo;&nbsp;Dans l&apos;agroécologie, nous recherchons la souveraineté alimentaire.
-                  Et pour être souverain, il faut arriver à avoir le droit de produire ce que vous
-                  voulez manger.&nbsp;&raquo;
-                </em>{' '}
-                Organisée chaque année par le mouvement panafricain NSS au Centre Karonghen Wati Naning
-                de Niaguis, chaque édition réunit femmes rurales, techniciens agricoles et leaders
-                communautaires d&apos;Afrique de l&apos;Ouest autour d&apos;un thème agroécologique précis.
-              </motion.p>
-              <motion.div
-                className="cf-pv-cta"
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.45, delay: 0.18 }}
-              >
-                <Link href={`/${locale}/agir/rejoindre`} className="cf-pv-cta__btn cf-pv-cta__btn--primary">
-                  Rejoindre le CIFAP 2026
-                </Link>
-              </motion.div>
-            </div>
-            <div className="cf-pv-right">
-              <div className="cf-pv-sticky">
-                <div
-                  className="cf-pv-video-wrap"
-                  style={{ backgroundImage: `url(${CIFAP_THUMB})` }}
-                >
-                  <div className="cf-pv-vid-overlay" aria-hidden="true" />
-                  <button
-                    className="cf-pv-play"
-                    onClick={() => setVideoModal(true)}
-                    aria-label="Regarder la vidéo CIFAP"
-                  >
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#ffffff" aria-hidden style={{ paddingLeft: '3px' }}>
-                      <polygon points="5,3 19,12 5,21" />
-                    </svg>
-                  </button>
-                  <p className="cf-pv-play-label">REGARDER LE FILM</p>
-                </div>
-                <blockquote className="cf-pv-testimonial">
-                  <p>&laquo;&nbsp;Grâce au CIFAP, j&apos;ai appris des techniques que j&apos;applique directement dans mon groupement. Nos récoltes ont augmenté et nous n&apos;avons plus besoin de produits chimiques.&nbsp;&raquo;</p>
-                  <footer>— <strong>Mme Tabara Diatta</strong>, participante CIFAP 2024 · Sénégal</footer>
-                </blockquote>
-              </div>
-            </div>
+      <section className="cf-hero" aria-labelledby="cf-hero-h1">
+        <div className="cf-hero__bg" aria-hidden="true" />
+        <div className="cf-hero__overlay" aria-hidden="true" />
+        <div className="cf-hero__body">
+          <div className="cf-hero__label">
+            <span className="cf-hero__label-line" aria-hidden="true" />
+            <span>PROGRAMMES · CIFAP</span>
           </div>
+          <h1 id="cf-hero-h1" className="cf-hero__h1">
+            Camp International de Formation<br />en Agroécologie Paysanne
+          </h1>
+          <p className="cf-hero__lead">
+            Depuis 2022, NSS réunit chaque année des leaders des Associations de Femmes
+            Rurales d&apos;Afrique de l&apos;Ouest autour d&apos;un thème agroécologique
+            précis à Niaguis, Sénégal.
+          </p>
+          <div className="cf-hero__chips">
+            <span className="cf-hero__chip">
+              <Calendar size={14} aria-hidden="true" />
+              5–7 jours
+            </span>
+            <span className="cf-hero__chip">
+              <MapPin size={14} aria-hidden="true" />
+              Niaguis, Sénégal
+            </span>
+            <span className="cf-hero__chip">
+              <Users size={14} aria-hidden="true" />
+              40–70 participantes
+            </span>
+          </div>
+          <Link href={`/${locale}/agir/rejoindre`} className="cf-hero__cta">
+            Rejoindre le CIFAP 2026
+          </Link>
         </div>
       </section>
 
