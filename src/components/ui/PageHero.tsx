@@ -82,7 +82,7 @@ export default function PageHero({
             lineHeight: 1.1,
             color: 'rgb(246,243,238)',
             marginBottom: '16px',
-            maxWidth: '680px',
+            maxWidth: '900px',
             margin: '0 0 16px',
           }}
         >

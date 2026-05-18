@@ -123,7 +123,7 @@ export default function ProgrammeHero({ eyebrow, title, subtitle, imageSrc }: Pr
           line-height: 1.1;
           color: rgb(246,243,238);
           margin: 0 0 16px;
-          max-width: 700px;
+          max-width: 900px;
         }
 
         .phero__sub {

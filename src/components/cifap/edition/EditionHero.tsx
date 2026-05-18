@@ -151,7 +151,7 @@ export default function EditionHero({ edition: e, toutes, locale }: Props) {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
           font-size: clamp(29px, 4vw, 47px);
           font-weight: 700; line-height: 1.1;
-          color: rgb(246,243,238); max-width: 680px;
+          color: rgb(246,243,238); max-width: 900px;
           margin: 0 0 16px;
         }
         .eh-h1 em { font-style: normal; color: rgb(246,243,238); }
