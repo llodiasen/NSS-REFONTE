@@ -1,14 +1,5 @@
 import type { Metadata } from "next";
-import HeroHome from "@/components/sections/HeroHome";
-import ImpactSection from "@/components/sections/ImpactSection";
-import MissionSection from "@/components/sections/MissionSection";
-import PiliersSection from "@/components/sections/PiliersSection";
-import ProgrammesEvenementsSection from "@/components/sections/ProgrammesEvenementsSection";
-import CTARejoindreSection from "@/components/sections/CTARejoindreSection";
-import ReassuranceBarSection from "@/components/sections/ReassuranceBarSection";
-import ActualitesHomepageSection from "@/components/sections/ActualitesHomepageSection";
-import MediathequeSectionRedesign from "@/components/home/MediathequeSectionRedesign";
-import ContactSectionRedesign from "@/components/home/ContactSectionRedesign";
+import HomepageV2 from "@/components/home/HomepageV2";
 
 export const metadata: Metadata = {
   title: "Nous Sommes la Solution — Femmes rurales pour la souveraineté alimentaire",
@@ -22,29 +13,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function HomePage() {
-  return (
-    <>
-      {/* 01 — Hero plein écran */}
-      <HeroHome />
-      {/* 01b — Barre de réassurance */}
-      <ReassuranceBarSection />
-      {/* 02 — Notre impact */}
-      <ImpactSection />
-      {/* 03 — Notre mission */}
-      <MissionSection />
-      {/* 04 — Nos trois piliers */}
-      <PiliersSection />
-      {/* 06 — Programmes & Événements */}
-      <ProgrammesEvenementsSection />
-      {/* 07 — CTA Rejoindre le mouvement */}
-      <CTARejoindreSection />
-      {/* 08 — Actualités */}
-      <ActualitesHomepageSection />
-      {/* 10 — Médiathèque */}
-      <MediathequeSectionRedesign />
-      {/* 11 — Nous contacter */}
-      <ContactSectionRedesign />
-    </>
-  );
+export default function HomePage() {
+  return <HomepageV2 />;
 }

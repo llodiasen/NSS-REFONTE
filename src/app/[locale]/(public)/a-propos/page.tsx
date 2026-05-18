@@ -3,6 +3,7 @@ import AboutHero from "@/components/sections/about/AboutHero";
 import AboutDeclaration from "@/components/sections/about/AboutDeclaration";
 import GovernanceSectionRedesign from "@/components/sections/about/GovernanceSectionRedesign";
 import AboutValeurs from "@/components/sections/about/AboutValeurs";
+import PiliersSection from "@/components/sections/about/PiliersSection";
 import TimelineZigzagRedesign from "@/components/sections/about/TimelineZigzagRedesign";
 import AboutPartenaires from "@/components/sections/about/AboutPartenaires";
 import FinalCTASectionRedesign from "@/components/sections/FinalCTASectionRedesign";
@@ -25,7 +26,9 @@ export default function AProposPage() {
       <GovernanceSectionRedesign />
       {/* 04 — Nos Valeurs */}
       <AboutValeurs />
-      {/* 05 — Notre Histoire (timeline) */}
+      {/* 05 — Nos Piliers */}
+      <PiliersSection />
+      {/* 06 — Notre Histoire (timeline) */}
       <TimelineZigzagRedesign />
       {/* 06 — Partenaires */}
       <AboutPartenaires />
