@@ -118,7 +118,7 @@ export default function ProgrammeHero({ eyebrow, title, subtitle, imageSrc }: Pr
 
         .phero__h1 {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: clamp(36px, 5vw, 56px);
+          font-size: clamp(32px, 4.5vw, 50px);
           font-weight: 700;
           line-height: 1.1;
           color: rgb(246,243,238);

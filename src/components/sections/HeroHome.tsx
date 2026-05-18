@@ -177,7 +177,7 @@ export default function HeroHome() {
         /* ── H1 ── */
         .nh-h1 {
           font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
-          font-size: clamp(2.8rem, 6vw, 4rem);
+          font-size: clamp(2.52rem, 5.4vw, 3.6rem);
           font-weight: 600;
           color: #ffffff;
           line-height: 1.05;
@@ -262,7 +262,7 @@ export default function HeroHome() {
         @media (max-width: 640px) {
           .nh-scroll { display: none; }
           .nh-body   { padding: 36px 24px; }
-          .nh-h1     { font-size: clamp(2rem, 8vw, 2.8rem); }
+          .nh-h1     { font-size: clamp(1.8rem, 7.2vw, 2.52rem); }
           .nh-desc   { font-size: 14px; }
         }
 

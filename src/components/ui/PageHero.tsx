@@ -77,7 +77,7 @@ export default function PageHero({
         <h1
           style={{
             fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
-            fontSize: 'clamp(36px, 5vw, 56px)',
+            fontSize: 'clamp(32px, 4.5vw, 50px)',
             fontWeight: 700,
             lineHeight: 1.1,
             color: 'rgb(246,243,238)',
