@@ -111,7 +111,7 @@ export default function ProgrammesHero() {
         .prh-lead {
           font-family: 'Source Serif 4', var(--font-source-serif), serif;
           font-size: 1.05rem; font-weight: 400; line-height: 1.7;
-          color: #ffffff; max-width: 520px; margin: 0;
+          color: #ffffff; max-width: 800px; margin: 0;
         }
 
         /* Tablet */

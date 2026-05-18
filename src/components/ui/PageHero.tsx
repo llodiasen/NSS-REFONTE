@@ -97,7 +97,7 @@ export default function PageHero({
             fontWeight: 400,
             lineHeight: 1.7,
             color: '#ffffff',
-            maxWidth: '520px',
+            maxWidth: '800px',
             margin: 0,
           }}
         >

@@ -160,7 +160,7 @@ export default function EditionHero({ edition: e, toutes, locale }: Props) {
         .eh-lead {
           font-family: 'Source Serif 4', var(--font-source-serif), serif;
           font-size: 1.05rem; font-weight: 400; line-height: 1.7;
-          color: #ffffff; max-width: 560px;
+          color: #ffffff; max-width: 800px;
           margin: 0 0 24px;
         }
 

@@ -133,7 +133,7 @@ export default function ProgrammeHero({ eyebrow, title, subtitle, imageSrc }: Pr
           line-height: 1.7;
           color: rgb(246,243,238);
           margin: 0;
-          max-width: 560px;
+          max-width: 800px;
           display: -webkit-box;
           -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;

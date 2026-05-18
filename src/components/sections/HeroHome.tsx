@@ -196,7 +196,7 @@ export default function HeroHome() {
           font-weight: 300;
           color: #ffffff;
           line-height: 1.7;
-          max-width: 520px;
+          max-width: 800px;
           margin: 0 0 36px;
         }
 
