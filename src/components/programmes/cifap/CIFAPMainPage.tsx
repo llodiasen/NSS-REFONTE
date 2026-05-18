@@ -194,31 +194,6 @@ function StaggerGrid({ className, stagger = 0.09, children }: { className?: stri
   )
 }
 
-/* ── CountUp ── */
-function _CountUp({ value }: { value: string }) {
-  const match   = value.match(/^([^0-9]*)(\d+)([^0-9]*)$/)
-  const prefix  = match?.[1] ?? ''
-  const numeric = match ? parseInt(match[2], 10) : NaN
-  const suffix  = match?.[3] ?? ''
-  const ref     = useRef(null)
-  const inView  = useInView(ref, { once: true })
-  const [count, setCount] = useState(0)
-
-  useEffect(() => {
-    if (!inView || isNaN(numeric)) return
-    let frame = 0
-    const frames = 52
-    const id = setInterval(() => {
-      frame++
-      setCount(Math.round((frame / frames) * numeric))
-      if (frame >= frames) clearInterval(id)
-    }, 18)
-    return () => clearInterval(id)
-  }, [inView, numeric])
-
-  return <span ref={ref}>{isNaN(numeric) ? value : `${prefix}${count}${suffix}`}</span>
-}
-
 /* ── SVG Icons par édition ── */
 const EditionIcons: Record<string, React.ReactNode> = {
   '2022': (
