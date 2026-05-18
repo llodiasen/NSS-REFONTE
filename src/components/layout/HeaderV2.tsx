@@ -63,9 +63,9 @@ const NAV_DROPS: { key: string; label: string; items: DropItem[] }[] = [
 ];
 
 const LANGS = [
-  { code: "fr", short: "FR", label: "Français"  },
-  { code: "en", short: "EN", label: "English"   },
-  { code: "pt", short: "PT", label: "Português" },
+  { code: "fr", short: "FR", label: "Français",  flag: "🇫🇷" },
+  { code: "en", short: "EN", label: "English",   flag: "🇬🇧" },
+  { code: "pt", short: "PT", label: "Português", flag: "🇵🇹" },
 ] as const;
 type LangCode = typeof LANGS[number]["code"];
 
@@ -324,7 +324,7 @@ export default function HeaderV2() {
               }}
             >
               <Globe size={14} color={C.textL} />
-              {lang.toUpperCase()}
+              {LANGS.find(l => l.code === lang)?.flag} {lang.toUpperCase()}
               <ChevronDown size={10} color={C.textL} />
             </button>
             {langOpen && (
@@ -334,7 +334,7 @@ export default function HeaderV2() {
                 borderRadius: "10px", padding: "4px", minWidth: "130px",
                 boxShadow: "0 8px 24px rgba(0,0,0,0.08)", zIndex: 200,
               }}>
-                {LANGS.map(({ code, label }) => (
+                {LANGS.map(({ code, label, flag }) => (
                   <button key={code} onClick={() => { switchLang(code); setLangOpen(false); }}
                     style={{
                       display: "block", width: "100%", padding: "8px 12px",
@@ -347,7 +347,7 @@ export default function HeaderV2() {
                     }}
                     className="nss-lang-opt"
                   >
-                    {label}
+                    {flag} {label}
                   </button>
                 ))}
               </div>
@@ -477,7 +477,7 @@ export default function HeaderV2() {
               Langue
             </p>
             <div style={{ display: "flex", gap: "8px" }}>
-              {LANGS.map(({ code, short, label }) => (
+              {LANGS.map(({ code, short, label, flag }) => (
                 <button key={code} onClick={() => switchLang(code)} aria-label={label}
                   style={{
                     flex: 1, padding: "8px 0", borderRadius: "8px",
@@ -489,7 +489,7 @@ export default function HeaderV2() {
                     transition: "all 0.2s",
                   }}
                 >
-                  {short}
+                  {flag} {short}
                 </button>
               ))}
             </div>
