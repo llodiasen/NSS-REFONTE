@@ -414,7 +414,7 @@ const PROGRAMMES = [
   {
     type: 'CIFAP · Formation agroécologique',
     badge: 'À venir',
-    title: 'Camp International de Formation en Agroécologie Paysanne',
+    title: 'CIFAP — Édition 2025',
     sub: '5ème édition · Septembre 2026',
     date: 'Sept. 2026',
     lieu: 'Niaguis, Sénégal',
@@ -444,7 +444,7 @@ const PROGRAMMES = [
   {
     type: 'Foire NSS · Souveraineté alimentaire',
     badge: 'Passé',
-    title: 'Foire de Djimini — Semences Paysannes 2024',
+    title: 'Foire des Semences Paysannes',
     sub: 'Casamance · Décembre 2024',
     date: 'Déc. 2024',
     lieu: 'Casamance, Sénégal',
