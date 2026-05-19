@@ -975,12 +975,12 @@
    ═══════════════════════════════════════════════════════════════ */
 .hpv2-programmes { background: #fff; padding: 80px 0; }
 .hpv2-prog-grid {
-  display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; align-items: start;
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; align-items: stretch;
 }
 .hpv2-prog {
   border: 0.5px solid #e5e7eb; border-radius: 14px;
   overflow: hidden; background: #ffffff;
-  display: flex; flex-direction: column;
+  display: flex; flex-direction: column; height: 100%;
   transition: border-color 0.2s, transform 0.2s;
 }
 .hpv2-prog:hover { border-color: #00AD4C; transform: translateY(-3px); }
@@ -1043,6 +1043,8 @@
   border: none; border-top: 1px solid #e5e7eb;
   margin: 8px 0 10px;
 }
+.hpv2-prog-metablock-wrap { margin-bottom: 12px; }
+.hpv2-prog-metablock-sep { border: none; border-bottom: 0.5px solid #e5e7eb; margin: 10px 0 0; }
 .hpv2-prog-metablock {
   display: flex; align-items: stretch; gap: 0;
   margin-bottom: 14px;
@@ -1052,6 +1054,7 @@
   flex: 1; padding: 10px 12px;
   border-right: 0.5px solid #f3f4f6;
   display: flex; flex-direction: column; gap: 3px;
+  min-width: 0;
 }
 .hpv2-prog-meta-last { border-right: none; }
 .hpv2-prog-meta-label {
@@ -1062,28 +1065,26 @@
 }
 .hpv2-prog-meta-value {
   font-family: var(--fb); font-size: 12px; font-weight: 500;
-  color: #2A2A2A;
+  color: #2A2A2A; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .hpv2-prog-text {
   font-family: var(--font-dm-sans), 'DM Sans', sans-serif !important; font-size: 15px; font-weight: 300;
   color: black; line-height: 1.7; margin: 0 0 12px;
   text-align: justify; text-align-last: left;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
 }
 .hpv2-prog-footer {
-  padding-top: 10px; border-top: 0.5px solid #f3f4f6; margin-top: 0;
+  padding-top: 10px; border-top: 0.5px solid #f3f4f6; margin-top: auto;
 }
 .hpv2-prog-cta {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-family: var(--fb); font-size: 11px; font-weight: 500;
-  text-transform: uppercase; letter-spacing: 0.08em;
-  border: 1.5px solid #00AD4C; color: #00AD4C;
-  background: transparent; border-radius: 6px;
-  padding: 8px 14px; text-decoration: none;
-  transition: background 0.2s, color 0.2s;
+  display: inline-flex; align-items: center; gap: 4px;
+  font-family: var(--fb); font-size: 12px; font-weight: 500;
+  color: var(--g); text-decoration: none;
+  transition: color 0.2s;
 }
-.hpv2-prog-cta:hover { background: #00AD4C; color: #ffffff; }
-.hpv2-prog-cta--blue { border-color: #3b82f6; color: #3b82f6; }
-.hpv2-prog-cta--blue:hover { background: #3b82f6; color: #ffffff; }
+.hpv2-prog-cta:hover { color: var(--gd); }
+.hpv2-prog-cta--blue { color: #3b82f6; }
+.hpv2-prog-cta--blue:hover { color: #1d4ed8; }
 
 /* ═══════════════════════════════════════════════════════════════
    S8 — ACTUALITÉS

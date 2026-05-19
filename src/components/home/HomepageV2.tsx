@@ -529,8 +529,10 @@ function ProgrammesSection({ locale }: { locale: string }) {
                   </div>
                 </div>
                 <div className="hpv2-prog-body">
+                  <div className="hpv2-prog-supertag" style={{ color: typeColor }}>{p.type}</div>
                   <h3 className="hpv2-prog-h3">{p.title}</h3>
                   <hr className="hpv2-prog-sep" />
+                  <div className="hpv2-prog-metablock-wrap">
                   <div className="hpv2-prog-metablock">
                     <div className="hpv2-prog-meta-item">
                       <span className="hpv2-prog-meta-label">
@@ -554,16 +556,15 @@ function ProgrammesSection({ locale }: { locale: string }) {
                       <span className="hpv2-prog-meta-value">{p.meta3.value}</span>
                     </div>
                   </div>
+                  <hr className="hpv2-prog-metablock-sep" />
+                  </div>
                   <p className="hpv2-prog-text">{p.body}</p>
                   <div className="hpv2-prog-footer">
                     <Link
                       href={`/${locale}${p.href}`}
                       className={ctaBlue ? 'hpv2-prog-cta hpv2-prog-cta--blue' : 'hpv2-prog-cta'}
                     >
-                      {p.cta}
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                        <path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>
-                      </svg>
+                      {p.cta} →
                     </Link>
                   </div>
                 </div>
