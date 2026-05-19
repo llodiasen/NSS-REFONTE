@@ -60,29 +60,31 @@ html {
 }
 
 html, body {
-  font-family: var(--font-body), sans-serif;
+  font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
   background-color: #fff;
   color: var(--text-primary);
 }
 
-/* ── Titres : DM Serif Display 400 uniquement ── */
+/* ── Titres : Cormorant Garamond sans exception ── */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display), serif;
-  font-weight: 400;
+  font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif !important;
   line-height: 1.1;
   margin: 0;
 }
 
 /* ── Corps ── */
 p {
-  font-family: var(--font-body), sans-serif;
-  line-height: 1.75;
-  color: var(--text-body);
+  font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: black;
+  line-height: 1.8;
+  text-align: justify;
   margin: 0;
 }
 
 a, span, li, button, input, textarea, select, label {
-  font-family: var(--font-body), sans-serif;
+  font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
 }
 
 @layer utilities {
