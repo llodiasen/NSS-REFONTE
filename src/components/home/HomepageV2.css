@@ -167,6 +167,7 @@
   border: 1.5px solid var(--g);
   letter-spacing: 0.03em;
   align-self: flex-start;
+  font-size: 11px; padding: 8px 16px;
 }
 .hpv2-btn-outline:hover { background: rgba(0,173,76,0.05); color: var(--g); transform: translateY(-1px); }
 .hpv2-btn-ghost {
@@ -634,7 +635,6 @@
    S4 — MISSION SPLIT
    ═══════════════════════════════════════════════════════════════ */
 .hpv2-mission { background: #fff; padding: 88px 0; overflow: hidden; }
-.hpv2-mission .hpv2-h2 { font-size: clamp(1.4rem, 2.5vw, 2rem); }
 .hpv2-mission-grid {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 48px; align-items: stretch;
@@ -678,8 +678,8 @@
 .hpv2-mission-tab-icon svg { width: 18px; height: 18px; }
 .hpv2-mission-tab.is-active .hpv2-mission-tab-icon { opacity: 1; }
 .hpv2-mission-tab-label {
-  font-family: var(--fb);
-  font-size: 18px;
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-size: 20px;
   font-weight: 500;
   color: var(--mu);
   line-height: 1.3;
@@ -974,6 +974,15 @@
    S7 — PROGRAMMES
    ═══════════════════════════════════════════════════════════════ */
 .hpv2-programmes { background: #fff; padding: 80px 0; }
+.hpv2-prog-typebar {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 28px;
+  margin-bottom: 12px;
+}
+.hpv2-prog-typebar-item {
+  font-family: var(--fb); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 8px 0; border-bottom: 1.5px solid currentColor;
+}
 .hpv2-prog-grid {
   display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; align-items: stretch;
 }
@@ -1162,7 +1171,7 @@
 }
 .hpv2-actu-stat {
   display: flex; align-items: center; gap: 4px;
-  font-family: var(--fb); font-size: 11px; color: var(--mu2);
+  font-family: var(--fb); font-size: 13px; color: var(--mu2);
 }
 .hpv2-actu-read {
   display: flex; align-items: center; gap: 4px;
@@ -1252,7 +1261,7 @@
 }
 .hpv2-rejoindre-bullet div {
   font-family: var(--fb); font-size: 12px;
-  color: rgba(255,255,255,0.6);
+  color: #ffffff;
   display: flex; align-items: center; gap: 10px;
 }
 .hpv2-rejoindre-bullet svg {
@@ -1289,8 +1298,8 @@
 .hpv2-nl-form { display: flex; flex-direction: column; gap: 10px; }
 .hpv2-nl-input {
   width: 100%; border: 0.5px solid rgba(255,255,255,0.14);
-  border-radius: 8px; padding: 14px 16px;
-  font-family: var(--fb); font-size: 13px;
+  border-radius: 6px; padding: 9px 12px;
+  font-family: var(--fb); font-size: 12px;
   color: var(--cr); background: rgba(255,255,255,0.05);
   outline: none; box-sizing: border-box;
   transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
@@ -1303,7 +1312,7 @@
 }
 .hpv2-nl-submit {
   width: 100%; background: linear-gradient(135deg, var(--g), #009940);
-  color: #fff; border: none; border-radius: 8px; padding: 14px;
+  color: #fff; border: none; border-radius: 6px; padding: 9px;
   font-family: var(--fb); font-size: 12px; font-weight: 500;
   text-transform: uppercase; letter-spacing: 0.1em;
   display: flex; align-items: center; justify-content: center; gap: 8px;

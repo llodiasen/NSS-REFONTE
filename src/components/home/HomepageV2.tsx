@@ -501,14 +501,6 @@ function ProgrammesSection({ locale }: { locale: string }) {
   return (
     <section className="hpv2-programmes">
       <div className="hpv2-wrap">
-        <div className="hpv2-sec-head hpv2-rv">
-          <div className="hpv2-surtitle">Programmes &amp; événements</div>
-          <h2 className="hpv2-h2">Nos rendez-vous pour la <em>souveraineté alimentaire.</em></h2>
-          <hr className="hpv2-rule center" />
-          <p className="hpv2-lede">
-            {`Formation, rencontre, foire — trois rendez-vous qui rassemblent les femmes rurales d'Afrique de l'Ouest.`}
-          </p>
-        </div>
         <div className="hpv2-prog-grid hpv2-sg">
           {PROGRAMMES.map((p, i) => {
             const badgeColors = PROG_BADGE_COLORS[p.badge] ?? PROG_BADGE_COLORS['Passé']
@@ -528,36 +520,26 @@ function ProgrammesSection({ locale }: { locale: string }) {
                     </div>
                   </div>
                 </div>
-                <div className="hpv2-prog-body">
-                  <div className="hpv2-prog-supertag" style={{ color: typeColor }}>{p.type}</div>
+                <div className="hpv2-prog-body" style={{ borderTop: `3px solid ${typeColor}` }}>
+                  <div className="hpv2-actu-stats" style={{ marginBottom: 10 }}>
+                    <span className="hpv2-actu-stat">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <path d="M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7z"/><path d="M16 3v4M8 3v4M4 11h16"/>
+                      </svg>
+                      {p.date}
+                    </span>
+                    <span className="hpv2-actu-stat">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/>
+                      </svg>
+                      {p.lieu}
+                    </span>
+                    <span className="hpv2-actu-stat">
+                      <ProgMetaIcon name={p.meta3.icon} />
+                      {p.meta3.value}
+                    </span>
+                  </div>
                   <h3 className="hpv2-prog-h3">{p.title}</h3>
-                  <hr className="hpv2-prog-sep" />
-                  <div className="hpv2-prog-metablock-wrap">
-                  <div className="hpv2-prog-metablock">
-                    <div className="hpv2-prog-meta-item">
-                      <span className="hpv2-prog-meta-label">
-                        <ProgMetaIcon name="calendar" />
-                        DATE
-                      </span>
-                      <span className="hpv2-prog-meta-value">{p.date}</span>
-                    </div>
-                    <div className="hpv2-prog-meta-item">
-                      <span className="hpv2-prog-meta-label">
-                        <ProgMetaIcon name="map-pin" />
-                        LIEU
-                      </span>
-                      <span className="hpv2-prog-meta-value">{p.lieu}</span>
-                    </div>
-                    <div className="hpv2-prog-meta-item hpv2-prog-meta-last">
-                      <span className="hpv2-prog-meta-label">
-                        <ProgMetaIcon name={p.meta3.icon} />
-                        {p.meta3.label}
-                      </span>
-                      <span className="hpv2-prog-meta-value">{p.meta3.value}</span>
-                    </div>
-                  </div>
-                  <hr className="hpv2-prog-metablock-sep" />
-                  </div>
                   <p className="hpv2-prog-text">{p.body}</p>
                   <div className="hpv2-prog-footer">
                     <Link
@@ -746,7 +728,7 @@ function RejoindreSection({ locale }: { locale: string }) {
           <h2 className="hpv2-h2 on-dark">
             {`Rejoignez 175 000 femmes qui `}<em>{`nourrissent l'Afrique.`}</em>
           </h2>
-          <p>
+          <p style={{ color: '#ffffff' }}>
             {`Partagez nos valeurs ? Adhérez à NSS et rejoignez 175 000 femmes rurales qui transforment les systèmes alimentaires en Afrique de l'Ouest.`}
           </p>
           <div className="hpv2-rejoindre-btns">
@@ -777,7 +759,7 @@ function RejoindreSection({ locale }: { locale: string }) {
             <span>Envoi mensuel · Gratuit</span>
           </div>
           <h3>Suivez le mouvement, <em>recevez nos actualités.</em></h3>
-          <p className="lede">Actualités terrain · Agroécologie · Souveraineté alimentaire · Événements NSS</p>
+          <p className="lede" style={{ color: '#ffffff' }}>Actualités terrain · Agroécologie · Souveraineté alimentaire · Événements NSS</p>
           <form className="hpv2-nl-form" onSubmit={e => { e.preventDefault(); setDone(true) }}>
             <input
               className="hpv2-nl-input"

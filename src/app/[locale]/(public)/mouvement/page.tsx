@@ -42,19 +42,19 @@ export default function MouvementPage() {
       <section className="bg-[#045627] text-center">
         <div className="max-w-[640px] mx-auto cta-inner">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <span className="w-7 h-px bg-[rgba(245,237,214,0.25)] shrink-0" aria-hidden />
-            <span className="text-[11px] font-medium tracking-[0.18em] uppercase text-[#F5EDD6]">Passez à l&apos;action</span>
-            <span className="w-7 h-px bg-[rgba(245,237,214,0.25)] shrink-0" aria-hidden />
+            <span className="w-7 h-px bg-[rgba(255,255,255,0.3)] shrink-0" aria-hidden />
+            <span className="text-[11px] font-medium tracking-[0.18em] uppercase text-white">Passez à l&apos;action</span>
+            <span className="w-7 h-px bg-[rgba(255,255,255,0.3)] shrink-0" aria-hidden />
           </div>
 
-          <h2 className="cta-h2 font-semibold text-[#F5EDD6] leading-[1.15] tracking-[-0.01em] mb-3">
+          <h2 className="cta-h2 font-semibold text-white leading-[1.15] tracking-[-0.01em] mb-3">
             Rejoignez le mouvement,{' '}
             <em className="italic text-[#A5CE46] font-medium">agir ensemble.</em>
           </h2>
 
           <div className="w-[60px] h-[3px] bg-[#A5CE46] mx-auto mb-9" />
 
-          <p className="text-[15px] font-light text-[rgba(245,237,214,0.8)] leading-[1.7] max-w-[520px] mx-auto mb-9">
+          <p className="text-[15px] font-light text-white leading-[1.7] max-w-[520px] mx-auto mb-9">
             Partagez nos valeurs ? Adhérez à NSS et rejoignez 175&nbsp;000 femmes rurales
             qui transforment les systèmes alimentaires en Afrique de l&apos;Ouest.
           </p>
@@ -62,13 +62,13 @@ export default function MouvementPage() {
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
               href="/fr/agir/rejoindre"
-              className="inline-flex items-center justify-center gap-2 text-[12px] font-semibold tracking-[0.1em] uppercase bg-[#00AD4C] text-white px-8 py-[14px] rounded-lg border border-transparent transition-all duration-[250ms] hover:bg-[#A5CE46] hover:text-[#045627] hover:-translate-y-px"
+              className="inline-flex items-center justify-center gap-2 text-[11px] font-semibold tracking-[0.1em] uppercase bg-[#00AD4C] text-white px-5 py-[9px] rounded-lg border border-transparent transition-all duration-[250ms] hover:bg-[#A5CE46] hover:text-[#045627] hover:-translate-y-px"
             >
               Adhérer au mouvement
             </Link>
             <Link
               href="/fr/contact"
-              className="inline-flex items-center justify-center gap-2 text-[12px] font-semibold tracking-[0.1em] uppercase text-[#F5EDD6] border-[1.5px] border-[rgba(245,237,214,0.35)] px-8 py-[14px] rounded-lg transition-all duration-[250ms] hover:border-[#F5EDD6] hover:bg-[rgba(245,237,214,0.06)]"
+              className="inline-flex items-center justify-center gap-2 text-[11px] font-semibold tracking-[0.1em] uppercase text-white border-[1.5px] border-[rgba(255,255,255,0.35)] px-5 py-[9px] rounded-lg transition-all duration-[250ms] hover:border-white hover:bg-[rgba(255,255,255,0.06)]"
             >
               Nous contacter →
             </Link>
