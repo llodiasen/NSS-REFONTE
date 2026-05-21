@@ -1564,14 +1564,14 @@
 .hpv2-cf-field select,
 .hpv2-cf-field textarea {
   width: 100%; border: 0.5px solid var(--ru); border-radius: 10px;
-  padding: 14px 16px 14px 42px;
+  padding: 9px 12px 9px 38px;
   font-family: var(--fb); font-size: 13px; color: var(--ch);
   background: #f9f8f5; outline: none; resize: vertical;
   transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
 }
 .hpv2-cf-field.no-icon input,
 .hpv2-cf-field.no-icon select,
-.hpv2-cf-field.no-icon textarea { padding-left: 16px; }
+.hpv2-cf-field.no-icon textarea { padding-left: 12px; }
 .hpv2-cf-field input::placeholder,
 .hpv2-cf-field textarea::placeholder { color: #9ca3af; }
 .hpv2-cf-field input:hover,
@@ -1583,7 +1583,7 @@
   border-color: var(--g); background: #fff;
   box-shadow: 0 0 0 3px rgba(0,173,76,0.12);
 }
-.hpv2-cf-field textarea { min-height: 140px; line-height: 1.6; padding-left: 16px; }
+.hpv2-cf-field textarea { min-height: 100px; line-height: 1.6; padding-left: 12px; }
 .hpv2-cf-field select {
   appearance: none; padding-right: 40px; padding-left: 16px;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");

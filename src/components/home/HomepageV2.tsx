@@ -501,6 +501,14 @@ function ProgrammesSection({ locale }: { locale: string }) {
   return (
     <section className="hpv2-programmes">
       <div className="hpv2-wrap">
+        <div className="hpv2-sec-head hpv2-rv">
+          <div className="hpv2-surtitle">Programmes &amp; événements</div>
+          <h2 className="hpv2-h2">Nos rendez-vous pour la <em>souveraineté alimentaire.</em></h2>
+          <hr className="hpv2-rule center" />
+          <p className="hpv2-lede">
+            {`Formation, rencontre, foire — trois rendez-vous qui rassemblent les femmes rurales d'Afrique de l'Ouest.`}
+          </p>
+        </div>
         <div className="hpv2-prog-grid hpv2-sg">
           {PROGRAMMES.map((p, i) => {
             const badgeColors = PROG_BADGE_COLORS[p.badge] ?? PROG_BADGE_COLORS['Passé']
