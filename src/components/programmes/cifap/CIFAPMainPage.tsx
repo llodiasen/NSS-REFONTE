@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect } from 'react'
 import { motion, AnimatePresence, useInView } from 'framer-motion'
+import Image from 'next/image'
 import Link from 'next/link'
 import { MapPin, Calendar, Users, X } from 'lucide-react'
 import { CIFAP_EDITIONS } from '@/data/cifap/index'
@@ -162,32 +163,6 @@ function EditionModal({ ed, locale, onClose }: { ed: CifapEdition; locale: strin
   )
 }
 
-/* ── Variants animation ── */
-const fadeUp = {
-  hidden:  { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] as const } },
-}
-
-/* ── StaggerGrid ── */
-function StaggerGrid({ className, stagger = 0.09, children }: {
-  className?: string
-  stagger?: number
-  children: React.ReactNode
-}) {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-60px' })
-  return (
-    <motion.div
-      ref={ref}
-      className={className}
-      initial="hidden"
-      animate={inView ? 'visible' : 'hidden'}
-      variants={{ hidden: {}, visible: { transition: { staggerChildren: stagger } } }}
-    >
-      {children}
-    </motion.div>
-  )
-}
 
 /* ── SVG Icons éditions (placeholders sans photo) ── */
 const EditionIcons: Record<string, React.ReactNode> = {
@@ -373,70 +348,69 @@ function ObjectifsTrain() {
 /* ── Déroulé — données ── */
 const DEROULER_DAYS = [
   {
-    kicker: 'Jour 1',
-    title: "Arrivée & cérémonie d'ouverture",
-    body: "Accueil des délégations africaines, présentation des AFR participantes et ancrage culturel dans la tradition sénégalaise.",
+    kicker: 'Jour 1 — Lundi',
+    title: "Cérémonie d'ouverture officielle",
+    body: "Accueil des 70 participants venus de 8 pays, en présence des autorités administratives locales de Niaguis. Installation dans les parcelles pédagogiques du Centre Karonghen Wati Naaning.",
     moments: [
-      { time: '10h00', label: 'Accueil et installation au Centre Karonghen' },
-      { time: '14h00', label: 'Présentation des délégations et des AFR' },
-      { time: '17h30', label: "Cérémonie d'ouverture officielle" },
+      { time: '10h00', label: 'Accueil et installation au Centre Karonghen Wati Naaning' },
+      { time: '14h00', label: 'Présentation du thème annuel et des objectifs du camp' },
+      { time: '17h30', label: "Cérémonie d'ouverture avec autorités locales · repas d'accueil collectif" },
     ],
     badge: 'Ouverture',
+    photo: '/images/actualites/organisations-femmes-rurales-nss.jpg',
+    photoAlt: 'Cérémonie d\'ouverture CIFAP — femmes rurales NSS',
   },
   {
-    kicker: 'Jour 2',
-    title: 'Cadrage théorique du thème',
-    body: "Le thème de l'édition posé par les leaders et techniciennes du réseau NSS, ancré dans les réalités paysannes de chaque pays.",
+    kicker: 'Jour 2 — Mardi',
+    title: 'Cadrage théorique et pratiques par pays',
+    body: "Le thème de l'édition est posé par les leaders et techniciennes du réseau NSS, ancré dans les réalités paysannes de chaque pays. Dès l'aube, le village s'anime.",
     moments: [
-      { time: '08h30', label: 'Exposé introductif par les experts NSS' },
-      { time: '10h30', label: 'Débat ouvert — pratiques par pays' },
-      { time: '14h00', label: 'Cartographie collective des enjeux' },
+      { time: '08h00', label: 'Atelier théorique · principes agroécologiques du thème' },
+      { time: '12h00', label: 'Pause déjeuner collectif' },
+      { time: '14h00', label: 'Sortie terrain · premiers travaux sur parcelles pédagogiques' },
     ],
     badge: 'Théorie',
+    photo: '/images/actualites/mariama-sonko-agroecologie-afrique.jpg',
+    photoAlt: 'Formation agroécologie CIFAP — session théorique',
   },
   {
-    kicker: 'Jours 3–4',
-    title: 'Démonstrations au champ',
-    body: "Techniques de production, transformation et conservation sur les parcelles agroécologiques du Centre Karonghen Wati Naning.",
+    kicker: 'Jours 3–5',
+    title: 'Formation intensive : théorie et terrain',
+    body: "\"Le sol travaillé à la main, l'odeur du compost et le vert éclatant des cultures créent une atmosphère à la fois studieuse et conviviale.\" Modules techniques et pratique alternent chaque jour.",
     moments: [
-      { time: '07h00', label: 'Sortie terrain — parcelles Karonghen' },
-      { time: '10h00', label: 'Démonstration de techniques agroécologiques' },
-      { time: '15h00', label: 'Transformation et conservation des produits' },
+      { time: '08h00–12h00', label: 'Ateliers théoriques · techniques agroécologiques spécifiques' },
+      { time: '14h00–17h00', label: 'Pratique sur parcelles · rotation, compostage, bio-protecteurs' },
+      { time: '17h00–20h00', label: 'Échanges d\'expériences · réseautage · repas collectifs' },
     ],
     badge: 'Terrain',
+    photo: '/images/actualites/camp-formation-agroecologie-niaguis-2024.jpg',
+    photoAlt: 'Parcelles pédagogiques CIFAP Niaguis — formation terrain',
   },
   {
-    kicker: 'Jour 5',
-    title: 'Échanges inter-pays',
-    body: "Restitution des pratiques propres à chaque AFR, adaptation aux contextes locaux et construction de synergies continentales.",
+    kicker: 'Jour 6 — Samedi',
+    title: 'Échanges inter-pays & capitalisation',
+    body: "Restitution des pratiques propres à chaque AFR, adaptation aux contextes locaux et construction de synergies continentales. Chaque délégation repart avec des outils concrets.",
     moments: [
-      { time: '09h00', label: 'Restitutions par délégation nationale' },
-      { time: '11h30', label: 'Ateliers croisés — adaptation inter-pays' },
-      { time: '16h00', label: 'Fiches pratiques partagées' },
+      { time: '08h00', label: 'Restitutions par délégation nationale · pratiques par pays' },
+      { time: '11h00', label: 'Ateliers croisés · adaptation et fiches pratiques partagées' },
+      { time: '15h00', label: 'Co-production des supports pour les AFR · validation collective' },
     ],
     badge: 'Échanges',
+    photo: '/images/actualites/nss-cifap-2025.jpg',
+    photoAlt: 'Échanges inter-pays CIFAP 2025 — Niaguis Sénégal',
   },
   {
-    kicker: 'Jour 6',
-    title: 'Atelier de capitalisation',
-    body: "Construction collective des supports IEC pour les territoires. Chaque délégation repart avec des outils concrets et adaptés.",
+    kicker: 'Jour 7 — Dimanche',
+    title: 'Évaluations, certificats & clôture',
+    body: "La semaine se conclut par une cérémonie officielle. Chaque participante repart avec un certificat, un plan d'action concret et un réseau continental renforcé.",
     moments: [
-      { time: '08h30', label: 'Groupes de travail par thématique' },
-      { time: '11h00', label: 'Co-production des supports IEC' },
-      { time: '15h00', label: 'Présentation et validation collective' },
-    ],
-    badge: 'Capitalisation',
-  },
-  {
-    kicker: 'Jour 7',
-    title: "Engagements & clôture",
-    body: "Feuille de route par pays, plaidoyer pour la souveraineté alimentaire et cérémonie de clôture du camp CIFAP.",
-    moments: [
-      { time: '09h00', label: 'Feuilles de route par pays' },
-      { time: '11h00', label: 'Session plaidoyer — souveraineté alimentaire' },
-      { time: '15h00', label: 'Cérémonie de clôture et attestations' },
+      { time: '09h00', label: 'Évaluations des apprentissages · partage des plans d\'action individuels' },
+      { time: '11h00', label: 'Remise de certificats de formation' },
+      { time: '15h00', label: 'Cérémonie de clôture officielle · engagements pour les AFR' },
     ],
     badge: 'Clôture',
+    photo: '/images/actualites/thousand-currents-karonghen-wati-naning-niaguiss.jpg',
+    photoAlt: 'Cérémonie de clôture CIFAP — Centre Karonghen Wati Naaning',
   },
 ]
 
@@ -539,8 +513,17 @@ function DeroulerTimeline() {
                 ))}
               </ul>
             </div>
-            <div className="cf-dr-day__visual" aria-hidden="true">
-              <div className="cf-dr-day__img-ph" />
+            <div className="cf-dr-day__visual">
+              {day.photo && (
+                <Image
+                  src={day.photo}
+                  alt={day.photoAlt}
+                  fill
+                  className="cf-dr-day__img"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              )}
+              <div className="cf-dr-day__img-overlay" aria-hidden="true" />
               <span className="cf-dr-day__corner">{day.badge}</span>
               <p className="cf-dr-day__caption">{day.kicker}</p>
             </div>
@@ -688,15 +671,15 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
           <div className="cf-hero__meta">
             <span className="cf-meta-pill">
               <span className="cf-meta-pill__label">Durée</span>
-              5 à 7 jours
+              7 jours — lundi au dimanche
             </span>
             <span className="cf-meta-pill">
               <span className="cf-meta-pill__label">Lieu</span>
-              Niaguis, Sénégal
+              Niaguis, Casamance, Sénégal
             </span>
             <span className="cf-meta-pill">
               <span className="cf-meta-pill__label">Participantes</span>
-              40 à 50 · 8 pays
+              ~70 leaders · 8 pays
             </span>
           </div>
           <div className="cf-hero__cta-row">
@@ -715,10 +698,10 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
       ══════════════════════════════════════════════ */}
       <div className="cf-stats-band" aria-label="Chiffres clés CIFAP">
         {[
-          { num: '4',    label: 'Éditions tenues' },
-          { num: '8',    label: 'Pays représentés' },
-          { num: '~180', label: 'Leaders formées' },
-          { num: '1',    label: 'Centre dédié — Niaguis' },
+          { num: '4',    label: 'Éditions · 2022–2025' },
+          { num: '8',    label: 'Pays d\'Afrique de l\'Ouest' },
+          { num: '~70',  label: 'Participants · édition 2025' },
+          { num: '7',    label: 'Jours de formation intensive' },
         ].map((stat) => (
           <div key={stat.label} className="cf-stat">
             <div className="cf-stat__num">{stat.num}</div>
@@ -728,65 +711,70 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
       </div>
 
       {/* ══════════════════════════════════════════════
-          FONDATIONS — grille bordée, cartes numérotées
+          QU'EST-CE QUE LE CIFAP ?
       ══════════════════════════════════════════════ */}
-      <section className="cf-sec cf-sec--white" aria-labelledby="cf-fond-h2">
+      <section className="cf-sec cf-sec--white" aria-labelledby="cf-what-h2">
         <div className="cf-sec__inner">
           <SectionHeader
-            titleId="cf-fond-h2"
-            eyebrow="FONDATIONS"
-            title={<>Trois principes pour transformer <em>l&apos;agroécologie.</em></>}
-            sub="Former des experts, relier les territoires, construire la durabilité — trois leviers d'un même mouvement."
+            titleId="cf-what-h2"
+            eyebrow="PRÉSENTATION"
+            title={<>Qu&apos;est-ce que <em>le CIFAP ?</em></>}
           />
-          <div className="cf-principes">
-            {[
-              {
-                num: '01',
-                icon: (
-                  <svg className="cf-icon-lg" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M22 9l-10-4-10 4 10 4 10-4z"/>
-                    <path d="M6 10.6V16c3 3 9 3 12 0v-5.4"/>
-                    <path d="M22 9v6"/>
-                  </svg>
-                ),
-                title: 'Former',
-                text: "Outils concrets pour une agriculture autonome et durable — techniques agroécologiques ancrées dans les réalités locales, transmises par des experts et praticiens issus du mouvement paysan. Chaque édition CIFAP renforce les capacités techniques des leaders et techniciens agricoles.",
-              },
-              {
-                num: '02',
-                icon: (
-                  <svg className="cf-icon-lg" viewBox="0 0 24 24" aria-hidden="true">
-                    <circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/>
-                    <circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/>
-                    <circle cx="12" cy="12" r="2"/>
-                    <path d="M6.5 6.5L10.5 10.5M17.5 6.5L13.5 10.5M6.5 17.5L10.5 13.5M17.5 17.5L13.5 13.5"/>
-                  </svg>
-                ),
-                title: 'Relier',
-                text: "Une voix continentale pour la souveraineté alimentaire — créer un réseau de femmes rurales qui échangent, comparent et adaptent leurs pratiques d'un pays à l'autre. Le CIFAP réunit chaque année 8 pays d'Afrique de l'Ouest autour d'une vision commune.",
-              },
-              {
-                num: '03',
-                icon: (
-                  <svg className="cf-icon-lg" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M9.83 9.17a4 4 0 1 0 0 5.66a10 10 0 0 0 4.34-5.66a4 4 0 1 1 0 5.66a10 10 0 0 1-4.34-5.66"/>
-                  </svg>
-                ),
-                title: 'Durer',
-                text: "Inscrire les savoirs paysans dans les territoires d'une édition à l'autre, en enrichissant les savoirs endogènes sans les remplacer — une mémoire vivante au service des générations. La logique cumulative du CIFAP garantit que chaque année construit sur les acquis de la précédente.",
-              },
-            ].map((p) => (
-              <article key={p.title} className="cf-principe">
-                <span className="cf-principe__num" aria-hidden="true">{p.num}</span>
-                <span className="cf-principe__icon">{p.icon}</span>
-                <h3 className="cf-principe__title">{p.title}</h3>
-                <div className="cf-principe__accent" aria-hidden="true" />
-                <p className="cf-principe__text">{p.text}</p>
-              </article>
-            ))}
+          <div className="cf-what-grid">
+            <div className="cf-what-text">
+              <p className="cf-what-lead">
+                Le Camp International de Formation en Agroécologie Paysanne (CIFAP) est un
+                programme phare du mouvement panafricain «&nbsp;Nous Sommes la Solution&nbsp;» (NSS),
+                actif dans 8 pays d&apos;Afrique de l&apos;Ouest depuis 2011.
+              </p>
+              <p className="cf-what-body">
+                Créé en 2022, le CIFAP est bien plus qu&apos;une formation agricole : c&apos;est un
+                <strong> espace de convergence panafricain</strong> où se rencontrent pratiques
+                ancestrales et innovations agroécologiques, où se tissent des solidarités entre
+                femmes rurales de huit pays.
+              </p>
+              <p className="cf-what-body">
+                Chaque année en septembre, le village de Niaguis en Casamance devient
+                le <strong>carrefour d&apos;une agriculture en transformation</strong>. Le Centre
+                Karonghen Wati Naaning accueille près de 70 participantes qui viennent
+                partager savoirs et expériences.
+              </p>
+              <blockquote className="cf-what-quote">
+                <p className="cf-what-quote__text">
+                  &laquo;&nbsp;Chaque technique apprise ici peut transformer nos exploitations.&nbsp;&raquo;
+                </p>
+                <footer className="cf-what-quote__foot">
+                  — Aissatou, maraîchère participante 2025
+                </footer>
+              </blockquote>
+            </div>
+            <div className="cf-what-points">
+              {[
+                { icon: '🎯', title: 'Formation intensive', desc: '7 jours d\'ateliers théoriques et pratiques sur parcelles pédagogiques.' },
+                { icon: '🤝', title: 'Réseau panafricain', desc: 'Échanges entre leaders AFR de 8 pays d\'Afrique de l\'Ouest.' },
+                { icon: '🌱', title: 'Savoir-faire concrets', desc: 'Techniques immédiatement applicables dans les exploitations locales.' },
+                { icon: '⚡', title: 'Autonomisation', desc: 'Renforcement du leadership et de l\'indépendance des femmes rurales.' },
+              ].map((pt) => (
+                <div key={pt.title} className="cf-what-point">
+                  <span className="cf-what-point__icon" aria-hidden="true">{pt.icon}</span>
+                  <div>
+                    <h3 className="cf-what-point__title">{pt.title}</h3>
+                    <p className="cf-what-point__desc">{pt.desc}</p>
+                  </div>
+                </div>
+              ))}
+              <div className="cf-what-recognition">
+                <p>
+                  <strong>Reconnaissance institutionnelle :</strong> La présence systématique
+                  des autorités administratives locales aux cérémonies d&apos;ouverture marque la
+                  légitimité d&apos;un modèle agricole alternatif qui fait ses preuves sur le terrain.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
+
 
       {/* ══════════════════════════════════════════════
           DÉROULÉ — timeline horizontale interactive
@@ -804,54 +792,111 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
       </section>
 
       {/* ══════════════════════════════════════════════
+          MODULES TECHNIQUES — 8 modules en grille
+      ══════════════════════════════════════════════ */}
+      <section className="cf-sec cf-sec--white" aria-labelledby="cf-mod-h2">
+        <div className="cf-sec__inner">
+          <SectionHeader
+            titleId="cf-mod-h2"
+            eyebrow="MODULES TECHNIQUES"
+            title={<>Des savoir-faire concrets <em>et reproductibles.</em></>}
+            sub="Le CIFAP transmet des techniques éprouvées, adaptées aux réalités locales d'Afrique de l'Ouest — applicables dès le retour dans les exploitations."
+          />
+          <div className="cf-mod-grid">
+            {[
+              { icon: '🌱', title: 'Rotation des cultures', desc: 'Planification des rotations horticoles adaptées aux légumes-feuilles, légumes-fruits et légumes-racines. Maintien de la fertilité des sols naturellement.' },
+              { icon: '🛡️', title: 'Bio-protecteurs', desc: 'Fabrication de préparations naturelles à base de plantes locales pour protéger les cultures contre ravageurs et maladies — sans pesticides chimiques.' },
+              { icon: '🌍', title: 'Gestion écologique des sols', desc: 'Travail manuel du sol, amélioration de la structure sans labour intensif. Maintien de l\'activité biologique et de la santé du sol vivant.' },
+              { icon: '♻️', title: 'Compostage et fertilisation', desc: '"L\'odeur du compost et le vert éclatant des cultures" — fabrication, maturation et utilisation du compost selon les ressources disponibles localement.' },
+              { icon: '🌾', title: 'Autonomie semencière', desc: 'Production, sélection et conservation de semences paysannes. Indépendance vis-à-vis des multinationales et préservation de la biodiversité cultivée.', highlight: true },
+              { icon: '💧', title: 'Gestion de l\'eau', desc: 'Irrigation économe, collecte d\'eau de pluie et aménagements adaptés. Face aux défis du changement climatique, économiser l\'eau devient crucial.' },
+              { icon: '🌿', title: 'Techniques horticoles', desc: 'Conduite des cultures maraîchères adaptée chaque année au thème. En 2025 : maraîchage intensif sur petites surfaces, diversification et calendrier.' },
+              { icon: '🔄', title: 'Résilience climatique', desc: 'Développer une agriculture capable de s\'adapter aux crises : sécheresses, inondations, variabilité des saisons. Variétés résistantes et stratégies d\'adaptation.' },
+            ].map((mod) => (
+              <article key={mod.title} className={`cf-mod-card${mod.highlight ? ' cf-mod-card--hl' : ''}`}>
+                <span className="cf-mod-card__icon" aria-hidden="true">{mod.icon}</span>
+                <h3 className="cf-mod-card__title">{mod.title}</h3>
+                <div className="cf-mod-card__accent" aria-hidden="true" />
+                <p className="cf-mod-card__desc">{mod.desc}</p>
+                {mod.highlight && (
+                  <p className="cf-mod-card__note">
+                    Enjeu stratégique : au cœur de la souveraineté alimentaire NSS
+                  </p>
+                )}
+              </article>
+            ))}
+          </div>
+          <p className="cf-mod-pedagogy">
+            Les ateliers pratiques mettent en avant des <strong>techniques simples mais efficaces</strong>.
+            Pas de discours déconnectés du terrain : les mains travaillent la terre, les savoirs circulent
+            entre générations, et chaque technique peut être immédiatement appliquée dans les exploitations.
+          </p>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════
           OBJECTIFS — train slider 3 cartes
       ══════════════════════════════════════════════ */}
-      <section className="cf-sec cf-sec--white" aria-labelledby="cf-obj-h2">
+      <section className="cf-sec cf-sec--alt" aria-labelledby="cf-obj-h2">
         <div className="cf-sec__inner">
           <ObjectifsTrain />
         </div>
       </section>
 
       {/* ══════════════════════════════════════════════
-          PILIERS + STATS BAND
+          QUI PEUT PARTICIPER ?
       ══════════════════════════════════════════════ */}
-      <section className="cf-sec cf-sec--alt" aria-labelledby="cf-pil-h2">
+      <section className="cf-sec cf-sec--white" aria-labelledby="cf-qui-h2">
         <div className="cf-sec__inner">
           <SectionHeader
-            titleId="cf-pil-h2"
-            eyebrow="ARCHITECTURE"
-            title={<>Trois piliers pour <em>la souveraineté alimentaire.</em></>}
-            sub="Terre, semences, eau — les fondations de l'agroécologie paysanne portée par le mouvement NSS."
+            titleId="cf-qui-h2"
+            eyebrow="PARTICIPANTS"
+            title={<>Qui participe <em>au CIFAP ?</em></>}
+            sub="Le CIFAP s'adresse aux membres des Associations de Femmes Rurales (AFR) du réseau NSS présent dans 8 pays d'Afrique de l'Ouest."
           />
-          <StaggerGrid className="cf-pillars-grid" stagger={0.1}>
+          <div className="cf-qui-grid">
             {[
-              {
-                icon: <svg className="cf-icon-lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 20h10"/><path d="M10 20c0-7-5-9-5-11 3-1 7 1 7 5-1-5 4-7 8-5-2 3-7 4-7 11"/></svg>,
-                title: 'La Terre',
-                desc: 'Fertilité, régénération des sols, conduite agroécologique — redonner vie à la terre pour des rendements durables et des exploitations autonomes.',
-              },
-              {
-                icon: <svg className="cf-icon-lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20v-9"/><path d="M12 11c0-4 3-7 7-7 0 4-3 7-7 7"/><path d="M12 14c0-3-2-5-5-5 0 3 2 5 5 5"/></svg>,
-                title: 'Les Semences',
-                desc: "Autonomie semencière paysanne — conservation, reproduction et diffusion des variétés locales pour s'affranchir de la dépendance aux semences commerciales.",
-              },
-              {
-                icon: <svg className="cf-icon-lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3s-6 7-6 12a6 6 0 0 0 12 0c0-5-6-12-6-12z"/></svg>,
-                title: "L'Eau",
-                desc: "Gestion écologique des ressources hydriques, irrigation paysanne durable — préserver l'eau comme bien commun pour les générations futures.",
-              },
-            ].map((p) => (
-              <motion.div key={p.title} className="cf-pillar" variants={fadeUp}>
-                <div className="cf-pillar__icon">{p.icon}</div>
-                <h3 className="cf-pillar__title">{p.title}</h3>
-                <div className="cf-pillar__accent" aria-hidden="true" />
-                <p className="cf-pillar__desc">{p.desc}</p>
-              </motion.div>
+              { icon: '👩‍🌾', title: 'Leaders d\'AFR', desc: 'Présidentes, secrétaires générales ou responsables d\'Associations de Femmes Rurales. En première ligne pour diffuser l\'agroécologie et former d\'autres femmes.' },
+              { icon: '🎓', title: 'Agents techniques', desc: 'Techniciens agricoles, animateurs et formateurs travaillant avec les AFR. Ils accompagnent les productrices et démultiplient les formations.' },
+              { icon: '🌱', title: 'Maraîchères aguerries', desc: 'Productrices expérimentées pratiquant déjà l\'agroécologie ou souhaitant opérer une transition. Elles approfondissent et échangent avec d\'autres paysannes.' },
+              { icon: '✨', title: 'Jeunes en installation', desc: 'Jeunes femmes et hommes qui souhaitent s\'installer en agriculture et cherchent des modèles viables, respectueux de l\'environnement et économiquement rentables.' },
+            ].map((prof) => (
+              <article key={prof.title} className="cf-qui-card">
+                <span className="cf-qui-card__icon" aria-hidden="true">{prof.icon}</span>
+                <h3 className="cf-qui-card__title">{prof.title}</h3>
+                <p className="cf-qui-card__desc">{prof.desc}</p>
+              </article>
             ))}
-          </StaggerGrid>
+          </div>
 
+          <div className="cf-pays-block">
+            <h3 className="cf-pays-block__title">8 pays représentés</h3>
+            <div className="cf-pays-grid" aria-label="Pays participants">
+              {[
+                { flag: '🇲🇱', name: 'Mali' },
+                { flag: '🇧🇫', name: 'Burkina Faso' },
+                { flag: '🇬🇭', name: 'Ghana' },
+                { flag: '🇨🇮', name: 'Côte d\'Ivoire' },
+                { flag: '🇬🇼', name: 'Guinée-Bissau' },
+                { flag: '🇬🇳', name: 'Guinée' },
+                { flag: '🇬🇲', name: 'Gambie' },
+                { flag: '🇸🇳', name: 'Sénégal' },
+              ].map((pays) => (
+                <div key={pays.name} className="cf-pays-badge">
+                  <span aria-hidden="true">{pays.flag}</span>
+                  <span>{pays.name}</span>
+                </div>
+              ))}
+            </div>
+            <blockquote className="cf-pays-quote">
+              &laquo;&nbsp;La diversité des participants dit beaucoup sur la portée réelle du CIFAP.
+              Ce n&apos;est pas une formation de spécialistes entre eux — c&apos;est un espace où se croisent
+              les générations, les genres et les expériences.&nbsp;&raquo;
+            </blockquote>
+          </div>
         </div>
       </section>
+
 
       {/* ══════════════════════════════════════════════
           ÉDITIONS — grille 4-col
@@ -904,6 +949,56 @@ export default function CIFAPMainPage({ locale }: { locale: string }) {
                 </div>
               </motion.article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════
+          PARTENAIRES
+      ══════════════════════════════════════════════ */}
+      <section className="cf-sec cf-sec--alt" aria-labelledby="cf-part-h2">
+        <div className="cf-sec__inner">
+          <SectionHeader
+            titleId="cf-part-h2"
+            eyebrow="PARTENAIRES"
+            title={<>Un programme porté <em>collectivement.</em></>}
+          />
+          <div className="cf-part-block">
+            <p className="cf-part-intro">
+              Le CIFAP est organisé par le mouvement NSS avec le soutien de partenaires techniques
+              et de bailleurs engagés pour la souveraineté alimentaire en Afrique de l&apos;Ouest.
+            </p>
+            <div className="cf-part-row">
+              <div className="cf-part-group">
+                <p className="cf-part-group__label">Partenaires techniques</p>
+                <div className="cf-part-logos">
+                  {[
+                    { name: 'Fahamu Africa', logo: '/images/partenaires/logofahamu1.png' },
+                    { name: 'FENOP', logo: '/images/partenaires/FENOP.jpg' },
+                    { name: 'AJAC Lukaal', logo: '/images/partenaires/AJAC-Lukaal_Tiburce-MANGA.png' },
+                  ].map((p) => (
+                    <div key={p.name} className="cf-part-logo-wrap">
+                      <img src={p.logo} alt={p.name} loading="lazy" className="cf-part-logo" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="cf-part-group">
+                <p className="cf-part-group__label">Bailleurs de fonds</p>
+                <div className="cf-part-logos">
+                  {[
+                    { name: 'Grassroots International', logo: '/images/partenaires/Grassroots-international.jpg' },
+                    { name: 'Thousand Currents', logo: '/images/partenaires/thoussands-current-1.jpg' },
+                    { name: 'Agroecology Fund', logo: '/images/partenaires/Agroecology-Fund.jpg' },
+                    { name: 'Fonds Égalité', logo: '/images/partenaires/Fond-egalite.png' },
+                  ].map((p) => (
+                    <div key={p.name} className="cf-part-logo-wrap">
+                      <img src={p.logo} alt={p.name} loading="lazy" className="cf-part-logo" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

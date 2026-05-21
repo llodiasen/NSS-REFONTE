@@ -555,9 +555,25 @@
   min-height: 280px;
 }
 
+.cf-dr-day__img {
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.cf-dr-day__visual:hover .cf-dr-day__img { transform: scale(1.04); }
+.cf-dr-day__img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(4,86,39,0.15) 0%, rgba(4,86,39,0.55) 100%);
+  z-index: 1;
+}
+.cf-dr-day__corner { z-index: 2; }
+.cf-dr-day__caption { z-index: 2; }
+
+/* Placeholder legacy — conservé pour compatibilité */
 .cf-dr-day__img-ph {
   position: absolute;
   inset: 0;
+  display: none;
 }
 .cf-dr-day__img-ph::before {
   content: '';
@@ -1602,6 +1618,303 @@
   .cf-principes { border-radius: 8px; }
   .cf-stats-band { grid-template-columns: 1fr 1fr; }
   .cf-stat { padding: 20px 16px; }
+}
+
+/* ══════════════════════════════════════════════
+   QU'EST-CE QUE LE CIFAP ?
+══════════════════════════════════════════════ */
+.cf-what-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+.cf-what-lead {
+  font-size: 17px;
+  font-weight: 500;
+  color: #2A2A2A;
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+.cf-what-body {
+  font-size: 14px;
+  font-weight: 300;
+  color: #4A4A4A;
+  line-height: 1.8;
+  text-align: justify;
+  text-align-last: left;
+  margin-bottom: 16px;
+}
+.cf-what-quote {
+  border-left: 3px solid #00AD4C;
+  padding: 16px 20px;
+  margin: 24px 0 0;
+  background: #f0faf4;
+  border-radius: 0 8px 8px 0;
+}
+.cf-what-quote__text {
+  font-size: 15px;
+  font-style: italic;
+  color: #2A2A2A;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+.cf-what-quote__foot {
+  font-size: 12px;
+  font-weight: 500;
+  color: #00AD4C;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.cf-what-points {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.cf-what-point {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 18px 20px;
+  background: #f9f8f5;
+  border-radius: 10px;
+  border: 0.5px solid #e5e7eb;
+  transition: border-color 0.22s;
+}
+.cf-what-point:hover { border-color: #00AD4C; }
+.cf-what-point__icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+.cf-what-point__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2A2A2A;
+  margin-bottom: 4px;
+}
+.cf-what-point__desc {
+  font-size: 13px;
+  font-weight: 300;
+  color: #4A4A4A;
+  line-height: 1.65;
+}
+.cf-what-recognition {
+  margin-top: 4px;
+  padding: 16px 20px;
+  background: #045627;
+  border-radius: 10px;
+  color: rgba(245,237,214,0.85);
+  font-size: 13px;
+  line-height: 1.7;
+}
+.cf-what-recognition strong { color: #A5CE46; }
+
+/* ══════════════════════════════════════════════
+   MODULES TECHNIQUES
+══════════════════════════════════════════════ */
+.cf-mod-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 32px;
+}
+.cf-mod-card {
+  background: #ffffff;
+  border: 0.5px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color 0.22s, transform 0.22s, box-shadow 0.22s;
+}
+.cf-mod-card:hover {
+  border-color: #00AD4C;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.07);
+}
+.cf-mod-card--hl {
+  background: #f0faf4;
+  border-color: #A5CE46;
+}
+.cf-mod-card__icon { font-size: 24px; }
+.cf-mod-card__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2A2A2A;
+  line-height: 1.3;
+}
+.cf-mod-card__accent {
+  width: 32px; height: 2px;
+  background: #00AD4C;
+  border-radius: 2px;
+}
+.cf-mod-card__desc {
+  font-size: 12px;
+  font-weight: 300;
+  color: #4A4A4A;
+  line-height: 1.75;
+  text-align: justify;
+  text-align-last: left;
+  flex: 1;
+}
+.cf-mod-card__note {
+  font-size: 11px;
+  font-weight: 500;
+  color: #00AD4C;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+}
+.cf-mod-pedagogy {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 14px;
+  color: #4A4A4A;
+  line-height: 1.75;
+  font-weight: 300;
+  padding: 24px 0 0;
+  border-top: 0.5px solid #e5e7eb;
+}
+
+/* ══════════════════════════════════════════════
+   QUI PEUT PARTICIPER ?
+══════════════════════════════════════════════ */
+.cf-qui-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 40px;
+}
+.cf-qui-card {
+  background: #f9f8f5;
+  border: 0.5px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 28px 20px;
+  text-align: center;
+  transition: border-color 0.22s, transform 0.22s;
+}
+.cf-qui-card:hover { border-color: #00AD4C; transform: translateY(-2px); }
+.cf-qui-card__icon { font-size: 32px; display: block; margin-bottom: 12px; }
+.cf-qui-card__title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #2A2A2A;
+  margin-bottom: 10px;
+}
+.cf-qui-card__desc {
+  font-size: 13px;
+  font-weight: 300;
+  color: #4A4A4A;
+  line-height: 1.7;
+  text-align: left;
+}
+.cf-pays-block {
+  background: #045627;
+  border-radius: 16px;
+  padding: 36px 40px;
+}
+.cf-pays-block__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #A5CE46;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 20px;
+}
+.cf-pays-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.cf-pays-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(245,237,214,0.10);
+  border: 0.5px solid rgba(245,237,214,0.25);
+  color: #F5EDD6;
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.cf-pays-badge:hover { background: rgba(245,237,214,0.18); }
+.cf-pays-quote {
+  border-left: 3px solid #A5CE46;
+  padding-left: 20px;
+  font-size: 14px;
+  font-style: italic;
+  color: rgba(245,237,214,0.8);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ══════════════════════════════════════════════
+   PARTENAIRES
+══════════════════════════════════════════════ */
+.cf-part-block { max-width: 960px; margin: 0 auto; }
+.cf-part-intro {
+  font-size: 15px;
+  font-weight: 300;
+  color: #4A4A4A;
+  line-height: 1.75;
+  text-align: center;
+  margin-bottom: 36px;
+}
+.cf-part-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+.cf-part-group__label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #00AD4C;
+  margin-bottom: 16px;
+}
+.cf-part-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+.cf-part-logo-wrap {
+  background: #ffffff;
+  border: 0.5px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cf-part-logo {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(0.3);
+  transition: filter 0.22s;
+}
+.cf-part-logo-wrap:hover .cf-part-logo { filter: grayscale(0); }
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE — nouvelles sections
+══════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .cf-mod-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .cf-what-grid { grid-template-columns: 1fr; gap: 36px; }
+  .cf-mod-grid { grid-template-columns: 1fr 1fr; }
+  .cf-qui-grid { grid-template-columns: 1fr 1fr; }
+  .cf-part-row { grid-template-columns: 1fr; gap: 28px; }
+  .cf-pays-block { padding: 24px 20px; }
+}
+@media (max-width: 560px) {
+  .cf-mod-grid { grid-template-columns: 1fr; }
+  .cf-qui-grid { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {

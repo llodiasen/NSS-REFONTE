@@ -36,7 +36,7 @@ const NAV_DROPS: { key: string; label: string; href?: string; items: DropItem[] 
     label: "Notre mission",
     items: [
       { icon: Users,  label: "Qui sommes-nous",     sub: "Histoire et genèse du réseau",    href: "/a-propos" },
-      { icon: Heart,  label: "Nos valeurs",          sub: "Souveraineté, dignité, écologie", href: "/mouvement/engagements" },
+      { icon: Heart,  label: "Nos valeurs",          sub: "Souveraineté, dignité, écologie", href: "/mouvement" },
       null,
       { icon: Shield, label: "Équipe & gouvernance", sub: "Coordinatrices, conseil d'admin", href: "/mouvement" },
       { icon: MapPin, label: "Nos pays d'action",    sub: "14 pays d'Afrique de l'Ouest",   href: "/mouvement/associations" },

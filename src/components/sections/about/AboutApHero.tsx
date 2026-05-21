@@ -18,7 +18,7 @@ export default function AboutApHero() {
         className="object-cover object-center"
         priority
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#045627]/90 to-[#045627]/99" aria-hidden />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#045627]/95 to-[#045627]/[0.99]" aria-hidden />
 
       <div className="relative z-10">
         <div className="px-[clamp(1.25rem,4vw,4.5rem)] pt-10 pb-0">

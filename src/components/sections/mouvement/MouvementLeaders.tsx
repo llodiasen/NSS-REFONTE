@@ -29,8 +29,9 @@ const LEADERS: Leader[] = [
 ];
 
 export default function MouvementLeaders() {
-  const [showAll, setShowAll] = useState(false);
-  const visible = showAll ? LEADERS : LEADERS.slice(0, 6);
+  const [count, setCount] = useState(4);
+  const visible = LEADERS.slice(0, count);
+  const hasMore = count < LEADERS.length;
 
   return (
     <section className="bg-[#f9f8f5] py-[clamp(4rem,8vw,6rem)] px-[clamp(1.25rem,4vw,2.5rem)]">
@@ -50,7 +51,7 @@ export default function MouvementLeaders() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 mb-10">
           {visible.map((leader) => (
             <article
               key={leader.id}
@@ -86,13 +87,13 @@ export default function MouvementLeaders() {
           ))}
         </div>
 
-        {!showAll && (
+        {hasMore && (
           <div className="text-center">
             <button
-              onClick={() => setShowAll(true)}
+              onClick={() => setCount(c => c + 4)}
               className="inline-flex items-center gap-2 text-[12px] font-semibold tracking-[0.1em] uppercase text-[#00AD4C] border-[1.5px] border-[#00AD4C] px-6 py-[11px] rounded-lg transition-all duration-200 hover:bg-[#00AD4C] hover:text-white"
             >
-              Voir tous les leaders →
+              Voir plus →
             </button>
           </div>
         )}
