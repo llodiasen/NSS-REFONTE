@@ -1,135 +1,74 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import MouvementHero from "@/components/sections/mouvement/MouvementHero";
-import MouvementVision from "@/components/sections/mouvement/MouvementVision";
-import EngagementsSection from "@/components/sections/EngagementsSection";
-import AboutOrganisations from "@/components/sections/about/AboutOrganisations";
+import MouvementCompose from "@/components/sections/mouvement/MouvementCompose";
+import MouvementObjectifs from "@/components/sections/mouvement/MouvementObjectifs";
+import MouvementStructure from "@/components/sections/mouvement/MouvementStructure";
+import MouvementTimeline from "@/components/sections/mouvement/MouvementTimeline";
+import MouvementOrgs from "@/components/sections/mouvement/MouvementOrgs";
 import MouvementLeaders from "@/components/sections/mouvement/MouvementLeaders";
-import ContactSectionNSS from "@/components/sections/ContactSectionNSS";
 
 export const metadata: Metadata = {
   title: "Le Mouvement NSS — Valeurs, structure et organisations membres",
   description:
-    "Découvrez comment NSS fonctionne : roadmap historique, 6 engagements fondateurs, 500+ organisations membres et partenaires à travers 14 pays d'Afrique de l'Ouest.",
+    "Découvrez comment NSS fonctionne : gouvernance 100% féminine, 14 pays, 500+ organisations membres à travers l'Afrique de l'Ouest depuis 2011.",
 };
 
 export default function MouvementPage() {
   return (
     <>
-      {/* 01 — Hero */}
+      {/* S1 — Hero */}
       <MouvementHero />
 
-      {/* 02 — Vision & Objectifs */}
-      <MouvementVision />
+      {/* S2 — Qui compose */}
+      <MouvementCompose />
 
-      {/* 03 — Nos 6 engagements */}
-      <EngagementsSection />
+      {/* S3 — Objectifs */}
+      <MouvementObjectifs />
 
-      {/* 04 — Leaders du mouvement */}
+      {/* S4 — Structuration */}
+      <MouvementStructure />
+
+      {/* S5 — Timeline */}
+      <MouvementTimeline />
+
+      {/* S6 — Organisations */}
+      <MouvementOrgs />
+
+      {/* S7 — Leaders */}
       <MouvementLeaders />
 
-      {/* 05 — Organisations membres */}
-      <AboutOrganisations />
-
-      {/* 06 — CTA Faire un don */}
-      <section style={{
-        position: "relative",
-        overflow: "hidden",
-        backgroundImage: `url('http://wasafrica.org/wp-content/uploads/2024/11/CENTRE-KARONGHEN-WATI-NANING-9-1.jpg')`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}>
-        {/* Overlay */}
-        <div aria-hidden="true" style={{
-          position: "absolute", inset: 0,
-          background: "rgba(7,26,16,0.88)",
-          zIndex: 0,
-        }} />
-        <div
-          style={{
-            position: "relative",
-            zIndex: 1,
-            maxWidth: "var(--container-max)",
-            margin: "0 auto",
-            padding: "80px var(--container-pad)",
-            textAlign: "center",
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", marginBottom: "20px" }}>
-            <span style={{ display: "block", width: "28px", height: "1.5px", background: "#ffffff", flexShrink: 0 }} aria-hidden />
-            <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.14em", color: "#ffffff" }}>
-              ENSEMBLE, NOUS SOMMES LA SOLUTION
-            </span>
-            <span style={{ display: "block", width: "28px", height: "1.5px", background: "#ffffff", flexShrink: 0 }} aria-hidden />
+      {/* S8 — CTA */}
+      <section className="bg-[#045627] text-center">
+        <div className="max-w-[640px] mx-auto cta-inner">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <span className="w-7 h-px bg-[rgba(245,237,214,0.25)] shrink-0" aria-hidden />
+            <span className="text-[11px] font-medium tracking-[0.18em] uppercase text-[#F5EDD6]">Passez à l&apos;action</span>
+            <span className="w-7 h-px bg-[rgba(245,237,214,0.25)] shrink-0" aria-hidden />
           </div>
-          <h2
-            style={{
-              fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
-              fontSize: "clamp(1.71rem, 3.8vw, 2.28rem)",
-              fontWeight: 600,
-              lineHeight: 1.2,
-              color: "#ffffff",
-              marginBottom: "16px",
-              letterSpacing: "-0.015em",
-            }}
-          >
-            Rejoignez 175&nbsp;000 femmes qui{" "}
-            <em style={{ fontStyle: "italic", color: "#ffffff" }}>nourrissent l&apos;Afrique.</em>
+
+          <h2 className="cta-h2 font-semibold text-[#F5EDD6] leading-[1.15] tracking-[-0.01em] mb-3">
+            Rejoignez le mouvement,{' '}
+            <em className="italic text-[#A5CE46] font-medium">agir ensemble.</em>
           </h2>
-          <div style={{ width: "60px", height: "3px", background: "#ffffff", borderRadius: "2px", margin: "0 auto 1.5rem" }} aria-hidden />
-          <p
-            style={{
-              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
-              fontSize: "14px",
-              lineHeight: 1.7,
-              color: "#ffffff",
-              maxWidth: "600px",
-              margin: "0 auto 40px",
-              textAlign: "center",
-            }}
-          >
-            Partagez nos valeurs&nbsp;? Adhérez à NSS et rejoignez 175&nbsp;000 femmes
-            rurales qui transforment les systèmes alimentaires en Afrique de l&apos;Ouest.
+
+          <div className="w-[60px] h-[3px] bg-[#A5CE46] mx-auto mb-9" />
+
+          <p className="text-[15px] font-light text-[rgba(245,237,214,0.8)] leading-[1.7] max-w-[520px] mx-auto mb-9">
+            Partagez nos valeurs ? Adhérez à NSS et rejoignez 175&nbsp;000 femmes rurales
+            qui transforment les systèmes alimentaires en Afrique de l&apos;Ouest.
           </p>
-          <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
+
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
               href="/fr/agir/rejoindre"
-              style={{
-                fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
-                fontSize: "12px",
-                fontWeight: 700,
-                letterSpacing: "0.13em",
-                textTransform: "uppercase",
-                color: "#ffffff",
-                background: "#00AD4C",
-                padding: "10px 22px",
-                borderRadius: "4px",
-                textDecoration: "none",
-                display: "inline-block",
-                transition: "background 0.2s ease, transform 0.2s ease",
-              }}
-              className="cta-btn-primary"
+              className="inline-flex items-center justify-center gap-2 text-[12px] font-semibold tracking-[0.1em] uppercase bg-[#00AD4C] text-white px-8 py-[14px] rounded-lg border border-transparent transition-all duration-[250ms] hover:bg-[#A5CE46] hover:text-[#045627] hover:-translate-y-px"
             >
               Adhérer au mouvement
             </Link>
             <Link
               href="/fr/contact"
-              className="cta-btn-outline"
-              style={{
-                fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
-                fontSize: "12px",
-                fontWeight: 600,
-                letterSpacing: "0.13em",
-                textTransform: "uppercase",
-                color: "#ffffff",
-                border: "1.5px solid rgba(255,255,255,0.42)",
-                padding: "10px 22px",
-                borderRadius: "4px",
-                textDecoration: "none",
-                display: "inline-block",
-                transition: "border-color 0.2s ease, background 0.2s ease, transform 0.2s ease",
-              }}
+              className="inline-flex items-center justify-center gap-2 text-[12px] font-semibold tracking-[0.1em] uppercase text-[#F5EDD6] border-[1.5px] border-[rgba(245,237,214,0.35)] px-8 py-[14px] rounded-lg transition-all duration-[250ms] hover:border-[#F5EDD6] hover:bg-[rgba(245,237,214,0.06)]"
             >
               Nous contacter →
             </Link>
@@ -138,12 +77,12 @@ export default function MouvementPage() {
       </section>
 
       <style>{`
-        .cta-btn-primary:hover { background: #E8A838 !important; color: #045627 !important; transform: translateY(-2px); }
-        .cta-btn-outline:hover { border-color: #ffffff !important; background: rgba(255,255,255,0.08) !important; transform: translateY(-2px); }
+        .cta-inner { padding: clamp(2rem,5vw,80px) clamp(1rem,4vw,72px); }
+        .cta-h2 { font-size: clamp(1.8rem,4vw,2.6rem); }
+        @media (max-width: 640px) {
+          .cta-inner a { width: 100%; }
+        }
       `}</style>
-
-      {/* 07 -- Formulaire de contact */}
-      <ContactSectionNSS />
     </>
   );
 }

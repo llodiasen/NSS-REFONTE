@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import AboutHero from "@/components/sections/about/AboutHero";
-import AboutDeclaration from "@/components/sections/about/AboutDeclaration";
-import GovernanceSectionRedesign from "@/components/sections/about/GovernanceSectionRedesign";
-import AboutValeurs from "@/components/sections/about/AboutValeurs";
-import PiliersSection from "@/components/sections/about/PiliersSection";
-import TimelineZigzagRedesign from "@/components/sections/about/TimelineZigzagRedesign";
-import AboutPartenaires from "@/components/sections/about/AboutPartenaires";
+import AboutApHero from "@/components/sections/about/AboutApHero";
+import AboutApIdentite from "@/components/sections/about/AboutApIdentite";
+import AboutApPourquoi from "@/components/sections/about/AboutApPourquoi";
+import AboutApVision from "@/components/sections/about/AboutApVision";
+import AboutApManifeste from "@/components/sections/about/AboutApManifeste";
+import AboutApEngagements from "@/components/sections/about/AboutApEngagements";
 import FinalCTASectionRedesign from "@/components/sections/FinalCTASectionRedesign";
 import ContactSectionNSS from "@/components/sections/ContactSectionNSS";
 
@@ -18,23 +17,28 @@ export const metadata: Metadata = {
 export default function AProposPage() {
   return (
     <>
-      {/* 01 — Hero */}
-      <AboutHero />
-      {/* 02 — Notre Mission */}
-      <AboutDeclaration />
-      {/* 03 — Pays membres */}
-      <GovernanceSectionRedesign />
-      {/* 04 — Nos Valeurs */}
-      <AboutValeurs />
-      {/* 05 — Nos Piliers */}
-      <PiliersSection />
-      {/* 06 — Notre Histoire (timeline) */}
-      <TimelineZigzagRedesign />
-      {/* 06 — Partenaires */}
-      <AboutPartenaires />
-      {/* 07 — CTA final */}
+      {/* S1 — Hero */}
+      <AboutApHero />
+
+      {/* S2 — Qui sommes-nous */}
+      <AboutApIdentite />
+
+      {/* S3 — Pourquoi NSS + Réponse NSS */}
+      <AboutApPourquoi />
+
+      {/* S4 — Notre Vision */}
+      <AboutApVision />
+
+      {/* S5 — Notre Manifeste */}
+      <AboutApManifeste />
+
+      {/* S6 — Nos Engagements */}
+      <AboutApEngagements />
+
+      {/* S7 — CTA final */}
       <FinalCTASectionRedesign />
-      {/* 08 — Formulaire de contact */}
+
+      {/* S8 — Formulaire de contact */}
       <ContactSectionNSS />
     </>
   );
