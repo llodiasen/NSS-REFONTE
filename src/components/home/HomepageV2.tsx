@@ -216,7 +216,7 @@ function MouvementSection() {
             <div className="hpv2-surtitle left">Le mouvement</div>
             <h2 className="hpv2-h2">Un réseau panafricain, <em>ancré dans 14 pays.</em></h2>
             <hr className="hpv2-rule" />
-            <p style={{ marginTop: 12, fontFamily: 'var(--fb)', fontSize: 16, fontWeight: 300, color: 'black', lineHeight: 1.8, textAlign: 'justify' }}>
+            <p style={{ marginTop: 12, fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif", fontSize: 18, fontWeight: 600, color: 'black', lineHeight: 1.8, textAlign: 'justify' }}>
               {`En Afrique de l'Ouest, l'agriculture familiale nourrit 70% des populations. NSS fédère celles qui en sont le pilier — les femmes rurales — pour qu'elles décident, cultivent et transmettent en toute souveraineté.`}
             </p>
 
@@ -658,7 +658,7 @@ function ActualitesSection({ locale }: { locale: string }) {
                   <p className="hpv2-actu-excerpt">{a.excerpt}</p>
                   <div className="hpv2-actu-footer">
                     <Link href={`/${locale}${a.href}`} className="hpv2-actu-read">
-                      Lire
+                      Lire l&apos;article
                       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                         <path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>
                       </svg>

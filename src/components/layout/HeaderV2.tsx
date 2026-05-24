@@ -134,7 +134,7 @@ function nl(active: boolean): CSSProperties {
   return {
     display: "flex", alignItems: "center", gap: "5px",
     padding: "8px 14px", borderRadius: "8px",
-    fontSize: "13px", fontWeight: active ? 500 : 400,
+    fontSize: "15px", fontWeight: 400,
     color: active ? C.green : C.text,
     fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
     cursor: "pointer", textDecoration: "none",
@@ -212,9 +212,10 @@ export default function HeaderV2() {
           textAlign: "center", position: "relative",
         }}>
           <p style={{
-            fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
+            fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
             fontSize: "12px", fontWeight: 400,
             color: "rgba(255,255,255,0.85)", letterSpacing: "0.02em", margin: 0,
+            textAlign: "center",
           }}>
             500+ Associations de Femmes Rurales nous ont rejoints —
             <Link href={`/${locale}/mouvement`} style={{
