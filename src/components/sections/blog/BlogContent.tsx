@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useMemo } from "react";
 import Image from "next/image";
@@ -210,7 +210,7 @@ export default function BlogContent() {
         }
         .bc-pills { display: flex; gap: 6px; flex-wrap: wrap; }
         .bc-pill {
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 12px;
           font-weight: 500;
           padding: 7px 18px;
@@ -231,7 +231,7 @@ export default function BlogContent() {
         }
         .bc-search-icon { position: absolute; left: 12px; pointer-events: none; }
         .bc-search {
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 13px;
           padding: 8px 16px 8px 36px;
           border: 1px solid #e5e7eb;
@@ -251,7 +251,7 @@ export default function BlogContent() {
           align-items: center;
           gap: 12px;
           margin-bottom: 28px;
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           font-weight: 600;
           text-transform: uppercase;
@@ -275,7 +275,7 @@ export default function BlogContent() {
         .bc-featured-badge {
           position: absolute;
           top: 16px; left: 16px;
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px;
           font-weight: 600;
           letter-spacing: 0.08em;
@@ -285,13 +285,13 @@ export default function BlogContent() {
         }
         .bc-featured-body { display: flex; flex-direction: column; gap: 14px; }
         .bc-featured-date {
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           color: #9ca3af;
           letter-spacing: 0.04em;
         }
         .bc-featured-h2 {
-          font-family: 'Cormorant Garamond', Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: clamp(22px, 2.5vw, 28px);
           font-weight: 500;
           line-height: 1.25;
@@ -299,7 +299,7 @@ export default function BlogContent() {
           margin: 0;
         }
         .bc-featured-excerpt {
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 14px;
           font-weight: 300;
           line-height: 1.75;
@@ -310,7 +310,7 @@ export default function BlogContent() {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 13px;
           font-weight: 600;
           color: #ffffff;
@@ -350,7 +350,7 @@ export default function BlogContent() {
         .bc-card-badge {
           position: absolute;
           top: 12px; left: 12px;
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px;
           font-weight: 600;
           letter-spacing: 0.08em;
@@ -360,12 +360,12 @@ export default function BlogContent() {
         }
         .bc-card-body { padding: 20px; display: flex; flex-direction: column; flex: 1; gap: 8px; }
         .bc-card-date {
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           color: #9ca3af;
         }
         .bc-card-h3 {
-          font-family: 'Cormorant Garamond', Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 17px;
           font-weight: 500;
           line-height: 1.35;
@@ -373,7 +373,7 @@ export default function BlogContent() {
           margin: 0;
         }
         .bc-card-excerpt {
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 13px;
           font-weight: 300;
           line-height: 1.65;
@@ -386,7 +386,7 @@ export default function BlogContent() {
           flex: 1;
         }
         .bc-card-link {
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 12px;
           font-weight: 600;
           color: #00AD4C;
@@ -411,7 +411,7 @@ export default function BlogContent() {
           border: 1px solid #e5e7eb;
           background: transparent;
           cursor: pointer;
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 13px;
           color: #6b7280;
           transition: all 0.15s;
@@ -437,7 +437,7 @@ export default function BlogContent() {
           justify-content: center;
           gap: 10px;
           margin-bottom: 20px;
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           font-weight: 500;
           text-transform: uppercase;
@@ -446,7 +446,7 @@ export default function BlogContent() {
         }
         .bc-cta-line { display: block; width: 28px; height: 1.5px; background: #F5EDD6; flex-shrink: 0; }
         .bc-cta-h2 {
-          font-family: 'Cormorant Garamond', Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: clamp(1.75rem, 3.5vw, 2.25rem);
           font-weight: 600;
           line-height: 1.2;
@@ -456,7 +456,7 @@ export default function BlogContent() {
         }
         .bc-cta-h2 em { font-style: italic; color: #E8A838; }
         .bc-cta-desc {
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 14px;
           font-weight: 300;
           line-height: 1.75;
@@ -465,7 +465,7 @@ export default function BlogContent() {
         }
         .bc-cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
         .bc-cta-btn {
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 12px;
           font-weight: 700;
           letter-spacing: 0.10em;

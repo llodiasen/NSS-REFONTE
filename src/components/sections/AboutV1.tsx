@@ -88,7 +88,7 @@ export default function AboutV1({ locale }: AboutV1Props) {
           <span
             style={{
               display: "block",
-              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+              fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
               fontSize: "10px",
               fontWeight: 500,
               letterSpacing: "0.25em",
@@ -104,7 +104,7 @@ export default function AboutV1({ locale }: AboutV1Props) {
           {/* Heading */}
           <h2
             style={{
-              fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
+              fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
               fontSize: "clamp(42px, 5vw, 68px)",
               fontWeight: 600,
               lineHeight: 1.05,
@@ -153,7 +153,7 @@ export default function AboutV1({ locale }: AboutV1Props) {
           {/* Body */}
           <p
             style={{
-              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+              fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
               fontSize: "17px",
               lineHeight: 1.9,
               color: "#444",
@@ -182,7 +182,7 @@ export default function AboutV1({ locale }: AboutV1Props) {
             <span
               style={{
                 display: "block",
-                fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
+                fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
                 fontSize: "clamp(72px, 8vw, 108px)",
                 fontWeight: 600,
                 lineHeight: 1,
@@ -195,7 +195,7 @@ export default function AboutV1({ locale }: AboutV1Props) {
             <span
               style={{
                 display: "block",
-                fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+                fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
                 fontSize: "11px",
                 fontWeight: 500,
                 letterSpacing: "0.18em",
@@ -213,7 +213,7 @@ export default function AboutV1({ locale }: AboutV1Props) {
             href={`/${locale}/mouvement`}
             style={{
               display: "inline-block",
-              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+              fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
               fontSize: "14px",
               fontWeight: 500,
               color: "#2D6A4F",

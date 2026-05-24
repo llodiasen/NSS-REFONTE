@@ -1,4 +1,4 @@
-import { CalendarDays } from 'lucide-react'
+﻿import { CalendarDays } from 'lucide-react'
 import type { Programme, StatutType } from '@/lib/programmes'
 
 const STATUT_CONFIG: Record<StatutType, { label: string; bg: string; color: string }> = {
@@ -35,7 +35,7 @@ export default function AgendaBlock({ programmes }: Props) {
         <CalendarDays size={16} style={{ color: '#9CA3AF' }} aria-hidden="true" />
         <span
           className="text-[15px] font-medium"
-          style={{ color: '#111827', fontFamily: "'DM Sans', sans-serif" }}
+          style={{ color: '#111827', fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
         >
           Prochains événements
         </span>
@@ -60,13 +60,13 @@ export default function AgendaBlock({ programmes }: Props) {
                   <>
                     <p
                       className="text-[11px] font-medium uppercase leading-none mb-0.5"
-                      style={{ color: '#6B7280', fontFamily: "'DM Sans', sans-serif" }}
+                      style={{ color: '#6B7280', fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
                     >
                       {date.month}
                     </p>
                     <p
                       className="text-[21px] font-semibold leading-none"
-                      style={{ color: '#111827', fontFamily: "'DM Sans', sans-serif" }}
+                      style={{ color: '#111827', fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
                     >
                       {date.day}
                     </p>
@@ -74,7 +74,7 @@ export default function AgendaBlock({ programmes }: Props) {
                 ) : (
                   <p
                     className="text-[14px] font-medium"
-                    style={{ color: '#9CA3AF', fontFamily: "'DM Sans', sans-serif" }}
+                    style={{ color: '#9CA3AF', fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
                   >
                     TBD
                   </p>
@@ -88,13 +88,13 @@ export default function AgendaBlock({ programmes }: Props) {
               <div className="flex-1 min-w-0">
                 <p
                   className="text-[14px] font-medium leading-snug"
-                  style={{ color: '#111827', fontFamily: "'DM Sans', sans-serif" }}
+                  style={{ color: '#111827', fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
                 >
                   {p.nom}
                 </p>
                 <p
                   className="text-[12px] mt-0.5 truncate"
-                  style={{ color: '#6B7280', fontFamily: "'DM Sans', sans-serif" }}
+                  style={{ color: '#6B7280', fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
                 >
                   {p.lieu} · {p.prochaine_date} · {p.public_cible}
                 </p>
@@ -103,7 +103,7 @@ export default function AgendaBlock({ programmes }: Props) {
               {/* Statut */}
               <span
                 className="text-[12px] font-medium px-2 py-0.5 rounded flex-shrink-0"
-                style={{ background: statut.bg, color: statut.color, fontFamily: "'DM Sans', sans-serif" }}
+                style={{ background: statut.bg, color: statut.color, fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
               >
                 {statut.label}
               </span>

@@ -1,4 +1,4 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 import { Tent, Mic, Store, Calendar, MapPin, Users } from 'lucide-react'
 import type { Programme, ProgrammeType, StatutType } from '@/lib/programmes'
 
@@ -52,7 +52,7 @@ export default function ProgrammeCard({ programme: p, locale = 'fr' }: Props) {
         {/* Badge type */}
         <span
           className="self-start inline-flex items-center gap-1.5 text-[12px] font-medium px-2 py-1 rounded"
-          style={{ background: type.bg, color: type.color, fontFamily: "'DM Sans', sans-serif" }}
+          style={{ background: type.bg, color: type.color, fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
         >
           <TypeIcon size={11} aria-hidden="true" />
           {type.label}
@@ -61,7 +61,7 @@ export default function ProgrammeCard({ programme: p, locale = 'fr' }: Props) {
         {/* Nom */}
         <h3
           className="text-[16px] font-semibold text-foreground leading-snug"
-          style={{ fontFamily: "'DM Sans', sans-serif" }}
+          style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
         >
           {p.nom}
         </h3>
@@ -69,7 +69,7 @@ export default function ProgrammeCard({ programme: p, locale = 'fr' }: Props) {
         {/* Description */}
         <p
           className="text-[13px] leading-relaxed line-clamp-2"
-          style={{ color: '#6B7280', fontFamily: "'DM Sans', sans-serif" }}
+          style={{ color: '#6B7280', fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
         >
           {p.description}
         </p>
@@ -81,19 +81,19 @@ export default function ProgrammeCard({ programme: p, locale = 'fr' }: Props) {
         >
           <div className="flex items-start gap-2">
             <Calendar size={12} className="mt-0.5 flex-shrink-0" style={{ color: '#9CA3AF' }} aria-hidden="true" />
-            <span className="text-[12px]" style={{ color: '#4B5563', fontFamily: "'DM Sans', sans-serif" }}>
+            <span className="text-[12px]" style={{ color: '#4B5563', fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}>
               {p.prochaine_date}
             </span>
           </div>
           <div className="flex items-start gap-2">
             <MapPin size={12} className="mt-0.5 flex-shrink-0" style={{ color: '#9CA3AF' }} aria-hidden="true" />
-            <span className="text-[12px]" style={{ color: '#4B5563', fontFamily: "'DM Sans', sans-serif" }}>
+            <span className="text-[12px]" style={{ color: '#4B5563', fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}>
               {p.lieu}
             </span>
           </div>
           <div className="flex items-start gap-2">
             <Users size={12} className="mt-0.5 flex-shrink-0" style={{ color: '#9CA3AF' }} aria-hidden="true" />
-            <span className="text-[12px]" style={{ color: '#4B5563', fontFamily: "'DM Sans', sans-serif" }}>
+            <span className="text-[12px]" style={{ color: '#4B5563', fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}>
               {p.public_cible} · {p.frequence}
             </span>
           </div>
@@ -107,14 +107,14 @@ export default function ProgrammeCard({ programme: p, locale = 'fr' }: Props) {
       >
         <span
           className="text-[12px] font-medium px-2 py-0.5 rounded"
-          style={{ background: statut.bg, color: statut.color, fontFamily: "'DM Sans', sans-serif" }}
+          style={{ background: statut.bg, color: statut.color, fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
         >
           {statut.label}
         </span>
         <Link
           href={`/${locale}/programmes/${p.slug}`}
           className="text-[13px] font-medium hover:underline whitespace-nowrap"
-          style={{ color: '#1D9E75', fontFamily: "'DM Sans', sans-serif" }}
+          style={{ color: '#1D9E75', fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
           aria-label={`Voir le programme ${p.nom}`}
         >
           Voir le programme →

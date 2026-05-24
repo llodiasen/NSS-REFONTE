@@ -1,4 +1,4 @@
-import Image from 'next/image'
+﻿import Image from 'next/image'
 
 const ARTICLES = [
   {
@@ -175,7 +175,7 @@ export default function ActualitesHomepageSection() {
           flex-shrink: 0;
         }
         .ach-sur-text {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           font-weight: 500;
           letter-spacing: 0.14em;
@@ -185,7 +185,7 @@ export default function ActualitesHomepageSection() {
 
         /* ── H2 ── */
         .ach-h2 {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: clamp(1.44rem, 3.15vw, 1.8rem);
           font-weight: 600;
           letter-spacing: -0.01em;
@@ -209,7 +209,7 @@ export default function ActualitesHomepageSection() {
 
         /* ── DESC ── */
         .ach-desc {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 15px;
           font-weight: 300;
           color: #4A4A4A;
@@ -260,7 +260,7 @@ export default function ActualitesHomepageSection() {
           left: 12px;
           background: #045627;
           color: #A5CE46;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px;
           font-weight: 600;
           letter-spacing: 0.1em;
@@ -281,7 +281,7 @@ export default function ActualitesHomepageSection() {
         .ach-tag {
           display: inline-flex;
           align-items: center;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px;
           font-weight: 600;
           letter-spacing: 0.1em;
@@ -297,7 +297,7 @@ export default function ActualitesHomepageSection() {
 
         /* ── H3 ── */
         .ach-h3 {
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 18px;
           font-weight: 600;
           color: #2A2A2A;
@@ -333,7 +333,7 @@ export default function ActualitesHomepageSection() {
           flex-shrink: 0;
         }
         .ach-meta-value {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           font-weight: 400;
           color: #4A4A4A;
@@ -347,7 +347,7 @@ export default function ActualitesHomepageSection() {
 
         /* ── TEXTE ── */
         .ach-texte {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 14px;
           font-weight: 300;
           color: #4A4A4A;
@@ -363,7 +363,7 @@ export default function ActualitesHomepageSection() {
           display: inline-flex;
           align-items: center;
           gap: 6px;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           font-weight: 500;
           letter-spacing: 0.08em;
@@ -381,7 +381,7 @@ export default function ActualitesHomepageSection() {
           margin: 36px auto 0;
         }
         .ach-voir-tout {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           font-weight: 500;
           text-transform: uppercase;

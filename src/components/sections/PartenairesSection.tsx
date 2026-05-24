@@ -20,7 +20,7 @@ export default function PartenairesSection() {
       {/* Label */}
       <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "12px", marginBottom: "40px" }}>
         <span aria-hidden="true" style={{ display: "block", width: "28px", height: "1px", background: "rgba(29,122,82,0.35)", flexShrink: 0 }} />
-        <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "9px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2.5px", color: "var(--green-600)", whiteSpace: "nowrap" }}>
+        <span style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif", fontSize: "9px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2.5px", color: "var(--green-600)", whiteSpace: "nowrap" }}>
           Ils nous soutiennent
         </span>
         <span aria-hidden="true" style={{ display: "block", width: "28px", height: "1px", background: "rgba(29,122,82,0.35)", flexShrink: 0 }} />

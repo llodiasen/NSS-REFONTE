@@ -121,7 +121,7 @@ export default function BottomNav() {
 
         /* ── Label ── */
         .bnav-label {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 9.5px;
           font-weight: 500;
           letter-spacing: 0.01em;

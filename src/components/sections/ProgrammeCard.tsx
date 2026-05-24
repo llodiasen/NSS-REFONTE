@@ -82,7 +82,7 @@ export default function ProgrammeCard({
           left: 12px;
           background: #A5CE46;
           color: #045627;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 9px;
           font-weight: 700;
           letter-spacing: 1px;
@@ -102,7 +102,7 @@ export default function ProgrammeCard({
         }
 
         .pcard__eyebrow {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px;
           font-weight: 700;
           letter-spacing: 0.18em;
@@ -114,7 +114,7 @@ export default function ProgrammeCard({
           margin: 0;
         }
         .pcard__titre a {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 22px;
           font-weight: 600;
           line-height: 1.2;
@@ -125,7 +125,7 @@ export default function ProgrammeCard({
         .pcard__titre a:hover { color: #00AD4C; }
 
         .pcard__desc {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 14px;
           font-weight: 300;
           line-height: 1.72;
@@ -140,7 +140,7 @@ export default function ProgrammeCard({
         }
 
         .pcard__cta {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 13px;
           font-weight: 600;
           color: #00AD4C;

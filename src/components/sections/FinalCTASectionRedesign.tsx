@@ -84,7 +84,7 @@ export default function FinalCTASectionRedesign() {
         .fcta-eyebrow {
           display: flex; align-items: center; gap: 16px;
           margin-bottom: 24px;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 9.5px; font-weight: 700;
           letter-spacing: 0.26em; text-transform: uppercase;
           color: ${NSS.or};
@@ -95,7 +95,7 @@ export default function FinalCTASectionRedesign() {
         }
         /* H2 */
         .fcta-h2 {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: clamp(24px, 3.2vw, 42px);
           font-weight: 600; color: #ffffff;
           line-height: 1.1; margin: 0 0 22px; letter-spacing: -0.015em;
@@ -103,7 +103,7 @@ export default function FinalCTASectionRedesign() {
         .fcta-h2 em { font-style: italic; color: #ffffff; }
         /* Subtitle */
         .fcta-sub {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 15px; color: #ffffff;
           line-height: 1.78; margin: 0 0 36px;
           max-width: 520px; text-align: center;
@@ -115,7 +115,7 @@ export default function FinalCTASectionRedesign() {
           margin-bottom: 0;
         }
         .fcta-btn {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px; font-weight: 700;
           text-decoration: none; text-transform: uppercase; letter-spacing: 0.13em;
           padding: 9px 20px; border-radius: 4px;
@@ -145,7 +145,7 @@ export default function FinalCTASectionRedesign() {
         }
         /* Partners label */
         .fcta-partners-label {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 9px; font-weight: 700;
           letter-spacing: 0.22em; text-transform: uppercase;
           color: rgba(255,255,255,.30); margin: 0 0 20px;

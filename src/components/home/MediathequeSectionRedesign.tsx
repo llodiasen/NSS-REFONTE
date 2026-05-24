@@ -137,7 +137,7 @@ function VideoModal({ item, onClose }: { item: VideoItem; onClose: () => void })
         .mm-iframe { width: 100%; aspect-ratio: 16/9; border: none; border-radius: 6px; background: #000; }
         .mm-video { width: 100%; max-height: 72vh; border-radius: 6px; background: #000; display: block; }
         .mm-caption {
-          font-family: var(--font-dm-sans, 'DM Sans', sans-serif);
+          font-family: var(--font-dm-sans, var(--font-cormorant), 'Cormorant Garamond', Georgia, serif);
           font-size: 13px; color: rgba(255,255,255,0.72);
           margin: 0; text-align: center; line-height: 1.5;
         }
@@ -334,7 +334,7 @@ export default function MediathequeSectionRedesign() {
             position: absolute; bottom: 14px; left: 14px; z-index: 3;
             display: flex; align-items: center; gap: 5px;
             background: ${NSS.vertFonce}; color: ${NSS.creme};
-            font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+            font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
             font-size: 9px; font-weight: 700;
             letter-spacing: 0.18em; text-transform: uppercase;
             padding: 4px 10px; border-radius: 1px;
@@ -373,7 +373,7 @@ export default function MediathequeSectionRedesign() {
           }
           .vc__meta {
             display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
-            font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+            font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
             font-size: 11px; color: #4A4A4A;
             padding: 10px 0;
             margin-bottom: 12px;
@@ -386,7 +386,7 @@ export default function MediathequeSectionRedesign() {
           .vc__titre-btn {
             background: none; border: none; padding: 0;
             width: 100%; text-align: left; cursor: pointer;
-            font-family: 'DM Sans', sans-serif;
+            font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
             font-size: 18px;
             font-weight: 600; line-height: 1.25;
             color: #2A2A2A;
@@ -400,7 +400,7 @@ export default function MediathequeSectionRedesign() {
           .vc__titre-btn:hover { color: ${NSS.vertFonce}; }
 
           .vc__desc {
-            font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+            font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
             font-size: 14px; font-weight: 300; line-height: 1.7;
             color: #4A4A4A; text-align: justify; text-align-last: left;
             margin: 0 0 16px; flex: 1;
@@ -413,7 +413,7 @@ export default function MediathequeSectionRedesign() {
             display: flex; flex-wrap: wrap; gap: 5px; margin-top: 2px;
           }
           .vc__tag {
-            font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+            font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
             font-size: 10px; font-weight: 600;
             color: #045627;
             background: #eaf5ee;
@@ -430,7 +430,7 @@ export default function MediathequeSectionRedesign() {
           }
           .vds__cta {
             display: inline-flex; align-items: center; gap: 10px;
-            font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+            font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
             font-size: 11px; font-weight: 700;
             letter-spacing: 0.13em; text-transform: uppercase;
             color: ${NSS.vertFonce}; text-decoration: none;

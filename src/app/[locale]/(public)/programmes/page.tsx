@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import { PROGRAMMES } from '@/lib/programmes'
 import ProgrammesHero        from '@/components/programmes/ProgrammesHero'
 import ProgrammeCard         from '@/components/programmes/ProgrammeCard'
@@ -36,14 +36,14 @@ export default async function ProgrammesPage({ params }: PageProps) {
             <h2
               id="programmes-titre"
               className="text-[18px] font-semibold text-foreground"
-              style={{ fontFamily: "'DM Sans', sans-serif" }}
+              style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
             >
               Tous les programmes
             </h2>
             <a
               href="#agenda"
               className="text-xs text-nss-principal hover:underline"
-              style={{ fontFamily: "'DM Sans', sans-serif" }}
+              style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
             >
               Voir l&apos;agenda ↓
             </a>
@@ -60,7 +60,7 @@ export default async function ProgrammesPage({ params }: PageProps) {
           <h2
             id="agenda-titre"
             className="text-[18px] font-semibold text-foreground mb-4"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}
+            style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
           >
             Agenda 2026
           </h2>

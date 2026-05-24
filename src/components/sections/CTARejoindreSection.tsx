@@ -1,4 +1,4 @@
-import Image from 'next/image'
+﻿import Image from 'next/image'
 
 export default function CTARejoindreSection() {
   return (
@@ -94,7 +94,7 @@ export default function CTARejoindreSection() {
           flex-shrink: 0;
         }
         .ctaj-sur-text {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           font-weight: 500;
           letter-spacing: 0.14em;
@@ -104,7 +104,7 @@ export default function CTARejoindreSection() {
 
         /* ── H2 ── */
         .ctaj-h2 {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: clamp(1.8rem, 4.5vw, 2.7rem);
           font-weight: 600;
           color: #ffffff;
@@ -127,7 +127,7 @@ export default function CTARejoindreSection() {
 
         /* ── DESC ── */
         .ctaj-desc {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 15px;
           font-weight: 300;
           color: #ffffff;
@@ -148,7 +148,7 @@ export default function CTARejoindreSection() {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 13px;
           font-weight: 500;
           letter-spacing: 0.08em;

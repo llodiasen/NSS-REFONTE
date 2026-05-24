@@ -62,7 +62,7 @@ export default function MessagesSection() {
           text-transform: uppercase;
           color: #4caf80;
           margin: 0 0 32px;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
         }
         .bel-eyebrow::before {
           content: '';
@@ -87,13 +87,13 @@ export default function MessagesSection() {
           border-bottom: 0.5px solid rgba(255,255,255,0.1);
         }
         .bel-num {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 12px;
           color: rgba(255,255,255,0.35);
           padding-top: 1px;
         }
         .bel-title {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 18px;
           font-weight: 600;
           color: #fff;
@@ -102,7 +102,7 @@ export default function MessagesSection() {
           letter-spacing: -0.01em;
         }
         .bel-desc {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 14px;
           color: #fff;
           line-height: 1.7;

@@ -49,7 +49,7 @@ export default function GovernanceSectionRedesign() {
         }
 
         .gpr-label {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 9.5px;
           font-weight: 700;
           letter-spacing: 1.5px;
@@ -90,7 +90,7 @@ export default function GovernanceSectionRedesign() {
         }
 
         .gpr-code {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 9px;
           font-weight: 800;
           color: ${NSS.vertFonce};
@@ -98,7 +98,7 @@ export default function GovernanceSectionRedesign() {
         }
 
         .gpr-nom {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           font-weight: 500;
           color: ${NSS.vertFonce};

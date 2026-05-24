@@ -125,7 +125,7 @@ export default function ActualitesSection() {
                   {/* Title */}
                   <h3
                     style={{
-                      fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
+                      fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
                       fontSize: "18px",
                       fontWeight: 400,
                       lineHeight: 1.3,
@@ -169,7 +169,7 @@ export default function ActualitesSection() {
                       href={`/fr/ressources/actualites/${article.slug}`}
                       className="actu-link"
                       style={{
-                        fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+                        fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
                         fontSize: "13px",
                         fontWeight: 600,
                         color: "#3b6d11",
@@ -192,7 +192,7 @@ export default function ActualitesSection() {
             href="/fr/ressources/actualites"
             className="actu-cta"
             style={{
-              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+              fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
               fontSize: "13px",
               fontWeight: 500,
               color: "#ffffff",

@@ -42,7 +42,7 @@ export default function HeaderTicker() {
       {/* Message */}
       <span style={{
         display: "block",
-        fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+        fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
         fontSize: "11.5px",
         fontWeight: 500,
         letterSpacing: "0.04em",

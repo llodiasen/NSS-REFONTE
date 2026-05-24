@@ -273,7 +273,7 @@ export default function ContactSectionNSS() {
           align-items: center;
           gap: 10px;
           margin-bottom: 20px;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           font-weight: 500;
           letter-spacing: 0.14em;
@@ -288,7 +288,7 @@ export default function ContactSectionNSS() {
           flex-shrink: 0;
         }
         .cn-h2 {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: clamp(1.875rem, 3.5vw, 1.875rem);
           font-weight: 600;
           color: #2A2A2A;
@@ -308,7 +308,7 @@ export default function ContactSectionNSS() {
           margin: 1rem 0 1.5rem;
         }
         .cn-desc {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 14px;
           color: #6b7280;
           line-height: 1.7;
@@ -352,7 +352,7 @@ export default function ContactSectionNSS() {
           gap: 2px;
         }
         .cn-item-label {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px;
           font-weight: 500;
           letter-spacing: 0.1em;
@@ -360,7 +360,7 @@ export default function ContactSectionNSS() {
           color: #9ca3af;
         }
         .cn-item-val {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 14px;
           font-weight: 500;
           color: #2A2A2A;
@@ -374,7 +374,7 @@ export default function ContactSectionNSS() {
           align-items: center;
           gap: 10px;
           margin-top: 28px;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 12px;
           color: #6b7280;
         }
@@ -412,13 +412,13 @@ export default function ContactSectionNSS() {
           gap: 6px;
         }
         .cn-label {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 12px;
           font-weight: 500;
           color: #374151;
         }
         .cn-input {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 13px;
           color: #1f2937;
           background: #f9fafb;
@@ -456,7 +456,7 @@ export default function ContactSectionNSS() {
           align-items: flex-start;
           gap: 10px;
           cursor: pointer;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           color: #6b7280;
           line-height: 1.6;
@@ -485,7 +485,7 @@ export default function ContactSectionNSS() {
           border: none;
           border-radius: 8px;
           padding: 13px 28px;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 13px;
           font-weight: 600;
           cursor: pointer;
@@ -517,14 +517,14 @@ export default function ContactSectionNSS() {
           justify-content: center;
         }
         .cn-success-title {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 1.5rem;
           font-weight: 600;
           color: #2A2A2A;
           margin: 0;
         }
         .cn-success-desc {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 13px;
           color: #6b7280;
           line-height: 1.7;

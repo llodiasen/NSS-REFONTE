@@ -222,7 +222,7 @@ export default function FooterRedesign({ locale }: FooterRedesignProps) {
           flex-direction: column;
         }
         .ftr__brand-desc {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 13px;
           font-weight: 300;
           line-height: 1.75;
@@ -233,7 +233,7 @@ export default function FooterRedesign({ locale }: FooterRedesignProps) {
         }
 
         .ftr__tagline {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 15px;
           font-style: italic;
           font-weight: 400;
@@ -282,7 +282,7 @@ export default function FooterRedesign({ locale }: FooterRedesignProps) {
         }
 
         .ftr-col__title {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 13.5px;
           font-weight: 700;
           letter-spacing: 0.22em;
@@ -310,7 +310,7 @@ export default function FooterRedesign({ locale }: FooterRedesignProps) {
         }
 
         .ftr-link {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 14px;
           font-weight: 300;
           color: #ffffff;
@@ -336,7 +336,7 @@ export default function FooterRedesign({ locale }: FooterRedesignProps) {
         }
 
         .ftr__copy {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 14px;
           font-weight: 300;
           color: #ffffff;
@@ -350,7 +350,7 @@ export default function FooterRedesign({ locale }: FooterRedesignProps) {
         }
 
         .ftr__bottom-link {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 14px;
           font-weight: 300;
           color: #ffffff;

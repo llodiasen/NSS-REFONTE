@@ -1,4 +1,4 @@
-import Image from 'next/image'
+﻿import Image from 'next/image'
 
 const EVENEMENTS = [
   {
@@ -140,7 +140,7 @@ export default function ProgrammesEvenementsSection() {
           flex-shrink: 0;
         }
         .pev-sur-text {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           font-weight: 500;
           letter-spacing: 0.14em;
@@ -150,7 +150,7 @@ export default function ProgrammesEvenementsSection() {
 
         /* ── H2 ── */
         .pev-h2 {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: clamp(1.44rem, 3.15vw, 2.16rem);
           font-weight: 600;
           letter-spacing: -0.01em;
@@ -174,7 +174,7 @@ export default function ProgrammesEvenementsSection() {
 
         /* ── DESC ── */
         .pev-desc {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 15px;
           font-weight: 300;
           color: #4A4A4A;
@@ -216,7 +216,7 @@ export default function ProgrammesEvenementsSection() {
           right: 14px;
           background: #045627;
           color: #A5CE46;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px;
           font-weight: 600;
           letter-spacing: 0.1em;
@@ -236,7 +236,7 @@ export default function ProgrammesEvenementsSection() {
 
         /* ── TYPE ── */
         .pev-type {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px;
           font-weight: 500;
           text-transform: uppercase;
@@ -247,7 +247,7 @@ export default function ProgrammesEvenementsSection() {
 
         /* ── H3 ── */
         .pev-h3 {
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 18px;
           font-weight: 600;
           color: #2A2A2A;
@@ -257,7 +257,7 @@ export default function ProgrammesEvenementsSection() {
 
         /* ── SOUS-TITRE ── */
         .pev-sous-titre {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           color: #6b7280;
           line-height: 1.5;
@@ -281,14 +281,14 @@ export default function ProgrammesEvenementsSection() {
           gap: 1px;
         }
         .pev-meta-label {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 9px;
           text-transform: uppercase;
           letter-spacing: 0.08em;
           color: #9ca3af;
         }
         .pev-meta-value {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 12px;
           font-weight: 500;
           color: #2A2A2A;
@@ -302,7 +302,7 @@ export default function ProgrammesEvenementsSection() {
 
         /* ── TEXTE ── */
         .pev-texte {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 14px;
           font-weight: 300;
           color: #4A4A4A;
@@ -322,7 +322,7 @@ export default function ProgrammesEvenementsSection() {
           background: transparent;
           border-radius: 6px;
           padding: 6px 12px;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           font-weight: 500;
           text-transform: uppercase;

@@ -68,7 +68,7 @@ export default function AboutStructure() {
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "12px", marginBottom: "16px" }}>
               <span aria-hidden="true" style={{ display: "block", width: "28px", height: "1px", background: "#2D6A4F" }} />
               <span style={{
-                fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "9px", fontWeight: 600,
+                fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif", fontSize: "9px", fontWeight: 600,
                 textTransform: "uppercase", letterSpacing: "2.5px", color: "#2D6A4F",
               }}>
                 Notre Histoire
@@ -76,7 +76,7 @@ export default function AboutStructure() {
               <span aria-hidden="true" style={{ display: "block", width: "28px", height: "1px", background: "#2D6A4F" }} />
             </div>
             <h2 style={{
-              fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
+              fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
               fontSize: "clamp(24px, 2.6vw, 34px)",
               fontWeight: 500, lineHeight: 1.2,
               color: "#2A2A2A", margin: "0 0 14px",
@@ -129,7 +129,7 @@ export default function AboutStructure() {
                         border: `3px solid ${border}`,
                         display: "flex", alignItems: "center", justifyContent: "center",
                         cursor: "pointer",
-                        fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+                        fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
                         fontSize: step.nodeLabel.length > 4 ? "10px" : "13px",
                         fontWeight: 700,
                         transition: "transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s cubic-bezier(0.34,1.56,0.64,1), background 0.2s, border-color 0.2s",
@@ -169,7 +169,7 @@ export default function AboutStructure() {
                   <span aria-hidden="true" style={{
                     position: "absolute",
                     top: "-10px", right: "8px",
-                    fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
+                    fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
                     fontSize: "72px", fontWeight: 400, lineHeight: 1,
                     color: isActive ? "rgba(255,255,255,0.06)" : "rgba(13,43,26,0.07)",
                     userSelect: "none", pointerEvents: "none",
@@ -181,7 +181,7 @@ export default function AboutStructure() {
                   {/* Badge */}
                   <span style={{
                     display: "inline-block",
-                    fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "10px", fontWeight: 700,
+                    fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif", fontSize: "10px", fontWeight: 700,
                     textTransform: "uppercase", letterSpacing: "0.10em",
                     background: step.badgeBg, color: step.badgeColor,
                     borderRadius: "20px", padding: "3px 10px",
@@ -192,7 +192,7 @@ export default function AboutStructure() {
 
                   {/* Titre */}
                   <p style={{
-                    fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif", fontSize: "24px", fontWeight: 400,
+                    fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif", fontSize: "24px", fontWeight: 400,
                     color: isActive ? "#ffffff" : "#0A0A0A",
                     lineHeight: 1.1, margin: "0 0 8px",
                   }}>
@@ -201,7 +201,7 @@ export default function AboutStructure() {
 
                   {/* Description */}
                   <p style={{
-                    fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "15px", fontWeight: 400,
+                    fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif", fontSize: "15px", fontWeight: 400,
                     color: isActive ? "rgba(255,255,255,0.85)" : "#000000",
                     lineHeight: 1.78, margin: "0 0 16px",
                     textAlign: "justify", hyphens: "auto",
@@ -212,7 +212,7 @@ export default function AboutStructure() {
                   {/* Lien */}
                   <span className={`tl-link ${isActive ? "tl-link-visible" : ""}`} style={{
                     display: "block",
-                    fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px",
+                    fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif", fontSize: "11px",
                     textTransform: "uppercase", letterSpacing: "0.08em",
                     color: "#52B788",
                     opacity: isActive ? 1 : 0,

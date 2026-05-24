@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -89,7 +89,7 @@ export default function HeaderSlidePanel({
                 <path d="M3 12l2 -2m0 0l7 -7l7 7M5 10v10a1 1 0 0 0 1 1h3m10 -11l2 2m-2 -2v10a1 1 0 0 1 -1 1h-3m-6 0a1 1 0 0 0 1 -1v-4a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1m-6 0h6" />
               </svg>
             </span>
-            <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", fontWeight: 500, color: "#2A2A2A" }}>Accueil</span>
+            <span style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif", fontSize: "14px", fontWeight: 500, color: "#2A2A2A" }}>Accueil</span>
           </Link>
         </div>
 
@@ -97,7 +97,7 @@ export default function HeaderSlidePanel({
         <div style={{ flex: 1, padding: "4px 20px" }}>
           {sections.map((section) => (
             <div key={section.heading} style={{ paddingTop: "16px", paddingBottom: "8px", borderBottom: "1px solid #f3f4f6" }}>
-              <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "10px", textTransform: "uppercase", fontWeight: 600, color: "#00AD4C", letterSpacing: "0.12em", marginBottom: "8px" }}>
+              <div style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif", fontSize: "10px", textTransform: "uppercase", fontWeight: 600, color: "#00AD4C", letterSpacing: "0.12em", marginBottom: "8px" }}>
                 {section.heading}
               </div>
               {section.links.map(({ icon: Icon, title, href }) => (
@@ -108,7 +108,7 @@ export default function HeaderSlidePanel({
                   <span style={{ width: "30px", height: "30px", minWidth: "30px", background: "#f9fafb", border: "1px solid #f3f4f6", borderRadius: "7px", display: "flex", alignItems: "center", justifyContent: "center" }}>
                     <Icon size={12} color="#6b7280" strokeWidth={2} />
                   </span>
-                  <span className="spanel-link-title" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", fontWeight: 400, color: "#374151", lineHeight: 1.3 }}>
+                  <span className="spanel-link-title" style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif", fontSize: "13px", fontWeight: 400, color: "#374151", lineHeight: 1.3 }}>
                     {title}
                   </span>
                 </Link>
@@ -128,7 +128,7 @@ export default function HeaderSlidePanel({
                   <path d="M3 7l9 6 9-6" />
                 </svg>
               </span>
-              <span className="spanel-link-title" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", fontWeight: 400, color: "#374151" }}>
+              <span className="spanel-link-title" style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif", fontSize: "13px", fontWeight: 400, color: "#374151" }}>
                 Contact
               </span>
             </Link>
@@ -140,18 +140,18 @@ export default function HeaderSlidePanel({
 
           {/* CTA */}
           <Link href={`/${locale}/agir/rejoindre`} onClick={onClose}
-            style={{ display: "block", background: "#E8A838", color: "#045627", fontFamily: "'DM Sans', sans-serif", fontSize: "13px", fontWeight: 700, padding: "12px", borderRadius: "8px", textAlign: "center", textDecoration: "none", letterSpacing: "0.04em", marginBottom: "14px" }}>
+            style={{ display: "block", background: "#E8A838", color: "#045627", fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif", fontSize: "13px", fontWeight: 700, padding: "12px", borderRadius: "8px", textAlign: "center", textDecoration: "none", letterSpacing: "0.04em", marginBottom: "14px" }}>
             Adhérer au mouvement →
           </Link>
 
           {/* Lang switcher */}
           <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-            <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "10px", textTransform: "uppercase", fontWeight: 500, color: "#9ca3af", letterSpacing: "0.1em", marginRight: "4px" }}>Langue</span>
+            <span style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif", fontSize: "10px", textTransform: "uppercase", fontWeight: 500, color: "#9ca3af", letterSpacing: "0.1em", marginRight: "4px" }}>Langue</span>
             {PANEL_LANGS.map(({ code, label, flag }) => {
               const active = currentLang === code;
               return (
                 <button key={code} onClick={() => onSwitchLang(code)}
-                  style={{ display: "flex", alignItems: "center", gap: "5px", fontFamily: "'DM Sans', sans-serif", fontSize: "11px", border: `1px solid ${active ? "#00AD4C" : "#e5e7eb"}`, borderRadius: "6px", padding: "5px 10px", cursor: "pointer", background: active ? "#f0faf4" : "#ffffff", color: active ? "#00AD4C" : "#6b7280", fontWeight: active ? 600 : 400, transition: "all 0.15s" }}>
+                  style={{ display: "flex", alignItems: "center", gap: "5px", fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif", fontSize: "11px", border: `1px solid ${active ? "#00AD4C" : "#e5e7eb"}`, borderRadius: "6px", padding: "5px 10px", cursor: "pointer", background: active ? "#f0faf4" : "#ffffff", color: active ? "#00AD4C" : "#6b7280", fontWeight: active ? 600 : 400, transition: "all 0.15s" }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={`https://flagcdn.com/20x15/${flag}.png`} width={14} height={11} alt={label} style={{ borderRadius: "1px" }} />
                   {label}

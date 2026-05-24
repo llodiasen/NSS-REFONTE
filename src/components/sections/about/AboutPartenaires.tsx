@@ -21,7 +21,7 @@ export default function AboutPartenaires() {
         {/* ── Surtitle — ILS NOUS SOUTIENNENT — */}
         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "12px", marginBottom: "20px" }}>
           <span aria-hidden style={{ display: "block", width: "28px", height: "1.5px", background: "#00AD4C", flexShrink: 0 }} />
-          <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.14em", color: "#00AD4C" }}>
+          <span style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif", fontSize: "11px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.14em", color: "#00AD4C" }}>
             ILS NOUS SOUTIENNENT
           </span>
           <span aria-hidden style={{ display: "block", width: "28px", height: "1.5px", background: "#00AD4C", flexShrink: 0 }} />

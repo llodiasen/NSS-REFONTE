@@ -1,4 +1,4 @@
-import Image from 'next/image'
+﻿import Image from 'next/image'
 
 const PARTENAIRES = [
   {
@@ -102,7 +102,7 @@ export default function PartenairesHomepageSection() {
           flex-shrink: 0;
         }
         .phr-sur-text {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           font-weight: 500;
           letter-spacing: 0.14em;
@@ -112,7 +112,7 @@ export default function PartenairesHomepageSection() {
 
         /* ── H2 ── */
         .phr-h2 {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: clamp(1.26rem, 2.7vw, 1.62rem);
           font-weight: 600;
           letter-spacing: -0.01em;
@@ -127,7 +127,7 @@ export default function PartenairesHomepageSection() {
 
         /* ── DESC ── */
         .phr-desc {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 15px;
           font-weight: 300;
           color: #4A4A4A;

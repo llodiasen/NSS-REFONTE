@@ -46,7 +46,7 @@ export default function FilterTabs({ tabs, activeTab, onChange }: FilterTabsProp
 
         .ftabs-tab {
           position: relative;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 13px;
           font-weight: 400;
           color: #2C2C28;

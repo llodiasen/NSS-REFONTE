@@ -110,7 +110,7 @@ export default function AboutOrganisations() {
           justify-content: center;
           gap: 10px;
           margin-bottom: 16px;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           font-weight: 500;
           letter-spacing: 0.14em;
@@ -125,7 +125,7 @@ export default function AboutOrganisations() {
           flex-shrink: 0;
         }
         .ao-h2 {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: clamp(1.875rem, 3.5vw, 1.875rem);
           font-weight: 400;
           color: #2A2A2A;
@@ -145,7 +145,7 @@ export default function AboutOrganisations() {
           margin: 0.75rem auto 1.25rem;
         }
         .ao-desc {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 13px;
           color: #6b7280;
           line-height: 1.7;
@@ -203,13 +203,13 @@ export default function AboutOrganisations() {
 
         /* ── Card content ── */
         .ao-abbr {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 16px;
           font-weight: 600;
           color: #2A2A2A;
         }
         .ao-nom {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 14px;
           color: Black;
           text-align: center;
@@ -217,7 +217,7 @@ export default function AboutOrganisations() {
           margin: 0;
         }
         .ao-pays {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px;
           font-weight: 500;
           color: #00AD4C;
@@ -233,7 +233,7 @@ export default function AboutOrganisations() {
           background: transparent;
           padding: 11px 24px;
           border-radius: 8px;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 12px;
           font-weight: 500;
           cursor: pointer;

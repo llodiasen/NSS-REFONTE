@@ -1,4 +1,4 @@
-import Image from 'next/image';
+﻿import Image from 'next/image';
 import Link from 'next/link';
 
 const STATS = [
@@ -78,7 +78,7 @@ export default function MouvementHero() {
         .hero-stat-0 { padding-left: 0; }
         .hero-stat-3 { border-right: 0; }
         .hero-stat-num {
-          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 28px; font-weight: 700;
           line-height: 1; margin-bottom: 0.5rem;
         }

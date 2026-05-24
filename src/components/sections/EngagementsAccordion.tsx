@@ -63,7 +63,7 @@ export default function EngagementsAccordion() {
             <span
               style={{
                 display: "block",
-                fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+                fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
                 fontSize: "10px",
                 fontWeight: 500,
                 letterSpacing: "0.25em",
@@ -80,7 +80,7 @@ export default function EngagementsAccordion() {
             />
             <h2
               style={{
-                fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
+                fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
                 fontSize: "clamp(36px, 4vw, 56px)",
                 fontWeight: 600,
                 lineHeight: 1.1,
@@ -95,7 +95,7 @@ export default function EngagementsAccordion() {
           <div style={{ paddingLeft: "48px" }} className="engage-intro-pad">
             <p
               style={{
-                fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+                fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
                 fontSize: "16px",
                 lineHeight: 1.85,
                 color: "#555",
@@ -133,7 +133,7 @@ export default function EngagementsAccordion() {
                   {/* Numéro */}
                   <span
                     style={{
-                      fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+                      fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
                       fontSize: "11px",
                       fontWeight: 500,
                       letterSpacing: "0.15em",
@@ -150,7 +150,7 @@ export default function EngagementsAccordion() {
                   <span
                     style={{
                       flex: 1,
-                      fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+                      fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
                       fontSize: "17px",
                       fontWeight: 600,
                       color: "#1A1A1A",
@@ -163,7 +163,7 @@ export default function EngagementsAccordion() {
                   {/* Flèche */}
                   <span
                     style={{
-                      fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+                      fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
                       fontSize: "18px",
                       color: "#2D6A4F",
                       marginLeft: "24px",
@@ -188,7 +188,7 @@ export default function EngagementsAccordion() {
                 >
                   <p
                     style={{
-                      fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+                      fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
                       fontSize: "15px",
                       lineHeight: 1.85,
                       color: "#555",

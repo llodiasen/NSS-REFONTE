@@ -41,7 +41,7 @@ export default function StatsBand() {
           border-right: 0.5px solid #e8f0ec;
         }
         .sb-value {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 38px;
           font-weight: 500;
           color: #0e2418;
@@ -52,7 +52,7 @@ export default function StatsBand() {
           color: #1a7a45;
         }
         .sb-label {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           color: #5a7a64;
           line-height: 1.4;

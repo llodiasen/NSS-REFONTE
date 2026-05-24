@@ -1,4 +1,4 @@
-import type { CifapPartenaire } from '@/lib/cifap-editions'
+﻿import type { CifapPartenaire } from '@/lib/cifap-editions'
 
 interface Props {
   partenaires: CifapPartenaire[]
@@ -8,7 +8,7 @@ export default function SectionPartenaires({ partenaires }: Props) {
   return (
     <section id="partenaires" aria-labelledby="partn-titre">
       <p className="text-xs uppercase tracking-widest text-gray-400 mb-4"
-         style={{ fontFamily: "'DM Sans', sans-serif" }}>
+         style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}>
         Partenaires
       </p>
 
@@ -20,7 +20,7 @@ export default function SectionPartenaires({ partenaires }: Props) {
           >
             <div
               className="w-10 h-10 rounded-xl bg-nss-clair flex items-center justify-center flex-shrink-0 text-xs font-semibold"
-              style={{ color: '#166534', fontFamily: "'DM Sans', sans-serif" }}
+              style={{ color: '#166534', fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
               aria-hidden="true"
             >
               {p.nom.slice(0, 2).toUpperCase()}
@@ -28,13 +28,13 @@ export default function SectionPartenaires({ partenaires }: Props) {
             <div>
               <p
                 className="font-semibold text-gray-900 text-sm"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
+                style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
               >
                 {p.nom}
               </p>
               <p
                 className="text-gray-400 text-sm"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
+                style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
               >
                 {p.description}
               </p>

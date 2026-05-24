@@ -1,4 +1,4 @@
-import type { CSSProperties, ReactNode } from 'react'
+﻿import type { CSSProperties, ReactNode } from 'react'
 
 const C_GREEN = '#97C459'
 
@@ -60,7 +60,7 @@ export default function PageHero({
           />
           <span
             style={{
-              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+              fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
               fontSize: '12px',
               fontWeight: 500,
               letterSpacing: '0.12em',
@@ -76,7 +76,7 @@ export default function PageHero({
         {/* H1 */}
         <h1
           style={{
-            fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+            fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
             fontSize: 'clamp(32px, 4.5vw, 50px)',
             fontWeight: 700,
             lineHeight: 1.1,

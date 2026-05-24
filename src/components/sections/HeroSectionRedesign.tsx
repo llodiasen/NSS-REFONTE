@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
@@ -161,7 +161,7 @@ export default function HeroSectionRedesign() {
           align-items: center;
           gap: 12px;
           margin-bottom: 20px;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px; font-weight: 500;
           letter-spacing: 0.14em; text-transform: uppercase;
           color: #00AD4C;
@@ -173,7 +173,7 @@ export default function HeroSectionRedesign() {
 
         /* ── H2 ── */
         .hsr-h2 {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: clamp(1.54rem, 2.99vw, 1.9rem);
           font-weight: 600; letter-spacing: -0.01em; line-height: 1.1;
           color: #2A2A2A; margin: 0 0 20px;
@@ -190,14 +190,14 @@ export default function HeroSectionRedesign() {
           border-radius: 2px; margin-right: 16px; flex-shrink: 0;
         }
         .hsr-quote-text {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 16px; font-style: italic;
           color: #2A2A2A; line-height: 1.7; margin: 0;
         }
 
         /* ── PARAGRAPHE ── */
         .hsr-body {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 14px; font-weight: 300;
           color: #4A4A4A; line-height: 1.8;
           text-align: justify; text-align-last: left;
@@ -219,12 +219,12 @@ export default function HeroSectionRedesign() {
         }
         .hsr-stat:first-child { border-left: none; padding-left: 0; }
         .hsr-stat-num {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 24px; font-weight: 600;
           color: #2A2A2A; line-height: 1;
         }
         .hsr-stat-lbl {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px; font-weight: 400;
           color: #9ca3af; letter-spacing: 0.04em;
         }
@@ -237,7 +237,7 @@ export default function HeroSectionRedesign() {
           background: transparent;
           border: none;
           color: #00AD4C;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px; font-weight: 500;
           letter-spacing: 0.08em; text-transform: uppercase;
           cursor: pointer; text-decoration: none; padding: 0;
@@ -297,7 +297,7 @@ export default function HeroSectionRedesign() {
           transform: scale(1.06);
         }
         .hsr-play-lbl {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px; text-transform: uppercase;
           color: rgba(255,255,255,0.6);
           letter-spacing: 0.12em;
@@ -310,13 +310,13 @@ export default function HeroSectionRedesign() {
           display: flex; flex-direction: column; gap: 3px;
         }
         .hsr-cap-tag {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px; font-weight: 600;
           letter-spacing: 0.1em; text-transform: uppercase;
           color: #00AD4C;
         }
         .hsr-cap-titre {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 14px; font-weight: 400;
           color: #6b7280; margin: 0; line-height: 1.3;
         }

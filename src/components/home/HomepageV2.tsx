@@ -164,7 +164,6 @@ const MANIFESTO_CARDS = [
 ]
 
 function ManifestoSection() {
-  const [activeCard, setActiveCard] = useState(0)
   return (
     <section className="hpv2-manifesto">
       <div className="hpv2-manifesto-head">
@@ -184,30 +183,20 @@ function ManifestoSection() {
         {MANIFESTO_CARDS.map((c, i) => (
           <div
             key={i}
-            className={`hpv2-mcard${activeCard === i ? ' is-active' : ''}`}
-            onClick={() => setActiveCard(i)}
-            role="button"
-            tabIndex={0}
-            onKeyDown={e => e.key === 'Enter' && setActiveCard(i)}
-            aria-pressed={activeCard === i}
+            className={["hpv2-mcard", i === 0 ? "hpv2-mcard--featured" : ""].join(" ").trim()}
           >
-            <div className="hpv2-mcard-top">
-              <span className="hpv2-mcard-icon">{c.icon}</span>
-              <span className="hpv2-mcard-num" aria-hidden="true">{c.num}</span>
-            </div>
+            <span className="hpv2-mcard-icon">{c.icon}</span>
             <blockquote className="hpv2-mcard-quote">
-              <span className="hpv2-mcard-guillemet">{'«'}</span>
-              {' '}{c.quote}{' '}
-              <span className="hpv2-mcard-guillemet">{'»'}</span>
+              {c.quote}
             </blockquote>
-            <hr className="hpv2-mcard-sep" />
-            <p className="hpv2-mcard-body">{c.body}</p>
             <span className="hpv2-mcard-tag">
               <svg className="hpv2-mcard-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>
               </svg>
               {c.tag}
             </span>
+            <hr className="hpv2-mcard-sep" />
+            <p className="hpv2-mcard-body">{c.body}</p>
           </div>
         ))}
       </div>

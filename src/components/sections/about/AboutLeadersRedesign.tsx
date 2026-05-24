@@ -234,13 +234,13 @@ export default function AboutLeadersRedesign() {
           background: #00AD4C; flex-shrink: 0;
         }
         .al__ey-txt {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 9.5px; font-weight: 700;
           letter-spacing: 0.3em; text-transform: uppercase;
           color: #00AD4C;
         }
         .al__h2 {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: clamp(28px, 3vw, 44px);
           font-weight: 500; line-height: 1.1;
           color: #0a1f10; margin: 0;
@@ -316,19 +316,19 @@ export default function AboutLeadersRedesign() {
         }
         .al__hero-role {
           display: inline-block;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px; font-weight: 700;
           letter-spacing: 0.32em;
           color: #E8A838; margin-bottom: 12px;
         }
         .al__hero-nom {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 28px; font-weight: 700;
           line-height: 1.1; color: #fff;
           margin: 0 0 8px;
         }
         .al__hero-org {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 13px; font-weight: 500;
           color: #A5CE46; margin: 0 0 28px;
         }
@@ -338,12 +338,12 @@ export default function AboutLeadersRedesign() {
           border-left: 3px solid #E8A838;
         }
         .al__hero-quote p {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 15px; font-style: italic; font-weight: 400;
           line-height: 1.7; color: #F5EDD6; margin: 0;
         }
         .al__hero-link {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 13px; font-weight: 700;
           color: #A5CE46; text-decoration: underline;
           text-underline-offset: 3px;
@@ -397,23 +397,23 @@ export default function AboutLeadersRedesign() {
           display: flex; flex-direction: column; gap: 3px;
         }
         .al__card-nom {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 16px; font-weight: 700;
           color: #fff; line-height: 1.2;
         }
         .al__card-org {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px; font-weight: 700;
           letter-spacing: 0.06em; text-transform: uppercase;
           color: #E8A838;
         }
         .al__card-pays {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 12px; font-weight: 500;
           color: #A5CE46; margin-bottom: 6px;
         }
         .al__card-link {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11.5px; font-weight: 700;
           color: #00AD4C; text-decoration: underline;
           text-underline-offset: 3px;
@@ -447,7 +447,7 @@ export default function AboutLeadersRedesign() {
         /* ══ CTA ════════════════════════════════════════════════════ */
         .al__cta { text-align: center; }
         .al__cta-link {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 13px; font-weight: 600;
           color: #045627; text-decoration: none;
           border: 1.5px solid rgba(4,86,39,0.22);

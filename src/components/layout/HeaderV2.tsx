@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect, useRef, useCallback, type CSSProperties } from "react";
 import Link from "next/link";
@@ -115,10 +115,10 @@ function NavDropdown({ items, locale, onClose, onEnter, onLeave }: {
               <item.icon size={15} color={C.green} />
             </span>
             <span style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-              <span style={{ fontSize: "13px", fontWeight: 500, color: C.textD, fontFamily: "'DM Sans', sans-serif" }}>
+              <span style={{ fontSize: "13px", fontWeight: 500, color: C.textD, fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}>
                 {item.label}
               </span>
-              <span style={{ fontSize: "11px", fontWeight: 300, color: C.textM, fontFamily: "'DM Sans', sans-serif" }}>
+              <span style={{ fontSize: "11px", fontWeight: 300, color: C.textM, fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}>
                 {item.sub}
               </span>
             </span>
@@ -136,7 +136,7 @@ function nl(active: boolean): CSSProperties {
     padding: "8px 14px", borderRadius: "8px",
     fontSize: "13px", fontWeight: active ? 500 : 400,
     color: active ? C.green : C.text,
-    fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+    fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
     cursor: "pointer", textDecoration: "none",
     background: "none", border: "none",
     transition: "background 0.15s, color 0.15s",
@@ -212,7 +212,7 @@ export default function HeaderV2() {
           textAlign: "center", position: "relative",
         }}>
           <p style={{
-            fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+            fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
             fontSize: "12px", fontWeight: 400,
             color: "rgba(255,255,255,0.85)", letterSpacing: "0.02em", margin: 0,
           }}>
@@ -337,7 +337,7 @@ export default function HeaderV2() {
                 fontSize: "12px", color: C.textM,
                 border: `0.5px solid ${C.border}`, borderRadius: "8px",
                 padding: "7px 12px", cursor: "pointer", background: "none",
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
               }}
             >
               <Globe size={14} color={C.textL} />
@@ -359,7 +359,7 @@ export default function HeaderV2() {
                       border: "none", cursor: "pointer", borderRadius: "8px",
                       color: lang === code ? C.green : C.textM,
                       fontWeight: lang === code ? 500 : 400,
-                      fontFamily: "'DM Sans', sans-serif",
+                      fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
                       transition: "background 0.15s",
                     }}
                     className="nss-lang-opt"
@@ -381,7 +381,7 @@ export default function HeaderV2() {
               letterSpacing: "0.06em", textTransform: "uppercase",
               padding: "10px 20px", borderRadius: "8px",
               border: "none", cursor: "pointer",
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
               textDecoration: "none", display: "inline-block",
               transition: "background 0.2s",
             }}
@@ -425,7 +425,7 @@ export default function HeaderV2() {
           <Link href={`/${locale}`} onClick={() => setMobileOn(false)} style={{
             fontSize: "16px", fontWeight: 500, color: C.textD, padding: "14px 0",
             textDecoration: "none", borderBottom: `0.5px solid ${C.border}`,
-            fontFamily: "'DM Sans', sans-serif", display: "block",
+            fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif", display: "block",
           }}>
             Accueil
           </Link>
@@ -439,7 +439,7 @@ export default function HeaderV2() {
                   display: "flex", alignItems: "center", justifyContent: "space-between",
                   width: "100%", padding: "14px 0", background: "none", border: "none",
                   cursor: "pointer", fontSize: "16px", fontWeight: 500, color: C.textD,
-                  fontFamily: "'DM Sans', sans-serif",
+                  fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
                 }}
               >
                 {drop.label}
@@ -464,10 +464,10 @@ export default function HeaderV2() {
                           <item.icon size={15} color={C.green} />
                         </span>
                         <span>
-                          <span style={{ display: "block", fontSize: "14px", fontWeight: 500, color: C.textD, fontFamily: "'DM Sans', sans-serif" }}>
+                          <span style={{ display: "block", fontSize: "14px", fontWeight: 500, color: C.textD, fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}>
                             {item.label}
                           </span>
-                          <span style={{ display: "block", fontSize: "12px", color: C.textM, fontFamily: "'DM Sans', sans-serif" }}>
+                          <span style={{ display: "block", fontSize: "12px", color: C.textM, fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}>
                             {item.sub}
                           </span>
                         </span>
@@ -483,14 +483,14 @@ export default function HeaderV2() {
           <Link href={`/${locale}/contact`} onClick={() => setMobileOn(false)} style={{
             fontSize: "16px", fontWeight: 500, color: C.textD, padding: "14px 0",
             textDecoration: "none", borderBottom: `0.5px solid ${C.border}`,
-            fontFamily: "'DM Sans', sans-serif", display: "block",
+            fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif", display: "block",
           }}>
             Contact
           </Link>
 
           {/* Langue mobile */}
           <div style={{ padding: "20px 0 8px" }}>
-            <p style={{ fontSize: "10px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.1em", color: C.textL, marginBottom: "10px", fontFamily: "'DM Sans', sans-serif" }}>
+            <p style={{ fontSize: "10px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.1em", color: C.textL, marginBottom: "10px", fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}>
               Langue
             </p>
             <div style={{ display: "flex", gap: "8px" }}>
@@ -499,7 +499,7 @@ export default function HeaderV2() {
                   style={{
                     flex: 1, padding: "8px 0", borderRadius: "8px",
                     fontSize: "12px", fontWeight: 500, cursor: "pointer",
-                    fontFamily: "'DM Sans', sans-serif",
+                    fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
                     background: lang === code ? C.green : "none",
                     color: lang === code ? "#ffffff" : C.textM,
                     border: lang === code ? "none" : `0.5px solid ${C.border}`,
@@ -519,7 +519,7 @@ export default function HeaderV2() {
             display: "block", width: "100%", background: C.green, color: "#ffffff",
             textAlign: "center", padding: "14px", borderRadius: "8px",
             textDecoration: "none", fontSize: "14px", fontWeight: 500,
-            fontFamily: "'DM Sans', sans-serif", boxSizing: "border-box",
+            fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif", boxSizing: "border-box",
             marginTop: "16px",
           }}>
             Adhérer au mouvement →

@@ -170,7 +170,7 @@ export default function EngagementsSection() {
           justify-content: center;
           gap: 10px;
           margin-bottom: 16px;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           font-weight: 500;
           letter-spacing: 0.14em;
@@ -185,7 +185,7 @@ export default function EngagementsSection() {
           flex-shrink: 0;
         }
         .eng-h2 {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: clamp(1.875rem, 3.5vw, 1.875rem);
           font-weight: 400;
           color: #2A2A2A;
@@ -205,7 +205,7 @@ export default function EngagementsSection() {
           margin: 0.75rem auto 1.5rem;
         }
         .eng-desc {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 15px;
           color: BLACK;
           line-height: 1.7;
@@ -251,7 +251,7 @@ export default function EngagementsSection() {
 
         /* Tag */
         .eng-tag {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 12px;
           font-weight: 500;
           letter-spacing: 0.1em;
@@ -261,7 +261,7 @@ export default function EngagementsSection() {
 
         /* Card title */
         .eng-title {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 16px;
           font-weight: 600;
           color: #2A2A2A;
@@ -271,7 +271,7 @@ export default function EngagementsSection() {
 
         /* Card text */
         .eng-text {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 14px;
           color: BLACK;
           line-height: 1.7;

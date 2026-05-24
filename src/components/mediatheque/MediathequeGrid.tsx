@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState } from "react"
 import { X } from "lucide-react"
@@ -213,7 +213,7 @@ function VideoModal({ video, onClose }: { video: ActiveVideo; onClose: () => voi
       <div onClick={(e) => e.stopPropagation()} style={{ width: "100%", maxWidth: "900px", position: "relative" }}>
 
         <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: "12px", gap: "16px" }}>
-          <p style={{ fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif", fontSize: "16px", fontWeight: 600, color: "#fff", lineHeight: 1.35, margin: 0 }}>
+          <p style={{ fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif", fontSize: "16px", fontWeight: 600, color: "#fff", lineHeight: 1.35, margin: 0 }}>
             {video.titre}
           </p>
           <button
@@ -253,7 +253,7 @@ function VideoModal({ video, onClose }: { video: ActiveVideo; onClose: () => voi
           )}
         </div>
 
-        <p style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px", color: "rgba(255,255,255,0.35)", marginTop: "10px", textAlign: "center" }}>
+        <p style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif", fontSize: "11px", color: "rgba(255,255,255,0.35)", marginTop: "10px", textAlign: "center" }}>
           Cliquez en dehors pour fermer
         </p>
       </div>
@@ -382,7 +382,7 @@ export default function MediathequeGrid() {
           margin-bottom: 32px;
         }
         .mg-pill {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 12px;
           font-weight: 400;
           padding: 6px 16px;
@@ -444,7 +444,7 @@ export default function MediathequeGrid() {
           right: 10px;
           background: rgba(0,0,0,0.62);
           color: #ffffff;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px;
           font-weight: 500;
           padding: 3px 8px;
@@ -489,7 +489,7 @@ export default function MediathequeGrid() {
           gap: 8px;
         }
         .mg-badge {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px;
           font-weight: 500;
           text-transform: uppercase;
@@ -502,13 +502,13 @@ export default function MediathequeGrid() {
           white-space: nowrap;
         }
         .mg-date {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           color: #9ca3af;
           white-space: nowrap;
         }
         .mg-h3 {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 17px;
           font-weight: 400;
           color: #2A2A2A;
@@ -521,7 +521,7 @@ export default function MediathequeGrid() {
           min-height: calc(17px * 1.25 * 2);
         }
         .mg-excerpt {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 13px;
           font-weight: 300;
           color: #6b7280;
@@ -540,7 +540,7 @@ export default function MediathequeGrid() {
         .mg-empty {
           text-align: center;
           padding: 60px 0;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 15px;
           color: #9ca3af;
         }
@@ -552,7 +552,7 @@ export default function MediathequeGrid() {
           padding: 36px 0 8px;
         }
         .mg-voir-plus-btn {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 13px;
           font-weight: 500;
           color: #045627;

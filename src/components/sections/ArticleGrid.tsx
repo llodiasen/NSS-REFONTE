@@ -88,7 +88,7 @@ export default function ArticleGrid({ articles, filterTabs, filterKey }: Article
 
         .agrid__empty {
           grid-column: 1 / -1;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 14px;
           color: #888;
           text-align: center;

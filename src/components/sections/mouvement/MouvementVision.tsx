@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState, useEffect } from 'react'
 
@@ -194,7 +194,7 @@ export default function MouvementVision() {
           display: flex;
           align-items: center;
           gap: 12px;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           font-weight: 500;
           letter-spacing: 0.14em;
@@ -210,7 +210,7 @@ export default function MouvementVision() {
           flex-shrink: 0;
         }
         .mv-h2 {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: clamp(2rem, 3.5vw, 2rem);
           font-weight: 500;
           line-height: 1.1;
@@ -224,7 +224,7 @@ export default function MouvementVision() {
           font-weight: 500;
         }
         .mv-intro {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 14px;
           font-weight: 300;
           line-height: 1.8;
@@ -249,7 +249,7 @@ export default function MouvementVision() {
           height: 100%;
         }
         .mv-obj-label {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px;
           font-weight: 500;
           letter-spacing: 0.2em;
@@ -276,7 +276,7 @@ export default function MouvementVision() {
           transition: 0.25s ease;
         }
         .mv-num {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 12px;
           font-weight: 500;
           color: #00AD4C;
@@ -285,7 +285,7 @@ export default function MouvementVision() {
         }
         .mv-titre {
           flex: 1;
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 16px;
           font-weight: 500;
           color: #2A2A2A;
@@ -314,7 +314,7 @@ export default function MouvementVision() {
           max-height: 200px;
         }
         .mv-desc {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 14px;
           font-weight: 300;
           line-height: 1.72;
@@ -330,7 +330,7 @@ export default function MouvementVision() {
           margin: 1.25rem 0 0;
         }
         .mv-quote p {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 15px;
           font-style: italic;
           font-weight: 400;
@@ -384,7 +384,7 @@ export default function MouvementVision() {
         .mv-play-label {
           position: relative;
           z-index: 1;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px;
           font-weight: 600;
           letter-spacing: 0.18em;
@@ -444,7 +444,7 @@ export default function MouvementVision() {
         }
         .mv-cap-tag {
           display: block;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px;
           font-weight: 500;
           letter-spacing: 0.16em;
@@ -453,7 +453,7 @@ export default function MouvementVision() {
           margin-bottom: 8px;
         }
         .mv-cap-titre {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 16px;
           font-weight: 400;
           color: #2A2A2A;
@@ -462,7 +462,7 @@ export default function MouvementVision() {
         }
         .mv-cap-meta {
           display: block;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 12px;
           font-weight: 300;
           color: #888;

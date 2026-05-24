@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState, useEffect, useCallback } from 'react'
 import { createPortal } from 'react-dom'
@@ -130,11 +130,11 @@ function Lightbox({
           border-radius: 8px; overflow: hidden;
         }
         .lb-caption {
-          font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 300;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif; font-size: 13px; font-weight: 300;
           color: rgba(255,255,255,0.60); text-align: center; margin: 0;
         }
         .lb-counter {
-          font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif; font-size: 11px; font-weight: 500;
           color: rgba(255,255,255,0.30); letter-spacing: 0.08em; text-align: center; margin: 0;
         }
         @media (max-width: 640px) {
@@ -447,13 +447,13 @@ export default function GalerieClient() {
         .gal-bc {
           display: flex; align-items: center; gap: 6px;
           margin-bottom: 32px;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 12px;
         }
         .gal-bc-item { display: flex; align-items: center; gap: 6px; }
         .gal-bc-link {
           background: none; border: none; padding: 0; cursor: pointer;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif; font-size: 12px;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif; font-size: 12px;
           color: rgba(255,255,255,0.6);
           text-decoration: none;
           transition: color 0.2s;
@@ -466,7 +466,7 @@ export default function GalerieClient() {
         .gal-label {
           display: flex; align-items: center; gap: 10px;
           margin-bottom: 16px;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px; font-weight: 500;
           letter-spacing: 0.14em; text-transform: uppercase;
           color: #97C459;
@@ -475,7 +475,7 @@ export default function GalerieClient() {
 
         /* H1 */
         .gal-h1 {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: clamp(2.09rem, 4.75vw, 3.04rem);
           font-weight: 700; line-height: 1.1;
           color: #ffffff; max-width: 600px;
@@ -485,7 +485,7 @@ export default function GalerieClient() {
 
         /* Lead */
         .gal-hero-lead {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 1rem; font-weight: 400; line-height: 1.7;
           color: #ffffff; max-width: 520px; margin: 0;
         }
@@ -499,12 +499,12 @@ export default function GalerieClient() {
         .gal-stat { display: flex; align-items: baseline; gap: 6px; }
         .gal-stat--sep { padding-right: 28px; margin-right: 28px; border-right: 1px solid rgba(255,255,255,0.15); }
         .gal-stat-v {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 1.25rem; font-weight: 700; line-height: 1; letter-spacing: -0.01em;
           color: #97C459;
         }
         .gal-stat-l {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px; font-weight: 500;
           text-transform: uppercase; letter-spacing: 0.1em; color: #ffffff;
         }
@@ -526,13 +526,13 @@ export default function GalerieClient() {
           display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
         }
         .gal-filters-label {
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px; font-weight: 500;
           color: #6b7280; text-transform: uppercase;
           letter-spacing: 0.05em; flex-shrink: 0;
         }
         .gal-pill {
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 12px; font-weight: 400;
           color: #6b7280; cursor: pointer;
           padding: 5px 14px; border-radius: 99px;
@@ -556,7 +556,7 @@ export default function GalerieClient() {
         .gal-search-icon { color: #9ca3af; flex-shrink: 0; }
         .gal-search {
           border: none; background: transparent; outline: none;
-          font-family: 'DM Sans', sans-serif; font-size: 13px;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif; font-size: 13px;
           color: #2A2A2A; width: 100%;
         }
         .gal-search::placeholder { color: #9ca3af; }
@@ -566,12 +566,12 @@ export default function GalerieClient() {
           padding: 0 72px;
         }
         .gal-count-header {
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 13px; font-weight: 500;
           color: #2A2A2A; margin: 0 0 16px;
         }
         .gal-empty {
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 15px; color: #9ca3af;
           text-align: center; padding: 60px 0;
         }
@@ -604,19 +604,19 @@ export default function GalerieClient() {
         }
         .gal-badge {
           display: inline-block;
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px; font-weight: 500;
           padding: 2px 8px; border-radius: 4px;
           text-transform: uppercase; letter-spacing: 0.05em;
           align-self: flex-start;
         }
         .gal-card-jour {
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 13px; font-weight: 500;
           color: #2A2A2A; margin: 6px 0 0;
         }
         .gal-card-theme {
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px; font-weight: 300;
           color: #6b7280; margin: 2px 0 0;
           line-height: 1.4;
@@ -626,20 +626,20 @@ export default function GalerieClient() {
           align-items: center; margin-top: 8px;
         }
         .gal-card-count {
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px; font-weight: 500;
           background: #eaf3de; color: #3b6d11;
           padding: 2px 7px; border-radius: 99px;
         }
         .gal-card-date {
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px; color: #9ca3af;
         }
 
         /* ── RETOUR ── */
         .gal-back {
           background: none; border: none; padding: 0;
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 13px; color: #6b7280;
           cursor: pointer; margin-bottom: 14px;
           transition: color 0.2s;
@@ -652,7 +652,7 @@ export default function GalerieClient() {
           margin-bottom: 8px; flex-wrap: wrap;
         }
         .gal-photos-title {
-          font-family: 'Cormorant Garamond', Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 20px; font-weight: 600;
           color: #2A2A2A; margin: 0;
           line-height: 1.2;

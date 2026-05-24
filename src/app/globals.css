@@ -1,4 +1,4 @@
-@tailwind base;
+﻿@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -65,9 +65,9 @@ html, body {
   color: var(--text-primary);
 }
 
-/* ── Titres : Cormorant Garamond sans exception ── */
+/* ── Titres : DM Sans ── */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif !important;
+  font-family: var(--font-dm-sans), 'DM Sans', sans-serif !important;
   line-height: 1.1;
   margin: 0;
 }
@@ -78,7 +78,7 @@ h2, h3, h4 {
 
 /* ── Corps ── */
 p {
-  font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
+  font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
   font-size: 16px;
   font-weight: 300;
   color: black;

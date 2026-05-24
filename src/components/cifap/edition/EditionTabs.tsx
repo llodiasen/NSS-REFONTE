@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useEffect, useState } from 'react'
 
@@ -62,7 +62,7 @@ export default function EditionTabs({ visibleIds }: Props) {
                   ? 'border-nss-fonce text-nss-fonce font-medium'
                   : 'border-transparent text-gray-500 hover:text-gray-700'
               }`}
-              style={{ fontFamily: "'DM Sans', sans-serif" }}
+              style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
             >
               {tab.label}
             </button>

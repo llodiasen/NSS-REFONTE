@@ -18,7 +18,7 @@
           {/* Tag */}
           <div style={{ display: "flex", alignItems: "center", marginBottom: "20px" }}>
             <span aria-hidden="true" style={{ width: "28px", height: "1px", background: "var(--green-600)", marginRight: "12px", flexShrink: 0 }} />
-            <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "9px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2px", color: "var(--green-600)" }}>
+            <span style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif", fontSize: "9px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2px", color: "var(--green-600)" }}>
               Notre identité
             </span>
           </div>
@@ -26,7 +26,7 @@
           {/* H2 */}
           <h2
             style={{
-              fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
+              fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
               fontSize: "34px",
               fontWeight: 400,
               lineHeight: 1.2,
@@ -56,7 +56,7 @@
               >
                 <span
                   style={{
-                    fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
+                    fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
                     fontSize: "32px",
                     fontWeight: 400,
                     color: "var(--green-600)",
@@ -67,7 +67,7 @@
                 >
                   {number}
                 </span>
-                <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "13px", fontWeight: 400, color: "var(--text-muted)", lineHeight: 1.5 }}>
+                <span style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif", fontSize: "13px", fontWeight: 400, color: "var(--text-muted)", lineHeight: 1.5 }}>
                   {label}
                 </span>
               </div>
@@ -79,7 +79,7 @@
         <div>
           <p
             style={{
-              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+              fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
               fontSize: "17px",
               fontWeight: 400,
               lineHeight: 1.8,
@@ -96,7 +96,7 @@
           </p>
           <p
             style={{
-              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+              fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
               fontSize: "17px",
               fontWeight: 400,
               lineHeight: 1.8,

@@ -109,7 +109,7 @@ export default function StatsSection({ stats = DEFAULT_STATS }: StatsSectionProp
         .stats-item:last-child { border-right: none; }
 
         .stats-value {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 52px;
           font-weight: 600;
           color: #E8A838;
@@ -119,7 +119,7 @@ export default function StatsSection({ stats = DEFAULT_STATS }: StatsSectionProp
         }
 
         .stats-label {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 12px;
           font-weight: 500;
           letter-spacing: 1.5px;

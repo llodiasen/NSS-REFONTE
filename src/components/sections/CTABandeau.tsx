@@ -32,7 +32,7 @@ export default function CTABandeau({ locale }: CTABandeauProps) {
       >
         <span
           style={{
-            fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+            fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
             fontSize: "9px",
             fontWeight: 700,
             letterSpacing: "0.08em",
@@ -136,7 +136,7 @@ export default function CTABandeau({ locale }: CTABandeauProps) {
               border: "1.5px solid #D3D1C7",
               borderRadius: "8px",
               padding: "9px 16px",
-              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+              fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
               fontSize: "12px",
               fontWeight: 700,
               color: "#1A1A18",
@@ -169,7 +169,7 @@ export default function CTABandeau({ locale }: CTABandeauProps) {
       >
         <span
           style={{
-            fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+            fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
             fontSize: "11px",
             fontWeight: 700,
             letterSpacing: "0.08em",
@@ -193,7 +193,7 @@ export default function CTABandeau({ locale }: CTABandeauProps) {
               border: "1.5px solid rgba(255,255,255,0.25)",
               borderRadius: "8px",
               padding: "11px 20px",
-              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+              fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
               fontSize: "13px",
               fontWeight: 700,
               color: "#fff",
@@ -216,7 +216,7 @@ export default function CTABandeau({ locale }: CTABandeauProps) {
               border: "none",
               borderRadius: "8px",
               padding: "11px 20px",
-              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+              fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
               fontSize: "13px",
               fontWeight: 700,
               color: "#fff",

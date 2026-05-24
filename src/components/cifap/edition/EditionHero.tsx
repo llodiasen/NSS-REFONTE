@@ -1,4 +1,4 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 import { CalendarDays, Clock, MapPin, Users } from 'lucide-react'
 import type { CifapEdition } from '@/lib/cifap-editions'
 
@@ -127,7 +127,7 @@ export default function EditionHero({ edition: e, toutes, locale }: Props) {
         .eh-bc {
           display: flex; align-items: center; gap: 6px;
           margin-bottom: 32px;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 13px;
         }
         .eh-bc-link { color: #ffffff; text-decoration: none; transition: color 0.2s; }
@@ -148,7 +148,7 @@ export default function EditionHero({ edition: e, toutes, locale }: Props) {
 
         /* H1 */
         .eh-h1 {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: clamp(29px, 4vw, 47px);
           font-weight: 700; line-height: 1.1;
           color: rgb(246,243,238); max-width: 900px;
@@ -168,7 +168,7 @@ export default function EditionHero({ edition: e, toutes, locale }: Props) {
         .eh-meta {
           display: flex; flex-wrap: wrap; align-items: center;
           gap: 8px;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 13px;
           color: #ffffff;
           margin-bottom: 32px;
@@ -184,7 +184,7 @@ export default function EditionHero({ edition: e, toutes, locale }: Props) {
           border-top: 1px solid rgba(255,255,255,0.15);
         }
         .eh-tl-btn {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 12px;
           padding: 5px 14px;
           border-radius: 999px;

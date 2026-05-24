@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
@@ -174,7 +174,7 @@ export default function ProgrammesRedesign() {
         .prg-eyebrow {
           display: flex; align-items: center; justify-content: center;
           gap: 12px; margin-bottom: 20px;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px; font-weight: 500;
           letter-spacing: 0.14em; text-transform: uppercase;
           color: #00AD4C;
@@ -184,7 +184,7 @@ export default function ProgrammesRedesign() {
           background: #00AD4C; flex-shrink: 0;
         }
         .prg-h2 {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: clamp(1.37rem, 2.99vw, 1.88rem);
           font-weight: 500; letter-spacing: -0.01em; line-height: 1.2;
           color: #2A2A2A; margin: 0;
@@ -196,7 +196,7 @@ export default function ProgrammesRedesign() {
           margin: 0.75rem auto 1.25rem;
         }
         .prg-desc {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 14px; font-weight: 300; color: #4A4A4A;
           line-height: 1.8; text-align: center; margin: 0;
         }
@@ -246,7 +246,7 @@ export default function ProgrammesRedesign() {
           top: 14px; right: 14px;
           background: #045627;
           color: #A5CE46;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px; font-weight: 600;
           letter-spacing: 0.1em; text-transform: uppercase;
           padding: 4px 10px; border-radius: 99px;
@@ -262,7 +262,7 @@ export default function ProgrammesRedesign() {
 
         /* Type */
         .prg-type {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px; font-weight: 500;
           letter-spacing: 0.1em; text-transform: uppercase;
           color: #00AD4C; margin-bottom: 6px;
@@ -271,14 +271,14 @@ export default function ProgrammesRedesign() {
 
         /* Titre H3 */
         .prg-titre {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 22px; font-weight: 600;
           color: #2A2A2A; line-height: 1.2; margin: 0 0 4px;
         }
 
         /* Sous-titre */
         .prg-sous {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px; color: #6b7280;
           line-height: 1.5; margin: 0 0 14px;
         }
@@ -295,13 +295,13 @@ export default function ProgrammesRedesign() {
           display: flex; align-items: center; gap: 5px;
         }
         .prg-meta-label {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 9px; font-weight: 500;
           text-transform: uppercase; letter-spacing: 0.08em;
           color: #9ca3af;
         }
         .prg-meta-val {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 12px; font-weight: 500;
           color: #2A2A2A;
         }
@@ -312,7 +312,7 @@ export default function ProgrammesRedesign() {
 
         /* ── TEXTE ── */
         .prg-text {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 13px; font-weight: 300;
           color: #4A4A4A; line-height: 1.7;
           text-align: justify; text-align-last: left;
@@ -322,7 +322,7 @@ export default function ProgrammesRedesign() {
         /* ── BOUTON ── */
         .prg-cta {
           display: inline-flex; align-items: center; gap: 5px;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px; font-weight: 500;
           letter-spacing: 0.07em; text-transform: uppercase;
           color: #00AD4C;

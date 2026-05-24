@@ -152,7 +152,7 @@ export default function AboutValeurs() {
         .val-eyebrow {
           display: flex; align-items: center; justify-content: center;
           gap: 12px; margin-bottom: 24px;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px; font-weight: 500;
           letter-spacing: 0.14em; text-transform: uppercase;
           color: #00AD4C;
@@ -162,7 +162,7 @@ export default function AboutValeurs() {
           background: #00AD4C; flex-shrink: 0;
         }
         .val-h2 {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: clamp(24px, 2.6vw, 34px);
           font-weight: 500; line-height: 1.2;
           color: #2A2A2A; margin: 0 0 14px; letter-spacing: -0.015em;
@@ -173,7 +173,7 @@ export default function AboutValeurs() {
           background: #00AD4C; border-radius: 2px; margin: 0.75rem auto 0;
         }
         .val-desc {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 15px; font-weight: 400; line-height: 1.7;
           color: #5a5a5a; margin: 1.5rem 0 0; text-align: center;
         }
@@ -196,7 +196,7 @@ export default function AboutValeurs() {
         }
         /* Watermark */
         .val-num {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 96px; font-weight: 600;
           color: rgba(0,173,76,0.06); line-height: 1;
           position: absolute; top: 8px; right: 24px;
@@ -206,13 +206,13 @@ export default function AboutValeurs() {
         .val-icon { color: ${NSS.vertPrimaire}; margin-bottom: 26px; }
         /* Title */
         .val-card-titre {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 24px; font-weight: 500 !important;
           color: #0A0A0A; margin: 0 0 8px; line-height: 1.1;
         }
         /* Accroche */
         .val-card-accroche {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px; font-weight: 700;
           letter-spacing: 0.10em; text-transform: uppercase;
           color: ${NSS.vertClair}; margin: 0 0 20px;
@@ -226,7 +226,7 @@ export default function AboutValeurs() {
         }
         /* Description */
         .val-card-desc {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 14px; font-weight: 300; line-height: 1.78; color: #000000; margin: 0;
           text-align: justify; hyphens: auto; flex: 1;
         }

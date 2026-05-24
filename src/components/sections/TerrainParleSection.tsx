@@ -1,4 +1,4 @@
-import Image from 'next/image'
+﻿import Image from 'next/image'
 
 export default function TerrainParleSection() {
   return (
@@ -118,7 +118,7 @@ export default function TerrainParleSection() {
           flex-shrink: 0;
         }
         .tps-label-text {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px;
           font-weight: 500;
           letter-spacing: 0.16em;
@@ -128,7 +128,7 @@ export default function TerrainParleSection() {
 
         /* ── CITATION ── */
         .tps-quote {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: clamp(1.6rem, 3vw, 2.2rem);
           font-weight: 500;
           font-style: italic;
@@ -163,7 +163,7 @@ export default function TerrainParleSection() {
           flex-shrink: 0;
         }
         .tps-avatar-initials {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 16px;
           font-weight: 600;
           color: #A5CE46;
@@ -173,13 +173,13 @@ export default function TerrainParleSection() {
           flex-direction: column;
         }
         .tps-author-name {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 13px;
           font-weight: 500;
           color: #F5EDD6;
         }
         .tps-author-role {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px;
           color: rgba(245,237,214,0.5);
           text-transform: uppercase;
@@ -207,7 +207,7 @@ export default function TerrainParleSection() {
         }
         .tps-stat-num {
           display: block;
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: clamp(1.8rem, 3vw, 2.4rem);
           font-weight: 700;
           color: #A5CE46;
@@ -215,7 +215,7 @@ export default function TerrainParleSection() {
         }
         .tps-stat-lbl {
           display: block;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px;
           color: rgba(245,237,214,0.5);
           text-transform: uppercase;
@@ -232,7 +232,7 @@ export default function TerrainParleSection() {
 
         /* ── TAGLINE ── */
         .tps-tagline {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 1.2rem;
           font-style: italic;
           color: rgba(245,237,214,0.6);

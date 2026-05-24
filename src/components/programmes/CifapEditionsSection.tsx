@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState } from 'react'
 import Image from 'next/image'
@@ -32,7 +32,7 @@ export default function CifapEditionsSection({ locale }: Props) {
         <h2
           id="cifap-ed-titre"
           className="text-[18px] font-semibold text-foreground"
-          style={{ fontFamily: "'DM Sans', sans-serif" }}
+          style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
         >
           Parcourez les éditions du CIFAP
         </h2>
@@ -49,7 +49,7 @@ export default function CifapEditionsSection({ locale }: Props) {
             </button>
             <span
               className="text-[12px] font-medium tabular-nums"
-              style={{ color: '#9CA3AF', fontFamily: "'DM Sans', sans-serif", minWidth: '2.5rem', textAlign: 'center' }}
+              style={{ color: '#9CA3AF', fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif", minWidth: '2.5rem', textAlign: 'center' }}
             >
               {String(start + 1).padStart(2, '0')}&thinsp;/&thinsp;{String(total).padStart(2, '0')}
             </span>
@@ -66,7 +66,7 @@ export default function CifapEditionsSection({ locale }: Props) {
           <Link
             href={`/${locale}/programmes/cifap`}
             className="text-xs text-nss-principal hover:underline"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}
+            style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
           >
             Voir le programme ↗
           </Link>
@@ -113,7 +113,7 @@ export default function CifapEditionsSection({ locale }: Props) {
                   style={{
                     background: isUpcoming ? '#E8A838' : 'rgba(0,0,0,0.52)',
                     color: '#ffffff',
-                    fontFamily: "'DM Sans', sans-serif",
+                    fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
                     letterSpacing: '0.05em',
                   }}
                 >
@@ -128,7 +128,7 @@ export default function CifapEditionsSection({ locale }: Props) {
               <div className="p-5 flex flex-col gap-3 flex-1">
                 <span
                   className="self-start inline-flex items-center gap-1.5 text-[12px] font-medium px-2 py-1 rounded"
-                  style={{ background: '#EAF3DE', color: '#3B6D11', fontFamily: "'DM Sans', sans-serif" }}
+                  style={{ background: '#EAF3DE', color: '#3B6D11', fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
                 >
                   <Tent size={11} aria-hidden="true" />
                   Camp de formation
@@ -137,13 +137,13 @@ export default function CifapEditionsSection({ locale }: Props) {
                 <div>
                   <p
                     className="text-[11px] font-medium uppercase tracking-wider mb-1"
-                    style={{ color: '#9CA3AF', fontFamily: "'DM Sans', sans-serif" }}
+                    style={{ color: '#9CA3AF', fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
                   >
                     {ed.num} édition · {ed.year}
                   </p>
                   <h3
                     className="text-[16px] font-semibold text-foreground leading-snug"
-                    style={{ fontFamily: "'DM Sans', sans-serif" }}
+                    style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
                   >
                     {ed.themeShort}
                   </h3>
@@ -151,7 +151,7 @@ export default function CifapEditionsSection({ locale }: Props) {
 
                 <p
                   className="text-[13px] leading-relaxed line-clamp-2"
-                  style={{ color: '#6B7280', fontFamily: "'DM Sans', sans-serif" }}
+                  style={{ color: '#6B7280', fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
                 >
                   {ed.themeSubtitle}
                 </p>
@@ -159,19 +159,19 @@ export default function CifapEditionsSection({ locale }: Props) {
                 <div className="pt-3 space-y-2" style={{ borderTop: '0.5px solid #e5e7eb' }}>
                   <div className="flex items-start gap-2">
                     <Calendar size={12} className="mt-0.5 flex-shrink-0" style={{ color: '#9CA3AF' }} aria-hidden="true" />
-                    <span className="text-[12px]" style={{ color: '#4B5563', fontFamily: "'DM Sans', sans-serif" }}>
+                    <span className="text-[12px]" style={{ color: '#4B5563', fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}>
                       {ed.dates}
                     </span>
                   </div>
                   <div className="flex items-start gap-2">
                     <MapPin size={12} className="mt-0.5 flex-shrink-0" style={{ color: '#9CA3AF' }} aria-hidden="true" />
-                    <span className="text-[12px]" style={{ color: '#4B5563', fontFamily: "'DM Sans', sans-serif" }}>
+                    <span className="text-[12px]" style={{ color: '#4B5563', fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}>
                       Niaguis, Sénégal
                     </span>
                   </div>
                   <div className="flex items-start gap-2">
                     <Users size={12} className="mt-0.5 flex-shrink-0" style={{ color: '#9CA3AF' }} aria-hidden="true" />
-                    <span className="text-[12px]" style={{ color: '#4B5563', fontFamily: "'DM Sans', sans-serif" }}>
+                    <span className="text-[12px]" style={{ color: '#4B5563', fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}>
                       {ed.participants ?? '— · 8 pays'}
                     </span>
                   </div>
@@ -188,7 +188,7 @@ export default function CifapEditionsSection({ locale }: Props) {
                   style={{
                     background: isUpcoming ? '#FAEEDA' : '#F3F4F6',
                     color: isUpcoming ? '#633806' : '#6B7280',
-                    fontFamily: "'DM Sans', sans-serif",
+                    fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
                   }}
                 >
                   {isUpcoming ? 'À venir' : 'Édition passée'}
@@ -197,7 +197,7 @@ export default function CifapEditionsSection({ locale }: Props) {
                   <Link
                     href={`/${locale}${ed.href}`}
                     className="text-[13px] font-medium hover:underline whitespace-nowrap"
-                    style={{ color: '#1D9E75', fontFamily: "'DM Sans', sans-serif" }}
+                    style={{ color: '#1D9E75', fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
                     aria-label={`Voir l'édition CIFAP ${ed.year}`}
                   >
                     Voir l&apos;édition →
@@ -205,7 +205,7 @@ export default function CifapEditionsSection({ locale }: Props) {
                 ) : (
                   <span
                     className="text-[13px] whitespace-nowrap"
-                    style={{ color: '#9CA3AF', fontFamily: "'DM Sans', sans-serif" }}
+                    style={{ color: '#9CA3AF', fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
                   >
                     Bientôt disponible
                   </span>

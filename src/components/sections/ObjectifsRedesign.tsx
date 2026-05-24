@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useEffect, useRef, useState } from 'react'
 
@@ -140,7 +140,7 @@ export default function ObjectifsRedesign() {
         .obj-eyebrow {
           display: flex; align-items: center; justify-content: center;
           gap: 12px; margin-bottom: 20px;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px; font-weight: 500;
           letter-spacing: 0.14em; text-transform: uppercase;
           color: #00AD4C;
@@ -150,7 +150,7 @@ export default function ObjectifsRedesign() {
           background: #00AD4C; flex-shrink: 0;
         }
         .obj-h2 {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: clamp(1.37rem, 2.99vw, 2.39rem);
           font-weight: 500; letter-spacing: -0.01em; line-height: 1.2;
           color: #2A2A2A; margin: 0;
@@ -162,7 +162,7 @@ export default function ObjectifsRedesign() {
           margin: 0.75rem auto 1.25rem;
         }
         .obj-desc {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 14px; font-weight: 300; color: #4A4A4A;
           line-height: 1.8; text-align: center; margin: 0;
         }
@@ -217,7 +217,7 @@ export default function ObjectifsRedesign() {
 
         /* ── NUMBER ── */
         .obj-num {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 72px; font-weight: 600;
           color: #f0faf4; line-height: 1;
           transition: color 0.4s ease;
@@ -226,7 +226,7 @@ export default function ObjectifsRedesign() {
 
         /* ── H3 ── */
         .obj-title {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 18px; font-weight: 500;
           color: #2A2A2A; line-height: 1.2; margin: 0 0 8px;
           transition: color 0.4s ease;
@@ -241,7 +241,7 @@ export default function ObjectifsRedesign() {
 
         /* ── TEXT ── */
         .obj-text {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 13px; font-weight: 300;
           color: #4A4A4A; line-height: 1.8;
           text-align: justify; text-align-last: left;

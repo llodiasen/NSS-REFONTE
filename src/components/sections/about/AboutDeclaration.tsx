@@ -158,7 +158,7 @@ export default function AboutDeclaration() {
         .adc-eyebrow {
           display: flex; align-items: center; gap: 12px;
           margin: 0 0 18px;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           font-weight: 500;
           letter-spacing: 0.14em;
@@ -173,7 +173,7 @@ export default function AboutDeclaration() {
         /* ── H2 ── */
         .adc-h2 {
           margin: 0 0 1rem;
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: clamp(2rem, 3.5vw, 2rem);
           font-weight: 500;
           line-height: 1.2;
@@ -201,7 +201,7 @@ export default function AboutDeclaration() {
 
         /* ── Corps ── */
         .adc-body {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 15px;
           font-weight: 300;
           line-height: 1.8;
@@ -224,7 +224,7 @@ export default function AboutDeclaration() {
           border: none;
           border-radius: 6px;
           padding: 9px 18px;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           font-weight: 500;
           letter-spacing: 0.06em;
@@ -280,7 +280,7 @@ export default function AboutDeclaration() {
         .adc-play-label {
           position: relative;
           z-index: 1;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px;
           font-weight: 600;
           letter-spacing: 0.18em;
@@ -297,7 +297,7 @@ export default function AboutDeclaration() {
           gap: 4px;
         }
         .adc-cap-tag {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px;
           font-weight: 600;
           letter-spacing: 0.1em;
@@ -305,7 +305,7 @@ export default function AboutDeclaration() {
           color: #00AD4C;
         }
         .adc-cap-titre {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 16px;
           font-weight: 300;
           color: #2A2A2A;
@@ -313,7 +313,7 @@ export default function AboutDeclaration() {
           line-height: 1.3;
         }
         .adc-cap-meta {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 12px;
           color: #9ca3af;
         }

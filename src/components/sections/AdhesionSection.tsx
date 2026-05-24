@@ -114,7 +114,7 @@ export default function AdhesionSection() {
             <span
               style={{
                 display: "block",
-                fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+                fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
                 fontSize: "10px",
                 fontWeight: 500,
                 letterSpacing: "0.25em",
@@ -127,7 +127,7 @@ export default function AdhesionSection() {
             </span>
             <h2
               style={{
-                fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
+                fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
                 fontSize: "22px",
                 fontWeight: 700,
                 lineHeight: 1.25,
@@ -164,7 +164,7 @@ export default function AdhesionSection() {
                   />
                   <span
                     style={{
-                      fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+                      fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
                       fontSize: "13px",
                       lineHeight: 1.75,
                       color: "#333",
@@ -192,7 +192,7 @@ export default function AdhesionSection() {
             <span
               style={{
                 display: "block",
-                fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+                fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
                 fontSize: "10px",
                 fontWeight: 500,
                 letterSpacing: "0.25em",
@@ -205,7 +205,7 @@ export default function AdhesionSection() {
             </span>
             <h2
               style={{
-                fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
+                fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
                 fontSize: "22px",
                 fontWeight: 700,
                 lineHeight: 1.25,
@@ -243,7 +243,7 @@ export default function AdhesionSection() {
                       borderRadius: "50%",
                       background: "#1a3a2a",
                       flexShrink: 0,
-                      fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+                      fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
                       fontSize: "10px",
                       fontWeight: 700,
                       color: "#fff",
@@ -256,7 +256,7 @@ export default function AdhesionSection() {
                     <span
                       style={{
                         display: "block",
-                        fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
+                        fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
                         fontSize: "14px",
                         fontWeight: 700,
                         color: "#1A1A1A",
@@ -267,7 +267,7 @@ export default function AdhesionSection() {
                     </span>
                     <p
                       style={{
-                        fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+                        fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
                         fontSize: "12px",
                         lineHeight: 1.75,
                         color: "#1A1A1A",
@@ -317,7 +317,7 @@ export default function AdhesionSection() {
                   top: "50%",
                   left: "50%",
                   transform: "translate(-50%, -50%)",
-                  fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
+                  fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
                   fontSize: "120px",
                   fontWeight: 800,
                   lineHeight: 1,
@@ -336,7 +336,7 @@ export default function AdhesionSection() {
               <span
                 style={{
                   display: "block",
-                  fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+                  fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
                   fontSize: "9px",
                   fontWeight: 600,
                   letterSpacing: "0.2em",
@@ -363,7 +363,7 @@ export default function AdhesionSection() {
               {/* Titre */}
               <h3
                 style={{
-                  fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
+                  fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
                   fontSize: "14px",
                   fontWeight: 700,
                   lineHeight: 1.35,
@@ -377,7 +377,7 @@ export default function AdhesionSection() {
               {/* Corps */}
               <p
                 style={{
-                  fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+                  fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
                   fontSize: "12px",
                   lineHeight: 1.8,
                   color: "#1A1A1A",
@@ -408,7 +408,7 @@ export default function AdhesionSection() {
             <span
               style={{
                 display: "block",
-                fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+                fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
                 fontSize: "10px",
                 fontWeight: 500,
                 letterSpacing: "0.25em",
@@ -421,7 +421,7 @@ export default function AdhesionSection() {
             </span>
             <p
               style={{
-                fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
+                fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
                 fontSize: "clamp(20px, 2.2vw, 26px)",
                 fontWeight: 700,
                 lineHeight: 1.3,
@@ -447,7 +447,7 @@ export default function AdhesionSection() {
               border: "none",
               borderRadius: "28px",
               padding: "16px 32px",
-              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+              fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
               fontSize: "13px",
               fontWeight: 700,
               color: "#1a3a2a",

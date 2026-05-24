@@ -60,11 +60,11 @@ export default function CloudinaryGalleryClient({ images, caption }: Props) {
 
       {/* En-tête */}
       <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: "20px", flexWrap: "wrap", gap: "8px" }}>
-        <h3 style={{ fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#1a2612", margin: 0 }}>
+        <h3 style={{ fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif", fontSize: "22px", fontWeight: 400, color: "#1a2612", margin: 0 }}>
           {caption ?? "Photos"}
         </h3>
         {images.length > 0 && (
-          <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#8a8375" }}>
+          <span style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif", fontSize: "11px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#8a8375" }}>
             {images.length} photo{images.length !== 1 ? "s" : ""}
           </span>
         )}
@@ -72,7 +72,7 @@ export default function CloudinaryGalleryClient({ images, caption }: Props) {
 
       {/* Vide */}
       {images.length === 0 && (
-        <div style={{ textAlign: "center", padding: "40px 0", fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "13px", color: "#8a8375" }}>
+        <div style={{ textAlign: "center", padding: "40px 0", fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif", fontSize: "13px", color: "#8a8375" }}>
           Aucune photo disponible.
         </div>
       )}
@@ -150,7 +150,7 @@ export default function CloudinaryGalleryClient({ images, caption }: Props) {
               <button
                 onClick={() => setActive(0)}
                 style={{
-                  fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+                  fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
                   fontSize: "13px",
                   fontWeight: 600,
                   color: "#1D9E75",
@@ -268,7 +268,7 @@ export default function CloudinaryGalleryClient({ images, caption }: Props) {
         .cld-featured:hover .cld-caption-overlay,
         .cld-small:hover .cld-caption-overlay { opacity: 1; }
         .cld-caption-text {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           color: rgba(255,255,255,0.9);
           letter-spacing: 0.03em;
@@ -294,14 +294,14 @@ export default function CloudinaryGalleryClient({ images, caption }: Props) {
           gap: 6px;
         }
         .cld-more-count {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 28px;
           font-weight: 400;
           color: #ffffff;
           line-height: 1;
         }
         .cld-more-label {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           font-weight: 600;
           letter-spacing: 0.08em;
@@ -329,7 +329,7 @@ export default function CloudinaryGalleryClient({ images, caption }: Props) {
           max-width: 90vw;
         }
         .cld-lb-caption {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 13px;
           color: rgba(255,255,255,0.65);
           text-align: center;
@@ -344,7 +344,7 @@ export default function CloudinaryGalleryClient({ images, caption }: Props) {
           bottom: 24px;
           left: 50%;
           transform: translateX(-50%);
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 12px;
           color: rgba(255,255,255,0.4);
           letter-spacing: 1px;

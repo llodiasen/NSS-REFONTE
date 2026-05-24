@@ -42,27 +42,27 @@ function OrgCard({ org }: { org: Org }) {
       {/* Logo circle */}
       <div style={{ width: "80px", height: "80px", borderRadius: "50%", overflow: "hidden", border: "1.5px solid #e8e2d9", display: "flex", alignItems: "center", justifyContent: "center", background: imgErr ? "linear-gradient(135deg,#1a3520,#3b7a45)" : "#f9f7f4", flexShrink: 0 }}>
         {imgErr ? (
-          <span style={{ fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif", fontSize: "18px", fontWeight: 600, color: "#fff" }}>{initials}</span>
+          <span style={{ fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif", fontSize: "18px", fontWeight: 600, color: "#fff" }}>{initials}</span>
         ) : (
           <Image src={org.logo} alt={org.sigle} width={80} height={80} style={{ objectFit: "contain", padding: "8px" }} onError={() => setImgErr(true)} />
         )}
       </div>
 
       {/* Badge */}
-      <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "10px", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", padding: "3px 10px", borderRadius: "20px", background: isFondatrice ? "#e8f2df" : "#f0ede7", color: isFondatrice ? "#3b6d11" : "#6b6358" }}>
+      <span style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif", fontSize: "10px", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", padding: "3px 10px", borderRadius: "20px", background: isFondatrice ? "#e8f2df" : "#f0ede7", color: isFondatrice ? "#3b6d11" : "#6b6358" }}>
         {org.type}
       </span>
 
       {/* Nom */}
-      <p style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "13px", fontWeight: 600, color: "#1a3520", textAlign: "center", lineHeight: 1.4, margin: 0 }}>
+      <p style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif", fontSize: "13px", fontWeight: 600, color: "#1a3520", textAlign: "center", lineHeight: 1.4, margin: 0 }}>
         {org.sigle}
       </p>
-      <p style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "11px", color: "#888", textAlign: "center", lineHeight: 1.45, margin: 0 }}>
+      <p style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif", fontSize: "11px", color: "#888", textAlign: "center", lineHeight: 1.45, margin: 0 }}>
         {org.nom}
       </p>
 
       {/* Pays */}
-      <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "10px", fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "#aaa" }}>
+      <span style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif", fontSize: "10px", fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "#aaa" }}>
         {org.pays}
       </span>
     </div>
@@ -87,7 +87,7 @@ export default function OrganisationsMembres({ locale: _locale }: { locale: stri
   };
 
   const pillStyle = (active: boolean) => ({
-    fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif" as const,
+    fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" as const,
     fontSize: "12px",
     fontWeight: 500 as const,
     padding: "7px 18px",
@@ -109,20 +109,20 @@ export default function OrganisationsMembres({ locale: _locale }: { locale: stri
           {/* Eyebrow avec lignes décoratives */}
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "16px", marginBottom: "20px" }}>
             <span style={{ display: "block", flex: 1, maxWidth: "80px", height: "1px", background: "#c4bfb5" }} />
-            <span style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "10px", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#7a7060" }}>
+            <span style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif", fontSize: "10px", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#7a7060" }}>
               Le Réseau
             </span>
             <span style={{ display: "block", flex: 1, maxWidth: "80px", height: "1px", background: "#c4bfb5" }} />
           </div>
 
           {/* Titre */}
-          <h2 style={{ fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif", fontSize: "clamp(21px,3.5vw,36px)", fontWeight: 400, color: "#1a3520", margin: "0 0 14px", lineHeight: 1.15 }}>
+          <h2 style={{ fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif", fontSize: "clamp(21px,3.5vw,36px)", fontWeight: 400, color: "#1a3520", margin: "0 0 14px", lineHeight: 1.15 }}>
             Nos organisations{" "}
             <em style={{ fontStyle: "italic", color: "#5c8a3c" }}>membres.</em>
           </h2>
 
           {/* Sous-titre */}
-          <p style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "14px", color: "#9c9488", margin: 0, letterSpacing: "0.02em" }}>
+          <p style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif", fontSize: "14px", color: "#9c9488", margin: 0, letterSpacing: "0.02em" }}>
             14 pays · 5 organisations fondatrices · 500+ associations affiliées
           </p>
         </div>
@@ -136,8 +136,8 @@ export default function OrganisationsMembres({ locale: _locale }: { locale: stri
               { val: "500+", lab: "Associations" },
             ].map(({ val, lab }, i) => (
               <div key={lab} style={{ padding: "20px 16px", textAlign: "center", borderLeft: i > 0 ? "1px solid #e8e2d9" : "none" }}>
-                <div style={{ fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif", fontSize: "28px", fontWeight: 400, color: "#1a3520", lineHeight: 1, marginBottom: "6px" }}>{val}</div>
-                <div style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "9px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#b0a898" }}>{lab}</div>
+                <div style={{ fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif", fontSize: "28px", fontWeight: 400, color: "#1a3520", lineHeight: 1, marginBottom: "6px" }}>{val}</div>
+                <div style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif", fontSize: "9px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#b0a898" }}>{lab}</div>
               </div>
             ))}
           </div>
@@ -161,7 +161,7 @@ export default function OrganisationsMembres({ locale: _locale }: { locale: stri
 
         {/* ── CTA ── */}
         <div style={{ textAlign: "center", marginTop: "48px" }}>
-          <button style={{ fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif", fontSize: "13px", fontWeight: 500, letterSpacing: "0.05em", textTransform: "uppercase", padding: "13px 32px", background: "transparent", border: "1.5px solid #1a3520", color: "#1a3520", borderRadius: "2px", cursor: "pointer", transition: "background 0.2s, color 0.2s" }}
+          <button style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif", fontSize: "13px", fontWeight: 500, letterSpacing: "0.05em", textTransform: "uppercase", padding: "13px 32px", background: "transparent", border: "1.5px solid #1a3520", color: "#1a3520", borderRadius: "2px", cursor: "pointer", transition: "background 0.2s, color 0.2s" }}
             onMouseEnter={(e) => { e.currentTarget.style.background = "#1a3520"; e.currentTarget.style.color = "#fff"; }}
             onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#1a3520"; }}>
             Voir toutes les organisations →

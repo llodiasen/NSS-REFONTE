@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
@@ -126,7 +126,7 @@ export default function HeroHome() {
           gap: 8px;
         }
         .nh-scroll-txt {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 9px;
           letter-spacing: 0.16em;
           text-transform: uppercase;
@@ -166,7 +166,7 @@ export default function HeroHome() {
           flex-shrink: 0;
         }
         .nh-over-txt {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           font-weight: 500;
           letter-spacing: 0.16em;
@@ -176,7 +176,7 @@ export default function HeroHome() {
 
         /* ── H1 ── */
         .nh-h1 {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: clamp(2.52rem, 5.4vw, 3.6rem);
           font-weight: 600;
           color: #ffffff;
@@ -208,7 +208,7 @@ export default function HeroHome() {
           flex-wrap: wrap;
         }
         .nh-btn-fill {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 12px;
           font-weight: 500;
           letter-spacing: 0.08em;
@@ -226,7 +226,7 @@ export default function HeroHome() {
         .nh-btn-fill:hover { background: #009940; }
 
         .nh-btn-play {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 12px;
           font-weight: 400;
           letter-spacing: 0.06em;

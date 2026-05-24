@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 const PILLS = ["Tous", "Événements", "Agroécologie", "Médias", "NSS"]
 
@@ -56,7 +56,7 @@ export default function MediathequeFilters({
           flex-wrap: wrap;
         }
         .mf-pill {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 12px;
           font-weight: 400;
           padding: 6px 14px;

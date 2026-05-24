@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
@@ -194,7 +194,7 @@ export default function MissionSection() {
           align-items: center;
           gap: 12px;
           margin-bottom: 20px;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           font-weight: 500;
           letter-spacing: 0.14em;
@@ -211,7 +211,7 @@ export default function MissionSection() {
 
         /* ── H2 ── */
         .msn-h2 {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: clamp(1.62rem, 3.15vw, 1.98rem);
           font-weight: 600;
           letter-spacing: -0.01em;
@@ -227,7 +227,7 @@ export default function MissionSection() {
 
         /* ── PARAGRAPHES ── */
         .msn-body {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 15px;
           font-weight: 300;
           color: #4A4A4A;
@@ -260,7 +260,7 @@ export default function MissionSection() {
           color: #00AD4C;
         }
         .msn-hl-text {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 15px;
           font-weight: 300;
           color: #4A4A4A;
@@ -279,7 +279,7 @@ export default function MissionSection() {
           gap: 8px;
           background: #00AD4C;
           color: #ffffff;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 12px;
           font-weight: 500;
           letter-spacing: 0.08em;
@@ -310,7 +310,7 @@ export default function MissionSection() {
           padding: 14px 18px;
         }
         .msn-badge-num {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 24px;
           font-weight: 700;
           color: #00AD4C;
@@ -318,7 +318,7 @@ export default function MissionSection() {
           line-height: 1;
         }
         .msn-badge-lbl {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px;
           color: #6b7280;
           text-transform: uppercase;
@@ -371,7 +371,7 @@ export default function MissionSection() {
           transform: scale(1.06);
         }
         .msn-play-lbl {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px;
           letter-spacing: 0.12em;
           text-transform: uppercase;
@@ -390,7 +390,7 @@ export default function MissionSection() {
           z-index: 1;
         }
         .msn-vf-tag {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px;
           font-weight: 500;
           letter-spacing: 0.1em;
@@ -400,7 +400,7 @@ export default function MissionSection() {
           margin-bottom: 4px;
         }
         .msn-vf-titre {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 18px;
           font-weight: 600;
           color: #ffffff;
@@ -408,7 +408,7 @@ export default function MissionSection() {
           margin: 0 0 3px;
         }
         .msn-vf-sub {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           color: rgba(255,255,255,0.5);
           display: block;

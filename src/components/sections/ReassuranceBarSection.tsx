@@ -1,4 +1,4 @@
-const ITEMS = [
+﻿const ITEMS = [
   {
     label: 'Semences paysannes protégées',
     sub: 'Savoirs agroécologiques transmis de génération en génération',
@@ -122,7 +122,7 @@ export default function ReassuranceBarSection() {
 
         /* ── LABEL ── */
         .rsb-label {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 13px;
           font-weight: 500;
           color: #2A2A2A;
@@ -132,7 +132,7 @@ export default function ReassuranceBarSection() {
 
         /* ── SOUS-TEXTE ── */
         .rsb-sub {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 12px;
           font-weight: 300;
           color: #9ca3af;

@@ -1,4 +1,4 @@
-import type { CifapEdition } from '@/lib/cifap-editions'
+﻿import type { CifapEdition } from '@/lib/cifap-editions'
 
 interface Props {
   edition: CifapEdition
@@ -8,7 +8,7 @@ export default function SectionParticipants({ edition: e }: Props) {
   return (
     <section id="participants" aria-labelledby="part-titre">
       <p className="text-xs uppercase tracking-widest text-gray-400 mb-4"
-         style={{ fontFamily: "'DM Sans', sans-serif" }}>
+         style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}>
         Participants
       </p>
 
@@ -28,13 +28,13 @@ export default function SectionParticipants({ edition: e }: Props) {
           >
             <p
               className="text-4xl font-bold text-nss-fonce"
-              style={{ fontFamily: "'DM Sans', sans-serif" }}
+              style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
             >
               {m.val}
             </p>
             <p
               className="text-gray-500 text-sm mt-1"
-              style={{ fontFamily: "'DM Sans', sans-serif" }}
+              style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
             >
               {m.lbl}
             </p>
@@ -47,7 +47,7 @@ export default function SectionParticipants({ edition: e }: Props) {
         <div className="bg-white rounded-2xl p-6 border border-gray-100">
           <h3
             className="font-semibold text-gray-900 text-base mb-4"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}
+            style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
           >
             Pays représentés
           </h3>
@@ -56,7 +56,7 @@ export default function SectionParticipants({ edition: e }: Props) {
               <span
                 key={pays}
                 className="border border-gray-200 rounded-full px-4 py-1.5 text-sm text-gray-700"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
+                style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
               >
                 {pays}
               </span>
@@ -70,7 +70,7 @@ export default function SectionParticipants({ edition: e }: Props) {
         <div className="bg-white rounded-2xl p-6 border border-gray-100 mt-4">
           <h3
             className="font-semibold text-gray-900 text-base mb-4"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}
+            style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
           >
             Intervenants
           </h3>
@@ -79,7 +79,7 @@ export default function SectionParticipants({ edition: e }: Props) {
               <div key={int.nom} className="flex items-center gap-4 py-3 first:pt-0 last:pb-0">
                 <span
                   className="w-9 h-9 rounded-full bg-nss-clair flex items-center justify-center text-xs font-semibold flex-shrink-0"
-                  style={{ color: '#166534', fontFamily: "'DM Sans', sans-serif" }}
+                  style={{ color: '#166534', fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
                   aria-hidden="true"
                 >
                   {int.initiales}
@@ -87,13 +87,13 @@ export default function SectionParticipants({ edition: e }: Props) {
                 <div>
                   <p
                     className="text-sm font-medium text-gray-900"
-                    style={{ fontFamily: "'DM Sans', sans-serif" }}
+                    style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
                   >
                     {int.nom}
                   </p>
                   <p
                     className="text-xs text-gray-400"
-                    style={{ fontFamily: "'DM Sans', sans-serif" }}
+                    style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
                   >
                     {int.role}
                   </p>

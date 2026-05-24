@@ -105,7 +105,7 @@ export default function ArticleMeta({ author, date, readTime, sourceName, source
       display: "flex",
       alignItems: "center",
       flexWrap: "nowrap",
-      fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+      fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
       fontSize: "13px",
       color: textColor,
       marginTop: "16px",

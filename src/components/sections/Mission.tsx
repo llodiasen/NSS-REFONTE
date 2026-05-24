@@ -210,7 +210,7 @@ export default function Mission({ locale }: MissionProps) {
           flex-shrink: 0;
         }
         .qui-eyebrow-text {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 9px;
           font-weight: 600;
           letter-spacing: 0.22em;
@@ -220,7 +220,7 @@ export default function Mission({ locale }: MissionProps) {
 
         /* ── H2 ── */
         .qui-h2 {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: clamp(48px, 5.5vw, 80px);
           font-weight: 600;
           line-height: 0.92;
@@ -235,7 +235,7 @@ export default function Mission({ locale }: MissionProps) {
 
         /* ── Tagline ── */
         .qui-tagline {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 16px;
           font-style: italic;
           font-weight: 400;
@@ -248,7 +248,7 @@ export default function Mission({ locale }: MissionProps) {
 
         /* ── Lien ── */
         .qui-link {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 12px;
           font-weight: 700;
           letter-spacing: 0.10em;
@@ -274,7 +274,7 @@ export default function Mission({ locale }: MissionProps) {
 
         /* ── Prose ── */
         .qui-prose {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 15px;
           font-weight: 400;
           line-height: 1.82;
@@ -294,7 +294,7 @@ export default function Mission({ locale }: MissionProps) {
           border-top: 1px solid #E8E8E8;
         }
         .qui-message {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 15px;
           font-style: italic;
           font-weight: 400;
@@ -344,7 +344,7 @@ export default function Mission({ locale }: MissionProps) {
           margin-bottom: 20px;
         }
         .qui-pilier-num {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 40px;
           font-weight: 600;
           color: #EBEBEB;
@@ -355,7 +355,7 @@ export default function Mission({ locale }: MissionProps) {
           opacity: 0.85;
         }
         .qui-pilier-titre {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 15px;
           font-weight: 700;
           color: #0A0A0A;
@@ -363,7 +363,7 @@ export default function Mission({ locale }: MissionProps) {
           letter-spacing: -0.01em;
         }
         .qui-pilier-desc {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 13.5px;
           font-weight: 400;
           color: #5A5A5A;

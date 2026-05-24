@@ -18,7 +18,8 @@
       "Bash(git config *)",
       "Bash(git ls-remote *)",
       "Bash(Start-Sleep -Seconds 30)",
-      "Bash(Get-Content \"C:\\\\Users\\\\LENOVO\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-LENOVO-Documents-Projets-NSS-REFONTE\\\\06ec58a8-e75f-4e4f-9cc8-33b4ed061d2b\\\\tasks\\\\b8l5qxlsi.output\")"
+      "Bash(Get-Content \"C:\\\\Users\\\\LENOVO\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-LENOVO-Documents-Projets-NSS-REFONTE\\\\06ec58a8-e75f-4e4f-9cc8-33b4ed061d2b\\\\tasks\\\\b8l5qxlsi.output\")",
+      "Bash(node -e ' *)"
     ]
   }
 }

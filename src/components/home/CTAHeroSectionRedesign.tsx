@@ -165,7 +165,7 @@ export default function CTAHeroSectionRedesign() {
           background: rgba(232,168,56,0.45);
         }
         .cth-eyebrow-text {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 0.75rem;
           font-weight: 500;
           letter-spacing: 0.12em;
@@ -176,7 +176,7 @@ export default function CTAHeroSectionRedesign() {
 
         /* ── H2 ── */
         .cth-h2 {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: clamp(1.37rem, 2.99vw, 1.88rem);
           font-weight: 600;
           line-height: 1.15;
@@ -190,7 +190,7 @@ export default function CTAHeroSectionRedesign() {
 
         /* ── Sous-titre ── */
         .cth-sub {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 16px;
           font-weight: 300;
           line-height: 1.78;
@@ -208,7 +208,7 @@ export default function CTAHeroSectionRedesign() {
           flex-wrap: wrap;
         }
         .cth-btn {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           font-weight: 700;
           letter-spacing: 0.13em;
@@ -246,7 +246,7 @@ export default function CTAHeroSectionRedesign() {
 
         /* ── Tagline ── */
         .cth-tagline {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 15px;
           font-style: italic;
           color: ${NSS.creme};

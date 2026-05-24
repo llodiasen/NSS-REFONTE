@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { motion } from 'framer-motion'
 import { Leaf, Megaphone, Globe } from 'lucide-react'
@@ -126,7 +126,7 @@ export default function PiliersSection() {
           flex-shrink: 0;
         }
         .pil-sur-text {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           font-weight: 500;
           letter-spacing: 0.14em;
@@ -136,7 +136,7 @@ export default function PiliersSection() {
 
         /* ── H2 ── */
         .pil-h2 {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: clamp(1.44rem, 3.15vw, 2.16rem);
           font-weight: 600;
           letter-spacing: -0.01em;
@@ -160,7 +160,7 @@ export default function PiliersSection() {
 
         /* ── DESC ── */
         .pil-desc {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 15px;
           font-weight: 300;
           color: #4A4A4A;
@@ -243,7 +243,7 @@ export default function PiliersSection() {
 
         /* ── NUMÉRO WATERMARK ── */
         .pil-num {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 80px;
           font-weight: 700;
           color: #f0faf4;
@@ -258,7 +258,7 @@ export default function PiliersSection() {
 
         /* ── H3 ── */
         .pil-h3 {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 20px;
           font-weight: 600;
           color: #2A2A2A;
@@ -286,7 +286,7 @@ export default function PiliersSection() {
 
         /* ── TEXTE ── */
         .pil-text {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 14px;
           font-weight: 300;
           color: #4A4A4A;

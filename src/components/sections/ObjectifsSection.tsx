@@ -40,7 +40,7 @@ export default function ObjectifsSection() {
           <span
             style={{
               display: "block",
-              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+              fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
               fontSize: "12px",
               fontWeight: 600,
               letterSpacing: "0.2em",
@@ -53,7 +53,7 @@ export default function ObjectifsSection() {
           </span>
           <h2
             style={{
-              fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
+              fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
               fontSize: "40px",
               fontWeight: 800,
               lineHeight: 1.05,
@@ -66,7 +66,7 @@ export default function ObjectifsSection() {
           </h2>
           <p
             style={{
-              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+              fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
               fontSize: "15px",
               fontWeight: 400,
               lineHeight: 1.7,
@@ -122,7 +122,7 @@ export default function ObjectifsSection() {
                     background: "#1D9E75",
                     borderRadius: "4px",
                     padding: "5px 10px",
-                    fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+                    fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
                     fontSize: "10px",
                     fontWeight: 700,
                     letterSpacing: "0.12em",
@@ -145,7 +145,7 @@ export default function ObjectifsSection() {
                 <span
                   style={{
                     display: "block",
-                    fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+                    fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
                     fontSize: "10px",
                     fontWeight: 600,
                     letterSpacing: "0.18em",
@@ -158,7 +158,7 @@ export default function ObjectifsSection() {
                 </span>
                 <h3
                   style={{
-                    fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
+                    fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
                     fontSize: "20px",
                     fontWeight: 700,
                     lineHeight: 1.3,
@@ -170,7 +170,7 @@ export default function ObjectifsSection() {
                 </h3>
                 <p
                   style={{
-                    fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+                    fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
                     fontSize: "14px",
                     fontWeight: 400,
                     lineHeight: 1.65,

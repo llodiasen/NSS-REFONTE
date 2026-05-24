@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useEffect, useRef, useState } from 'react'
 
@@ -178,7 +178,7 @@ export default function ImpactSection() {
           align-items: center;
           gap: 12px;
           margin-bottom: 20px;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           font-weight: 500;
           letter-spacing: 0.14em;
@@ -195,7 +195,7 @@ export default function ImpactSection() {
 
         /* ── H2 ── */
         .imp-h2 {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: clamp(1.62rem, 3.15vw, 2.16rem);
           font-weight: 600;
           letter-spacing: -0.01em;
@@ -210,7 +210,7 @@ export default function ImpactSection() {
 
         /* ── PARAGRAPHE ── */
         .imp-body {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 15px;
           font-weight: 300;
           color: #4A4A4A;
@@ -227,7 +227,7 @@ export default function ImpactSection() {
           margin: 0;
         }
         .imp-quote-text {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 18px;
           font-style: italic;
           color: #2A2A2A;
@@ -235,7 +235,7 @@ export default function ImpactSection() {
           margin: 0;
         }
         .imp-quote-author {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           color: #6b7280;
           text-transform: uppercase;
@@ -279,7 +279,7 @@ export default function ImpactSection() {
 
         /* ── NUM ── */
         .imp-num {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 3rem;
           font-weight: 700;
           color: #00AD4C;
@@ -289,7 +289,7 @@ export default function ImpactSection() {
 
         /* ── LABEL ── */
         .imp-label {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px;
           font-weight: 400;
           color: #6b7280;
@@ -301,7 +301,7 @@ export default function ImpactSection() {
 
         /* ── DESC ── */
         .imp-desc {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 12px;
           font-weight: 300;
           color: #9ca3af;

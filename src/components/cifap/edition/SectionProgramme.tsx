@@ -1,4 +1,4 @@
-import {
+﻿import {
   Sprout, Archive, FlaskConical, ShieldCheck, Scissors, RefreshCw,
   ShieldAlert, Leaf, Wheat, Globe, Layers, Droplets, Package,
   type LucideIcon,
@@ -18,7 +18,7 @@ export default function SectionProgramme({ items }: Props) {
   return (
     <section id="programme" aria-labelledby="prog-titre">
       <p className="text-xs uppercase tracking-widest text-gray-400 mb-4"
-         style={{ fontFamily: "'DM Sans', sans-serif" }}>
+         style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}>
         Programme technique
       </p>
 
@@ -35,13 +35,13 @@ export default function SectionProgramme({ items }: Props) {
               </div>
               <h3
                 className="font-semibold text-gray-900 text-lg mb-2"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
+                style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
               >
                 {item.titre}
               </h3>
               <p
                 className="text-gray-500 text-sm leading-relaxed"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
+                style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
               >
                 {item.description}
               </p>

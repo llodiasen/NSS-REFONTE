@@ -177,7 +177,7 @@ export default function TimelineZigzagRedesign() {
         .tl-eyebrow {
           display: flex; align-items: center; justify-content: center; gap: 12px;
           margin: 0 0 20px;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 11px; font-weight: 500;
           letter-spacing: 0.14em; text-transform: uppercase;
           color: #00AD4C;
@@ -189,7 +189,7 @@ export default function TimelineZigzagRedesign() {
 
         .tl-h2 {
           margin: 0 0 0;
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: clamp(24px, 2.6vw, 34px); font-weight: 400; line-height: 1.2;
           color: #2A2A2A; letter-spacing: -0.015em;
         }
@@ -201,7 +201,7 @@ export default function TimelineZigzagRedesign() {
           margin: 0.75rem auto 0;
         }
         .tl-desc {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 15px; font-weight: 400; line-height: 1.7;
           color: #5a5a5a; margin: 1.25rem auto 0;
           max-width: 580px; text-align: center;
@@ -236,7 +236,7 @@ export default function TimelineZigzagRedesign() {
           display: flex; align-items: center; justify-content: center;
           width: 58px; height: 58px;
           border-radius: 50%;
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 12px; font-weight: 700;
           letter-spacing: -0.01em;
           flex-shrink: 0;
@@ -316,7 +316,7 @@ export default function TimelineZigzagRedesign() {
         .tl-ghost {
           position: absolute;
           right: -2px; top: 4px;
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 82px; font-weight: 900;
           line-height: 1; letter-spacing: -0.03em;
           color: rgba(0,0,0,0.042);
@@ -327,7 +327,7 @@ export default function TimelineZigzagRedesign() {
         /* ── Badge ── */
         .tl-badge {
           display: inline-block; width: fit-content;
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 10px; font-weight: 700;
           letter-spacing: 0.10em; text-transform: uppercase;
           padding: 4px 10px; border-radius: 100px;
@@ -342,7 +342,7 @@ export default function TimelineZigzagRedesign() {
 
         /* ── Titre ── */
         .tl-titre {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 17px; font-weight: 400;
           line-height: 1.1; display: block;
           margin-bottom: 8px;
@@ -354,7 +354,7 @@ export default function TimelineZigzagRedesign() {
 
         /* ── Texte ── */
         .tl-texte {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 14px; line-height: 1.78;
           color: #000000; margin: 0;
           text-align: justify; hyphens: auto;

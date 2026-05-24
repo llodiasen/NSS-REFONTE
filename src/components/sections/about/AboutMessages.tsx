@@ -107,14 +107,14 @@ export default function AboutMessages() {
           background: #E8A838;
         }
         .am__ey-txt {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 9.5px; font-weight: 700;
           letter-spacing: 0.28em; text-transform: uppercase;
           color: #E8A838;
           white-space: nowrap;
         }
         .am__h2 {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: clamp(22px, 2.4vw, 32px);
           font-weight: 400; line-height: 1.2;
           color: #0a1f10; margin: 0;
@@ -163,7 +163,7 @@ export default function AboutMessages() {
 
         /* ══ Numéro ═════════════════════════════════════════════ */
         .am__num {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: 36px; font-weight: 600; line-height: 1;
           color: rgba(232, 168, 56, 0.55);
           padding-top: 4px;
@@ -177,7 +177,7 @@ export default function AboutMessages() {
         /* ══ Citation ═══════════════════════════════════════════ */
         .am__quote { margin: 0; }
         .am__text {
-          font-family: 'Cormorant Garamond', var(--font-display), Georgia, serif;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
           font-size: clamp(18px, 2.2vw, 26px);
           font-weight: 400; font-style: italic;
           line-height: 1.45; letter-spacing: -0.005em;
@@ -201,7 +201,7 @@ export default function AboutMessages() {
           background: rgba(0,0,0,0.08);
         }
         .am__foot-label {
-          font-family: 'DM Sans', var(--font-dm-sans), sans-serif;
+          font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
           font-size: 9.5px; font-weight: 600;
           letter-spacing: 0.2em; text-transform: uppercase;
           color: rgba(0,0,0,0.28);

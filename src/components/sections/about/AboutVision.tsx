@@ -35,7 +35,7 @@ export default function AboutVision() {
                 style={{ width: "28px", height: "2px", background: "#1a6b3c", flexShrink: 0 }}
               />
               <span style={{
-                fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+                fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
                 fontSize: "9px",
                 fontWeight: 600,
                 textTransform: "uppercase",
@@ -48,7 +48,7 @@ export default function AboutVision() {
 
             {/* Titre */}
             <h2 style={{
-              fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
+              fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
               fontSize: "clamp(21px, 3vw, 36px)",
               fontWeight: 400,
               lineHeight: 1.18,
@@ -60,7 +60,7 @@ export default function AboutVision() {
 
             {/* Texte vision avec filet vert */}
             <p style={{
-              fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+              fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
               fontSize: "14px",
               fontWeight: 400,
               lineHeight: 1.85,
@@ -93,7 +93,7 @@ export default function AboutVision() {
                   }}
                 >
                   <span style={{
-                    fontFamily: "'Cormorant Garamond', var(--font-display), Georgia, serif",
+                    fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
                     fontSize: "34px",
                     fontWeight: 400,
                     color: "#1a6b3c",
@@ -104,7 +104,7 @@ export default function AboutVision() {
                     {number}
                   </span>
                   <span style={{
-                    fontFamily: "'DM Sans', var(--font-dm-sans), sans-serif",
+                    fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
                     fontSize: "14px",
                     fontWeight: 400,
                     color: "#7a7a7a",

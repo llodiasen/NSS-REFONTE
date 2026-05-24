@@ -1,4 +1,4 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 
 interface Props {
   locale: string
@@ -10,13 +10,13 @@ export default function EditionCtaBanner({ locale }: Props) {
       <div>
         <h3
           className="text-white font-bold text-xl"
-          style={{ fontFamily: "'DM Sans', sans-serif" }}
+          style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
         >
           Rejoindre le réseau NSS
         </h3>
         <p
           className="text-gray-300 text-sm mt-1"
-          style={{ fontFamily: "'DM Sans', sans-serif" }}
+          style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
         >
           175 000 femmes qui nourrissent l&apos;Afrique — faites partie du mouvement.
         </p>
@@ -24,7 +24,7 @@ export default function EditionCtaBanner({ locale }: Props) {
       <Link
         href={`/${locale}/agir/rejoindre`}
         className="bg-white text-nss-fonce rounded-xl px-6 py-3 font-semibold text-sm hover:bg-gray-100 transition-colors whitespace-nowrap"
-        style={{ fontFamily: "'DM Sans', sans-serif" }}
+        style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
       >
         Adhérer maintenant →
       </Link>

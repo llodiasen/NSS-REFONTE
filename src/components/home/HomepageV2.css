@@ -1,4 +1,4 @@
-/* =============================================================
+﻿/* =============================================================
    Homepage V2 — NSS wasafrica.org
    ============================================================= */
 
@@ -392,7 +392,7 @@
   background: #00AD4C; opacity: 0.5; flex-shrink: 0;
 }
 .hpv2-manifesto-h2 {
-  font-family: var(--fd), 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--fd), var(--font-dm-sans), 'DM Sans', sans-serif;
   font-size: 40px;
   font-weight: 500; letter-spacing: -0.01em;
   color: var(--ch); line-height: 1.2; margin: 0;
@@ -416,83 +416,50 @@
 
 /* Card */
 .hpv2-mcard {
-  background: #ffffff; border: 0.5px solid #e5e7eb;
+  background: #ffffff; border: 1px solid #e5e7eb;
   border-radius: 14px; padding: 36px 32px;
   display: flex; flex-direction: column;
-  cursor: pointer; position: relative; overflow: hidden;
-  transition: border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
 }
-.hpv2-mcard::before {
-  content: ''; position: absolute; inset: 0;
-  background: #045627; opacity: 0;
-  transition: opacity 0.35s ease; z-index: 0;
+.hpv2-mcard--featured {
+  border-color: #00AD4C;
 }
-.hpv2-mcard > * { position: relative; z-index: 1; }
 
-.hpv2-mcard:hover:not(.is-active) { border-color: #00AD4C; transform: translateY(-3px); }
-.hpv2-mcard.is-active {
-  border-color: #045627; transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(4,86,39,0.15);
-}
-.hpv2-mcard.is-active::before { opacity: 1; }
-
-/* Top row */
-.hpv2-mcard-top {
-  display: flex; justify-content: space-between;
-  align-items: flex-start; margin-bottom: 24px;
-}
+/* Icon */
 .hpv2-mcard-icon {
   width: 40px; height: 40px; border-radius: 10px;
   background: #f0faf4; display: grid; place-items: center;
-  color: #00AD4C; flex-shrink: 0;
-  transition: background 0.35s ease, color 0.35s ease;
+  color: #00AD4C; flex-shrink: 0; margin-bottom: 24px;
 }
 .hpv2-mcard-icon svg { width: 18px; height: 18px; }
-.hpv2-mcard.is-active .hpv2-mcard-icon { background: rgba(255,255,255,0.1); color: #A5CE46; }
-
-.hpv2-mcard-num {
-  font-family: var(--fd), 'Cormorant Garamond', Georgia, serif;
-  font-size: 48px; font-weight: 700; line-height: 1;
-  color: #f0faf4; user-select: none; transition: color 0.35s ease;
-}
-.hpv2-mcard.is-active .hpv2-mcard-num { color: rgba(255,255,255,0.06); }
 
 /* Quote */
 .hpv2-mcard-quote {
   font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif !important;
-  font-size: 22px; font-weight: 700; font-style: italic;
-  text-align: justify;
-  color: black; line-height: 1.5; margin: 0 0 20px;
-  transition: color 0.35s ease;
+  font-size: 18px; font-weight: 900; font-style: italic;
+  color: #045627; line-height: 1.45; margin: 0 0 12px; text-align: justify;
 }
-.hpv2-mcard.is-active .hpv2-mcard-quote { color: #ffffff; }
-.hpv2-mcard-guillemet { color: #00AD4C; font-style: normal; transition: color 0.35s ease; }
-.hpv2-mcard.is-active .hpv2-mcard-guillemet { color: #A5CE46; }
 
-/* Separator */
-.hpv2-mcard-sep {
-  width: 100%; height: 0.5px; background: #e5e7eb;
-  border: none; margin-bottom: 20px; transition: background 0.35s ease;
-}
-.hpv2-mcard.is-active .hpv2-mcard-sep { background: rgba(255,255,255,0.12); }
-
-/* Body */
-.hpv2-mcard-body {
-  font-family: var(--font-dm-sans), 'DM Sans', sans-serif !important; font-size: 15px; font-weight: 300;
-  color: black; line-height: 1.8; text-align: justify;
-  flex: 1; margin-bottom: 20px; transition: color 0.35s ease;
-}
-.hpv2-mcard.is-active .hpv2-mcard-body { color: #ffffff; }
-
-/* Tag */
+/* Tag — label sous la citation, au-dessus du séparateur */
 .hpv2-mcard-tag {
   display: inline-flex; align-items: center; gap: 6px;
   font-family: var(--fb); font-size: 10px; font-weight: 600;
   letter-spacing: 0.12em; text-transform: uppercase;
-  color: #00AD4C; margin-top: auto; transition: color 0.35s ease;
+  color: #00AD4C; margin-bottom: 20px;
 }
-.hpv2-mcard.is-active .hpv2-mcard-tag { color: #A5CE46; }
 .hpv2-mcard-arrow { width: 12px; height: 12px; flex-shrink: 0; }
+
+/* Separator */
+.hpv2-mcard-sep {
+  width: 100%; height: 0.5px; background: #e5e7eb;
+  border: none; margin-bottom: 20px;
+}
+
+/* Body */
+.hpv2-mcard-body {
+  font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif !important; font-size: 15px; font-weight: 300;
+  color: #4a5568; line-height: 1.8; text-align: justify;
+  flex: 1; margin: 0;
+}
 
 /* ═══════════════════════════════════════════════════════════════
    S3 — MOUVEMENT + CARTE
@@ -602,8 +569,8 @@
   border-bottom: 1px solid #f0f0ee;
 }
 .nss-lf-star    { color: #E8A838; font-size: 12px; flex-shrink: 0; }
-.nss-lf-country { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 700; color: #045627; }
-.nss-lf-badge   { font-family: 'DM Sans', sans-serif; font-size: 9px; font-weight: 600; color: #00AD4C; text-transform: uppercase; letter-spacing: 0.08em; background: rgba(0,173,76,0.1); padding: 2px 6px; border-radius: 4px; margin-left: 2px; }
+.nss-lf-country { font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif; font-size: 13px; font-weight: 700; color: #045627; }
+.nss-lf-badge   { font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif; font-size: 9px; font-weight: 600; color: #00AD4C; text-transform: uppercase; letter-spacing: 0.08em; background: rgba(0,173,76,0.1); padding: 2px 6px; border-radius: 4px; margin-left: 2px; }
 
 /* Association list */
 .nss-lf-al { list-style: none; margin: 0; padding: 6px 0 8px; }
@@ -612,11 +579,11 @@
   padding: 5px 12px;
 }
 .nss-lf-ai + .nss-lf-ai { border-top: 1px solid #f5f5f3; }
-.nss-lf-acr { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 700; color: #00AD4C; letter-spacing: 0.04em; }
-.nss-lf-an  { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 400; color: #4a4a4a; line-height: 1.4; }
+.nss-lf-acr { font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif; font-size: 11px; font-weight: 700; color: #00AD4C; letter-spacing: 0.04em; }
+.nss-lf-an  { font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif; font-size: 11px; font-weight: 400; color: #4a4a4a; line-height: 1.4; }
 
 /* "Réseau en développement" */
-.nss-lf-dev { font-family: 'DM Sans', sans-serif; font-size: 11px; font-style: italic; color: #9ca3af; padding: 7px 12px 9px; margin: 0; }
+.nss-lf-dev { font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif; font-size: 11px; font-style: italic; color: #9ca3af; padding: 7px 12px 9px; margin: 0; }
 
 /* Zoom control */
 .leaflet-control-zoom a { border-color: #e5e7eb !important; color: #045627 !important; font-size: 15px !important; }
@@ -678,7 +645,7 @@
 .hpv2-mission-tab-icon svg { width: 18px; height: 18px; }
 .hpv2-mission-tab.is-active .hpv2-mission-tab-icon { opacity: 1; }
 .hpv2-mission-tab-label {
-  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-family: var(--font-dm-sans), 'DM Sans', sans-serif !important;
   font-size: 20px;
   font-weight: 500;
   color: var(--mu);
@@ -1005,7 +972,7 @@
   pointer-events: none;
 }
 .hpv2-prog-img-type {
-  font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
+  font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
   font-size: 9px; font-weight: 700; color: #fff;
   text-transform: uppercase; letter-spacing: 0.14em;
   opacity: 0.9;
@@ -1014,12 +981,12 @@
   display: flex; justify-content: space-between; align-items: flex-end;
 }
 .hpv2-prog-img-sub {
-  font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
+  font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
   font-size: 11px; font-weight: 600; color: #fff;
   text-transform: uppercase; letter-spacing: 0.08em;
 }
 .hpv2-prog-img-lieu {
-  font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
+  font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
   font-size: 11px; font-weight: 400; color: rgba(255,255,255,0.75);
   text-transform: uppercase; letter-spacing: 0.06em;
 }
@@ -1040,7 +1007,7 @@
   margin-bottom: 8px;
 }
 .hpv2-prog-h3 {
-  font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif !important; font-size: 19px;
+  font-family: var(--font-dm-sans), 'DM Sans', sans-serif !important; font-size: 19px;
   font-weight: 700; color: #2A2A2A;
   line-height: 1.3; margin-bottom: 10px;
 }
@@ -1077,7 +1044,7 @@
   color: #2A2A2A; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .hpv2-prog-text {
-  font-family: var(--font-dm-sans), 'DM Sans', sans-serif !important; font-size: 15px; font-weight: 300;
+  font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif !important; font-size: 15px; font-weight: 300;
   color: black; line-height: 1.7; margin: 0 0 12px;
   text-align: justify; text-align-last: left;
   display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
@@ -1150,14 +1117,14 @@
   font-family: var(--fb); font-size: 11px; color: var(--mu2);
 }
 .hpv2-actu-h3 {
-  font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif !important; font-size: clamp(calc(0.945rem + 2px), calc(1.34vw + 2px), calc(1.14rem + 2px));
+  font-family: var(--font-dm-sans), 'DM Sans', sans-serif !important; font-size: clamp(calc(0.945rem + 2px), calc(1.34vw + 2px), calc(1.14rem + 2px));
   font-weight: 700; color: var(--ch); line-height: 1.25; margin: 0;
 }
 .hpv2-actu-sep {
   border: none; border-top: 0.5px solid var(--ru); margin: 0;
 }
 .hpv2-actu-excerpt {
-  font-family: var(--font-dm-sans), 'DM Sans', sans-serif !important; font-size: 15px; font-weight: 300;
+  font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif !important; font-size: 15px; font-weight: 300;
   color: black; line-height: 1.65; margin: 0; flex: 1;
   text-align: justify;
 }
@@ -1349,8 +1316,7 @@
   .hpv2-sec { padding: 80px 0; }
   .hpv2-manifesto { padding: 48px 20px; }
   .hpv2-manifesto-grid { grid-template-columns: 1fr; gap: 14px; }
-  .hpv2-mcard:hover:not(.is-active),
-  .hpv2-mcard.is-active { transform: none; }
+  .hpv2-mcard { transform: none; }
 
     .hpv2-mouvement-grid  { grid-template-columns: 1fr; gap: 48px; }
   .hpv2-mission-grid    { grid-template-columns: 1fr; gap: 48px; }

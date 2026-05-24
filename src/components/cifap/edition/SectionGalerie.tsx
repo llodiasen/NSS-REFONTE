@@ -1,4 +1,4 @@
-import { Camera, ImageIcon } from 'lucide-react'
+﻿import { Camera, ImageIcon } from 'lucide-react'
 
 interface Props {
   count: number
@@ -8,7 +8,7 @@ export default function SectionGalerie({ count }: Props) {
   return (
     <section id="galerie" aria-labelledby="gal-titre">
       <p className="text-xs uppercase tracking-widest text-gray-400 mb-4"
-         style={{ fontFamily: "'DM Sans', sans-serif" }}>
+         style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}>
         Galerie
       </p>
 
@@ -38,7 +38,7 @@ export default function SectionGalerie({ count }: Props) {
       {/* Bouton voir toutes */}
       <button
         className="w-full mt-4 border border-gray-200 rounded-xl py-3 text-sm text-gray-600 flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors"
-        style={{ fontFamily: "'DM Sans', sans-serif" }}
+        style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
         type="button"
       >
         <ImageIcon size={16} aria-hidden="true" />

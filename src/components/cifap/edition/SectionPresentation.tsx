@@ -1,4 +1,4 @@
-import type { CifapEdition } from '@/lib/cifap-editions'
+﻿import type { CifapEdition } from '@/lib/cifap-editions'
 
 interface Props {
   edition: CifapEdition
@@ -8,7 +8,7 @@ export default function SectionPresentation({ edition: e }: Props) {
   return (
     <section id="presentation" aria-labelledby="pres-titre">
       <p className="text-xs uppercase tracking-widest text-gray-400 mb-4"
-         style={{ fontFamily: "'DM Sans', sans-serif" }}>
+         style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}>
         Présentation
       </p>
 
@@ -16,12 +16,12 @@ export default function SectionPresentation({ edition: e }: Props) {
         <h2
           id="pres-titre"
           className="text-lg font-semibold text-gray-900 mb-3"
-          style={{ fontFamily: "'DM Sans', sans-serif" }}
+          style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
         >
           {e.theme}
         </h2>
         <p className="text-gray-700 text-base leading-relaxed"
-           style={{ fontFamily: "'DM Sans', sans-serif" }}>
+           style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}>
           {e.presentation}
         </p>
 
@@ -41,13 +41,13 @@ export default function SectionPresentation({ edition: e }: Props) {
             <div key={s.lbl} className="text-center">
               <p
                 className="text-3xl font-bold text-nss-fonce"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
+                style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
               >
                 {s.val}
               </p>
               <p
                 className="text-gray-500 text-sm mt-1"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
+                style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
               >
                 {s.lbl}
               </p>
