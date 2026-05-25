@@ -60,7 +60,7 @@ function FieldIcon({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function ContactForm({ defaultSujet }: ContactFormProps) {
+export default function ContactForm({ defaultSujet: _defaultSujet }: ContactFormProps) {
   const [cat, setCat]       = useState<CatId>("adhesion");
   const [success, setSuccess] = useState(false);
   const [error, setError]   = useState<string | null>(null);
