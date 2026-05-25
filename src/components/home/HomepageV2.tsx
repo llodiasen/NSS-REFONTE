@@ -345,79 +345,202 @@ function MissionSection({ locale }: { locale: string }) {
 /* ═══════════════════════════════════════════════════════════════
    S5 — VIDÉOS NSS
    ═══════════════════════════════════════════════════════════════ */
+function cloudinaryThumb(url: string): string {
+  return url
+    .replace('/video/upload/', '/video/upload/so_0,q_auto,f_jpg/')
+    .replace(/\.[^.]+$/, '.jpg')
+}
+
 const VIDEOS = [
   {
     id: 'v1',
-    duration: '4:32',
-    category: 'Formation',
-    country: 'Sénégal',
-    title: 'CIFAP 2024 — Les femmes agricultrices prennent la parole',
-    desc: 'Retour sur la 4ème édition du camp international de formation agroécologique à Niaguis.',
+    thumb: cloudinaryThumb('https://res.cloudinary.com/dtjvjlkcc/video/upload/q_auto/f_auto/v1776019281/NSS_CIFAP_2025_Mariama_Sonko_hommage_Razack_Belemgnegre_ouverture_4e_edition.mp4'),
+    duration: '0:49',
+    category: 'Événements',
+    title: 'NSS — CIFAP 2025 : Mme Mariama Sonko rend hommage à M. Razack Belemgnegre',
+    desc: "À l'ouverture de la 4e édition du CIFAP 2025, Mme Mariama Sonko rend hommage à M. Razack Belemgnegre pour son engagement au sein du mouvement.",
     href: '/ressources/videos',
+    youtubeId: null,
+    cloudinaryUrl: 'https://res.cloudinary.com/dtjvjlkcc/video/upload/q_auto/f_auto/v1776019281/NSS_CIFAP_2025_Mariama_Sonko_hommage_Razack_Belemgnegre_ouverture_4e_edition.mp4',
   },
   {
     id: 'v2',
-    duration: '7:18',
-    category: 'Témoignage',
-    country: 'Burkina Faso',
-    title: 'Semences paysannes — Rosalie et le RESACIFROAT',
-    desc: 'Comment les réseaux de femmes défendent leur patrimoine semencier et leur souveraineté alimentaire.',
-    href: '/ressources/videos',
+    thumb: `https://img.youtube.com/vi/LGkcZMWNgZA/hqdefault.jpg`,
+    duration: '4:32',
+    category: 'Médias',
+    title: 'Journal TV 20h – 1er septembre 2025',
+    desc: 'Le mouvement NSS à la une du Journal Télévisé de 20h — couverture médiatique nationale sur les femmes rurales.',
+    href: 'https://www.youtube.com/watch?v=LGkcZMWNgZA',
+    youtubeId: 'LGkcZMWNgZA',
+    cloudinaryUrl: null,
   },
   {
     id: 'v3',
-    duration: '5:47',
-    category: 'Plaidoyer',
-    country: 'Guinée',
-    title: 'NSS à la COP28 — L\'agriculture régénérative au centre',
-    desc: 'Mariama Sonko présente les positions de NSS sur le financement climatique pour les petites agricultrices.',
+    thumb: cloudinaryThumb('https://res.cloudinary.com/dtjvjlkcc/video/upload/q_auto/f_auto/v1775999944/Quatri%C3%A8me_%C3%A9dition_du_Camp_International_de_Formation_sur_l_Agro%C3%A9cologie_Paysanne_CIFAP_jppmln.mp4'),
+    duration: null,
+    category: 'Événements',
+    title: "Quatrième édition du CIFAP — Camp International de Formation sur l'Agroécologie Paysanne",
+    desc: "Retour complet sur la 4e édition du CIFAP. Des centaines de femmes rurales réunies pour partager savoirs et engagements autour de la souveraineté alimentaire.",
     href: '/ressources/videos',
+    youtubeId: null,
+    cloudinaryUrl: 'https://res.cloudinary.com/dtjvjlkcc/video/upload/q_auto/f_auto/v1775999944/Quatri%C3%A8me_%C3%A9dition_du_Camp_International_de_Formation_sur_l_Agro%C3%A9cologie_Paysanne_CIFAP_jppmln.mp4',
   },
 ]
 
-function VoixSection() {
+type ActiveVideo = typeof VIDEOS[number] | null
+
+function VideoModal({ video, onClose }: { video: NonNullable<ActiveVideo>; onClose: () => void }) {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
+    document.addEventListener('keydown', onKey)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = ''
+    }
+  }, [onClose])
+
   return (
-    <section className="hpv2-vid-section">
-      <div className="hpv2-vid-inner">
-        <header className="hpv2-vid-header">
-          <span className="hpv2-vid-eyebrow">VOIX DU TERRAIN</span>
-          <h2 className="hpv2-vid-h2">Le mouvement NSS, <em>en vidéo.</em></h2>
-          <p className="hpv2-vid-subtitle">
-            Des femmes agricultrices, des formateurs et des militantes témoignent directement du terrain.
-          </p>
-        </header>
-
-        <div className="hpv2-vid-grid">
-          {VIDEOS.map((v) => (
-            <a key={v.id} href={v.href} className="hpv2-vid-card" aria-label={v.title}>
-              <div className="hpv2-vid-thumb">
-                <div className="hpv2-vid-thumb-bg" aria-hidden="true" />
-                <span className="hpv2-vid-play" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
-                    <path d="M8 5.14v14.72L19 12 8 5.14z"/>
-                  </svg>
-                </span>
-                <span className="hpv2-vid-duration">{v.duration}</span>
-              </div>
-              <div className="hpv2-vid-meta">
-                <span className="hpv2-vid-cat">{v.category}</span>
-                <span className="hpv2-vid-dot" aria-hidden="true">·</span>
-                <span className="hpv2-vid-country">{v.country}</span>
-              </div>
-              <h3 className="hpv2-vid-title">{v.title}</h3>
-              <p className="hpv2-vid-desc">{v.desc}</p>
-              <span className="hpv2-vid-cta">Voir la vidéo →</span>
-            </a>
-          ))}
+    <div
+      className="hpv2-modal-backdrop"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label={video.title}
+    >
+      <div className="hpv2-modal-box" onClick={e => e.stopPropagation()}>
+        <button className="hpv2-modal-close" onClick={onClose} aria-label="Fermer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="22" height="22">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+        <div className="hpv2-modal-player">
+          {video.youtubeId ? (
+            <iframe
+              src={`https://www.youtube.com/embed/${video.youtubeId}?autoplay=1&rel=0`}
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 0 }}
+              title={video.title}
+            />
+          ) : (
+            <video
+              src={video.cloudinaryUrl ?? undefined}
+              controls
+              autoPlay
+              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', background: '#000' }}
+            />
+          )}
         </div>
-
-        <div className="hpv2-vid-footer">
-          <a href="/ressources/videos" className="hpv2-vid-main-cta">
-            VOIR TOUTES LES VIDÉOS →
-          </a>
-        </div>
+        <p className="hpv2-modal-title">{video.title}</p>
       </div>
-    </section>
+    </div>
+  )
+}
+
+function VoixSection() {
+  const [active, setActive] = useState<ActiveVideo>(null)
+
+  return (
+    <>
+      {active && <VideoModal video={active} onClose={() => setActive(null)} />}
+
+      <section className="hpv2-vid-section">
+        <div className="hpv2-vid-inner">
+          <header className="hpv2-vid-header">
+            <span className="hpv2-vid-eyebrow">VOIX DU TERRAIN</span>
+            <h2 className="hpv2-vid-h2">Le mouvement NSS, <em>en vidéo.</em></h2>
+            <p className="hpv2-vid-subtitle">
+              Des femmes agricultrices, des formateurs et des militantes témoignent directement du terrain.
+            </p>
+          </header>
+
+          <div className="hpv2-vid-grid">
+            {VIDEOS.map((v) => (
+              <button
+                key={v.id}
+                className="hpv2-vid-card"
+                aria-label={`Lire : ${v.title}`}
+                onClick={() => setActive(v)}
+              >
+                <div className="hpv2-vid-thumb">
+                  {v.thumb && (
+                    <Image
+                      src={v.thumb}
+                      alt={v.title}
+                      fill
+                      style={{ objectFit: 'cover' }}
+                      sizes="(max-width: 600px) 100vw, (max-width: 980px) 50vw, 33vw"
+                    />
+                  )}
+                  <div className="hpv2-vid-thumb-bg" aria-hidden="true" />
+                  <span className="hpv2-vid-play" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+                      <path d="M8 5.14v14.72L19 12 8 5.14z"/>
+                    </svg>
+                  </span>
+                  {v.duration && <span className="hpv2-vid-duration">{v.duration}</span>}
+                </div>
+                <div className="hpv2-vid-meta">
+                  <span className="hpv2-vid-cat">{v.category}</span>
+                </div>
+                <h3 className="hpv2-vid-title">{v.title}</h3>
+                <p className="hpv2-vid-desc">{v.desc}</p>
+                <span className="hpv2-vid-cta">Voir la vidéo →</span>
+              </button>
+            ))}
+          </div>
+
+          <div className="hpv2-vid-footer">
+            <a href="/videos" className="hpv2-vid-main-cta">
+              VOIR TOUTES LES VIDÉOS →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <style>{`
+        .hpv2-modal-backdrop {
+          position: fixed; inset: 0; z-index: 9999;
+          background: rgba(0,0,0,0.88);
+          display: flex; align-items: center; justify-content: center;
+          padding: 20px;
+          animation: hpv2-fade-in 0.18s ease-out;
+        }
+        @keyframes hpv2-fade-in { from { opacity: 0 } to { opacity: 1 } }
+        .hpv2-modal-box {
+          position: relative;
+          width: 100%; max-width: 900px;
+          display: flex; flex-direction: column; gap: 12px;
+        }
+        .hpv2-modal-close {
+          position: absolute; top: -44px; right: 0;
+          background: none; border: none; cursor: pointer;
+          color: #fff; opacity: 0.7; transition: opacity 0.15s;
+        }
+        .hpv2-modal-close:hover { opacity: 1; }
+        .hpv2-modal-player {
+          position: relative;
+          aspect-ratio: 16/9;
+          background: #000;
+          border-radius: 10px;
+          overflow: hidden;
+        }
+        .hpv2-modal-title {
+          font-family: var(--fb);
+          font-size: 15px; font-weight: 500;
+          color: rgba(255,255,255,0.7);
+          text-align: center;
+          margin: 0;
+        }
+        .hpv2-vid-card {
+          text-align: left;
+          cursor: pointer;
+          background: none;
+          border: 1px solid rgba(245,237,214,0.12);
+        }
+      `}</style>
+    </>
   )
 }
 
