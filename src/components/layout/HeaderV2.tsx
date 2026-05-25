@@ -115,10 +115,10 @@ function NavDropdown({ items, locale, onClose, onEnter, onLeave }: {
               <item.icon size={15} color={C.green} />
             </span>
             <span style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-              <span style={{ fontSize: "13px", fontWeight: 500, color: C.textD, fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}>
+              <span style={{ fontSize: "15px", fontWeight: 500, color: C.textD, fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif" }}>
                 {item.label}
               </span>
-              <span style={{ fontSize: "11px", fontWeight: 300, color: C.textM, fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}>
+              <span style={{ fontSize: "15px", fontWeight: 300, color: C.textM, fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif" }}>
                 {item.sub}
               </span>
             </span>

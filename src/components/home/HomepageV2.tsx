@@ -5,7 +5,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useLocale } from 'next-intl'
 import './HomepageV2.css'
-import ContactSectionRedesign from './ContactSectionRedesign'
 import MapLeaflet from './MapLeaflet'
 
 /* ─── Scroll reveal ─────────────────────────────────────────── */
@@ -344,47 +343,78 @@ function MissionSection({ locale }: { locale: string }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S5 — VOIX DU TERRAIN
+   S5 — VIDÉOS NSS
    ═══════════════════════════════════════════════════════════════ */
+const VIDEOS = [
+  {
+    id: 'v1',
+    duration: '4:32',
+    category: 'Formation',
+    country: 'Sénégal',
+    title: 'CIFAP 2024 — Les femmes agricultrices prennent la parole',
+    desc: 'Retour sur la 4ème édition du camp international de formation agroécologique à Niaguis.',
+    href: '/ressources/videos',
+  },
+  {
+    id: 'v2',
+    duration: '7:18',
+    category: 'Témoignage',
+    country: 'Burkina Faso',
+    title: 'Semences paysannes — Rosalie et le RESACIFROAT',
+    desc: 'Comment les réseaux de femmes défendent leur patrimoine semencier et leur souveraineté alimentaire.',
+    href: '/ressources/videos',
+  },
+  {
+    id: 'v3',
+    duration: '5:47',
+    category: 'Plaidoyer',
+    country: 'Guinée',
+    title: 'NSS à la COP28 — L\'agriculture régénérative au centre',
+    desc: 'Mariama Sonko présente les positions de NSS sur le financement climatique pour les petites agricultrices.',
+    href: '/ressources/videos',
+  },
+]
+
 function VoixSection() {
   return (
-    <section className="hpv2-voix">
-      <div className="hpv2-voix-bg" aria-hidden="true" />
-      <div className="hpv2-voix-inner">
-        <div className="hpv2-rv">
-          <div className="hpv2-voix-label">Voix du terrain</div>
-          <p className="hpv2-voix-quote">
-            Nous, femmes, nourrissons le monde avec nos bras et nos valeurs.
+    <section className="hpv2-vid-section">
+      <div className="hpv2-vid-inner">
+        <header className="hpv2-vid-header">
+          <span className="hpv2-vid-eyebrow">VOIX DU TERRAIN</span>
+          <h2 className="hpv2-vid-h2">Le mouvement NSS, <em>en vidéo.</em></h2>
+          <p className="hpv2-vid-subtitle">
+            Des femmes agricultrices, des formateurs et des militantes témoignent directement du terrain.
           </p>
-          <div className="hpv2-voix-author">
-            <span className="hpv2-voix-avatar">MS</span>
-            <div>
-              <div className="hpv2-voix-who">Mariama Sonko</div>
-              <div className="hpv2-voix-role">Présidente — Nous Sommes la Solution</div>
-            </div>
-          </div>
+        </header>
+
+        <div className="hpv2-vid-grid">
+          {VIDEOS.map((v) => (
+            <a key={v.id} href={v.href} className="hpv2-vid-card" aria-label={v.title}>
+              <div className="hpv2-vid-thumb">
+                <div className="hpv2-vid-thumb-bg" aria-hidden="true" />
+                <span className="hpv2-vid-play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+                    <path d="M8 5.14v14.72L19 12 8 5.14z"/>
+                  </svg>
+                </span>
+                <span className="hpv2-vid-duration">{v.duration}</span>
+              </div>
+              <div className="hpv2-vid-meta">
+                <span className="hpv2-vid-cat">{v.category}</span>
+                <span className="hpv2-vid-dot" aria-hidden="true">·</span>
+                <span className="hpv2-vid-country">{v.country}</span>
+              </div>
+              <h3 className="hpv2-vid-title">{v.title}</h3>
+              <p className="hpv2-vid-desc">{v.desc}</p>
+              <span className="hpv2-vid-cta">Voir la vidéo →</span>
+            </a>
+          ))}
         </div>
 
-        <div className="hpv2-voix-cards hpv2-sg">
-          <article className="hpv2-voix-card">
-            <div className="hpv2-card-kicker">Témoignage · Sénégal</div>
-            <p className="hpv2-card-text">
-              {`« Grâce au CIFAP, j'ai appris des techniques que j'applique directement dans mon groupement. Nos récoltes ont augmenté et nous n'avons plus besoin de produits chimiques. »`}
-            </p>
-            <div className="hpv2-card-sig">
-              <strong>Tabara Diatta</strong> · Participante CIFAP 2024
-            </div>
-          </article>
-          <article className="hpv2-voix-card">
-            <div className="hpv2-card-kicker">Témoignage · Burkina Faso</div>
-            <p className="hpv2-card-text">
-              « La semence paysanne est notre identité. NSS nous donne les moyens de la défendre
-              et de la transmettre — au village comme aux ministères. »
-            </p>
-            <div className="hpv2-card-sig">
-              <strong>Rosalie Ouoba</strong> · RESACIFROAT
-            </div>
-          </article>
+        <div className="hpv2-vid-footer">
+          <a href="/ressources/videos" className="hpv2-vid-main-cta">
+            VOIR TOUTES LES VIDÉOS →
+          </a>
         </div>
       </div>
     </section>
@@ -798,9 +828,8 @@ export default function HomepageV2() {
       <VoixSection />
       <ProgrammesSection locale={locale} />
       <PartenairesSection />
-      <ActualitesSection locale={locale} />
       <RejoindreSection locale={locale} />
-      <ContactSectionRedesign />
+      <ActualitesSection locale={locale} />
     </div>
   )
 }

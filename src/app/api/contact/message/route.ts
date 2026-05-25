@@ -8,7 +8,7 @@ const contactSchema = z.object({
   organisation: z.string().optional(),
   country: z.string().optional(),
   email: z.string().email("Email invalide"),
-  sujet: z.enum(["Adhésion", "Partenariat", "Don", "CIFAP", "EMMAP", "Autre"]),
+  sujet: z.string().min(2, "Sujet requis"),
   message: z.string().min(20, "Message trop court (20 car. min)"),
   rgpd: z.literal(true, { message: "Vous devez accepter la politique de confidentialité." }),
 });
